@@ -265,7 +265,7 @@
 <div id="composer">
   <input type="file" id="image-input" accept="image/*" capture="environment">
   <button class="btn-image" onclick="document.getElementById('image-input').click()" title="上传酒单照片">📷</button>
-  <textarea id="text-input" rows="1" placeholder="发酒单照片，或告诉我你今天想喝什么..."></textarea>
+  <textarea id="text-input" rows="1" placeholder="粘贴酒单照片 (⌘V)，或告诉我你今天想喝什么..."></textarea>
   <button class="btn-send" id="send-btn" onclick="send()" disabled>↑</button>
 </div>
 
@@ -388,6 +388,7 @@ imageInput.addEventListener('change', () => {
   reader.onload = () => {
     currentImage = { name: file.name, type: file.type, dataUrl: reader.result };
     updateComposer();
+    showImageBadge();
   };
   reader.readAsDataURL(file);
 });
@@ -396,6 +397,45 @@ textInput.addEventListener('input', updateComposer);
 textInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
 });
+textInput.addEventListener('paste', (e) => {
+  const items = e.clipboardData?.items;
+  if (!items) return;
+  for (const item of items) {
+    if (item.type.startsWith('image/')) {
+      e.preventDefault();
+      const file = item.getAsFile();
+      if (!file) continue;
+      const reader = new FileReader();
+      reader.onload = () => {
+        currentImage = { name: 'paste-' + Date.now() + '.png', type: file.type, dataUrl: reader.result };
+        updateComposer();
+        showImageBadge();
+      };
+      reader.readAsDataURL(file);
+      break;
+    }
+  }
+});
+
+function showImageBadge() {
+  let badge = document.getElementById('image-badge');
+  if (!badge) {
+    badge = document.createElement('div');
+    badge.id = 'image-badge';
+    badge.className = 'image-badge';
+    badge.innerHTML = `📎 已粘贴图片 <button onclick="clearImage()">✕</button>`;
+    document.getElementById('composer').insertBefore(badge, textInput.parentNode === document.getElementById('composer') ? textInput : document.getElementById('composer').firstChild);
+  }
+  badge.style.display = 'flex';
+}
+
+function clearImage() {
+  currentImage = null;
+  const badge = document.getElementById('image-badge');
+  if (badge) badge.style.display = 'none';
+  imageInput.value = '';
+  updateComposer();
+}
 
 function updateComposer() {
   sendBtn.disabled = !textInput.value.trim() && !currentImage;
@@ -432,6 +472,7 @@ async function send() {
     ? { name: currentImage.name, type: currentImage.type, dataUrl: currentImage.dataUrl }
     : undefined;
   currentImage = null;
+  clearImage();
 
   try {
     const resp = await fetch('/api/agent', {

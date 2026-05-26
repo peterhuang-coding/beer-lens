@@ -2,9 +2,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { benchmarkQuestions, parseBenchmark } from "./benchmark";
 import { appendJournalEntry, getProfileSummary } from "./profile";
-import { runMockBeerAgent } from "./mock-provider";
 import { enrichBeer } from "./beer-db/enricher";
-import { formatPriceInfo } from "./beer-db/value-calc";
 import type { AgentRequest, AgentResponse, BeerCandidate } from "./types";
 
 type OpenRouterChoice = {
@@ -22,7 +20,7 @@ const fallbackModel = "openai/gpt-4o-mini";
 export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<AgentResponse> {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
-    return runMockBeerAgent(request);
+    throw new Error("OPENROUTER_API_KEY not configured");
   }
 
   const lastUserMessage = request.messages.at(-1)?.content ?? "";
@@ -31,17 +29,21 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
     const entry = parseBenchmark(lastUserMessage);
     await appendJournalEntry(entry);
     const profileSummary = await getProfileSummary();
-    const mock = await runMockBeerAgent({ ...request, mode: "recommend" });
 
     return {
-      ...mock,
       mode: "benchmark",
-      candidates: [],
       reply: `记下来了。${entry.parsed.overallScore ? `这杯是 ${entry.parsed.overallScore}/5。` : ""}${
         entry.parsed.wouldDrinkAgain ? ` 下次是否再点：${entry.parsed.wouldDrinkAgain}。` : ""
       }\n\n我已经写入口味库。${profileSummary}`,
+      candidates: [],
+      picks: {
+        topPick: emptyPick(),
+        safePick: emptyPick(),
+        explorePick: emptyPick(),
+        avoidOrCaution: emptyPick(),
+      },
       profileSummary,
-      benchmarkPrompt: benchmarkQuestions
+      benchmarkPrompt: benchmarkQuestions,
     };
   }
 
@@ -49,25 +51,26 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
   const systemPrompt = await buildSystemPrompt(profileSummary);
   const userContent = buildUserContent(request, lastUserMessage);
 
-  let raw: string;
-  try {
-    raw = await callOpenRouter(apiKey, systemPrompt, userContent);
-  } catch (error) {
-    console.warn("[beer-agent] OpenRouter call failed, using mock fallback:", String(error));
-    return runMockBeerAgent(request);
-  }
+  const raw = await callOpenRouter(apiKey, systemPrompt, userContent);
 
   const parsed = parseAgentJson(raw);
 
   if (!parsed) {
-    const fallback = await runMockBeerAgent(request);
     return {
-      ...fallback,
-      reply: `${raw}\n\n我没能把模型输出稳定解析成结构化 JSON，先用本地候选酒卡片兜底。`
+      mode: "recommend",
+      reply: `${raw}\n\n⚠ 模型输出无法解析为结构化 JSON，以上为原始回复。`,
+      candidates: [],
+      picks: {
+        topPick: emptyPick(),
+        safePick: emptyPick(),
+        explorePick: emptyPick(),
+        avoidOrCaution: emptyPick(),
+      },
+      profileSummary,
     };
   }
 
-  return normalizeAgentResponse(parsed, profileSummary, !!request.image);
+  return normalizeAgentResponse(parsed, profileSummary);
 }
 
 function looksLikeBenchmark(input: string) {
@@ -171,7 +174,7 @@ async function callOpenRouter(
 
   if (!response.ok) {
     const detail = await response.text();
-    throw new Error(`OpenRouter failed ${response.status}: ${detail}`);
+    throw new Error(`OpenRouter ${response.status}: ${detail}`);
   }
 
   const result = (await response.json()) as OpenRouterResponse;
@@ -199,11 +202,9 @@ function parseAgentJson(raw: string) {
 
 async function normalizeAgentResponse(
   parsed: Partial<AgentResponse>,
-  profileSummary: string,
-  hasImage: boolean
+  profileSummary: string
 ): Promise<AgentResponse> {
   const rawCandidates = (parsed.candidates ?? []).map(normalizeCandidate);
-  // Enrich each candidate with real Untappd data
   const enriched = await Promise.all(
     rawCandidates.map(enrichCandidate)
   );
@@ -253,25 +254,6 @@ function normalizeCandidate(candidate: Partial<BeerCandidate>): BeerCandidate {
   };
 }
 
-function emptyCandidate(): BeerCandidate {
-  return {
-    candidateId: "empty",
-    menuIndex: 0,
-    displayName: "等待候选酒",
-    brewery: "Unknown brewery",
-    style: "Unknown style",
-    abv: 0,
-    hops: [],
-    worthScore: 0,
-    fitScore: 0,
-    riskFlags: [],
-    reason: "还没有足够信息。",
-    evidence: [],
-    price: null,
-    volumeMl: null,
-  };
-}
-
 async function enrichCandidate(candidate: BeerCandidate): Promise<BeerCandidate> {
   try {
     const enriched = await enrichBeer({
@@ -296,7 +278,6 @@ async function enrichCandidate(candidate: BeerCandidate): Promise<BeerCandidate>
       volumeMl: enriched.volumeMl,
       pricePerMl: enriched.pricePerMl,
       valueScore: enriched.valueScore,
-      // boost worthScore with real rating data
       worthScore: enriched.untappdScore
         ? clamp(Math.round(candidate.worthScore * 0.6 + enriched.untappdScore * 20 * 0.4))
         : candidate.worthScore,
@@ -304,6 +285,35 @@ async function enrichCandidate(candidate: BeerCandidate): Promise<BeerCandidate>
   } catch {
     return candidate;
   }
+}
+
+function emptyCandidate(): BeerCandidate {
+  return {
+    candidateId: "empty",
+    menuIndex: 0,
+    displayName: "等待候选酒",
+    brewery: "Unknown brewery",
+    style: "Unknown style",
+    abv: 0,
+    hops: [],
+    worthScore: 0,
+    fitScore: 0,
+    riskFlags: [],
+    reason: "还没有足够信息。",
+    evidence: [],
+    price: null,
+    volumeMl: null,
+  };
+}
+
+function emptyPick() {
+  return {
+    candidateId: "empty",
+    label: "暂无",
+    reason: "暂无推荐",
+    worthScore: 0,
+    fitScore: 0,
+  };
 }
 
 function toPick(candidate: BeerCandidate, label: string) {

@@ -77,6 +77,8 @@ export type AgentResponse = {
   };
   benchmarkPrompt?: BenchmarkQuestion[];
   profileSummary: string;
+  /** Multi-stage pipeline intermediate results for UI visualization */
+  stages?: Record<string, unknown>;
 };
 
 export type BenchmarkQuestion = {

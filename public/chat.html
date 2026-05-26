@@ -165,6 +165,78 @@
   .picks .pick-tag.avoid { background: #8a3a3a; color: #fff; }
 
   /* Profile area */
+  /* Pipeline stages */
+  .pipeline { margin-top: 8px; }
+  .pipeline summary {
+    font-size: 12px;
+    color: #7ab89a;
+    cursor: pointer;
+    padding: 6px 0;
+    user-select: none;
+  }
+  .stage {
+    background: #111f17;
+    border: 1px solid #1a3024;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 6px 0;
+    font-size: 12px;
+  }
+  .stage .stage-hd {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #aacdb5;
+  }
+  .stage .stage-hd .st-icon { font-size: 15px; }
+  .stage .stage-hd .st-conf {
+    margin-left: auto;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: #1a3022;
+    color: #7ab89a;
+  }
+  .stage .stage-body { color: #889e90; line-height: 1.5; }
+  .stage .stage-body .ocr-raw {
+    background: #0a150e;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: monospace;
+    font-size: 11px;
+    margin: 4px 0;
+    max-height: 120px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .stage .stage-body .ocr-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 3px 0;
+    padding: 3px 0;
+    border-bottom: 1px solid #0a150e;
+  }
+  .stage .stage-body .ocr-item span {
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: #16281e;
+    white-space: nowrap;
+  }
+  .stage .risk-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 2px;
+    font-size: 10px;
+  }
+  .risk-high { background: #3a2020; color: #d97a6c; }
+  .risk-mid  { background: #3a3020; color: #d9b56c; }
+  .risk-low  { background: #1a3022; color: #6cd98a; }
+
   .profile-banner {
     font-size: 12px;
     padding: 8px 12px;
@@ -304,6 +376,9 @@ function addMsg(role, content, extra) {
   if (extra && extra.picks) {
     html += renderPicks(extra.picks);
   }
+  if (extra && extra.stages) {
+    html += renderStages(extra.stages);
+  }
   if (extra && extra.profileSummary) {
     html += `<div class="profile-banner">📋 ${escapeHtml(extra.profileSummary)}</div>`;
   }
@@ -371,6 +446,84 @@ function renderPicks(picks) {
   });
   html += '</div>';
   return html;
+}
+
+function renderStages(stages) {
+  let html = '<details class="pipeline" open><summary>📊 流水线明细 (点击折叠)</summary>';
+
+  // Stage 1: Image classification
+  if (stages.imageContext) {
+    const ic = stages.imageContext;
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">🔍</span> 阶段1: 图片分类';
+    html += `<span class="st-conf">置信度 ${(ic.confidence*100).toFixed(0)}%</span></div>`;
+    html += `<div class="stage-body">类型: <strong>${escapeHtml(ic.imageType)}</strong> — ${escapeHtml(ic.reason)}`;
+    if (ic.visibleClues && ic.visibleClues.length) {
+      html += `<br>可见线索: ${ic.visibleClues.map(escapeHtml).join(' · ')}`;
+    }
+    html += '</div></div>';
+  }
+
+  // Stage 2: OCR extraction
+  if (stages.extracted) {
+    const ex = stages.extracted;
+    const items = ex.items || [];
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">📝</span> 阶段2: OCR 候选酒提取';
+    html += `<span class="st-conf">${items.length} 款酒</span></div>`;
+    html += '<div class="stage-body">';
+    // Raw OCR text
+    if (ex.rawText) {
+      html += `<div class="ocr-raw">${escapeHtml(ex.rawText)}</div>`;
+    }
+    // Extracted items
+    if (items.length) {
+      items.forEach((it, i) => {
+        html += `<div class="ocr-item">`;
+        html += `<span><strong>#${it.menuIndex||i+1}</strong> ${escapeHtml(it.beerName||'?')}</span>`;
+        if (it.brewery) html += `<span>🏭 ${escapeHtml(it.brewery)}</span>`;
+        if (it.style) html += `<span>${escapeHtml(it.style)}</span>`;
+        if (it.abv) html += `<span>${it.abv}%</span>`;
+        if (it.price != null) html += `<span>¥${it.price}</span>`;
+        if (it.serving) html += `<span>${escapeHtml(it.serving)}</span>`;
+        html += `<span>信度 ${(it.confidence*100).toFixed(0)}%</span>`;
+        html += '</div>';
+      });
+    }
+    // Uncertainties
+    if (ex.uncertainties && ex.uncertainties.length) {
+      html += `<div style="color:#d9b56c;margin-top:4px">⚠ ${ex.uncertainties.map(escapeHtml).join(' · ')}</div>`;
+    }
+    html += '</div></div>';
+  }
+
+  // Stage 3: Visual quality
+  if (stages.visualQuality) {
+    const vq = stages.visualQuality;
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">🔬</span> 阶段3: 视觉质量检查';
+    html += `<span class="st-conf">氧化: ${formatRisk(vq.oxidationRisk)} | 新鲜度: ${formatRisk(vq.freshnessRisk)}</span></div>`;
+    html += '<div class="stage-body">';
+    if (vq.visualRiskFlags && vq.visualRiskFlags.length) {
+      vq.visualRiskFlags.forEach(f => {
+        html += `<span class="risk-tag ${riskClass(f)}">${escapeHtml(f)}</span>`;
+      });
+    } else {
+      html += '无明显风险标记';
+    }
+    if (vq.caveat) html += `<div style="margin-top:4px;color:#8aab94">${escapeHtml(vq.caveat)}</div>`;
+    html += '</div></div>';
+  }
+
+  html += '</details>';
+  return html;
+}
+
+function formatRisk(r) { const map={low:'低',medium:'中',high:'高',unknown:'?'}; return map[r]||r; }
+function riskClass(f) {
+  if (f.includes('oxidation')||f.includes('stale')||f.includes('damage')) return 'risk-high';
+  if (f.includes('haze')||f.includes('darken')||f.includes('foam')) return 'risk-mid';
+  return 'risk-low';
 }
 
 function scoreClass(s) { return s >= 80 ? 'high' : s >= 60 ? 'mid' : 'low'; }
@@ -491,7 +644,8 @@ async function send() {
     addMsg('agent', result.reply, {
       candidates: result.candidates,
       picks: result.picks,
-      profileSummary: result.profileSummary
+      profileSummary: result.profileSummary,
+      stages: result.stages
     });
 
   } catch (err) {

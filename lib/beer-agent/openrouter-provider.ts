@@ -48,7 +48,15 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
   const profileSummary = await getProfileSummary();
   const systemPrompt = await buildSystemPrompt(profileSummary);
   const userContent = buildUserContent(request, lastUserMessage);
-  const raw = await callOpenRouter(apiKey, systemPrompt, userContent);
+
+  let raw: string;
+  try {
+    raw = await callOpenRouter(apiKey, systemPrompt, userContent);
+  } catch (error) {
+    console.warn("[beer-agent] OpenRouter call failed, using mock fallback:", String(error));
+    return runMockBeerAgent(request);
+  }
+
   const parsed = parseAgentJson(raw);
 
   if (!parsed) {
@@ -63,7 +71,9 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
 }
 
 function looksLikeBenchmark(input: string) {
-  return /[1-5](\.\d)?\s*分?/.test(input) || input.includes("会再喝") || input.includes("不会再喝");
+  return /\b[1-5](?:\.\d+)?\s*分\b/.test(input)
+    || input.includes("会再喝")
+    || input.includes("不会再喝");
 }
 
 async function buildSystemPrompt(profileSummary: string) {

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Beer Lens — 啤酒推荐助手</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #0f1f18;
+    color: #e0e8e3;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  header {
+    padding: 12px 16px;
+    background: #16281e;
+    border-bottom: 1px solid #1e3628;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  header .logo { font-size: 22px; }
+  header h1 { font-size: 15px; font-weight: 600; }
+  header .badge {
+    margin-left: auto;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 99px;
+    background: #1e3628;
+    color: #7ab89a;
+  }
+
+  #chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .msg {
+    max-width: 92%;
+    animation: fadeIn 0.2s ease;
+  }
+  .msg.user { align-self: flex-end; }
+  .msg.agent { align-self: flex-start; }
+
+  .msg .bubble {
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .msg.user .bubble { background: #2a6041; color: #fff; border-bottom-right-radius: 4px; }
+  .msg.agent .bubble { background: #1a2e22; color: #ccdcd2; border-bottom-left-radius: 4px; }
+
+  .msg .label {
+    font-size: 11px;
+    color: #5a7a64;
+    margin-bottom: 4px;
+    padding: 0 4px;
+  }
+
+  .msg .image-preview {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    border: 1px solid #2a4632;
+  }
+
+  /* Candidate cards */
+  .candidates {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .card {
+    background: #16281e;
+    border: 1px solid #1e3628;
+    border-radius: 12px;
+    padding: 12px 14px;
+    position: relative;
+  }
+  .card.top { border-color: #3a7a4e; background: #192f21; }
+  .card .rank {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    background: #2a6041;
+    color: #fff;
+  }
+  .card.top .rank { background: #d4a017; color: #0f1f18; }
+
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .card .brewery { font-size: 12px; color: #8aab94; margin-bottom: 6px; }
+  .card .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .card .meta span {
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: #1a3022;
+    color: #aacdb5;
+    white-space: nowrap;
+  }
+  .card .meta .country { background: #223a2a; }
+  .card .meta .rating { background: #2a3a1e; color: #d4a017; font-weight: 600; }
+  .card .meta .price { background: #1e2a36; color: #8ab4d0; }
+
+  .card .scores {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .card .scores div { display: flex; flex-direction: column; }
+  .card .scores .label { font-size: 10px; color: #5a7a64; }
+  .card .scores .val { font-weight: 700; font-size: 18px; }
+  .card .scores .val.high { color: #5cc97a; }
+  .card .scores .val.mid { color: #d4a017; }
+  .card .scores .val.low { color: #c96a5c; }
+
+  .card .reason { font-size: 13px; color: #b0c8b8; line-height: 1.5; }
+  .card .risks { margin-top: 4px; font-size: 11px; color: #c9905c; }
+
+  /* Picks summary */
+  .picks {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    background: #16281e;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+  .picks .pick { display: flex; gap: 8px; align-items: baseline; }
+  .picks .pick-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .picks .pick-tag.top  { background: #d4a017; color: #0f1f18; }
+  .picks .pick-tag.safe { background: #3a7a4e; color: #fff; }
+  .picks .pick-tag.explore { background: #5a5090; color: #fff; }
+  .picks .pick-tag.avoid { background: #8a3a3a; color: #fff; }
+
+  /* Profile area */
+  .profile-banner {
+    font-size: 12px;
+    padding: 8px 12px;
+    background: #16281e;
+    border-radius: 8px;
+    color: #7ab89a;
+    margin-top: 4px;
+  }
+
+  /* Composer */
+  #composer {
+    padding: 10px 12px;
+    background: #16281e;
+    border-top: 1px solid #1e3628;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  #composer textarea {
+    flex: 1;
+    resize: none;
+    background: #0f1f18;
+    border: 1px solid #1e3628;
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: #e0e8e3;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 1.4;
+    max-height: 80px;
+    outline: none;
+  }
+  #composer textarea:focus { border-color: #3a7a4e; }
+  #composer button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #composer .btn-send { background: #2a6041; color: #fff; }
+  #composer .btn-send:disabled { background: #1e3628; color: #44604e; cursor: not-allowed; }
+  #composer .btn-image { background: #1a3022; color: #8aab94; font-size: 20px; }
+  #image-input { display: none; }
+
+  /* Image badge in composer */
+  .image-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: #1e3628;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8aab94;
+    margin-bottom: 6px;
+  }
+  .image-badge button {
+    background: none;
+    border: none;
+    color: #c96a5c;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 2px;
+  }
+
+  /* Loading */
+  .typing { display: flex; gap: 4px; padding: 8px 0; }
+  .typing span {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #5a7a64;
+    animation: bounce 1.2s infinite;
+  }
+  .typing span:nth-child(2) { animation-delay: 0.2s; }
+  .typing span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="logo">🍺</span>
+  <h1>Beer Lens</h1>
+  <span class="badge" id="model-badge">agent</span>
+</header>
+
+<div id="chat"></div>
+
+<div id="composer">
+  <input type="file" id="image-input" accept="image/*" capture="environment">
+  <button class="btn-image" onclick="document.getElementById('image-input').click()" title="上传酒单照片">📷</button>
+  <textarea id="text-input" rows="1" placeholder="发酒单照片，或告诉我你今天想喝什么..."></textarea>
+  <button class="btn-send" id="send-btn" onclick="send()" disabled>↑</button>
+</div>
+
+<script>
+const chat = document.getElementById('chat');
+const textInput = document.getElementById('text-input');
+const imageInput = document.getElementById('image-input');
+const sendBtn = document.getElementById('send-btn');
+let currentImage = null; // { name, type, dataUrl }
+let messages = [];
+
+const WELCOME = `把酒单照片发给我，或者告诉我你今天想喝什么。
+
+我会帮你：
+• 识别酒单上的每一款酒
+• 查 Untappd 评分 + 酒厂资料
+• 算每毫升性价比
+• 按你的口味排序推荐`
+
+function init() {
+  addMsg('agent', WELCOME);
+  textInput.focus();
+}
+
+function addMsg(role, content, extra) {
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  let html = `<div class="label">${role === 'agent' ? 'Beer Lens' : '你'}</div>`;
+  if (extra && extra.imageDataUrl) {
+    html += `<img class="image-preview" src="${extra.imageDataUrl}" alt="上传的图片">`;
+  }
+  html += `<div class="bubble">${escapeHtml(content)}</div>`;
+  if (extra && extra.candidates) {
+    html += renderCandidates(extra.candidates);
+  }
+  if (extra && extra.picks) {
+    html += renderPicks(extra.picks);
+  }
+  if (extra && extra.profileSummary) {
+    html += `<div class="profile-banner">📋 ${escapeHtml(extra.profileSummary)}</div>`;
+  }
+  div.innerHTML = html;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function renderCandidates(candidates) {
+  if (!candidates || candidates.length === 0) return '';
+  let html = '<div class="candidates">';
+  candidates.forEach((c, i) => {
+    const isTop = i === 0;
+    html += `<div class="card${isTop ? ' top' : ''}">`;
+    html += `<div class="rank">${isTop ? 'TOP' : '#' + (i + 1)}</div>`;
+    html += `<h3>${escapeHtml(c.displayName)}</h3>`;
+    html += `<div class="brewery">${escapeHtml(c.brewery)}</div>`;
+    html += '<div class="meta">';
+    if (c.style) html += `<span>${escapeHtml(c.style)}</span>`;
+    if (c.abv) html += `<span>${c.abv}% ABV</span>`;
+    if (c.breweryCountry) html += `<span class="country">📍 ${escapeHtml(c.breweryCountry)}</span>`;
+    if (c.untappdScore) {
+      html += `<span class="rating">⭐ ${c.untappdScore.toFixed(1)}`;
+      if (c.untappdRatingCount) html += ` (${formatCount(c.untappdRatingCount)})`;
+      html += '</span>';
+    }
+    if (c.price) {
+      let priceStr = `¥${c.price}`;
+      if (c.volumeMl) priceStr += `/${c.volumeMl}ml`;
+      html += `<span class="price">${priceStr}</span>`;
+      if (c.pricePerMl) {
+        html += `<span class="price">${(c.pricePerMl * 100).toFixed(1)}元/100ml</span>`;
+      }
+      if (c.valueScore != null) {
+        html += `<span class="price">性价比${valueLabel(c.valueScore)}</span>`;
+      }
+    }
+    html += '</div>';
+    html += '<div class="scores">';
+    html += `<div><span class="label">值得喝</span><span class="val ${scoreClass(c.worthScore)}">${c.worthScore}</span></div>`;
+    html += `<div><span class="label">适合你</span><span class="val ${scoreClass(c.fitScore)}">${c.fitScore}</span></div>`;
+    html += '</div>';
+    html += `<div class="reason">${escapeHtml(c.reason)}</div>`;
+    if (c.riskFlags && c.riskFlags.length) {
+      html += `<div class="risks">⚠ ${c.riskFlags.map(escapeHtml).join(' · ')}</div>`;
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderPicks(picks) {
+  if (!picks) return '';
+  const items = [
+    { tag: 'top', cls: 'top', label: '只能喝一杯', p: picks.topPick },
+    { tag: 'safe', cls: 'safe', label: '最稳', p: picks.safePick },
+    { tag: 'explore', cls: 'explore', label: '尝新', p: picks.explorePick },
+    { tag: 'avoid', cls: 'avoid', label: '谨慎', p: picks.avoidOrCaution }
+  ];
+  let html = '<div class="picks">';
+  items.forEach(({ tag, cls, label, p }) => {
+    if (!p) return;
+    html += `<div class="pick"><span class="pick-tag ${cls}">${tag}</span><strong>${label}:</strong>&nbsp;${escapeHtml(p.reason)}</div>`;
+  });
+  html += '</div>';
+  return html;
+}
+
+function scoreClass(s) { return s >= 80 ? 'high' : s >= 60 ? 'mid' : 'low'; }
+function formatCount(n) { return n >= 10000 ? (n / 1000).toFixed(0) + 'k' : n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n); }
+function valueLabel(v) { return v >= 2 ? '超值' : v >= 1 ? '划算' : v >= 0.5 ? '适中' : v >= 0.2 ? '偏贵' : '很贵'; }
+function escapeHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+imageInput.addEventListener('change', () => {
+  const file = imageInput.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    currentImage = { name: file.name, type: file.type, dataUrl: reader.result };
+    updateComposer();
+  };
+  reader.readAsDataURL(file);
+});
+
+textInput.addEventListener('input', updateComposer);
+textInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+});
+
+function updateComposer() {
+  sendBtn.disabled = !textInput.value.trim() && !currentImage;
+}
+
+function addTyping() {
+  const div = document.createElement('div');
+  div.className = 'msg agent typing-msg';
+  div.innerHTML = '<div class="label">Beer Lens</div><div class="typing"><span></span><span></span><span></span></div>';
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+  return div;
+}
+
+function removeTyping(el) { if (el) el.remove(); }
+
+async function send() {
+  const text = textInput.value.trim();
+  if (!text && !currentImage) return;
+  if (currentImage) {
+    addMsg('user', text || '帮我看这张酒单', { imageDataUrl: currentImage.dataUrl });
+  } else {
+    addMsg('user', text);
+  }
+
+  messages.push({ role: 'user', content: text || '帮我看这张酒单' });
+
+  const typingEl = addTyping();
+  sendBtn.disabled = true;
+  textInput.value = '';
+  textInput.style.height = 'auto';
+
+  const imagePayload = currentImage
+    ? { name: currentImage.name, type: currentImage.type, dataUrl: currentImage.dataUrl }
+    : undefined;
+  currentImage = null;
+
+  try {
+    const resp = await fetch('/api/agent', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ messages, image: imagePayload })
+    });
+
+    if (!resp.ok) throw new Error(`API ${resp.status}: ${await resp.text()}`);
+
+    const result = await resp.json();
+    removeTyping(typingEl);
+
+    messages.push({ role: 'assistant', content: result.reply });
+
+    addMsg('agent', result.reply, {
+      candidates: result.candidates,
+      picks: result.picks,
+      profileSummary: result.profileSummary
+    });
+
+  } catch (err) {
+    removeTyping(typingEl);
+    addMsg('agent', `出错了: ${err.message}`);
+    messages.push({ role: 'assistant', content: `Error: ${err.message}` });
+  }
+
+  updateComposer();
+  textInput.focus();
+}
+
+init();
+</script>
+</body>
+</html>

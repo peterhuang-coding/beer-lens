@@ -1,6 +1,7 @@
 import type { AgentRequest, AgentResponse, BeerCandidate } from "./types";
 import { benchmarkQuestions, parseBenchmark } from "./benchmark";
 import { appendJournalEntry, getProfileSummary } from "./profile";
+import { enrichBeer } from "./beer-db/enricher";
 
 const mockCandidates: BeerCandidate[] = [
   {
@@ -90,7 +91,8 @@ export async function runMockBeerAgent(request: AgentRequest): Promise<AgentResp
     };
   }
 
-  const candidates = adjustCandidatesForIntent(mockCandidates, lastUserMessage);
+  const adjusted = adjustCandidatesForIntent(mockCandidates, lastUserMessage);
+  const candidates = await Promise.all(adjusted.map(enrichMockCandidate));
   const picks = buildPicks(candidates);
 
   return {
@@ -103,8 +105,33 @@ export async function runMockBeerAgent(request: AgentRequest): Promise<AgentResp
   };
 }
 
+async function enrichMockCandidate(candidate: BeerCandidate): Promise<BeerCandidate> {
+  try {
+    const enriched = await enrichBeer({
+      beerName: candidate.displayName.replace(/^\d+\s*[号#]\s*/, "").trim() || candidate.displayName,
+      brewery: candidate.brewery,
+      style: candidate.style,
+      abv: candidate.abv,
+      hops: candidate.hops,
+    });
+    return {
+      ...candidate,
+      untappdId: enriched.untappdId,
+      untappdScore: enriched.untappdScore,
+      untappdRatingCount: enriched.untappdRatingCount,
+      untappdUrl: enriched.untappdUrl,
+      breweryCountry: enriched.breweryCountry,
+      labelImage: enriched.labelImage,
+    };
+  } catch {
+    return candidate;
+  }
+}
+
 function looksLikeBenchmark(input: string) {
-  return /[1-5](\.\d)?\s*分?/.test(input) || input.includes("会再喝") || input.includes("不会再喝");
+  return /\b[1-5](?:\.\d+)?\s*分\b/.test(input)
+    || input.includes("会再喝")
+    || input.includes("不会再喝");
 }
 
 function adjustCandidatesForIntent(candidates: BeerCandidate[], intent: string) {

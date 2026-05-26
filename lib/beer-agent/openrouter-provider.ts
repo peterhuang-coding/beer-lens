@@ -3,17 +3,8 @@ import path from "node:path";
 import { benchmarkQuestions, parseBenchmark } from "./benchmark";
 import { appendJournalEntry, getProfileSummary } from "./profile";
 import { enrichBeer } from "./beer-db/enricher";
+import { openrouterFetch } from "./openrouter-client";
 import type { AgentRequest, AgentResponse, BeerCandidate } from "./types";
-
-type OpenRouterChoice = {
-  message?: {
-    content?: string;
-  };
-};
-
-type OpenRouterResponse = {
-  choices?: OpenRouterChoice[];
-};
 
 const fallbackModel = "openai/gpt-4o-mini";
 
@@ -149,41 +140,19 @@ If an image is present, inspect it as a beer menu or beer label. If text is unre
 }
 
 async function callOpenRouter(
-  apiKey: string,
+  _apiKey: string,
   systemPrompt: string,
   userContent: string | object[]
 ) {
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${apiKey}`,
-      "content-type": "application/json",
-      "HTTP-Referer": process.env.OPENROUTER_SITE_URL ?? "http://localhost:3000",
-      "X-Title": process.env.OPENROUTER_APP_TITLE ?? "Beer Lens"
-    },
-    body: JSON.stringify({
-      model: process.env.OPENROUTER_MODEL ?? fallbackModel,
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: userContent }
-      ],
-      temperature: 0.2,
-      max_tokens: 1800
-    })
+  return openrouterFetch({
+    model: process.env.OPENROUTER_MODEL ?? fallbackModel,
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userContent },
+    ],
+    temperature: 0.2,
+    max_tokens: 1800,
   });
-
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`OpenRouter ${response.status}: ${detail}`);
-  }
-
-  const result = (await response.json()) as OpenRouterResponse;
-  const content = result.choices?.[0]?.message?.content;
-  if (!content) {
-    throw new Error("OpenRouter returned an empty response");
-  }
-
-  return content;
 }
 
 function parseAgentJson(raw: string) {

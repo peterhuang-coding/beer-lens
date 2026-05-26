@@ -1,4 +1,5 @@
 import type { BeerCandidate } from "./types";
+import { openrouterFetch } from "./openrouter-client";
 
 // ── Stage output types ──
 
@@ -275,13 +276,13 @@ async function callOpenRouterJson(
   apiKey: string, model: string,
   messages: object[], schema: object, schemaName: string, maxTokens: number
 ): Promise<object> {
-  const body = {
+  const body: any = {
     model,
     messages,
     temperature: 0.1,
     max_tokens: maxTokens,
     response_format: {
-      type: "json_schema" as const,
+      type: "json_schema",
       json_schema: { name: schemaName, strict: true, schema },
     },
   };
@@ -289,17 +290,17 @@ async function callOpenRouterJson(
   // Try strict schema first, fall back to json_object
   let content: string;
   try {
-    content = await callOpenRouter(apiKey, body);
+    content = await openrouterFetch(body);
   } catch {
     const looseBody = {
       ...body,
-      response_format: { type: "json_object" as const },
+      response_format: { type: "json_object" },
       messages: [
         ...messages,
         { role: "user", content: `Return valid JSON matching this schema:\n${JSON.stringify(schema)}` }
       ],
     };
-    content = await callOpenRouter(apiKey, looseBody);
+    content = await openrouterFetch(looseBody);
   }
 
   // Parse JSON from response
@@ -310,30 +311,6 @@ async function callOpenRouterJson(
     if (!match) throw new Error(`Could not parse JSON from: ${content.slice(0, 200)}`);
     return JSON.parse(match[0]);
   }
-}
-
-async function callOpenRouter(apiKey: string, body: object): Promise<string> {
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${apiKey}`,
-      "content-type": "application/json",
-      "HTTP-Referer": process.env.OPENROUTER_SITE_URL ?? "http://localhost:3000",
-      "X-Title": process.env.OPENROUTER_APP_TITLE ?? "Beer Lens",
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!response.ok) {
-    throw new Error(`OpenRouter ${response.status}: ${await response.text()}`);
-  }
-
-  const result = (await response.json()) as {
-    choices?: Array<{ message?: { content?: string } }>;
-  };
-  const content = result?.choices?.[0]?.message?.content;
-  if (!content) throw new Error("OpenRouter returned empty content");
-  return content;
 }
 
 // ── JSON Schemas ──

@@ -13,6 +13,7 @@ export type BeerCacheEntry = {
   ratingCount: number;
   untappdUrl: string;
   labelImage: string | null;
+  verified: boolean;              // true if verified via web search (not just LLM)
   cachedAt: number;
 };
 
@@ -22,7 +23,7 @@ type CacheFile = {
 };
 
 const cachePath = path.join(process.cwd(), "data", "beer_cache.json");
-const ttlMs = 7 * 24 * 60 * 60 * 1000; // 7 days
+const ttlMs = 365 * 24 * 60 * 60 * 1000; // 1 year
 
 let memoryCache: Map<string, BeerCacheEntry> | null = null;
 

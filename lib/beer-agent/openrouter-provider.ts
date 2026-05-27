@@ -15,6 +15,7 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
   }
 
   const lastUserMessage = request.messages.at(-1)?.content ?? "";
+  const hasImage = !!request.image?.dataUrl;
 
   if (request.mode === "benchmark" || looksLikeBenchmark(lastUserMessage)) {
     const entry = parseBenchmark(lastUserMessage);
@@ -39,7 +40,7 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
   }
 
   const profileSummary = await getProfileSummary();
-  const systemPrompt = await buildSystemPrompt(profileSummary);
+  const systemPrompt = await buildSystemPrompt(profileSummary, hasImage);
   const userContent = buildUserContent(request, lastUserMessage);
 
   const raw = await callOpenRouter(apiKey, systemPrompt, userContent);
@@ -49,7 +50,7 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
   if (!parsed) {
     return {
       mode: "recommend",
-      reply: `${raw}\n\n⚠ 模型输出无法解析为结构化 JSON，以上为原始回复。`,
+      reply: raw.trim() || "请先发一张酒单照片给我。",
       candidates: [],
       picks: {
         topPick: emptyPick(),
@@ -70,13 +71,25 @@ function looksLikeBenchmark(input: string) {
     || input.includes("不会再喝");
 }
 
-async function buildSystemPrompt(profileSummary: string) {
+async function buildSystemPrompt(profileSummary: string, hasImage: boolean) {
   const promptPath = path.join(process.cwd(), "docs", "agent", "system-prompt.md");
   const basePrompt = await readFile(promptPath, "utf8").catch(() => "");
+
+  const modeInstruction = hasImage
+    ? `MODE: IMAGE ANALYSIS. You have a beer menu photo. Extract real beers from it. Return candidates for each beer you can read.`
+    : `MODE: TEXT FOLLOW-UP. No new image. You MUST return "candidates": [].
+
+CRITICAL: First, scan the conversation history. If the assistant previously listed real beers from a menu (with names, breweries, Untappd scores), THOSE are your beer pool. Reference them by name in your reply. Filter/rank them based on what the user is asking for.
+
+If there are NO previously scanned beers in the conversation, tell the user to upload a menu photo.
+
+NEVER invent fake beer names, breweries, or scores.`;
 
   return `${basePrompt}
 
 You must return valid JSON only. Do not wrap it in markdown.
+
+${modeInstruction}
 
 The JSON shape must be:
 {
@@ -116,13 +129,43 @@ function buildUserContent(request: AgentRequest, lastUserMessage: string) {
     .map((message) => `${message.role}: ${message.content}`)
     .join("\n");
 
-  const text = `User request:
-${lastUserMessage || "用户上传了图片，请识别酒单并推荐。"}
+  const hasImage = !!request.image?.dataUrl;
+
+  let text: string;
+  if (hasImage) {
+    text = `User uploaded a beer menu photo. Extract ALL beers from it with prices, volumes, breweries, and styles.
+
+User request: ${lastUserMessage || "请识别酒单并推荐。"}
 
 Recent chat:
-${history}
+${history}`;
+  } else {
+    // Extract beer names from recent assistant messages
+    const beerNames = extractBeerNamesFromHistory(request.messages);
 
-If an image is present, inspect it as a beer menu or beer label. If text is unreadable, say confidence is low and ask for a closer crop.`;
+    if (beerNames.length > 0) {
+      text = `TEXT FOLLOW-UP (no new image).
+
+The user previously uploaded a menu. The following real beers were found:
+${beerNames.map((b, i) => `${i + 1}. ${b}`).join("\n")}
+
+User's new request: ${lastUserMessage}
+
+YOUR TASK: Filter and re-rank from the above list ONLY. If some beers match the user's request, recommend the best ones by name. If NO beers match (e.g., user asks for stout but list only has IPAs), honestly say none match and suggest the closest option. Do NOT ask the user to upload another menu — they already did. Return "candidates": [].
+
+Recent chat:
+${history}`;
+    } else {
+      text = `TEXT FOLLOW-UP (no new image, no prior menu).
+
+User request: ${lastUserMessage}
+
+No menu has been uploaded yet. Tell the user to upload a menu photo. Return "candidates": [].
+
+Recent chat:
+${history}`;
+    }
+  }
 
   if (!request.image?.dataUrl) {
     return text;
@@ -137,6 +180,23 @@ If an image is present, inspect it as a beer menu or beer label. If text is unre
       }
     }
   ];
+}
+
+// Simple heuristic: extract lines that look like "name - brewery, style, ABV%" from history
+function extractBeerNamesFromHistory(messages: Array<{ role: string; content: string }>): string[] {
+  const names: string[] = [];
+  for (const msg of messages) {
+    if (msg.role !== "assistant") continue;
+    // Match patterns like "1. Beer Name / English Name - Brewery, Style, X%"
+    const matches = msg.content.matchAll(/\d+\.\s*(.+?)(?:\s*[-–—]\s*[^,\n]+(?:,|\n|$))/g);
+    for (const m of matches) {
+      const name = m[1].trim();
+      if (name && !names.includes(name) && name.length > 2) {
+        names.push(name);
+      }
+    }
+  }
+  return names.slice(0, 30); // cap at 30
 }
 
 async function callOpenRouter(

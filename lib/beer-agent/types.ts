@@ -55,6 +55,8 @@ export type BeerCandidate = {
   volumeMl?: number | null;
   pricePerMl?: number | null;
   valueScore?: number | null;
+  usBenchmark?: number | null;    // estimated US taproom price (RMB, with tax)
+  savingsVsUS?: number | null;    // % cheaper than US (>0 = cheaper here)
 };
 
 export type Pick = {

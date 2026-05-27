@@ -76,6 +76,72 @@
     border: 1px solid #2a4632;
   }
 
+  /* ── Live progress panel ── */
+  .progress-panel {
+    background: #16281e;
+    border: 1px solid #1e3628;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .progress-panel .pp-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #aacdb5;
+    font-size: 13px;
+  }
+  .progress-stages { display: flex; flex-direction: column; gap: 4px; }
+  .ps-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+  .ps-row.running { background: #1a3022; }
+  .ps-row.done { color: #889e90; }
+  .ps-row.error { background: #2a1a1a; color: #d97a6c; }
+  .ps-row.pending { color: #44604e; }
+
+  .ps-icon { width: 18px; text-align: center; flex-shrink: 0; font-size: 13px; }
+  .ps-label { flex: 1; }
+  .ps-dur { font-size: 10px; color: #5a7a64; }
+  .ps-model { font-size: 10px; color: #44604e; }
+
+  .ps-spinner {
+    width: 14px; height: 14px;
+    border: 2px solid #1e3628;
+    border-top-color: #3a7a4e;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Enrich progress */
+  .enrich-bar {
+    margin-top: 6px;
+    font-size: 11px;
+    color: #8aab94;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .enrich-bar .eb-track {
+    flex: 1;
+    height: 4px;
+    background: #0f1f18;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .enrich-bar .eb-fill {
+    height: 100%;
+    background: #3a7a4e;
+    border-radius: 2px;
+    transition: width 0.3s;
+  }
+
   /* Candidate cards */
   .candidates {
     display: flex;
@@ -164,8 +230,7 @@
   .picks .pick-tag.explore { background: #5a5090; color: #fff; }
   .picks .pick-tag.avoid { background: #8a3a3a; color: #fff; }
 
-  /* Profile area */
-  /* Pipeline stages */
+  /* Pipeline stages (collapsed detail) */
   .pipeline { margin-top: 8px; }
   .pipeline summary {
     font-size: 12px;
@@ -288,7 +353,6 @@
   #composer .btn-image { background: #1a3022; color: #8aab94; font-size: 20px; }
   #image-input { display: none; }
 
-  /* Image badge in composer */
   .image-badge {
     display: flex;
     align-items: center;
@@ -309,19 +373,7 @@
     padding: 0 2px;
   }
 
-  /* Loading */
-  .typing { display: flex; gap: 4px; padding: 8px 0; }
-  .typing span {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #5a7a64;
-    animation: bounce 1.2s infinite;
-  }
-  .typing span:nth-child(2) { animation-delay: 0.2s; }
-  .typing span:nth-child(3) { animation-delay: 0.4s; }
-
   @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
 </style>
 </head>
 <body>
@@ -346,7 +398,7 @@ const chat = document.getElementById('chat');
 const textInput = document.getElementById('text-input');
 const imageInput = document.getElementById('image-input');
 const sendBtn = document.getElementById('send-btn');
-let currentImage = null; // { name, type, dataUrl }
+let currentImage = null;
 let messages = [];
 
 const WELCOME = `把酒单照片发给我，或者告诉我你今天想喝什么。
@@ -385,7 +437,111 @@ function addMsg(role, content, extra) {
   div.innerHTML = html;
   chat.appendChild(div);
   chat.scrollTop = chat.scrollHeight;
+  return div;
 }
+
+// ── Progress panel (live updates) ──
+
+const STAGE_LABELS = {
+  image_classification: '图片分类',
+  ocr: 'OCR 文字提取',
+  visual_quality: '视觉质量检查',
+  recommendation: '智能推荐',
+};
+
+const STAGE_ORDER = ['image_classification', 'ocr', 'visual_quality', 'recommendation'];
+
+function createProgressPanel() {
+  const div = document.createElement('div');
+  div.className = 'msg agent';
+  div.innerHTML = '<div class="label">Beer Lens</div>';
+  const panel = document.createElement('div');
+  panel.className = 'progress-panel';
+  panel.id = 'progress-panel';
+  panel.innerHTML = `
+    <div class="pp-title">⏳ 处理中...</div>
+    <div class="progress-stages" id="progress-stages">
+      ${STAGE_ORDER.map(s => `
+        <div class="ps-row pending" data-stage="${s}">
+          <span class="ps-icon">○</span>
+          <span class="ps-label">${STAGE_LABELS[s] || s}</span>
+          <span class="ps-model"></span>
+          <span class="ps-dur"></span>
+        </div>
+      `).join('')}
+    </div>
+    <div id="enrich-area" style="display:none"></div>
+  `;
+  div.appendChild(panel);
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+  return div;
+}
+
+function updateProgress(event) {
+  const panel = document.getElementById('progress-panel');
+  if (!panel) return;
+
+  const stagesEl = document.getElementById('progress-stages');
+
+  if (event.type === 'stage_start') {
+    const row = stagesEl?.querySelector(`[data-stage="${event.stage}"]`);
+    if (row) {
+      row.className = 'ps-row running';
+      row.querySelector('.ps-icon').innerHTML = '<span class="ps-spinner"></span>';
+      row.querySelector('.ps-model').textContent = event.model || '';
+    }
+    panel.querySelector('.pp-title').textContent = `⏳ ${event.label}...`;
+  }
+
+  if (event.type === 'stage_done') {
+    const row = stagesEl?.querySelector(`[data-stage="${event.stage}"]`);
+    if (row) {
+      row.className = 'ps-row done';
+      row.querySelector('.ps-icon').textContent = '✓';
+      row.querySelector('.ps-model').textContent = '';
+      row.querySelector('.ps-dur').textContent = `${(event.durationMs / 1000).toFixed(1)}s`;
+    }
+  }
+
+  if (event.type === 'stage_error') {
+    const row = stagesEl?.querySelector(`[data-stage="${event.stage}"]`);
+    if (row) {
+      row.className = 'ps-row error';
+      row.querySelector('.ps-icon').textContent = '✗';
+      row.querySelector('.ps-label').textContent = `${STAGE_LABELS[event.stage] || event.stage}: ${event.error}`;
+    }
+    panel.querySelector('.pp-title').textContent = `❌ ${event.stage} 失败`;
+  }
+
+  if (event.type === 'enrich_start') {
+    const area = document.getElementById('enrich-area');
+    if (area && event.count > 0) {
+      area.style.display = 'block';
+      area.innerHTML = `<div class="enrich-bar">
+        <span>🔎 查 Untappd 评分...</span>
+        <div class="eb-track"><div class="eb-fill" id="eb-fill" style="width:0%"></div></div>
+        <span id="eb-text">0/${event.count}</span>
+      </div>`;
+    }
+    panel.querySelector('.pp-title').textContent = `🔎 正在查 ${event.count} 款酒的 Untappd 资料...`;
+  }
+
+  if (event.type === 'enrich_progress') {
+    const fill = document.getElementById('eb-fill');
+    const text = document.getElementById('eb-text');
+    if (fill) fill.style.width = `${Math.round((event.done / event.total) * 100)}%`;
+    if (text) text.textContent = `${event.done}/${event.total}`;
+  }
+
+  if (event.type === 'enrich_done') {
+    panel.querySelector('.pp-title').textContent = '✅ 分析完成';
+  }
+
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// ── Candidate cards ──
 
 function renderCandidates(candidates) {
   if (!candidates || candidates.length === 0) return '';
@@ -410,7 +566,13 @@ function renderCandidates(candidates) {
       if (c.volumeMl) priceStr += `/${c.volumeMl}ml`;
       html += `<span class="price">${priceStr}</span>`;
       if (c.pricePerMl) {
-        html += `<span class="price">${(c.pricePerMl * 100).toFixed(1)}元/100ml</span>`;
+        html += `<span class="price">¥${(c.pricePerMl * 100).toFixed(2)}/100ml</span>`;
+      }
+      if (c.usBenchmark && c.savingsVsUS != null) {
+        const cls = c.savingsVsUS > 0 ? 'rating' : 'price';
+        html += `<span class="${cls}">🇺🇸 美国≈¥${c.usBenchmark} (${c.savingsVsUS > 0 ? '便宜' : '贵'}${Math.abs(c.savingsVsUS)}%)</span>`;
+      } else if (c.usBenchmark) {
+        html += `<span class="price">🇺🇸 美国≈¥${c.usBenchmark}</span>`;
       }
       if (c.valueScore != null) {
         html += `<span class="price">性价比${valueLabel(c.valueScore)}</span>`;
@@ -418,8 +580,15 @@ function renderCandidates(candidates) {
     }
     html += '</div>';
     html += '<div class="scores">';
-    html += `<div><span class="label">值得喝</span><span class="val ${scoreClass(c.worthScore)}">${c.worthScore}</span></div>`;
-    html += `<div><span class="label">适合你</span><span class="val ${scoreClass(c.fitScore)}">${c.fitScore}</span></div>`;
+    if (c.untappdScore) {
+      html += `<div><span class="label">Untappd</span><span class="val high">⭐ ${c.untappdScore.toFixed(1)}</span></div>`;
+      if (c.untappdRatingCount) {
+        html += `<div><span class="label">评分人数</span><span class="val mid">${formatCount(c.untappdRatingCount)}</span></div>`;
+      }
+    }
+    if (c.pricePerMl != null && c.price != null) {
+      html += `<div><span class="label">每100ml</span><span class="val ${c.savingsVsUS > 0 ? 'high' : 'mid'}">¥${(c.pricePerMl * 100).toFixed(1)}</span></div>`;
+    }
     html += '</div>';
     html += `<div class="reason">${escapeHtml(c.reason)}</div>`;
     if (c.riskFlags && c.riskFlags.length) {
@@ -449,9 +618,8 @@ function renderPicks(picks) {
 }
 
 function renderStages(stages) {
-  let html = '<details class="pipeline" open><summary>📊 流水线明细 (点击折叠)</summary>';
+  let html = '<details class="pipeline"><summary>📊 流水线明细 (点击折叠)</summary>';
 
-  // Stage 1: Image classification
   if (stages.imageContext) {
     const ic = stages.imageContext;
     html += '<div class="stage">';
@@ -464,7 +632,6 @@ function renderStages(stages) {
     html += '</div></div>';
   }
 
-  // Stage 2: OCR extraction
   if (stages.extracted) {
     const ex = stages.extracted;
     const items = ex.items || [];
@@ -472,11 +639,9 @@ function renderStages(stages) {
     html += '<div class="stage-hd"><span class="st-icon">📝</span> 阶段2: OCR 候选酒提取';
     html += `<span class="st-conf">${items.length} 款酒</span></div>`;
     html += '<div class="stage-body">';
-    // Raw OCR text
     if (ex.rawText) {
       html += `<div class="ocr-raw">${escapeHtml(ex.rawText)}</div>`;
     }
-    // Extracted items
     if (items.length) {
       items.forEach((it, i) => {
         html += `<div class="ocr-item">`;
@@ -490,14 +655,12 @@ function renderStages(stages) {
         html += '</div>';
       });
     }
-    // Uncertainties
     if (ex.uncertainties && ex.uncertainties.length) {
       html += `<div style="color:#d9b56c;margin-top:4px">⚠ ${ex.uncertainties.map(escapeHtml).join(' · ')}</div>`;
     }
     html += '</div></div>';
   }
 
-  // Stage 3: Visual quality
   if (stages.visualQuality) {
     const vq = stages.visualQuality;
     html += '<div class="stage">';
@@ -512,6 +675,59 @@ function renderStages(stages) {
       html += '无明显风险标记';
     }
     if (vq.caveat) html += `<div style="margin-top:4px;color:#8aab94">${escapeHtml(vq.caveat)}</div>`;
+    html += '</div></div>';
+  }
+
+  // Stage 4: Untappd enrichment results
+  if (stages.enrichment && stages.enrichment.length) {
+    const enr = stages.enrichment;
+    const found = enr.filter(e => e.found).length;
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">🔎</span> 阶段4: Untappd 查分 + 美国酒厂比价';
+    html += `<span class="st-conf">找到 ${found}/${enr.length} 款</span></div>`;
+    html += '<div class="stage-body">';
+    // Pricing source note
+    html += '<div style="font-size:11px;color:#5a7a64;margin-bottom:8px;padding:6px 8px;background:#0a150e;border-radius:4px">';
+    html += '📎 <strong>美国酒厂定价来源</strong>: 基于 2024-2025 年美国精酿酒厂 taproom 实际价格观察 (BeerAdvocate/Untappd 价格追踪)<br>';
+    html += '计算公式: USD基准价 × 7.2汇率 × 1.08税 ÷ 容量 × 你的杯量 = 预估美国含税价';
+    html += '</div>';
+    enr.forEach(e => {
+      if (e.found) {
+        const verifiedIcon = e.verified ? '✅' : '🤖';
+        const verifiedTitle = e.verified ? '已通过网页搜索核实' : 'AI 估算，未经网页核实';
+        html += `<div class="ocr-item" style="flex-wrap:wrap;padding:4px 0">`;
+        html += `<span><strong>${escapeHtml(e.name)}</strong></span>`;
+        html += `<span title="${verifiedTitle}">${verifiedIcon} ${e.untappdScore?.toFixed(1)}</span>`;
+        if (e.ratingCount) html += `<span>${formatCount(e.ratingCount)} 人评</span>`;
+        if (e.untappdUrl) {
+          html += `<span>🔗 <a href="${escapeHtml(e.untappdUrl)}" target="_blank" rel="noopener" style="color:#7ab89a">Untappd</a></span>`;
+        }
+        html += '</div>';
+        // Pricing trace line
+        if (e.pricingBasis || e.usBenchmark != null) {
+          html += '<div style="font-size:11px;color:#6a8a74;margin:0 0 6px 12px;padding:3px 6px;border-left:2px solid #2a4632">';
+          if (e.pricingBasis) {
+            html += `<div>🇺🇸 基准: ${escapeHtml(e.pricingBasis)}</div>`;
+          }
+          if (e.price != null && e.volumeMl != null && e.usBenchmark != null && e.savingsVsUS != null) {
+            html += '<div>📐 ';
+            html += `当地 ¥${e.price}/${e.volumeMl}ml vs 美国≈¥${e.usBenchmark}/${e.volumeMl}ml`;
+            const diffLabel = e.savingsVsUS > 0
+              ? `便宜 ${e.savingsVsUS}%`
+              : e.savingsVsUS < 0
+                ? `贵 ${Math.abs(e.savingsVsUS)}%`
+                : '持平';
+            html += ` → <strong style="color:${e.savingsVsUS > 0 ? '#5cc97a' : '#c9905c'}">${diffLabel}</strong>`;
+            html += '</div>';
+          }
+          html += '</div>';
+        }
+      } else {
+        html += `<div class="ocr-item" style="color:#8a6a5c">`;
+        html += `<span>${escapeHtml(e.name)}</span><span>未找到</span>`;
+        html += '</div>';
+      }
+    });
     html += '</div></div>';
   }
 
@@ -533,6 +749,8 @@ function escapeHtml(s) {
   if (!s) return '';
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
+
+// ── Image input ──
 
 imageInput.addEventListener('change', () => {
   const file = imageInput.files[0];
@@ -577,7 +795,7 @@ function showImageBadge() {
     badge.id = 'image-badge';
     badge.className = 'image-badge';
     badge.innerHTML = `📎 已粘贴图片 <button onclick="clearImage()">✕</button>`;
-    document.getElementById('composer').insertBefore(badge, textInput.parentNode === document.getElementById('composer') ? textInput : document.getElementById('composer').firstChild);
+    document.getElementById('composer').insertBefore(badge, textInput);
   }
   badge.style.display = 'flex';
 }
@@ -594,16 +812,7 @@ function updateComposer() {
   sendBtn.disabled = !textInput.value.trim() && !currentImage;
 }
 
-function addTyping() {
-  const div = document.createElement('div');
-  div.className = 'msg agent typing-msg';
-  div.innerHTML = '<div class="label">Beer Lens</div><div class="typing"><span></span><span></span><span></span></div>';
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
-  return div;
-}
-
-function removeTyping(el) { if (el) el.remove(); }
+// ── Send with SSE stream ──
 
 async function send() {
   const text = textInput.value.trim();
@@ -616,7 +825,6 @@ async function send() {
 
   messages.push({ role: 'user', content: text || '帮我看这张酒单' });
 
-  const typingEl = addTyping();
   sendBtn.disabled = true;
   textInput.value = '';
   textInput.style.height = 'auto';
@@ -627,30 +835,76 @@ async function send() {
   currentImage = null;
   clearImage();
 
+  // Create progress panel for live updates
+  const progressDiv = createProgressPanel();
+
   try {
-    const resp = await fetch('/api/agent', {
+    const resp = await fetch('/api/agent?stream=true', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ messages, image: imagePayload })
     });
 
-    if (!resp.ok) throw new Error(`API ${resp.status}: ${await resp.text()}`);
+    if (!resp.ok) {
+      const errText = await resp.text();
+      throw new Error(`API ${resp.status}: ${errText}`);
+    }
 
-    const result = await resp.json();
-    removeTyping(typingEl);
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
 
-    messages.push({ role: 'assistant', content: result.reply });
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
 
-    addMsg('agent', result.reply, {
-      candidates: result.candidates,
-      picks: result.picks,
-      profileSummary: result.profileSummary,
-      stages: result.stages
-    });
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
 
+      let eventType = '';
+      let eventData = '';
+
+      for (const line of lines) {
+        if (line.startsWith('event: ')) {
+          eventType = line.slice(7).trim();
+        } else if (line.startsWith('data: ')) {
+          eventData = line.slice(6);
+        } else if (line === '' && eventType && eventData) {
+          // Dispatch event
+          try {
+            const data = JSON.parse(eventData);
+
+            if (eventType === 'final') {
+              // Remove progress panel
+              progressDiv.remove();
+
+              messages.push({ role: 'assistant', content: data.reply });
+              addMsg('agent', data.reply, {
+                candidates: data.candidates,
+                picks: data.picks,
+                profileSummary: data.profileSummary,
+                stages: data.stages
+              });
+            } else if (eventType === 'fatal') {
+              progressDiv.remove();
+              addMsg('agent', `❌ 处理失败: ${data.error || '未知错误'}`);
+              messages.push({ role: 'assistant', content: `Error: ${data.error}` });
+            } else {
+              // Stage progress event
+              updateProgress({ type: eventType, ...data });
+            }
+          } catch (parseErr) {
+            // Skip unparseable events (keepalive comments etc)
+          }
+          eventType = '';
+          eventData = '';
+        }
+      }
+    }
   } catch (err) {
-    removeTyping(typingEl);
-    addMsg('agent', `出错了: ${err.message}`);
+    progressDiv.remove();
+    addMsg('agent', `❌ 连接出错: ${err.message}`);
     messages.push({ role: 'assistant', content: `Error: ${err.message}` });
   }
 

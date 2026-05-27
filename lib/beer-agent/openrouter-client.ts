@@ -1,21 +1,25 @@
-import { ProxyAgent } from "undici";
+import { ProxyAgent, setGlobalDispatcher } from "undici";
 
-function getProxyDispatcher() {
+let proxyInitialized = false;
+
+function initProxyOnce() {
+  if (proxyInitialized) return;
+  proxyInitialized = true;
+
   const proxy = process.env.OPENROUTER_PROXY
     ?? process.env.HTTPS_PROXY
     ?? process.env.https_proxy
     ?? process.env.ALL_PROXY
     ?? process.env.all_proxy;
 
-  if (!proxy) return undefined;
+  if (!proxy) return;
 
-  // undici ProxyAgent expects a full URI
   const proxyUrl = proxy.startsWith("http") ? proxy : `http://${proxy}`;
   try {
-    return new ProxyAgent({ uri: proxyUrl });
-  } catch {
-    console.warn(`[openrouter] Failed to create proxy agent for: ${proxyUrl}`);
-    return undefined;
+    setGlobalDispatcher(new ProxyAgent({ uri: proxyUrl }));
+    console.log(`[openrouter] proxy configured: ${proxyUrl}`);
+  } catch (err) {
+    console.warn(`[openrouter] failed to configure proxy: ${proxyUrl}`, err);
   }
 }
 
@@ -23,10 +27,10 @@ export async function openrouterFetch(
   body: object,
   options?: { model?: string; maxTokens?: number; temperature?: number }
 ): Promise<string> {
+  initProxyOnce();
+
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) throw new Error("OPENROUTER_API_KEY not configured");
-
-  const dispatcher = getProxyDispatcher();
 
   const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
@@ -37,8 +41,7 @@ export async function openrouterFetch(
       "X-Title": process.env.OPENROUTER_APP_TITLE ?? "Beer Lens",
     },
     body: JSON.stringify(body),
-    ...(dispatcher ? { dispatcher } : {}),
-  } as any);
+  });
 
   if (!response.ok) {
     throw new Error(`OpenRouter ${response.status}: ${await response.text().catch(() => "unknown")}`);

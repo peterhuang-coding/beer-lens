@@ -1,5 +1,16 @@
-import type { BeerCandidate } from "./types";
 import { openrouterFetch } from "./openrouter-client";
+
+// ── Progress callback ──
+
+export type PipelineEvent =
+  | { type: "stage_start"; stage: string; label: string; model: string }
+  | { type: "stage_done"; stage: string; durationMs: number }
+  | { type: "stage_error"; stage: string; error: string }
+  | { type: "enrich_start"; count: number }
+  | { type: "enrich_progress"; done: number; total: number; label: string }
+  | { type: "enrich_done" };
+
+export type ProgressCallback = (event: PipelineEvent) => void;
 
 // ── Stage output types ──
 
@@ -53,11 +64,14 @@ export type VisualQuality = {
 
 export type PipelineRecommendation = {
   reply: string;
-  candidates: BeerCandidate[];
   topPickId: string;
   safePickId: string;
   explorePickId: string;
   avoidPickId: string;
+  topReason: string;
+  safeReason: string;
+  exploreReason: string;
+  avoidReason: string;
 };
 
 export type PipelineResult = {
@@ -100,32 +114,59 @@ export async function runMultiStagePipeline(params: {
   imageDataUrl: string | null;
   userText: string;
   profile: string;
+  onProgress?: ProgressCallback;
 }): Promise<PipelineResult> {
-  const { apiKey, imageDataUrl, userText, profile } = params;
+  const { apiKey, imageDataUrl, userText, profile, onProgress } = params;
   const visionModel = process.env.OPENROUTER_VISION_MODEL ?? "google/gemini-2.5-flash";
   const analysisModel = process.env.OPENROUTER_ANALYSIS_MODEL ?? process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini";
 
+  const emit = onProgress ?? (() => {});
+
   // Stage 1: classify image (image only)
   const imageContext = imageDataUrl
-    ? await classifyImage(apiKey, visionModel, imageDataUrl, userText)
+    ? await withProgress(emit, "image_classification", "🔍 图片分类", visionModel,
+        () => classifyImage(apiKey, visionModel, imageDataUrl, userText))
     : textOnlyImageContext();
 
   // Stage 2: extract beer signals (OCR)
   const extracted = imageDataUrl
-    ? await extractBeerSignal(apiKey, visionModel, imageDataUrl, imageContext!, userText)
-    : await extractBeerFromText(apiKey, analysisModel, userText);
+    ? await withProgress(emit, "ocr", "📝 OCR 候选酒提取", visionModel,
+        () => extractBeerSignal(apiKey, visionModel, imageDataUrl, imageContext!, userText))
+    : await withProgress(emit, "ocr", "📝 文本实体抽取", analysisModel,
+        () => extractBeerFromText(apiKey, analysisModel, userText));
 
   // Stage 3: visual quality (image only)
   const visualQuality = imageDataUrl
-    ? await assessVisualQuality(apiKey, visionModel, imageDataUrl, imageContext!, extracted, userText)
+    ? await withProgress(emit, "visual_quality", "🔬 视觉质量检查", visionModel,
+        () => assessVisualQuality(apiKey, visionModel, imageDataUrl, imageContext!, extracted, userText))
     : textOnlyVisualQuality();
 
   // Stage 4: recommendation
-  const recommendation = await analyzeRecommendation(
-    apiKey, analysisModel, extracted, imageContext!, visualQuality!, profile, userText
+  const recommendation = await withProgress(emit, "recommendation", "🧠 智能推荐分析", analysisModel,
+    () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext!, visualQuality!, profile, userText)
   );
 
   return { imageContext, extracted, visualQuality, recommendation };
+}
+
+async function withProgress<T>(
+  emit: ProgressCallback,
+  stage: string,
+  label: string,
+  model: string,
+  fn: () => Promise<T>
+): Promise<T> {
+  emit({ type: "stage_start", stage, label, model });
+  const t0 = Date.now();
+  try {
+    const result = await fn();
+    emit({ type: "stage_done", stage, durationMs: Date.now() - t0 });
+    return result;
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    emit({ type: "stage_error", stage, error: message });
+    throw err;
+  }
 }
 
 // ── Stage 1: Image classification ──
@@ -182,7 +223,7 @@ ${JSON.stringify(imageContext, null, 2)}
 用户补充需求：${userText}` },
       { type: "image_url", image_url: { url: imageDataUrl } }
     ]}
-  ], schema, "beer_signal_extract", 2200);
+  ], schema, "beer_signal_extract", 4000);
   return result as BeerSignal;
 }
 
@@ -238,79 +279,226 @@ async function analyzeRecommendation(
   extracted: BeerSignal, imageContext: ImageContext,
   visualQuality: VisualQuality, profile: string, userText: string
 ): Promise<PipelineRecommendation> {
+  // Build a flat list of beer names from OCR for the LLM to reference
+  const beerList = (extracted.items ?? []).map((item, i) =>
+    `#${item.menuIndex || i + 1} ${item.beerName} | ${item.brewery || "?"} | ${item.style || "?"} | ${item.abv}% ABV` +
+    (item.price ? ` | ¥${item.price}` : "") +
+    (item.serving ? ` | ${item.serving}` : "")
+  ).join("\n");
+
   const schema = recommendationSchema();
   const result = await callOpenRouterJson(apiKey, model, [
     { role: "system", content: `你是 Beer Lens，一个懂啤酒、懂个人口味的推荐 agent。
 
 必须用中文回答。
-你要区分：
-- worthScore: 这款酒客观/场景上值不值得喝 (0-100)
-- fitScore: 这款酒适不适合这个用户 (0-100)
 
-不要迷信公共评分。用户明确说想清爽、不苦、尝新、配餐时，优先匹配意图。
-如果信息来自 OCR 且不确定，要在 reason 或 riskFlags 里说明。
-如果视觉质量观察有氧化、老化、新鲜度、包装受光照等风险，要影响 worthScore，但不要把疑似风险说成事实。
+CRITICAL RULES:
+- 你只能从下面提供的 OCR 酒单中做推荐
+- topPickId/safePickId/explorePickId/avoidPickId 必须是 OCR 酒单里的 menuIndex 数字（转为字符串）
+- reply 写一句中文推荐语，不要编造酒名
 
 用户画像：
 ${profile}` },
-    { role: "user", content: `用户这次的需求：
-${userText}
+    { role: "user", content: `OCR 酒单:
+${beerList}
 
-OCR/候选酒抽取结果：
-${JSON.stringify(extracted, null, 2)}
+用户需求: ${userText || "帮我看这张酒单并推荐"}
 
-图片上下文：
-${JSON.stringify(imageContext, null, 2)}
+图片类型: ${JSON.stringify(imageContext)}
+风险: ${JSON.stringify(visualQuality?.visualRiskFlags ?? [])}
 
-视觉质量风险：
-${JSON.stringify(visualQuality, null, 2)}
-
-请输出 top picks、候选酒分数和一句人话推荐。` }
-  ], schema, "beer_recommendation", 2600);
+请选出 top/safe/explore/avoid 四个推荐，用 menuIndex 数字做 ID。` }
+  ], schema, "beer_recommendation", 1200);
   return result as PipelineRecommendation;
 }
 
 // ── OpenRouter JSON call ──
 
 async function callOpenRouterJson(
-  apiKey: string, model: string,
+  _apiKey: string, model: string,
   messages: object[], schema: object, schemaName: string, maxTokens: number
 ): Promise<object> {
+  const schemaJson = JSON.stringify(schema);
+
+  // Build request body — skip response_format for models that don't support it well
+  const supportsJsonSchema = !model.includes("gemini");
+
   const body: any = {
     model,
-    messages,
+    messages: messages.map((m: any) => {
+      if (typeof m.content === "string") {
+        return {
+          ...m,
+          content: `${m.content}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}`,
+        };
+      }
+      if (Array.isArray(m.content)) {
+        return {
+          ...m,
+          content: m.content.map((part: any) =>
+            part.type === "text"
+              ? { ...part, text: `${part.text}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}` }
+              : part
+          ),
+        };
+      }
+      return m;
+    }),
     temperature: 0.1,
     max_tokens: maxTokens,
-    response_format: {
-      type: "json_schema",
-      json_schema: { name: schemaName, strict: true, schema },
-    },
   };
 
-  // Try strict schema first, fall back to json_object
+  if (supportsJsonSchema) {
+    body.response_format = {
+      type: "json_schema",
+      json_schema: { name: schemaName, strict: true, schema },
+    };
+  } else {
+    body.response_format = { type: "json_object" };
+  }
+
   let content: string;
   try {
     content = await openrouterFetch(body);
-  } catch {
-    const looseBody = {
+  } catch (err) {
+    // Fallback: strip response_format entirely, rely on prompt
+    const fallbackBody = {
       ...body,
-      response_format: { type: "json_object" },
-      messages: [
-        ...messages,
-        { role: "user", content: `Return valid JSON matching this schema:\n${JSON.stringify(schema)}` }
-      ],
+      response_format: undefined,
     };
-    content = await openrouterFetch(looseBody);
+    try {
+      content = await openrouterFetch(fallbackBody);
+    } catch (err2) {
+      throw new Error(`OpenRouter call failed for ${schemaName}: ${err instanceof Error ? err.message : String(err)}; fallback: ${err2 instanceof Error ? err2.message : String(err2)}`);
+    }
   }
 
-  // Parse JSON from response
+  // Parse JSON with repair
+  return parseAndRepairJson(content, schemaName);
+}
+
+function parseAndRepairJson(content: string, label: string): object {
+  // Try direct parse first
   try {
-    return JSON.parse(content);
-  } catch {
-    const match = content.match(/\{[\s\S]*\}/);
-    if (!match) throw new Error(`Could not parse JSON from: ${content.slice(0, 200)}`);
-    return JSON.parse(match[0]);
+    return JSON.parse(content.trim());
+  } catch {}
+
+  // Strip markdown fences
+  let cleaned = content
+    .replace(/^```(?:json)?\s*\n?/i, "")
+    .replace(/\n?```\s*$/, "")
+    .trim();
+
+  // Try again
+  try {
+    return JSON.parse(cleaned);
+  } catch {}
+
+  // Extract first { ... } pair
+  const firstBrace = cleaned.indexOf("{");
+  if (firstBrace === -1) {
+    throw new Error(`[${label}] No JSON object found in: ${content.slice(0, 300)}`);
   }
+
+  // Find matching closing brace
+  let depth = 0;
+  let end = -1;
+  for (let i = firstBrace; i < cleaned.length; i++) {
+    const ch = cleaned[i];
+    if (ch === "{" && (i === 0 || cleaned[i - 1] !== "\\")) depth++;
+    else if (ch === "}" && (i === 0 || cleaned[i - 1] !== "\\")) {
+      depth--;
+      if (depth === 0) { end = i + 1; break; }
+    }
+  }
+
+  if (end === -1) {
+    // Truncated JSON — try to salvage by closing open structures
+    end = cleaned.length;
+  }
+
+  let json = cleaned.slice(firstBrace, end).trim();
+
+  // If still unbalanced, try to close any open strings/objects/arrays
+  if (!isBalanced(json)) {
+    json = salvageTruncated(json);
+  }
+
+  // Try parsing
+  try {
+    return JSON.parse(json);
+  } catch (e: any) {
+    // Try common repairs
+    const repaired = json
+      .replace(/,\s*}/g, "}")
+      .replace(/,\s*\]/g, "]")
+      .replace(/\n/g, "\\n")
+      .replace(/\r/g, "\\r")
+      .replace(/\t/g, "\\t");
+
+    try {
+      return JSON.parse(repaired);
+    } catch {}
+
+    const preview = json.slice(0, 500);
+    throw new Error(`[${label}] JSON parse error: ${e.message}. JSON excerpt: ${preview}...`);
+  }
+}
+
+function isBalanced(s: string): boolean {
+  let depth = 0;
+  let inString = false;
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    if (inString) {
+      if (ch === "\\") { i++; continue; }
+      if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') { inString = true; continue; }
+    if (ch === "{") depth++;
+    if (ch === "}") depth--;
+    if (ch === "[" && (i === 0 || s[i - 1] !== "\\")) depth++;
+    if (ch === "]" && (i === 0 || s[i - 1] !== "\\")) depth--;
+  }
+  return depth === 0 && !inString;
+}
+
+function salvageTruncated(json: string): string {
+  // Close any open string, then close open arrays/objects
+  let result = json;
+
+  // If we're in the middle of a string, close it
+  let inString = false;
+  for (let i = 0; i < result.length; i++) {
+    if (result[i] === "\\") { i++; continue; }
+    if (result[i] === '"') inString = !inString;
+  }
+  if (inString) result += '"';
+
+  // Count and close open brackets
+  let objDepth = 0;
+  let arrDepth = 0;
+  inString = false;
+  for (let i = 0; i < result.length; i++) {
+    const ch = result[i];
+    if (ch === "\\") { i++; continue; }
+    if (ch === '"') { inString = !inString; continue; }
+    if (inString) continue;
+    if (ch === "{") objDepth++;
+    if (ch === "}") objDepth--;
+    if (ch === "[") arrDepth++;
+    if (ch === "]") arrDepth--;
+  }
+
+  // If we were in the middle of an array element, remove trailing comma first
+  result = result.replace(/,\s*$/, "");
+
+  // Close open arrays, then objects
+  result += "]".repeat(Math.max(0, arrDepth));
+  result += "}".repeat(Math.max(0, objDepth));
+
+  return result;
 }
 
 // ── JSON Schemas ──
@@ -321,4 +509,4 @@ function beerSignalExtractSchema() { return { type: "object", additionalProperti
 
 function visualQualitySchema() { return { type: "object", additionalProperties: false, required: ["canAssess","visualRiskFlags","oxidationRisk","freshnessRisk","lightstrikeRisk","evidence","caveat"], properties: { canAssess:{type:"boolean"}, visualRiskFlags:{type:"array",items:{type:"string",enum:["possible_oxidation","possible_stale_hops","possible_lightstrike","low_foam","unexpected_haze","unexpected_darkening","date_not_visible","packaging_damage","low_confidence"]}}, oxidationRisk:{type:"string",enum:["low","medium","high","unknown"]}, freshnessRisk:{type:"string",enum:["low","medium","high","unknown"]}, lightstrikeRisk:{type:"string",enum:["low","medium","high","unknown"]}, evidence:{type:"array",items:{type:"string"}}, caveat:{type:"string"} } }; }
 
-function recommendationSchema() { return { type: "object", additionalProperties: false, required: ["reply","candidates","topPickId","safePickId","explorePickId","avoidPickId"], properties: { reply:{type:"string"}, topPickId:{type:"string"}, safePickId:{type:"string"}, explorePickId:{type:"string"}, avoidPickId:{type:"string"}, candidates:{type:"array",items:{type:"object",additionalProperties:false,required:["candidateId","menuIndex","displayName","brewery","style","abv","hops","worthScore","fitScore","riskFlags","reason"],properties:{candidateId:{type:"string"},menuIndex:{type:"integer"},displayName:{type:"string"},brewery:{type:"string"},style:{type:"string"},abv:{type:"number"},hops:{type:"array",items:{type:"string"}},worthScore:{type:"integer"},fitScore:{type:"integer"},riskFlags:{type:"array",items:{type:"string"}},reason:{type:"string"}}}} } }; }
+function recommendationSchema() { return { type: "object", additionalProperties: false, required: ["reply","topPickId","safePickId","explorePickId","avoidPickId","topReason","safeReason","exploreReason","avoidReason"], properties: { reply:{type:"string"}, topPickId:{type:"string"}, safePickId:{type:"string"}, explorePickId:{type:"string"}, avoidPickId:{type:"string"}, topReason:{type:"string"}, safeReason:{type:"string"}, exploreReason:{type:"string"}, avoidReason:{type:"string"} } }; }

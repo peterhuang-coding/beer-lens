@@ -41,7 +41,7 @@ export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<Age
 
   const profileSummary = await getProfileSummary();
   const systemPrompt = await buildSystemPrompt(profileSummary, hasImage);
-  const userContent = buildUserContent(request, lastUserMessage);
+  const userContent = buildUserContent(request, lastUserMessage, profileSummary);
 
   const raw = await callOpenRouter(apiKey, systemPrompt, userContent);
 
@@ -77,13 +77,19 @@ async function buildSystemPrompt(profileSummary: string, hasImage: boolean) {
 
   const modeInstruction = hasImage
     ? `MODE: IMAGE ANALYSIS. You have a beer menu photo. Extract real beers from it. Return candidates for each beer you can read.`
-    : `MODE: TEXT FOLLOW-UP. No new image. You MUST return "candidates": [].
+    : `MODE: TEXT CHAT. No new image. Return "candidates": [].
 
-CRITICAL: First, scan the conversation history. If the assistant previously listed real beers from a menu (with names, breweries, Untappd scores), THOSE are your beer pool. Reference them by name in your reply. Filter/rank them based on what the user is asking for.
+You are a helpful beer expert. Handle these scenarios naturally:
 
-If there are NO previously scanned beers in the conversation, tell the user to upload a menu photo.
+1. If the conversation history contains real beers from a previously scanned menu, use those as your beer pool — filter/rank them by the user's request. Reference them by name.
 
-NEVER invent fake beer names, breweries, or scores.`;
+2. If the user asks about a specific beer by name and real data (Untappd rating, style, brewery) is provided in the prompt, discuss it with the data given. If no data is provided, tell the user you don't have info on that beer yet.
+
+3. If the user asks for general recommendations ("推荐 IPA"), give style-level advice based on their taste profile. Suggest sub-styles, what to look for on a menu, but do NOT invent specific beer names.
+
+4. If the user asks beer knowledge questions (styles, breweries, terminology), answer based on your knowledge.
+
+5. Only ask the user to upload a menu photo if they're clearly trying to get recommendations from a specific venue's menu.`;
 
   return `${basePrompt}
 
@@ -123,7 +129,7 @@ ${profileSummary}
 `;
 }
 
-function buildUserContent(request: AgentRequest, lastUserMessage: string) {
+function buildUserContent(request: AgentRequest, lastUserMessage: string, profileSummary: string) {
   const history = request.messages
     .slice(-8)
     .map((message) => `${message.role}: ${message.content}`)
@@ -156,11 +162,18 @@ YOUR TASK: Filter and re-rank from the above list ONLY. If some beers match the 
 Recent chat:
 ${history}`;
     } else {
-      text = `TEXT FOLLOW-UP (no new image, no prior menu).
+      text = `TEXT CHAT (no image, no prior menu).
 
-User request: ${lastUserMessage}
+User message: ${lastUserMessage}
 
-No menu has been uploaded yet. Tell the user to upload a menu photo. Return "candidates": [].
+This is a general chat. The user may be asking:
+- About a specific beer → use any real data provided below
+- For general recommendations → give style-level advice, do NOT invent beer names
+- Beer knowledge questions → answer from your knowledge
+- To analyze a menu → ask them to upload a photo
+
+Current user taste profile:
+${profileSummary}
 
 Recent chat:
 ${history}`;

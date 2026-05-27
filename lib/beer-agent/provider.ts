@@ -95,15 +95,15 @@ async function runImagePipeline(
     candidates.push(candidate);
     enrichmentLog.push({
       name: candidate.displayName,
-      untappdScore: candidate.untappdScore,
-      ratingCount: candidate.untappdRatingCount,
-      untappdUrl: candidate.untappdUrl,
-      usBenchmark: candidate.usBenchmark,
-      savingsVsUS: candidate.savingsVsUS,
+      untappdScore: candidate.untappdScore ?? null,
+      ratingCount: candidate.untappdRatingCount ?? null,
+      untappdUrl: candidate.untappdUrl ?? null,
+      usBenchmark: candidate.usBenchmark ?? null,
+      savingsVsUS: candidate.savingsVsUS ?? null,
       pricingBasis: enriched?.pricingBasis ?? null,
       verified: enriched?.verified ?? false,
-      price: candidate.price,
-      volumeMl: candidate.volumeMl,
+      price: candidate.price ?? null,
+      volumeMl: candidate.volumeMl ?? null,
       found: candidate.untappdScore != null,
     });
   }

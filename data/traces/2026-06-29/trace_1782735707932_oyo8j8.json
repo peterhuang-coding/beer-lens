@@ -1,0 +1,603 @@
+{
+  "traceId": "trace_1782735707932_oyo8j8",
+  "userId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "channel": "feishu",
+  "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "turnId": "om_x100b6b127b8a10a0b3654393dacf3b1",
+  "timestamp": "2026-06-29T12:22:14.603Z",
+  "input": {
+    "messageCount": 21,
+    "lastUserText": "给我推荐 IPA",
+    "hasImage": true,
+    "imageName": "img_v3_02134_911f1df9-f2ef-48e5-ab9d-30ffe707cf4g.jpg",
+    "imageType": "image/jpeg"
+  },
+  "intentResult": {
+    "intent": "menu_recommend",
+    "confidence": 0.95,
+    "slots": {
+      "beerName": "IPA",
+      "style": "ipa"
+    },
+    "missingInfo": [],
+    "routeReason": "Rule matched: menu_recommend (confidence 0.95)",
+    "source": "rule"
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 38,
+      "hasLastRecommendation": true,
+      "activeBeerName": "Racer 5 India Pale Ale"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "推荐尝试这款清爽的 IPA，适合喜欢热带水果和柑橘风味的你。",
+    "candidateCount": 18,
+    "topPickId": "3"
+  },
+  "stages": {
+    "imageContext": {
+      "imageType": "tap_list",
+      "confidence": 0.9,
+      "reason": "The image clearly displays a list of beers with names, breweries, styles, ABV, serving sizes, and prices, characteristic of a tap list or menu board.",
+      "needsOcr": true,
+      "needsLabelRecognition": false,
+      "canAssessVisualQuality": false,
+      "visibleClues": [
+        "numbered list of beers",
+        "ABV percentages",
+        "serving sizes (ml)",
+        "prices (¥)",
+        "brewery names",
+        "beer styles"
+      ]
+    },
+    "extracted": {
+      "sourceType": "tap_list",
+      "rawText": "El Nido x 啤酒帮|中国\n糯香淡艾\n云水|英国\n¥5547.0% 300ml ¥907 ABV:8.0% 300ml ¥ ¥11000% 300ml ¥ ¥1453 ABV:9.0% 300ml\n中式淡色艾尔(糯米香叶)\nGlutinous Rice Pale Ale\nChinses Pale Ale\n斯塔姆|俄罗斯\nEl Nido x BeerGuys | CN\n2 ABV:4.7% 425ml\n年轻领主\n捷克皮尔森\nYour Young Lordship\nCzech Pilsner\n乘风破浪|美国\n随身携带(芬厂合酿款)\n双倍干投浑浊IPA\nTake It With You\nDDH Hazy IPA\nCloudwater | UK\n深空查博斯(旗舰酒款特别批次) 如鲠在喉\n双倍浑浊IPA\nForever Chubbles SUPERCHARGED\nDouble Hazy IPA\nCloudwater | UK\n奢华冰冻池塘\n双倍浑浊IPA(5/20日灌装) 帝国水果古斯(蓝莓香草)\nBone In The Throat\nDouble Hazy IPA\nRoot Branch | US\nFrozen Pond De Luxe\nImperial Fruited Gose\n¥100425ml\n埃莱特柠檬外星人\n西打(苹果柠檬)\nLemon&Alien\n¥85 19\n「山楂气泡水」\n山楂\n小朋友也合适 气泡水\n无酒精配料表干净 King¥40/杯\nHawthorn\nSparkling Water\nDuckpond | SE\nCider\nToksovo Cidrerie | RUS\n事业阶梯|美国\nABV:5.5% 300ml ¥115 20\nBlueberry\nProbiotic Drink\n蓝莓\n¥60% 300ml ¥ 10080.0% 300ml ¥ ¥130 11V:8.0% 300ml ¥ ¥115\nStamm | RUS\n3 ABV:6.8% 300ml ¥80\n乘风破浪-水晶酒花版\n西海岸IPA(鲜采酒花)\nFresh Hop Breakside IPA - Crystal\nWest Coast IPA\n查博斯53(旗舰酒款特别批次) 查博斯(旗舰酒款)\n双倍干投浑浊IPA\nChubbles 53°N\nDDH Hazy IPA\n小荷酿造|中国\n三倍浑浊IPA\nCloudwater | UK\nChubbles\nTriple Hazy IPA\nCloudwater | UK\n¥5598.5% 300ml ¥ ¥100\n6\nABV:7.5% 300ml\n蜜瓜龙2.0-发酵罐直达\n电光酒花-旗舰酒款\n双倍干投双倍浑浊IPA\nNectaron 2.0\nBreakside | US\nDDH Double Hazy IPA\n双倍浑浊IPA(中国首发)\nElectric Lettuce\nxiaohe | CN\nDouble Hazy IPA\n一镑嗦粉(艾尔复兴合酿款)\n双倍浑浊IPA\nSquid Pho Sho\nDouble Hazy IPA\nCLAG | US\n14 ABV:6.5% 300ml ¥1107 香|美国。\n血迹斑斑\n塞松\n甜点酸艾尔(草莓奶油芝士) 农舍塞松\nYou've Got Red On You\nPastry Sour Ale\n回头客|美国\n12 ABV:10.0% 300ml ¥90 15:5.4% 300ml\n家园|美国\n一样一样的\n三倍浑浊IPA\nCasey | US\nABV:11.5% 300ml ¥\n「蓝莓乳酸饮料」\nBlue蓝莓牛奶乳酸饮料\n无酒精添加乳酸菌\n¥85 杏子啤酒冰沙\nWi-Fi名称:\nN El Nido Fang Ninini\nEl Nido Wi-Fi密码:20252025\n生啤可500ml罐装打包\n会员享受外卖85折优惠\nEl Nido\n莓果啤酒冰沙\n草莓树莓蓝莓蔓越莓\n¥65/杯\nABV 3.3%\n¥65/杯\n杏子山楂芒果蔓越莓\nCorporate Ladder | US\nSaison\nFarmhouse Saison\n¥90\n18 首长风\n甜甜圈波士顿奶油\n帝国甜点世涛\nDONUT SERIES 2.0\nFrequentem | US\nImperial Pastry Stout\nABV 2.9%\nAmundsen | NO\n果味满满34号\n水果酸艾尔(蓝莓 桃子)\nJust Fruit (Blueberry, Peach)\nSAME SAME SAME\nMoonraker | US\nTriple Hazy IPA\nHOMES | US\nFruited Sour Ale",
+      "visualBeerDescription": {
+        "color": "unknown",
+        "clarity": "unknown",
+        "foam": "unknown",
+        "visiblePackagingDate": "unknown",
+        "notes": []
+      },
+      "uncertainties": [
+        "Some beer names and styles are in Chinese, and their exact English equivalents or specific sub-styles might be lost in translation or interpretation.",
+        "The OCR had difficulty separating some prices and ABVs from the surrounding text, requiring manual correction.",
+        "The OCR had difficulty with some brewery names, especially those in Chinese or less common English names."
+      ],
+      "items": [
+        {
+          "menuIndex": 1,
+          "rawText": "El Nido x 啤酒帮|中国\nABV:4.5% 425ml ¥55\n糯香淡艾\n中式淡色艾尔(糯米香叶)\nGlutinous Rice Pale Ale\nChinses Pale Ale\nEl Nido x BeerGuys | CN",
+          "beerName": "糯香淡艾",
+          "brewery": "El Nido x 啤酒帮",
+          "style": "中式淡色艾尔 (糯米香叶)",
+          "abv": 4.5,
+          "ibu": null,
+          "price": 55,
+          "serving": "425ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 2,
+          "rawText": "斯塔姆|俄罗斯\nABV:4.7% 425ml ¥60\n年轻领主\n捷克皮尔森\nYour Young Lordship\nCzech Pilsner\nStamm | RUS",
+          "beerName": "年轻领主",
+          "brewery": "Stamm",
+          "style": "捷克皮尔森",
+          "abv": 4.7,
+          "ibu": null,
+          "price": 60,
+          "serving": "425ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 3,
+          "rawText": "乘风破浪|美国\nABV:6.8% 300ml ¥80\n乘风破浪-水晶酒花版\n西海岸IPA(鲜采酒花)\nFresh Hop Breakside IPA - Crystal\nWest Coast IPA\nBreakside | US",
+          "beerName": "乘风破浪-水晶酒花版",
+          "brewery": "Breakside",
+          "style": "西海岸IPA (鲜采酒花)",
+          "abv": 6.8,
+          "ibu": null,
+          "price": 80,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 4,
+          "rawText": "云水|英国\nABV:7.0% 300ml ¥90\n随身携带(芬厂合酿款)\n双倍干投浑浊IPA\nTake It With You\nDDH Hazy IPA\nCloudwater | UK",
+          "beerName": "随身携带",
+          "brewery": "Cloudwater",
+          "style": "双倍干投浑浊IPA",
+          "abv": 7,
+          "ibu": null,
+          "price": 90,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 5,
+          "rawText": "查博斯53(旗舰酒款特别批次)\nABV:6.5% 300ml ¥100\n双倍干投浑浊IPA\nChubbles 53°N\nDDH Hazy IPA\nCloudwater | UK",
+          "beerName": "查博斯53",
+          "brewery": "Cloudwater",
+          "style": "双倍干投浑浊IPA",
+          "abv": 6.5,
+          "ibu": null,
+          "price": 100,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 6,
+          "rawText": "小荷酿造|中国\nABV:7.5% 300ml ¥55\n蜜瓜龙2.0-发酵罐直达\n双倍干投双倍浑浊IPA\nNectaron 2.0\nDDH Double Hazy IPA\nxiaohe | CN",
+          "beerName": "蜜瓜龙2.0-发酵罐直达",
+          "brewery": "小荷酿造",
+          "style": "双倍干投双倍浑浊IPA",
+          "abv": 7.5,
+          "ibu": null,
+          "price": 55,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 7,
+          "rawText": "云水|英国\nABV:8.0% 300ml ¥110\n深空查博斯(旗舰酒款特别批次)\n双倍浑浊IPA\nForever Chubbles SUPERCHARGED\nDouble Hazy IPA\nCloudwater | UK",
+          "beerName": "深空查博斯",
+          "brewery": "Cloudwater",
+          "style": "双倍浑浊IPA",
+          "abv": 8,
+          "ibu": null,
+          "price": 110,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 8,
+          "rawText": "查博斯(旗舰酒款)\nABV:8.0% 300ml ¥130\n三倍浑浊IPA\nChubbles\nTriple Hazy IPA\nCloudwater | UK",
+          "beerName": "查博斯",
+          "brewery": "Cloudwater",
+          "style": "三倍浑浊IPA",
+          "abv": 8,
+          "ibu": null,
+          "price": 130,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 9,
+          "rawText": "望月者|美国\nABV:8.5% 300ml ¥100\n电光酒花-旗舰酒款\n双倍浑浊IPA(中国首发)\nElectric Lettuce\nDouble Hazy IPA\nMoonraker | US",
+          "beerName": "电光酒花",
+          "brewery": "Moonraker",
+          "style": "双倍浑浊IPA",
+          "abv": 8.5,
+          "ibu": null,
+          "price": 100,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 10,
+          "rawText": "本京|美国\nABV:8.0% 300ml ¥145\n如鲠在喉\n双倍浑浊IPA(5/20日灌装)\nBone In The Throat\nDouble Hazy IPA\nRoot Branch | US",
+          "beerName": "如鲠在喉",
+          "brewery": "Root Branch",
+          "style": "双倍浑浊IPA",
+          "abv": 8,
+          "ibu": null,
+          "price": 145,
+          "serving": "300ml",
+          "packagingDate": "2023-05-20",
+          "confidence": 0.9
+        },
+        {
+          "menuIndex": 11,
+          "rawText": "亚洲小霸王|美国\nABV:8.0% 300ml ¥115\n一镑嗦粉(艾尔复兴合酿款)\n双倍浑浊IPA\nSquid Pho Sho\nDouble Hazy IPA\nCLAG | US",
+          "beerName": "一镑嗦粉",
+          "brewery": "CLAG",
+          "style": "双倍浑浊IPA",
+          "abv": 8,
+          "ibu": null,
+          "price": 115,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 12,
+          "rawText": "家园|美国\nABV:10.0% 300ml ¥90\n一样一样的\n三倍浑浊IPA\nSAME SAME SAME\nTriple Hazy IPA\nHOMES | US",
+          "beerName": "一样一样的",
+          "brewery": "HOMES",
+          "style": "三倍浑浊IPA",
+          "abv": 10,
+          "ibu": null,
+          "price": 90,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 13,
+          "rawText": "鸭池|瑞典\nABV:9.0% 300ml ¥100\n奢华冰冻池塘\n帝国水果古斯(蓝莓香草)\nFrozen Pond De Luxe\nImperial Fruited Gose\nDuckpond | SE",
+          "beerName": "奢华冰冻池塘",
+          "brewery": "Duckpond",
+          "style": "帝国水果古斯 (蓝莓香草)",
+          "abv": 9,
+          "ibu": null,
+          "price": 100,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 14,
+          "rawText": "事业阶梯|美国\nABV:6.5% 300ml ¥110\n血迹斑斑\n甜点酸艾尔(草莓奶油芝士)\nYou've Got Red On You\nPastry Sour Ale\nCorporate Ladder | US",
+          "beerName": "血迹斑斑",
+          "brewery": "Corporate Ladder",
+          "style": "甜点酸艾尔 (草莓奶油芝士)",
+          "abv": 6.5,
+          "ibu": null,
+          "price": 110,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 15,
+          "rawText": "回头客|美国\nABV:5.4% 300ml ¥90\n果味满满34号\n水果酸艾尔(蓝莓 桃子)\nJust Fruit (Blueberry, Peach)\nFruited Sour Ale\nFrequentem | US",
+          "beerName": "果味满满34号",
+          "brewery": "Frequentem",
+          "style": "水果酸艾尔 (蓝莓 桃子)",
+          "abv": 5.4,
+          "ibu": null,
+          "price": 90,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 16,
+          "rawText": "托克索沃|俄罗斯\nABV:4.6% 425ml ¥85\n埃莱特柠檬外星人\n西打(苹果柠檬)\nLemon&Alien\nCider\nToksovo Cidrerie | RUS",
+          "beerName": "埃莱特柠檬外星人",
+          "brewery": "Toksovo Cidrerie",
+          "style": "西打 (苹果柠檬)",
+          "abv": 4.6,
+          "ibu": null,
+          "price": 85,
+          "serving": "425ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 17,
+          "rawText": "凯西|美国\nABV:5.5% 300ml ¥115\n塞松\n农舍塞松\nSaison\nFarmhouse Saison\nCasey | US",
+          "beerName": "塞松",
+          "brewery": "Casey",
+          "style": "农舍塞松",
+          "abv": 5.5,
+          "ibu": null,
+          "price": 115,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        },
+        {
+          "menuIndex": 18,
+          "rawText": "阿蒙森|挪威\nABV:11.5% 300ml ¥85\n甜甜圈波士顿奶油\n帝国甜点世涛\nDONUT SERIES 2.0\nImperial Pastry Stout\nAmundsen | NO",
+          "beerName": "甜甜圈波士顿奶油",
+          "brewery": "Amundsen",
+          "style": "帝国甜点世涛",
+          "abv": 11.5,
+          "ibu": null,
+          "price": 85,
+          "serving": "300ml",
+          "packagingDate": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    "visualQuality": {
+      "canAssess": true,
+      "visualRiskFlags": [
+        "date_not_visible",
+        "low_confidence"
+      ],
+      "oxidationRisk": "unknown",
+      "freshnessRisk": "high",
+      "lightstrikeRisk": "unknown",
+      "evidence": [
+        "The image is a tap list, so visual assessment of the beer itself is not possible.",
+        "One beer (item 10) has a canning date of 5/20, but the current date is unknown, making freshness assessment difficult without more context.",
+        "Many IPAs are listed, which are generally sensitive to freshness."
+      ],
+      "caveat": "This is a tap list, so direct visual assessment of the beer's quality (oxidation, foam, clarity) is not possible. Freshness risk for IPAs is based on the general nature of the style and the presence of one visible canning date without knowing the current date."
+    },
+    "enrichment": [
+      {
+        "name": "糯香淡艾",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 55,
+        "volumeMl": 425,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "年轻领主",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 60,
+        "volumeMl": 425,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "乘风破浪-水晶酒花版",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 80,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "随身携带",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 90,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "查博斯53",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 100,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "蜜瓜龙2.0-发酵罐直达",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 55,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "深空查博斯",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 110,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "查博斯",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 130,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "电光酒花",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 100,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "如鲠在喉",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 145,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "一镑嗦粉",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 115,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "一样一样的",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 90,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "奢华冰冻池塘",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 100,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "血迹斑斑",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 110,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "果味满满34号",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 90,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "埃莱特柠檬外星人",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 85,
+        "volumeMl": 425,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "塞松",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 115,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      },
+      {
+        "name": "甜甜圈波士顿奶油",
+        "untappdScore": null,
+        "ratingCount": null,
+        "untappdUrl": null,
+        "originBenchmark": null,
+        "savingsVsOrigin": null,
+        "pricingBasis": null,
+        "verified": false,
+        "price": 85,
+        "volumeMl": 300,
+        "breweryCountry": null,
+        "found": false
+      }
+    ]
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": true,
+    "warnings": [
+      "reply_mentions_no_candidates",
+      "high_abv_candidate: 电光酒花 (8.5%)",
+      "high_abv_candidate: 一样一样的 (10%)",
+      "high_abv_candidate: 奢华冰冻池塘 (9%)",
+      "high_abv_candidate: 甜甜圈波士顿奶油 (11.5%)"
+    ]
+  }
+}

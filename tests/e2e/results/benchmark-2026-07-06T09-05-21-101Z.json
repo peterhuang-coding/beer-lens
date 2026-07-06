@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T09:05:21.104Z",
+  "visionModel": "qwen/qwen2.5-vl-72b-instruct:free",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 6004,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "OpenRouter 404: {\"error\":{\"message\":\"This model is unavailable for free. The paid version is available now - use this slug instead: qwen/qwen2.5-vl-72b-instruct\",\"code\":404},\"user_id\":\"user_2zP1vL1UQdBUXC4kUmAiXf352y",
+      "durationMs": 6004
+    }
+  ]
+}

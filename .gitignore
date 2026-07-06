@@ -1,0 +1,12 @@
+.env
+.env.local
+.env.*.local
+node_modules
+.next
+data/runs
+data/beer_cache.json
+data/beer_journal.json
+data/beer_profile.md
+data/feishu_conversations.json
+*.tsbuildinfo
+

@@ -1,0 +1,57 @@
+{
+  "traceId": "trace_1782736628752_y55pk6",
+  "userId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "channel": "feishu",
+  "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "turnId": "om_x100b6b1221d308bcc2c8eee7af94dbc",
+  "timestamp": "2026-06-29T12:37:08.755Z",
+  "input": {
+    "messageCount": 25,
+    "lastUserText": "我现在要去喝酒",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intent": "follow_up_filter",
+    "confidence": 0.82,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "Rule matched: follow_up_filter (confidence 0.82)",
+    "source": "rule"
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 4,
+      "hasLastRecommendation": true,
+      "activeBeerName": "他说,观察和学习 / CLAG WATCH AND LEARN HE SAYS"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "follow_up_filter"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n2. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n3. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n\n最稳：赫卡特交叉口 / Hecate's Crossroads\n最值得尝新：赫卡特交叉口 / Hecate's Crossroads\n我会先跳过：赫卡特交叉口 / Hecate's Crossroads\n\n如果只能喝一杯，选 赫卡特交叉口 / Hecate's Crossroads。",
+    "candidateCount": 4,
+    "topPickId": "11"
+  },
+  "errors": [],
+  "debug": {
+    "route": "follow_up_filter",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned",
+      "high_abv_candidate: 他说,观察和学习 / CLAG WATCH AND LEARN HE SAYS (9.5%)",
+      "high_abv_candidate: 圣博祥窖藏2022 / Saint Bon-Chien 2022 (11%)",
+      "missing_data_rating_mentioned"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "config": {
+    "orchestrator": {
+      "traceEnabled": false,
+      "memoryEnabled": true
+    },
+    "intent-classifier": {
+      "ruleConfidenceThreshold": 0.7,
+      "multiIntentGap": 0.15,
+      "llmFallbackModel": "openai/gpt-4o-mini"
+    },
+    "monitor": {
+      "flushIntervalMs": 30000,
+      "transferThreshold": 3
+    },
+    "profile-tags": {
+      "guessConfidenceThreshold": 0.6
+    },
+    "guardrails": {
+      "maxWarnings": 10
+    }
+  },
+  "intentEngine": {
+    "template": "custom",
+    "steps": [
+      {
+        "id": "query_rewrite",
+        "label": "Query改写",
+        "order": 1,
+        "enabled": true
+      },
+      {
+        "id": "sample_match",
+        "label": "样本匹配",
+        "order": 2,
+        "enabled": true
+      },
+      {
+        "id": "regex_match",
+        "label": "意图正则表达式匹配",
+        "order": 3,
+        "enabled": true
+      },
+      {
+        "id": "candidate_recall",
+        "label": "候选召回",
+        "order": 4,
+        "enabled": true
+      },
+      {
+        "id": "llm_recognize",
+        "label": "大模型识别",
+        "order": 5,
+        "enabled": true
+      },
+      {
+        "id": "similarity_match",
+        "label": "意图相似度匹配",
+        "order": 6,
+        "enabled": true
+      }
+    ],
+    "recallThreshold": 0.85,
+    "matchThreshold": 0.85,
+    "contextTurns": 7,
+    "models": {
+      "rewriteModel": "queryRewrite-test",
+      "rewritePrompt": "",
+      "intentModel": "google/gemini-2.5-flash",
+      "intentPrompt": "",
+      "vectorModel": "text-embedding-3-small",
+      "vectorPrompt": ""
+    }
+  },
+  "models": {
+    "vision": "google/gemini-2.5-flash",
+    "analysis": "openai/gpt-4o-mini",
+    "chat": "openai/gpt-4o-mini",
+    "intent": "openai/gpt-4o-mini"
+  },
+  "greetings": {
+    "welcome": "你好！我是 Beer Lens。拍张酒单，我帮你选今晚最值得喝的那杯。",
+    "farewell": "喝得开心！下次再聊。",
+    "noImagePrompt": "请发一张酒单照片给我，或者直接告诉我酒名，我帮你推荐。",
+    "errorFallback": "抱歉，处理你的请求时出错了。请再试一次。"
+  },
+  "intentOverrides": []
+}

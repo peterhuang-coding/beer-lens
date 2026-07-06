@@ -1,0 +1,60 @@
+{
+  "traceId": "trace_1782735053373_k73w4u",
+  "userId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "channel": "feishu",
+  "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "turnId": "om_x100b6b12425c50b4b4c124112f80ee7",
+  "timestamp": "2026-06-29T12:11:21.286Z",
+  "input": {
+    "messageCount": 15,
+    "lastUserText": "给我推荐 IPA",
+    "hasImage": true,
+    "imageName": "img_v3_02134_d484f5ee-a26c-46a5-82c0-c136b64cfe9g.jpg",
+    "imageType": "image/jpeg"
+  },
+  "intentResult": {
+    "intent": "menu_recommend",
+    "confidence": 0.95,
+    "slots": {
+      "beerName": "IPA",
+      "style": "ipa"
+    },
+    "missingInfo": [],
+    "routeReason": "Rule matched: menu_recommend (confidence 0.95)",
+    "source": "rule"
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 2,
+      "hasLastRecommendation": true,
+      "activeBeerName": "® ABV:11.5% 300ml ¥OO"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n2. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n3. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n\n最稳：® ABV:11.5% 300ml ¥OO\n最值得尝新：® ABV:11.5% 300ml ¥OO\n我会先跳过：® ABV:11.5% 300ml ¥OO\n\n如果只能喝一杯，选 ® ABV:11.5% 300ml ¥OO。",
+    "candidateCount": 2,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": true,
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  }
+}

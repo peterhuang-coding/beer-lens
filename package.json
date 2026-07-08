@@ -10,6 +10,12 @@
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:agent": "node scripts/run-agent-regression.mjs",
+    "raw:crawl": "node scripts/crawl-raw-sources.mjs",
+    "raw:tasks": "node scripts/generate-raw-tasks.mjs",
+    "raw:export": "node scripts/export-raw-dataset.mjs",
+    "raw:collect": "node scripts/collect-queries.mjs",
+    "raw:cron": "node scripts/raw-cron.mjs",
     "benchmark:images": "node tests/e2e/run-image-benchmark.mjs"
   },
   "dependencies": {

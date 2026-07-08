@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#1a1a2e" rx="8"/>
+  <rect x="40" y="20" width="320" height="260" rx="10" fill="#16213e"/>
+  <text x="200" y="55" text-anchor="middle" font-size="18" font-weight="bold" fill="#e8c840" font-family="Arial">BEER TAP LIST</text>
+  <line x1="60" y1="70" x2="340" y2="70" stroke="#e8c84044" stroke-width="1"/>
+  <text x="60" y="100" font-size="14" fill="#e0d8c8" font-family="Arial">🍺 Pliney the Elder - 8.0%</text>
+  <text x="60" y="130" font-size="14" fill="#e0d8c8" font-family="Arial">🍺 Heady Topper - 8.0%</text>
+  <text x="60" y="160" font-size="14" fill="#e0d8c8" font-family="Arial">🍺 Julius - 6.8%</text>
+  <text x="60" y="190" font-size="14" fill="#e0d8c8" font-family="Arial">🍺 KBS Stout - 12.0%</text>
+  <text x="60" y="220" font-size="14" fill="#e0d8c8" font-family="Arial">🍺 Fou Foune - 5.0%</text>
+  <text x="60" y="250" font-size="14" fill="#e0d8c8" font-family="Arial">🍺 West Coast IPA - 7.0%</text>
+</svg>

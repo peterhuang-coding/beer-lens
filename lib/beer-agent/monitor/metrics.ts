@@ -54,6 +54,23 @@ let _successCount = 0;
 let _unclearStreak = 0; // consecutive unclear intents
 let _transferSuggestedCount = 0;
 
+// Memory AB counters
+let _memoryEnabledTurns = 0;
+let _memoryDisabledTurns = 0;
+let _memoryUsedInScoringCount = 0;
+let _memoryCorrectionCount = 0;
+let _profileConfidenceSum = 0;
+let _profileConfidenceSamples = 0;
+let _tastingEpisodeCount = 0;
+
+// Planner-specific counters
+let _plannerTotal = 0;
+let _plannerSuccess = 0;
+let _plannerFailed = 0;
+let _plannerFallback = 0;
+let _plannerTotalSteps = 0;
+const _plannerToolFailures: Record<string, number> = {};
+
 // Per-intent distribution
 const _intentDist: Record<string, number> = {};
 const _handlerErrors: Record<string, number> = {};
@@ -117,6 +134,56 @@ export function resetUnclearStreak(): void {
   _unclearStreak = 0;
 }
 
+// ── Memory AB recording functions ──
+
+export function recordMemoryReadEnabled(): void {
+  _memoryEnabledTurns++;
+}
+
+export function recordMemoryReadDisabled(): void {
+  _memoryDisabledTurns++;
+}
+
+export function recordMemoryUsedInScoring(): void {
+  _memoryUsedInScoringCount++;
+}
+
+export function recordMemoryCorrection(): void {
+  _memoryCorrectionCount++;
+}
+
+export function recordProfileConfidence(confidence: number): void {
+  _profileConfidenceSum += confidence;
+  _profileConfidenceSamples++;
+}
+
+export function recordTastingEpisode(): void {
+  _tastingEpisodeCount++;
+}
+
+// ── Planner recording functions ──
+
+export function recordPlannerStart(): void {
+  _plannerTotal++;
+}
+
+export function recordPlannerEnd(
+  success: boolean,
+  stepCount: number,
+  toolFailures: Record<string, number>,
+): void {
+  if (success) _plannerSuccess++;
+  else _plannerFailed++;
+  _plannerTotalSteps += stepCount;
+  for (const [tool, count] of Object.entries(toolFailures)) {
+    _plannerToolFailures[tool] = (_plannerToolFailures[tool] ?? 0) + count;
+  }
+}
+
+export function recordPlannerFallback(): void {
+  _plannerFallback++;
+}
+
 // ── Snapshot & persistence ──
 
 export function getMetricsSnapshot(): MetricsSnapshot {
@@ -135,6 +202,17 @@ export function getMetricsSnapshot(): MetricsSnapshot {
     { name: "knowledge.hit_rate", value: _beerDbLookups > 0 ? _beerDbHits / _beerDbLookups : 0, unit: "ratio" },
     { name: "guardrail.block_rate", value: _turnCount > 0 ? _guardrailBlockCount / _turnCount : 0, unit: "ratio" },
     { name: "transfer.human_suggestions", value: _transferSuggestedCount, unit: "count" },
+    { name: "memory.enabled.turns", value: _memoryEnabledTurns, unit: "turns" },
+    { name: "memory.disabled.turns", value: _memoryDisabledTurns, unit: "turns" },
+    { name: "memory.used_in_scoring.count", value: _memoryUsedInScoringCount, unit: "count" },
+    { name: "memory.correction.count", value: _memoryCorrectionCount, unit: "count" },
+    { name: "profile.confidence.avg", value: _profileConfidenceSamples > 0 ? _profileConfidenceSum / _profileConfidenceSamples : 0, unit: "ratio" },
+    { name: "tasting_episode.count", value: _tastingEpisodeCount, unit: "count" },
+    { name: "planner.total", value: _plannerTotal, unit: "turns" },
+    { name: "planner.success", value: _plannerSuccess, unit: "turns" },
+    { name: "planner.failed", value: _plannerFailed, unit: "turns" },
+    { name: "planner.fallback", value: _plannerFallback, unit: "turns" },
+    { name: "planner.avg_steps", value: _plannerTotal > 0 ? Math.round(_plannerTotalSteps / _plannerTotal) : 0, unit: "steps" },
   ];
 
   return {

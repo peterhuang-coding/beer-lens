@@ -12,6 +12,8 @@ const CONFIG_PATH = path.join(process.cwd(), "data", "pipeline-config.json");
 type PipelineConfig = {
   config?: Record<string, Record<string, any>>;
   intentOverrides?: Array<{ regex: string; intent: string; note?: string }>;
+  prompts?: Record<string, { id: string; name: string; content: string; version: number; updatedAt: string; note: string }>;
+  models?: Record<string, string | { provider: string; model: string; temperature: number; maxTokens: number; timeoutMs: number }>;
 };
 
 let _configCache: PipelineConfig | null = null;
@@ -41,26 +43,53 @@ async function llmClassify(
   ctx: IntentContext,
 ): Promise<IntentResult> {
   const hasImage = ctx.hasImage;
+  const pipelineConfig = await loadPipelineConfig();
 
-  const intentNames = "menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | unclear";
+  // Resolve model from config (new rich format or old string)
+  const modelConfig = pipelineConfig.models?.["intent"];
+  let model: string;
+  let temperature = 0;
+  let maxTokens = 300;
+  if (modelConfig && typeof modelConfig === "object" && (modelConfig as any).model) {
+    const mc = modelConfig as { model: string; temperature?: number; maxTokens?: number };
+    model = mc.model;
+    temperature = mc.temperature ?? 0;
+    maxTokens = mc.maxTokens ?? 300;
+  } else if (typeof modelConfig === "string") {
+    model = modelConfig;
+  } else {
+    model = pipelineConfig.config?.["intent-classifier"]?.["llmFallbackModel"] ?? "openai/gpt-4o-mini";
+  }
 
-  const prompt = `你是 Beer Lens 意图识别器。只输出 JSON。
+  // Resolve prompt from config
+  const promptCfg = pipelineConfig.prompts?.["intent_classify"];
+  const promptTemplate = promptCfg?.content ??
+    `你是 Beer Lens 意图识别器。只输出 JSON。
 
-用户输入：${text}
-有图片：${hasImage}
-有上一轮酒单：${ctx.hasLastMenuCandidates}
+用户输入：{text}
+有图片：{hasImage}
+有上一轮酒单：{hasLastMenuCandidates}
 
-意图类型：${intentNames}
+意图类型：menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | follow_up_filter | unclear
+
+注意：follow_up_filter 只在有上一轮酒单（hasLastMenuCandidates=true）时才可选。
 
 返回：
 {"intents":[{"intent":"beer_knowledge","confidence":0.82}],"primary":"beer_knowledge","slots":{},"missingInfo":[],"routeReason":"LLM classification","source":"llm","isMultiIntent":false}`;
 
+  const intentNames = "menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | follow_up_filter | unclear";
+
+  const prompt = promptTemplate
+    .replace(/\{text\}/g, text)
+    .replace(/\{hasImage\}/g, String(hasImage))
+    .replace(/\{hasLastMenuCandidates\}/g, String(ctx.hasLastMenuCandidates));
+
   try {
     const raw = await openrouterFetch({
-      model: "openai/gpt-4o-mini",
+      model,
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 300,
-      temperature: 0,
+      max_tokens: maxTokens,
+      temperature,
     });
 
     const jsonStart = raw.indexOf("{");
@@ -134,7 +163,10 @@ export async function classifyIntent(
 
   // ── If no rule/sample match, fall back to LLM ──
   if (result.source === "no_match") {
-    return llmClassify(text, context);
+    const llmResult = await llmClassify(text, context);
+    // Merge diagnosis from registry into LLM result
+    llmResult.diagnosis = result.diagnosis;
+    return llmResult;
   }
 
   // ── Extract slots from primary intent ──
@@ -155,8 +187,9 @@ export async function classifyIntent(
     missingInfo: [],
     routeReason: result.isMultiIntent
       ? `Multi-intent: ${intents.map(i => `${i.intent}(${(i.confidence*100).toFixed(0)}%)`).join(", ")}`
-      : `${result.source} match: ${result.primary} (${(result.matched[0]?.confidence ?? 0 * 100).toFixed(0)}%)`,
+      : `${result.source} match: ${result.primary} (${((result.matched[0]?.confidence ?? 0) * 100).toFixed(0)}%)`,
     source: result.source === "override" || result.source === "sample" ? "rule" : result.source as "rule" | "llm" | "fallback",
     isMultiIntent: result.isMultiIntent,
+    diagnosis: result.diagnosis,
   };
 }

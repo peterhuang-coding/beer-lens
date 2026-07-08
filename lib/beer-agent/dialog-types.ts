@@ -17,6 +17,7 @@ export type IntentContext = {
 /** Known built-in intent ids. The system supports dynamic registration of custom intents. */
 export const KNOWN_INTENTS = [
   "menu_recommend",
+  "follow_up_filter",
   "tasting_feedback",
   "profile_query",
   "beer_knowledge",
@@ -37,6 +38,25 @@ export type IntentItem = {
   slots: Record<string, unknown>;
 };
 
+/** Detailed diagnosis of intent classification for debugging badcases. */
+export type IntentDiagnosis = {
+  matchedRules: Array<{ intentId: string; ruleId: string; confidence: number; pattern: string }>;
+  matchedSamples: Array<{ intentId: string; score: number; sampleText: string }>;
+  negativeRulesHit: Array<{ intentId: string; ruleId: string; pattern: string }>;
+  contextSignals: {
+    hasImage: boolean;
+    hasActiveMenu: boolean;
+    turnsSinceMenu: number;
+    activeMenuCandidateCount: number;
+    hasTastingHistory: boolean;
+  };
+  threshold: number;
+  fallbackReason?: string;
+  finalDecisionReason: string;
+  candidateScores: Array<{ intentId: string; label: string; score: number; source: string; reason: string }>;
+  ruleTrace: Array<{ intentId: string; ruleId: string; type: string; matched: boolean; confidence?: number; reason: string }>;
+};
+
 export type IntentResult = {
   /** All matched intents (when multiple rules fire with similar confidence) */
   intents: IntentItem[];
@@ -51,6 +71,7 @@ export type IntentResult = {
   source: "rule" | "llm" | "fallback";
   /** Whether this is a multi-intent match */
   isMultiIntent: boolean;
+  diagnosis?: IntentDiagnosis;
 };
 
 export type MemorySnapshot = {
@@ -79,6 +100,8 @@ export type DebugInfo = {
     chat?: string;
   };
   warnings?: string[];
+  /** Route diagnosis: selected handler, context check, tools, fallback info */
+  routeDiagnosis?: import("./route-registry").RouteDiagnosis;
 };
 
 export type TraceRecord = {
@@ -94,6 +117,7 @@ export type TraceRecord = {
     hasImage: boolean;
     imageName?: string;
     imageType?: string;
+    imageUrl?: string;
   };
   intentResult: IntentResult;
   memorySnapshot?: MemorySnapshot;
@@ -101,6 +125,8 @@ export type TraceRecord = {
   route: {
     handler: string;
     usedLegacyAgent?: string;
+    /** Route diagnosis: selected handler, context check, tools, fallback info */
+    diagnosis?: import("./route-registry").RouteDiagnosis;
   };
   output: {
     mode: string;
@@ -110,8 +136,44 @@ export type TraceRecord = {
     overallRating?: string;
   };
   stages?: Record<string, unknown>;
-  errors: Array<{ message: string; stack?: string }>;
+  errors: Array<{
+    message: string;
+    stack?: string;
+    /** Which LLM provider/model was used when the error occurred. */
+    model?: string;
+    provider?: string;
+    /** HTTP status code or error code from the provider. */
+    errorCode?: string;
+  }>;
   debug?: DebugInfo;
+  /** Planner trace data — only set when the planner was used. */
+  planner?: {
+    plan: {
+      id: string;
+      reason: string;
+      mode: string;
+      maxSteps: number;
+      steps: Array<{
+        id: string;
+        tool: string;
+        purpose: string;
+        status: string;
+        input: Record<string, unknown>;
+        output?: unknown;
+        error?: string;
+        startedAt?: string;
+        completedAt?: string;
+      }>;
+      finalAnswer?: string;
+    };
+    diagnostics: {
+      triggerReason: string;
+      selectedTools: string[];
+      missingContext: string[];
+      fallbackUsed: boolean;
+      model?: string;
+    };
+  };
 };
 
 export type BeerDialogRequest = {
@@ -133,7 +195,29 @@ export type BeerDialogResponse = AgentResponse & {
   intentResult: IntentResult;
   memoryDelta: MemoryDelta;
   debug?: DebugInfo;
+  /** Planner diagnostics — only set when the planner was used. */
+  planner?: {
+    used: boolean;
+    triggerReason: string;
+    fallbackUsed: boolean;
+    stepCount: number;
+    toolIds: string[];
+  };
 };
+
+/** Root cause classification for badcase diagnosis. */
+export type RootCause =
+  | "ocr"
+  | "intent"
+  | "beer_db"
+  | "recommendation"
+  | "prompt"
+  | "model"
+  | "memory"
+  | "guardrail"
+  | "planner"
+  | "tool_route"
+  | "unknown";
 
 export function generateTraceId(): string {
   const suffix = Math.random().toString(36).slice(2, 8);

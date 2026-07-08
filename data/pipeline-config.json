@@ -7,7 +7,7 @@
     "intent-classifier": {
       "ruleConfidenceThreshold": 0.7,
       "multiIntentGap": 0.15,
-      "llmFallbackModel": "openai/gpt-4o-mini"
+      "llmFallbackModel": "qwen/qwen-2.5-72b-instruct"
     },
     "monitor": {
       "flushIntervalMs": 30000,
@@ -73,10 +73,41 @@
     }
   },
   "models": {
-    "vision": "google/gemini-2.5-flash",
-    "analysis": "openai/gpt-4o-mini",
-    "chat": "openai/gpt-4o-mini",
-    "intent": "openai/gpt-4o-mini"
+    "vision": {
+      "provider": "openrouter",
+      "model": "qwen/qwen3-vl-8b-instruct",
+      "temperature": 0.1,
+      "maxTokens": 12000,
+      "timeoutMs": 60000
+    },
+    "analysis": {
+      "provider": "openrouter",
+      "model": "qwen/qwen-2.5-72b-instruct",
+      "temperature": 0.3,
+      "maxTokens": 2000,
+      "timeoutMs": 30000
+    },
+    "chat": {
+      "provider": "openrouter",
+      "model": "qwen/qwen-2.5-72b-instruct",
+      "temperature": 0.3,
+      "maxTokens": 2000,
+      "timeoutMs": 30000
+    },
+    "intent": {
+      "provider": "openrouter",
+      "model": "qwen/qwen-2.5-7b-instruct",
+      "temperature": 0,
+      "maxTokens": 300,
+      "timeoutMs": 10000
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small",
+      "temperature": 0,
+      "maxTokens": 512,
+      "timeoutMs": 10000
+    }
   },
   "greetings": {
     "welcome": "你好！我是 Beer Lens。拍张酒单，我帮你选今晚最值得喝的那杯。",
@@ -84,5 +115,224 @@
     "noImagePrompt": "请发一张酒单照片给我，或者直接告诉我酒名，我帮你推荐。",
     "errorFallback": "抱歉，处理你的请求时出错了。请再试一次。"
   },
-  "intentOverrides": []
+  "intentOverrides": [],
+  "prompts": {
+    "vision_ocr": {
+      "id": "vision_ocr",
+      "name": "Vision OCR 提示词",
+      "content": "你是啤酒图像分析器。一次完成以下三项任务，返回完整 JSON。\n\n## 任务1: imageContext — 图片分类\n判断图片类型：menu(酒单) / tap_list(酒头列表) / bottle(瓶) / can(罐) / glass(杯中酒) / venue(环境) / unknown\n\n## 任务2: extracted — 提取所有啤酒\n从图中抽取每款酒：beerName(酒名)、brewery(酒厂)、style(风格)、abv、ibu、price(元, 数字)、serving(容量, 如330ml)\n- 不确定就降低 confidence，不要编造\n- rawText 保留 OCR 原文\n\n## 任务3: visualQuality — 视觉质量风险\n- 杯中酒：氧化/老化迹象、泡沫、浑浊度\n- 瓶/罐：是否能看到日期、包装受损\n- 酒单/tap list：日期可见性、IPA 新鲜度风险\n- 只能说是\"疑似风险\"，不能下结论",
+      "version": 1,
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "note": "初始版本 - 三合一视觉分析 prompt"
+    },
+    "intent_classify": {
+      "id": "intent_classify",
+      "name": "意图分类提示词",
+      "content": "你是 Beer Lens 意图识别器。只输出 JSON。\n\n用户输入：{text}\n有图片：{hasImage}\n有上一轮酒单：{hasLastMenuCandidates}\n\n意图类型：menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | follow_up_filter | unclear\n\n注意：follow_up_filter 只在有上一轮酒单（hasLastMenuCandidates=true）时才可选。\n\n返回：\n{\"intents\":[{\"intent\":\"beer_knowledge\",\"confidence\":0.82}],\"primary\":\"beer_knowledge\",\"slots\":{},\"missingInfo\":[],\"routeReason\":\"LLM classification\",\"source\":\"llm\",\"isMultiIntent\":false}",
+      "version": 1,
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "note": "初始版本 - LLM intent fallback prompt"
+    },
+    "beer_knowledge": {
+      "id": "beer_knowledge",
+      "name": "啤酒知识回复提示词",
+      "content": "你是 Beer Lens，一个懂啤酒的 AI 助手。\n\n## 你的能力\n- 回答啤酒知识问题（风格、酒厂、酿造工艺）\n- 分析用户口味偏好\n- 讨论啤酒文化和品饮技巧\n\n## 用户画像\n{profileSummary}\n\n## 规则\n- 用中文回答，自然随意，像朋友聊天\n- 如果用户问风格/知识问题，直接用你的知识回答\n- 不要编造具体酒名，除非从上下文中已有信息\n- 如果没有足够信息，诚实说，不要编造",
+      "version": 1,
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "note": "初始版本 - beer knowledge handler system prompt"
+    },
+    "recommendation_reply": {
+      "id": "recommendation_reply",
+      "name": "推荐回复提示词",
+      "content": "你是 Beer Lens，一个懂啤酒、懂个人口味的推荐 agent。\n\n必须用中文回答。\n\nCRITICAL RULES:\n- 你只能从下面提供的 OCR 酒单中做推荐\n- topPickId/safePickId/explorePickId/avoidPickId 必须是 OCR 酒单里的 menuIndex 数字（转为字符串）\n- reply 写一句中文推荐语，不要编造酒名\n\n用户画像：\n{profile}",
+      "version": 1,
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "note": "初始版本 - recommendation system prompt"
+    },
+    "guardrail": {
+      "id": "guardrail",
+      "name": "护栏规则描述",
+      "content": "# Guardrail Rules\n\n1. 候选酒名检查 - reply 中提及的酒名必须在 candidates 中\n2. 评分来源验证 - 提及的评分必须与 Untappd 数据一致\n3. 低置信度标记 - OCR confidence < 0.6 时标记\n4. 高 ABV 提醒 - ABV > 8% 时提醒\n5. 数据缺失检查 - 无评分数据时不能编造评分",
+      "version": 1,
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "note": "初始版本 - guardrail rules reference"
+    },
+    "memory_extract": {
+      "id": "memory_extract",
+      "name": "记忆提取提示词",
+      "content": "从对话中提取以下信息：\n- 用户偏好风格\n- 评分记录\n- 口味标签\n- 上下文约束（预算、场合等）",
+      "version": 1,
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "note": "初始版本 - memory extraction prompt placeholder"
+    },
+    "planner_generate": {
+      "id": "planner_generate",
+      "name": "Planner 计划生成提示词",
+      "content": "你是 Beer Lens 规划器。根据用户请求和上下文，生成一个结构化的多步执行计划。\n\n用户输入：{text}\n意图：{intent}\n有图片：{hasImage}\n有多意图：{isMultiIntent}\n有用户画像：{hasProfile}\n\n可用工具：\n- classify_intent: 意图分类\n- retrieve_memory: 检索用户画像/偏好/趋势\n- search_beer_db: 搜索啤酒数据库\n- score_recommendations: 评分推荐\n- update_profile_correction: 更新用户偏好纠正\n- ask_clarifying_question: 生成追问\n- compose_answer: 汇总生成最终回复\n\n规则：\n1. 最多 4 步\n2. 必须有 classify_intent 作为第一步\n3. 必须有 compose_answer 作为最后一步\n4. 只能在上述工具中选择\n5. 如果信息不足，使用 ask_clarifying_question\n\n输出 JSON：\n{\"steps\":[{\"tool\":\"classify_intent\",\"purpose\":\"...\",\"input\":{}}, ...],\"reason\":\"...\"}",
+      "version": 1,
+      "updatedAt": "2026-07-07T00:00:00.000Z",
+      "note": "Initial placeholder for planner LLM generation; disabled in v1."
+    }
+  },
+  "tools": {
+    "vision_pipeline": {
+      "id": "vision_pipeline",
+      "name": "视觉分析流水线",
+      "enabled": true,
+      "timeoutMs": 30000,
+      "retry": 1,
+      "notes": "包含图片分类 + OCR + 视觉质量检查三合一"
+    },
+    "beer_db_lookup": {
+      "id": "beer_db_lookup",
+      "name": "啤酒数据库查询",
+      "enabled": true,
+      "timeoutMs": 10000,
+      "retry": 2,
+      "notes": "SQLite 查询 + Untappd 缓存"
+    },
+    "recommendation_scoring": {
+      "id": "recommendation_scoring",
+      "name": "推荐评分引擎",
+      "enabled": true,
+      "timeoutMs": 5000,
+      "retry": 1,
+      "notes": "worthScore + fitScore 双维度评分"
+    },
+    "memory_profile": {
+      "id": "memory_profile",
+      "name": "记忆与画像",
+      "enabled": true,
+      "timeoutMs": 5000,
+      "retry": 1,
+      "notes": "短期记忆 + 品饮记录 + 口味画像聚合"
+    },
+    "guardrails": {
+      "id": "guardrails",
+      "name": "后置护栏",
+      "enabled": true,
+      "timeoutMs": 3000,
+      "retry": 0,
+      "notes": "5条规则检查 + 超过阈值拦截"
+    }
+  },
+  "memoryExperiment": {
+    "enabled": true,
+    "memoryReadEnabled": true,
+    "memoryWriteEnabled": true,
+    "abMode": "hash",
+    "enabledRatio": 1,
+    "salt": "beer-lens-memory-ab-v1",
+    "notes": "Memory experiment plumbing is enabled; ratio=1 keeps existing behavior until AB testing is intentionally started."
+  },
+  "planner": {
+    "enabled": true,
+    "maxSteps": 6,
+    "defaultMaxSteps": 4,
+    "llmGenerationEnabled": false,
+    "notes": "Rule-based planner v1. LLM plan generation stays off until eval coverage is ready."
+  },
+  "routes": [
+    {
+      "intent": "menu_recommend",
+      "handler": "handleMenuRecommend",
+      "requiredContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "priority": 10,
+      "fallbackReply": "请发一张酒单照片，或者直接告诉我酒名，我帮你推荐。",
+      "enabled": true,
+      "notes": "拍酒单推荐：图片走 vision_pipeline；纯文字推荐也允许直接进入 handler。"
+    },
+    {
+      "intent": "follow_up_filter",
+      "handler": "handleFollowUpFilter",
+      "requiredContext": [
+        "lastMenu"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "priority": 12,
+      "fallbackIntent": "menu_recommend",
+      "fallbackReply": "我现在没有上一张酒单上下文，你发一下酒单或告诉我酒名，我再帮你筛。",
+      "enabled": true,
+      "notes": "酒单追问：基于 short-term memory 中上轮酒单候选做过滤/重排。"
+    },
+    {
+      "intent": "label_check",
+      "handler": "handleLabelCheck",
+      "requiredContext": [
+        "hasImage"
+      ],
+      "requiredTools": [
+        "vision_pipeline"
+      ],
+      "priority": 15,
+      "fallbackReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "enabled": true,
+      "notes": "酒标检查：有图片时走 vision model 识别酒名、日期、新鲜度。"
+    },
+    {
+      "intent": "tasting_feedback",
+      "handler": "handleTastingFeedback",
+      "requiredContext": [
+        "activeBeer"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "priority": 20,
+      "fallbackReply": "你说的是哪一款酒？可以告诉我序号（比如第3个）或者酒名，我帮你记录。",
+      "enabled": true,
+      "notes": "品饮反馈：解析评分、是否再喝、风味标签，写入长期记忆。"
+    },
+    {
+      "intent": "profile_query",
+      "handler": "handleProfileQuery",
+      "requiredContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "priority": 25,
+      "fallbackReply": "你还没有品饮记录，先喝几杯再告诉我感受，我就能帮你分析口味画像了。",
+      "enabled": true,
+      "notes": "画像查询：读取偏好风格、标签、ABV 区间与趋势。"
+    },
+    {
+      "intent": "beer_knowledge",
+      "handler": "handleBeerKnowledge",
+      "requiredContext": [],
+      "requiredTools": [],
+      "priority": 35,
+      "fallbackReply": "抱歉，回答这个问题时出错了。请再试一次。",
+      "enabled": true,
+      "notes": "啤酒知识：纯 LLM 回答，不编造酒名。"
+    },
+    {
+      "intent": "memory_correction",
+      "handler": "handleMemoryCorrection",
+      "requiredContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "priority": 40,
+      "fallbackReply": "我不太确定你想纠正什么。你可以说“我其实喜欢酸啤”来帮我调整口味画像。",
+      "enabled": true,
+      "notes": "记忆纠正：解析纠正意图，写入 corrections，重建 profile。"
+    },
+    {
+      "intent": "unclear",
+      "handler": "handleUnclear",
+      "requiredContext": [],
+      "requiredTools": [],
+      "priority": 99,
+      "fallbackReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "enabled": true,
+      "notes": "意图不明：追问澄清。"
+    }
+  ]
 }

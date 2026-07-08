@@ -8,6 +8,8 @@ export type HandlerContext = {
   secondaryIntents?: IntentItem[];
   /** Whether this turn was triggered by a multi-intent match */
   isMultiIntent?: boolean;
+  /** Errors caught by handler internally (non-thrown fallbacks) */
+  handlerErrors?: Array<{ message: string; model?: string; stack?: string }>;
 };
 
 export type IntentHandler = (

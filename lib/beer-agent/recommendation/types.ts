@@ -25,6 +25,10 @@ export type ScoredCandidate = {
   rating?: number | null;
   ratingsCount?: number | null;
   source?: string;
+  // structured reasons (3 categories)
+  objectiveReasons?: string[];
+  personalReasons?: string[];
+  riskReasons?: string[];
 };
 
 export type PickResult = {

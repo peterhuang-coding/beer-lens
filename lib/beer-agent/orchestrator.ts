@@ -22,6 +22,9 @@ import {
   applyPostprocessGuards,
   type PostprocessContext,
 } from "@/lib/beer-agent/postprocess/guardrails";
+import type { AgentResponse } from "@/lib/beer-agent/types";
+import type { HandlerContext } from "@/lib/beer-agent/handler-types";
+import { OpenRouterError } from "@/lib/beer-agent/openrouter-client";
 
 // ── Monitoring (side-channel) ──
 import {
@@ -32,9 +35,19 @@ import {
   recordBeerDbLookup,
   recordGuardrailBlock,
   recordUnclearIntent,
+  recordPlannerEnd,
+  recordPlannerFallback,
+  recordPlannerStart,
   resetUnclearStreak,
   startMetricsFlush,
 } from "@/lib/beer-agent/monitor/metrics";
+
+// ── Planner Runtime ──
+import { shouldUsePlanner, generateRulePlan } from "@/lib/beer-agent/planner/planner";
+import { runPlanner, planResultToResponse } from "@/lib/beer-agent/planner/runner";
+import { createRegistry } from "@/lib/beer-agent/planner/tools";
+import { attachPlannerTrace } from "@/lib/beer-agent/planner/trace";
+import { DEFAULT_PLANNER_CONFIG, type PlannerConfig } from "@/lib/beer-agent/planner/types";
 
 // ── Long-term memory & guess ──
 import { buildLongTermMemory } from "@/lib/beer-agent/memory/long-term";
@@ -48,9 +61,39 @@ const CONFIG_PATH = path.join(process.cwd(), "data", "pipeline-config.json");
 
 type PipelineConfig = {
   config?: Record<string, Record<string, any>>;
-  models?: Record<string, string>;
+  /** Old-style: simple model name strings (backward-compatible) */
+  models?: Record<string, string | ModelConfig>;
   greetings?: Record<string, string>;
   intentOverrides?: Array<{ regex: string; intent: string; note?: string }>;
+  prompts?: Record<string, PromptConfig>;
+  tools?: Record<string, ToolConfig>;
+  planner?: PlannerConfig;
+};
+
+export type ModelConfig = {
+  provider: string;
+  model: string;
+  temperature: number;
+  maxTokens: number;
+  timeoutMs: number;
+};
+
+export type PromptConfig = {
+  id: string;
+  name: string;
+  content: string;
+  version: number;
+  updatedAt: string;
+  note: string;
+};
+
+export type ToolConfig = {
+  id: string;
+  name: string;
+  enabled: boolean;
+  timeoutMs: number;
+  retry: number;
+  notes: string;
 };
 
 let _configCache: PipelineConfig | null = null;
@@ -68,11 +111,20 @@ async function loadConfig(): Promise<PipelineConfig> {
   }
 }
 
-/** Get a model name from config, falling back to env var or default */
+/** Get a model name from config, falling back to env var or default.
+ *  Supports both old-style string ("openai/gpt-4o-mini") and
+ *  new-style rich object ({ provider, model, temperature, maxTokens, timeoutMs }). */
 export async function getModel(kind: "vision" | "analysis" | "chat" | "intent"): Promise<string> {
   const cfg = await loadConfig();
   const fromConfig = cfg.models?.[kind];
-  if (fromConfig) return fromConfig;
+  if (fromConfig) {
+    // New-style rich config object
+    if (typeof fromConfig === "object" && (fromConfig as ModelConfig).model) {
+      return (fromConfig as ModelConfig).model;
+    }
+    // Old-style plain string
+    if (typeof fromConfig === "string") return fromConfig;
+  }
 
   // Fall back to env vars
   const envMap: Record<string, string | undefined> = {
@@ -84,10 +136,77 @@ export async function getModel(kind: "vision" | "analysis" | "chat" | "intent"):
   return envMap[kind] ?? "openai/gpt-4o-mini";
 }
 
+/** Get full ModelConfig (provider, model, temperature, maxTokens, timeoutMs).
+ *  Falls back to sensible defaults when config is old-style string or missing. */
+export async function getModelConfig(kind: "vision" | "analysis" | "chat" | "intent" | "embedding"): Promise<ModelConfig> {
+  const cfg = await loadConfig();
+  const fromConfig = cfg.models?.[kind];
+
+  const defaults: Record<string, ModelConfig> = {
+    vision:    { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 30000 },
+    analysis:  { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+    chat:      { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+    intent:    { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0,   maxTokens: 300,   timeoutMs: 10000 },
+    embedding: { provider: "openai",     model: "text-embedding-3-small", temperature: 0,   maxTokens: 512,   timeoutMs: 10000 },
+  };
+
+  if (fromConfig && typeof fromConfig === "object" && (fromConfig as ModelConfig).model) {
+    return fromConfig as ModelConfig;
+  }
+  if (typeof fromConfig === "string" && fromConfig) {
+    return { ...defaults[kind], model: fromConfig };
+  }
+  return defaults[kind];
+}
+
+/** Get a prompt config by id, with fallback */
+export async function getPrompt(id: string, fallbackContent: string): Promise<PromptConfig> {
+  const cfg = await loadConfig();
+  const fromConfig = cfg.prompts?.[id];
+  if (fromConfig) return fromConfig;
+  return {
+    id,
+    name: id,
+    content: fallbackContent,
+    version: 1,
+    updatedAt: new Date().toISOString(),
+    note: "default fallback",
+  };
+}
+
+/** Get a tool config by id, with fallback */
+export async function getTool(id: string): Promise<ToolConfig> {
+  const cfg = await loadConfig();
+  const fromConfig = cfg.tools?.[id];
+  if (fromConfig) return fromConfig;
+  return {
+    id,
+    name: id,
+    enabled: true,
+    timeoutMs: 10000,
+    retry: 1,
+    notes: "",
+  };
+}
+
 /** Get a greeting string from config */
 export async function getGreeting(key: string, fallback: string): Promise<string> {
   const cfg = await loadConfig();
   return cfg.greetings?.[key] ?? fallback;
+}
+
+/** Load planner config from pipeline-config.json with safe defaults. */
+async function getPlannerConfig(): Promise<PlannerConfig> {
+  const cfg = await loadConfig();
+  const plannerCfg = cfg.planner ?? (cfg.config?.planner as Partial<PlannerConfig> | undefined);
+  if (!plannerCfg || typeof plannerCfg !== "object") return DEFAULT_PLANNER_CONFIG;
+  return {
+    enabled: plannerCfg.enabled ?? DEFAULT_PLANNER_CONFIG.enabled,
+    maxSteps: plannerCfg.maxSteps ?? DEFAULT_PLANNER_CONFIG.maxSteps,
+    defaultMaxSteps: plannerCfg.defaultMaxSteps ?? DEFAULT_PLANNER_CONFIG.defaultMaxSteps,
+    llmGenerationEnabled:
+      plannerCfg.llmGenerationEnabled ?? DEFAULT_PLANNER_CONFIG.llmGenerationEnabled,
+  };
 }
 
 // Start periodic metrics flush
@@ -174,30 +293,138 @@ export async function runBeerDialogTurn(
     profileSummary,
   };
 
-  // ── Dispatch to intent handler ──
+  // ── Debug info (mutable — route/planner/guardrails enrich it) ──
+  const debug: DebugInfo = {
+    route: intentResult.intent,
+    usedLegacyAgent: undefined,
+    hasImage: !!request.image,
+    warnings: [],
+  };
+
+  // Populate active model names from config for trace diagnostics
+  getModelConfig("vision").then((mc) => {
+    if (!debug.modelNames) debug.modelNames = {};
+    debug.modelNames.vision = mc.model;
+  }).catch(() => {});
+  getModelConfig("analysis").then((mc) => {
+    if (!debug.modelNames) debug.modelNames = {};
+    debug.modelNames.analysis = mc.model;
+  }).catch(() => {});
+  getModelConfig("chat").then((mc) => {
+    if (!debug.modelNames) debug.modelNames = {};
+    debug.modelNames.chat = mc.model;
+  }).catch(() => {});
+
+  // ── Dispatch to intent handler or Planner ──
   let agentResponse;
   let handlerError = false;
-  try {
-    agentResponse = await dispatchByIntent(request, intentResult, {
+  let handlerErrors: Array<{ message: string; stack?: string; model?: string; provider?: string; errorCode?: string }> = [];
+  let plannerUsed = false;
+  let plannerFallbackUsed = false;
+  let plannerStepCount = 0;
+  let plannerToolIds: string[] = [];
+  let plannerReason = "";
+
+  const runHandler = async () => {
+    const handlerContext: HandlerContext = {
       traceId,
       memorySnapshot,
-    });
-  } catch (err) {
-    handlerError = true;
-    recordHandlerError(intentResult.intent);
-    console.warn(`[orchestrator] handler "${intentResult.intent}" threw:`, err);
-    agentResponse = {
-      mode: "recommend" as const,
-      reply: "抱歉，处理你的请求时出错了。请再试一次。",
-      candidates: [],
-      picks: {
-        topPick: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
-        safePick: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
-        explorePick: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
-        avoidOrCaution: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
-      },
-      profileSummary: "",
     };
+    try {
+      const response = await dispatchByIntent(request, intentResult, handlerContext);
+      // Collect handler-internal errors (non-thrown fallbacks)
+      if (handlerContext.handlerErrors && handlerContext.handlerErrors.length > 0) {
+        for (const he of handlerContext.handlerErrors) {
+          handlerErrors.push(he);
+        }
+      }
+      return response;
+    } catch (err) {
+      handlerError = true;
+      recordHandlerError(intentResult.intent);
+      const errInfo = err instanceof OpenRouterError
+        ? { model: err.model, provider: err.provider, errorCode: err.errorCode }
+        : {};
+      handlerErrors.push({
+        message: err instanceof Error ? err.message : String(err),
+        stack: err instanceof Error ? err.stack : undefined,
+        ...errInfo,
+      });
+      console.warn(`[orchestrator] handler "${intentResult.intent}" threw:`, err);
+      return {
+        mode: "recommend" as const,
+        reply: "抱歉，处理你的请求时出错了。请再试一次。",
+        candidates: [],
+        picks: {
+          topPick: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
+          safePick: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
+          explorePick: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
+          avoidOrCaution: { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 },
+        },
+        profileSummary: "",
+      };
+    }
+  };
+
+  const plannerConfig = await getPlannerConfig();
+  const plannerDecision = plannerConfig.enabled
+    ? shouldUsePlanner(intentResult, context)
+    : { usePlanner: false, reason: "planner disabled" };
+
+  if (plannerDecision.usePlanner) {
+    try {
+      plannerUsed = true;
+      plannerReason = plannerDecision.reason;
+      debug.route = "planner";
+      recordPlannerStart();
+
+      const toolRegistry = createRegistry();
+      const plan = generateRulePlan(
+        plannerDecision.reason,
+        {
+          intentResult,
+          intentContext: context,
+          memorySnapshot,
+          request,
+          traceId,
+        },
+        Math.min(plannerConfig.defaultMaxSteps, plannerConfig.maxSteps),
+      );
+
+      const plannerResult = await runPlanner(plan, toolRegistry, {
+        intentResult,
+        intentContext: context,
+        memorySnapshot,
+        request,
+        traceId,
+      });
+
+      plannerFallbackUsed = plannerResult.fallback;
+      plannerStepCount = plannerResult.plan.steps.length;
+      plannerToolIds = plannerResult.plan.diagnostics.selectedTools;
+
+      const toolFailures = plannerResult.plan.steps.reduce<Record<string, number>>(
+        (acc, step) => {
+          if (step.status === "failed") acc[step.tool] = (acc[step.tool] ?? 0) + 1;
+          return acc;
+        },
+        {},
+      );
+      recordPlannerEnd(plannerResult.success, plannerStepCount, toolFailures);
+      if (plannerResult.fallback) recordPlannerFallback();
+
+      agentResponse = planResultToResponse(plannerResult, traceId);
+    } catch (err) {
+      plannerFallbackUsed = true;
+      handlerError = true;
+      recordPlannerFallback();
+      recordHandlerError("planner");
+      console.warn("[orchestrator] planner failed, falling back to handler:", err);
+      agentResponse = await runHandler();
+      debug.route = intentResult.intent;
+    }
+  } else {
+    agentResponse = await runHandler();
   }
 
   // ── Inject profile tag guess into reply (when appropriate) ──
@@ -247,12 +474,17 @@ export async function runBeerDialogTurn(
   };
 
   // ── Debug info ──
-  const debug: DebugInfo = {
-    route: intentResult.intent,
-    usedLegacyAgent: undefined,
-    hasImage: !!request.image,
-    warnings: [...guarded.warnings],
-  };
+  debug.warnings = [...guarded.warnings];
+  debug.routeDiagnosis = agentResponse.routeDiagnosis;
+  if (plannerUsed) {
+    (debug as DebugInfo & { planner?: unknown }).planner = {
+      used: true,
+      triggerReason: plannerReason,
+      fallbackUsed: plannerFallbackUsed,
+      stepCount: plannerStepCount,
+      toolIds: plannerToolIds,
+    };
+  }
 
   // ── Build full response (using guarded reply in case it was blocked) ──
   const response: BeerDialogResponse = {
@@ -266,6 +498,15 @@ export async function runBeerDialogTurn(
     intentResult,
     memoryDelta,
     debug,
+    planner: plannerUsed
+      ? {
+          used: true,
+          triggerReason: plannerReason,
+          fallbackUsed: plannerFallbackUsed,
+          stepCount: plannerStepCount,
+          toolIds: plannerToolIds,
+        }
+      : undefined,
   };
 
   // ── Monitoring: record end ──
@@ -285,12 +526,14 @@ export async function runBeerDialogTurn(
       hasImage: !!request.image,
       imageName: request.image?.name,
       imageType: request.image?.type,
+      imageUrl: request.image?.dataUrl,
     },
     intentResult,
     memorySnapshot,
     memoryDelta,
     route: {
-      handler: intentResult.intent,
+      handler: plannerUsed ? "planner" : intentResult.intent,
+      diagnosis: agentResponse.routeDiagnosis,
     },
     output: {
       mode: agentResponse.mode,
@@ -299,16 +542,25 @@ export async function runBeerDialogTurn(
       topPickId: agentResponse.picks?.topPick?.candidateId,
     },
     stages: agentResponse.stages ?? undefined,
-    errors: [],
+    errors: handlerErrors,
     debug,
   };
+
+  if (plannerUsed && agentResponse.stages?.planner) {
+    const plannerStage = agentResponse.stages.planner as {
+      plan?: import("@/lib/beer-agent/planner/types").Plan;
+    };
+    if (plannerStage.plan) {
+      attachPlannerTrace(traceRecord, plannerStage.plan);
+    }
+  }
 
   // Fire and forget — trace write failure must not affect the main response
   writeTrace(traceRecord).catch((err) => {
     console.warn("[orchestrator] trace write failed:", err);
   });
 
-  // Auto-create a case record for every turn (VQA analysis)
+  // Auto-create a case record for every turn (raw data analysis)
   createCaseFromTrace(traceRecord).catch((err) => {
     console.warn("[orchestrator] case creation failed:", err);
   });

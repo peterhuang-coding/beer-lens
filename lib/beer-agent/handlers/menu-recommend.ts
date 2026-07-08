@@ -1,15 +1,38 @@
 import type { BeerDialogRequest } from "@/lib/beer-agent/dialog-types";
 import type { HandlerContext } from "@/lib/beer-agent/handler-types";
-import type { AgentResponse, BeerCandidate, Pick } from "@/lib/beer-agent/types";
+import type { AgentResponse, BeerCandidate, Pick, RecommendationDiagnosis } from "@/lib/beer-agent/types";
 import { emptyPicks } from "@/lib/beer-agent/handler-types";
 import { lookupBeers, enrichCandidates } from "@/lib/beer-agent/beer-db/pipeline";
 import type { BeerLookupResult, EnrichInput } from "@/lib/beer-agent/beer-db/pipeline";
 import { getProfileMemory } from "@/lib/beer-agent/memory/profile";
+import { isMemoryReadEnabled } from "@/lib/beer-agent/memory/memory-experiment";
 import { readShortTermMemory } from "@/lib/beer-agent/memory/short-term";
+import {
+  recordMemoryReadDisabled,
+  recordMemoryReadEnabled,
+  recordMemoryUsedInScoring,
+  recordProfileConfidence,
+} from "@/lib/beer-agent/monitor/metrics";
 import { scoreCandidates } from "@/lib/beer-agent/recommendation/scoring";
 import { selectPicks } from "@/lib/beer-agent/recommendation/pick-selector";
 import { buildRecommendationReply } from "@/lib/beer-agent/recommendation/reply-builder";
 import type { ScoredCandidate } from "@/lib/beer-agent/recommendation/types";
+
+async function getProfileForScoring(userId: string) {
+  const memoryEnabled = await isMemoryReadEnabled(userId);
+  if (!memoryEnabled) {
+    recordMemoryReadDisabled();
+    return { profile: null, memoryEnabled };
+  }
+
+  recordMemoryReadEnabled();
+  const profile = await getProfileMemory(userId).catch(() => null);
+  if (profile) {
+    recordMemoryUsedInScoring();
+    recordProfileConfidence(profile.confidence ?? 0);
+  }
+  return { profile, memoryEnabled };
+}
 
 // ── Text extraction ──
 
@@ -37,6 +60,8 @@ function isGenericRecommendRequest(text: string): boolean {
     /^今天喝什么/,
     /^喝什么.*好/,
     /^想喝.*清爽/,
+    /想喝.*清爽/,
+    /想喝.*不苦/,
     /^想喝点/,
     /^有什么.*推荐/,
     /^帮我看看.*酒单/,
@@ -67,6 +92,20 @@ function extractBeerSegments(text: string): string[] {
     });
 }
 
+function genericRecommendationQueries(text: string): string[] {
+  const queries: string[] = [];
+  if (/west\s*coast\s*ipa|西海岸\s*IPA/i.test(text)) queries.push("West Coast IPA");
+  if (/hazy\s*ipa|浑浊\s*IPA/i.test(text)) queries.push("Hazy IPA");
+  if (/IPA|ipa/i.test(text)) queries.push("IPA");
+  if (/拉格|lager|皮尔森|pils/i.test(text)) queries.push("Lager");
+  if (/世涛|stout/i.test(text)) queries.push("Stout");
+  if (/酸|sour|gose/i.test(text)) queries.push("Sour");
+  if (/小麦|wheat|白啤|wit/i.test(text)) queries.push("Wheat Beer");
+  if (/清爽|不苦|淡|light/i.test(text)) queries.push("Pilsner", "Session IPA");
+  if (/烈|重口|帝国|double|imperial/i.test(text)) queries.push("Imperial Stout", "Double IPA");
+  return [...new Set(queries)].slice(0, 4);
+}
+
 // ── Candidate construction ──
 
 /**
@@ -74,12 +113,12 @@ function extractBeerSegments(text: string): string[] {
  *   1. Calling batchLookupBeers on all queries
  *   2. Merging results with the original query names
  */
-async function resolveBeerCandidates(queries: string[]): Promise<ScoredCandidate[]> {
-  if (queries.length === 0) return [];
+async function resolveBeerCandidates(queries: string[]): Promise<{ candidates: ScoredCandidate[]; lookupResults: BeerLookupResult[] }> {
+  if (queries.length === 0) return { candidates: [], lookupResults: [] };
 
   const results = await lookupBeers(queries);
 
-  return queries.map((raw, i) => {
+  const candidates = queries.map((raw, i) => {
     const result: BeerLookupResult | undefined = results[i];
     const data = result?.data;
     const found = result?.found === true && data != null;
@@ -102,6 +141,8 @@ async function resolveBeerCandidates(queries: string[]): Promise<ScoredCandidate
       source: found ? data!.source : undefined,
     };
   });
+
+  return { candidates, lookupResults: results };
 }
 
 // ── Conversion to AgentResponse types ──
@@ -125,6 +166,9 @@ function scoredToBeerCandidate(scored: ScoredCandidate): BeerCandidate {
     volumeMl: scored.volumeMl,
     untappdScore: scored.rating,
     untappdRatingCount: scored.ratingsCount,
+    objectiveReasons: scored.objectiveReasons,
+    personalReasons: scored.personalReasons,
+    riskReasons: scored.riskReasons,
   };
 }
 
@@ -144,13 +188,72 @@ function pickToPick(p: {
   };
 }
 
+// ── Diagnosis builder ──
+
+function buildDiagnosis(
+  scored: ScoredCandidate[],
+  lookupResults: BeerLookupResult[] | null,
+  profile: unknown | null,
+  constraints: string[],
+  topPickReason: string,
+  pipelineStages?: Record<string, unknown>,
+): RecommendationDiagnosis {
+  const dbLookupCount = lookupResults?.length ?? 0;
+  const dbHitCount = lookupResults?.filter(r => r.found).length ?? 0;
+
+  const dataMissingCount = scored.filter(c =>
+    (c.rating == null || c.rating <= 0) ||
+    !c.style || c.style.trim() === "" ||
+    !c.brewery || c.brewery.trim() === "" ||
+    c.abv <= 0
+  ).length;
+
+  const allRiskFlags = [...new Set(scored.flatMap(c => c.riskFlags))];
+
+  const scoringInputs = scored.map(c => ({
+    candidateId: c.candidateId,
+    displayName: c.displayName,
+    rating: c.rating ?? null,
+    ratingsCount: c.ratingsCount ?? null,
+    worthScore: c.worthScore,
+    fitScore: c.fitScore,
+    scoringWeights: {
+      base: 50,
+      ratingBonus: (c.rating ?? 0) > 0 ? Math.round(c.rating! * 20 * (c.ratingsCount && c.ratingsCount <= 10 ? 0.7 : 1) - 50) : 0,
+      priceBonus: 0,
+      abvPenalty: c.abv > 10 ? -10 : c.abv > 8 ? -5 : 0,
+      missingDataPenalty: ((!c.style || c.style.trim() === "" ? 1 : 0) + (!c.brewery || c.brewery.trim() === "" ? 1 : 0) + (c.abv <= 0 ? 1 : 0)) * -5,
+      profileFitBonus: 0,
+      constraintBonus: 0,
+    },
+  }));
+
+  return {
+    ocrCandidateCount: scored.length,
+    dbLookupCount,
+    dbHitCount,
+    dataMissingCount,
+    scoringInputs,
+    topPickReason,
+    riskFlags: allRiskFlags,
+    memoryUsed: profile != null,
+    constraintsUsed: constraints,
+    pipelineStages: pipelineStages ? {
+      imageContext: pipelineStages.imageContext,
+      extractedCount: pipelineStages.extractedCount as number | undefined,
+      visualQuality: pipelineStages.visualQuality,
+      enrichmentLog: pipelineStages.enrichment as unknown[] | undefined,
+    } : undefined,
+  };
+}
+
 // ── Image pipeline integration ──
 // Bridges the vision pipeline (OCR + enrichment) output into ScoredCandidate[]
 // for the new recommendation engine.
 
 async function runImagePipelineAndScore(
   request: BeerDialogRequest,
-): Promise<{ candidates: BeerCandidate[]; picks: AgentResponse["picks"]; reply: string; stages?: Record<string, unknown> }> {
+): Promise<{ candidates: BeerCandidate[]; picks: AgentResponse["picks"]; reply: string; stages?: Record<string, unknown>; diagnosis: RecommendationDiagnosis }> {
   // Dynamic import to avoid circular dependency
   const { runImagePipeline } = await import("@/lib/beer-agent/provider");
   const { getProfileSummary } = await import("@/lib/beer-agent/profile");
@@ -193,13 +296,30 @@ async function runImagePipelineAndScore(
   }));
 
   // Score candidates using the new recommendation engine
-  const profile = await getProfileMemory(request.userId).catch(() => null);
+  const { profile, memoryEnabled } = await getProfileForScoring(request.userId);
   const stm = await readShortTermMemory(request.conversationId).catch(() => null);
   const constraints = stm?.currentConstraints ?? [];
-  const scored = scoreCandidates(scoredCandidates, profile, constraints);
+  const scored = scoreCandidates(scoredCandidates, profile, constraints, memoryEnabled);
   const picks = selectPicks(scored);
   const reply = buildRecommendationReply(picks, scored);
   const candidates = scored.map(scoredToBeerCandidate);
+
+  // Build diagnosis
+  const diagnosis = buildDiagnosis(
+    scored,
+    null, // image pipeline doesn't use batchLookup
+    profile,
+    constraints,
+    picks.topPick.reason,
+    pipelineResult.stages,
+  );
+  // Override ocrCandidateCount with actual OCR count from pipeline
+  const enrichmentLog = pipelineResult.stages?.enrichment as unknown[] | undefined;
+  diagnosis.ocrCandidateCount = Array.isArray(enrichmentLog) ? enrichmentLog.length : scored.length;
+  diagnosis.dbLookupCount = Array.isArray(enrichmentLog) ? enrichmentLog.length : scored.length;
+  diagnosis.dbHitCount = Array.isArray(enrichmentLog)
+    ? enrichmentLog.filter((e: any) => e?.found === true).length
+    : 0;
 
   return {
     candidates,
@@ -211,6 +331,7 @@ async function runImagePipelineAndScore(
     },
     reply,
     stages: pipelineResult.stages,
+    diagnosis,
   };
 }
 
@@ -312,7 +433,7 @@ async function handleFollowUp(
   }
 
   const userText = request.messages.at(-1)?.content ?? "";
-  const profile = await getProfileMemory(request.userId).catch(() => null);
+  const { profile, memoryEnabled } = await getProfileForScoring(request.userId);
 
   // Convert menu candidates to ScoredCandidate[]
   const scored: ScoredCandidate[] = menuCandidates.map((c, i) => ({
@@ -353,10 +474,18 @@ async function handleFollowUp(
     };
   }
 
-  const scored2 = scoreCandidates(filtered, profile, constraints);
+  const scored2 = scoreCandidates(filtered, profile, constraints, memoryEnabled);
   const picks = selectPicks(scored2);
   const reply = buildRecommendationReply(picks, scored2);
   const candidates = scored2.map(scoredToBeerCandidate);
+
+  const diagnosis = buildDiagnosis(
+    scored2,
+    null,
+    profile,
+    constraints,
+    picks.topPick.reason,
+  );
 
   return {
     mode: "recommend",
@@ -369,6 +498,7 @@ async function handleFollowUp(
       avoidOrCaution: pickToPick(picks.avoidOrCaution),
     },
     profileSummary: profile?.summary ?? "",
+    diagnosis,
   };
 }
 
@@ -398,6 +528,7 @@ export async function handleMenuRecommend(
         picks: result.picks,
         profileSummary: context.memorySnapshot?.profileSummary ?? "",
         stages: result.stages,
+        diagnosis: result.diagnosis,
       };
     } catch (err) {
       console.warn("[menu-recommend] image pipeline error:", err);
@@ -413,17 +544,12 @@ export async function handleMenuRecommend(
 
   // ── Text-only mode ──
   try {
-    if (isGenericRecommendRequest(lastUserText)) {
-      return {
-        mode: "recommend",
-        reply: "我可以帮你根据口味推荐啤酒！请先发一张酒单照片（图片清晰最准），或者直接告诉我具体酒名，我帮你对比评分和口感。你想喝什么风格？IPA？拉格？世涛？",
-        candidates: [],
-        picks: emptyPicks(),
-        profileSummary: "",
-      };
-    }
-
-    const candidateQueries = extractBeerSegments(lastUserText);
+    const genericQueries = isGenericRecommendRequest(lastUserText)
+      ? genericRecommendationQueries(lastUserText)
+      : [];
+    const candidateQueries = genericQueries.length > 0
+      ? genericQueries
+      : extractBeerSegments(lastUserText);
 
     if (candidateQueries.length === 0 && lastUserText.trim().length >= 2) {
       candidateQueries.push(lastUserText.trim());
@@ -439,15 +565,29 @@ export async function handleMenuRecommend(
       };
     }
 
-    const scoredCandidates = await resolveBeerCandidates(candidateQueries);
-    const profile = await getProfileMemory(request.userId).catch(() => null);
+    const { candidates: scoredCandidates, lookupResults } = await resolveBeerCandidates(candidateQueries);
+    const { profile, memoryEnabled } = await getProfileForScoring(request.userId);
     const stm = await readShortTermMemory(request.conversationId).catch(() => null);
     const constraints = stm?.currentConstraints ?? [];
-    const scored = scoreCandidates(scoredCandidates, profile, constraints);
+    const scored = scoreCandidates(scoredCandidates, profile, constraints, memoryEnabled);
     const picks = selectPicks(scored);
-    const reply = buildRecommendationReply(picks, scored);
+    const constraintEcho = [
+      /清爽/.test(lastUserText) ? "清爽" : "",
+      /苦|不苦|太苦/.test(lastUserText) ? "不太苦" : "",
+    ].filter(Boolean).join("、");
+    const reply = genericQueries.length > 0
+      ? `按你${constraintEcho ? `想要${constraintEcho}，` : "的需求，"}给你推荐这几款：\n\n${buildRecommendationReply(picks, scored)}`
+      : buildRecommendationReply(picks, scored);
     const candidates = scored.map(scoredToBeerCandidate);
     const profileSummary = profile?.summary ?? "";
+
+    const diagnosis = buildDiagnosis(
+      scored,
+      lookupResults,
+      profile,
+      constraints,
+      picks.topPick.reason,
+    );
 
     return {
       mode: "recommend",
@@ -460,6 +600,7 @@ export async function handleMenuRecommend(
         avoidOrCaution: pickToPick(picks.avoidOrCaution),
       },
       profileSummary,
+      diagnosis,
     };
   } catch (err) {
     console.warn("[menu-recommend] handler error:", err);

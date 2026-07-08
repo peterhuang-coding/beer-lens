@@ -1,4 +1,35 @@
 import { openrouterFetch } from "./openrouter-client";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
+// ── Config helpers (inlined to avoid circular imports) ──
+
+const CONFIG_PATH = path.join(process.cwd(), "data", "pipeline-config.json");
+
+type ModelConfig = { provider: string; model: string; temperature: number; maxTokens: number; timeoutMs: number };
+
+async function loadConfig(): Promise<any> {
+  try {
+    const raw = await readFile(CONFIG_PATH, "utf8");
+    return JSON.parse(raw);
+  } catch { return {}; }
+}
+
+async function getModelConfig(kind: string): Promise<ModelConfig> {
+  const cfg = await loadConfig();
+  const fromConfig = cfg.models?.[kind];
+  const defaults: Record<string, ModelConfig> = {
+    vision:    { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 30000 },
+    analysis:  { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+  };
+  if (fromConfig && typeof fromConfig === "object" && fromConfig.model) {
+    return fromConfig as ModelConfig;
+  }
+  if (typeof fromConfig === "string" && fromConfig) {
+    return { ...defaults[kind], model: fromConfig };
+  }
+  return defaults[kind];
+}
 
 // ── Progress callback ──
 
@@ -136,8 +167,10 @@ export async function runMultiStagePipeline(params: {
   onProgress?: ProgressCallback;
 }): Promise<PipelineResult> {
   const { apiKey, imageDataUrl, userText, profile, onProgress } = params;
-  const visionModel = process.env.OPENROUTER_VISION_MODEL ?? "google/gemini-2.5-flash";
-  const analysisModel = process.env.OPENROUTER_ANALYSIS_MODEL ?? process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini";
+  const visionCfg = await getModelConfig("vision");
+  const analysisCfg = await getModelConfig("analysis");
+  const visionModel = visionCfg.model;
+  const analysisModel = analysisCfg.model;
 
   const emit = onProgress ?? (() => {});
 

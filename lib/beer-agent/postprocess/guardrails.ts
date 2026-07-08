@@ -42,7 +42,16 @@ export async function applyPostprocessGuards(
   const { intentResult, candidates } = context;
   let { reply } = response;
   const pipelineConfig = await getConfig();
-  const maxWarnings = pipelineConfig?.config?.["guardrails"]?.["maxWarnings"] ?? 10;
+
+  // Read maxWarnings from either old path (config.guardrails.maxWarnings) or new tools config
+  let maxWarnings = pipelineConfig?.config?.["guardrails"]?.["maxWarnings"] ?? 10;
+  const toolsGuardrails = pipelineConfig?.tools?.["guardrails"];
+  if (toolsGuardrails) {
+    // If guardrails tool is explicitly disabled, still run checks but never block
+    if (toolsGuardrails.enabled === false) {
+      maxWarnings = Number.MAX_SAFE_INTEGER;
+    }
+  }
 
   // ── Rule 1: Candidate reference check ──
   // For recommendation intents, check that the reply references at least

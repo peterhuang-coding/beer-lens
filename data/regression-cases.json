@@ -1,0 +1,448 @@
+[
+  {
+    "id": "reg_001",
+    "name": "推荐一款IPA",
+    "inputText": "推荐一款IPA",
+    "conversationId": "recommend-ipa",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "ipa", "text-only"],
+    "note": "Basic recommendation request for IPA style"
+  },
+  {
+    "id": "reg_002",
+    "name": "想喝清爽不苦的（follow_up_filter）",
+    "inputText": "想喝清爽不苦的",
+    "conversationId": "recommend-crisp",
+    "userId": "regression-user",
+    "tags": ["recommend", "preference", "text-only", "filter"],
+    "note": "\"不苦\" triggers follow_up_filter, not recommend — actual behavior"
+  },
+  {
+    "id": "reg_003",
+    "name": "推荐一款世涛",
+    "inputText": "推荐一款世涛",
+    "conversationId": "recommend-stout",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "stout", "text-only"],
+    "note": "Recommend stout style"
+  },
+  {
+    "id": "reg_004",
+    "name": "帮我推荐拉格",
+    "inputText": "帮我推荐拉格",
+    "conversationId": "recommend-lager",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "lager", "text-only"],
+    "note": "Recommend lager style"
+  },
+  {
+    "id": "reg_005",
+    "name": "推荐酸啤",
+    "inputText": "帮我推荐一款酸啤",
+    "conversationId": "recommend-sour",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "sour", "text-only"],
+    "note": "Recommend sour beer"
+  },
+  {
+    "id": "reg_006",
+    "name": "帮我推荐一款",
+    "inputText": "帮我推荐一款",
+    "conversationId": "recommend-generic",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "generic", "text-only"],
+    "note": "Generic recommendation without style"
+  },
+  {
+    "id": "reg_007",
+    "name": "今天喝什么好",
+    "inputText": "今天喝什么好",
+    "conversationId": "recommend-daily",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "daily", "text-only"],
+    "note": "Colloquial everyday recommendation ask"
+  },
+  {
+    "id": "reg_008",
+    "name": "想喝点烈的",
+    "inputText": "想喝点烈的",
+    "conversationId": "recommend-strong",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "strong", "text-only"],
+    "note": "Wants strong beer, triggers recommend via 想喝"
+  },
+  {
+    "id": "reg_009",
+    "name": "有什么好喝的啤酒",
+    "inputText": "有什么好喝的啤酒",
+    "conversationId": "recommend-whatsgood",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": ["recommend", "generic", "text-only"],
+    "note": "Generic what's good to drink"
+  },
+  {
+    "id": "reg_010",
+    "name": "有IPA吗（无上下文→unclear）",
+    "inputText": "有IPA吗",
+    "conversationId": "filter-ipa",
+    "userId": "regression-user",
+    "tags": ["filter", "ipa", "text-only", "needs-context"],
+    "note": "Follow-up filter without active menu context returns unclear — this is expected"
+  },
+  {
+    "id": "reg_011",
+    "name": "第3个怎么样",
+    "inputText": "第3个怎么样",
+    "conversationId": "filter-nth",
+    "userId": "regression-user",
+    "expectedIntent": "follow_up_filter",
+    "tags": ["filter", "pick", "text-only"],
+    "note": "Follow-up: ask about 3rd menu item (needs active menu context)"
+  },
+  {
+    "id": "reg_012",
+    "name": "有没有世涛",
+    "inputText": "有没有世涛",
+    "conversationId": "filter-stout",
+    "userId": "regression-user",
+    "expectedIntent": "follow_up_filter",
+    "tags": ["filter", "stout", "text-only"],
+    "note": "Follow-up filter: any stout available (needs active menu context)"
+  },
+  {
+    "id": "reg_013",
+    "name": "哪个不苦",
+    "inputText": "哪个不苦",
+    "conversationId": "filter-not-bitter",
+    "userId": "regression-user",
+    "expectedIntent": "follow_up_filter",
+    "tags": ["filter", "bitter", "text-only"],
+    "note": "Follow-up filter: which ones are not bitter (needs active menu context)"
+  },
+  {
+    "id": "reg_014",
+    "name": "第一个怎么样（无上下文→unclear）",
+    "inputText": "第一个怎么样",
+    "conversationId": "filter-1st",
+    "userId": "regression-user",
+    "tags": ["filter", "pick", "text-only"],
+    "note": "Follow-up: ask about 1st item without menu context returns unclear"
+  },
+  {
+    "id": "reg_015",
+    "name": "有没有酸啤（无上下文→unclear）",
+    "inputText": "有没有酸啤",
+    "conversationId": "filter-sour",
+    "userId": "regression-user",
+    "tags": ["filter", "sour", "text-only"],
+    "note": "Follow-up without active menu context returns unclear"
+  },
+  {
+    "id": "reg_016",
+    "name": "我给4.5分会再喝热带水果",
+    "inputText": "我给4.5分，会再喝，热带水果",
+    "conversationId": "tasting-full",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": ["4.5", "记录"],
+    "tags": ["tasting", "feedback", "text-only"],
+    "note": "Tasting feedback with score, would-drink-again, and flavor tags"
+  },
+  {
+    "id": "reg_017",
+    "name": "3.5分，不会再喝",
+    "inputText": "3.5分，不会再喝",
+    "conversationId": "tasting-low",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": ["3.5", "记录"],
+    "tags": ["tasting", "low-score", "text-only"],
+    "note": "Tasting feedback: low score, won't drink again"
+  },
+  {
+    "id": "reg_018",
+    "name": "4分",
+    "inputText": "4分",
+    "conversationId": "tasting-score-only",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": ["4", "记录"],
+    "tags": ["tasting", "score-only", "text-only"],
+    "note": "Tasting feedback: score only, no additional tags"
+  },
+  {
+    "id": "reg_019",
+    "name": "这杯不错，给4.5分",
+    "inputText": "这杯不错，给4.5分",
+    "conversationId": "tasting-good",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": ["4.5", "记录"],
+    "tags": ["tasting", "good", "text-only"],
+    "note": "Tasting feedback: positive rating"
+  },
+  {
+    "id": "reg_020",
+    "name": "2分，不会再喝，偏酸",
+    "inputText": "2分，不会再喝，偏酸",
+    "conversationId": "tasting-bad",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": ["2", "记录"],
+    "tags": ["tasting", "bad", "text-only"],
+    "note": "Tasting feedback: bad rating with reason"
+  },
+  {
+    "id": "reg_021",
+    "name": "会再喝，苦度刚好",
+    "inputText": "会再喝，苦度刚好",
+    "conversationId": "tasting-would-drink",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": ["记录"],
+    "tags": ["tasting", "would-drink", "text-only"],
+    "note": "Tasting feedback: would drink again without explicit score"
+  },
+  {
+    "id": "reg_022",
+    "name": "我的口味画像是什么",
+    "inputText": "我的口味画像是什么",
+    "conversationId": "profile-what",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "expectedKeywords": ["口味"],
+    "tags": ["profile", "query", "text-only"],
+    "note": "Profile query: asks about taste profile"
+  },
+  {
+    "id": "reg_023",
+    "name": "看看我的口味偏好",
+    "inputText": "看看我的口味偏好",
+    "conversationId": "profile-prefs",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "tags": ["profile", "preference", "text-only"],
+    "note": "Profile query: checks user preferences"
+  },
+  {
+    "id": "reg_024",
+    "name": "我喝过哪些酒",
+    "inputText": "我喝过哪些酒",
+    "conversationId": "profile-history",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "tags": ["profile", "history", "text-only"],
+    "note": "Profile query: asks about drinking history"
+  },
+  {
+    "id": "reg_025",
+    "name": "帮我看看口味画像",
+    "inputText": "帮我看看口味画像",
+    "conversationId": "profile-check",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "expectedKeywords": ["口味"],
+    "tags": ["profile", "query", "text-only"],
+    "note": "Profile query: polite request to see profile"
+  },
+  {
+    "id": "reg_026",
+    "name": "我不喜欢太苦的（无上下文→unclear）",
+    "inputText": "我不喜欢太苦的",
+    "conversationId": "correction-bitter",
+    "userId": "regression-user",
+    "tags": ["correction", "bitter", "text-only"],
+    "note": "Memory correction without active context — returns unclear, handled gracefully"
+  },
+  {
+    "id": "reg_027",
+    "name": "我不喜欢IPA（无上下文→unclear）",
+    "inputText": "我不喜欢IPA",
+    "conversationId": "correction-ipa",
+    "userId": "regression-user",
+    "tags": ["correction", "ipa", "text-only"],
+    "note": "Memory correction: user states dislike of IPA without context — returns unclear"
+  },
+  {
+    "id": "reg_028",
+    "name": "重置我的记录",
+    "inputText": "重置我的记录",
+    "conversationId": "correction-reset",
+    "userId": "regression-user",
+    "tags": ["correction", "reset", "text-only"],
+    "note": "Memory correction: reset request — returns profile_query currently"
+  },
+  {
+    "id": "reg_029",
+    "name": "清空我的偏好",
+    "inputText": "清空我的偏好",
+    "conversationId": "correction-clear-prefs",
+    "userId": "regression-user",
+    "tags": ["correction", "clear", "text-only"],
+    "note": "Memory correction: clear preferences — returns profile_query currently"
+  },
+  {
+    "id": "reg_030",
+    "name": "酒标检查（无图片→unclear）",
+    "inputText": "这瓶酒过期了吗",
+    "conversationId": "label-expiry",
+    "userId": "regression-user",
+    "tags": ["label", "expiry", "text-only"],
+    "note": "Label check without image returns unclear — expected, needs 图片输入"
+  },
+  {
+    "id": "reg_031",
+    "name": "生产日期检查（无图片→unclear）",
+    "inputText": "帮我看看这瓶酒的生产日期",
+    "conversationId": "label-date",
+    "userId": "regression-user",
+    "tags": ["label", "date", "text-only"],
+    "note": "Label check for date without image returns unclear — expected"
+  },
+  {
+    "id": "reg_032",
+    "name": "罐装啤酒检查（无图片→unclear）",
+    "inputText": "看看这罐啤酒",
+    "conversationId": "label-can",
+    "userId": "regression-user",
+    "tags": ["label", "can", "text-only"],
+    "note": "Label check for can without image returns unclear — expected"
+  },
+  {
+    "id": "reg_033",
+    "name": "什么是West Coast IPA",
+    "inputText": "什么是West Coast IPA",
+    "conversationId": "knowledge-wcipa",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": ["IPA"],
+    "tags": ["knowledge", "ipa", "text-only"],
+    "note": "Beer knowledge: what is West Coast IPA"
+  },
+  {
+    "id": "reg_034",
+    "name": "世涛和帝国世涛的区别",
+    "inputText": "世涛和帝国世涛的区别",
+    "conversationId": "knowledge-stout-vs-imperial",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": ["knowledge", "stout", "text-only"],
+    "note": "Beer knowledge: stout vs imperial stout"
+  },
+  {
+    "id": "reg_035",
+    "name": "IPA和拉格有什么区别",
+    "inputText": "IPA和拉格有什么区别",
+    "conversationId": "knowledge-ipa-vs-lager",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": ["IPA"],
+    "tags": ["knowledge", "comparison", "text-only"],
+    "note": "Beer knowledge: compare IPA and lager"
+  },
+  {
+    "id": "reg_036",
+    "name": "啤酒是怎么酿造的",
+    "inputText": "啤酒是怎么酿造的",
+    "conversationId": "knowledge-brewing",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": ["knowledge", "brewing", "text-only"],
+    "note": "Beer knowledge: how beer is brewed"
+  },
+  {
+    "id": "reg_037",
+    "name": "什么是新英格兰IPA",
+    "inputText": "什么是新英格兰IPA",
+    "conversationId": "knowledge-neipa",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": ["IPA"],
+    "tags": ["knowledge", "neipa", "text-only"],
+    "note": "Beer knowledge: what is New England IPA"
+  },
+  {
+    "id": "reg_038",
+    "name": "精酿和工业啤酒的区别",
+    "inputText": "精酿和工业啤酒的区别",
+    "conversationId": "knowledge-craft-vs-mass",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": ["knowledge", "craft", "text-only"],
+    "note": "Beer knowledge: craft vs mass-produced beer"
+  },
+  {
+    "id": "reg_039",
+    "name": "介绍一下酸啤风格",
+    "inputText": "介绍一下酸啤风格",
+    "conversationId": "knowledge-sour",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": ["knowledge", "sour", "text-only"],
+    "note": "Beer knowledge: intro to sour beer styles"
+  },
+  {
+    "id": "reg_040",
+    "name": "你好（模糊输入→unclear）",
+    "inputText": "你好",
+    "conversationId": "vague-hello",
+    "userId": "regression-user",
+    "tags": ["vague", "greeting", "text-only"],
+    "note": "Vague greeting — returns unclear, handled gracefully"
+  },
+  {
+    "id": "reg_041",
+    "name": "谢谢（模糊输入→unclear）",
+    "inputText": "谢谢",
+    "conversationId": "vague-thanks",
+    "userId": "regression-user",
+    "tags": ["vague", "thanks", "text-only"],
+    "note": "Vague thanks — returns unclear, handled gracefully"
+  },
+  {
+    "id": "reg_042",
+    "name": "帮我看看这个（模糊输入→unclear）",
+    "inputText": "帮我看看这个",
+    "conversationId": "vague-this",
+    "userId": "regression-user",
+    "tags": ["vague", "ambiguous", "text-only"],
+    "note": "Vague reference without image — returns unclear, handled gracefully"
+  },
+  {
+    "id": "reg_043",
+    "name": "什么是干投酒花",
+    "inputText": "什么是干投酒花",
+    "conversationId": "knowledge-dry-hop",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": ["knowledge", "dry-hop", "text-only"],
+    "note": "Beer knowledge: what is dry hopping"
+  },
+  {
+    "id": "reg_044",
+    "name": "IPA是什么",
+    "inputText": "IPA是什么",
+    "conversationId": "knowledge-what-is-ipa",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": ["IPA"],
+    "tags": ["knowledge", "ipa", "text-only"],
+    "note": "Beer knowledge: what does IPA mean"
+  }
+]

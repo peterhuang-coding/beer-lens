@@ -49,7 +49,7 @@ export async function POST(request: Request) {
 
     // Don't allow overwriting built-in intents via API
     const builtinIds = new Set([
-      "menu_recommend", "tasting_feedback", "profile_query",
+      "menu_recommend", "follow_up_filter", "tasting_feedback", "profile_query",
       "beer_knowledge", "label_check", "memory_correction", "unclear",
     ]);
     if (builtinIds.has(def.id)) {

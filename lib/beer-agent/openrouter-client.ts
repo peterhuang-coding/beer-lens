@@ -3,6 +3,19 @@ import { ProxyAgent, setGlobalDispatcher, getGlobalDispatcher } from "undici";
 let proxyInitialized = false;
 let proxyFailed = false;
 
+/** Structured error carrying model/provider/status for trace diagnostics. */
+export class OpenRouterError extends Error {
+  constructor(
+    message: string,
+    public readonly provider: string,
+    public readonly model: string,
+    public readonly errorCode: string,
+  ) {
+    super(message);
+    this.name = "OpenRouterError";
+  }
+}
+
 function initProxyOnce() {
   if (proxyInitialized) return;
   proxyInitialized = true;
@@ -41,6 +54,10 @@ export async function openrouterFetch(
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) throw new Error("OPENROUTER_API_KEY not configured");
 
+  // Extract model name from body for error diagnostics
+  const bodyModel = (body as Record<string, unknown>).model as string | undefined;
+  const modelName = options?.model ?? bodyModel ?? "unknown";
+
   const makeRequest = async () => {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -54,7 +71,13 @@ export async function openrouterFetch(
     });
 
     if (!response.ok) {
-      throw new Error(`OpenRouter ${response.status}: ${await response.text().catch(() => "unknown")}`);
+      const errorText = await response.text().catch(() => "unknown");
+      throw new OpenRouterError(
+        `OpenRouter ${response.status}: ${errorText}`,
+        "openrouter",
+        modelName,
+        String(response.status),
+      );
     }
 
     const result = (await response.json()) as {
@@ -69,6 +92,7 @@ export async function openrouterFetch(
   try {
     return await makeRequest();
   } catch (err) {
+    if (err instanceof OpenRouterError) throw err;
     const msg = err instanceof Error ? (err.message || "") : "";
     // If proxy connection refused, reset to direct and retry
     if (msg.includes("ECONNREFUSED") || msg.includes("fetch failed") || msg.includes("ProxyAgent")) {

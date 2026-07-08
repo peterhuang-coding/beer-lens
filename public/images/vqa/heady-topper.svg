@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#e8f0e8" rx="8"/>
+  <rect x="60" y="30" width="280" height="240" rx="12" fill="#2a8a2a"/>
+  <rect x="80" y="50" width="240" height="200" rx="8" fill="#4ab84a"/>
+  <text x="200" y="120" text-anchor="middle" font-size="22" font-weight="bold" fill="#fff" font-family="Arial">Heady Topper</text>
+  <text x="200" y="150" text-anchor="middle" font-size="16" fill="#e0f0e0" font-family="Arial">Double IPA</text>
+  <text x="200" y="180" text-anchor="middle" font-size="14" fill="#d0e8d0" font-family="Arial">The Alchemist</text>
+  <text x="200" y="210" text-anchor="middle" font-size="12" fill="#c0d8c0" font-family="Arial">ABV 8.0%</text>
+</svg>

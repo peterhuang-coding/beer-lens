@@ -15,7 +15,7 @@
  *   classify(text, ctx) → Priority 0: overrides → Priority 1: rules → Priority 2: samples → Priority 3: LLM
  */
 
-import type { BeerIntent, KNOWN_INTENTS } from "./dialog-types";
+import type { BeerIntent, KNOWN_INTENTS, IntentDiagnosis } from "./dialog-types";
 import { writeFile, mkdir } from "node:fs/promises";
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
@@ -36,6 +36,8 @@ export type IntentRule = {
   confidence: number;
   /** Whether this rule requires an image */
   requiresImage: boolean;
+  /** Whether this rule requires an active menu context */
+  requiresActiveMenu?: boolean;
   /** Optional: require specific context conditions */
   conditions?: RuleCondition[];
 };
@@ -90,34 +92,34 @@ export type IntentPrompt = {
   disambiguation: string;
 };
 
+/** Context condition — all conditions must be met for the intent to be eligible */
+export type ContextCondition = {
+  field: "hasActiveMenu" | "turnsSinceMenu" | "activeMenuCandidateCount" | "hasTastingHistory" | "episodeCount" | "hasImage";
+  op: "eq" | "gt" | "gte" | "lt" | "lte";
+  value: number | boolean;
+};
+
 /** Full intent definition */
 export type IntentDefinition = {
   id: BeerIntent;
-  /** Human-readable label (Chinese) */
   label: string;
-  /** Detailed description of what this intent handles */
   description: string;
-  /** Explicit priority (lower = higher priority). Default 50. */
   priority: number;
-  /** Rules — positive and negative regex patterns */
   rules: IntentRule[];
-  /** LLM boundary prompt — defines intent scope and disambiguation */
   prompt?: IntentPrompt;
-  /** Samples for few-shot matching */
   samples?: IntentSample[];
-  /** Slots to extract when this intent matches */
+  /** Negative samples — matching these decreases score */
+  negativeSamples?: IntentSample[];
+  /** Keywords that should explicitly NOT match this intent */
+  negativeKeywords?: string[];
+  /** Context conditions that must ALL be met for this intent to be eligible */
+  contextConditions?: ContextCondition[];
   slots?: SlotDefinition[];
-  /** Handler function name */
   handler: string;
-  /** Whether this intent can be triggered by image input */
   supportsImage: boolean;
-  /** Tags for categorization / filtering in UI */
   tags?: string[];
-  /** Whether this intent is enabled (can be toggled) */
   enabled?: boolean;
-  /** Version of this intent definition */
   version?: number;
-  /** When this intent was last modified */
   updatedAt?: string;
 };
 
@@ -131,6 +133,8 @@ export type IntentTestResult = {
   source: "override" | "rule" | "sample" | "llm" | "no_match";
   /** Detailed trace of every rule evaluation */
   trace: RuleTrace[];
+  /** Full diagnosis */
+  diagnosis: IntentDiagnosis;
 };
 
 export type IntentMatchDetail = {
@@ -179,9 +183,17 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
       },
       {
         id: "menu_text_recommend",
-        pattern: "推荐.*啤酒|推荐.*IPA|推荐.*拉格|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款",
+        pattern: "推荐.*啤酒|推荐.*IPA|推荐.*拉格|推荐.*世涛|推荐.*酸啤|推荐.*小麦|推荐.*波特|推荐.*皮尔森|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款",
         type: "positive",
         confidence: 0.90,
+        requiresImage: false,
+      },
+      // ── 直呼风格名（只说"推荐世涛"等精确匹配）──
+      {
+        id: "menu_style_direct",
+        pattern: "^推荐世涛$|^推荐酸啤$|^推荐小麦$|^推荐波特$|^推荐皮尔森$|^推荐烈性$|^推荐清淡$",
+        type: "positive",
+        confidence: 0.88,
         requiresImage: false,
       },
       // ── 意向性表达（模糊 → 推断为推荐意图）──
@@ -258,10 +270,10 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
     rules: [
       {
         id: "label_keywords",
-        pattern: "酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标",
+        pattern: "酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标",
         type: "positive",
         confidence: 0.95,
-        requiresImage: true,
+        requiresImage: false,
       },
       // Negative: if user is clearly asking for menu recommendation WITH an image
       {
@@ -416,6 +428,14 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         confidence: 0.85,
         requiresImage: false,
       },
+      // Reset/clear: user wants to clear/reset conversation context or memory
+      {
+        id: "correction_reset",
+        pattern: "清空|清除|重置|清掉|清一下|reset|clear",
+        type: "positive",
+        confidence: 0.85,
+        requiresImage: false,
+      },
       // Negative: too vague
       {
         id: "correction_not_vague",
@@ -440,6 +460,100 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
       { name: "beerName", label: "正确酒名", type: "string", pattern: "[A-Za-z一-鿿·\\- ]{2,30}" },
     ],
     handler: "handleMemoryCorrection",
+    supportsImage: false,
+  },
+
+  {
+    id: "follow_up_filter",
+    label: "追问过滤",
+    description: "有活跃酒单时，用户追问筛选（\"有IPA吗\"\"第3个怎么样\"\"哪个不苦\"）。无酒单时不触发。",
+    priority: 18,
+    contextConditions: [
+      { field: "hasActiveMenu", op: "eq", value: true },
+      { field: "turnsSinceMenu", op: "lt", value: 30 },
+    ],
+    rules: [
+      {
+        id: "followup_index",
+        pattern: "第[\\d一二三四五六七八九十]+[个款杯号种]",
+        type: "positive",
+        confidence: 0.92,
+        requiresImage: false,
+        requiresActiveMenu: true,
+        conditions: [
+          { field: "hasActiveMenu", op: "eq", value: true },
+          { field: "turnsSinceMenu", op: "lt", value: 30 },
+        ],
+      },
+      {
+        id: "followup_which",
+        pattern: "哪个|哪款|哪一种|哪一杯|哪个好|哪.*好喝|哪.*推荐",
+        type: "positive",
+        confidence: 0.85,
+        requiresImage: false,
+        requiresActiveMenu: true,
+        conditions: [
+          { field: "hasActiveMenu", op: "eq", value: true },
+          { field: "turnsSinceMenu", op: "lt", value: 30 },
+        ],
+      },
+      {
+        id: "followup_attribute",
+        pattern: "清爽|不苦|太苦|便宜|贵|度数|酒精|IBU|ibu|苦度|多少钱|价格|介绍.*第|说说.*第",
+        type: "positive",
+        confidence: 0.80,
+        requiresImage: false,
+        requiresActiveMenu: true,
+        conditions: [
+          { field: "hasActiveMenu", op: "eq", value: true },
+          { field: "turnsSinceMenu", op: "lt", value: 30 },
+        ],
+      },
+      {
+        id: "followup_has_style",
+        pattern: "有.*吗|有没有.*IPA|有没有.*拉格|有没有.*世涛|有没有.*小麦|有没有.*酸",
+        type: "positive",
+        confidence: 0.88,
+        requiresImage: false,
+        requiresActiveMenu: true,
+        conditions: [
+          { field: "hasActiveMenu", op: "eq", value: true },
+          { field: "turnsSinceMenu", op: "lt", value: 30 },
+        ],
+      },
+      // ── 纯序号追问：只说"3号""4个"等 ──
+      {
+        id: "followup_order_number",
+        pattern: "^\\d+\\s*[号个]$",
+        type: "positive",
+        confidence: 0.88,
+        requiresImage: false,
+        requiresActiveMenu: true,
+        conditions: [
+          { field: "hasActiveMenu", op: "eq", value: true },
+          { field: "turnsSinceMenu", op: "lt", value: 30 },
+        ],
+      },
+    ],
+    negativeKeywords: ["推荐", "帮我选", "帮我看酒单", "酒单", "喝什么"],
+    samples: [
+      { text: "有 IPA 吗", weight: 0.90, expectedIntent: "follow_up_filter", note: "有酒单时追问IPA" },
+      { text: "第3个怎么样", weight: 0.90, expectedIntent: "follow_up_filter", note: "按序号追问" },
+      { text: "哪个不苦", weight: 0.85, expectedIntent: "follow_up_filter", note: "口味过滤" },
+      { text: "哪个好喝", weight: 0.85, expectedIntent: "follow_up_filter", note: "询问偏好" },
+      { text: "有没有世涛", weight: 0.88, expectedIntent: "follow_up_filter", note: "风格筛选" },
+    ],
+    prompt: {
+      systemPrompt: "你是 Beer Lens 的追问过滤意图识别器。当用户在有活跃酒单的情况下进行追问筛选时匹配此意图。关键信号：按序号追问（第X个）、按风格筛选（有没有IPA）、按口味过滤（不苦/清爽）、按价格询问。边界：没有活跃酒单时不匹配此意图；纯粹的推荐请求（\"推荐一款\"）不是追问。",
+      examples: ["有IPA吗", "第3个怎么样", "哪个不苦", "有没有世涛"],
+      negativeExamples: ["推荐一款IPA", "帮我推荐", "今天喝什么", "帮我看酒单"],
+      disambiguation: "区分：没有活跃酒单时不应匹配此意图。如果用户说推荐相关关键词，应优先 menu_recommend。",
+    },
+    slots: [
+      { name: "menuIndex", label: "序号", type: "number", pattern: "\\d+" },
+      { name: "style", label: "风格", type: "string", pattern: "IPA|拉格|世涛|酸|小麦|皮尔森" },
+    ],
+    handler: "handleFollowUpFilter",
     supportsImage: false,
   },
 
@@ -475,7 +589,7 @@ function loadCustomIntentsSync(): IntentDefinition[] {
 /** Persist custom intents to disk (built-in intents are NOT saved) */
 async function saveCustomIntents(): Promise<void> {
   const builtinIds = new Set<string>([
-    "menu_recommend", "tasting_feedback", "profile_query",
+    "menu_recommend", "follow_up_filter", "tasting_feedback", "profile_query",
     "beer_knowledge", "label_check", "memory_correction", "unclear",
   ]);
   const customIntents = INTENT_REGISTRY.filter(d => !builtinIds.has(d.id));
@@ -501,7 +615,7 @@ export function registerIntent(def: IntentDefinition): void {
 export function unregisterIntent(id: BeerIntent): boolean {
   // Don't allow removing built-in intents
   const builtinIds = new Set<string>([
-    "menu_recommend", "tasting_feedback", "profile_query",
+    "menu_recommend", "follow_up_filter", "tasting_feedback", "profile_query",
     "beer_knowledge", "label_check", "memory_correction", "unclear",
   ]);
   if (builtinIds.has(id)) return false;
@@ -540,6 +654,23 @@ function checkCondition(cond: RuleCondition, ctx: IntentClassifyContext): boolea
   }
 }
 
+/**
+ * Check a context condition — all conditions must be met for the intent to be eligible.
+ * Exported for use by other modules.
+ */
+export function checkContextCondition(cond: ContextCondition, ctx: IntentClassifyContext): boolean {
+  const val = ctx[cond.field as keyof IntentClassifyContext];
+  if (val === undefined) return true;
+  switch (cond.op) {
+    case "eq": return val === cond.value;
+    case "gt": return (val as number) > (cond.value as number);
+    case "gte": return (val as number) >= (cond.value as number);
+    case "lt": return (val as number) < (cond.value as number);
+    case "lte": return (val as number) <= (cond.value as number);
+    default: return true;
+  }
+}
+
 export type IntentClassifyContext = {
   hasImage: boolean;
   hasActiveMenu: boolean;
@@ -565,6 +696,18 @@ export function classify(
   const threshold = options?.threshold ?? 0.7;
   const multiIntentGap = options?.multiIntentGap ?? 0.20;
   const trace: RuleTrace[] = [];
+  const matchedRules: IntentDiagnosis["matchedRules"] = [];
+  const matchedSamples: IntentDiagnosis["matchedSamples"] = [];
+  const negativeRulesHit: IntentDiagnosis["negativeRulesHit"] = [];
+  const candidateScores: IntentDiagnosis["candidateScores"] = [];
+
+  const contextSignals: IntentDiagnosis["contextSignals"] = {
+    hasImage: ctx.hasImage,
+    hasActiveMenu: ctx.hasActiveMenu,
+    turnsSinceMenu: ctx.turnsSinceMenu,
+    activeMenuCandidateCount: ctx.activeMenuCandidateCount,
+    hasTastingHistory: ctx.hasTastingHistory,
+  };
 
   // ── Priority 0: User overrides ──
   if (options?.overrides) {
@@ -573,6 +716,16 @@ export function classify(
         if (new RegExp(ov.regex, "i").test(text)) {
           const intent = ov.intent as BeerIntent;
           const def = getIntent(intent);
+          const diagnosis: IntentDiagnosis = {
+            matchedRules: [{ intentId: intent, ruleId: "override", confidence: 1.0, pattern: ov.regex }],
+            matchedSamples: [],
+            negativeRulesHit: [],
+            contextSignals,
+            threshold,
+            finalDecisionReason: `User override rule /${ov.regex}/ matched → forced to ${intent}`,
+            candidateScores: [{ intentId: intent, label: def?.label ?? intent, score: 1.0, source: "override", reason: `Override regex /${ov.regex}/` }],
+            ruleTrace: [{ intentId: intent, ruleId: "override", type: "positive", matched: true, confidence: 1.0, reason: `User override: /${ov.regex}/` }],
+          };
           return {
             input: { text, hasImage: ctx.hasImage },
             matched: [{
@@ -585,7 +738,8 @@ export function classify(
             primary: intent,
             isMultiIntent: false,
             source: "override",
-            trace: [{ intentId: intent, ruleId: "override", type: "positive", matched: true, confidence: 1.0, reason: `User override: /${ov.regex}/` }],
+            trace: diagnosis.ruleTrace as RuleTrace[],
+            diagnosis,
           };
         }
       } catch { /* invalid regex */ }
@@ -593,19 +747,52 @@ export function classify(
   }
 
   // ── Build sorted intent list by priority ──
-  const sortedIntents = [...INTENT_REGISTRY].sort((a, b) => a.priority - b.priority);
+  const sortedIntents = [...INTENT_REGISTRY]
+    .filter(d => d.enabled !== false)
+    .sort((a, b) => a.priority - b.priority);
 
-  // First pass: evaluate negative rules → build exclusion set
+  // First pass: check contextConditions → exclude intents whose conditions aren't met
+  const contextExcludedIntents = new Set<BeerIntent>();
+  for (const def of sortedIntents) {
+    if (def.contextConditions && def.contextConditions.length > 0) {
+      const allMet = def.contextConditions.every(cc => checkContextCondition(cc, ctx));
+      if (!allMet) {
+        contextExcludedIntents.add(def.id);
+        trace.push({
+          intentId: def.id,
+          ruleId: "context_condition",
+          type: "negative",
+          matched: false,
+          reason: `Context conditions not met for ${def.id}`,
+        });
+      }
+    }
+  }
+
+  // Second pass: negativeKeywords + negative rules → build exclusion set
   const excludedIntents = new Set<BeerIntent>();
   for (const def of sortedIntents) {
+    // Check negativeKeywords first
+    if (def.negativeKeywords && def.negativeKeywords.length > 0) {
+      for (const nk of def.negativeKeywords) {
+        if (text.includes(nk)) {
+          excludedIntents.add(def.id);
+          negativeRulesHit.push({ intentId: def.id, ruleId: "negative_keyword", pattern: nk });
+          trace.push({ intentId: def.id, ruleId: "negative_keyword", type: "negative", matched: true, reason: `Negative keyword "${nk}" hit` });
+        }
+      }
+    }
+
     for (const rule of def.rules) {
       if (rule.type !== "negative") continue;
       if (rule.requiresImage && !ctx.hasImage) continue;
+      if (rule.requiresActiveMenu && !ctx.hasActiveMenu) continue;
       const regex = compileRegex(rule.pattern);
       if (regex.test(text)) {
         // Check conditions
         if (rule.conditions && !rule.conditions.every(c => checkCondition(c, ctx))) continue;
         excludedIntents.add(def.id);
+        negativeRulesHit.push({ intentId: def.id, ruleId: rule.id, pattern: rule.pattern });
         trace.push({ intentId: def.id, ruleId: rule.id, type: "negative", matched: true, reason: `Negative rule matched: /${rule.pattern}/` });
       }
     }
@@ -617,6 +804,7 @@ export function classify(
 
   for (const def of sortedIntents) {
     if (excludedIntents.has(def.id)) continue;
+    if (contextExcludedIntents.has(def.id)) continue;
     if (matchedIntentIds.has(def.id)) continue; // already matched with higher priority
 
     for (const rule of def.rules) {
@@ -634,6 +822,7 @@ export function classify(
           source: "positive_rule",
         });
         matchedIntentIds.add(def.id);
+        matchedRules.push({ intentId: def.id, ruleId: rule.id, confidence: rule.confidence, pattern: rule.pattern });
         trace.push({ intentId: def.id, ruleId: rule.id, type: "positive", matched: true, confidence: rule.confidence, reason: `Pattern /${rule.pattern}/ matched` });
         break; // Only first matching positive rule per intent
       } else {
@@ -646,13 +835,26 @@ export function classify(
   for (const def of sortedIntents) {
     if (matchedIntentIds.has(def.id)) continue;
     if (excludedIntents.has(def.id)) continue;
+    if (contextExcludedIntents.has(def.id)) continue;
     if (!def.samples || def.samples.length === 0) continue;
 
     let bestSampleScore = 0;
+    let bestSampleText = "";
     for (const sample of def.samples) {
       const score = keywordOverlapScore(text, sample.text) * sample.weight;
-      if (score > bestSampleScore) bestSampleScore = score;
+      if (score > bestSampleScore) {
+        bestSampleScore = score;
+        bestSampleText = sample.text;
+      }
     }
+
+    candidateScores.push({
+      intentId: def.id,
+      label: def.label,
+      score: bestSampleScore,
+      source: "sample",
+      reason: bestSampleScore > 0 ? `Best sample: "${bestSampleText}"` : "No sample matched",
+    });
 
     if (bestSampleScore >= threshold) {
       matches.push({
@@ -663,14 +865,35 @@ export function classify(
         source: "sample_match",
       });
       matchedIntentIds.add(def.id);
-      trace.push({ intentId: def.id, ruleId: "sample_match", type: "positive", matched: true, confidence: bestSampleScore, reason: `Sample match score: ${bestSampleScore.toFixed(2)}` });
+      matchedSamples.push({ intentId: def.id, score: bestSampleScore, sampleText: bestSampleText });
+      trace.push({ intentId: def.id, ruleId: "sample_match", type: "positive", matched: true, confidence: bestSampleScore, reason: `Sample match score: ${bestSampleScore.toFixed(2)} from "${bestSampleText}"` });
     }
+  }
+
+  // Also record candidate scores for rule-matched intents that weren't recorded yet
+  for (const def of sortedIntents) {
+    if (candidateScores.some(cs => cs.intentId === def.id)) continue;
+    candidateScores.push({
+      intentId: def.id,
+      label: def.label,
+      score: matchedIntentIds.has(def.id) ? (matches.find(m => m.intent === def.id)?.confidence ?? 0) : 0,
+      source: matchedIntentIds.has(def.id) ? "rule" : "excluded",
+      reason: excludedIntents.has(def.id) ? "Excluded by negative rule/keyword"
+        : contextExcludedIntents.has(def.id) ? "Context conditions not met"
+        : matchedIntentIds.has(def.id) ? `Matched via rule (confidence ${((matches.find(m => m.intent === def.id)?.confidence ?? 0) * 100).toFixed(0)}%)`
+        : "No rule or sample matched",
+    });
   }
 
   // Sort matches by confidence descending
   matches.sort((a, b) => b.confidence - a.confidence);
 
   if (matches.length === 0) {
+    const fallbackReason = `No intent reached threshold ${threshold}. ` +
+      (excludedIntents.size > 0 ? `Excluded: ${[...excludedIntents].join(", ")}. ` : "") +
+      (contextExcludedIntents.size > 0 ? `Context-excluded: ${[...contextExcludedIntents].join(", ")}. ` : "") +
+      "Falling back to unclear.";
+
     return {
       input: { text, hasImage: ctx.hasImage },
       matched: [],
@@ -678,10 +901,35 @@ export function classify(
       isMultiIntent: false,
       source: "no_match",
       trace,
+      diagnosis: {
+        matchedRules: [],
+        matchedSamples: [],
+        negativeRulesHit,
+        contextSignals,
+        threshold,
+        fallbackReason,
+        finalDecisionReason: fallbackReason,
+        candidateScores,
+        ruleTrace: trace,
+      },
     };
   }
 
   const primary = matches[0].intent;
+
+  // Build final decision reason
+  let finalDecisionReason: string;
+  if (matches.length === 0) {
+    finalDecisionReason = "No matches — should have been caught above";
+  } else if (matches.length === 1) {
+    const m = matches[0];
+    finalDecisionReason = `${m.label}(${m.intent}) won via ${m.source} (confidence ${(m.confidence * 100).toFixed(0)}%). ` +
+      "Other intents did not match or scored below threshold.";
+  } else {
+    const gap = matches[0].confidence - matches[1].confidence;
+    finalDecisionReason = `${matches[0].label}(${matches[0].intent}) won over ${matches[1].label}(${matches[1].intent}) with gap ${(gap * 100).toFixed(0)}%. ` +
+      (gap <= multiIntentGap ? "Gap within multi-intent threshold — multi-intent enabled." : `Gap > ${(multiIntentGap * 100).toFixed(0)}% → single intent.`);
+  }
 
   // Multi-intent detection:
   // 1. At least 2 distinct intents matched
@@ -707,6 +955,16 @@ export function classify(
     isMultiIntent: isMulti,
     source: matches[0].source === "sample_match" ? "sample" : "rule",
     trace,
+    diagnosis: {
+      matchedRules,
+      matchedSamples,
+      negativeRulesHit,
+      contextSignals,
+      threshold,
+      finalDecisionReason,
+      candidateScores,
+      ruleTrace: trace,
+    },
   };
 }
 

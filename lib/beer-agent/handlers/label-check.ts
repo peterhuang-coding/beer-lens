@@ -3,14 +3,36 @@ import type { HandlerContext } from "@/lib/beer-agent/handler-types";
 import type { AgentResponse } from "@/lib/beer-agent/types";
 import { emptyPicks } from "@/lib/beer-agent/handler-types";
 import { openrouterFetch } from "@/lib/beer-agent/openrouter-client";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
-const VISION_MODEL = process.env.OPENROUTER_VISION_MODEL ?? "google/gemini-2.5-flash";
-const ANALYSIS_MODEL = process.env.OPENROUTER_ANALYSIS_MODEL ?? "openai/gpt-4o-mini";
+const CONFIG_PATH = path.join(process.cwd(), "data", "pipeline-config.json");
+
+type ModelConfig = { provider: string; model: string; temperature: number; maxTokens: number; timeoutMs: number };
+
+async function loadConfig(): Promise<any> {
+  try { const raw = await readFile(CONFIG_PATH, "utf8"); return JSON.parse(raw); }
+  catch { return {}; }
+}
+
+async function getModelConfig(kind: string): Promise<ModelConfig> {
+  const cfg = await loadConfig();
+  const fromConfig = cfg.models?.[kind];
+  const defaults: Record<string, ModelConfig> = {
+    vision:   { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 30000 },
+    analysis: { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+  };
+  if (fromConfig && typeof fromConfig === "object" && fromConfig.model) return fromConfig as ModelConfig;
+  if (typeof fromConfig === "string" && fromConfig) return { ...defaults[kind], model: fromConfig };
+  return defaults[kind];
+}
 
 export async function handleLabelCheck(
   request: BeerDialogRequest,
   context: HandlerContext
 ): Promise<AgentResponse> {
+  const visionCfg = await getModelConfig("vision");
+  const analysisCfg = await getModelConfig("analysis");
   // Image mode: use vision model for bottle/can label inspection
   if (request.image?.dataUrl) {
     try {
@@ -43,7 +65,7 @@ export async function handleLabelCheck(
 }`;
 
       const raw = await openrouterFetch({
-        model: VISION_MODEL,
+        model: visionCfg.model,
         messages: [{
           role: "user",
           content: [
@@ -76,7 +98,10 @@ export async function handleLabelCheck(
         profileSummary: context.memorySnapshot?.profileSummary ?? "",
       };
     } catch (err) {
-      console.warn("[label-check] vision analysis failed:", err);
+      const errMsg = err instanceof Error ? err.message : String(err);
+      console.warn("[label-check] vision analysis failed:", errMsg);
+      if (!context.handlerErrors) context.handlerErrors = [];
+      context.handlerErrors.push({ message: errMsg, model: visionCfg.model });
       return {
         mode: "recommend",
         reply: "抱歉，分析这张酒标时出错了。请拍一张清楚的酒标正面照再试试。",
@@ -91,7 +116,7 @@ export async function handleLabelCheck(
   const lastUserText = request.messages.at(-1)?.content ?? "";
   try {
     const raw = await openrouterFetch({
-      model: ANALYSIS_MODEL,
+      model: analysisCfg.model,
       messages: [
         {
           role: "system",

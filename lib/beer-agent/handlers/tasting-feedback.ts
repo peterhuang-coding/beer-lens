@@ -6,8 +6,10 @@ import {
   appendTastingEpisode,
   type TastingEpisode,
 } from "@/lib/beer-agent/memory/episodic";
-import { rebuildProfileMemory } from "@/lib/beer-agent/memory/profile";
+import { rebuildProfileMemory, rebuildTrends } from "@/lib/beer-agent/memory/profile";
+import { isMemoryWriteEnabled } from "@/lib/beer-agent/memory/memory-experiment";
 import { readShortTermMemory } from "@/lib/beer-agent/memory/short-term";
+import { recordTastingEpisode } from "@/lib/beer-agent/monitor/metrics";
 
 // ── Feedback keyword lists ──
 
@@ -88,6 +90,29 @@ function hasBeerNameInText(
  */
 function extractTags(text: string, keywords: string[]): string[] {
   return keywords.filter((kw) => text.includes(kw));
+}
+
+/** Convert a short-term memory candidate to the activeBeer format */
+function setActiveBeer(c: {
+  displayName: string;
+  brewery?: string;
+  style?: string;
+  abv?: number;
+  rating?: number | null;
+}): {
+  displayName: string;
+  brewery?: string;
+  style?: string;
+  abv?: number;
+  untappdScore?: number | null;
+} {
+  return {
+    displayName: c.displayName,
+    brewery: c.brewery,
+    style: c.style,
+    abv: c.abv,
+    untappdScore: c.rating ?? null,
+  };
 }
 
 export async function handleTastingFeedback(
@@ -217,7 +242,7 @@ export async function handleTastingFeedback(
     if (matchMethod === "unknown" && candidates.length > 0 && overallScore != null) {
       return {
         mode: "recommend",
-        reply: "你说的是哪一款酒？可以告诉我序号（比如"第3个"）或者酒名，我帮你记录。",
+        reply: '你说的是哪一款酒？可以告诉我序号（比如"第3个"）或者酒名，我帮你记录。',
         candidates: [],
         picks: emptyPicks(),
         profileSummary: "",
@@ -247,10 +272,35 @@ export async function handleTastingFeedback(
       : undefined,
   };
 
-  // ── 4. Persist episode and rebuild profile (fire-and-forget is fine
-  //       but we await for a clean response) ──
-  await appendTastingEpisode(userId, episode);
-  const profile = await rebuildProfileMemory(userId);
+  // ── 4. Persist episode and rebuild profile (gated by memory experiment)
+  const memoryWriteEnabled = await isMemoryWriteEnabled(userId);
+  let profile;
+  if (memoryWriteEnabled) {
+    await appendTastingEpisode(userId, episode);
+    recordTastingEpisode();
+    profile = await rebuildProfileMemory(userId);
+
+    // Fire-and-forget: rebuild trends in background (non-blocking for fast response)
+    rebuildTrends(userId).catch((err) =>
+      console.warn("[tasting-feedback] trends rebuild failed:", err),
+    );
+  } else {
+    // Memory write disabled — return a minimal profile stub
+    profile = {
+      userId,
+      updatedAt: new Date().toISOString(),
+      summary: "记忆写入已关闭，未生成口味画像。",
+      preferredStyles: [],
+      dislikedStyles: [],
+      preferredTags: [],
+      dislikedTags: [],
+      notes: [],
+      confidence: 0,
+      evidenceCount: 0,
+      correctionsCount: 0,
+      correctionsApplied: false,
+    };
+  }
 
   // ── 5. Return confirmation response ──
   const scoreLine =
@@ -265,6 +315,10 @@ export async function handleTastingFeedback(
         ? "你不会再喝这杯酒。"
         : "是否再喝：未明确。";
 
+  const memoryNote = memoryWriteEnabled
+    ? ""
+    : "\n（记忆写入已关闭，本次反馈未保存到长期记忆）";
+
   return {
     mode: "recommend",
     reply: [
@@ -272,6 +326,7 @@ export async function handleTastingFeedback(
       scoreLine,
       wouldAgainLine,
       profile.notes.length > 0 ? `备注：${episode.feedback.note}` : "",
+      memoryNote,
       "",
       `你的口味画像：${profile.summary}`,
     ]

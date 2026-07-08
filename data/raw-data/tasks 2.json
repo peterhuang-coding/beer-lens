@@ -1,0 +1,478 @@
+[
+  {
+    "id": "vqa_68a7333376c633f3",
+    "source": "beer-fixture-example",
+    "sourceUrl": "fixture://example",
+    "imageUrl": "/images/vqa/beer-collection.svg",
+    "title": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+    "candidateBeerName": "Pliny the Elder Double IPA",
+    "description": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+    "questions": [
+      {
+        "id": "is_beer_label",
+        "type": "yesno",
+        "prompt": "这张图是否包含啤酒瓶/罐/酒标？"
+      },
+      {
+        "id": "beer_name",
+        "type": "text",
+        "prompt": "图中最可能的啤酒名称是什么？"
+      },
+      {
+        "id": "brand",
+        "type": "text",
+        "prompt": "图中品牌是什么？"
+      },
+      {
+        "id": "style",
+        "type": "select",
+        "prompt": "能否识别风格？",
+        "options": [
+          "IPA",
+          "Stout",
+          "Lager",
+          "Sour",
+          "Pilsner",
+          "Porter",
+          "Wheat",
+          "Saison",
+          "其他",
+          "无法判断"
+        ]
+      },
+      {
+        "id": "abv",
+        "type": "text",
+        "prompt": "能否识别 ABV？"
+      },
+      {
+        "id": "visible_text",
+        "type": "text",
+        "prompt": "OCR/肉眼能看到哪些关键文字？"
+      },
+      {
+        "id": "image_quality",
+        "type": "select",
+        "prompt": "图片质量是否适合做识别测试？",
+        "options": [
+          "清晰可用",
+          "勉强可读",
+          "模糊不清",
+          "完全不适用"
+        ]
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-07T03:22:38.845Z",
+    "updatedAt": "2026-07-07T03:22:38.845Z"
+  },
+  {
+    "id": "vqa_303dbf1fd34c1dc4",
+    "source": "beer-fixture-example",
+    "sourceUrl": "fixture://example",
+    "imageUrl": "/images/vqa/beer-tap-list.svg",
+    "title": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+    "candidateBeerName": "Russian River Brewing 的经典 IPA，酒花香气浓郁，ABV 8.0%。",
+    "description": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+    "questions": [
+      {
+        "id": "is_beer_label",
+        "type": "yesno",
+        "prompt": "这张图是否包含啤酒瓶/罐/酒标？"
+      },
+      {
+        "id": "beer_name",
+        "type": "text",
+        "prompt": "图中最可能的啤酒名称是什么？"
+      },
+      {
+        "id": "brand",
+        "type": "text",
+        "prompt": "图中品牌是什么？"
+      },
+      {
+        "id": "style",
+        "type": "select",
+        "prompt": "能否识别风格？",
+        "options": [
+          "IPA",
+          "Stout",
+          "Lager",
+          "Sour",
+          "Pilsner",
+          "Porter",
+          "Wheat",
+          "Saison",
+          "其他",
+          "无法判断"
+        ]
+      },
+      {
+        "id": "abv",
+        "type": "text",
+        "prompt": "能否识别 ABV？"
+      },
+      {
+        "id": "visible_text",
+        "type": "text",
+        "prompt": "OCR/肉眼能看到哪些关键文字？"
+      },
+      {
+        "id": "image_quality",
+        "type": "select",
+        "prompt": "图片质量是否适合做识别测试？",
+        "options": [
+          "清晰可用",
+          "勉强可读",
+          "模糊不清",
+          "完全不适用"
+        ]
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-07T03:22:38.875Z",
+    "updatedAt": "2026-07-07T03:22:38.875Z"
+  },
+  {
+    "id": "vqa_615820d2e05c369c",
+    "source": "beer-fixture-example",
+    "sourceUrl": "fixture://example",
+    "imageUrl": "/images/vqa/heady-topper.svg",
+    "title": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+    "candidateBeerName": "Heady Topper Double IPA",
+    "description": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+    "questions": [
+      {
+        "id": "is_beer_label",
+        "type": "yesno",
+        "prompt": "这张图是否包含啤酒瓶/罐/酒标？"
+      },
+      {
+        "id": "beer_name",
+        "type": "text",
+        "prompt": "图中最可能的啤酒名称是什么？"
+      },
+      {
+        "id": "brand",
+        "type": "text",
+        "prompt": "图中品牌是什么？"
+      },
+      {
+        "id": "style",
+        "type": "select",
+        "prompt": "能否识别风格？",
+        "options": [
+          "IPA",
+          "Stout",
+          "Lager",
+          "Sour",
+          "Pilsner",
+          "Porter",
+          "Wheat",
+          "Saison",
+          "其他",
+          "无法判断"
+        ]
+      },
+      {
+        "id": "abv",
+        "type": "text",
+        "prompt": "能否识别 ABV？"
+      },
+      {
+        "id": "visible_text",
+        "type": "text",
+        "prompt": "OCR/肉眼能看到哪些关键文字？"
+      },
+      {
+        "id": "image_quality",
+        "type": "select",
+        "prompt": "图片质量是否适合做识别测试？",
+        "options": [
+          "清晰可用",
+          "勉强可读",
+          "模糊不清",
+          "完全不适用"
+        ]
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-07T03:22:38.876Z",
+    "updatedAt": "2026-07-07T03:22:38.876Z"
+  },
+  {
+    "id": "vqa_c87c9a35006905f4",
+    "source": "beer-fixture-example",
+    "sourceUrl": "fixture://example",
+    "imageUrl": "/images/vqa/pliny-elder.svg",
+    "title": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+    "candidateBeerName": "The Alchemist 出品，浑浊 IPA 的标杆，ABV 8.0%。",
+    "description": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+    "questions": [
+      {
+        "id": "is_beer_label",
+        "type": "yesno",
+        "prompt": "这张图是否包含啤酒瓶/罐/酒标？"
+      },
+      {
+        "id": "beer_name",
+        "type": "text",
+        "prompt": "图中最可能的啤酒名称是什么？"
+      },
+      {
+        "id": "brand",
+        "type": "text",
+        "prompt": "图中品牌是什么？"
+      },
+      {
+        "id": "style",
+        "type": "select",
+        "prompt": "能否识别风格？",
+        "options": [
+          "IPA",
+          "Stout",
+          "Lager",
+          "Sour",
+          "Pilsner",
+          "Porter",
+          "Wheat",
+          "Saison",
+          "其他",
+          "无法判断"
+        ]
+      },
+      {
+        "id": "abv",
+        "type": "text",
+        "prompt": "能否识别 ABV？"
+      },
+      {
+        "id": "visible_text",
+        "type": "text",
+        "prompt": "OCR/肉眼能看到哪些关键文字？"
+      },
+      {
+        "id": "image_quality",
+        "type": "select",
+        "prompt": "图片质量是否适合做识别测试？",
+        "options": [
+          "清晰可用",
+          "勉强可读",
+          "模糊不清",
+          "完全不适用"
+        ]
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-07T03:22:38.876Z",
+    "updatedAt": "2026-07-07T03:22:38.876Z"
+  },
+  {
+    "id": "vqa_e6f044bab5d7644b",
+    "source": "beer-fixture-example",
+    "sourceUrl": "fixture://example",
+    "imageUrl": "/images/vqa/julius.svg",
+    "title": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+    "candidateBeerName": "Tree House Julius IPA",
+    "description": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+    "questions": [
+      {
+        "id": "is_beer_label",
+        "type": "yesno",
+        "prompt": "这张图是否包含啤酒瓶/罐/酒标？"
+      },
+      {
+        "id": "beer_name",
+        "type": "text",
+        "prompt": "图中最可能的啤酒名称是什么？"
+      },
+      {
+        "id": "brand",
+        "type": "text",
+        "prompt": "图中品牌是什么？"
+      },
+      {
+        "id": "style",
+        "type": "select",
+        "prompt": "能否识别风格？",
+        "options": [
+          "IPA",
+          "Stout",
+          "Lager",
+          "Sour",
+          "Pilsner",
+          "Porter",
+          "Wheat",
+          "Saison",
+          "其他",
+          "无法判断"
+        ]
+      },
+      {
+        "id": "abv",
+        "type": "text",
+        "prompt": "能否识别 ABV？"
+      },
+      {
+        "id": "visible_text",
+        "type": "text",
+        "prompt": "OCR/肉眼能看到哪些关键文字？"
+      },
+      {
+        "id": "image_quality",
+        "type": "select",
+        "prompt": "图片质量是否适合做识别测试？",
+        "options": [
+          "清晰可用",
+          "勉强可读",
+          "模糊不清",
+          "完全不适用"
+        ]
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-07T03:22:38.876Z",
+    "updatedAt": "2026-07-07T03:22:38.876Z"
+  },
+  {
+    "id": "vqa_430a7e22f4508da9",
+    "source": "beer-fixture-example",
+    "sourceUrl": "fixture://example",
+    "imageUrl": "/images/vqa/cantillon-foufoune.svg",
+    "title": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+    "candidateBeerName": "Tree House Brewing 的 Julius，果汁感爆棚的浑浊 IPA。",
+    "description": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+    "questions": [
+      {
+        "id": "is_beer_label",
+        "type": "yesno",
+        "prompt": "这张图是否包含啤酒瓶/罐/酒标？"
+      },
+      {
+        "id": "beer_name",
+        "type": "text",
+        "prompt": "图中最可能的啤酒名称是什么？"
+      },
+      {
+        "id": "brand",
+        "type": "text",
+        "prompt": "图中品牌是什么？"
+      },
+      {
+        "id": "style",
+        "type": "select",
+        "prompt": "能否识别风格？",
+        "options": [
+          "IPA",
+          "Stout",
+          "Lager",
+          "Sour",
+          "Pilsner",
+          "Porter",
+          "Wheat",
+          "Saison",
+          "其他",
+          "无法判断"
+        ]
+      },
+      {
+        "id": "abv",
+        "type": "text",
+        "prompt": "能否识别 ABV？"
+      },
+      {
+        "id": "visible_text",
+        "type": "text",
+        "prompt": "OCR/肉眼能看到哪些关键文字？"
+      },
+      {
+        "id": "image_quality",
+        "type": "select",
+        "prompt": "图片质量是否适合做识别测试？",
+        "options": [
+          "清晰可用",
+          "勉强可读",
+          "模糊不清",
+          "完全不适用"
+        ]
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-07T03:22:38.876Z",
+    "updatedAt": "2026-07-07T03:22:38.876Z"
+  },
+  {
+    "id": "vqa_ddf4101d6f92f79e",
+    "source": "beer-fixture-example",
+    "sourceUrl": "fixture://example",
+    "imageUrl": "/images/vqa/kbs-stout.svg",
+    "title": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+    "candidateBeerName": "Founders KBS Imperial Stout",
+    "description": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+    "questions": [
+      {
+        "id": "is_beer_label",
+        "type": "yesno",
+        "prompt": "这张图是否包含啤酒瓶/罐/酒标？"
+      },
+      {
+        "id": "beer_name",
+        "type": "text",
+        "prompt": "图中最可能的啤酒名称是什么？"
+      },
+      {
+        "id": "brand",
+        "type": "text",
+        "prompt": "图中品牌是什么？"
+      },
+      {
+        "id": "style",
+        "type": "select",
+        "prompt": "能否识别风格？",
+        "options": [
+          "IPA",
+          "Stout",
+          "Lager",
+          "Sour",
+          "Pilsner",
+          "Porter",
+          "Wheat",
+          "Saison",
+          "其他",
+          "无法判断"
+        ]
+      },
+      {
+        "id": "abv",
+        "type": "text",
+        "prompt": "能否识别 ABV？"
+      },
+      {
+        "id": "visible_text",
+        "type": "text",
+        "prompt": "OCR/肉眼能看到哪些关键文字？"
+      },
+      {
+        "id": "image_quality",
+        "type": "select",
+        "prompt": "图片质量是否适合做识别测试？",
+        "options": [
+          "清晰可用",
+          "勉强可读",
+          "模糊不清",
+          "完全不适用"
+        ]
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-07T03:22:38.876Z",
+    "updatedAt": "2026-07-07T03:22:38.876Z"
+  }
+]

@@ -98,13 +98,18 @@ export async function applyPostprocessGuards(
     }
   }
 
-  // ── Rule 5: Missing data ──
+  // ── Rule 5: Missing data — only warn if reply explicitly claims a rating number ──
   for (const candidate of candidates) {
     const hasNoRating = candidate.untappdScore == null || candidate.untappdScore === 0;
     if (hasNoRating && reply.includes(candidate.displayName)) {
-      const ratingVal = extractRatingValue(reply);
-      if (ratingVal != null) {
-        warnings.push("missing_data_rating_mentioned");
+      // Strict check: reply must contain 评分[：:]?\d pattern (Chinese "score:" explicit claim)
+      // NOT any standalone number 1-10 that might be a list index or ordinal.
+      const explicitRatingMatch = reply.match(RATING_PATTERN);
+      if (explicitRatingMatch) {
+        const ratingVal = parseFloat(explicitRatingMatch[0].replace(/评分[：:]?\s*/, ""));
+        if (!isNaN(ratingVal)) {
+          warnings.push("missing_data_rating_mentioned");
+        }
       }
     }
   }

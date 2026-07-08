@@ -1947,6 +1947,8 @@ function RawDataView() {
   const [labels, setLabels] = useState<Record<string, any>>({});
   const [loading, setLoading] = useState(true);
   const [vqaTab, setVqaTab] = useState<"raw-data" | "query">("raw-data");
+  const [autoTesting, setAutoTesting] = useState(false);
+  const [autoTestProgress, setAutoTestProgress] = useState<string>("");
 
   const selected = tasks[selectedIdx] || null;
   const fetchTasks = useCallback(async () => {
@@ -1985,6 +1987,120 @@ function RawDataView() {
       next[selectedIdx] = updated;
       setTasks(next);
     }
+  };
+
+  const runAutoTest = async () => {
+    const pendingTasks = tasks.filter((t) => t.status === "pending");
+    if (pendingTasks.length === 0) {
+      setAutoTestProgress("没有 pending 状态的 task");
+      setTimeout(() => setAutoTestProgress(""), 3000);
+      return;
+    }
+    setAutoTesting(true);
+    let completed = 0;
+    const total = pendingTasks.length;
+    for (const task of pendingTasks) {
+      setAutoTestProgress(`正在测试 ${completed + 1}/${total}...`);
+      try {
+        // 1. Download image as base64
+        const imgResp = await fetch(task.imageUrl);
+        const imgBlob = await imgResp.blob();
+        const base64 = await new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const dataUrl = reader.result as string;
+            resolve(dataUrl.split(",")[1]);
+          };
+          reader.readAsDataURL(imgBlob);
+        });
+
+        // 2. POST to /api/agent
+        const agentResp = await fetch("/api/agent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userId: "vqa-auto-test",
+            conversationId: task.id,
+            messages: [{ role: "user", content: "请检查这瓶啤酒" }],
+            image: {
+              name: task.imageUrl.split("/").pop() || "image.jpg",
+              type: imgBlob.type || "image/jpeg",
+              dataUrl: `data:${imgBlob.type || "image/jpeg"};base64,${base64}`,
+            },
+          }),
+        });
+        const agentResult = await agentResp.json();
+
+        // 3. Judge: candidates > 0 → pass
+        const pass =
+          agentResult &&
+          Array.isArray(agentResult.candidates) &&
+          agentResult.candidates.length > 0;
+
+        // 4. Write result to labels
+        const autoTestResult = {
+          pass,
+          candidates: agentResult.candidates?.length ?? 0,
+          candidateNames: (agentResult.candidates || []).map((c: any) => c.displayName || c.name || "").filter(Boolean),
+          testedAt: new Date().toISOString(),
+          error: null,
+        };
+
+        await fetch(`/api/raw-data/tasks/${task.id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            labels: {
+              ...(task.labels || {}),
+              autoTestResult,
+            },
+          }),
+        });
+
+        // Update local state
+        const next = [...tasks];
+        const idx = next.findIndex((t) => t.id === task.id);
+        if (idx >= 0) {
+          next[idx] = {
+            ...next[idx],
+            labels: { ...(next[idx].labels || {}), autoTestResult },
+          };
+        }
+        setTasks(next);
+      } catch (err) {
+        console.error(`Auto test failed for ${task.id}:`, err);
+        const autoTestResult = {
+          pass: false,
+          candidates: 0,
+          candidateNames: [],
+          testedAt: new Date().toISOString(),
+          error: String(err),
+        };
+        await fetch(`/api/raw-data/tasks/${task.id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            labels: {
+              ...(task.labels || {}),
+              autoTestResult,
+            },
+          }),
+        });
+        const next = [...tasks];
+        const idx = next.findIndex((t) => t.id === task.id);
+        if (idx >= 0) {
+          next[idx] = {
+            ...next[idx],
+            labels: { ...(next[idx].labels || {}), autoTestResult },
+          };
+        }
+        setTasks(next);
+      }
+      completed++;
+    }
+    setAutoTesting(false);
+    setAutoTestProgress(`✅ 测试完成 (${completed}/${total})`);
+    setTimeout(() => setAutoTestProgress(""), 4000);
   };
 
   return (

@@ -170,9 +170,8 @@
     ],
     "labels": {
       "passCriteria": {
-        "intent": "menu_recommend",
-        "minCandidates": 1,
-        "replyMinLen": 50
+        "intent": "beer_knowledge",
+        "replyMinLen": 80
       },
       "autoTestResult": {
         "pass": false,
@@ -678,9 +677,8 @@
     ],
     "labels": {
       "passCriteria": {
-        "intent": "menu_recommend",
-        "minCandidates": 1,
-        "replyMinLen": 50
+        "intent": "follow_up_filter",
+        "replyMinLen": 30
       },
       "autoTestResult": {
         "pass": false,
@@ -724,9 +722,8 @@
     ],
     "labels": {
       "passCriteria": {
-        "intent": "menu_recommend",
-        "minCandidates": 1,
-        "replyMinLen": 50
+        "intent": "follow_up_filter",
+        "replyMinLen": 30
       },
       "autoTestResult": {
         "pass": false,

@@ -238,6 +238,14 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         confidence: 0,
         requiresImage: false,
       },
+      // Negative: "除了X还有什么" patterns are knowledge follow-ups, not fresh recommends
+      {
+        id: "menu_not_knowledge_followup",
+        pattern: "除了.*还有什么|除了.*之外.*还有",
+        type: "negative",
+        confidence: 0,
+        requiresImage: false,
+      },
     ],
     samples: [
       { text: "推荐一款IPA", weight: 0.85, expectedIntent: "menu_recommend", note: "纯文字推荐" },
@@ -397,6 +405,14 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         confidence: 0,
         requiresImage: false,
       },
+      // Knowledge follow-up: "除了X还有什么Y" — user knows one product, asks about others
+      {
+        id: "knowledge_except",
+        pattern: "除了.*还有什么|除了.*之外.*还有|还有.*推荐.*吗|除了.*以外",
+        type: "positive",
+        confidence: 0.82,
+        requiresImage: false,
+      },
     ],
     samples: [
       { text: "IPA和拉格有什么区别", weight: 0.90, expectedIntent: "beer_knowledge", note: "风格对比" },
@@ -499,7 +515,7 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
       },
       {
         id: "followup_attribute",
-        pattern: "清爽|不苦|太苦|便宜|贵|度数|酒精|IBU|ibu|苦度|多少钱|价格|介绍.*第|说说.*第",
+        pattern: "清爽|不苦|太苦|便宜|贵|度数|酒精|IBU|ibu|苦度|苦味|最.*苦|最.*烈|酒精度.*高|酒精度.*低|多少钱|价格|介绍.*第|说说.*第|想要",
         type: "positive",
         confidence: 0.80,
         requiresImage: false,

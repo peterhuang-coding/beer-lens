@@ -7,7 +7,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "ipa", "text-only"],
+    "tags": [
+      "recommend",
+      "ipa",
+      "text-only"
+    ],
     "note": "Basic recommendation request for IPA style"
   },
   {
@@ -16,8 +20,14 @@
     "inputText": "想喝清爽不苦的",
     "conversationId": "recommend-crisp",
     "userId": "regression-user",
-    "tags": ["recommend", "preference", "text-only", "filter"],
-    "note": "\"不苦\" triggers follow_up_filter, not recommend — actual behavior"
+    "tags": [
+      "recommend",
+      "preference",
+      "text-only",
+      "filter"
+    ],
+    "note": "\"不苦\" triggers follow_up_filter, not recommend — actual behavior",
+    "expectedIntent": "menu_recommend"
   },
   {
     "id": "reg_003",
@@ -27,7 +37,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "stout", "text-only"],
+    "tags": [
+      "recommend",
+      "stout",
+      "text-only"
+    ],
     "note": "Recommend stout style"
   },
   {
@@ -38,7 +52,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "lager", "text-only"],
+    "tags": [
+      "recommend",
+      "lager",
+      "text-only"
+    ],
     "note": "Recommend lager style"
   },
   {
@@ -49,7 +67,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "sour", "text-only"],
+    "tags": [
+      "recommend",
+      "sour",
+      "text-only"
+    ],
     "note": "Recommend sour beer"
   },
   {
@@ -60,7 +82,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "generic", "text-only"],
+    "tags": [
+      "recommend",
+      "generic",
+      "text-only"
+    ],
     "note": "Generic recommendation without style"
   },
   {
@@ -71,7 +97,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "daily", "text-only"],
+    "tags": [
+      "recommend",
+      "daily",
+      "text-only"
+    ],
     "note": "Colloquial everyday recommendation ask"
   },
   {
@@ -82,7 +112,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "strong", "text-only"],
+    "tags": [
+      "recommend",
+      "strong",
+      "text-only"
+    ],
     "note": "Wants strong beer, triggers recommend via 想喝"
   },
   {
@@ -93,7 +127,11 @@
     "userId": "regression-user",
     "expectedIntent": "menu_recommend",
     "expectedMinCandidates": 1,
-    "tags": ["recommend", "generic", "text-only"],
+    "tags": [
+      "recommend",
+      "generic",
+      "text-only"
+    ],
     "note": "Generic what's good to drink"
   },
   {
@@ -102,8 +140,14 @@
     "inputText": "有IPA吗",
     "conversationId": "filter-ipa",
     "userId": "regression-user",
-    "tags": ["filter", "ipa", "text-only", "needs-context"],
-    "note": "Follow-up filter without active menu context returns unclear — this is expected"
+    "tags": [
+      "filter",
+      "ipa",
+      "text-only",
+      "needs-context"
+    ],
+    "note": "Follow-up filter without active menu context returns unclear — this is expected",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_011",
@@ -112,7 +156,11 @@
     "conversationId": "filter-nth",
     "userId": "regression-user",
     "expectedIntent": "follow_up_filter",
-    "tags": ["filter", "pick", "text-only"],
+    "tags": [
+      "filter",
+      "pick",
+      "text-only"
+    ],
     "note": "Follow-up: ask about 3rd menu item (needs active menu context)"
   },
   {
@@ -122,7 +170,11 @@
     "conversationId": "filter-stout",
     "userId": "regression-user",
     "expectedIntent": "follow_up_filter",
-    "tags": ["filter", "stout", "text-only"],
+    "tags": [
+      "filter",
+      "stout",
+      "text-only"
+    ],
     "note": "Follow-up filter: any stout available (needs active menu context)"
   },
   {
@@ -132,7 +184,11 @@
     "conversationId": "filter-not-bitter",
     "userId": "regression-user",
     "expectedIntent": "follow_up_filter",
-    "tags": ["filter", "bitter", "text-only"],
+    "tags": [
+      "filter",
+      "bitter",
+      "text-only"
+    ],
     "note": "Follow-up filter: which ones are not bitter (needs active menu context)"
   },
   {
@@ -141,8 +197,13 @@
     "inputText": "第一个怎么样",
     "conversationId": "filter-1st",
     "userId": "regression-user",
-    "tags": ["filter", "pick", "text-only"],
-    "note": "Follow-up: ask about 1st item without menu context returns unclear"
+    "tags": [
+      "filter",
+      "pick",
+      "text-only"
+    ],
+    "note": "Follow-up: ask about 1st item without menu context returns unclear",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_015",
@@ -150,8 +211,13 @@
     "inputText": "有没有酸啤",
     "conversationId": "filter-sour",
     "userId": "regression-user",
-    "tags": ["filter", "sour", "text-only"],
-    "note": "Follow-up without active menu context returns unclear"
+    "tags": [
+      "filter",
+      "sour",
+      "text-only"
+    ],
+    "note": "Follow-up without active menu context returns unclear",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_016",
@@ -160,8 +226,15 @@
     "conversationId": "tasting-full",
     "userId": "regression-user",
     "expectedIntent": "tasting_feedback",
-    "expectedKeywords": ["4.5", "记录"],
-    "tags": ["tasting", "feedback", "text-only"],
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "feedback",
+      "text-only"
+    ],
     "note": "Tasting feedback with score, would-drink-again, and flavor tags"
   },
   {
@@ -171,8 +244,15 @@
     "conversationId": "tasting-low",
     "userId": "regression-user",
     "expectedIntent": "tasting_feedback",
-    "expectedKeywords": ["3.5", "记录"],
-    "tags": ["tasting", "low-score", "text-only"],
+    "expectedKeywords": [
+      "3.5",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "low-score",
+      "text-only"
+    ],
     "note": "Tasting feedback: low score, won't drink again"
   },
   {
@@ -182,8 +262,15 @@
     "conversationId": "tasting-score-only",
     "userId": "regression-user",
     "expectedIntent": "tasting_feedback",
-    "expectedKeywords": ["4", "记录"],
-    "tags": ["tasting", "score-only", "text-only"],
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "score-only",
+      "text-only"
+    ],
     "note": "Tasting feedback: score only, no additional tags"
   },
   {
@@ -193,8 +280,15 @@
     "conversationId": "tasting-good",
     "userId": "regression-user",
     "expectedIntent": "tasting_feedback",
-    "expectedKeywords": ["4.5", "记录"],
-    "tags": ["tasting", "good", "text-only"],
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "good",
+      "text-only"
+    ],
     "note": "Tasting feedback: positive rating"
   },
   {
@@ -204,8 +298,15 @@
     "conversationId": "tasting-bad",
     "userId": "regression-user",
     "expectedIntent": "tasting_feedback",
-    "expectedKeywords": ["2", "记录"],
-    "tags": ["tasting", "bad", "text-only"],
+    "expectedKeywords": [
+      "2",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "bad",
+      "text-only"
+    ],
     "note": "Tasting feedback: bad rating with reason"
   },
   {
@@ -215,8 +316,14 @@
     "conversationId": "tasting-would-drink",
     "userId": "regression-user",
     "expectedIntent": "tasting_feedback",
-    "expectedKeywords": ["记录"],
-    "tags": ["tasting", "would-drink", "text-only"],
+    "expectedKeywords": [
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "would-drink",
+      "text-only"
+    ],
     "note": "Tasting feedback: would drink again without explicit score"
   },
   {
@@ -226,8 +333,14 @@
     "conversationId": "profile-what",
     "userId": "regression-user",
     "expectedIntent": "profile_query",
-    "expectedKeywords": ["口味"],
-    "tags": ["profile", "query", "text-only"],
+    "expectedKeywords": [
+      "口味"
+    ],
+    "tags": [
+      "profile",
+      "query",
+      "text-only"
+    ],
     "note": "Profile query: asks about taste profile"
   },
   {
@@ -237,7 +350,11 @@
     "conversationId": "profile-prefs",
     "userId": "regression-user",
     "expectedIntent": "profile_query",
-    "tags": ["profile", "preference", "text-only"],
+    "tags": [
+      "profile",
+      "preference",
+      "text-only"
+    ],
     "note": "Profile query: checks user preferences"
   },
   {
@@ -247,7 +364,11 @@
     "conversationId": "profile-history",
     "userId": "regression-user",
     "expectedIntent": "profile_query",
-    "tags": ["profile", "history", "text-only"],
+    "tags": [
+      "profile",
+      "history",
+      "text-only"
+    ],
     "note": "Profile query: asks about drinking history"
   },
   {
@@ -257,8 +378,14 @@
     "conversationId": "profile-check",
     "userId": "regression-user",
     "expectedIntent": "profile_query",
-    "expectedKeywords": ["口味"],
-    "tags": ["profile", "query", "text-only"],
+    "expectedKeywords": [
+      "口味"
+    ],
+    "tags": [
+      "profile",
+      "query",
+      "text-only"
+    ],
     "note": "Profile query: polite request to see profile"
   },
   {
@@ -267,8 +394,13 @@
     "inputText": "我不喜欢太苦的",
     "conversationId": "correction-bitter",
     "userId": "regression-user",
-    "tags": ["correction", "bitter", "text-only"],
-    "note": "Memory correction without active context — returns unclear, handled gracefully"
+    "tags": [
+      "correction",
+      "bitter",
+      "text-only"
+    ],
+    "note": "Memory correction without active context — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_027",
@@ -276,8 +408,13 @@
     "inputText": "我不喜欢IPA",
     "conversationId": "correction-ipa",
     "userId": "regression-user",
-    "tags": ["correction", "ipa", "text-only"],
-    "note": "Memory correction: user states dislike of IPA without context — returns unclear"
+    "tags": [
+      "correction",
+      "ipa",
+      "text-only"
+    ],
+    "note": "Memory correction: user states dislike of IPA without context — returns unclear",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_028",
@@ -285,8 +422,13 @@
     "inputText": "重置我的记录",
     "conversationId": "correction-reset",
     "userId": "regression-user",
-    "tags": ["correction", "reset", "text-only"],
-    "note": "Memory correction: reset request — returns profile_query currently"
+    "tags": [
+      "correction",
+      "reset",
+      "text-only"
+    ],
+    "note": "Memory correction: reset request — returns profile_query currently",
+    "expectedIntent": "memory_correction"
   },
   {
     "id": "reg_029",
@@ -294,8 +436,13 @@
     "inputText": "清空我的偏好",
     "conversationId": "correction-clear-prefs",
     "userId": "regression-user",
-    "tags": ["correction", "clear", "text-only"],
-    "note": "Memory correction: clear preferences — returns profile_query currently"
+    "tags": [
+      "correction",
+      "clear",
+      "text-only"
+    ],
+    "note": "Memory correction: clear preferences — returns profile_query currently",
+    "expectedIntent": "memory_correction"
   },
   {
     "id": "reg_030",
@@ -303,8 +450,13 @@
     "inputText": "这瓶酒过期了吗",
     "conversationId": "label-expiry",
     "userId": "regression-user",
-    "tags": ["label", "expiry", "text-only"],
-    "note": "Label check without image returns unclear — expected, needs 图片输入"
+    "tags": [
+      "label",
+      "expiry",
+      "text-only"
+    ],
+    "note": "Label check without image returns unclear — expected, needs 图片输入",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_031",
@@ -312,8 +464,13 @@
     "inputText": "帮我看看这瓶酒的生产日期",
     "conversationId": "label-date",
     "userId": "regression-user",
-    "tags": ["label", "date", "text-only"],
-    "note": "Label check for date without image returns unclear — expected"
+    "tags": [
+      "label",
+      "date",
+      "text-only"
+    ],
+    "note": "Label check for date without image returns unclear — expected",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_032",
@@ -321,8 +478,13 @@
     "inputText": "看看这罐啤酒",
     "conversationId": "label-can",
     "userId": "regression-user",
-    "tags": ["label", "can", "text-only"],
-    "note": "Label check for can without image returns unclear — expected"
+    "tags": [
+      "label",
+      "can",
+      "text-only"
+    ],
+    "note": "Label check for can without image returns unclear — expected",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_033",
@@ -331,8 +493,14 @@
     "conversationId": "knowledge-wcipa",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "expectedKeywords": ["IPA"],
-    "tags": ["knowledge", "ipa", "text-only"],
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "ipa",
+      "text-only"
+    ],
     "note": "Beer knowledge: what is West Coast IPA"
   },
   {
@@ -342,7 +510,11 @@
     "conversationId": "knowledge-stout-vs-imperial",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "tags": ["knowledge", "stout", "text-only"],
+    "tags": [
+      "knowledge",
+      "stout",
+      "text-only"
+    ],
     "note": "Beer knowledge: stout vs imperial stout"
   },
   {
@@ -352,8 +524,14 @@
     "conversationId": "knowledge-ipa-vs-lager",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "expectedKeywords": ["IPA"],
-    "tags": ["knowledge", "comparison", "text-only"],
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "comparison",
+      "text-only"
+    ],
     "note": "Beer knowledge: compare IPA and lager"
   },
   {
@@ -363,7 +541,11 @@
     "conversationId": "knowledge-brewing",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "tags": ["knowledge", "brewing", "text-only"],
+    "tags": [
+      "knowledge",
+      "brewing",
+      "text-only"
+    ],
     "note": "Beer knowledge: how beer is brewed"
   },
   {
@@ -373,8 +555,14 @@
     "conversationId": "knowledge-neipa",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "expectedKeywords": ["IPA"],
-    "tags": ["knowledge", "neipa", "text-only"],
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "neipa",
+      "text-only"
+    ],
     "note": "Beer knowledge: what is New England IPA"
   },
   {
@@ -384,7 +572,11 @@
     "conversationId": "knowledge-craft-vs-mass",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "tags": ["knowledge", "craft", "text-only"],
+    "tags": [
+      "knowledge",
+      "craft",
+      "text-only"
+    ],
     "note": "Beer knowledge: craft vs mass-produced beer"
   },
   {
@@ -394,7 +586,11 @@
     "conversationId": "knowledge-sour",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "tags": ["knowledge", "sour", "text-only"],
+    "tags": [
+      "knowledge",
+      "sour",
+      "text-only"
+    ],
     "note": "Beer knowledge: intro to sour beer styles"
   },
   {
@@ -403,8 +599,13 @@
     "inputText": "你好",
     "conversationId": "vague-hello",
     "userId": "regression-user",
-    "tags": ["vague", "greeting", "text-only"],
-    "note": "Vague greeting — returns unclear, handled gracefully"
+    "tags": [
+      "vague",
+      "greeting",
+      "text-only"
+    ],
+    "note": "Vague greeting — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_041",
@@ -412,8 +613,13 @@
     "inputText": "谢谢",
     "conversationId": "vague-thanks",
     "userId": "regression-user",
-    "tags": ["vague", "thanks", "text-only"],
-    "note": "Vague thanks — returns unclear, handled gracefully"
+    "tags": [
+      "vague",
+      "thanks",
+      "text-only"
+    ],
+    "note": "Vague thanks — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_042",
@@ -421,8 +627,13 @@
     "inputText": "帮我看看这个",
     "conversationId": "vague-this",
     "userId": "regression-user",
-    "tags": ["vague", "ambiguous", "text-only"],
-    "note": "Vague reference without image — returns unclear, handled gracefully"
+    "tags": [
+      "vague",
+      "ambiguous",
+      "text-only"
+    ],
+    "note": "Vague reference without image — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
   },
   {
     "id": "reg_043",
@@ -431,7 +642,11 @@
     "conversationId": "knowledge-dry-hop",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "tags": ["knowledge", "dry-hop", "text-only"],
+    "tags": [
+      "knowledge",
+      "dry-hop",
+      "text-only"
+    ],
     "note": "Beer knowledge: what is dry hopping"
   },
   {
@@ -441,8 +656,14 @@
     "conversationId": "knowledge-what-is-ipa",
     "userId": "regression-user",
     "expectedIntent": "beer_knowledge",
-    "expectedKeywords": ["IPA"],
-    "tags": ["knowledge", "ipa", "text-only"],
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "ipa",
+      "text-only"
+    ],
     "note": "Beer knowledge: what does IPA mean"
   }
 ]

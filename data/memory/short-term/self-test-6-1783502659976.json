@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-6-1783502659976",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:24:20.001Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502659985_9juteu",
+      "userText": "我的口味画像是什么",
+      "assistantReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果风味\n\n画像置信度：40%（基于 4 条品饮记录）\n\n偏好风味标签：热带水果（4）\nABV 舒适区：暂无足够记录\n记录数：5 条\n\n📈 最近趋势：\n2026月07：5款 · 近三月均分 4.5 · 偏好风味：热带水果\n\n证据数：4 · 画像置信度：40% · 实验组：开启",
+      "intent": "profile_query",
+      "createdAt": "2026-07-08T09:24:20.001Z"
+    }
+  ]
+}

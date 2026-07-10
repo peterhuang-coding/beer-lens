@@ -1,0 +1,107 @@
+[
+  {
+    "id": "ep_1783048634617_cy3jud",
+    "userId": "test",
+    "createdAt": "2026-07-03T03:17:14.617Z",
+    "sourceTraceId": "trace_1783048634614_4k5g77",
+    "beer": {
+      "displayName": "帮我推荐一款IPA",
+      "brewery": "",
+      "style": "",
+      "abv": 0,
+      "untappdScore": null
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分，再推荐一款IPA"
+    }
+  },
+  {
+    "id": "ep_1783049111995_eg70qm",
+    "userId": "test",
+    "createdAt": "2026-07-03T03:25:11.995Z",
+    "sourceTraceId": "trace_1783049111990_h7fk08",
+    "beer": {
+      "displayName": "帮我推荐一款IPA",
+      "brewery": "",
+      "style": "",
+      "abv": 0,
+      "untappdScore": null
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分，再推荐一款IPA"
+    }
+  },
+  {
+    "id": "ep_1783049112093_xvzw8b",
+    "userId": "test",
+    "createdAt": "2026-07-03T03:25:12.093Z",
+    "sourceTraceId": "trace_1783049112092_uof9iw",
+    "beer": {
+      "displayName": "帮我推荐一款IPA",
+      "brewery": "",
+      "style": "",
+      "abv": 0,
+      "untappdScore": null
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "喝了Green City，4.5分，顺便推荐下一杯"
+    }
+  },
+  {
+    "id": "ep_1783049338447_tb3u20",
+    "userId": "test",
+    "createdAt": "2026-07-03T03:28:58.447Z",
+    "sourceTraceId": "trace_1783049338443_6l8nwv",
+    "beer": {
+      "displayName": "帮我推荐一款IPA",
+      "brewery": "",
+      "style": "",
+      "abv": 0,
+      "untappdScore": null
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分，再推荐一款IPA"
+    }
+  },
+  {
+    "id": "ep_1783049338472_6ox04g",
+    "userId": "test",
+    "createdAt": "2026-07-03T03:28:58.472Z",
+    "sourceTraceId": "trace_1783049338471_ab1osr",
+    "beer": {
+      "displayName": "帮我推荐一款IPA",
+      "brewery": "",
+      "style": "",
+      "abv": 0,
+      "untappdScore": null
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "喝了Green City，4.5分，顺便推荐下一杯"
+    }
+  }
+]

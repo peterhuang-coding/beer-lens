@@ -1,0 +1,67 @@
+{
+  "conversationId": "regression-regression-pick-nth",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-07T07:35:44.768Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783409576122_y0j1o8",
+      "userText": "第3个怎么样",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-07T07:32:56.564Z"
+    },
+    {
+      "turnId": "trace_1783409709652_11pja8",
+      "userText": "第3个怎么样",
+      "assistantReply": "我会这样点：\n\n1. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：第3个怎么样\n最值得尝新：第3个怎么样\n我会先跳过：第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 第3个怎么样。\n\n⚠️ 第3个怎么样 数据不足，谨慎尝试。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-07T07:35:09.706Z"
+    },
+    {
+      "turnId": "trace_1783409744752_4t3l5k",
+      "userText": "第3个怎么样",
+      "assistantReply": "根据你的口味画像：喜欢热带水果风味\n\n\n（基于：multi-intent detected: follow_up_filter, menu_recommend）",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-07T07:35:44.768Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783409709652_fpn2px",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "第3个怎么样",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-07T07:35:09.706Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "第3个怎么样",
+    "brewery": ""
+  }
+}

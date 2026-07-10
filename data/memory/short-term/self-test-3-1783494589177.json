@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-3-1783494589177",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T07:09:52.177Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783494589191_7s6iag",
+      "userText": "第3个怎么样",
+      "assistantReply": "看来你在做选择题或者列表选择吧？第3个是什么？告诉我更多信息，我可以帮你分析哦。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T07:09:52.177Z"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "traceId": "trace_1783650322403_k431xs",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_tasting_feedback_2",
+  "turnId": "trace_1783650322403_49lcll",
+  "timestamp": "2026-07-10T02:25:22.406Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+    "hasImage": true,
+    "imageName": "vqa_tasting_feedback_2.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik04MS4xNzUgMzAwLjIxaDIuNzJxMSAwIDEuNzQtLjI1dDEuMjMtLjcxcS41LS40Ny43NC0xLjE0LjI0LS42Ni4yNC0xLjQ5IDAtLjc4LS4yNC0xLjQxLS4yNC0uNjQtLjczLTEuMDgtLjQ4LS40NS0xLjIzLS42OS0uNzQtLjIzLTEuNzUtLjIzaC0yLjcyem0tMy42My05LjgxaDYuMzVxMS45NiAwIDMuMzkuNDZ0Mi4zNiAxLjI4IDEuMzggMS45Ny40NSAyLjUxcTAgMS40Mi0uNDcgMi42dC0xLjQyIDIuMDNxLS45NC44NS0yLjM2IDEuMzMtMS40My40Ny0zLjMzLjQ3aC0yLjcydjYuODdoLTMuNjN6bTIzLjUxIDE1Ljk0di0yLjMzcS0xLjQ1LjA2LTIuNDMuMjUtLjk5LjE4LTEuNTguNDYtLjYuMjktLjg1LjY2LS4yNi4zOC0uMjYuODMgMCAuODguNTIgMS4yNS41Mi4zOCAxLjM2LjM4IDEuMDIgMCAxLjc3LS4zN3QxLjQ3LTEuMTNtLTcuMDUtNy4yNy0uNTktMS4wN3EyLjM4LTIuMTkgNS43NS0yLjE5IDEuMjEgMCAyLjE3LjR0MS42MiAxLjExIDEuMDEgMS42OXEuMzQuOTkuMzQgMi4xNnY4Ljc1aC0xLjUxcS0uNDcgMC0uNzMtLjE0dC0uNDEtLjU4bC0uMjktLjk5cS0uNTMuNDctMS4wMy44My0uNS4zNS0xLjA0LjYtLjU0LjI0LTEuMTUuMzctLjYyLjEzLTEuMzYuMTMtLjg4IDAtMS42Mi0uMjR0LTEuMjgtLjcxLS44NC0xLjE3cS0uMy0uNzEtLjMtMS42NCAwLS41Mi4xOC0xLjA0LjE3LS41Mi41Ny0xIC40LS40NyAxLjA0LS44OS42My0uNDEgMS41Ni0uNzMuOTItLjMxIDIuMTUtLjUgMS4yMy0uMiAyLjgxLS4yNHYtLjgxcTAtMS4zOS0uNi0yLjA2LS41OS0uNjYtMS43MS0uNjYtLjgxIDAtMS4zNS4xOC0uNTMuMTktLjkzLjQzLS40MS4yNC0uNzQuNDItLjMzLjE5LS43NC4xOS0uMzUgMC0uNTktLjE4dC0uMzktLjQybTE2LjM3LTIuMTYuMjEgMS41NnEuNjUtMS4yNCAxLjU0LTEuOTV0Mi4xLS43MXEuOTYgMCAxLjU0LjQybC0uMjEgMi41cS0uMDcuMjQtLjIuMzR0LS4zNC4xLS42MS0uMDZxLS4zOS0uMDctLjc3LS4wNy0uNTYgMC0uOTkuMTZ0LS43Ny40N3EtLjM1LjMtLjYxLjczdC0uNDkuOTl2OC41M2gtMy4zNHYtMTMuODVoMS45NnEuNTEgMCAuNzEuMTguMjEuMTguMjcuNjZtMTQuNDUgOS40M3YtMi4zM3EtMS40NC4wNi0yLjQzLjI1LS45OS4xOC0xLjU4LjQ2LS41OS4yOS0uODUuNjYtLjI2LjM4LS4yNi44MyAwIC44OC41MiAxLjI1LjUyLjM4IDEuMzYuMzggMS4wMyAwIDEuNzgtLjM3Ljc0LS4zNyAxLjQ2LTEuMTNtLTcuMDUtNy4yNy0uNTktMS4wN3EyLjM5LTIuMTkgNS43NS0yLjE5IDEuMjEgMCAyLjE3LjR0MS42MiAxLjExIDEuMDEgMS42OXEuMzQuOTkuMzQgMi4xNnY4Ljc1aC0xLjUxcS0uNDcgMC0uNzMtLjE0LS4yNS0uMTQtLjQtLjU4bC0uMy0uOTlxLS41My40Ny0xLjAzLjgzLS41LjM1LTEuMDQuNi0uNTQuMjQtMS4xNS4zN3QtMS4zNi4xM3EtLjg3IDAtMS42Mi0uMjQtLjc0LS4yNC0xLjI4LS43MXQtLjg0LTEuMTdxLS4yOS0uNzEtLjI5LTEuNjQgMC0uNTIuMTctMS4wNC4xOC0uNTIuNTgtMSAuMzktLjQ3IDEuMDMtLjg5LjYzLS40MSAxLjU2LS43My45Mi0uMzEgMi4xNS0uNSAxLjIzLS4yIDIuODEtLjI0di0uODFxMC0xLjM5LS41OS0yLjA2LS42LS42Ni0xLjcyLS42Ni0uODEgMC0xLjM0LjE4LS41NC4xOS0uOTQuNDMtLjQxLjI0LS43NC40Mi0uMzMuMTktLjczLjE5LS4zNSAwLS42LS4xOC0uMjQtLjE4LS4zOS0uNDJtMTYuNzcgMS4wNXY2LjIxcS41Ny42OSAxLjI0Ljk3LjY2LjI4IDEuNDEuMjguNzcgMCAxLjM4LS4yNy42MS0uMjggMS4wNS0uODcuNDMtLjU4LjY2LTEuNDkuMjMtLjkyLjIzLTIuMTkgMC0yLjI4LS43Ni0zLjMtLjc2LTEuMDEtMi4xNy0xLjAxLS45NiAwLTEuNjguNDMtLjcxLjQ0LTEuMzYgMS4yNG0wLTEwLjI2djcuOTFxLjg0LS44OCAxLjg2LTEuNHQyLjMyLS41MnExLjIxIDAgMi4xNy40OC45Ny40NyAxLjY1IDEuMzUuNjguODkgMS4wNCAyLjE0LjM3IDEuMjYuMzcgMi44MiAwIDEuNjktLjQyIDMuMDd0LTEuMTkgMi4zNXEtLjc4Ljk4LTEuODcgMS41Mi0xLjEuNTQtMi40My41NC0uNjUgMC0xLjE4LS4xMy0uNTItLjEyLS45Ny0uMzV0LS44Mi0uNTYtLjcxLS43NGwtLjE0LjkzcS0uMDkuMzUtLjI4LjUtLjIuMTUtLjUzLjE1aC0yLjJ2LTIwLjA2em0xOC4xMiA1Ljk5cTEuNTQgMCAyLjguNXQyLjE2IDEuNDIgMS4zOCAyLjI0cS40OSAxLjMyLjQ5IDIuOTZ0LS40OSAyLjk3cS0uNDggMS4zMi0xLjM4IDIuMjV0LTIuMTYgMS40My0yLjguNXEtMS41NiAwLTIuODItLjUtMS4yNy0uNS0yLjE3LTEuNDN0LTEuMzktMi4yNXEtLjQ5LTEuMzMtLjQ5LTIuOTd0LjQ5LTIuOTYgMS4zOS0yLjI0IDIuMTctMS40MnExLjI2LS41IDIuODItLjVtMCAxMS43MXExLjcyIDAgMi41Ni0xLjE2LjgzLTEuMTYuODMtMy40MSAwLTIuMjQtLjgzLTMuNDEtLjg0LTEuMTgtMi41Ni0xLjE4LTEuNzYgMC0yLjYgMS4xOS0uODUgMS4xOC0uODUgMy40IDAgMi4yMy44NSAzLjQuODQgMS4xNyAyLjYgMS4xN205LjQyLTE3LjdoMy4zM3YyMC4wNmgtMy4zM3ptMTMuOTkgMTYuNDh2LTIuMzNxLTEuNDUuMDYtMi40My4yNS0uOTkuMTgtMS41OC40Ni0uNi4yOS0uODUuNjYtLjI2LjM4LS4yNi44MyAwIC44OC41MiAxLjI1LjUyLjM4IDEuMzYuMzggMS4wMiAwIDEuNzctLjM3dDEuNDctMS4xM20tNy4wNS03LjI3LS42LTEuMDdxMi4zOS0yLjE5IDUuNzYtMi4xOSAxLjIxIDAgMi4xNy40dDEuNjIgMS4xMSAxLjAxIDEuNjlxLjM0Ljk5LjM0IDIuMTZ2OC43NWgtMS41MXEtLjQ4IDAtLjczLS4xNC0uMjYtLjE0LS40MS0uNThsLS4yOS0uOTlxLS41My40Ny0xLjAzLjgzLS41LjM1LTEuMDQuNi0uNTQuMjQtMS4xNS4zNy0uNjIuMTMtMS4zNi4xMy0uODggMC0xLjYyLS4yNHQtMS4yOC0uNzEtLjg0LTEuMTdxLS4zLS43MS0uMy0xLjY0IDAtLjUyLjE4LTEuMDQuMTctLjUyLjU3LTEgLjQtLjQ3IDEuMDQtLjg5LjYzLS40MSAxLjU1LS43My45My0uMzEgMi4xNi0uNSAxLjIzLS4yIDIuODEtLjI0di0uODFxMC0xLjM5LS42LTIuMDYtLjU5LS42Ni0xLjcxLS42Ni0uODEgMC0xLjM1LjE4LS41My4xOS0uOTMuNDMtLjQxLjI0LS43NC40Mi0uMzMuMTktLjc0LjE5LS4zNSAwLS41OS0uMTh0LS4zOS0uNDJtMzEuODItNi44My0uOTEgMS43MXEtLjE2LjI4LS4zNC40MXQtLjQ1LjEzcS0uMjkgMC0uNjItLjIxdC0uNzktLjQ3cS0uNDYtLjI1LTEuMDctLjQ2dC0xLjQ1LS4yMXEtLjc2IDAtMS4zMi4xOC0uNTcuMTgtLjk2LjUxLS4zOC4zMi0uNTcuNzctLjE5LjQ2LS4xOSAxIDAgLjY5LjM5IDEuMTQuMzguNDYgMS4wMi43OS42My4zMiAxLjQ0LjU4LjgxLjI1IDEuNjYuNTR0MS42Ni42OHEuODEuMzggMS40NS45Ny42My41OSAxLjAxIDEuNDQuMzkuODUuMzkgMi4wNiAwIDEuMzMtLjQ1IDIuNDgtLjQ2IDEuMTYtMS4zMyAyLjAxLS44Ny44Ni0yLjEyIDEuMzUtMS4yNi41LTIuODguNS0uOTMgMC0xLjgzLS4xOS0uOTEtLjE4LTEuNzQtLjUyLS44My0uMzMtMS41Ni0uODEtLjczLS40Ny0xLjI5LTEuMDVsMS4wNi0xLjc0cS4xNC0uMTkuMzUtLjMyLjIyLS4xMy40Ni0uMTMuMzQgMCAuNzMuMjh0LjkzLjYxcS41NC4zNCAxLjI3LjYyLjcyLjI4IDEuNzMuMjggMS41NSAwIDIuNC0uNzR0Ljg1LTIuMTFxMC0uNzctLjM4LTEuMjYtLjM5LS40OC0xLjAyLS44MS0uNjMtLjM0LTEuNDQtLjU2LS44MS0uMjMtMS42NS0uNXQtMS42NS0uNjUtMS40NC0uOTlxLS42NC0uNjEtMS4wMi0xLjUyLS4zOS0uOTEtLjM5LTIuMjQgMC0xLjA3LjQzLTIuMDguNDItMS4wMiAxLjIzLTEuOHQyLTEuMjVxMS4xOS0uNDggMi43My0uNDggMS43MyAwIDMuMTguNTQgMS40Ni41NCAyLjQ5IDEuNTJtNy42IDE3LjlxLTEuODEgMC0yLjc4LTEuMDItLjk2LTEuMDItLjk2LTIuODJ2LTcuNzNoLTEuNDJxLS4yNyAwLS40Ni0uMTgtLjE5LS4xNy0uMTktLjUzdi0xLjMybDIuMjMtLjM2LjctMy43OHEuMDctLjI3LjI2LS40MnQuNDktLjE1aDEuNzJ2NC4zNmgzLjd2Mi4zOGgtMy43djcuNXEwIC42NS4zMiAxLjAyLjMyLjM2Ljg3LjM2LjMxIDAgLjUyLS4wNy4yMS0uMDguMzctLjE2LjE1LS4wOC4yNy0uMTYuMTItLjA3LjI1LS4wNy4xNCAwIC4yNC4wNy4wOS4wOC4yLjIzbDEgMS42MnEtLjczLjYxLTEuNjcuOTItLjk1LjMxLTEuOTYuMzFtMTEuNTUtMTQuMjlxMS41NCAwIDIuODEuNSAxLjI2LjUgMi4xNiAxLjQyLjg5LjkyIDEuMzggMi4yNHQuNDkgMi45Ni0uNDkgMi45N3EtLjQ5IDEuMzItMS4zOCAyLjI1LS45LjkzLTIuMTYgMS40My0xLjI3LjUtMi44MS41LTEuNTUgMC0yLjgyLS41dC0yLjE2LTEuNDNxLS45LS45My0xLjM5LTIuMjUtLjUtMS4zMy0uNS0yLjk3dC41LTIuOTZxLjQ5LTEuMzIgMS4zOS0yLjI0Ljg5LS45MiAyLjE2LTEuNDJ0Mi44Mi0uNW0wIDExLjcxcTEuNzMgMCAyLjU2LTEuMTZ0LjgzLTMuNDFxMC0yLjI0LS44My0zLjQxLS44My0xLjE4LTIuNTYtMS4xOC0xLjc1IDAtMi41OSAxLjE5LS44NSAxLjE4LS44NSAzLjQgMCAyLjIzLjg1IDMuNC44NCAxLjE3IDIuNTkgMS4xN20xNy45OS0xMS40OWgzLjMzdjEzLjg1aC0yLjA0cS0uNjYgMC0uODMtLjYxbC0uMjMtMS4xcS0uODUuODYtMS44OCAxLjM5LTEuMDMuNTQtMi40Mi41NC0xLjEzIDAtMi0uMzktLjg3LS4zOC0xLjQ3LTEuMDktLjU5LS43LS44OS0xLjY2LS4zMS0uOTctLjMxLTIuMTN2LTguOGgzLjM0djguOHEwIDEuMjcuNTggMS45Ny41OS42OSAxLjc3LjY5Ljg2IDAgMS42Mi0uMzguNzUtLjM5IDEuNDMtMS4wNnptMTEuMjQgMTQuMDdxLTEuODEgMC0yLjc3LTEuMDItLjk3LTEuMDItLjk3LTIuODJ2LTcuNzNoLTEuNDFxLS4yNyAwLS40Ni0uMTgtLjE5LS4xNy0uMTktLjUzdi0xLjMybDIuMjItLjM2LjcxLTMuNzhxLjA2LS4yNy4yNS0uNDJ0LjQ5LS4xNWgxLjczdjQuMzZoMy43djIuMzhoLTMuN3Y3LjVxMCAuNjUuMzEgMS4wMi4zMi4zNi44OC4zNi4zMSAwIC41Mi0uMDcuMi0uMDguMzYtLjE2LjE1LS4wOC4yOC0uMTYuMTItLjA3LjI0LS4wNy4xNSAwIC4yNC4wNy4xLjA4LjIuMjNsMSAxLjYycS0uNzMuNjEtMS42Ny45Mi0uOTUuMzEtMS45Ni4zMW0yMi4xMy0xMC4wMWg2LjQ4djcuOXEtMS40OSAxLjA5LTMuMTcgMS42dC0zLjU5LjUxcS0yLjM5IDAtNC4zMy0uNzUtMS45NC0uNzQtMy4zMS0yLjA2LTEuMzctMS4zMy0yLjExLTMuMTYtLjc0LTEuODQtLjc0LTQuMDEgMC0yLjIuNzEtNC4wNC43Mi0xLjgzIDIuMDMtMy4xNiAxLjMyLTEuMzIgMy4yLTIuMDUgMS44Ny0uNzMgNC4yMS0uNzMgMS4xOSAwIDIuMjIuMTl0MS45Mi41MnEuODguMzMgMS42MS44LjczLjQ4IDEuMzQgMS4wNGwtMS4wNCAxLjY1cS0uMjUuMzktLjY0LjQ4dC0uODUtLjE5cS0uNDQtLjI2LS44OS0uNTItLjQ1LS4yNS0uOTktLjQ0LS41NS0uMTktMS4yMy0uMzEtLjY4LS4xMy0xLjU3LS4xMy0xLjQ1IDAtMi42Mi40OS0xLjE2LjQ5LTEuOTkgMS4zOS0uODIuOTEtMS4yNyAyLjE3LS40NCAxLjI3LS40NCAyLjg0IDAgMS42Ny40OCAyLjk5dDEuMzUgMi4yMyAyLjEgMS4zOSAyLjc0LjQ4cTEuMDggMCAxLjkzLS4yM3QxLjY2LS42MnYtMy41NGgtMi40NnEtLjM1IDAtLjU1LS4yLS4xOS0uMTktLjE5LS40OHptOS41LTEwLjI3aDMuMzR2MjAuMDZoLTMuMzR6bTEzLjk5IDE2LjQ4di0yLjMzcS0xLjQ1LjA2LTIuNDMuMjUtLjk5LjE4LTEuNTguNDYtLjU5LjI5LS44NS42Ni0uMjYuMzgtLjI2LjgzIDAgLjg4LjUyIDEuMjUuNTIuMzggMS4zNi4zOCAxLjAyIDAgMS43Ny0uMzd0MS40Ny0xLjEzbS03LjA1LTcuMjctLjU5LTEuMDdxMi4zOS0yLjE5IDUuNzUtMi4xOSAxLjIxIDAgMi4xNy40dDEuNjIgMS4xMSAxLjAxIDEuNjlxLjM0Ljk5LjM0IDIuMTZ2OC43NWgtMS41MXEtLjQ3IDAtLjczLS4xNHQtLjQtLjU4bC0uMy0uOTlxLS41My40Ny0xLjAzLjgzLS41LjM1LTEuMDQuNi0uNTQuMjQtMS4xNS4zN3QtMS4zNi4xM3EtLjg3IDAtMS42Mi0uMjQtLjc0LS4yNC0xLjI4LS43MXQtLjg0LTEuMTdxLS4yOS0uNzEtLjI5LTEuNjQgMC0uNTIuMTctMS4wNC4xOC0uNTIuNTgtMSAuMzktLjQ3IDEuMDMtLjg5LjYzLS40MSAxLjU2LS43My45Mi0uMzEgMi4xNS0uNSAxLjIzLS4yIDIuODEtLjI0di0uODFxMC0xLjM5LS42LTIuMDYtLjU5LS42Ni0xLjcxLS42Ni0uODEgMC0xLjM0LjE4LS41NC4xOS0uOTQuNDMtLjQxLjI0LS43NC40Mi0uMzMuMTktLjczLjE5LS4zNSAwLS42LS4xOC0uMjQtLjE4LS4zOS0uNDJtMjIuNjQtMS41LS43NSAxLjJxLS4xNC4yMS0uMjkuM3QtLjM4LjA5cS0uMjQgMC0uNTItLjEzLS4yNy0uMTQtLjY0LS4zMS0uMzYtLjE3LS44My0uMy0uNDYtLjE0LTEuMS0uMTQtLjk4IDAtMS41NC40MnQtLjU2IDEuMDlxMCAuNDUuMjkuNzUuMjkuMzEuNzcuNTR0MS4wOC40MXEuNjEuMTggMS4yNC40LjYzLjIxIDEuMjMuNDkuNjEuMjggMS4wOS43LjQ4LjQzLjc3IDEuMDIuMjkuNi4yOSAxLjQzIDAgMS0uMzYgMS44NS0uMzYuODQtMS4wNiAxLjQ1LS43LjYyLTEuNzMuOTYtMS4wNC4zNS0yLjM5LjM1LS43MSAwLTEuMzktLjEzdC0xLjMxLS4zNi0xLjE2LS41NHEtLjU0LS4zMS0uOTQtLjY3bC43Ny0xLjI3cS4xNS0uMjMuMzUtLjM1LjItLjEzLjUxLS4xM3QuNTkuMThxLjI4LjE3LjY0LjM4LjM3LjIuODYuMzguNDkuMTcgMS4yNS4xNy41OSAwIDEuMDItLjE0LjQyLS4xNC43LS4zNy4yNy0uMjMuNC0uNTQuMTMtLjMuMTMtLjYyIDAtLjQ5LS4yOS0uOHQtLjc3LS41NC0xLjA5LS40MXEtLjYyLS4xOC0xLjI2LS40dC0xLjI1LS41MXEtLjYyLS4yOS0xLjEtLjczLS40OC0uNDUtLjc3LTEuMS0uMjktLjY0LS4yOS0xLjU2IDAtLjg1LjM0LTEuNjJ0Ljk5LTEuMzRxLjY2LS41OCAxLjY0LS45Mi45OC0uMzUgMi4yNi0uMzUgMS40MyAwIDIuNi40OCAxLjE4LjQ3IDEuOTYgMS4yNG0xMS44NyAwLS43NiAxLjJxLS4xMy4yMS0uMjguM3QtLjM4LjA5cS0uMjQgMC0uNTItLjEzLS4yOC0uMTQtLjY0LS4zMS0uMzctLjE3LS44My0uMy0uNDctLjE0LTEuMS0uMTQtLjk5IDAtMS41NS40MnQtLjU2IDEuMDlxMCAuNDUuMjkuNzUuMjkuMzEuNzcuNTR0MS4wOS40MSAxLjIzLjRxLjYzLjIxIDEuMjQuNDl0MS4wOS43cS40OC40My43NyAxLjAyLjI5LjYuMjkgMS40MyAwIDEtLjM2IDEuODUtLjM2Ljg0LTEuMDYgMS40NS0uNy42Mi0xLjc0Ljk2LTEuMDMuMzUtMi4zOC4zNS0uNzEgMC0xLjQtLjEzLS42OC0uMTMtMS4zMS0uMzYtLjYyLS4yMy0xLjE2LS41NC0uNTMtLjMxLS45My0uNjdsLjc2LTEuMjdxLjE1LS4yMy4zNi0uMzUuMi0uMTMuNTEtLjEzdC41OS4xOHEuMjcuMTcuNjQuMzguMzYuMi44NS4zOC41LjE3IDEuMjUuMTcuNiAwIDEuMDItLjE0LjQzLS4xNC43LS4zNy4yOC0uMjMuNDEtLjU0LjEzLS4zLjEzLS42MiAwLS40OS0uMjktLjh0LS43Ny0uNTQtMS4xLS40MXEtLjYxLS4xOC0xLjI1LS40dC0xLjI2LS41MXEtLjYxLS4yOS0xLjA5LS43My0uNDgtLjQ1LS43Ny0xLjEtLjI5LS42NC0uMjktMS41NiAwLS44NS4zNC0xLjYydC45OS0xLjM0cS42NS0uNTggMS42My0uOTIuOTgtLjM1IDIuMjYtLjM1IDEuNDQgMCAyLjYxLjQ4IDEuMTcuNDcgMS45NiAxLjI0Ii8+PC9zdmc+"
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "tasting_feedback",
+        "confidence": 1,
+        "slots": {
+          "flavorTags": "焦糖"
+        }
+      }
+    ],
+    "intent": "tasting_feedback",
+    "confidence": 1,
+    "slots": {
+      "flavorTags": "焦糖"
+    },
+    "missingInfo": [],
+    "routeReason": "override match: tasting_feedback (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/ matched → forced to tasting_feedback",
+      "candidateScores": [
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": true,
+    "updatedProfile": true,
+    "notes": [
+      "User provided taste feedback — profile updated"
+    ]
+  },
+  "route": {
+    "handler": "tasting_feedback",
+    "diagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "activeBeer"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"tasting_feedback\" missing context [activeBeer] — proceeding with fallbackReply",
+      "intent": "tasting_feedback"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。\n你的口味画像：喜欢柑橘风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "tasting_feedback",
+    "hasImage": true,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "activeBeer"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"tasting_feedback\" missing context [activeBeer] — proceeding with fallbackReply",
+      "intent": "tasting_feedback"
+    }
+  }
+}

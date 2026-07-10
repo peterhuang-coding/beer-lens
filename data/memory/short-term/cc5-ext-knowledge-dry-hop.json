@@ -1,0 +1,21 @@
+{
+  "conversationId": "cc5-ext-knowledge-dry-hop",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:59.167Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783477687671_q9rlqo",
+      "userText": "什么是干投酒花",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:28:08.453Z"
+    },
+    {
+      "turnId": "trace_1783477918391_6ka5gm",
+      "userText": "什么是干投酒花",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:31:59.167Z"
+    }
+  ]
+}

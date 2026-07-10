@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-5-1783502653848",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:24:19.974Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502653853_o8l9cm",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "了解了，不喜欢太苦的啤酒，那我们可以考虑一些苦味较低、口感更清爽或者带有水果香的啤酒。比如小麦啤酒（Weissbier）或者比利时白啤酒（Belgian Witbier），这些风格通常苦味较轻，带有柑橘和热带水果的香气，应该会更合你的口味。还有美式淡色艾尔（American Pale Ale）也可以尝试，它的苦味比印度淡色艾尔（IPA）要低一些，但依然保留了一些啤酒花的香气。你觉得这些风格怎么样？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:24:19.974Z"
+    }
+  ]
+}

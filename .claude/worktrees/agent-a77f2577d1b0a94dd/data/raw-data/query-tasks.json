@@ -1,0 +1,4930 @@
+[
+  {
+    "id": "qcol_80b17edb4627681a",
+    "source": "query_collect",
+    "query": "我想喝这个你推荐吗",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.279Z",
+    "updatedAt": "2026-07-08T02:49:23.279Z"
+  },
+  {
+    "id": "qcol_f98add1b8db9b395",
+    "source": "query_collect",
+    "query": "这是啥酒",
+    "intent": "label_check",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_e69a48ffae134493",
+    "source": "query_collect",
+    "query": "这个是什么酒？",
+    "intent": "label_check",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_bbb882d34dd05b63",
+    "source": "query_collect",
+    "query": "IPA是什么",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_8c97207b0bacbff4",
+    "source": "query_collect",
+    "query": "什么是干投酒花",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_5bd8e33d72bf72d6",
+    "source": "query_collect",
+    "query": "帮我看看这个",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_1bf7ac688560d3b0",
+    "source": "query_collect",
+    "query": "谢谢",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_670d9743542cae3e",
+    "source": "query_collect",
+    "query": "你好",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_1be5f5914b2583e2",
+    "source": "query_collect",
+    "query": "介绍一下酸啤风格",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_724714600a8b3157",
+    "source": "query_collect",
+    "query": "精酿和工业啤酒的区别",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_1c4b7e1f48d849fe",
+    "source": "query_collect",
+    "query": "什么是新英格兰IPA",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_4fa05c6be0c5771e",
+    "source": "query_collect",
+    "query": "啤酒是怎么酿造的",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_0fcbf8267ad2d894",
+    "source": "query_collect",
+    "query": "IPA和拉格有什么区别",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_1fc0302431ddc740",
+    "source": "query_collect",
+    "query": "世涛和帝国世涛的区别",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_a1b1d5b46578ec73",
+    "source": "query_collect",
+    "query": "什么是West Coast IPA",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_a223c9088aeab1f6",
+    "source": "query_collect",
+    "query": "看看这罐啤酒",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_fb68f758e5f2c8f6",
+    "source": "query_collect",
+    "query": "帮我看看这瓶酒的生产日期",
+    "intent": "label_check",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_6f792708f5cd464c",
+    "source": "query_collect",
+    "query": "这瓶酒过期了吗",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_ced2fd7ba87ebfd3",
+    "source": "query_collect",
+    "query": "清空我的偏好",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_37ea006af3abb748",
+    "source": "query_collect",
+    "query": "重置我的记录",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_ec33931fa9079c93",
+    "source": "query_collect",
+    "query": "我不喜欢IPA",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_874d7d34eb610836",
+    "source": "query_collect",
+    "query": "我不喜欢太苦的",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_f16441b3005f5029",
+    "source": "query_collect",
+    "query": "帮我看看口味画像",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_bff886ec85143beb",
+    "source": "query_collect",
+    "query": "我喝过哪些酒",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_be36e7df16e242ac",
+    "source": "query_collect",
+    "query": "看看我的口味偏好",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_b762804b8b8ecf9b",
+    "source": "query_collect",
+    "query": "我的口味画像是什么",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_d2390a850f05c7f8",
+    "source": "query_collect",
+    "query": "会再喝，苦度刚好",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_93d2eee2877cfff0",
+    "source": "query_collect",
+    "query": "2分，不会再喝，偏酸",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_a331be831321d218",
+    "source": "query_collect",
+    "query": "这杯不错，给4.5分",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_c9e12f2c185e1b80",
+    "source": "query_collect",
+    "query": "4分",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_e0d09d0370ac26a1",
+    "source": "query_collect",
+    "query": "3.5分，不会再喝",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_b8a60ae4792f4cea",
+    "source": "query_collect",
+    "query": "我给4.5分，会再喝，热带水果",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_f6f8025f02d683cc",
+    "source": "query_collect",
+    "query": "有没有酸啤",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_9c0abe60e104f2c9",
+    "source": "query_collect",
+    "query": "第一个怎么样",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_a349e8d1481f7633",
+    "source": "query_collect",
+    "query": "哪个不苦",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_e0a19faa1cca5808",
+    "source": "query_collect",
+    "query": "有没有世涛",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_cf61dc435928c6a6",
+    "source": "query_collect",
+    "query": "第3个怎么样",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_d77653b034db6064",
+    "source": "query_collect",
+    "query": "有IPA吗",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_b08ae94faf00a39e",
+    "source": "query_collect",
+    "query": "有什么好喝的啤酒",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_fcfc02489a19e8b2",
+    "source": "query_collect",
+    "query": "想喝点烈的",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_5347e34e8453820b",
+    "source": "query_collect",
+    "query": "今天喝什么好",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_65d598664528c403",
+    "source": "query_collect",
+    "query": "帮我推荐一款",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_1edd707b20a0e75b",
+    "source": "query_collect",
+    "query": "帮我推荐一款酸啤",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_e4a4d692633934ba",
+    "source": "query_collect",
+    "query": "帮我推荐拉格",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_5f8b518c1db699b8",
+    "source": "query_collect",
+    "query": "推荐一款世涛",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_dd96d33ed5d13e27",
+    "source": "query_collect",
+    "query": "想喝清爽不苦的",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_9de5da08257c254a",
+    "source": "query_collect",
+    "query": "推荐一款IPA",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_e23b3d9d8ae5d57c",
+    "source": "query_collect",
+    "query": "推荐酸啤",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_8c270b8c518c2aa1",
+    "source": "query_collect",
+    "query": "讲讲世涛和帝国世涛的区别",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_cffc4d6fda94098a",
+    "source": "query_collect",
+    "query": "看看我的偏好",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_c1a21ee72646f56f",
+    "source": "query_collect",
+    "query": "我喜欢什么风格的啤酒",
+    "intent": "profile_query",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_25b8534f47f8dfc8",
+    "source": "query_collect",
+    "query": "推荐拉格",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_a2a1e6d7037de36c",
+    "source": "query_collect",
+    "query": "推荐世涛",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_b41f08891e19663e",
+    "source": "query_collect",
+    "query": "今天想喝清爽一点，不要太苦",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_1ef3de06b32e521b",
+    "source": "query_collect",
+    "query": "清空",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_9766c51ddf28e670",
+    "source": "query_collect",
+    "query": "我想喝 IPA",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_15582ac5ac9cf7e9",
+    "source": "query_collect",
+    "query": "帮我看看酒标，顺便推荐",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_0d7a43c19296acf0",
+    "source": "query_collect",
+    "query": "不苦的有没有，顺便看看我口味",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_6c33047d385f88b9",
+    "source": "query_collect",
+    "query": "不是这个，推荐一款IPA给我",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_9c92fad9bcabe870",
+    "source": "query_collect",
+    "query": "看看这瓶酒标，这酒厂怎么样",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_2e363714841fbac2",
+    "source": "query_collect",
+    "query": "推荐一款IPA，IPA到底是什么风格",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_5435547ad3838105",
+    "source": "query_collect",
+    "query": "帮我推荐一款IPA，顺便看我口味",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_01ee32748bb50ac7",
+    "source": "query_collect",
+    "query": "喝了Green City，4.5分，顺便推荐下一杯",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_a8f6497eb6896e8b",
+    "source": "query_collect",
+    "query": "4分，再推荐一款IPA",
+    "intent": "tasting_feedback",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_1985d0579e3f35a8",
+    "source": "query_collect",
+    "query": "hello，推荐一款IPA",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_8b8adcbb2305a5a2",
+    "source": "query_collect",
+    "query": "谢谢，再帮我推荐一款",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_6f598d545a428f63",
+    "source": "query_collect",
+    "query": "帮我看看这张酒单，有没有不苦的",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_ec4512125311f30b",
+    "source": "query_collect",
+    "query": "推荐一款IPA，IPA到底是什么",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_b19d61ec92c26faa",
+    "source": "query_collect",
+    "query": "帮我看这张酒单",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_12673b9a5ab980c4",
+    "source": "query_collect",
+    "query": "这些是什么酒？",
+    "intent": "label_check",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_f410c153cd78886a",
+    "source": "query_collect",
+    "query": "我需要喝酒",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_59d262c059e5e9af",
+    "source": "query_collect",
+    "query": "我要喝酒",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_435d1b1a9358edee",
+    "source": "query_collect",
+    "query": "亚洲小霸王的 一镑嗦粉很好喝 它是什么酒花",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_bed60475dddcfeb3",
+    "source": "query_collect",
+    "query": "哪个好喝",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_b373b93fdf69832d",
+    "source": "query_collect",
+    "query": "帮我看看这张图",
+    "intent": "label_check",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_d2319ca2b824e1d0",
+    "source": "query_collect",
+    "query": "给我推荐 IPA",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_8a1e25f0be4c0325",
+    "source": "query_collect",
+    "query": "最近哪个酒厂出了好酒？",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.280Z",
+    "updatedAt": "2026-07-08T02:49:23.280Z"
+  },
+  {
+    "id": "qcol_49bb33fa9c67916b",
+    "source": "query_collect",
+    "query": "我现在跟 claude code 对话吗",
+    "intent": "unclear",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_997adac7f2e9da40",
+    "source": "query_collect",
+    "query": "我现在要去喝酒",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_2cf24dba5fb0a30e",
+    "source": "query_collect",
+    "query": "hello",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_f1bfa492d49f7822",
+    "source": "query_collect",
+    "query": "推荐 IPA 给我",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_1cde65f285d8f3de",
+    "source": "query_collect",
+    "query": "从这个里面找 IPA 给我推荐",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_1b1d0e1316600ef2",
+    "source": "query_collect",
+    "query": "哪款？",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_84b4b64d83d588f9",
+    "source": "query_collect",
+    "query": "推荐 IPA",
+    "intent": "menu_recommend",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_79d4c1452d829396",
+    "source": "query_collect",
+    "query": "我想喝酒",
+    "intent": "beer_knowledge",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_bd21efb021cd0794",
+    "source": "query_collect",
+    "query": "我要喝 IPA",
+    "intent": "follow_up_filter",
+    "sourceType": "case",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_1076fbf7f574001b",
+    "source": "query_collect",
+    "query": "给我推荐",
+    "intent": "menu_recommend",
+    "sourceType": "trace",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  },
+  {
+    "id": "qcol_c90aab8d4b178e59",
+    "source": "query_collect",
+    "query": "重新给我推荐",
+    "intent": "follow_up_filter",
+    "sourceType": "trace",
+    "questions": [
+      {
+        "id": "expected_intent",
+        "type": "select",
+        "prompt": "期望的意图是什么？",
+        "options": [
+          "menu_recommend",
+          "tasting_feedback",
+          "profile_query",
+          "beer_knowledge",
+          "label_check",
+          "memory_correction",
+          "unclear"
+        ]
+      },
+      {
+        "id": "expected_reply",
+        "type": "text",
+        "prompt": "期望的回复（如果有印象，可以写关键信息，不用完整句子）"
+      },
+      {
+        "id": "is_goodcase",
+        "type": "yesno",
+        "prompt": "这次处理的整体效果算好还是不好？"
+      },
+      {
+        "id": "tags",
+        "type": "multi",
+        "prompt": "场景标签（可多选）",
+        "options": [
+          "推荐",
+          "品饮",
+          "打断/追问",
+          "知识问答",
+          "记忆纠正",
+          "酒标检查",
+          "问候/闲聊"
+        ]
+      },
+      {
+        "id": "note",
+        "type": "text",
+        "prompt": "备注（可选）"
+      }
+    ],
+    "labels": {},
+    "status": "pending",
+    "createdAt": "2026-07-08T02:49:23.281Z",
+    "updatedAt": "2026-07-08T02:49:23.281Z"
+  }
+]

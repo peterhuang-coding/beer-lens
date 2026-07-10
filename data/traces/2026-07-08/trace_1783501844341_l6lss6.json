@@ -1,0 +1,815 @@
+{
+  "traceId": "trace_1783501844341_l6lss6",
+  "userId": "self-test",
+  "channel": "web",
+  "conversationId": "self-test-18-1783501844332",
+  "turnId": "trace_1783501844341_juhvzw",
+  "timestamp": "2026-07-08T09:10:44.342Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "重置我的记录",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "profile_query",
+        "confidence": 0.9,
+        "slots": {}
+      },
+      {
+        "intent": "memory_correction",
+        "confidence": 0.85,
+        "slots": {
+          "beerName": "重置我的记录"
+        }
+      }
+    ],
+    "intent": "profile_query",
+    "confidence": 0.9,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "Multi-intent: profile_query(90%), memory_correction(85%)",
+    "source": "rule",
+    "isMultiIntent": true,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "confidence": 0.9,
+          "pattern": "我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "confidence": 0.85,
+          "pattern": "清空|清除|重置|清掉|清一下|reset|clear"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "画像查询(profile_query) won over 记忆纠正(memory_correction) with gap 5%. Gap within multi-intent threshold — multi-intent enabled.",
+      "candidateScores": [
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Context conditions not met"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0.9,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 90%)"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_text_recommend",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /推荐.*啤酒|推荐.*IPA|推荐.*拉格|推荐.*世涛|推荐.*酸啤|推荐.*小麦|推荐.*波特|推荐.*皮尔森|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_style_direct",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /^推荐世涛$|^推荐酸啤$|^推荐小麦$|^推荐波特$|^推荐皮尔森$|^推荐烈性$|^推荐清淡$/ did not match or confidence 0.88 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_implicit_want",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /想喝|好想喝|想试试|想尝|想试|馋了|想喝点|想.*一杯|想.*来.*杯|好渴|热.*喝|天.*热.*喝|口渴|想.*啤/ did not match or confidence 0.75 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_implicit_explore",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /有什么.*新|最近.*流行|新出.*什么|有什么.*特别|有什么.*好|没喝过.*推荐|换.*口味|试.*新的|尝.*新的/ did not match or confidence 0.72 < 0.7"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.9,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ matched"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ matched"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像：喜欢热带水果风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783501844342_2z8fii",
+        "reason": "multi-intent detected: profile_query, memory_correction",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_vfzm",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "重置我的记录",
+              "hasImage": false
+            },
+            "status": "completed",
+            "startedAt": "2026-07-08T09:10:44.342Z",
+            "output": {
+              "intent": "profile_query",
+              "confidence": 0.9,
+              "source": "rule",
+              "isMultiIntent": true,
+              "intents": [
+                {
+                  "intent": "profile_query",
+                  "confidence": 0.9,
+                  "slots": {}
+                },
+                {
+                  "intent": "memory_correction",
+                  "confidence": 0.85,
+                  "slots": {
+                    "beerName": "重置我的记录"
+                  }
+                }
+              ],
+              "slots": {},
+              "missingInfo": [],
+              "routeReason": "Multi-intent: profile_query(90%), memory_correction(85%)"
+            },
+            "completedAt": "2026-07-08T09:10:44.342Z"
+          },
+          {
+            "id": "step_retrieve_memory_wxrc",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user profile and preferences",
+            "input": {
+              "userId": "self-test"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-08T09:10:44.342Z",
+            "output": {
+              "profile": {
+                "userId": "self-test",
+                "updatedAt": "2026-07-08T09:10:08.327Z",
+                "summary": "喜欢热带水果风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "热带水果",
+                    "weight": 2,
+                    "evidenceCount": 2
+                  }
+                ],
+                "dislikedTags": [],
+                "notes": [
+                  "我给4.5分，会再喝，热带水果",
+                  "我给4.5分，会再喝，热带水果"
+                ],
+                "confidence": 0.2,
+                "evidenceCount": 2,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 2,
+                    "topStyles": [],
+                    "topTags": [
+                      "热带水果"
+                    ],
+                    "dislikedTags": [],
+                    "avgScore": 4.5,
+                    "abvRange": null
+                  }
+                ],
+                "updatedAt": "2026-07-08T09:10:08.330Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 0.2
+            },
+            "completedAt": "2026-07-08T09:10:44.342Z"
+          },
+          {
+            "id": "step_compose_answer_5sbd",
+            "tool": "compose_answer",
+            "purpose": "Compose final reply with available context",
+            "input": {
+              "toolOutputs": {
+                "classify_intent": {
+                  "intent": "profile_query",
+                  "confidence": 0.9,
+                  "source": "rule",
+                  "isMultiIntent": true,
+                  "intents": [
+                    {
+                      "intent": "profile_query",
+                      "confidence": 0.9,
+                      "slots": {}
+                    },
+                    {
+                      "intent": "memory_correction",
+                      "confidence": 0.85,
+                      "slots": {
+                        "beerName": "重置我的记录"
+                      }
+                    }
+                  ],
+                  "slots": {},
+                  "missingInfo": [],
+                  "routeReason": "Multi-intent: profile_query(90%), memory_correction(85%)"
+                },
+                "retrieve_memory": {
+                  "profile": {
+                    "userId": "self-test",
+                    "updatedAt": "2026-07-08T09:10:08.327Z",
+                    "summary": "喜欢热带水果风味",
+                    "preferredStyles": [],
+                    "dislikedStyles": [],
+                    "preferredTags": [
+                      {
+                        "value": "热带水果",
+                        "weight": 2,
+                        "evidenceCount": 2
+                      }
+                    ],
+                    "dislikedTags": [],
+                    "notes": [
+                      "我给4.5分，会再喝，热带水果",
+                      "我给4.5分，会再喝，热带水果"
+                    ],
+                    "confidence": 0.2,
+                    "evidenceCount": 2,
+                    "correctionsCount": 0,
+                    "correctionsApplied": false
+                  },
+                  "trends": {
+                    "months": [
+                      {
+                        "month": "2026-07",
+                        "episodeCount": 2,
+                        "topStyles": [],
+                        "topTags": [
+                          "热带水果"
+                        ],
+                        "dislikedTags": [],
+                        "avgScore": 4.5,
+                        "abvRange": null
+                      }
+                    ],
+                    "updatedAt": "2026-07-08T09:10:08.330Z"
+                  },
+                  "corrections": [],
+                  "hasProfile": true,
+                  "profileConfidence": 0.2
+                }
+              },
+              "reason": "multi-intent detected: profile_query, memory_correction"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-08T09:10:44.342Z",
+            "output": {
+              "reply": "根据你的口味画像：喜欢热带水果风味",
+              "candidates": [],
+              "picks": {
+                "topPick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "safePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "explorePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "avoidOrCaution": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                }
+              },
+              "profileSummary": "喜欢热带水果风味"
+            },
+            "completedAt": "2026-07-08T09:10:44.342Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "multi-intent detected: profile_query, memory_correction",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "compose_answer"
+          ],
+          "missingContext": [
+            "limited_profile_data",
+            "no_active_menu"
+          ],
+          "fallbackUsed": false
+        },
+        "finalAnswer": "根据你的口味画像：喜欢热带水果风味"
+      },
+      "planId": "plan_1783501844342_2z8fii",
+      "reason": "multi-intent detected: profile_query, memory_correction",
+      "success": true,
+      "fallback": false,
+      "steps": [
+        {
+          "id": "step_classify_intent_vfzm",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "profile_query",
+            "confidence": 0.9,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "profile_query",
+                "confidence": 0.9,
+                "slots": {}
+              },
+              {
+                "intent": "memory_correction",
+                "confidence": 0.85,
+                "slots": {
+                  "beerName": "重置我的记录"
+                }
+              }
+            ],
+            "slots": {},
+            "missingInfo": [],
+            "routeReason": "Multi-intent: profile_query(90%), memory_correction(85%)"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_wxrc",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile and preferences",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 586,
+            "_preview": "{\"profile\":{\"userId\":\"self-test\",\"updatedAt\":\"2026-07-08T09:10:08.327Z\",\"summary\":\"喜欢热带水果风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"热带水果\",\"weight\":2,\"evidenceCount\":2}],\"d..."
+          }
+        },
+        {
+          "id": "step_compose_answer_5sbd",
+          "tool": "compose_answer",
+          "purpose": "Compose final reply with available context",
+          "status": "completed",
+          "outputSummary": {
+            "reply": "根据你的口味画像：喜欢热带水果风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢热带水果风味"
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "multi-intent detected: profile_query, memory_correction",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "compose_answer"
+        ],
+        "missingContext": [
+          "limited_profile_data",
+          "no_active_menu"
+        ],
+        "fallbackUsed": false
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "multi-intent detected: profile_query, memory_correction",
+      "fallbackUsed": false,
+      "stepCount": 3,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783501844342_2z8fii",
+      "reason": "multi-intent detected: profile_query, memory_correction",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_vfzm",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "重置我的记录",
+            "hasImage": false
+          },
+          "output": {
+            "intent": "profile_query",
+            "confidence": 0.9,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "profile_query",
+                "confidence": 0.9,
+                "slots": {}
+              },
+              {
+                "intent": "memory_correction",
+                "confidence": 0.85,
+                "slots": {
+                  "beerName": "重置我的记录"
+                }
+              }
+            ],
+            "slots": {},
+            "missingInfo": [],
+            "routeReason": "Multi-intent: profile_query(90%), memory_correction(85%)"
+          },
+          "startedAt": "2026-07-08T09:10:44.342Z",
+          "completedAt": "2026-07-08T09:10:44.342Z"
+        },
+        {
+          "id": "step_retrieve_memory_wxrc",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile and preferences",
+          "status": "completed",
+          "input": {
+            "userId": "self-test"
+          },
+          "output": {
+            "profile": {
+              "userId": "self-test",
+              "updatedAt": "2026-07-08T09:10:08.327Z",
+              "summary": "喜欢热带水果风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "热带水果",
+                  "weight": 2,
+                  "evidenceCount": 2
+                }
+              ],
+              "dislikedTags": [],
+              "notes": [
+                "我给4.5分，会再喝，热带水果",
+                "我给4.5分，会再喝，热带水果"
+              ],
+              "confidence": 0.2,
+              "evidenceCount": 2,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 2,
+                  "topStyles": [],
+                  "topTags": [
+                    "热带水果"
+                  ],
+                  "dislikedTags": [],
+                  "avgScore": 4.5,
+                  "abvRange": null
+                }
+              ],
+              "updatedAt": "2026-07-08T09:10:08.330Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 0.2
+          },
+          "startedAt": "2026-07-08T09:10:44.342Z",
+          "completedAt": "2026-07-08T09:10:44.342Z"
+        },
+        {
+          "id": "step_compose_answer_5sbd",
+          "tool": "compose_answer",
+          "purpose": "Compose final reply with available context",
+          "status": "completed",
+          "input": {
+            "toolOutputs": {
+              "classify_intent": {
+                "intent": "profile_query",
+                "confidence": 0.9,
+                "source": "rule",
+                "isMultiIntent": true,
+                "intents": [
+                  {
+                    "intent": "profile_query",
+                    "confidence": 0.9,
+                    "slots": {}
+                  },
+                  {
+                    "intent": "memory_correction",
+                    "confidence": 0.85,
+                    "slots": {
+                      "beerName": "重置我的记录"
+                    }
+                  }
+                ],
+                "slots": {},
+                "missingInfo": [],
+                "routeReason": "Multi-intent: profile_query(90%), memory_correction(85%)"
+              },
+              "retrieve_memory": {
+                "profile": {
+                  "userId": "self-test",
+                  "updatedAt": "2026-07-08T09:10:08.327Z",
+                  "summary": "喜欢热带水果风味",
+                  "preferredStyles": [],
+                  "dislikedStyles": [],
+                  "preferredTags": [
+                    {
+                      "value": "热带水果",
+                      "weight": 2,
+                      "evidenceCount": 2
+                    }
+                  ],
+                  "dislikedTags": [],
+                  "notes": [
+                    "我给4.5分，会再喝，热带水果",
+                    "我给4.5分，会再喝，热带水果"
+                  ],
+                  "confidence": 0.2,
+                  "evidenceCount": 2,
+                  "correctionsCount": 0,
+                  "correctionsApplied": false
+                },
+                "trends": {
+                  "months": [
+                    {
+                      "month": "2026-07",
+                      "episodeCount": 2,
+                      "topStyles": [],
+                      "topTags": [
+                        "热带水果"
+                      ],
+                      "dislikedTags": [],
+                      "avgScore": 4.5,
+                      "abvRange": null
+                    }
+                  ],
+                  "updatedAt": "2026-07-08T09:10:08.330Z"
+                },
+                "corrections": [],
+                "hasProfile": true,
+                "profileConfidence": 0.2
+              }
+            },
+            "reason": "multi-intent detected: profile_query, memory_correction"
+          },
+          "output": {
+            "reply": "根据你的口味画像：喜欢热带水果风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢热带水果风味"
+          },
+          "startedAt": "2026-07-08T09:10:44.342Z",
+          "completedAt": "2026-07-08T09:10:44.342Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像：喜欢热带水果风味"
+    },
+    "diagnostics": {
+      "triggerReason": "multi-intent detected: profile_query, memory_correction",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ],
+      "missingContext": [
+        "limited_profile_data",
+        "no_active_menu"
+      ],
+      "fallbackUsed": false
+    }
+  }
+}

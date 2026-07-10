@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-5-1783502784723",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:26:29.831Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502784729_rqd105",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "了解了，不喜欢太苦的啤酒，那我们可以推荐一些苦味较轻、口感更偏向清爽或者果味的啤酒。比如小麦啤酒（Weissbier）或者比利时白啤酒（Belgian Witbier），它们通常带有柑橘和香料的风味，苦味较轻，非常适合夏天饮用。还有新英格兰IPA（NEIPA），虽然它是IPA的一种，但它的苦味被丰富的果味和奶油般的口感所中和，喝起来更加柔和。你觉得这些风格怎么样？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:26:29.832Z"
+    }
+  ]
+}

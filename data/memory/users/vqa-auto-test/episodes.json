@@ -1,0 +1,477 @@
+[
+  {
+    "id": "ep_1783611666283_j2tszl",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-09T15:41:06.283Z",
+    "sourceTraceId": "trace_1783611666275_f7ei49",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Pseudo Sue 4分，会再喝"
+    }
+  },
+  {
+    "id": "ep_1783611666310_vogo6q",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-09T15:41:06.310Z",
+    "sourceTraceId": "trace_1783611666299_iht1yb",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "柑橘"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "这酒不错，给5分，柑橘味"
+    }
+  },
+  {
+    "id": "ep_1783611666340_b7pzo3",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-09T15:41:06.340Z",
+    "sourceTraceId": "trace_1783611666327_bwb5nd",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "no",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "不好喝，2分，不会再喝"
+    }
+  },
+  {
+    "id": "ep_1783650321952_e1ssib",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:25:21.952Z",
+    "sourceTraceId": "trace_1783650321949_0pwnev",
+    "beer": {
+      "displayName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "style": "Pale Ale - American",
+      "abv": 5.8,
+      "untappdScore": 4.1
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [
+        "顺滑",
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？"
+    }
+  },
+  {
+    "id": "ep_1783650322404_fte7h5",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:25:22.404Z",
+    "sourceTraceId": "trace_1783650322403_k431xs",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "焦糖",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+    }
+  },
+  {
+    "id": "ep_1783650760862_v390t5",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:32:40.862Z",
+    "sourceTraceId": "trace_1783650760852_rd9y8d",
+    "beer": {
+      "displayName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "style": "Pale Ale - American",
+      "abv": 5.8,
+      "untappdScore": 4.1
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [
+        "顺滑",
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？"
+    }
+  },
+  {
+    "id": "ep_1783650760878_sk79zh",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:32:40.878Z",
+    "sourceTraceId": "trace_1783650760872_1q8dmh",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "焦糖",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+    }
+  },
+  {
+    "id": "ep_1783650760895_c4rhrw",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:32:40.895Z",
+    "sourceTraceId": "trace_1783650760889_h2ru0f",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝"
+    }
+  },
+  {
+    "id": "ep_1783651045221_s2tpkp",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:37:25.221Z",
+    "sourceTraceId": "trace_1783651045209_bzsdoq",
+    "beer": {
+      "displayName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "style": "Pale Ale - American",
+      "abv": 5.8,
+      "untappdScore": 4.1
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [
+        "顺滑",
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？"
+    }
+  },
+  {
+    "id": "ep_1783651045240_1ttd42",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:37:25.240Z",
+    "sourceTraceId": "trace_1783651045230_esmcmx",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "焦糖",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+    }
+  },
+  {
+    "id": "ep_1783651045263_rvvntc",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T02:37:25.263Z",
+    "sourceTraceId": "trace_1783651045253_gzomqa",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝"
+    }
+  },
+  {
+    "id": "ep_1783671083871_wdv7mo",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T08:11:23.871Z",
+    "sourceTraceId": "trace_1783671083860_i2c6mx",
+    "beer": {
+      "displayName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "style": "Pale Ale - American",
+      "abv": 5.8,
+      "untappdScore": 4.1
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [
+        "顺滑",
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？"
+    }
+  },
+  {
+    "id": "ep_1783671083892_1b1ldc",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T08:11:23.892Z",
+    "sourceTraceId": "trace_1783671083885_oqzrdy",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "焦糖",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+    }
+  },
+  {
+    "id": "ep_1783671083915_sn6nye",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T08:11:23.915Z",
+    "sourceTraceId": "trace_1783671083906_hqe7x1",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝"
+    }
+  },
+  {
+    "id": "ep_1783673918772_ulc49a",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T08:58:38.772Z",
+    "sourceTraceId": "trace_1783673918770_fgtdr8",
+    "beer": {
+      "displayName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "style": "Pale Ale - American",
+      "abv": 5.8,
+      "untappdScore": 4.1
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "柑橘",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天喝了Pliny the Elder，非常棒！8%的酒精度完全喝不出来，柑橘味爆炸，给4.5分，绝对会再喝"
+    }
+  },
+  {
+    "id": "ep_1783673918779_s23atu",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T08:58:38.779Z",
+    "sourceTraceId": "trace_1783673918777_8ntfx4",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "焦糖",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "开了一瓶Parabola，14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，给4分，会再喝"
+    }
+  },
+  {
+    "id": "ep_1783673918786_zm3ogl",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T08:58:38.786Z",
+    "sourceTraceId": "trace_1783673918784_xlip2o",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酸"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝"
+    }
+  },
+  {
+    "id": "ep_1783674028337_tg0yd9",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T09:00:28.337Z",
+    "sourceTraceId": "trace_1783674028336_oamxz2",
+    "beer": {
+      "displayName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "style": "Pale Ale - American",
+      "abv": 5.8,
+      "untappdScore": 4.1
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "柑橘",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天喝了Pliny the Elder，非常棒！8%的酒精度完全喝不出来，柑橘味爆炸，给4.5分，绝对会再喝"
+    }
+  },
+  {
+    "id": "ep_1783674028345_o2wskx",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T09:00:28.345Z",
+    "sourceTraceId": "trace_1783674028344_mjn21f",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "焦糖",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "开了一瓶Parabola，14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，给4分，会再喝"
+    }
+  },
+  {
+    "id": "ep_1783674028352_ai702y",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T09:00:28.352Z",
+    "sourceTraceId": "trace_1783674028351_tkb9em",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酸"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝"
+    }
+  },
+  {
+    "id": "ep_1783674787114_lax1cy",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T09:13:07.114Z",
+    "sourceTraceId": "trace_1783674787111_om6p6p",
+    "beer": {
+      "displayName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "style": "Pale Ale - American",
+      "abv": 5.8,
+      "untappdScore": 4.1
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "柑橘",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天喝了Pliny the Elder，非常棒！8%的酒精度完全喝不出来，柑橘味爆炸，给4.5分，绝对会再喝"
+    }
+  },
+  {
+    "id": "ep_1783674787125_g3vf3f",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T09:13:07.125Z",
+    "sourceTraceId": "trace_1783674787123_gx89vz",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "焦糖",
+        "酒精"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "开了一瓶Parabola，14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，给4分，会再喝"
+    }
+  },
+  {
+    "id": "ep_1783674787134_kpxkhr",
+    "userId": "vqa-auto-test",
+    "createdAt": "2026-07-10T09:13:07.134Z",
+    "sourceTraceId": "trace_1783674787132_yreyij",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酸"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝"
+    }
+  }
+]

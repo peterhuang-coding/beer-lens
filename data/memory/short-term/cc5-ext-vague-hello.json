@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-vague-hello",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:55.497Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476644727_d4scmo",
+      "userText": "你好",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:10:45.159Z"
+    },
+    {
+      "turnId": "trace_1783477682366_iqdf82",
+      "userText": "你好",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:28:04.479Z"
+    },
+    {
+      "turnId": "trace_1783477914804_la3umr",
+      "userText": "你好",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:31:55.497Z"
+    }
+  ]
+}

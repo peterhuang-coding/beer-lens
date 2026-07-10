@@ -1,0 +1,118 @@
+{
+  "conversationId": "vqa_menu_recommend_4",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:04.386Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646241927_yehool",
+      "userText": "Tripel Karmeliet非常适合搭配比利时传统菜——青口贝（moules frites）是绝配，或者配白酱意面、烤鸡、淡味奶酪如格鲁耶尔。不建议配太辣或太甜的菜。祝你好酒量！",
+      "assistantReply": "看来你对我的建议很满意，那真是太好了！Tripel Karmeliet确实是一款非常百搭的啤酒，尤其是和那些不太重口味的菜肴搭配起来，更能凸显它的风味。如果你尝试了这些搭配，记得和我分享你的体验哦！下次再来的时候，也可以试试其他风格的比利时啤酒，比如Dubbel或者Saison，会有不一样的惊喜。祝你用餐愉快，干杯！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:17:27.160Z"
+    },
+    {
+      "turnId": "trace_1783646525545_kp4rc5",
+      "userText": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:22:05.604Z"
+    },
+    {
+      "turnId": "trace_1783646779095_z7svwh",
+      "userText": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:19.149Z"
+    },
+    {
+      "turnId": "trace_1783650314540_ifw1ie",
+      "userText": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:14.603Z"
+    },
+    {
+      "turnId": "trace_1783650738655_s0t8nv",
+      "userText": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+      "assistantReply": "比利时啤酒确实种类繁多，每一种都有它独特的风味和故事。Tripel Karmeliet、De Garre 和 Curieux 这三款啤酒各有特色，让我来帮你理一理：\n\n1. **Tripel Karmeliet**：这款啤酒是一款经典的比利时三料（Tripel），以小麦、大麦和燕麦三种谷物为原料酿造，因此得名“Karmeliet”。它的口感非常顺滑，带有明显的水果香气，比如柑橘和香蕉，同时也有淡淡的香料味。酒精度通常在8%左右，是一款适合慢慢品味的啤酒。\n\n2. **De Garre**：这是一款比较特别的比利时淡色艾尔（Blond Ale），它不像典型的比利时啤酒那样甜，反而带有一种微妙的酸味和干爽的收尾。De Garre 通常会有一些柑橘和草本的香气，酒精度较低，大概在5.4%左右，是一款非常清爽易饮的啤酒。\n\n3. **Curieux**：这款啤酒是由美国的尤弗拉兹亚酒厂（Yuengling）和比利时的杜瓦尔酒厂（Duvel Moortgat）合作酿造的。它是一款强化的比利时金色艾尔（Belgian Strong Golden Ale），酒精度较高，大约在9%左右。Curieux 的特点是浓郁的麦芽香和果香，同时带有一些香料和柑橘的味道，口感丰富且复杂。\n\n根据你的口味偏好，如果你喜欢热带水果和柑橘的风味，同时希望啤酒口感清爽且不太甜，那么 **De Garre** 可能会是你的首选。如果你喜欢更丰富、复杂的风味，可以尝试 **Tripel Karmeliet** 或 **Curieux**。希望这些信息能帮你做出选择！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T02:32:40.548Z"
+    },
+    {
+      "turnId": "trace_1783651026250_fubdbl",
+      "userText": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+      "assistantReply": "比利时啤酒确实种类繁多，每一种都有它独特的风味和故事，选择起来确实挺让人头疼的。不过别担心，我来帮你理一理这三款酒的特点：\n\n1. **Tripel Karmeliet**：这款酒是一款典型的比利时三料啤酒（Tripel），酒精度通常在8%左右。它最特别的地方在于使用了小麦、大麦和燕麦三种谷物酿造，这使得它的口感非常顺滑，同时带有明显的香料和水果香气，比如柑橘和热带水果的味道。如果你喜欢口感复杂但又不失清爽的啤酒，这款是个不错的选择。\n\n2. **De Garre**：这是一款比利时的混合发酵啤酒，通常被归类为比利时淡色艾尔。它的酒精度较低，大约在5.5%左右。De Garre的特色在于它的酸度和微妙的香料味，比如丁香和肉桂，同时带有一点柑橘的清新。如果你喜欢稍微有点酸度，但又不想太强烈的啤酒，这款应该会很适合你。\n\n3. **Curieux**：这款啤酒是由美国的Sierra Nevada和比利时的Brasserie Dupont合作酿造的，是一款比利时风格的三料啤酒。它的酒精度较高，大约在9%左右。Curieux的特点在于它使用了大量比利时香料和酒花，带来了丰富的香料味和柑橘香，同时酒体较为饱满，口感复杂。如果你喜欢酒精度高、风味浓郁的啤酒，这款绝对值得一试。\n\n根据你的口味偏好，你可能更倾向于选择Tripel Karmeliet，因为它既有热带水果和柑橘的香气，又保持了清爽的口感。不过，如果你对酸度和香料味感兴趣，De Garre也是一个不错的选择。Curieux则适合喜欢尝试更浓郁、复杂风味的啤酒爱好者。\n\n希望这些信息能帮你做出选择！如果还有其他问题，随时告诉我。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T02:37:24.880Z"
+    },
+    {
+      "turnId": "trace_1783671069198_hpuiv6",
+      "userText": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+      "assistantReply": "比利时啤酒确实种类繁多，每一种都有自己的特色，选择起来确实挺让人头疼的。不过别担心，我来帮你分析一下这三款：\n\n1. **Tripel Karmeliet**：这款啤酒是典型的比利时三料（Tripel），酒精度通常在8-9%左右。它的特点是使用了小麦、大麦和燕麦三种谷物酿造，所以口感非常顺滑，带有轻微的甜味和丰富的麦芽香气，同时还有点柑橘和香料的味道。如果你喜欢口感丰富、层次分明的啤酒，这款是个不错的选择。\n\n2. **De Garre**：这是一款比利时淡色艾尔（Blond Ale），酒精度相对较低，通常在6-7%左右。它的味道比较清爽，带有明显的柑橘和水果香气，同时带有一点点香料的味道。这款啤酒的口感比较轻盈，适合喜欢清爽口感的朋友。\n\n3. **Curieux**：这款啤酒是一款比利时风格的三料（Tripel），酒精度也比较高，通常在9-10%左右。它的特点是使用了波旁桶陈酿，所以除了典型的比利时三料的甜味和香料味之外，还带有一些木质和香草的香气。如果你喜欢复杂且带有陈酿风味的啤酒，这款会非常对你的胃口。\n\n总结一下：\n- **Tripel Karmeliet**：丰富、顺滑，适合喜欢多层次口感的朋友。\n- **De Garre**：清爽、轻盈，适合喜欢清新口感的朋友。\n- **Curieux**：复杂、带有陈酿风味，适合喜欢尝试不同风味的朋友。\n\n希望这能帮助你做出选择！如果还有其他问题，随时告诉我哦。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:11:23.566Z"
+    },
+    {
+      "turnId": "trace_1783673914758_k01op3",
+      "userText": "Tripel Karmeliet和Curieux有什么区别？哪个更甜？",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:58:38.579Z"
+    },
+    {
+      "turnId": "trace_1783674024742_hhhlnc",
+      "userText": "Tripel Karmeliet和Curieux有什么区别？哪个更甜？",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:00:28.159Z"
+    },
+    {
+      "turnId": "trace_1783674774150_bv5jpq",
+      "userText": "Tripel Karmeliet和Curieux有什么区别？哪个更甜？",
+      "assistantReply": "Tripel Karmeliet 和 Curieux 都是比利时风格的啤酒，但它们之间还是有一些区别的。\n\n**Tripel Karmeliet** 是一款经典的比利时 Tripel，这种风格的啤酒通常颜色较浅，酒精度较高，大约在8%左右。Tripel Karmeliet 以其复杂的香料味和麦芽甜味著称，口感相对较为平衡，既有明显的麦芽甜味，也有一定的酒精温暖感，但不会过于甜腻。\n\n**Curieux** 是一款比利时风格的 Dubbel 或者更接近于 Tripel，但它的酒精度更高，达到了10.2%。Curieux 通常会有更浓郁的果香和香料味，比如香蕉、丁香等，同时也会有一些焦糖和坚果的味道。它的甜度也比 Tripel Karmeliet 稍高一些，但整体上还是保持了比利时啤酒的复杂性和平衡感。\n\n**甜度方面**，Curieux 通常会比 Tripel Karmeliet 更甜一些，但两款啤酒的甜度都不会特别高，更多的是在口感上表现出一种平衡的甜感和酒精温暖感。\n\n如果你喜欢更平衡、清爽的口感，可以试试 **Tripel Karmeliet**；如果你喜欢更浓郁、甜一些的口感，**Curieux** 会是更好的选择。希望这能帮到你！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:13:04.386Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783650314540_s9mpdx",
+    "candidates": [
+      {
+        "candidateId": "db_0",
+        "displayName": "Tripel Karmeliet",
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "db_1",
+        "displayName": "De Garre",
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "ocr",
+    "createdAt": "2026-07-10T02:25:14.603Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "db_0",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "db_0",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "db_0",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "db_0",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "db_0",
+    "displayName": "Tripel Karmeliet"
+  }
+}

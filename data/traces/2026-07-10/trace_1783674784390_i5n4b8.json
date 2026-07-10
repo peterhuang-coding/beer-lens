@@ -1,0 +1,131 @@
+{
+  "traceId": "trace_1783674784390_i5n4b8",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_label_check_1",
+  "turnId": "trace_1783674784390_gt8lb8",
+  "timestamp": "2026-07-10T09:13:05.702Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "帮我看看这瓶酒的生产日期，我不确定还能不能喝",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "label_check",
+        "confidence": 1,
+        "slots": {}
+      }
+    ],
+    "intent": "label_check",
+    "confidence": 1,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "override match: label_check (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "label_check",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "生产日期|过期|保质期|还能喝吗|放了.*多久|新鲜度"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": true,
+        "turnsSinceMenu": 12,
+        "activeMenuCandidateCount": 2,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /生产日期|过期|保质期|还能喝吗|放了.*多久|新鲜度/ matched → forced to label_check",
+      "candidateScores": [
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /生产日期|过期|保质期|还能喝吗|放了.*多久|新鲜度/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "label_check",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /生产日期|过期|保质期|还能喝吗|放了.*多久|新鲜度/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 2,
+      "hasLastRecommendation": true,
+      "activeBeerName": "帮我看看这瓶酒的生产日期"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "label_check",
+    "diagnosis": {
+      "selectedHandler": "handleLabelCheck",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "hasImage"
+      ],
+      "requiredTools": [
+        "vision_pipeline"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"label_check\" missing context [hasImage] — proceeding with fallbackReply",
+      "intent": "label_check"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "请提供酒标照片，以便查看生产日期和保质期信息。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "label_check",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleLabelCheck",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "hasImage"
+      ],
+      "requiredTools": [
+        "vision_pipeline"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"label_check\" missing context [hasImage] — proceeding with fallbackReply",
+      "intent": "label_check"
+    }
+  }
+}

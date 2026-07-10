@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "crawledAt": "2026-07-07T09:01:29.918Z",
+  "errorCount": 2,
+  "errors": [
+    {
+      "sourceName": "ratebeer-brewery-list",
+      "sourceUrl": "https://www.ratebeer.com/brewers/",
+      "errorMessage": "fetch failed",
+      "errorType": "unknown",
+      "timestamp": "2026-07-07T09:01:29.291Z"
+    },
+    {
+      "sourceName": "untappd-top-rated",
+      "sourceUrl": "https://untappd.com/beer/top_rated",
+      "errorMessage": "HTTP 403",
+      "errorType": "http_error",
+      "timestamp": "2026-07-07T09:01:29.912Z"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "traceId": "trace_1783477674825_lzmx1m",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-knowledge-stout-vs-imperial",
+  "turnId": "trace_1783477674825_sm6fyq",
+  "timestamp": "2026-07-08T02:27:55.560Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "世涛和帝国世涛的区别",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "beer_knowledge",
+    "confidence": 0.85,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "rule match: beer_knowledge (85%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "beer_knowledge",
+    "diagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "beer_knowledge",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  }
+}

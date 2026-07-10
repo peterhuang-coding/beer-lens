@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-menu_recommend-0",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:40:58.481Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611658404_jm5r3i",
+      "userText": "双倍干投暴龙苏",
+      "assistantReply": "我会这样点：\n\n1. Pseudo Sue - 评分4.1，242880+人评分\n2. Pseudo Sue - 评分4.1，242880+人评分\n3. Pseudo Sue - 评分4.1，242880+人评分\n\n最稳：Pseudo Sue\n最值得尝新：Pseudo Sue\n我会先跳过：Pseudo Sue - 评分4.1，242880+人评分\n\n如果只能喝一杯，选 Pseudo Sue。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:58.481Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611658404_rtq4av",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Pseudo Sue",
+        "brewery": "Toppling Goliath Brewing Co.",
+        "style": "Pale Ale - American",
+        "abv": 5.8,
+        "price": null,
+        "rating": 4.1
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:58.481Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Pseudo Sue",
+    "brewery": "Toppling Goliath Brewing Co."
+  }
+}

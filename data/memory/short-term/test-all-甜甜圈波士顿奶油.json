@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-甜甜圈波士顿奶油",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:13.535Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611613432_8nytnp",
+      "userText": "甜甜圈波士顿奶油",
+      "assistantReply": "我会这样点：\n\n1. Shenandoah Chocolate Donut Beer - 评分3.4\n2. Shenandoah Chocolate Donut Beer - 评分3.4\n3. Shenandoah Chocolate Donut Beer - 评分3.4\n\n最稳：Shenandoah Chocolate Donut Beer\n最值得尝新：Shenandoah Chocolate Donut Beer\n我会先跳过：Shenandoah Chocolate Donut Beer - 评分3.4\n\n如果只能喝一杯，选 Shenandoah Chocolate Donut Beer。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:13.535Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611613432_j6cj29",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Shenandoah Chocolate Donut Beer",
+        "brewery": "Shenandoah Brewing Co.",
+        "style": "American Stout",
+        "abv": 7,
+        "price": null,
+        "rating": 3.38
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:13.535Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Shenandoah Chocolate Donut Beer",
+    "brewery": "Shenandoah Brewing Co."
+  }
+}

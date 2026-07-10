@@ -1,0 +1,80 @@
+{
+  "conversationId": "vqa_memory_correction_1",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:25.755Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646284922_jxk4cc",
+      "userText": "西海岸双倍IPA的经典选择还有：Dinner（Maine Beer Company，8.2%ABV，评分4.5）——干净利落的松脂和柑橘风味，苦度明显但平衡；Abner（Hill Farmstead，8.2%ABV，评分4.47）——也是西海岸双倍IPA的标杆。这三款被誉为美国东海岸西海岸IPA的三大神作！",
+      "assistantReply": "看来您对这些经典西海岸IPA非常感兴趣，那我再给您推荐几款风格类似的啤酒，希望您会喜欢：\n\n1. **Ruthless Rye IPA（Ballast Point，7.2%ABV，评分4.2）** - 这款IPA加入了裸麦，带来了独特的香料和辛辣感，同时保留了西海岸IPA的高苦度和柑橘香气。\n\n2. **Green Flash IPA（Green Flash Brewing Company，6.4%ABV，评分4.2）** - 这款IPA以其强烈的松脂和柑橘风味而闻名，苦度适中，非常平衡。\n\n3. **Aloha IPA（Alpine Beer Company，6.8%ABV，评分4.3）** - 这款IPA带有明显的热带水果和柑橘香气，苦度较高，但依然保持了很好的平衡感。\n\n4. **Rye of the Tiger（Three Floyds Brewing Company，7.5%ABV，评分4.3）** - 这款IPA加入了裸麦，增加了复杂的香料和辛辣感，苦度明显，非常适合喜欢西海岸风格的你。\n\n希望这些推荐能让你找到更多喜欢的啤酒！如果还有其他偏好或想了解的风格，随时告诉我哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:18:16.662Z"
+    },
+    {
+      "turnId": "trace_1783646581637_4xruwp",
+      "userText": "上次我说喜欢IPA，你给我推荐了好多浑浊IPA（NEIPA），但我其实更喜欢西海岸IPA那种清亮、苦味明显的风格。",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:23:01.646Z"
+    },
+    {
+      "turnId": "trace_1783646790686_v7ybhb",
+      "userText": "上次我说喜欢IPA，你给我推荐了好多浑浊IPA（NEIPA），但我其实更喜欢西海岸IPA那种清亮、苦味明显的风格。",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:30.695Z"
+    },
+    {
+      "turnId": "trace_1783650328366_5obv0n",
+      "userText": "上次我说喜欢IPA，你给我推荐了好多浑浊IPA（NEIPA），但我其实更喜欢西海岸IPA那种清亮、苦味明显的风格。",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T02:25:28.371Z"
+    },
+    {
+      "turnId": "trace_1783650789281_8928ek",
+      "userText": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA，帮我纠正一下",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T02:33:09.294Z"
+    },
+    {
+      "turnId": "trace_1783651063514_x8zdaj",
+      "userText": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA，帮我纠正一下",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T02:37:43.528Z"
+    },
+    {
+      "turnId": "trace_1783671114393_0zwq99",
+      "userText": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA，帮我纠正一下",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T08:11:54.407Z"
+    },
+    {
+      "turnId": "trace_1783673921322_m0e2a0",
+      "userText": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA那种清亮苦味明显的，NEIPA太浑浊了不太喜欢",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T08:58:41.326Z"
+    },
+    {
+      "turnId": "trace_1783674030568_cq1tg7",
+      "userText": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA那种清亮苦味明显的，NEIPA太浑浊了不太喜欢",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T09:00:30.571Z"
+    },
+    {
+      "turnId": "trace_1783674805749_ln8avg",
+      "userText": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA那种清亮苦味明显的，NEIPA太浑浊了不太喜欢",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T09:13:25.755Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

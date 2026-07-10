@@ -1,0 +1,53 @@
+{
+  "conversationId": "self-test-11-1783494601995",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T07:10:02.060Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783494602005_if0aty",
+      "userText": "推荐世涛",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Stout - 评分3.8，1475+人评分\n2. Stout - 评分3.8，1475+人评分\n3. Stout - 评分3.8，1475+人评分\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8，1475+人评分\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-08T07:10:02.060Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783494602005_ly6f3w",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Stout",
+        "brewery": "Three Tuns Brewery",
+        "style": "Stout - English",
+        "abv": 4.4,
+        "price": null,
+        "rating": 3.797
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-08T07:10:02.060Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Stout",
+    "brewery": "Three Tuns Brewery"
+  }
+}

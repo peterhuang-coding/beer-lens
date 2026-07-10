@@ -1,0 +1,82 @@
+{
+  "traceId": "trace_1783477676068_8n1uz1",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-knowledge-ipa-vs-lager",
+  "turnId": "trace_1783477676068_cdhb0v",
+  "timestamp": "2026-07-08T02:27:56.764Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "IPA和拉格有什么区别",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "beer_knowledge",
+    "confidence": 0.85,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "rule match: beer_knowledge (85%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "beer_knowledge",
+    "diagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "beer_knowledge",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  }
+}

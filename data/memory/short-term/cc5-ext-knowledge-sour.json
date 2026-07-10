@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-knowledge-sour",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:54.295Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476643794_3kpkrz",
+      "userText": "介绍一下酸啤风格",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:10:44.222Z"
+    },
+    {
+      "turnId": "trace_1783477681006_xpywzm",
+      "userText": "介绍一下酸啤风格",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:28:01.866Z"
+    },
+    {
+      "turnId": "trace_1783477913160_z8sir2",
+      "userText": "介绍一下酸啤风格",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:31:54.295Z"
+    }
+  ]
+}

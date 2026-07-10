@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-regression-dislike-bitter",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-07T07:35:45.815Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783409577610_zox4sx",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-07T07:32:58.077Z"
+    },
+    {
+      "turnId": "trace_1783409710742_x77uyi",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "根据你的口味画像：喜欢热带水果风味\n\n\n（基于：multi-intent detected: memory_correction, follow_up_filter）",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-07T07:35:10.760Z"
+    },
+    {
+      "turnId": "trace_1783409745793_0sagpy",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "根据你的口味画像：喜欢热带水果风味\n\n\n（基于：memory_correction with existing profile — correction → re-recommend flow）",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-07T07:35:45.815Z"
+    }
+  ]
+}

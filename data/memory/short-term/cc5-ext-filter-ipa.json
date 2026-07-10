@@ -1,0 +1,31 @@
+{
+  "conversationId": "cc5-ext-filter-ipa",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:27.532Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476617626_4s2214",
+      "userText": "有IPA吗",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:10:18.130Z"
+    },
+    {
+      "turnId": "trace_1783477649532_ovbrti",
+      "userText": "有IPA吗",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:27:32.659Z"
+    },
+    {
+      "turnId": "trace_1783477885760_8z2biw",
+      "userText": "有IPA吗",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:31:27.532Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

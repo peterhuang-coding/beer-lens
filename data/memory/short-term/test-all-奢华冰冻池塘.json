@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-奢华冰冻池塘",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:19.531Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611619437_kdh9p0",
+      "userText": "奢华冰冻池塘",
+      "assistantReply": "我会这样点：\n\n1. Gefrorener Schädel (Frozen Skull) - 评分4.1，291人评分；酒精度13.8%，非常高，谨慎（有风险，见下方）\n2. Gefrorener Schädel (Frozen Skull) - 评分4.1，291人评分；酒精度13.8%，非常高，谨慎\n3. Gefrorener Schädel (Frozen Skull) - 评分4.1，291人评分；酒精度13.8%，非常高，谨慎\n\n最稳：Gefrorener Schädel (Frozen Skull)\n最值得尝新：Gefrorener Schädel (Frozen Skull)\n我会先跳过：Gefrorener Schädel (Frozen Skull) - 评分4.1，291人评分；酒精度13.8%，非常高，谨慎\n\n如果只能喝一杯，选 Gefrorener Schädel (Frozen Skull)。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:19.531Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611619437_coh4kx",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Gefrorener Schädel (Frozen Skull)",
+        "brewery": "Wondrous Brewing Company",
+        "style": "Bock - Doppelbock",
+        "abv": 13.8,
+        "price": null,
+        "rating": 4.109
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:19.531Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Gefrorener Schädel (Frozen Skull)",
+    "brewery": "Wondrous Brewing Company"
+  }
+}

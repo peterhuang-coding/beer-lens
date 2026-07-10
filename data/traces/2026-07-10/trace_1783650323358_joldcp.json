@@ -1,0 +1,260 @@
+{
+  "traceId": "trace_1783650323358_joldcp",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_tasting_feedback_3",
+  "turnId": "trace_1783650323358_esj288",
+  "timestamp": "2026-07-10T02:25:24.799Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "哇，这瓶Iris太神奇了！开瓶就是一股马厩味和酸味，喝起来干干的，有柠檬和一点霉香，完全不像普通啤酒！",
+    "hasImage": true,
+    "imageName": "vqa_tasting_feedback_3.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik04Mi42NyAyODkuMzM1djIxLjY5aC00LjA1di0yMS42OXptNy41MyA3LjIzLjIyIDEuNzRxLjcyLTEuMzggMS43MS0yLjE3Ljk5LS43OCAyLjM0LS43OCAxLjA3IDAgMS43MS40NmwtLjI0IDIuNzhxLS4wNy4yNy0uMjIuMzgtLjE0LjExLS4zOC4xMS0uMjIgMC0uNjctLjA3LS40NC0uMDgtLjg2LS4wOC0uNjEgMC0xLjA5LjE4dC0uODcuNTJxLS4zOC4zNC0uNjcuODJ0LS41NSAxLjA5djkuNDhoLTMuN3YtMTUuMzloMi4xN3EuNTcgMCAuOC4yLjIyLjIxLjMuNzNtOC4wNC0uOTNoMy43MnYxNS4zOWgtMy43MnptNC4yMy00LjQ5cTAgLjQ5LS4yLjkxLS4xOS40Mi0uNTIuNzMtLjMyLjMxLS43NS41LS40NC4xOS0uOTMuMTktLjQ4IDAtLjkxLS4xOXQtLjc0LS41cS0uMzItLjMxLS41MS0uNzMtLjE4LS40Mi0uMTgtLjkxdC4xOC0uOTJxLjE5LS40NC41MS0uNzUuMzEtLjMyLjc0LS41MS40My0uMTguOTEtLjE4LjQ5IDAgLjkzLjE4LjQzLjE5Ljc1LjUxLjMzLjMxLjUyLjc1LjIuNDMuMi45Mm0xMy41IDYuMTYtLjg0IDEuMzNxLS4xNS4yNC0uMzIuMzQtLjE2LjA5LS40Mi4wOS0uMjcgMC0uNTgtLjE1bC0uNzEtLjMzcS0uNC0uMTktLjkyLS4zNHQtMS4yMi0uMTVxLTEuMSAwLTEuNzIuNDctLjYyLjQ2LS42MiAxLjIxIDAgLjUuMzIuODMuMzIuMzQuODUuNi41NC4yNSAxLjIxLjQ1LjY4LjIxIDEuMzcuNDUuNy4yMyAxLjM4LjU0LjY3LjMxIDEuMi43OC41NC40Ny44NiAxLjE0LjMyLjY2LjMyIDEuNTggMCAxLjEyLS40IDIuMDUtLjM5Ljk0LTEuMTcgMS42MnQtMS45MyAxLjA3cS0xLjE1LjM4LTIuNjUuMzgtLjc5IDAtMS41NS0uMTR0LTEuNDYtLjRxLS42OS0uMjUtMS4yOS0uNi0uNTktLjM0LTEuMDQtLjc1bC44Ni0xLjQxcS4xNi0uMjUuMzktLjM5LjIyLS4xMy41Ny0uMTMuMzQgMCAuNjUuMTkuMzEuMi43MS40Mi40MS4yMi45NS40Mi41NS4yIDEuMzkuMi42NiAwIDEuMTMtLjE2LjQ4LS4xNi43OC0uNDEuMzEtLjI2LjQ1LS42LjE1LS4zMy4xNS0uNjkgMC0uNTQtLjMzLS44OS0uMzItLjM0LS44NS0uNnQtMS4yMi0uNDZxLS42OC0uMi0xLjM5LS40NHQtMS40LS41NnEtLjY4LS4zMi0xLjIxLS44Mi0uNTMtLjQ5LS44Ni0xLjIyLS4zMi0uNzEtLjMyLTEuNzMgMC0uOTUuMzgtMS44LjM3LS44NiAxLjEtMS41dDEuODEtMS4wMnExLjA5LS4zOCAyLjUyLS4zOCAxLjU5IDAgMi44OS41MyAxLjMxLjUyIDIuMTggMS4zOG0yNS43MiA4LjZxLjMzIDAgLjU5LjI2bDEuNTkgMS43M3EtMS4zMiAxLjYzLTMuMjUgMi41dC00LjYzLjg3cS0yLjQxIDAtNC4zNC0uODItMS45My0uODMtMy4yOS0yLjMtMS4zNy0xLjQ3LTIuMS0zLjUxLS43Mi0yLjA0LS43Mi00LjQ1IDAtMi40NS43OC00LjQ4Ljc4LTIuMDQgMi4yLTMuNSAxLjQxLTEuNDcgMy4zOC0yLjI5IDEuOTYtLjgyIDQuMzUtLjgyIDIuMzcgMCA0LjIuNzggMS44NC43OCAzLjEzIDIuMDRsLTEuMzUgMS44OHEtLjEyLjE4LS4zLjMxLS4xOS4xMy0uNTIuMTMtLjIzIDAtLjQ3LS4xMi0uMjQtLjEzLS41Mi0uMzJsLS42Ni0uNDFxLS4zOC0uMjItLjg3LS40MS0uNS0uMTktMS4xNS0uMzJ0LTEuNTEtLjEzcS0xLjQ1IDAtMi42Ni41MnQtMi4wOCAxLjVxLS44Ny45OS0xLjM1IDIuNC0uNDggMS40Mi0uNDggMy4yNCAwIDEuODMuNTIgMy4yNXQxLjQgMi40cS44OS45OCAyLjA5IDEuNDkgMS4yLjUyIDIuNTguNTIuODIgMCAxLjQ5LS4wOXQxLjIzLS4yOHEuNTYtLjIgMS4wNy0uNTEuNS0uMzEuOTktLjc1LjE1LS4xNC4zMi0uMjIuMTYtLjA5LjM0LS4wOW0xMi41IDEuMTV2LTIuNnEtMS42MS4wNy0yLjcuMjgtMS4xLjItMS43Ni41Mi0uNjYuMzEtLjk0LjczLS4yOS40Mi0uMjkuOTEgMCAuOTguNTggMS40dDEuNTEuNDJxMS4xNCAwIDEuOTctLjQxdDEuNjMtMS4yNW0tNy44My04LjA5LS42Ni0xLjE4cTIuNjUtMi40MyA2LjM5LTIuNDMgMS4zNSAwIDIuNDEuNDQgMS4wNy40NCAxLjggMS4yMy43NC43OSAxLjEyIDEuODh0LjM4IDIuNHY5LjcyaC0xLjY4cS0uNTIgMC0uODEtLjE2LS4yOC0uMTYtLjQ1LS42M2wtLjMzLTEuMTJxLS41OC41My0xLjE0LjkzLS41NS40LTEuMTUuNjYtLjYuMjgtMS4yOS40Mi0uNjguMTQtMS41LjE0LS45OCAwLTEuOC0uMjYtLjgzLS4yNi0xLjQzLS43OS0uNi0uNTItLjkzLTEuMy0uMzMtLjc5LS4zMy0xLjgyIDAtLjU4LjItMS4xNi4xOS0uNTguNjMtMS4xLjQ1LS41MyAxLjE1LS45OS43MS0uNDcgMS43My0uODIgMS4wMy0uMzQgMi40LS41NiAxLjM2LS4yMiAzLjEyLS4yNnYtLjlxMC0xLjU0LS42Ni0yLjI5LS42Ni0uNzQtMS45MS0uNzQtLjkgMC0xLjQ5LjIxdC0xLjA0LjQ3cS0uNDUuMjctLjgyLjQ4dC0uODIuMjFxLS4zOSAwLS42Ni0uMjEtLjI3LS4yLS40My0uNDdtMTguMTMtMi42NS4yNiAxLjIxcS40Ni0uNDYuOTgtLjg2dDEuMDktLjY4cS41OC0uMjcgMS4yNC0uNDN0MS40NC0uMTZxMS4yNiAwIDIuMjQuNDMuOTcuNDMgMS42MiAxLjIuNjYuNzcuOTkgMS44NC4zNCAxLjA4LjM0IDIuMzd2OS43OWgtMy43di05Ljc5cTAtMS40Mi0uNjUtMi4xOS0uNjQtLjc3LTEuOTYtLjc3LS45NiAwLTEuOC40NC0uODQuNDMtMS41OSAxLjE4djExLjEzaC0zLjcxdi0xNS4zOWgyLjI3cS43MiAwIC45NC42OG0xOC44NCAxNC45NXEtMi4wMSAwLTMuMDgtMS4xM3QtMS4wNy0zLjEzdi04LjZoLTEuNThxLS4zIDAtLjUxLS4xOXQtLjIxLS41OHYtMS40OGwyLjQ4LS40Ljc4LTQuMnEuMDctLjMuMjgtLjQ2LjIxLS4xNy41NC0uMTdoMS45MnY0Ljg1aDQuMTF2Mi42M2gtNC4xMXY4LjM1cTAgLjcyLjM1IDEuMTIuMzYuNC45Ny40LjM1IDAgLjU4LS4wOHQuNC0uMTdxLjE4LS4wOS4zMS0uMTcuMTQtLjA4LjI3LS4wOC4xNyAwIC4yNy4wOC4xMS4wOC4yMy4yNWwxLjExIDEuNzlxLS44MS42OC0xLjg2IDEuMDMtMS4wNS4zNC0yLjE4LjM0bTYuMTUtMTUuNjNoMy43MnYxNS4zOWgtMy43MnptNC4yMy00LjQ5cTAgLjQ5LS4xOS45MS0uMi40Mi0uNTIuNzN0LS43Ni41cS0uNDMuMTktLjkzLjE5LS40OCAwLS45MS0uMTktLjQyLS4xOS0uNzQtLjUtLjMxLS4zMS0uNS0uNzN0LS4xOS0uOTEuMTktLjkycS4xOS0uNDQuNS0uNzUuMzItLjMyLjc0LS41MS40My0uMTguOTEtLjE4LjUgMCAuOTMuMTguNDQuMTkuNzYuNTEuMzIuMzEuNTIuNzUuMTkuNDMuMTkuOTJtMy4zMi0yLjQxaDMuN3YyMi4yOWgtMy43em03LjQ1IDBoMy43MXYyMi4yOWgtMy43MXptMTQuMjIgNi42NnExLjcxIDAgMy4xMS41NiAxLjQxLjU1IDIuNCAxLjU3IDEgMS4wMiAxLjU0IDIuNDl0LjU0IDMuMjlxMCAxLjgzLS41NCAzLjMtLjU0IDEuNDYtMS41NCAyLjUtLjk5IDEuMDMtMi40IDEuNTktMS40LjU1LTMuMTEuNTUtMS43MiAwLTMuMTMtLjU1LTEuNDEtLjU2LTIuNDEtMS41OS0xLTEuMDQtMS41NS0yLjUtLjU0LTEuNDctLjU0LTMuMyAwLTEuODIuNTQtMy4yOS41NS0xLjQ3IDEuNTUtMi40OXQyLjQxLTEuNTdxMS40MS0uNTYgMy4xMy0uNTZtMCAxM3ExLjkyIDAgMi44NC0xLjI5LjkzLTEuMjkuOTMtMy43NyAwLTIuNS0uOTMtMy44LS45Mi0xLjMtMi44NC0xLjMtMS45NSAwLTIuODkgMS4zMS0uOTMgMS4zMS0uOTMgMy43OSAwIDIuNDcuOTMgMy43Ny45NCAxLjI5IDIuODkgMS4yOW0xMy42NC0xMi4wOC4yNSAxLjIxcS40Ny0uNDYuOTgtLjg2LjUyLS40IDEuMS0uNjguNTgtLjI3IDEuMjQtLjQzdDEuNDQtLjE2cTEuMjYgMCAyLjIzLjQzLjk4LjQzIDEuNjMgMS4ydC45OSAxLjg0cS4zNCAxLjA4LjM0IDIuMzd2OS43OWgtMy43MXYtOS43OXEwLTEuNDItLjY0LTIuMTktLjY1LS43Ny0xLjk3LS43Ny0uOTYgMC0xLjguNDQtLjg0LjQzLTEuNTkgMS4xOHYxMS4xM2gtMy43di0xNS4zOWgyLjI2cS43MiAwIC45NS42OG0zMi4yNiAzLjgzaDcuMnY4Ljc4cS0xLjY1IDEuMjEtMy41MiAxLjc4LTEuODYuNTYtMy45OS41Ni0yLjY2IDAtNC44MS0uODItMi4xNS0uODMtMy42OC0yLjMtMS41Mi0xLjQ3LTIuMzQtMy41MS0uODMtMi4wNC0uODMtNC40NSAwLTIuNDUuOC00LjQ5Ljc5LTIuMDQgMi4yNS0zLjUxIDEuNDctMS40NyAzLjU1LTIuMjggMi4wOS0uODEgNC42OC0uODEgMS4zMiAwIDIuNDcuMjF0Mi4xMy41OCAxLjc5Ljg5cS44MS41MyAxLjQ5IDEuMTZsLTEuMTYgMS44MnEtLjI3LjQ0LS43LjU0LS40NC4xLS45NS0uMjItLjQ5LS4yOC0uOTktLjU3LS40OS0uMjgtMS4xLS41LS42MS0uMi0xLjM3LS4zNC0uNzUtLjE0LTEuNzQtLjE0LTEuNjEgMC0yLjkxLjU1LTEuMjkuNTQtMi4yMSAxLjU0LS45MSAxLjAxLTEuNDEgMi40Mi0uNDkgMS40MS0uNDkgMy4xNSAwIDEuODYuNTMgMy4zMnQxLjUgMi40NyAyLjMzIDEuNTVxMS4zNy41MyAzLjA1LjUzIDEuMiAwIDIuMTQtLjI2Ljk1LS4yNSAxLjg1LS42OXYtMy45MmgtMi43M3EtLjM5IDAtLjYxLS4yMnQtLjIyLS41M3ptMTAuNTYtMTEuNDFoMy43MXYyMi4yOWgtMy43MXptMTUuNTQgMTguMzJ2LTIuNnEtMS42LjA3LTIuNy4yOC0xLjA5LjItMS43NS41Mi0uNjYuMzEtLjk1LjczLS4yOC40Mi0uMjguOTEgMCAuOTguNTcgMS40LjU4LjQyIDEuNTEuNDIgMS4xNCAwIDEuOTctLjQxLjg0LS40MSAxLjYzLTEuMjVtLTcuODMtOC4wOS0uNjYtMS4xOHEyLjY2LTIuNDMgNi4zOS0yLjQzIDEuMzUgMCAyLjQyLjQ0IDEuMDYuNDQgMS44IDEuMjMuNzMuNzkgMS4xMSAxLjg4LjM5IDEuMDkuMzkgMi40djkuNzJoLTEuNjhxLS41MyAwLS44MS0uMTYtLjI5LS4xNi0uNDUtLjYzbC0uMzMtMS4xMnEtLjU5LjUzLTEuMTQuOTMtLjU2LjQtMS4xNi42Ni0uNi4yOC0xLjI4LjQydC0xLjUxLjE0cS0uOTcgMC0xLjgtLjI2LS44Mi0uMjYtMS40Mi0uNzktLjYtLjUyLS45My0xLjMtLjMzLS43OS0uMzMtMS44MiAwLS41OC4xOS0xLjE2LjItLjU4LjY0LTEuMS40NC0uNTMgMS4xNS0uOTkuNy0uNDcgMS43My0uODIgMS4wMy0uMzQgMi4zOS0uNTYgMS4zNy0uMjIgMy4xMi0uMjZ2LS45cTAtMS41NC0uNjYtMi4yOS0uNjYtLjc0LTEuOS0uNzQtLjkgMC0xLjUuMjEtLjU5LjIxLTEuMDQuNDctLjQ1LjI3LS44Mi40OC0uMzYuMjEtLjgxLjIxLS4zOSAwLS42Ni0uMjEtLjI3LS4yLS40NC0uNDdtMjUuMTYtMS42Ni0uODQgMS4zM3EtLjE1LjI0LS4zMi4zNC0uMTYuMDktLjQyLjA5LS4yNyAwLS41OC0uMTVsLS43MS0uMzNxLS40LS4xOS0uOTItLjM0dC0xLjIyLS4xNXEtMS4xIDAtMS43Mi40Ny0uNjIuNDYtLjYyIDEuMjEgMCAuNS4zMi44My4zMi4zNC44NS42LjU0LjI1IDEuMjEuNDUuNjguMjEgMS4zNy40NS43LjIzIDEuMzguNTQuNjcuMzEgMS4yLjc4LjU0LjQ3Ljg2IDEuMTQuMzIuNjYuMzIgMS41OCAwIDEuMTItLjQgMi4wNS0uMzkuOTQtMS4xNyAxLjYydC0xLjkzIDEuMDdxLTEuMTUuMzgtMi42NS4zOC0uNzkgMC0xLjU1LS4xNHQtMS40Ni0uNHEtLjY5LS4yNS0xLjI5LS42LS41OS0uMzQtMS4wNC0uNzVsLjg2LTEuNDFxLjE2LS4yNS4zOS0uMzkuMjItLjEzLjU3LS4xMy4zNCAwIC42NS4xOS4zMS4yLjcxLjQyLjQxLjIyLjk1LjQyLjU1LjIgMS4zOS4yLjY2IDAgMS4xMy0uMTYuNDgtLjE2Ljc4LS40MS4zMS0uMjYuNDUtLjYuMTUtLjMzLjE1LS42OSAwLS41NC0uMzMtLjg5LS4zMi0uMzQtLjg1LS42dC0xLjIyLS40NnEtLjY4LS4yLTEuMzktLjQ0dC0xLjQtLjU2cS0uNjgtLjMyLTEuMjEtLjgyLS41My0uNDktLjg2LTEuMjItLjMyLS43MS0uMzItMS43MyAwLS45NS4zOC0xLjguMzctLjg2IDEuMS0xLjV0MS44MS0xLjAycTEuMDktLjM4IDIuNTItLjM4IDEuNTkgMCAyLjg5LjUzIDEuMzEuNTIgMi4xOCAxLjM4bTEzLjE4IDAtLjg0IDEuMzNxLS4xNS4yNC0uMzEuMzQtLjE3LjA5LS40Mi4wOS0uMjcgMC0uNTgtLjE1LS4zMS0uMTQtLjcxLS4zMy0uNDEtLjE5LS45My0uMzQtLjUxLS4xNS0xLjIyLS4xNS0xLjA5IDAtMS43Mi40Ny0uNjIuNDYtLjYyIDEuMjEgMCAuNS4zMi44My4zMy4zNC44Ni42LjUzLjI1IDEuMjEuNDUuNjcuMjEgMS4zNy40NS43LjIzIDEuMzcuNTQuNjguMzEgMS4yMS43OHQuODUgMS4xNHEuMzMuNjYuMzMgMS41OCAwIDEuMTItLjQgMi4wNS0uNC45NC0xLjE4IDEuNjJ0LTEuOTMgMS4wN3EtMS4xNC4zOC0yLjY0LjM4LS44IDAtMS41Ni0uMTQtLjc1LS4xNC0xLjQ1LS40LS43LS4yNS0xLjI5LS42LS41OS0uMzQtMS4wNC0uNzVsLjg1LTEuNDFxLjE3LS4yNS4zOS0uMzkuMjMtLjEzLjU3LS4xMy4zNSAwIC42NS4xOS4zMS4yLjcyLjQyLjQuMjIuOTUuNDJ0MS4zOS4ycS42NiAwIDEuMTMtLjE2dC43OC0uNDFxLjMxLS4yNi40NS0uNi4xNC0uMzMuMTQtLjY5IDAtLjU0LS4zMi0uODktLjMyLS4zNC0uODYtLjYtLjUzLS4yNi0xLjIxLS40NnQtMS40LS40NHEtLjcxLS4yNC0xLjM5LS41NnQtMS4yMi0uODJxLS41My0uNDktLjg1LTEuMjItLjMyLS43MS0uMzItMS43MyAwLS45NS4zNy0xLjguMzgtLjg2IDEuMS0xLjUuNzMtLjY0IDEuODItMS4wMnQyLjUxLS4zOHExLjU5IDAgMi45LjUzIDEuMy41MiAyLjE3IDEuMzgiLz48L3N2Zz4="
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "label_check",
+        "confidence": 0.95,
+        "slots": {}
+      },
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.85,
+        "slots": {
+          "style": "酸",
+          "beerName": "这瓶Iris太神奇了"
+        }
+      }
+    ],
+    "intent": "label_check",
+    "confidence": 0.95,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "Multi-intent: label_check(95%), menu_recommend(85%)",
+    "source": "rule",
+    "isMultiIntent": true,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "confidence": 0.85,
+          "pattern": ".*"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "confidence": 0.95,
+          "pattern": "酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "酒标检查(label_check) won over 酒单推荐(menu_recommend) with gap 10%. Gap within multi-intent threshold — multi-intent enabled.",
+      "candidateScores": [
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0.95,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 95%)"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Context conditions not met"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒单|推荐|喝什么|帮我看酒单/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /.*/ matched"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.95,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "label_check",
+    "diagnosis": {
+      "selectedHandler": "handleLabelCheck",
+      "requiredContextMatched": [
+        "hasImage"
+      ],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"label_check\" matched route \"handleLabelCheck\" — all required context present",
+      "intent": "label_check"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "抱歉，分析这张酒标时出错了。请拍一张清楚的酒标正面照再试试。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "label_check",
+    "hasImage": true,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleLabelCheck",
+      "requiredContextMatched": [
+        "hasImage"
+      ],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"label_check\" matched route \"handleLabelCheck\" — all required context present",
+      "intent": "label_check"
+    }
+  }
+}

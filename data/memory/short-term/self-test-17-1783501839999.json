@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-17-1783501839999",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:10:44.330Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783501840004_plh6z2",
+      "userText": "有没有世涛",
+      "assistantReply": "当然有啊！世涛（Stout）是一种深色的啤酒，通常颜色从深棕色到黑色不等，口感丰富，带有明显的咖啡、巧克力或是焦糖的味道。世涛的种类也很多，比如干世涛（Dry Stout）、牛奶世涛（Milk Stout）、燕麦世涛（Oatmeal Stout）和帝国世涛（Imperial Stout）等。你对哪种世涛感兴趣呢？或者，你想要了解它们之间的区别吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:10:44.330Z"
+    }
+  ]
+}

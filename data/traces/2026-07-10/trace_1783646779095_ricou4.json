@@ -1,0 +1,830 @@
+{
+  "traceId": "trace_1783646779095_ricou4",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_menu_recommend_4",
+  "turnId": "trace_1783646779095_z7svwh",
+  "timestamp": "2026-07-10T01:26:19.146Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+    "hasImage": true,
+    "imageName": "vqa_menu_recommend_4.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik04MS44NTUgMzAzLjM1NWgyLjU4cS43MiAwIDEuMi0uMTguNDktLjE3Ljc4LS40NS4yOS0uMjkuNDEtLjY3LjEzLS4zOC4xMy0uOCAwLS40NS0uMTQtLjgxLS4xNC0uMzUtLjQ1LS42MS0uMy0uMjUtLjc4LS4zOHQtMS4xNS0uMTNoLTIuNTh6bTIuMTgtOS43N2gtMi4xOHYzLjk3aDIuMDNxMS4zMSAwIDEuOTgtLjQ4LjY3LS40Ny42Ny0xLjUxIDAtMS4wNy0uNi0xLjUyLS42MS0uNDYtMS45LS40Nm0tNC43My0xLjk4aDQuNzNxMS4zNSAwIDIuMy4yNi45Ni4yNiAxLjU4LjczLjYxLjQ4Ljg5IDEuMTUuMjkuNjguMjkgMS41MiAwIC40OC0uMTQuOTMtLjE1LjQ0LS40NC44Mi0uMy4zOS0uNzYuNy0uNDcuMzItMS4xLjUzIDIuODMuNjQgMi44MyAzLjA2IDAgLjg4LS4zMyAxLjYyLS4zNC43NC0uOTcgMS4yOC0uNjQuNTMtMS41Ny44NC0uOTMuMy0yLjEzLjNoLTUuMTh6bTEzLjk5IDcuNzVoNC40M3EwLS40Ni0uMTMtLjg2LS4xMy0uNDEtLjM5LS43MS0uMjUtLjMxLS42NS0uNDgtLjM5LS4xOC0uOTEtLjE4LTEuMDIgMC0xLjYxLjU4LS41OC41OC0uNzQgMS42NW01Ljk4IDEuNDFoLTYuMDNxLjA2Ljc1LjI3IDEuMy4yMS41NC41NS45dC44MS41M3EuNDcuMTggMS4wNC4xOHQuOTgtLjEzcS40Mi0uMTQuNzMtLjNsLjU0LS4yOXEuMjMtLjE0LjQ1LS4xNC4yOSAwIC40NC4yMmwuNjcuODZxLS4zOS40NS0uODcuNzYtLjQ5LjMxLTEuMDIuNS0uNTIuMTgtMS4wNy4yNi0uNTUuMDctMS4wNi4wNy0xLjAxIDAtMS44OS0uMzMtLjg3LS4zNC0xLjUyLTEtLjY0LS42Ni0xLjAyLTEuNjQtLjM3LS45Ny0uMzctMi4yNSAwLTEgLjMzLTEuODguMzItLjg4LjkyLTEuNTMuNjEtLjY1IDEuNDgtMS4wM3QxLjk2LS4zOHEuOTIgMCAxLjcuMy43OC4yOSAxLjM0Ljg2LjU2LjU2Ljg4IDEuMzguMzEuODIuMzEgMS44OCAwIC41My0uMTEuNzItLjExLjE4LS40NC4xOG00LjE2LTEuNDFoNC40M3EwLS40Ni0uMTMtLjg2LS4xMi0uNDEtLjM4LS43MS0uMjYtLjMxLS42NS0uNDgtLjQtLjE4LS45Mi0uMTgtMS4wMiAwLTEuNi41OHQtLjc1IDEuNjVtNS45OSAxLjQxaC02LjAzcS4wNS43NS4yNiAxLjMuMjEuNTQuNTUuOS4zNS4zNi44Mi41My40Ny4xOCAxLjA0LjE4dC45OC0uMTNxLjQxLS4xNC43Mi0uM3QuNTQtLjI5cS4yNC0uMTQuNDUtLjE0LjMgMCAuNDQuMjJsLjY4Ljg2cS0uMzkuNDUtLjg4Ljc2LS40OC4zMS0xLjAxLjUtLjUzLjE4LTEuMDcuMjYtLjU1LjA3LTEuMDYuMDctMS4wMiAwLTEuODktLjMzLS44OC0uMzQtMS41Mi0xLS42NS0uNjYtMS4wMi0xLjY0LS4zNy0uOTctLjM3LTIuMjUgMC0xIC4zMi0xLjg4LjMzLS44OC45My0xLjUzdDEuNDctMS4wMyAxLjk2LS4zOHEuOTMgMCAxLjcuMy43OC4yOSAxLjM0Ljg2LjU2LjU2Ljg4IDEuMzh0LjMyIDEuODhxMCAuNTMtLjExLjcyLS4xMi4xOC0uNDQuMThtNC4zOC00LjU4LjE0IDEuMXEuNDYtLjg3IDEuMDgtMS4zNy42My0uNSAxLjQ5LS41LjY3IDAgMS4wOC4zbC0uMTUgMS43NXEtLjA1LjE4LS4xNC4yNXQtLjI0LjA3cS0uMTQgMC0uNDMtLjA1LS4yOC0uMDUtLjU0LS4wNS0uMzkgMC0uNjkuMTItLjMxLjExLS41NS4zMi0uMjQuMjItLjQzLjUyLS4xOC4zMS0uMzUuN3Y2aC0yLjM0di05Ljc1aDEuMzhxLjM2IDAgLjUuMTN0LjE5LjQ2bTIyLjk3LTQuNThoMS45M3YxMy43NGgtMi4yNXYtOC44N3EwLS41My4wNS0xLjE1bC00LjE1IDcuOHEtLjI5LjU2LS45LjU2aC0uMzZxLS42MSAwLS45LS41NmwtNC4yLTcuODNxLjAzLjMxLjA1LjYyLjAxLjMuMDEuNTZ2OC44N2gtMi4yNXYtMTMuNzRoMS45M3EuMTcgMCAuMy4wMS4xMi4wMS4yMi4wNXQuMTguMTJxLjA4LjA5LjE2LjIzbDQuMTEgNy42M3EuMTYuMy4zLjYzLjE0LjMyLjI3LjY2LjEzLS4zNS4yOC0uNjguMTQtLjMzLjMtLjYzbDQuMDYtNy42MXEuMDctLjE0LjE2LS4yMy4wOC0uMDguMTgtLjEydC4yMy0uMDVxLjEyLS4wMS4yOS0uMDFtNi40NyA3Ljc1aDQuNDNxMC0uNDYtLjEzLS44Ni0uMTMtLjQxLS4zOS0uNzEtLjI1LS4zMS0uNjUtLjQ4LS4zOS0uMTgtLjkxLS4xOC0xLjAyIDAtMS42LjU4LS41OS41OC0uNzUgMS42NW01Ljk4IDEuNDFoLTYuMDNxLjA2Ljc1LjI3IDEuMy4yMS41NC41NS45dC44MS41M3EuNDcuMTggMS4wNC4xOHQuOTktLjEzcS40MS0uMTQuNzItLjN0LjU0LS4yOXEuMjMtLjE0LjQ1LS4xNC4yOSAwIC40NC4yMmwuNjcuODZxLS4zOS40NS0uODcuNzYtLjQ5LjMxLTEuMDEuNS0uNTMuMTgtMS4wOC4yNi0uNTQuMDctMS4wNi4wNy0xLjAxIDAtMS44OS0uMzMtLjg3LS4zNC0xLjUyLTEtLjY0LS42Ni0xLjAxLTEuNjQtLjM3LS45Ny0uMzctMi4yNSAwLTEgLjMyLTEuODh0LjkyLTEuNTNxLjYxLS42NSAxLjQ4LTEuMDN0MS45Ni0uMzhxLjkyIDAgMS43LjMuNzguMjkgMS4zNC44Ni41Ni41Ni44OCAxLjM4dC4zMiAxLjg4cTAgLjUzLS4xMi43Mi0uMTEuMTgtLjQ0LjE4bTQuMzUtNC43NC4xNi43N3EuMjktLjI5LjYyLS41NS4zMy0uMjUuNjktLjQyLjM3LS4xOC43OS0uMjh0LjkxLS4xcS44IDAgMS40MS4yNy42Mi4yNyAxLjA0Ljc2LjQxLjQ5LjYyIDEuMTcuMjIuNjguMjIgMS41djYuMmgtMi4zNXYtNi4ycTAtLjktLjQxLTEuMzktLjQxLS40OC0xLjI0LS40OC0uNjEgMC0xLjE0LjI3LS41NC4yOC0xLjAxLjc1djcuMDVoLTIuMzV2LTkuNzVoMS40NHEuNDUgMCAuNi40M20xNC43My0uNDNoMi4zNXY5Ljc1aC0xLjQ0cS0uNDYgMC0uNTktLjQzbC0uMTYtLjc4cS0uNi42MS0xLjMyLjk5LS43Mi4zNy0xLjcuMzctLjggMC0xLjQxLS4yN3QtMS4wMy0uNzZxLS40Mi0uNS0uNjMtMS4xOC0uMjItLjY4LS4yMi0xLjQ5di02LjJoMi4zNXY2LjJxMCAuODkuNDEgMS4zOC40Mi40OSAxLjI0LjQ5LjYxIDAgMS4xNC0uMjcuNTQtLjI3IDEuMDEtLjc1em0xMi4yMSA3Ljc2aDIuNThxLjcxIDAgMS4yLS4xOC40OC0uMTcuNzctLjQ1LjI5LS4yOS40Mi0uNjd0LjEzLS44cTAtLjQ1LS4xNC0uODEtLjE1LS4zNS0uNDUtLjYxLS4zLS4yNS0uNzgtLjM4dC0xLjE2LS4xM2gtMi41N3ptMi4xNy05Ljc3aC0yLjE3djMuOTdoMi4wM3ExLjMxIDAgMS45OC0uNDguNjctLjQ3LjY3LTEuNTEgMC0xLjA3LS42MS0xLjUyLS42LS40Ni0xLjktLjQ2bS00LjczLTEuOThoNC43M3ExLjM1IDAgMi4zMS4yNnQxLjU3LjczcS42Mi40OC45IDEuMTUuMjkuNjguMjkgMS41MiAwIC40OC0uMTUuOTMtLjE0LjQ0LS40NC44Mi0uMy4zOS0uNzYuNy0uNDYuMzItMS4wOS41MyAyLjgzLjY0IDIuODMgMy4wNiAwIC44OC0uMzQgMS42Mi0uMzMuNzQtLjk2IDEuMjgtLjY0LjUzLTEuNTcuODQtLjkzLjMtMi4xMy4zaC01LjE5em0xNCA3Ljc1aDQuNDJxMC0uNDYtLjEyLS44Ni0uMTMtLjQxLS4zOS0uNzEtLjI2LS4zMS0uNjUtLjQ4LS4zOS0uMTgtLjkyLS4xOC0xLjAxIDAtMS42LjU4LS41OC41OC0uNzQgMS42NW01Ljk4IDEuNDFoLTYuMDNxLjA2Ljc1LjI2IDEuMy4yMS41NC41Ni45LjM0LjM2LjgxLjUzLjQ3LjE4IDEuMDQuMTh0Ljk4LS4xM3EuNDEtLjE0LjcyLS4zdC41NS0uMjlxLjIzLS4xNC40NS0uMTQuMjkgMCAuNDMuMjJsLjY4Ljg2cS0uMzkuNDUtLjg4Ljc2LS40OC4zMS0xLjAxLjUtLjUzLjE4LTEuMDcuMjYtLjU1LjA3LTEuMDYuMDctMS4wMiAwLTEuODktLjMzLS44OC0uMzQtMS41Mi0xLS42NS0uNjYtMS4wMi0xLjY0LS4zNy0uOTctLjM3LTIuMjUgMC0xIC4zMi0xLjg4LjMzLS44OC45My0xLjUzdDEuNDctMS4wMyAxLjk3LS4zOHEuOTIgMCAxLjcuMy43Ny4yOSAxLjM0Ljg2LjU2LjU2Ljg3IDEuMzguMzIuODIuMzIgMS44OCAwIC41My0uMTEuNzItLjEyLjE4LS40NC4xOG0yLjM0LTkuNTRoMi4zNHYxNC4xMmgtMi4zNHptOC4yNSA5LjAxcS40NCAwIC43Ni0uMTIuMzMtLjEyLjU0LS4zM3QuMzItLjVxLjExLS4zLjExLS42NSAwLS43Mi0uNDMtMS4xNHQtMS4zLS40MnEtLjg2IDAtMS4yOS40Mi0uNDQuNDItLjQ0IDEuMTQgMCAuMzQuMTEuNjQuMTEuMjkuMzMuNTEuMjEuMjEuNTQuMzN0Ljc1LjEybTIuNjUgNS41NXEwLS4yOS0uMTctLjQ3dC0uNDYtLjI4cS0uMy0uMS0uNjktLjE1LS40LS4wNC0uODQtLjA3bC0uOTEtLjA0cS0uNDctLjAyLS45Mi0uMDgtLjM5LjIyLS42My41Mi0uMjQuMjktLjI0LjY4IDAgLjI2LjEzLjQ4dC40MS4zOXEuMjguMTYuNzIuMjUuNDUuMDkgMS4xLjA5dDEuMTMtLjFxLjQ3LS4xLjc4LS4yOC4zMS0uMTcuNDUtLjQyLjE0LS4yNC4xNC0uNTJtLS40Ni05Ljg1aDIuOHYuODdxMCAuNDItLjUuNTFsLS44OC4xNnEuMi41MS4yIDEuMTEgMCAuNzItLjI5IDEuMy0uMjkuNTktLjggMS0uNTEuNC0xLjIxLjYzLS43LjIyLTEuNTEuMjItLjI4IDAtLjU1LS4wMy0uMjYtLjAzLS41Mi0uMDctLjQ2LjI3LS40Ni42MSAwIC4zLjI4LjQ0LjI3LjEzLjcxLjE5LjQ1LjA2IDEuMDIuMDcuNTcuMDIgMS4xNy4wNi42LjA1IDEuMTcuMTd0MS4wMS4zN3EuNDUuMjYuNzIuN3QuMjcgMS4xNHEwIC42NC0uMzIgMS4yNXQtLjkyIDEuMDlxLS42LjQ3LTEuNDguNzZ0LTIgLjI5cS0xLjEgMC0xLjkyLS4yMS0uODItLjIyLTEuMzYtLjU3LS41NC0uMzYtLjgxLS44My0uMjYtLjQ2LS4yNi0uOTcgMC0uNjguNDEtMS4xNHQxLjE0LS43NHEtLjM5LS4yLS42Mi0uNTN0LS4yMy0uODdxMC0uMjIuMDgtLjQ1LjA4LS4yNC4yNC0uNDYuMTYtLjIzLjM5LS40NC4yNC0uMi41Ni0uMzYtLjc0LS40LTEuMTYtMS4wNy0uNDItLjY2LS40Mi0xLjU1IDAtLjczLjI5LTEuMzF0LjgtMXEuNTItLjQxIDEuMjMtLjYzdDEuNTQtLjIycS42MyAwIDEuMTguMTN0MS4wMS4zOG00LjM2LS4zNGgyLjM2djkuNzVoLTIuMzZ6bTIuNjgtMi44NHEwIC4zMS0uMTMuNTctLjEyLjI3LS4zMi40Ny0uMjEuMi0uNDguMzItLjI4LjExLS41OS4xMXQtLjU4LS4xMXEtLjI3LS4xMi0uNDctLjMydC0uMzEtLjQ3cS0uMTItLjI2LS4xMi0uNTd0LjEyLS41OXEuMTEtLjI3LjMxLS40N3QuNDctLjMyLjU4LS4xMi41OS4xMnEuMjcuMTIuNDguMzIuMi4yLjMyLjQ3LjEzLjI4LjEzLjU5bTcuMjIgMTAuMDd2LTEuNjRxLTEuMDIuMDUtMS43MS4xNy0uNy4xMy0xLjExLjMzLS40Mi4yLS42LjQ3LS4xOC4yNi0uMTguNTggMCAuNjIuMzYuODguMzcuMjcuOTYuMjcuNzIgMCAxLjI1LS4yNi41Mi0uMjcgMS4wMy0uOG0tNC45Ni01LjEyLS40Mi0uNzVxMS42OC0xLjU0IDQuMDUtMS41NC44NSAwIDEuNTMuMjguNjcuMjggMS4xNC43OC40Ni41LjcxIDEuMTkuMjQuNy4yNCAxLjUydjYuMTZoLTEuMDdxLS4zMyAwLS41MS0uMXQtLjI4LS40bC0uMjEtLjcxcS0uMzcuMzQtLjczLjU5LS4zNS4yNS0uNzMuNDJ0LS44MS4yNi0uOTUuMDlxLS42MiAwLTEuMTQtLjE2LS41My0uMTctLjkxLS41LS4zOC0uMzQtLjU5LS44My0uMi0uNDktLjItMS4xNSAwLS4zNy4xMi0uNzQuMTItLjM2LjQtLjY5LjI4LS4zNC43My0uNjN0MS4xLS41MSAxLjUxLS4zNnEuODctLjE0IDEuOTgtLjE3di0uNTdxMC0uOTctLjQyLTEuNDR0LTEuMjEtLjQ3cS0uNTcgMC0uOTQuMTMtLjM4LjEzLS42Ni4zLS4yOS4xNi0uNTIuMy0uMjMuMTMtLjUyLjEzLS4yNCAwLS40Mi0uMTMtLjE3LS4xMy0uMjctLjNtMTEuNDgtMS42OC4xNy43N3EuMjktLjI5LjYyLS41NS4zMy0uMjUuNjktLjQyLjM3LS4xOC43OS0uMjguNDEtLjEuOTEtLjEuOCAwIDEuNDEuMjcuNjIuMjcgMS4wMy43Ni40Mi40OS42MyAxLjE3dC4yMSAxLjV2Ni4yaC0yLjM0di02LjJxMC0uOS0uNDEtMS4zOS0uNDEtLjQ4LTEuMjQtLjQ4LS42MSAwLTEuMTQuMjctLjU0LjI4LTEuMDEuNzV2Ny4wNWgtMi4zNXYtOS43NWgxLjQ0cS40NSAwIC41OS40M20yMS42My0zLjEzLS42NCAxLjIxcS0uMTEuMi0uMjQuMjl0LS4zMi4wOXEtLjIgMC0uNDMtLjE1LS4yNC0uMTQtLjU2LS4zMnQtLjc1LS4zM3EtLjQ0LS4xNS0xLjAyLS4xNS0uNTQgMC0uOTQuMTMtLjM5LjEzLS42Ny4zNi0uMjcuMjItLjQuNTR0LS4xMy43cTAgLjQ4LjI3LjgxLjI3LjMyLjcyLjU1LjQ0LjIzIDEuMDEuNDF0MS4xNy4zOHEuNi4yMSAxLjE3LjQ4dDEuMDIuNjhxLjQ0LjQxLjcxIDEuMDF0LjI3IDEuNDZxMCAuOTMtLjMxIDEuNzQtLjMyLjgxLS45NCAxLjQyLS42MS42LTEuNDkuOTUtLjg5LjM0LTIuMDMuMzQtLjY1IDAtMS4yOS0uMTMtLjYzLS4xMi0xLjIyLS4zNi0uNTgtLjI0LTEuMS0uNTctLjUxLS4zMy0uOTEtLjc0bC43NS0xLjIzcS4xLS4xMy4yNS0uMjJ0LjMyLS4wOXEuMjQgMCAuNTIuMTkuMjcuMi42NS40NC4zOC4yMy44OS40My41MS4xOSAxLjIyLjE5IDEuMDkgMCAxLjY5LS41Mi42LS41MS42LTEuNDggMC0uNTQtLjI3LS44OS0uMjctLjM0LS43Mi0uNTctLjQ0LS4yMy0xLjAxLS4zOS0uNTctLjE3LTEuMTYtLjM2dC0xLjE2LS40NXEtLjU3LS4yNy0xLjAyLS43LS40NS0uNDItLjcyLTEuMDYtLjI3LS42NS0uMjctMS41OSAwLS43NS4zLTEuNDZ0Ljg3LTEuMjYgMS40MS0uODlxLjgzLS4zMyAxLjkyLS4zMyAxLjIxIDAgMi4yNC4zOCAxLjAyLjM4IDEuNzUgMS4wNm0zLjk1IDYuNDZoNC40M3EwLS40Ni0uMTMtLjg2LS4xMy0uNDEtLjM5LS43MS0uMjUtLjMxLS42NS0uNDgtLjM5LS4xOC0uOTEtLjE4LTEuMDIgMC0xLjYxLjU4LS41OC41OC0uNzQgMS42NW01Ljk4IDEuNDFoLTYuMDNxLjA2Ljc1LjI3IDEuMy4yMS41NC41NS45dC44MS41M3EuNDcuMTggMS4wNC4xOHQuOTgtLjEzcS40Mi0uMTQuNzMtLjNsLjU0LS4yOXEuMjMtLjE0LjQ1LS4xNC4yOSAwIC40NC4yMmwuNjcuODZxLS4zOS40NS0uODcuNzYtLjQ5LjMxLTEuMDIuNS0uNTIuMTgtMS4wNy4yNi0uNTUuMDctMS4wNi4wNy0xLjAxIDAtMS44OS0uMzMtLjg3LS4zNC0xLjUyLTEtLjY0LS42Ni0xLjAyLTEuNjQtLjM3LS45Ny0uMzctMi4yNSAwLTEgLjMzLTEuODguMzItLjg4LjkyLTEuNTMuNjEtLjY1IDEuNDgtMS4wM3QxLjk2LS4zOHEuOTIgMCAxLjcuMy43OC4yOSAxLjM0Ljg2LjU2LjU2Ljg4IDEuMzguMzEuODIuMzEgMS44OCAwIC41My0uMTEuNzItLjExLjE4LS40NC4xOG0yLjM0LTkuNTRoMi4zNXYxNC4xMmgtMi4zNXptNi41NSA4LjEzaDQuNDJxMC0uNDYtLjEyLS44Ni0uMTMtLjQxLS4zOS0uNzEtLjI2LS4zMS0uNjUtLjQ4LS4zOS0uMTgtLjkyLS4xOC0xLjAxIDAtMS42LjU4LS41OC41OC0uNzQgMS42NW01Ljk4IDEuNDFoLTYuMDNxLjA2Ljc1LjI2IDEuMy4yMS41NC41Ni45LjM0LjM2LjgxLjUzLjQ3LjE4IDEuMDQuMTh0Ljk4LS4xM3EuNDEtLjE0LjcyLS4zdC41NS0uMjlxLjIzLS4xNC40NS0uMTQuMjkgMCAuNDMuMjJsLjY4Ljg2cS0uMzkuNDUtLjg4Ljc2LS40OC4zMS0xLjAxLjUtLjUzLjE4LTEuMDcuMjYtLjU1LjA3LTEuMDYuMDctMS4wMiAwLTEuODktLjMzLS44OC0uMzQtMS41Mi0xLS42NS0uNjYtMS4wMi0xLjY0LS4zNy0uOTctLjM3LTIuMjUgMC0xIC4zMi0xLjg4LjMzLS44OC45My0xLjUzdDEuNDctMS4wMyAxLjk3LS4zOHEuOTIgMCAxLjcuMy43Ny4yOSAxLjM0Ljg2LjU2LjU2Ljg3IDEuMzguMzIuODIuMzIgMS44OCAwIC41My0uMTEuNzItLjEyLjE4LS40NC4xOG05LjkxLTMuOTYtLjYyLjg1cS0uMS4xNC0uMi4yMS0uMS4wOC0uMjkuMDgtLjE4IDAtLjM1LS4xMXQtLjQxLS4yNXEtLjI0LS4xMy0uNTctLjI0LS4zMi0uMTEtLjgxLS4xMS0uNjIgMC0xLjA4LjIyLS40Ny4yMi0uNzguNjR0LS40NiAxLjAxcS0uMTUuNi0uMTUgMS4zNSAwIC43OC4xNyAxLjM4LjE2LjYxLjQ4IDEuMDMuMzEuNDEuNzYuNjIuNDQuMjIgMSAuMjJ0LjkxLS4xNC41OS0uMzFxLjIzLS4xNi40MS0uMy4xNy0uMTQuMzktLjE0LjI5IDAgLjQzLjIybC42Ny44NnEtLjM4LjQ1LS44NC43NnQtLjk1LjVxLS40OS4xOC0xIC4yNi0uNTIuMDctMS4wMy4wNy0uOTEgMC0xLjctLjMzLS44LS4zNC0xLjQtLjk5LS42LS42NC0uOTUtMS41OC0uMzQtLjk0LS4zNC0yLjEzIDAtMS4wOC4zMS0xLjk5LjMtLjkyLjktMS41OXQxLjQ5LTEuMDVxLjg4LS4zOCAyLjAzLS4zOCAxLjA5IDAgMS45MS4zNXQxLjQ4IDEuMDFtNC44MSA4LjY5cS0xLjI4IDAtMS45Ni0uNzItLjY3LS43MS0uNjctMS45OHYtNS40NGgtMXEtLjE5IDAtLjMzLS4xMi0uMTMtLjEzLS4xMy0uMzd2LS45M2wxLjU3LS4yNi40OS0yLjY2cS4wNS0uMTkuMTgtLjMuMTQtLjEuMzUtLjFoMS4yMXYzLjA3aDIuNnYxLjY3aC0yLjZ2NS4yOHEwIC40Ni4yMy43Mi4yMi4yNS42MS4yNS4yMiAwIC4zNi0uMDUuMTUtLjA1LjI2LS4xMXQuMTktLjExcS4wOS0uMDUuMTgtLjA1LjEgMCAuMTcuMDUuMDYuMDUuMTQuMTZsLjcgMS4xNHEtLjUxLjQzLTEuMTguNjQtLjY2LjIyLTEuMzcuMjJtMy44OS05LjloMi4zNnY5Ljc1aC0yLjM2em0yLjY4LTIuODRxMCAuMzEtLjEyLjU3LS4xMy4yNy0uMzMuNDd0LS40OC4zMnEtLjI4LjExLS41OS4xMS0uMyAwLS41Ny0uMTEtLjI3LS4xMi0uNDctLjMydC0uMzItLjQ3cS0uMTItLjI2LS4xMi0uNTd0LjEyLS41OXEuMTItLjI3LjMyLS40N3QuNDctLjMyLjU3LS4xMnEuMzEgMCAuNTkuMTJ0LjQ4LjMyLjMzLjQ3cS4xMi4yOC4xMi41OW02LjM4IDIuNjlxMS4wOSAwIDEuOTguMzUuODguMzUgMS41MiAxIC42My42NS45NyAxLjU4dC4zNCAyLjA4cTAgMS4xNi0uMzQgMi4wOXQtLjk3IDEuNThxLS42NC42Ni0xLjUyIDEuMDEtLjg5LjM1LTEuOTguMzV0LTEuOTgtLjM1LTEuNTMtMS4wMXEtLjYzLS42NS0uOTctMS41OC0uMzUtLjkzLS4zNS0yLjA5IDAtMS4xNS4zNS0yLjA4LjM0LS45My45Ny0xLjU4LjY0LS42NSAxLjUzLTF0MS45OC0uMzVtMCA4LjI0cTEuMjIgMCAxLjgxLS44Mi41OC0uODIuNTgtMi4zOSAwLTEuNTgtLjU4LTIuNDEtLjU5LS44Mi0xLjgxLS44Mi0xLjIzIDAtMS44Mi44My0uNi44My0uNiAyLjQgMCAxLjU2LjYgMi4zOS41OS44MiAxLjgyLjgybTguNjQtNy42Ni4xNi43N3EuMy0uMjkuNjItLjU1LjMzLS4yNS43LS40Mi4zNi0uMTguNzgtLjI4dC45MS0uMXEuOCAwIDEuNDIuMjd0MS4wMy43Ni42MyAxLjE3cS4yMS42OC4yMSAxLjV2Ni4yaC0yLjM1di02LjJxMC0uOS0uNC0xLjM5LS40MS0uNDgtMS4yNS0uNDgtLjYxIDAtMS4xNC4yNy0uNTMuMjgtMS4wMS43NXY3LjA1aC0yLjM0di05Ljc1aDEuNDNxLjQ2IDAgLjYuNDMiLz48L3N2Zz4="
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.95,
+        "slots": {
+          "beerName": "酒单上比利时啤酒好多啊"
+        }
+      },
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.95,
+    "slots": {
+      "beerName": "酒单上比利时啤酒好多啊"
+    },
+    "missingInfo": [],
+    "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)",
+    "source": "rule",
+    "isMultiIntent": true,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "confidence": 0.95,
+          "pattern": "酒单|推荐|喝什么|帮我看酒单"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "confidence": 0.85,
+          "pattern": "什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "negative_keyword",
+          "pattern": "酒单"
+        }
+      ],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": true,
+        "turnsSinceMenu": 4,
+        "activeMenuCandidateCount": 2,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "酒单推荐(menu_recommend) won over 啤酒知识(beer_knowledge) with gap 10%. Gap within multi-intent threshold — multi-intent enabled.",
+      "candidateScores": [
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0.95,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 95%)"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Excluded by negative rule/keyword"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "negative_keyword",
+          "type": "negative",
+          "matched": true,
+          "reason": "Negative keyword \"酒单\" hit"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.95,
+          "reason": "Pattern /酒单|推荐|喝什么|帮我看酒单/ matched"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 2,
+      "hasLastRecommendation": true,
+      "activeBeerName": "Tripel Karmeliet"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+    "candidateCount": 2,
+    "topPickId": "db_0"
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783646779096_hjc5yi",
+        "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_53oh",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+              "hasImage": true
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T01:26:19.096Z",
+            "output": {
+              "intent": "menu_recommend",
+              "confidence": 0.95,
+              "source": "rule",
+              "isMultiIntent": true,
+              "intents": [
+                {
+                  "intent": "menu_recommend",
+                  "confidence": 0.95,
+                  "slots": {
+                    "beerName": "酒单上比利时啤酒好多啊"
+                  }
+                },
+                {
+                  "intent": "beer_knowledge",
+                  "confidence": 0.85,
+                  "slots": {}
+                }
+              ],
+              "slots": {
+                "beerName": "酒单上比利时啤酒好多啊"
+              },
+              "missingInfo": [],
+              "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)"
+            },
+            "completedAt": "2026-07-10T01:26:19.096Z"
+          },
+          {
+            "id": "step_retrieve_memory_s33l",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user taste profile and preferences",
+            "input": {
+              "userId": "vqa-auto-test"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T01:26:19.096Z",
+            "output": {
+              "profile": {
+                "userId": "vqa-auto-test",
+                "updatedAt": "2026-07-09T15:41:06.341Z",
+                "summary": "喜欢柑橘风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "柑橘",
+                    "weight": 0.5,
+                    "evidenceCount": 1
+                  }
+                ],
+                "dislikedTags": [],
+                "notes": [
+                  "Pseudo Sue 4分，会再喝",
+                  "这酒不错，给5分，柑橘味",
+                  "不好喝，2分，不会再喝"
+                ],
+                "confidence": 0.3,
+                "evidenceCount": 3,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 3,
+                    "topStyles": [],
+                    "topTags": [
+                      "柑橘"
+                    ],
+                    "dislikedTags": [],
+                    "avgScore": 3.7,
+                    "abvRange": null
+                  }
+                ],
+                "updatedAt": "2026-07-09T15:41:06.346Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 0.3
+            },
+            "completedAt": "2026-07-10T01:26:19.097Z"
+          },
+          {
+            "id": "step_search_beer_db_1g9y",
+            "tool": "search_beer_db",
+            "purpose": "Search beer database for candidates from OCR",
+            "input": {
+              "queries": [
+                "酒单上比利时啤酒好多啊",
+                "我选择困难了",
+                "Tripel Karmeliet",
+                "De Garre",
+                "Curieux这三款有什么区别？"
+              ]
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T01:26:19.097Z",
+            "output": {
+              "results": [
+                {
+                  "query": "酒单上比利时啤酒好多啊",
+                  "found": false,
+                  "data": null
+                },
+                {
+                  "query": "我选择困难了",
+                  "found": false,
+                  "data": null
+                },
+                {
+                  "query": "Tripel Karmeliet",
+                  "found": true,
+                  "data": {
+                    "beerName": "Tripel Karmeliet",
+                    "brewery": "Brouwerij Bosteels",
+                    "style": "Belgian Tripel",
+                    "abv": 8.4,
+                    "rating": 3.98,
+                    "ratingCount": 510300
+                  }
+                },
+                {
+                  "query": "De Garre",
+                  "found": true,
+                  "data": {
+                    "beerName": "De Garre",
+                    "brewery": "Brouwerij Van Steenberge",
+                    "style": "Belgian Tripel",
+                    "abv": 11,
+                    "rating": 4.09,
+                    "ratingCount": 47324
+                  }
+                },
+                {
+                  "query": "Curieux这三款有什么区别？",
+                  "found": false,
+                  "data": null
+                }
+              ],
+              "totalFound": 2
+            },
+            "completedAt": "2026-07-10T01:26:19.144Z"
+          },
+          {
+            "id": "step_score_recommendations_4fz0",
+            "tool": "score_recommendations",
+            "purpose": "Score candidates with worthScore + fitScore against user profile",
+            "input": {
+              "candidates": "[2 candidates from search_beer_db]",
+              "profile": "[injected from retrieve_memory]",
+              "constraints": []
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T01:26:19.144Z",
+            "output": {
+              "scored": [
+                {
+                  "candidateId": "db_0",
+                  "displayName": "Tripel Karmeliet",
+                  "worthScore": 43,
+                  "fitScore": 50,
+                  "reason": "评分4.0",
+                  "riskFlags": [
+                    "低样本评分",
+                    "较高酒精度"
+                  ]
+                },
+                {
+                  "candidateId": "db_1",
+                  "displayName": "De Garre",
+                  "worthScore": 39,
+                  "fitScore": 50,
+                  "reason": "评分4.1",
+                  "riskFlags": [
+                    "低样本评分",
+                    "高酒精度"
+                  ]
+                }
+              ],
+              "picks": {
+                "topPick": {
+                  "candidateId": "db_0",
+                  "label": "最佳",
+                  "reason": "评分4.0",
+                  "worthScore": 43,
+                  "fitScore": 50
+                },
+                "safePick": {
+                  "candidateId": "db_0",
+                  "label": "最稳",
+                  "reason": "评分4.0",
+                  "worthScore": 43,
+                  "fitScore": 50
+                },
+                "explorePick": {
+                  "candidateId": "db_0",
+                  "label": "尝新",
+                  "reason": "评分4.0",
+                  "worthScore": 43,
+                  "fitScore": 50
+                },
+                "avoidOrCaution": {
+                  "candidateId": "db_0",
+                  "label": "谨慎",
+                  "reason": "评分4.0",
+                  "worthScore": 43,
+                  "fitScore": 50
+                }
+              },
+              "candidateCount": 2
+            },
+            "completedAt": "2026-07-10T01:26:19.145Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "search_beer_db",
+            "score_recommendations"
+          ],
+          "missingContext": [
+            "limited_profile_data"
+          ],
+          "fallbackUsed": true
+        },
+        "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+      },
+      "planId": "plan_1783646779096_hjc5yi",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "success": true,
+      "fallback": true,
+      "steps": [
+        {
+          "id": "step_classify_intent_53oh",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "menu_recommend",
+            "confidence": 0.95,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.95,
+                "slots": {
+                  "beerName": "酒单上比利时啤酒好多啊"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "beerName": "酒单上比利时啤酒好多啊"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_s33l",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 599,
+            "_preview": "{\"profile\":{\"userId\":\"vqa-auto-test\",\"updatedAt\":\"2026-07-09T15:41:06.341Z\",\"summary\":\"喜欢柑橘风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"柑橘\",\"weight\":0.5,\"evidenceCount\":1}],..."
+          }
+        },
+        {
+          "id": "step_search_beer_db_1g9y",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 530,
+            "_preview": "{\"results\":[{\"query\":\"酒单上比利时啤酒好多啊\",\"found\":false,\"data\":null},{\"query\":\"我选择困难了\",\"found\":false,\"data\":null},{\"query\":\"Tripel Karmeliet\",\"found\":true,\"data\":{\"beerName\":\"Tripel Karmeliet\",\"brewery\":\"Bro..."
+          }
+        },
+        {
+          "id": "step_score_recommendations_4fz0",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 682,
+            "_preview": "{\"scored\":[{\"candidateId\":\"db_0\",\"displayName\":\"Tripel Karmeliet\",\"worthScore\":43,\"fitScore\":50,\"reason\":\"评分4.0\",\"riskFlags\":[\"低样本评分\",\"较高酒精度\"]},{\"candidateId\":\"db_1\",\"displayName\":\"De Garre\",\"worthSco..."
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "search_beer_db",
+          "score_recommendations"
+        ],
+        "missingContext": [
+          "limited_profile_data"
+        ],
+        "fallbackUsed": true
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": true,
+    "warnings": [
+      "reply_mentions_no_candidates"
+    ],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "fallbackUsed": true,
+      "stepCount": 4,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783646779096_hjc5yi",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_53oh",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "酒单上比利时啤酒好多啊，我选择困难了。Tripel Karmeliet、De Garre、Curieux这三款有什么区别？",
+            "hasImage": true
+          },
+          "output": {
+            "intent": "menu_recommend",
+            "confidence": 0.95,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.95,
+                "slots": {
+                  "beerName": "酒单上比利时啤酒好多啊"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "beerName": "酒单上比利时啤酒好多啊"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)"
+          },
+          "startedAt": "2026-07-10T01:26:19.096Z",
+          "completedAt": "2026-07-10T01:26:19.096Z"
+        },
+        {
+          "id": "step_retrieve_memory_s33l",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "input": {
+            "userId": "vqa-auto-test"
+          },
+          "output": {
+            "profile": {
+              "userId": "vqa-auto-test",
+              "updatedAt": "2026-07-09T15:41:06.341Z",
+              "summary": "喜欢柑橘风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "柑橘",
+                  "weight": 0.5,
+                  "evidenceCount": 1
+                }
+              ],
+              "dislikedTags": [],
+              "notes": [
+                "Pseudo Sue 4分，会再喝",
+                "这酒不错，给5分，柑橘味",
+                "不好喝，2分，不会再喝"
+              ],
+              "confidence": 0.3,
+              "evidenceCount": 3,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 3,
+                  "topStyles": [],
+                  "topTags": [
+                    "柑橘"
+                  ],
+                  "dislikedTags": [],
+                  "avgScore": 3.7,
+                  "abvRange": null
+                }
+              ],
+              "updatedAt": "2026-07-09T15:41:06.346Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 0.3
+          },
+          "startedAt": "2026-07-10T01:26:19.096Z",
+          "completedAt": "2026-07-10T01:26:19.097Z"
+        },
+        {
+          "id": "step_search_beer_db_1g9y",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "input": {
+            "queries": [
+              "酒单上比利时啤酒好多啊",
+              "我选择困难了",
+              "Tripel Karmeliet",
+              "De Garre",
+              "Curieux这三款有什么区别？"
+            ]
+          },
+          "output": {
+            "results": [
+              {
+                "query": "酒单上比利时啤酒好多啊",
+                "found": false,
+                "data": null
+              },
+              {
+                "query": "我选择困难了",
+                "found": false,
+                "data": null
+              },
+              {
+                "query": "Tripel Karmeliet",
+                "found": true,
+                "data": {
+                  "beerName": "Tripel Karmeliet",
+                  "brewery": "Brouwerij Bosteels",
+                  "style": "Belgian Tripel",
+                  "abv": 8.4,
+                  "rating": 3.98,
+                  "ratingCount": 510300
+                }
+              },
+              {
+                "query": "De Garre",
+                "found": true,
+                "data": {
+                  "beerName": "De Garre",
+                  "brewery": "Brouwerij Van Steenberge",
+                  "style": "Belgian Tripel",
+                  "abv": 11,
+                  "rating": 4.09,
+                  "ratingCount": 47324
+                }
+              },
+              {
+                "query": "Curieux这三款有什么区别？",
+                "found": false,
+                "data": null
+              }
+            ],
+            "totalFound": 2
+          },
+          "startedAt": "2026-07-10T01:26:19.097Z",
+          "completedAt": "2026-07-10T01:26:19.144Z"
+        },
+        {
+          "id": "step_score_recommendations_4fz0",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "input": {
+            "candidates": "[2 candidates from search_beer_db]",
+            "profile": "[injected from retrieve_memory]",
+            "constraints": []
+          },
+          "output": {
+            "scored": [
+              {
+                "candidateId": "db_0",
+                "displayName": "Tripel Karmeliet",
+                "worthScore": 43,
+                "fitScore": 50,
+                "reason": "评分4.0",
+                "riskFlags": [
+                  "低样本评分",
+                  "较高酒精度"
+                ]
+              },
+              {
+                "candidateId": "db_1",
+                "displayName": "De Garre",
+                "worthScore": 39,
+                "fitScore": 50,
+                "reason": "评分4.1",
+                "riskFlags": [
+                  "低样本评分",
+                  "高酒精度"
+                ]
+              }
+            ],
+            "picks": {
+              "topPick": {
+                "candidateId": "db_0",
+                "label": "最佳",
+                "reason": "评分4.0",
+                "worthScore": 43,
+                "fitScore": 50
+              },
+              "safePick": {
+                "candidateId": "db_0",
+                "label": "最稳",
+                "reason": "评分4.0",
+                "worthScore": 43,
+                "fitScore": 50
+              },
+              "explorePick": {
+                "candidateId": "db_0",
+                "label": "尝新",
+                "reason": "评分4.0",
+                "worthScore": 43,
+                "fitScore": 50
+              },
+              "avoidOrCaution": {
+                "candidateId": "db_0",
+                "label": "谨慎",
+                "reason": "评分4.0",
+                "worthScore": 43,
+                "fitScore": 50
+              }
+            },
+            "candidateCount": 2
+          },
+          "startedAt": "2026-07-10T01:26:19.144Z",
+          "completedAt": "2026-07-10T01:26:19.145Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+    },
+    "diagnostics": {
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ],
+      "missingContext": [
+        "limited_profile_data"
+      ],
+      "fallbackUsed": true
+    }
+  }
+}

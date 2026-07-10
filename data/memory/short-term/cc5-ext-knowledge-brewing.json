@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-knowledge-brewing",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:50.252Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476640915_le381z",
+      "userText": "啤酒是怎么酿造的",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:10:41.342Z"
+    },
+    {
+      "turnId": "trace_1783477677278_xb9i52",
+      "userText": "啤酒是怎么酿造的",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:27:57.887Z"
+    },
+    {
+      "turnId": "trace_1783477909527_y5t3gc",
+      "userText": "啤酒是怎么酿造的",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:31:50.252Z"
+    }
+  ]
+}

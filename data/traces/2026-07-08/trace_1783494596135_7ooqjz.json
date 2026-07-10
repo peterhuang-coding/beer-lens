@@ -1,0 +1,241 @@
+{
+  "traceId": "trace_1783494596135_7ooqjz",
+  "userId": "self-test",
+  "channel": "web",
+  "conversationId": "self-test-7-1783494596126",
+  "turnId": "trace_1783494596135_1o2vrb",
+  "timestamp": "2026-07-08T07:09:57.444Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "这瓶酒过期了吗",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "label_check",
+        "confidence": 0.95,
+        "slots": {}
+      }
+    ],
+    "intent": "label_check",
+    "confidence": 0.95,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "rule match: label_check (95%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "confidence": 0.95,
+          "pattern": "酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_not_pure_label",
+          "pattern": "^(酒标|生产日期|过期|这瓶|这罐|日期).{0,10}$"
+        }
+      ],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "酒标检查(label_check) won via positive_rule (confidence 95%). Other intents did not match or scored below threshold.",
+      "candidateScores": [
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Excluded by negative rule/keyword"
+        },
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0.95,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 95%)"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Context conditions not met"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_not_pure_label",
+          "type": "negative",
+          "matched": true,
+          "reason": "Negative rule matched: /^(酒标|生产日期|过期|这瓶|这罐|日期).{0,10}$/"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.95,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "label_check",
+    "diagnosis": {
+      "selectedHandler": "handleLabelCheck",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "hasImage"
+      ],
+      "requiredTools": [
+        "vision_pipeline"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"label_check\" missing context [hasImage] — proceeding with fallbackReply",
+      "intent": "label_check"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "请提供酒标照片，以便查看具体日期和保质信息。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "label_check",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen-2.5-7b-instruct",
+      "analysis": "qwen/qwen-2.5-7b-instruct",
+      "chat": "qwen/qwen-2.5-7b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleLabelCheck",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "hasImage"
+      ],
+      "requiredTools": [
+        "vision_pipeline"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"label_check\" missing context [hasImage] — proceeding with fallbackReply",
+      "intent": "label_check"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "conversationId": "vqa_menu_recommend_2",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:12:54.045Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646225831_mlf712",
+      "userText": "咖啡味重的吧，那就来Founders Breakfast Stout试试！",
+      "assistantReply": "好的选择！Founders Breakfast Stout确实是一款咖啡味非常浓郁的世涛，它融合了咖啡豆和巧克力麦芽的香气，口感丰富且醇厚，但又不会过于沉重。8.3%的酒精度虽然比BCBS低，但也能给你带来不错的体验。享受您的品饮时光！如果有机会，也试试搭配一些浓郁的甜点，比如巧克力蛋糕，会是绝配哦。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:17:20.123Z"
+    },
+    {
+      "turnId": "trace_1783646520060_35t6hv",
+      "userText": "帮我看看这张酒单上有哪些世涛（stout）可以选？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:22:02.677Z"
+    },
+    {
+      "turnId": "trace_1783646775588_dok19o",
+      "userText": "帮我看看这张酒单上有哪些世涛（stout）可以选？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:18.579Z"
+    },
+    {
+      "turnId": "trace_1783650310344_kfyidr",
+      "userText": "帮我看看这张酒单上有哪些世涛（stout）可以选？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:13.216Z"
+    },
+    {
+      "turnId": "trace_1783650738479_gn730x",
+      "userText": "推荐世涛，要酒精度高的",
+      "assistantReply": "我会这样点：\n\n1. 要酒精度高的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 要酒精度高的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 要酒精度高的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：要酒精度高的\n最值得尝新：要酒精度高的\n我会先跳过：要酒精度高的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 要酒精度高的。\n\n⚠️ 要酒精度高的 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:32:18.559Z"
+    },
+    {
+      "turnId": "trace_1783651026132_tmlonq",
+      "userText": "推荐世涛，要酒精度高的",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：要酒精度高的。要不要换个方向？\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:37:06.141Z"
+    },
+    {
+      "turnId": "trace_1783671069066_ode3ko",
+      "userText": "推荐世涛，要酒精度高的",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：要酒精度高的。要不要换个方向？\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:11:09.073Z"
+    },
+    {
+      "turnId": "trace_1783673914632_oinhc1",
+      "userText": "推荐世涛，要酒精度高的，帝国世涛那种",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：要酒精度高的。要不要换个方向？\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:58:34.638Z"
+    },
+    {
+      "turnId": "trace_1783674024641_dhnomn",
+      "userText": "推荐世涛，要酒精度高的，帝国世涛那种",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：要酒精度高的。要不要换个方向？\n\n💡 你很喜欢Pale Ale - American，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T09:00:24.646Z"
+    },
+    {
+      "turnId": "trace_1783674774038_zx9vwc",
+      "userText": "推荐世涛，要酒精度高的，帝国世涛那种",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：要酒精度高的。要不要换个方向？\n\n💡 你很喜欢Pale Ale - American，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T09:12:54.045Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783674774038_fv40kq",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "要酒精度高的",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-10T09:12:54.045Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "safePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "explorePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "avoidOrCaution": {
+      "candidateId": "",
+      "label": ""
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "要酒精度高的",
+    "brewery": ""
+  }
+}

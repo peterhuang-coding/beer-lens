@@ -1,0 +1,14 @@
+{
+  "conversationId": "regression-fresh2-regression-clear",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-07T07:36:44.591Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783409804159_kzwbg7",
+      "userText": "清空",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-07T07:36:44.591Z"
+    }
+  ]
+}

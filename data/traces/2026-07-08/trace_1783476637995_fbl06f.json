@@ -1,0 +1,82 @@
+{
+  "traceId": "trace_1783476637995_fbl06f",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-knowledge-wcipa",
+  "turnId": "trace_1783476637995_mcxbn0",
+  "timestamp": "2026-07-08T02:10:38.427Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "什么是West Coast IPA",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "beer_knowledge",
+    "confidence": 0.85,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "rule match: beer_knowledge (85%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "beer_knowledge",
+    "diagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "beer_knowledge",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  }
+}

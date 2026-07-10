@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-profile_query-10",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:06.359Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611666356_tektwo",
+      "userText": "我喜欢什么风格的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "profile_query",
+      "createdAt": "2026-07-09T15:41:06.359Z"
+    }
+  ]
+}

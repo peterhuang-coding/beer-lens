@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-棱镜之外",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:18.336Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611618236_9oxrg5",
+      "userText": "棱镜之外",
+      "assistantReply": "我会这样点：\n\n1. Heine Brothers Coffee Stout - 评分3.8\n2. Heine Brothers Coffee Stout - 评分3.8\n3. Heine Brothers Coffee Stout - 评分3.8\n\n最稳：Heine Brothers Coffee Stout\n最值得尝新：Heine Brothers Coffee Stout\n我会先跳过：Heine Brothers Coffee Stout - 评分3.8\n\n如果只能喝一杯，选 Heine Brothers Coffee Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:18.336Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611618236_bi8tcl",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Heine Brothers Coffee Stout",
+        "brewery": "Bluegrass Brewing Co. - East St. Matthew's",
+        "style": "Oatmeal Stout",
+        "abv": 5.9,
+        "price": null,
+        "rating": 3.79
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:18.336Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Heine Brothers Coffee Stout",
+    "brewery": "Bluegrass Brewing Co. - East St. Matthew's"
+  }
+}

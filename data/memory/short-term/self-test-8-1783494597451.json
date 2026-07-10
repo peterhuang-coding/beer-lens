@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-8-1783494597451",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T07:10:00.419Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783494597466_u4niyx",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "West Coast IPA，简称 WCIPA，是一种非常受欢迎的IPA风格。它的特点是酒体饱满，酒精度较高，苦味强烈，同时伴有明显的热带水果和柑橘类香气。这种啤酒通常使用大量的酒花，尤其是美国酒花，以获得那种独特的香气和味道。\n\nWCIPA 的酿造工艺强调使用大量的酒花，尤其是在发酵过程中加入酒花（干投），这使得啤酒具有非常突出的酒花香气和味道。这种风格的啤酒通常给人一种清爽而不过分甜腻的感觉，非常适合喜欢强烈酒花风味的啤酒爱好者。\n\n你尝试过这种风格的啤酒吗？如果有兴趣，我可以帮你找找看有没有符合这种风格的啤酒推荐哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T07:10:00.419Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

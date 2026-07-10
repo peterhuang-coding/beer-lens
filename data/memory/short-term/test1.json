@@ -1,0 +1,17 @@
+{
+  "conversationId": "test1",
+  "userId": "test",
+  "updatedAt": "2026-07-10T08:59:31.842Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783673970564_myoln8",
+      "userText": "什么是IPA",
+      "assistantReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:59:31.842Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

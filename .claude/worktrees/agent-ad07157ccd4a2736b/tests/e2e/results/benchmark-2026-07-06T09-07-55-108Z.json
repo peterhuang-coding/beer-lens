@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T09:07:55.110Z",
+  "visionModel": "meta-llama/llama-4-maverick:free",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 4603,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "OpenRouter 404: {\"error\":{\"message\":\"This model is unavailable for free. The paid version is available now - use this slug instead: meta-llama/llama-4-maverick\",\"code\":404},\"user_id\":\"user_2zP1vL1UQdBUXC4kUmAiXf352yJ",
+      "durationMs": 4603
+    }
+  ]
+}

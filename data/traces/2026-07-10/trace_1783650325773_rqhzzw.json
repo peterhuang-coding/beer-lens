@@ -1,0 +1,803 @@
+{
+  "traceId": "trace_1783650325773_rqhzzw",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_beer_knowledge_2",
+  "turnId": "trace_1783650325773_7vjuwq",
+  "timestamp": "2026-07-10T02:25:25.874Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "现在精酿圈好像都在喝那种浑浊的、像果汁一样的IPA，这风格是怎么来的？为什么它这么浑？",
+    "hasImage": true,
+    "imageName": "vqa_beer_knowledge_2.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik05My45MyAyODYuNTFoMy42OHYyMi40MWgtMi4xNHEtLjUgMC0uODMtLjE2LS4zMy0uMTctLjY0LS41NWwtMTEuNzEtMTQuOTRxLjEgMS4wMi4xIDEuODl2MTMuNzZoLTMuNjh2LTIyLjQxaDIuMTlxLjI2IDAgLjQ1LjAyLjIuMDIuMzUuMDkuMTQuMDcuMjguMi4xNC4xNC4zMS4zNWwxMS43NSAxNS4wMXEtLjA0LS41NS0uMDgtMS4wNy0uMDMtLjUzLS4wMy0uOTh6bTIyLjggMy4zMWgtOS45NXY2LjIyaDcuODV2My4yMWgtNy44NXY2LjM0aDkuOTV2My4zM0gxMDIuNnYtMjIuNDFoMTQuMTN6bTcuODgtMy4zMXYyMi40MWgtNC4xOXYtMjIuNDF6bTkuMTcgMTEuMjdoMy4xMnExLjE1IDAgMi0uMjl0MS40Mi0uODJxLjU2LS41NC44NC0xLjMuMjgtLjc3LjI4LTEuNzIgMC0uOS0uMjgtMS42Mi0uMjgtLjczLS44NC0xLjI1LS41NS0uNTEtMS40MS0uNzgtLjg1LS4yNy0yLjAxLS4yN2gtMy4xMnptLTQuMTctMTEuMjdoNy4yOXEyLjI1IDAgMy44OS41MiAxLjY0LjUzIDIuNzEgMS40OCAxLjA3Ljk0IDEuNTkgMi4yNnQuNTIgMi44OHEwIDEuNjMtLjU0IDIuOTktLjU0IDEuMzUtMS42MyAyLjMzLTEuMDguOTgtMi43MiAxLjUydC0zLjgyLjU0aC0zLjEydjcuODloLTQuMTd6bTIzLjkxIDEzLjk1aDcuMTNsLTIuNzMtNy40NnEtLjItLjQ5LS40Mi0xLjE4LS4yMi0uNjgtLjQ0LTEuNDctLjIuNzktLjQxIDEuNDgtLjIyLjY5LS40MiAxLjJ6bTUuNjgtMTMuOTUgOC44MSAyMi40MWgtMy4yM3EtLjU0IDAtLjg4LS4yN3QtLjUxLS42OGwtMS42OC00LjU3aC05LjI4bC0xLjY3IDQuNTdxLS4xMy4zNi0uNDguNjYtLjM2LjI5LS44OS4yOWgtMy4yNWw4LjgyLTIyLjQxem0zMy4zOCAwaDQuMTh2MjIuNDFoLTQuMTh2LTkuOGgtMTAuNTN2OS44aC00LjE4di0yMi40MWg0LjE4djkuNjRoMTAuNTN6bTE2Ljk3IDE4LjN2LTIuNjhxLTEuNjYuMDgtMi43OS4yOXQtMS44Mi41M3EtLjY4LjMzLS45Ny43Ni0uMy40NC0uMy45NSAwIDEuMDEuNiAxLjQ0dDEuNTYuNDNxMS4xOCAwIDIuMDQtLjQyLjg2LS40MyAxLjY4LTEuM20tOC4wOS04LjM1LS42OS0xLjIzcTIuNzUtMi41MSA2LjYxLTIuNTEgMS4zOSAwIDIuNDkuNDZ0MS44NiAxLjI3IDEuMTYgMS45NXEuMzkgMS4xMy4zOSAyLjQ4djEwLjA0aC0xLjczcS0uNTUgMC0uODQtLjE2LS4yOS0uMTctLjQ2LS42NmwtLjM1LTEuMTVxLS42LjU0LTEuMTcuOTUtLjU4LjQyLTEuMi42OS0uNjIuMjgtMS4zMi40My0uNzEuMTUtMS41Ni4xNS0xLjAxIDAtMS44Ni0uMjd0LTEuNDctLjgycS0uNjItLjU0LS45Ni0xLjM1LS4zNC0uOC0uMzQtMS44NyAwLS42MS4yLTEuMi4yLS42LjY2LTEuMTQuNDUtLjU0IDEuMTgtMS4wMi43My0uNDkgMS43OS0uODQgMS4wNi0uMzYgMi40Ny0uNTggMS40MS0uMjMgMy4yMy0uMjd2LS45M3EwLTEuNi0uNjgtMi4zNy0uNjktLjc3LTEuOTctLjc3LS45MyAwLTEuNTUuMjItLjYxLjIyLTEuMDcuNDlsLS44NS40OXEtLjM4LjIyLS44NC4yMi0uNCAwLS42OC0uMjF0LS40NS0uNDltMjYuODQtMy40NHYxLjU4cTAgLjQtLjE0Ljc5dC0uMzcuNjNsLTcuNTUgOS45Nmg3LjgzdjIuOTRoLTEyLjI4di0xLjZxMC0uMjYuMTMtLjYyLjEyLS4zNy4zNy0uNjlsNy42My0xMC4wNmgtNy42OHYtMi45M3ptMTQuMiAwaDMuMDdsLTguNjYgMjAuMjdxLS4xOC40LS40NS42MXQtLjgzLjIxaC0yLjg1bDIuOTgtNi4zOC02LjQzLTE0LjcxaDMuMzZxLjQ1IDAgLjcuMjEuMjYuMjIuMzguNWwzLjM4IDguMjVxLjE3LjQxLjI5LjgzdC4yMi44NnEuMTQtLjQ0LjI4LS44Ni4xNC0uNDMuMzEtLjg1bDMuMi04LjIzcS4xMi0uMzEuNDEtLjUxLjI4LS4yLjY0LS4ybTI2LjA5LTQuNC0xLjA0IDEuOTZxLS4xOS4zMy0uNC40OC0uMjEuMTQtLjUyLjE0LS4zMiAwLS43LS4yNHQtLjkxLS41M3EtLjUyLS4zLTEuMjMtLjU0dC0xLjY3LS4yNHEtLjg2IDAtMS41Mi4yMS0uNjUuMjEtMS4wOS41OC0uNDQuMzgtLjY2LjktLjIxLjUxLS4yMSAxLjEzIDAgLjguNDQgMS4zMi40NC41MyAxLjE3Ljl0MS42Ni42N3EuOTMuMjkgMS45LjYzLjk4LjMzIDEuOTEuNzd0MS42NiAxLjEycS43My42NyAxLjE3IDEuNjUuNDQuOTcuNDQgMi4zNyAwIDEuNTItLjUyIDIuODQtLjUyIDEuMzMtMS41MiAyLjMxLTEgLjk5LTIuNDQgMS41NS0xLjQ0LjU3LTMuMy41Ny0xLjA3IDAtMi4xMS0uMjF0LTEuOTktLjYtMS43OS0uOTMtMS40OS0xLjIxbDEuMjMtMnEuMTUtLjIxLjQtLjM2dC41My0uMTVxLjM4IDAgLjgzLjMydDEuMDcuNzFxLjYyLjM4IDEuNDUuN3QxLjk5LjMycTEuNzkgMCAyLjc2LS44NS45OC0uODQuOTgtMi40MiAwLS44OS0uNDQtMS40NC0uNDQtLjU2LTEuMTctLjk0dC0xLjY2LS42NXEtLjkzLS4yNi0xLjg5LS41N3QtMS44OS0uNzRxLS45My0uNDQtMS42Ni0xLjEzLS43My0uNy0xLjE3LTEuNzUtLjQ0LTEuMDQtLjQ0LTIuNTggMC0xLjIyLjQ4LTIuMzkuNDktMS4xNiAxLjQyLTIuMDZ0Mi4zLTEuNDRxMS4zNi0uNTQgMy4xMy0uNTQgMS45OCAwIDMuNjYuNjIgMS42Ny42MiAyLjg1IDEuNzRtOC43MiAyMC41NXEtMi4wNyAwLTMuMTgtMS4xN3QtMS4xMS0zLjIzdi04Ljg5aC0xLjYzcS0uMzEgMC0uNTItLjItLjIyLS4yLS4yMi0uNnYtMS41MmwyLjU2LS40Mi44LTQuMzRxLjA4LS4zMS4zLS40OC4yMS0uMTcuNTUtLjE3aDEuOTl2NS4wMWg0LjI1djIuNzJoLTQuMjV2OC42MnEwIC43NS4zNiAxLjE3LjM3LjQxIDEgLjQxLjM2IDAgLjYtLjA4LjI0LS4wOS40Mi0uMTh0LjMyLS4xOHEuMTQtLjA4LjI3LS4wOC4xOCAwIC4yOC4wOC4xMS4wOS4yNC4yNmwxLjE0IDEuODZxLS44My43LTEuOTIgMS4wNS0xLjA4LjM2LTIuMjUuMzZtMTcuNjEtMTYuMTVoMy4wN2wtOC42NiAyMC4yN3EtLjE3LjQtLjQ1LjYxLS4yNy4yMS0uODIuMjFoLTIuODZsMi45OC02LjM4LTYuNDMtMTQuNzFoMy4zNnEuNDUgMCAuNzEuMjEuMjUuMjIuMzguNWwzLjM3IDguMjVxLjE3LjQxLjI5LjgzdC4yMy44NnEuMTQtLjQ0LjI3LS44Ni4xNC0uNDMuMzEtLjg1bDMuMi04LjIzcS4xMi0uMzEuNDEtLjUxdC42NC0uMm01LjAyLTcuMTNoMy44M3YyMy4wM2gtMy44M3ptMTAuNjggMTMuMjVoNy4yM3EwLS43NC0uMjEtMS40dC0uNjMtMS4xNnEtLjQyLS40OS0xLjA2LS43OC0uNjUtLjI5LTEuNS0uMjktMS42NiAwLTIuNjEuOTUtLjk1Ljk0LTEuMjIgMi42OG05Ljc3IDIuMzFoLTkuODRxLjA5IDEuMjIuNDMgMi4xMS4zNC45LjkgMS40OHQxLjMyLjg3cS43Ny4yOCAxLjcuMjh0MS42MS0uMjFxLjY3LS4yMiAxLjE3LS40OS41MS0uMjYuODktLjQ4LjM4LS4yMS43My0uMjEuNDggMCAuNzIuMzVsMS4xIDEuNHEtLjY0Ljc0LTEuNDMgMS4yNS0uNzkuNS0xLjY1Ljh0LTEuNzUuNDNxLS44OS4xMi0xLjczLjEyLTEuNjYgMC0zLjA4LS41NS0xLjQzLS41NS0yLjQ4LTEuNjMtMS4wNi0xLjA3LTEuNjYtMi42Ni0uNjEtMS41OS0uNjEtMy42OCAwLTEuNjMuNTMtMy4wNi41My0xLjQ0IDEuNTEtMi41Ljk5LTEuMDYgMi40LTEuNjggMS40Mi0uNjIgMy4yLS42MiAxLjUxIDAgMi43OC40OHQyLjE4IDEuNHEuOTIuOTIgMS40NCAyLjI3LjUyIDEuMzQuNTIgMy4wNiAwIC44Ni0uMTkgMS4xNy0uMTguMy0uNzEuMyIvPjwvc3ZnPg=="
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.85,
+        "slots": {
+          "style": "IPA",
+          "beerName": "现在精酿圈好像都在喝那种浑浊的"
+        }
+      },
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.85,
+    "slots": {
+      "style": "IPA",
+      "beerName": "现在精酿圈好像都在喝那种浑浊的"
+    },
+    "missingInfo": [],
+    "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)",
+    "source": "rule",
+    "isMultiIntent": true,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "confidence": 0.85,
+          "pattern": ".*"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "confidence": 0.85,
+          "pattern": "什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "酒单推荐(menu_recommend) won over 啤酒知识(beer_knowledge) with gap 0%. Gap within multi-intent threshold — multi-intent enabled.",
+      "candidateScores": [
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Context conditions not met"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒单|推荐|喝什么|帮我看酒单/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /.*/ matched"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783650325774_hohqyf",
+        "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_owu2",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "现在精酿圈好像都在喝那种浑浊的、像果汁一样的IPA，这风格是怎么来的？为什么它这么浑？",
+              "hasImage": true
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.774Z",
+            "output": {
+              "intent": "menu_recommend",
+              "confidence": 0.85,
+              "source": "rule",
+              "isMultiIntent": true,
+              "intents": [
+                {
+                  "intent": "menu_recommend",
+                  "confidence": 0.85,
+                  "slots": {
+                    "style": "IPA",
+                    "beerName": "现在精酿圈好像都在喝那种浑浊的"
+                  }
+                },
+                {
+                  "intent": "beer_knowledge",
+                  "confidence": 0.85,
+                  "slots": {}
+                }
+              ],
+              "slots": {
+                "style": "IPA",
+                "beerName": "现在精酿圈好像都在喝那种浑浊的"
+              },
+              "missingInfo": [],
+              "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)"
+            },
+            "completedAt": "2026-07-10T02:25:25.774Z"
+          },
+          {
+            "id": "step_retrieve_memory_mf9a",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user taste profile and preferences",
+            "input": {
+              "userId": "vqa-auto-test"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.774Z",
+            "output": {
+              "profile": {
+                "userId": "vqa-auto-test",
+                "updatedAt": "2026-07-10T02:25:22.405Z",
+                "summary": "喜欢柑橘风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "柑橘",
+                    "weight": 0.5,
+                    "evidenceCount": 1
+                  }
+                ],
+                "dislikedTags": [],
+                "notes": [
+                  "Pseudo Sue 4分，会再喝",
+                  "这酒不错，给5分，柑橘味",
+                  "不好喝，2分，不会再喝",
+                  "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                  "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+                ],
+                "confidence": 0.3,
+                "evidenceCount": 3,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 5,
+                    "topStyles": [
+                      "Pale Ale - American"
+                    ],
+                    "topTags": [
+                      "柑橘"
+                    ],
+                    "dislikedTags": [],
+                    "avgScore": 3.7,
+                    "abvRange": {
+                      "min": 5.8,
+                      "max": 5.8
+                    }
+                  }
+                ],
+                "updatedAt": "2026-07-10T02:25:22.408Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 0.3
+            },
+            "completedAt": "2026-07-10T02:25:25.774Z"
+          },
+          {
+            "id": "step_search_beer_db_7pho",
+            "tool": "search_beer_db",
+            "purpose": "Search beer database for candidates from OCR",
+            "input": {
+              "queries": [
+                "现在精酿圈好像都在喝那种浑浊的",
+                "像果汁一样的IPA",
+                "这风格是怎么来的？为什么它这么浑？"
+              ]
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.774Z",
+            "output": {
+              "results": [
+                {
+                  "query": "现在精酿圈好像都在喝那种浑浊的",
+                  "found": false,
+                  "data": null
+                },
+                {
+                  "query": "像果汁一样的IPA",
+                  "found": false,
+                  "data": null
+                },
+                {
+                  "query": "这风格是怎么来的？为什么它这么浑？",
+                  "found": false,
+                  "data": null
+                }
+              ],
+              "totalFound": 0
+            },
+            "completedAt": "2026-07-10T02:25:25.873Z"
+          },
+          {
+            "id": "step_score_recommendations_noe3",
+            "tool": "score_recommendations",
+            "purpose": "Score candidates with worthScore + fitScore against user profile",
+            "input": {
+              "candidates": [],
+              "profile": "[injected from retrieve_memory]",
+              "constraints": [
+                "IPA"
+              ]
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.873Z",
+            "output": {
+              "scored": [],
+              "picks": {
+                "topPick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "safePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "explorePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "avoidOrCaution": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                }
+              },
+              "reason": "No candidates to score"
+            },
+            "completedAt": "2026-07-10T02:25:25.874Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "search_beer_db",
+            "score_recommendations"
+          ],
+          "missingContext": [
+            "limited_profile_data",
+            "no_active_menu"
+          ],
+          "fallbackUsed": true
+        },
+        "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+      },
+      "planId": "plan_1783650325774_hohqyf",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "success": true,
+      "fallback": true,
+      "steps": [
+        {
+          "id": "step_classify_intent_owu2",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "menu_recommend",
+            "confidence": 0.85,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.85,
+                "slots": {
+                  "style": "IPA",
+                  "beerName": "现在精酿圈好像都在喝那种浑浊的"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "style": "IPA",
+              "beerName": "现在精酿圈好像都在喝那种浑浊的"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_mf9a",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 800,
+            "_preview": "{\"profile\":{\"userId\":\"vqa-auto-test\",\"updatedAt\":\"2026-07-10T02:25:22.405Z\",\"summary\":\"喜欢柑橘风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"柑橘\",\"weight\":0.5,\"evidenceCount\":1}],..."
+          }
+        },
+        {
+          "id": "step_search_beer_db_7pho",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "outputSummary": {
+            "results": [
+              {
+                "query": "现在精酿圈好像都在喝那种浑浊的",
+                "found": false,
+                "data": null
+              },
+              {
+                "query": "像果汁一样的IPA",
+                "found": false,
+                "data": null
+              },
+              {
+                "query": "这风格是怎么来的？为什么它这么浑？",
+                "found": false,
+                "data": null
+              }
+            ],
+            "totalFound": 0
+          }
+        },
+        {
+          "id": "step_score_recommendations_noe3",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "outputSummary": {
+            "scored": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "reason": "No candidates to score"
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "search_beer_db",
+          "score_recommendations"
+        ],
+        "missingContext": [
+          "limited_profile_data",
+          "no_active_menu"
+        ],
+        "fallbackUsed": true
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": true,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "fallbackUsed": true,
+      "stepCount": 4,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783650325774_hohqyf",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_owu2",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "现在精酿圈好像都在喝那种浑浊的、像果汁一样的IPA，这风格是怎么来的？为什么它这么浑？",
+            "hasImage": true
+          },
+          "output": {
+            "intent": "menu_recommend",
+            "confidence": 0.85,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.85,
+                "slots": {
+                  "style": "IPA",
+                  "beerName": "现在精酿圈好像都在喝那种浑浊的"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "style": "IPA",
+              "beerName": "现在精酿圈好像都在喝那种浑浊的"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)"
+          },
+          "startedAt": "2026-07-10T02:25:25.774Z",
+          "completedAt": "2026-07-10T02:25:25.774Z"
+        },
+        {
+          "id": "step_retrieve_memory_mf9a",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "input": {
+            "userId": "vqa-auto-test"
+          },
+          "output": {
+            "profile": {
+              "userId": "vqa-auto-test",
+              "updatedAt": "2026-07-10T02:25:22.405Z",
+              "summary": "喜欢柑橘风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "柑橘",
+                  "weight": 0.5,
+                  "evidenceCount": 1
+                }
+              ],
+              "dislikedTags": [],
+              "notes": [
+                "Pseudo Sue 4分，会再喝",
+                "这酒不错，给5分，柑橘味",
+                "不好喝，2分，不会再喝",
+                "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+              ],
+              "confidence": 0.3,
+              "evidenceCount": 3,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 5,
+                  "topStyles": [
+                    "Pale Ale - American"
+                  ],
+                  "topTags": [
+                    "柑橘"
+                  ],
+                  "dislikedTags": [],
+                  "avgScore": 3.7,
+                  "abvRange": {
+                    "min": 5.8,
+                    "max": 5.8
+                  }
+                }
+              ],
+              "updatedAt": "2026-07-10T02:25:22.408Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 0.3
+          },
+          "startedAt": "2026-07-10T02:25:25.774Z",
+          "completedAt": "2026-07-10T02:25:25.774Z"
+        },
+        {
+          "id": "step_search_beer_db_7pho",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "input": {
+            "queries": [
+              "现在精酿圈好像都在喝那种浑浊的",
+              "像果汁一样的IPA",
+              "这风格是怎么来的？为什么它这么浑？"
+            ]
+          },
+          "output": {
+            "results": [
+              {
+                "query": "现在精酿圈好像都在喝那种浑浊的",
+                "found": false,
+                "data": null
+              },
+              {
+                "query": "像果汁一样的IPA",
+                "found": false,
+                "data": null
+              },
+              {
+                "query": "这风格是怎么来的？为什么它这么浑？",
+                "found": false,
+                "data": null
+              }
+            ],
+            "totalFound": 0
+          },
+          "startedAt": "2026-07-10T02:25:25.774Z",
+          "completedAt": "2026-07-10T02:25:25.873Z"
+        },
+        {
+          "id": "step_score_recommendations_noe3",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "input": {
+            "candidates": [],
+            "profile": "[injected from retrieve_memory]",
+            "constraints": [
+              "IPA"
+            ]
+          },
+          "output": {
+            "scored": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "reason": "No candidates to score"
+          },
+          "startedAt": "2026-07-10T02:25:25.873Z",
+          "completedAt": "2026-07-10T02:25:25.874Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+    },
+    "diagnostics": {
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ],
+      "missingContext": [
+        "limited_profile_data",
+        "no_active_menu"
+      ],
+      "fallbackUsed": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-knowledge-craft-vs-mass",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:52.662Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476642860_0nw5sn",
+      "userText": "精酿和工业啤酒的区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:10:43.291Z"
+    },
+    {
+      "turnId": "trace_1783477679751_u5hnjy",
+      "userText": "精酿和工业啤酒的区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:28:00.494Z"
+    },
+    {
+      "turnId": "trace_1783477912007_2l6q2j",
+      "userText": "精酿和工业啤酒的区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:31:52.662Z"
+    }
+  ]
+}

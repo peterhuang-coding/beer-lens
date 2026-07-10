@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-电光酒花",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:11.110Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611611026_ojm2uz",
+      "userText": "电光酒花",
+      "assistantReply": "我会这样点：\n\n1. Electric Roads - 评分4.4，1326+人评分；酒精度13.8%，非常高，谨慎（有风险，见下方）\n2. Electric Roads - 评分4.4，1326+人评分；酒精度13.8%，非常高，谨慎\n3. Electric Roads - 评分4.4，1326+人评分；酒精度13.8%，非常高，谨慎\n\n最稳：Electric Roads\n最值得尝新：Electric Roads\n我会先跳过：Electric Roads - 评分4.4，1326+人评分；酒精度13.8%，非常高，谨慎\n\n如果只能喝一杯，选 Electric Roads。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:11.110Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611611026_ob6jj1",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Electric Roads",
+        "brewery": "Private Press Brewing",
+        "style": "Barleywine - English",
+        "abv": 13.8,
+        "price": null,
+        "rating": 4.4
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:11.110Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Electric Roads",
+    "brewery": "Private Press Brewing"
+  }
+}

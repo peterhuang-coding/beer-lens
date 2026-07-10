@@ -1,0 +1,98 @@
+{
+  "traceId": "trace_1783477647291_g0fgq4",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-recommend-generic",
+  "turnId": "trace_1783477647291_qwcseq",
+  "timestamp": "2026-07-08T02:27:27.358Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "帮我推荐一款",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.9,
+        "slots": {
+          "beerName": "帮我推荐一款"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.9,
+    "slots": {
+      "beerName": "帮我推荐一款"
+    },
+    "missingInfo": [],
+    "routeReason": "rule match: menu_recommend (90%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "帮我推荐一款"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：帮我推荐一款\n最值得尝新：帮我推荐一款\n我会先跳过：帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 帮我推荐一款。\n\n⚠️ 帮我推荐一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+    "candidateCount": 1,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

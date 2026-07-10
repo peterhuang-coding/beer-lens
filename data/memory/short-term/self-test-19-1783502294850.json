@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-19-1783502294850",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:18:17.366Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502294858_722j8v",
+      "userText": "你好",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:18:17.366Z"
+    }
+  ]
+}

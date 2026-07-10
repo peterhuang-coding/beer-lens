@@ -1,0 +1,116 @@
+{
+  "conversationId": "vqa_follow_up_filter_2",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:34.798Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646309563_t96buq",
+      "userText": "不是噱头！Founders Breakfast Stout确实在酿造中加入了浓缩咖啡和巧克力，加上烘焙麦芽的天然咖啡风味，三重咖啡感叠加。闻起来像一杯黑咖啡加黑巧，入口有烘焙咖啡和燕麦的顺滑感。它甚至被很多咖啡爱好者当作\"液体早餐\"来喝（虽然8.3%ABV不适合早上喝哈哈）。性价比之王，强烈推荐入门！",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:18:29.567Z"
+    },
+    {
+      "turnId": "trace_1783646588105_2t1vcy",
+      "userText": "最近天冷想喝点世涛，有什么推荐？",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:23:08.117Z"
+    },
+    {
+      "turnId": "trace_1783646793520_5koezu",
+      "userText": "最近天冷想喝点世涛，有什么推荐？",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:33.534Z"
+    },
+    {
+      "turnId": "trace_1783650333414_yn6vta",
+      "userText": "最近天冷想喝点世涛，有什么推荐？",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:33.457Z"
+    },
+    {
+      "turnId": "trace_1783650789366_xge48k",
+      "userText": "推荐世涛，天气冷想喝点烈的",
+      "assistantReply": "我会这样点：\n\n1. 天气冷想喝点烈的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 天气冷想喝点烈的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 天气冷想喝点烈的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：天气冷想喝点烈的\n最值得尝新：天气冷想喝点烈的\n我会先跳过：天气冷想喝点烈的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 天气冷想喝点烈的。\n\n⚠️ 天气冷想喝点烈的 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:33:09.448Z"
+    },
+    {
+      "turnId": "trace_1783651063570_yrjbid",
+      "userText": "推荐世涛，天气冷想喝点烈的",
+      "assistantReply": "酒单上没有符合「stout、strong」的酒。现有：天气冷想喝点烈的。要不要换个方向？\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:37:43.582Z"
+    },
+    {
+      "turnId": "trace_1783671114446_qloz40",
+      "userText": "推荐世涛，天气冷想喝点烈的",
+      "assistantReply": "酒单上没有符合「stout、strong」的酒。现有：天气冷想喝点烈的。要不要换个方向？\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:11:54.460Z"
+    },
+    {
+      "turnId": "trace_1783673925844_afd9bl",
+      "userText": "这几款里哪个酒精度最高？我想要最烈的",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:58:48.005Z"
+    },
+    {
+      "turnId": "trace_1783674033521_37t7ix",
+      "userText": "这几款里哪个酒精度最高？我想要最烈的",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:00:35.239Z"
+    },
+    {
+      "turnId": "trace_1783674812980_zaxx9l",
+      "userText": "这几款里哪个酒精度最高？我想要最烈的",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:13:34.798Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783671114446_85h5r7",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "天气冷想喝点烈的",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-10T08:11:54.460Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "safePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "explorePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "avoidOrCaution": {
+      "candidateId": "",
+      "label": ""
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "天气冷想喝点烈的",
+    "brewery": ""
+  }
+}

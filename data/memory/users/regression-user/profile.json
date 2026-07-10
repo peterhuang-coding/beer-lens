@@ -1,0 +1,55 @@
+{
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:35.043Z",
+  "summary": "喜欢热带水果和苦风味",
+  "preferredStyles": [],
+  "dislikedStyles": [],
+  "preferredTags": [
+    {
+      "value": "热带水果",
+      "weight": 8,
+      "evidenceCount": 8
+    },
+    {
+      "value": "苦",
+      "weight": 3,
+      "evidenceCount": 3
+    }
+  ],
+  "dislikedTags": [
+    {
+      "value": "酸",
+      "weight": 3,
+      "evidenceCount": 3
+    }
+  ],
+  "notes": [
+    "我给4.5分，会再喝，热带水果",
+    "我给4.5分，会再喝，热带水果",
+    "我给4.5分，会再喝，热带水果",
+    "我给4.5分，会再喝，热带水果",
+    "我给4.5分，会再喝，热带水果",
+    "我给4.5分，会再喝，热带水果",
+    "3.5分，不会再喝",
+    "4分",
+    "这杯不错，给4.5分",
+    "2分，不会再喝，偏酸",
+    "会再喝，苦度刚好",
+    "我给4.5分，会再喝，热带水果",
+    "3.5分，不会再喝",
+    "4分",
+    "这杯不错，给4.5分",
+    "2分，不会再喝，偏酸",
+    "会再喝，苦度刚好",
+    "我给4.5分，会再喝，热带水果",
+    "3.5分，不会再喝",
+    "4分",
+    "这杯不错，给4.5分",
+    "2分，不会再喝，偏酸",
+    "会再喝，苦度刚好"
+  ],
+  "confidence": 1,
+  "evidenceCount": 23,
+  "correctionsCount": 0,
+  "correctionsApplied": false
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "cc5-ext-profile-style",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:10:29.953Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476629949_7f6iwe",
+      "userText": "我喜欢什么风格的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "profile_query",
+      "createdAt": "2026-07-08T02:10:29.953Z"
+    }
+  ]
+}

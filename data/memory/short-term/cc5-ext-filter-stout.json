@@ -1,0 +1,67 @@
+{
+  "conversationId": "cc5-ext-filter-stout",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:28.572Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476619207_vbe4pb",
+      "userText": "有没有世涛",
+      "assistantReply": "我会这样点：\n\n1. 有没有世涛 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有没有世涛 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有没有世涛 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有没有世涛\n最值得尝新：有没有世涛\n我会先跳过：有没有世涛 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有没有世涛。\n\n⚠️ 有没有世涛 数据不足，谨慎尝试。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:10:19.261Z"
+    },
+    {
+      "turnId": "trace_1783477653698_q1neis",
+      "userText": "有没有世涛",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:27:33.705Z"
+    },
+    {
+      "turnId": "trace_1783477888564_ozwodp",
+      "userText": "有没有世涛",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:31:28.572Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783476619207_ujkl8n",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "有没有世涛",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-08T02:10:19.261Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "有没有世涛",
+    "brewery": ""
+  }
+}

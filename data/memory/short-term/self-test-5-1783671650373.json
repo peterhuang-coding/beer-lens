@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-5-1783671650373",
+  "userId": "self-test",
+  "updatedAt": "2026-07-10T08:21:00.287Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783671650375_q9z5vz",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "了解了，不喜欢太苦的啤酒，那我们可以聊聊一些苦味较轻的啤酒。比如说，小麦啤酒（Weissbier）或者比利时白啤酒（Belgian Witbier）都是不错的选择，它们通常带有清新的果香和香料味，口感比较清爽，苦味也比较低。还有，如果你喜欢更柔和的口感，可以试试一些酸啤酒，比如柏林白啤酒（Berliner Weisse）或者兰比克（Lambic），这些啤酒酸度适中，苦味很低，还带有一些热带水果和柑橘的风味，应该会很合你的口味。你觉得呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:21:00.287Z"
+    }
+  ]
+}

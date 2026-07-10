@@ -1,0 +1,95 @@
+{
+  "traceId": "trace_1783476619764_rjohj3",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-filter-not-bitter",
+  "turnId": "trace_1783476619764_r1hs55",
+  "timestamp": "2026-07-08T02:10:19.821Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "哪个不苦",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "follow_up_filter",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "follow_up_filter",
+    "confidence": 0.85,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "sample match: follow_up_filter (85%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "follow_up_filter",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "lastMenu"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"follow_up_filter\" missing context [lastMenu] → falling back to \"menu_recommend\"",
+      "intent": "follow_up_filter",
+      "fallbackIntent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. 哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：哪个不苦\n最值得尝新：哪个不苦\n我会先跳过：哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 哪个不苦。\n\n⚠️ 哪个不苦 数据不足，谨慎尝试。",
+    "candidateCount": 1,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "follow_up_filter",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "lastMenu"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"follow_up_filter\" missing context [lastMenu] → falling back to \"menu_recommend\"",
+      "intent": "follow_up_filter",
+      "fallbackIntent": "menu_recommend"
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "conversationId": "test-bench",
+  "userId": "test",
+  "updatedAt": "2026-07-03T03:28:58.686Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783048634681_c6gsfw",
+      "userText": "看看这瓶酒标，这酒厂怎么样",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:17:14.686Z"
+    },
+    {
+      "turnId": "trace_1783048634706_rifxxr",
+      "userText": "谢谢，再帮我推荐一款",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:17:14.710Z"
+    },
+    {
+      "turnId": "trace_1783048634729_6p369c",
+      "userText": "不苦的有没有，顺便看看我口味",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：帮我推荐一款IPA。要不要换个方向？\n\n顺便说一下，ABV 0-0%",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:17:14.733Z"
+    },
+    {
+      "turnId": "trace_1783048634750_la9l8m",
+      "userText": "帮我推荐一款IPA，顺便看我口味",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。\n\n顺便说一下，ABV 0-0%",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:17:14.755Z"
+    },
+    {
+      "turnId": "trace_1783049111990_ustiir",
+      "userText": "4分，再推荐一款IPA",
+      "assistantReply": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分，再推荐一款IPA\n你的口味画像：ABV 0-0%",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-03T03:25:12.000Z"
+    },
+    {
+      "turnId": "trace_1783049112023_kfvlms",
+      "userText": "推荐一款IPA，IPA到底是什么风格",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:25:12.028Z"
+    },
+    {
+      "turnId": "trace_1783049112048_tailcf",
+      "userText": "看看这瓶酒标，这酒厂怎么样",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:25:12.053Z"
+    },
+    {
+      "turnId": "trace_1783049112070_wvuarj",
+      "userText": "不苦的有没有，顺便看看我口味",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：帮我推荐一款IPA。要不要换个方向？\n\n顺便说一下，ABV 0-0%",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:25:12.074Z"
+    },
+    {
+      "turnId": "trace_1783049112092_j7fsba",
+      "userText": "喝了Green City，4.5分，顺便推荐下一杯",
+      "assistantReply": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：喝了Green City，4.5分，顺便推荐下一杯\n你的口味画像：ABV 0-0%",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-03T03:25:12.097Z"
+    },
+    {
+      "turnId": "trace_1783049112113_vllnq5",
+      "userText": "帮我看看这张酒单，有没有不苦的",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：帮我推荐一款IPA。要不要换个方向？",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:25:12.119Z"
+    },
+    {
+      "turnId": "trace_1783049112136_3w0nds",
+      "userText": "谢谢，再帮我推荐一款",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:25:12.140Z"
+    },
+    {
+      "turnId": "trace_1783049112157_pt8ifi",
+      "userText": "hello，推荐一款IPA",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:25:12.161Z"
+    },
+    {
+      "turnId": "trace_1783049338443_42d1gc",
+      "userText": "4分，再推荐一款IPA",
+      "assistantReply": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分，再推荐一款IPA\n你的口味画像：ABV 0-0%",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-03T03:28:58.452Z"
+    },
+    {
+      "turnId": "trace_1783049338471_qrlwhb",
+      "userText": "喝了Green City，4.5分，顺便推荐下一杯",
+      "assistantReply": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：喝了Green City，4.5分，顺便推荐下一杯\n你的口味画像：ABV 0-0%",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-03T03:28:58.476Z"
+    },
+    {
+      "turnId": "trace_1783049338492_r93954",
+      "userText": "帮我推荐一款IPA，顺便看我口味",
+      "assistantReply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。\n\n顺便说一下，ABV 0-0%",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-03T03:28:58.531Z"
+    },
+    {
+      "turnId": "trace_1783049338546_rd3x2t",
+      "userText": "推荐一款IPA，IPA到底是什么风格",
+      "assistantReply": "我会这样点：\n\n1. 推荐一款IPA - 综合表现适中\n2. 推荐一款IPA - 综合表现适中\n3. 推荐一款IPA - 综合表现适中\n\n最稳：推荐一款IPA\n最值得尝新：推荐一款IPA\n我会先跳过：推荐一款IPA\n\n如果只能喝一杯，选 推荐一款IPA。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-03T03:28:58.581Z"
+    },
+    {
+      "turnId": "trace_1783049338597_kvhujf",
+      "userText": "看看这瓶酒标，这酒厂怎么样",
+      "assistantReply": "我会这样点：\n\n1. 推荐一款IPA - 综合表现适中\n2. 推荐一款IPA - 综合表现适中\n3. 推荐一款IPA - 综合表现适中\n\n最稳：推荐一款IPA\n最值得尝新：推荐一款IPA\n我会先跳过：推荐一款IPA\n\n如果只能喝一杯，选 推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:28:58.602Z"
+    },
+    {
+      "turnId": "trace_1783049338617_rz4tjt",
+      "userText": "不是这个，推荐一款IPA给我",
+      "assistantReply": "我会这样点：\n\n1. 推荐一款IPA - 综合表现适中\n2. 推荐一款IPA - 综合表现适中\n3. 推荐一款IPA - 综合表现适中\n\n最稳：推荐一款IPA\n最值得尝新：推荐一款IPA\n我会先跳过：推荐一款IPA\n\n如果只能喝一杯，选 推荐一款IPA。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:28:58.621Z"
+    },
+    {
+      "turnId": "trace_1783049338636_rhdz1o",
+      "userText": "不苦的有没有，顺便看看我口味",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：推荐一款IPA、IPA到底是什么风格。要不要换个方向？\n\n顺便说一下，ABV 0-0%",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-03T03:28:58.640Z"
+    },
+    {
+      "turnId": "trace_1783049338655_fdyemc",
+      "userText": "帮我看看酒标，顺便推荐",
+      "assistantReply": "我会这样点：\n\n1. 帮我看看酒标，顺便推荐 - 综合表现适中\n2. 帮我看看酒标，顺便推荐 - 综合表现适中\n3. 帮我看看酒标，顺便推荐 - 综合表现适中\n\n最稳：帮我看看酒标，顺便推荐\n最值得尝新：帮我看看酒标，顺便推荐\n我会先跳过：帮我看看酒标，顺便推荐\n\n如果只能喝一杯，选 帮我看看酒标，顺便推荐。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-03T03:28:58.686Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783049338655_oyhrhv",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "帮我看看酒标，顺便推荐",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-03T03:28:58.686Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "帮我看看酒标，顺便推荐",
+    "brewery": ""
+  },
+  "currentConstraints": [
+    "IPA",
+    "不苦"
+  ]
+}

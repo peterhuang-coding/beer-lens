@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-tasting-good",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:34.004Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476627899_dxfj0x",
+      "userText": "这杯不错，给4.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：这杯不错，给4.5分\n你的口味画像：喜欢热带水果风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-08T02:10:27.908Z"
+    },
+    {
+      "turnId": "trace_1783477660212_ewi6kq",
+      "userText": "这杯不错，给4.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：这杯不错，给4.5分\n你的口味画像：喜欢热带水果和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-08T02:27:40.223Z"
+    },
+    {
+      "turnId": "trace_1783477893994_imw5ql",
+      "userText": "这杯不错，给4.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：这杯不错，给4.5分\n你的口味画像：喜欢热带水果和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-08T02:31:34.004Z"
+    }
+  ]
+}

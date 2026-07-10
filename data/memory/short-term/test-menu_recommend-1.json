@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-menu_recommend-1",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:40:58.567Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611658489_9t6boy",
+      "userText": "赛博暴龙",
+      "assistantReply": "我会这样点：\n\n1. Cyber Sue - 评分3.9，15000+人评分\n2. Cyber Sue - 评分3.9，15000+人评分\n3. Cyber Sue - 评分3.9，15000+人评分\n\n最稳：Cyber Sue\n最值得尝新：Cyber Sue\n我会先跳过：Cyber Sue - 评分3.9，15000+人评分\n\n如果只能喝一杯，选 Cyber Sue。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:58.567Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611658489_0v9k3f",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Cyber Sue",
+        "brewery": "Toppling Goliath Brewing Co.",
+        "style": "IPA - American",
+        "abv": 7.2,
+        "price": null,
+        "rating": 3.86
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:58.567Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Cyber Sue",
+    "brewery": "Toppling Goliath Brewing Co."
+  }
+}

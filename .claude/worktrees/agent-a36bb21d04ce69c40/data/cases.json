@@ -1,0 +1,1175 @@
+[
+  {
+    "id": "case_1783049338684_anp4",
+    "traceId": "trace_1783049338655_oyhrhv",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.684Z",
+    "input": {
+      "text": "帮我看看酒标，顺便推荐",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.9
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我看看酒标，顺便推荐 - 综合表现适中\n2. 帮我看看酒标，顺便推荐 - 综合表现适中\n3. 帮我看看酒标，顺便推荐 - 综合表现适中\n\n最稳：帮我看看酒标，顺便推荐\n最值得尝新：帮我看看酒标，顺便推荐\n我会先跳过：帮我看看酒标，顺便推荐\n\n如果只能喝一杯，选 帮我看看酒标，顺便推荐。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049338639_f2a7",
+    "traceId": "trace_1783049338636_gn0ejk",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.639Z",
+    "input": {
+      "text": "不苦的有没有，顺便看看我口味",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "酒单上没有符合「crisp」的酒。现有：推荐一款IPA、IPA到底是什么风格。要不要换个方向？\n\n顺便说一下，ABV 0-0%",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1783049338620_grj2",
+    "traceId": "trace_1783049338617_kk7qnm",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.620Z",
+    "input": {
+      "text": "不是这个，推荐一款IPA给我",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 推荐一款IPA - 综合表现适中\n2. 推荐一款IPA - 综合表现适中\n3. 推荐一款IPA - 综合表现适中\n\n最稳：推荐一款IPA\n最值得尝新：推荐一款IPA\n我会先跳过：推荐一款IPA\n\n如果只能喝一杯，选 推荐一款IPA。",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049338600_0p8t",
+    "traceId": "trace_1783049338597_89yuww",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.600Z",
+    "input": {
+      "text": "看看这瓶酒标，这酒厂怎么样",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 推荐一款IPA - 综合表现适中\n2. 推荐一款IPA - 综合表现适中\n3. 推荐一款IPA - 综合表现适中\n\n最稳：推荐一款IPA\n最值得尝新：推荐一款IPA\n我会先跳过：推荐一款IPA\n\n如果只能喝一杯，选 推荐一款IPA。",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049338580_hlq8",
+    "traceId": "trace_1783049338546_mq1bgm",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.580Z",
+    "input": {
+      "text": "推荐一款IPA，IPA到底是什么风格",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.9
+    },
+    "replyPreview": "我会这样点：\n\n1. 推荐一款IPA - 综合表现适中\n2. 推荐一款IPA - 综合表现适中\n3. 推荐一款IPA - 综合表现适中\n\n最稳：推荐一款IPA\n最值得尝新：推荐一款IPA\n我会先跳过：推荐一款IPA\n\n如果只能喝一杯，选 推荐一款IPA。",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049338530_xx1m",
+    "traceId": "trace_1783049338492_nhekif",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.530Z",
+    "input": {
+      "text": "帮我推荐一款IPA，顺便看我口味",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.9
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。\n\n顺便说一下，ABV 0-0%",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049338474_o4d0",
+    "traceId": "trace_1783049338471_ab1osr",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.474Z",
+    "input": {
+      "text": "喝了Green City，4.5分，顺便推荐下一杯",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "tasting_feedback",
+      "confidence": 0.92
+    },
+    "replyPreview": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：喝了Green City，4.5分，顺便推荐下一杯\n你的口味画像：ABV 0-0%",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049338450_tl45",
+    "traceId": "trace_1783049338443_6l8nwv",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:28:58.450Z",
+    "input": {
+      "text": "4分，再推荐一款IPA",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "tasting_feedback",
+      "confidence": 0.92
+    },
+    "replyPreview": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分，再推荐一款IPA\n你的口味画像：ABV 0-0%",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049112159_lqrm",
+    "traceId": "trace_1783049112157_1dbysf",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:12.159Z",
+    "input": {
+      "text": "hello，推荐一款IPA",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049112139_uuac",
+    "traceId": "trace_1783049112136_v8laen",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:12.139Z",
+    "input": {
+      "text": "谢谢，再帮我推荐一款",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049112118_1bsq",
+    "traceId": "trace_1783049112113_i2cc9u",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:12.118Z",
+    "input": {
+      "text": "帮我看看这张酒单，有没有不苦的",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "酒单上没有符合「crisp」的酒。现有：帮我推荐一款IPA。要不要换个方向？",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1783049112095_daon",
+    "traceId": "trace_1783049112092_uof9iw",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:12.095Z",
+    "input": {
+      "text": "喝了Green City，4.5分，顺便推荐下一杯",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "tasting_feedback",
+      "confidence": 0.92
+    },
+    "replyPreview": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：喝了Green City，4.5分，顺便推荐下一杯\n你的口味画像：ABV 0-0%",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049112073_lx1c",
+    "traceId": "trace_1783049112070_0otg8g",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:12.073Z",
+    "input": {
+      "text": "不苦的有没有，顺便看看我口味",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "酒单上没有符合「crisp」的酒。现有：帮我推荐一款IPA。要不要换个方向？\n\n顺便说一下，ABV 0-0%",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1783049112051_572b",
+    "traceId": "trace_1783049112048_92g859",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:12.051Z",
+    "input": {
+      "text": "看看这瓶酒标，这酒厂怎么样",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049112027_9abl",
+    "traceId": "trace_1783049112023_7p39rb",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:12.027Z",
+    "input": {
+      "text": "推荐一款IPA，IPA到底是什么风格",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783049111998_2lf8",
+    "traceId": "trace_1783049111990_h7fk08",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:25:11.998Z",
+    "input": {
+      "text": "4分，再推荐一款IPA",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "tasting_feedback",
+      "confidence": 0.92
+    },
+    "replyPreview": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分，再推荐一款IPA\n你的口味画像：ABV 0-0%",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783048634754_g1vh",
+    "traceId": "trace_1783048634750_1hufsl",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:17:14.754Z",
+    "input": {
+      "text": "帮我推荐一款IPA，顺便看我口味",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。\n\n顺便说一下，ABV 0-0%",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783048634732_y70a",
+    "traceId": "trace_1783048634729_ovv44v",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:17:14.732Z",
+    "input": {
+      "text": "不苦的有没有，顺便看看我口味",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "酒单上没有符合「crisp」的酒。现有：帮我推荐一款IPA。要不要换个方向？\n\n顺便说一下，ABV 0-0%",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1783048634709_qyyz",
+    "traceId": "trace_1783048634706_tx0nfm",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:17:14.709Z",
+    "input": {
+      "text": "谢谢，再帮我推荐一款",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783048634685_pnv0",
+    "traceId": "trace_1783048634681_kcrwp8",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:17:14.685Z",
+    "input": {
+      "text": "看看这瓶酒标，这酒厂怎么样",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783048634655_6pjx",
+    "traceId": "trace_1783048634648_w4xa4z",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:17:14.655Z",
+    "input": {
+      "text": "推荐一款IPA，IPA到底是什么",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。",
+    "candidateCount": 1,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783048634621_96jv",
+    "traceId": "trace_1783048634614_4k5g77",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:17:14.621Z",
+    "input": {
+      "text": "4分，再推荐一款IPA",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "tasting_feedback",
+      "confidence": 0.92
+    },
+    "replyPreview": "收到！已记录你对「帮我推荐一款IPA」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分，再推荐一款IPA\n你的口味画像：ABV 0-0%",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1783048616673_otpt",
+    "traceId": "trace_1783048616618_tvtpl3",
+    "conversationId": "test-bench",
+    "createdAt": "2026-07-03T03:16:56.673Z",
+    "input": {
+      "text": "帮我推荐一款IPA，顺便看我口味",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.9
+    },
+    "replyPreview": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。\n\n顺便说一下，暂无足够的品饮记录来生成口味画像。",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782962294081_ft6d",
+    "traceId": "trace_1782962290334_6hxesx",
+    "conversationId": "test-ok",
+    "createdAt": "2026-07-02T03:18:14.081Z",
+    "input": {
+      "text": "帮我看这张酒单",
+      "hasImage": true,
+      "imageName": "test.png"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782959135650_wyx7",
+    "traceId": "trace_1782959135570_h1gtcu",
+    "conversationId": "test-fix",
+    "createdAt": "2026-07-02T02:25:35.650Z",
+    "input": {
+      "text": "帮我看这张酒单",
+      "hasImage": true,
+      "imageName": "test.png"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782958801944_fx34",
+    "traceId": "trace_1782958801849_4qo6ub",
+    "conversationId": "test-debug2",
+    "createdAt": "2026-07-02T02:20:01.944Z",
+    "input": {
+      "text": "帮我看这张酒单",
+      "hasImage": true,
+      "imageName": "test.png"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782957935423_pxzn",
+    "traceId": "trace_1782957935405_kj1dij",
+    "conversationId": "local-web-session",
+    "createdAt": "2026-07-02T02:05:35.423Z",
+    "input": {
+      "text": "这些是什么酒？",
+      "hasImage": true,
+      "imageName": "paste-1782957930758.png"
+    },
+    "intent": {
+      "name": "label_check",
+      "confidence": 0.95
+    },
+    "replyPreview": "抱歉，分析这张酒标时出错了。请拍一张清楚的酒标正面照再试试。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782878457417_b1iw",
+    "traceId": "trace_1782878457331_sa4md0",
+    "conversationId": "local-web-session",
+    "createdAt": "2026-07-01T04:00:57.417Z",
+    "input": {
+      "text": "我需要喝酒",
+      "hasImage": true,
+      "imageName": "paste-1782878454243.png"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.85
+    },
+    "replyPreview": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+    "candidateCount": 0,
+    "label": "memory_wrong",
+    "status": "unlabeled",
+    "warnings": [],
+    "note": ""
+  },
+  {
+    "id": "case_1782878449270_dpd7",
+    "traceId": "trace_1782878449132_qe749j",
+    "conversationId": "local-web-session",
+    "createdAt": "2026-07-01T04:00:49.270Z",
+    "input": {
+      "text": "我要喝酒",
+      "hasImage": true,
+      "imageName": "paste-1782878445426.png"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.85
+    },
+    "replyPreview": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782877600499_y9xf",
+    "traceId": "trace_1782877600484_mxk0hb",
+    "conversationId": "test-session",
+    "createdAt": "2026-07-01T03:46:40.499Z",
+    "input": {
+      "text": "推荐一款IPA",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "unclear",
+      "confidence": 0.2
+    },
+    "replyPreview": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782741580028_kqls",
+    "traceId": "trace_1782741575323_xlforz",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T13:59:40.028Z",
+    "input": {
+      "text": "亚洲小霸王的 一镑嗦粉很好喝 它是什么酒花",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "我目前没有这款酒的数据，建议你直接在 Untappd 上查。根据你之前的偏好，推荐你尝试 Racer 5 India Pale Ale，它的酒花使用了美式酒花，带有明显的热带水果和柑橘风味，可能会符合你的口味。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782739875839_zfbt",
+    "traceId": "trace_1782739870988_vw7135",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T13:31:15.839Z",
+    "input": {
+      "text": "哪个好喝",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "我会这样点：\n\n1. Racer 5 India Pale Ale - 这款 IPA 以其热带水果和柑橘的香气著称，适合你喜欢的清爽口感。\n2. 赫卡特交叉口 / Hecate's Crossroads - 这款酒的风味复杂，虽然酒精度较高，但也有清新的口感。\n\n最稳：Racer 5 India Pale Ale\n最值得尝新：赫卡特交叉口 / Hecate's Crossroads\n我会先跳过：其他选项\n\n如果只能喝一杯，选 Racer 5 India Pale Ale。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782739872066_lg99",
+    "traceId": "trace_1782739868526_fom524",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T13:31:12.066Z",
+    "input": {
+      "text": "帮我看看这张图",
+      "hasImage": true,
+      "imageName": "img_v3_02134_fb7f7b10-31d4-431e-9c83-3d455f7de28g.jpg"
+    },
+    "intent": {
+      "name": "label_check",
+      "confidence": 0.95
+    },
+    "replyPreview": "这张图里我没能识别出任何啤酒。如果你有酒单照片，试试拍清楚一点发给我，或者直接把酒名打字发过来也行。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782737573453_8pi1",
+    "traceId": "trace_1782737548225_uip3zi",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:52:53.453Z",
+    "input": {
+      "text": "给我推荐 IPA",
+      "hasImage": true,
+      "imageName": "img_v3_02134_a49ab32b-9070-446f-8ab2-2156b8da1d8g.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "推荐尝试乘风破浪-水晶酒花版，清爽的口感和热带水果的香气非常适合你的口味。",
+    "candidateCount": 18,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "high_abv_candidate: 电光酒花 (8.5%)",
+      "high_abv_candidate: 一样一样的 (10%)",
+      "high_abv_candidate: 奢华冰冻池塘 (9%)",
+      "high_abv_candidate: 甜甜圈波士顿奶油 (11.5%)"
+    ]
+  },
+  {
+    "id": "case_1782736845280_k56m",
+    "traceId": "trace_1782736845276_n4cxgn",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:40:45.280Z",
+    "input": {
+      "text": "最近哪个酒厂出了好酒？",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.92
+    },
+    "replyPreview": "我会这样点：\n\n1. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n2. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n3. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n\n最稳：赫卡特交叉口 / Hecate's Crossroads\n最值得尝新：赫卡特交叉口 / Hecate's Crossroads\n我会先跳过：赫卡特交叉口 / Hecate's Crossroads\n\n如果只能喝一杯，选 赫卡特交叉口 / Hecate's Crossroads。",
+    "candidateCount": 4,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "high_abv_candidate: 他说,观察和学习 / CLAG WATCH AND LEARN HE SAYS (9.5%)",
+      "high_abv_candidate: 圣博祥窖藏2022 / Saint Bon-Chien 2022 (11%)",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782736742096_tk3o",
+    "traceId": "trace_1782736739699_kbglw2",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:39:02.096Z",
+    "input": {
+      "text": "我现在跟 claude code 对话吗",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "unclear",
+      "confidence": 0.65
+    },
+    "replyPreview": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782736628755_2uma",
+    "traceId": "trace_1782736628752_y55pk6",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:37:08.755Z",
+    "input": {
+      "text": "我现在要去喝酒",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.82
+    },
+    "replyPreview": "我会这样点：\n\n1. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n2. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n3. 赫卡特交叉口 / Hecate's Crossroads - ¥110\n\n最稳：赫卡特交叉口 / Hecate's Crossroads\n最值得尝新：赫卡特交叉口 / Hecate's Crossroads\n我会先跳过：赫卡特交叉口 / Hecate's Crossroads\n\n如果只能喝一杯，选 赫卡特交叉口 / Hecate's Crossroads。",
+    "candidateCount": 4,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "high_abv_candidate: 他说,观察和学习 / CLAG WATCH AND LEARN HE SAYS (9.5%)",
+      "high_abv_candidate: 圣博祥窖藏2022 / Saint Bon-Chien 2022 (11%)",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782735877655_c59q",
+    "traceId": "trace_1782735872173_avlrwx",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:24:37.655Z",
+    "input": {
+      "text": "hello",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "我会这样点：\n\n1. **Racer 5 India Pale Ale** - 这款 IPA 以其热带水果和柑橘的香气著称，适合你的口味偏好。\n\n如果只能喝一杯，选 **Racer 5 India Pale Ale**。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782735857116_rpau",
+    "traceId": "trace_1782735845699_m2vzdr",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:24:17.116Z",
+    "input": {
+      "text": "推荐 IPA 给我",
+      "hasImage": true,
+      "imageName": "img_v3_02134_fe013759-ef88-4501-be36-04167e75d4ag.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "我推荐你尝试这款 IPA，口感丰富且清爽。",
+    "candidateCount": 4,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "reply_mentions_no_candidates",
+      "high_abv_candidate: 他说,观察和学习 / CLAG WATCH AND LEARN HE SAYS (9.5%)",
+      "high_abv_candidate: 圣博祥窖藏2022 / Saint Bon-Chien 2022 (11%)"
+    ]
+  },
+  {
+    "id": "case_1782735803664_3sku",
+    "traceId": "trace_1782735777191_v29qeu",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:23:23.664Z",
+    "input": {
+      "text": "从这个里面找 IPA 给我推荐",
+      "hasImage": true,
+      "imageName": "img_v3_02134_3e557f4c-6ca1-4ae4-a640-a88b492b1c4g.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "我推荐你尝试这些 IPA，清爽又富有热带水果风味！",
+    "candidateCount": 18,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "reply_mentions_no_candidates",
+      "high_abv_candidate: 电光酒花 (8.5%)",
+      "high_abv_candidate: 一样一样的 (10%)",
+      "high_abv_candidate: 奢华冰冻池塘 (9%)",
+      "high_abv_candidate: 甜甜圈波士顿奶油 (11.5%)"
+    ]
+  },
+  {
+    "id": "case_1782735757593_mqej",
+    "traceId": "trace_1782735751098_havkb8",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:22:37.593Z",
+    "input": {
+      "text": "哪款？",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "我会这样点：\n\n1. **Racer 5 India Pale Ale** - 这款 IPA 以其热带水果和柑橘的香气著称，适合你的口味偏好。\n2. **American** - 这款 IPA 口感较为平衡，适合想要尝试不同风味的你。\n3. **Echidna** - 这款 IPA 评分较高，值得一试。\n\n最稳：**Racer 5 India Pale Ale**\n最值得尝新：**Echidna**\n我会先跳过：**American**\n\n如果只能喝一杯，选 **Racer 5 India Pale Ale**。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782735734603_whjv",
+    "traceId": "trace_1782735707932_oyo8j8",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:22:14.603Z",
+    "input": {
+      "text": "给我推荐 IPA",
+      "hasImage": true,
+      "imageName": "img_v3_02134_911f1df9-f2ef-48e5-ab9d-30ffe707cf4g.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "推荐尝试这款清爽的 IPA，适合喜欢热带水果和柑橘风味的你。",
+    "candidateCount": 18,
+    "label": "recommendation_bad",
+    "status": "unlabeled",
+    "warnings": [
+      "reply_mentions_no_candidates",
+      "high_abv_candidate: 电光酒花 (8.5%)",
+      "high_abv_candidate: 一样一样的 (10%)",
+      "high_abv_candidate: 奢华冰冻池塘 (9%)",
+      "high_abv_candidate: 甜甜圈波士顿奶油 (11.5%)"
+    ],
+    "note": "没看 unttaped 没分析价格，ocr 和回复中间没联系"
+  },
+  {
+    "id": "case_1782735466967_b1uu",
+    "traceId": "trace_1782735402523_evsqew",
+    "conversationId": "local-web-session",
+    "createdAt": "2026-06-29T12:17:46.968Z",
+    "input": {
+      "text": "推荐 IPA",
+      "hasImage": true,
+      "imageName": "paste-1782735401398.png"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "我会这样点：\n\n1. Racer 5 India Pale Ale - 评分4.2 - IPA推荐\n2. American - 评分2.3\n3. Echidna - 评分4.4\n\n最稳：American\n最值得尝新：Echidna\n我会先跳过：RIRERR\n\n如果只能喝一杯，选 Racer 5 India Pale Ale。",
+    "candidateCount": 38,
+    "label": "recommendation_bad",
+    "status": "unlabeled",
+    "warnings": [
+      "high_abv_candidate: St. Bernardus Abt 12 (10%)",
+      "high_abv_candidate: Trappist Westvleteren 12 (10.2%)",
+      "high_abv_candidate: Dragonslayer (9.5%)",
+      "high_abv_candidate: Fractional BA Steeple (14.5%)",
+      "high_abv_candidate: Trappistes Rochefort 10 (11.3%)",
+      "high_abv_candidate: Sierra Nevada Bigfoot Barleywine Style Ale (9.6%)",
+      "missing_data_rating_mentioned"
+    ],
+    "note": "ocr 就有问题，完了这几款酒你也没分析内部标签"
+  },
+  {
+    "id": "case_1782735359788_lbad",
+    "traceId": "trace_1782735295445_ac3e1k",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:15:59.788Z",
+    "input": {
+      "text": "推荐 IPA",
+      "hasImage": true,
+      "imageName": "img_v3_02134_027455d0-b217-4ec1-8737-f9465a66e2dg.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "我会这样点：\n\n1. Racer 5 India Pale Ale - 评分4.2 - IPA推荐\n2. American - 评分2.3\n3. Echidna - 评分4.4\n\n最稳：American\n最值得尝新：Echidna\n我会先跳过：RIRERR\n\n如果只能喝一杯，选 Racer 5 India Pale Ale。",
+    "candidateCount": 38,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "high_abv_candidate: St. Bernardus Abt 12 (10%)",
+      "high_abv_candidate: Trappist Westvleteren 12 (10.2%)",
+      "high_abv_candidate: Dragonslayer (9.5%)",
+      "high_abv_candidate: Fractional BA Steeple (14.5%)",
+      "high_abv_candidate: Trappistes Rochefort 10 (11.3%)",
+      "high_abv_candidate: Sierra Nevada Bigfoot Barleywine Style Ale (9.6%)",
+      "missing_data_rating_mentioned"
+    ],
+    "note": ""
+  },
+  {
+    "id": "case_1782735232245_pytd",
+    "traceId": "trace_1782735203689_a2fa5z",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:13:52.245Z",
+    "input": {
+      "text": "给我推荐 IPA",
+      "hasImage": true,
+      "imageName": "img_v3_02134_ef46dc80-5215-4af0-b9c4-5d12b80ae76g.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "我会这样点：\n\n1. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n2. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n3. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n\n最稳：® ABV:11.5% 300ml ¥OO\n最值得尝新：® ABV:11.5% 300ml ¥OO\n我会先跳过：® ABV:11.5% 300ml ¥OO\n\n如果只能喝一杯，选 ® ABV:11.5% 300ml ¥OO。",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782735081287_7vbe",
+    "traceId": "trace_1782735053373_k73w4u",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:11:21.287Z",
+    "input": {
+      "text": "给我推荐 IPA",
+      "hasImage": true,
+      "imageName": "img_v3_02134_d484f5ee-a26c-46a5-82c0-c136b64cfe9g.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "我会这样点：\n\n1. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n2. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n3. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n\n最稳：® ABV:11.5% 300ml ¥OO\n最值得尝新：® ABV:11.5% 300ml ¥OO\n我会先跳过：® ABV:11.5% 300ml ¥OO\n\n如果只能喝一杯，选 ® ABV:11.5% 300ml ¥OO。",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782735014947_z3r8",
+    "traceId": "trace_1782734983195_gq0kq4",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:10:14.947Z",
+    "input": {
+      "text": "给我推荐 IPA",
+      "hasImage": true,
+      "imageName": "img_v3_02134_37135033-494f-4a58-9d05-7353b626392g.jpg"
+    },
+    "intent": {
+      "name": "menu_recommend",
+      "confidence": 0.95
+    },
+    "replyPreview": "我会这样点：\n\n1. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n2. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n3. ® ABV:11.5% 300ml ¥OO - 综合表现适中\n\n最稳：® ABV:11.5% 300ml ¥OO\n最值得尝新：® ABV:11.5% 300ml ¥OO\n我会先跳过：® ABV:11.5% 300ml ¥OO\n\n如果只能喝一杯，选 ® ABV:11.5% 300ml ¥OO。",
+    "candidateCount": 2,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782734882145_ucx6",
+    "traceId": "trace_1782734877537_2xvkv8",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T12:08:02.145Z",
+    "input": {
+      "text": "hello",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "我会这样点：\n\n1. **Hazy IPA** - 这种酒带有热带水果的香气，口感顺滑，适合你喜欢的清爽风格。\n\n最稳：**Hazy IPA**  \n我会先跳过：没有其他 IPA 选项。\n\n如果你只能喝一杯，选 **Hazy IPA**。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782734399584_igjq",
+    "traceId": "trace_1782734399572_2n4f7t",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T11:59:59.584Z",
+    "input": {
+      "text": "给我推荐 IPA",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.9
+    },
+    "replyPreview": "我现在没有上一张酒单上下文，你发一下酒单或告诉我酒名，我再帮你筛。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782734286478_flrw",
+    "traceId": "trace_1782734280721_prw7to",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T11:58:06.478Z",
+    "input": {
+      "text": "我想喝酒",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "我会这样点：\n\n1. **Hazy IPA** - 这种酒带有热带水果的香气，口感顺滑，适合你喜欢的清爽风格。\n2. **白啤（Witbier）** - 这款酒清爽，带有柑橘和香料的风味，非常适合夏天饮用。\n3. **拉格（Lager）** - 这款酒口感清淡，适合搭配各种食物，喝起来非常舒适。\n\n最稳：**拉格（Lager）**  \n最值得尝新：**Hazy IPA**  \n我会先跳过：**白啤（Witbier）**（如果你更想要热带水果的口感）\n\n如果你只能喝一杯，选 **Hazy IPA**。",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ],
+    "note": "这个要识别画像\n"
+  },
+  {
+    "id": "case_1782734195152_4pkh",
+    "traceId": "trace_1782734189962_xz1eox",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T11:56:35.152Z",
+    "input": {
+      "text": "我想喝酒",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "我推荐你尝试一些清爽的啤酒，比如：\n\n1. **Hazy IPA** - 这种风格通常带有热带水果和柑橘的香气，口感顺滑，苦味较低，非常适合喜欢清爽口感的人。\n2. **白啤（Witbier）** - 这种啤酒通常使用小麦酿造，带有柑橘和香料的风味，清爽又易饮。\n3. **拉格（Lager）** - 特别是日式拉格，通常口感清淡，适合搭配各种食物，喝起来非常舒适。\n\n如果你有具体的酒单或者想要尝试的风格，欢迎上传照片，我可以给你更精准的推荐！",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": [
+      "unverified_rating_mentioned"
+    ]
+  },
+  {
+    "id": "case_1782733449984_uha0",
+    "traceId": "trace_1782733445766_qakj79",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T11:44:09.984Z",
+    "input": {
+      "text": "hello",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "你好！如果你对啤酒有任何问题，或者想要推荐某种风格，请随时告诉我！你喜欢什么样的口味呢？",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782733265296_vwu3",
+    "traceId": "trace_1782733261825_ioxgjb",
+    "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+    "createdAt": "2026-06-29T11:41:05.296Z",
+    "input": {
+      "text": "hello",
+      "hasImage": false
+    },
+    "intent": {
+      "name": "beer_knowledge",
+      "confidence": 0.82
+    },
+    "replyPreview": "你好！很高兴见到你。今天想聊聊啤酒吗？你有没有特别想了解的风格，或者想要推荐的类型？",
+    "candidateCount": 0,
+    "label": null,
+    "status": "unlabeled",
+    "warnings": []
+  },
+  {
+    "id": "case_1782730065667_e186",
+    "traceId": "trace_1782730055144_0htifn",
+    "conversationId": "local-web-session",
+    "createdAt": "2026-06-29T10:47:45.667Z",
+    "input": {
+      "text": "我要喝 IPA",
+      "hasImage": true,
+      "imageName": "paste-1782730051570.png"
+    },
+    "intent": {
+      "name": "follow_up_filter",
+      "confidence": 0.9
+    },
+    "replyPreview": "从酒单中，适合你的 IPA 有以下几款：",
+    "candidateCount": 2,
+    "label": "data_missing",
+    "status": "unlabeled",
+    "warnings": [
+      "reply_mentions_no_candidates"
+    ],
+    "note": ""
+  }
+]

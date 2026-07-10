@@ -1,0 +1,128 @@
+{
+  "traceId": "trace_1783674030556_cktnze",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_profile_query_1",
+  "turnId": "trace_1783674030556_1zlzyq",
+  "timestamp": "2026-07-10T09:00:30.558Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "我的口味偏好是什么？帮我看看我的画像",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "profile_query",
+        "confidence": 1,
+        "slots": {}
+      }
+    ],
+    "intent": "profile_query",
+    "confidence": 1,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "override match: profile_query (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "profile_query",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "我的口味|我的偏好|我的画像|我喝过|给我推荐.*了解我|知道我的口味"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /我的口味|我的偏好|我的画像|我喝过|给我推荐.*了解我|知道我的口味/ matched → forced to profile_query",
+      "candidateScores": [
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /我的口味|我的偏好|我的画像|我喝过|给我推荐.*了解我|知道我的口味/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "profile_query",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /我的口味|我的偏好|我的画像|我喝过|给我推荐.*了解我|知道我的口味/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "profile_query",
+    "diagnosis": {
+      "selectedHandler": "handleProfileQuery",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"profile_query\" matched route \"handleProfileQuery\" — all required context present",
+      "intent": "profile_query"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味\n\n画像置信度：100%（基于 12 条品饮记录）\n\n偏好风格：Pale Ale - American（权重 6，2次）\n偏好风味标签：酒精（7）、柑橘（2.5）、焦糖（2）、酸（1）\nABV 舒适区：5.8% - 5.8%（基于 2 条记录）\n记录数：20 条\n\n📈 最近趋势：\n2026月07：20款 · 近三月均分 4 · 偏好风格：Pale Ale - American，偏好风味：酒精、柑橘、焦糖、酸\n\n证据数：12 · 画像置信度：100% · 实验组：开启",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "profile_query",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned"
+    ],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleProfileQuery",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"profile_query\" matched route \"handleProfileQuery\" — all required context present",
+      "intent": "profile_query"
+    }
+  }
+}

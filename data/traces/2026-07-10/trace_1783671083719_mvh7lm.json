@@ -1,0 +1,138 @@
+{
+  "traceId": "trace_1783671083719_mvh7lm",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_label_check_2",
+  "turnId": "trace_1783671083719_6ddqyy",
+  "timestamp": "2026-07-10T08:11:23.853Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 1,
+        "slots": {
+          "beerName": "我在酒类专卖店看到一瓶Zombie Dust"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 1,
+    "slots": {
+      "beerName": "我在酒类专卖店看到一瓶Zombie Dust"
+    },
+    "missingInfo": [],
+    "routeReason": "override match: menu_recommend (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": true,
+        "turnsSinceMenu": 333,
+        "activeMenuCandidateCount": 3,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期/ matched → forced to menu_recommend",
+      "candidateScores": [
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 3,
+      "hasLastRecommendation": true,
+      "activeBeerName": "Zombie Dust"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. Zombie Dust - 评分4.2，308034+人评分\n2. Zombie Dust - 评分4.2，308034+人评分\n3. Zombie Dust - 评分4.2，308034+人评分\n\n最稳：Zombie Dust\n最值得尝新：Zombie Dust\n我会先跳过：Zombie Dust - 评分4.2，308034+人评分\n\n如果只能喝一杯，选 Zombie Dust。\n\n⚠️ 拍了瓶身的标签照片、你帮我看看上面的日期信息？ 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+    "candidateCount": 3,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [
+      "missing_data_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

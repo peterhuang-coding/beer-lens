@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-8-1783671660388",
+  "userId": "self-test",
+  "updatedAt": "2026-07-10T08:21:05.133Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783671660391_yvwim3",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "West Coast IPA，也就是西海岸IPA，是一种起源于美国西海岸的印度淡色艾尔（India Pale Ale）风格。这种啤酒以其强烈的苦味和鲜明的酒花香气而闻名，通常使用大量的美国酒花，比如西楚（Citra）、卡斯卡特（Cascade）、西姆科（Simcoe）等，这些酒花能带来柑橘、松木和热带水果的香气和味道。\n\n西海岸IPA的酒体通常比较中等，颜色从金黄色到琥珀色不等，酒精度一般在6%到7.5%之间。它的特点是高苦度，但同时也有足够的麦芽甜味来平衡苦味，使得整体口感非常丰富和层次分明。如果你喜欢那种强烈、鲜明且带有一点挑战性的啤酒，西海岸IPA绝对值得一试。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:21:05.133Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

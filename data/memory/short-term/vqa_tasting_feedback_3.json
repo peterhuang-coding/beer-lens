@@ -1,0 +1,80 @@
+{
+  "conversationId": "vqa_tasting_feedback_3",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:07.140Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646261685_6o0hmb",
+      "userText": "如果你喜欢酸但觉得兰比克太野，可以试试柏林小麦（Berliner Weisse）或果酸——比如Firestone Walker的Breƫa Weisse（4.9%ABV，评分3.98），同样是野菌发酵但加入了乳酸菌，酸度更清爽，果味更突出。或者Cantillon自己也有添加水果的版本（比如Fou'Foune是杏子兰比克），果味可以中和一部分野菌味，更容易入口。",
+      "assistantReply": "看来你对我的建议挺感兴趣的！柏林小麦（Berliner Weisse）和果酸啤酒（Fruit Sour）都是不错的选择，它们保留了酸味，但更加清爽和果香四溢，不会像兰比克那样有那么强烈的野菌风味。\n\n如果你对柏林小麦感兴趣，可以试试一些经典的版本，比如 **Berliner Kindl Berliner Weisse** 或 **Schultheiss Berliner Weisse**。这些啤酒通常酸度适中，带有清新的柠檬和青苹果的香气，非常适合夏天饮用。\n\n至于果酸啤酒，除了我之前提到的 **Cantillon Fou'Foune**（杏子兰比克），你还可以试试 **Brouwerij Boon的Kriek**（樱桃兰比克）或 **Lindemans的Pêche**（桃子兰比克）。这些啤酒中的水果味非常突出，能够很好地中和野菌带来的复杂风味，让你更容易接受。\n\n希望这些建议能帮到你，如果你有任何其他问题或需要更多推荐，随时告诉我！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:17:49.767Z"
+    },
+    {
+      "turnId": "trace_1783646544797_lgfeq5",
+      "userText": "哇，这瓶Iris太神奇了！开瓶就是一股马厩味和酸味，喝起来干干的，有柠檬和一点霉香，完全不像普通啤酒！",
+      "assistantReply": "Iris是一款比利时风格的酸啤酒，通常具有独特的香气和口感，包括马厩味、酸味、柠檬和霉香等复杂风味。这些特点让它与普通啤酒有很大不同。如果你对这瓶酒的具体信息如生产日期、新鲜度等感兴趣，可以提供酒标照片，我可以帮你解读。",
+      "intent": "label_check",
+      "createdAt": "2026-07-10T01:22:27.600Z"
+    },
+    {
+      "turnId": "trace_1783646786774_d7ttad",
+      "userText": "哇，这瓶Iris太神奇了！开瓶就是一股马厩味和酸味，喝起来干干的，有柠檬和一点霉香，完全不像普通啤酒！",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-10T01:26:27.644Z"
+    },
+    {
+      "turnId": "trace_1783650323358_esj288",
+      "userText": "哇，这瓶Iris太神奇了！开瓶就是一股马厩味和酸味，喝起来干干的，有柠檬和一点霉香，完全不像普通啤酒！",
+      "assistantReply": "抱歉，分析这张酒标时出错了。请拍一张清楚的酒标正面照再试试。",
+      "intent": "label_check",
+      "createdAt": "2026-07-10T02:25:24.802Z"
+    },
+    {
+      "turnId": "trace_1783650760889_l4sbqa",
+      "userText": "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝\n你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-10T02:32:40.900Z"
+    },
+    {
+      "turnId": "trace_1783651045253_o1hnzr",
+      "userText": "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝\n你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-10T02:37:25.270Z"
+    },
+    {
+      "turnId": "trace_1783671083906_igaika",
+      "userText": "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝\n你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-10T08:11:23.921Z"
+    },
+    {
+      "turnId": "trace_1783673918784_y1vl5j",
+      "userText": "第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n你会再喝这杯酒。\n备注：第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝\n你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-10T08:58:38.790Z"
+    },
+    {
+      "turnId": "trace_1783674028351_sevzlz",
+      "userText": "第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n你会再喝这杯酒。\n备注：第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝\n你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-10T09:00:28.356Z"
+    },
+    {
+      "turnId": "trace_1783674787132_tlx4o1",
+      "userText": "第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n你会再喝这杯酒。\n备注：第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝\n你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-10T09:13:07.140Z"
+    }
+  ],
+  "currentConstraints": [
+    "清爽"
+  ]
+}

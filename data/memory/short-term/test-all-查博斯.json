@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-查博斯",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:08.672Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611608500_q68wsl",
+      "userText": "查博斯",
+      "assistantReply": "我会这样点：\n\n1. 查博斯 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 查博斯 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 查博斯 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：查博斯\n最值得尝新：查博斯\n我会先跳过：查博斯 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 查博斯。\n\n⚠️ 查博斯 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:08.672Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611608500_xgzhry",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "查博斯",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:08.672Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "查博斯",
+    "brewery": ""
+  }
+}

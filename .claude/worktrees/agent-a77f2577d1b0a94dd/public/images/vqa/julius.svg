@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f0e8d8" rx="8"/>
+  <rect x="60" y="30" width="280" height="240" rx="12" fill="#c8a060"/>
+  <rect x="80" y="50" width="240" height="200" rx="8" fill="#e8c880"/>
+  <text x="200" y="120" text-anchor="middle" font-size="22" font-weight="bold" fill="#5a3e00" font-family="Arial">Julius</text>
+  <text x="200" y="150" text-anchor="middle" font-size="16" fill="#7a5e00" font-family="Arial">Hazy IPA</text>
+  <text x="200" y="180" text-anchor="middle" font-size="14" fill="#8a6e00" font-family="Arial">Tree House Brewing</text>
+  <text x="200" y="210" text-anchor="middle" font-size="12" fill="#9a7e00" font-family="Arial">ABV 6.8%</text>
+</svg>

@@ -1,0 +1,138 @@
+{
+  "traceId": "trace_1783650321949_0pwnev",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_tasting_feedback_1",
+  "turnId": "trace_1783650321949_p6jgw3",
+  "timestamp": "2026-07-10T02:25:21.955Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+    "hasImage": true,
+    "imageName": "vqa_tasting_feedback_1.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik04NS4xNCAzMDAuMjVoMy4xMXExLjE1IDAgMi0uMjkuODYtLjI5IDEuNDItLjgyLjU3LS41NC44NS0xLjMuMjgtLjc3LjI4LTEuNzIgMC0uOS0uMjgtMS42Mi0uMjgtLjczLS44NC0xLjI1LS41Ni0uNTEtMS40MS0uNzh0LTIuMDItLjI3aC0zLjExem0tNC4xNy0xMS4yN2g3LjI4cTIuMjUgMCAzLjkuNTIgMS42NC41MyAyLjcxIDEuNDggMS4wNy45NCAxLjU5IDIuMjZ0LjUyIDIuODhxMCAxLjYzLS41NSAyLjk5LS41NCAxLjM1LTEuNjIgMi4zMy0xLjA5Ljk4LTIuNzIgMS41Mi0xLjY0LjU0LTMuODMuNTRoLTMuMTF2Ny44OWgtNC4xN3ptMjkuMTYgOC4yMy0uODcgMS4zOHEtLjE2LjI1LS4zMy4zNXQtLjQzLjFxLS4yOCAwLS42LS4xNi0uMzItLjE1LS43NC0uMzUtLjQxLS4xOS0uOTUtLjM1LS41My0uMTUtMS4yNi0uMTUtMS4xMyAwLTEuNzguNDgtLjY0LjQ4LS42NCAxLjI1IDAgLjUyLjMzLjg3LjM0LjM0Ljg5LjYxLjU1LjI2IDEuMjQuNDcuNy4yMSAxLjQyLjQ2dDEuNDIuNTZxLjcuMzIgMS4yNS44MXQuODggMS4xN3EuMzQuNjguMzQgMS42NCAwIDEuMTUtLjQyIDIuMTItLjQxLjk3LTEuMjEgMS42Ny0uODEuNzEtMS45OSAxLjEtMS4xOS40LTIuNzQuNC0uODIgMC0xLjYtLjE1LS43OS0uMTUtMS41MS0uNDF0LTEuMzMtLjYyLTEuMDgtLjc4bC44OS0xLjQ1cS4xNy0uMjcuNC0uNC4yMy0uMTQuNTktLjE0LjM1IDAgLjY3LjJ0Ljc0LjQzLjk4LjQ0cS41Ny4yIDEuNDQuMi42OCAwIDEuMTctLjE3LjQ5LS4xNi44LS40Mi4zMi0uMjcuNDctLjYxLjE1LS4zNS4xNS0uNzMgMC0uNTUtLjM0LS45MS0uMzMtLjM2LS44OC0uNjJ0LTEuMjYtLjQ3cS0uNy0uMjEtMS40NC0uNDYtLjczLS4yNS0xLjQ0LS41OHQtMS4yNi0uODVxLS41NS0uNTEtLjg4LTEuMjUtLjMzLS43NS0uMzMtMS44IDAtLjk4LjM5LTEuODYuMzgtLjg4IDEuMTMtMS41NC43Ni0uNjYgMS44OC0xLjA2IDEuMTItLjM5IDIuNi0uMzkgMS42NCAwIDIuOTkuNTR0Mi4yNSAxLjQzbTYuMDcgNC40aDcuMjJxMC0uNzQtLjIxLTEuNC0uMi0uNjYtLjYyLTEuMTYtLjQyLS40OS0xLjA2LS43OC0uNjUtLjI5LTEuNS0uMjktMS42NiAwLTIuNjEuOTUtLjk2Ljk0LTEuMjIgMi42OG05Ljc3IDIuMzFoLTkuODVxLjEgMS4yMi40NCAyLjExLjM0LjkuOSAxLjQ4LjU1LjU4IDEuMzIuODcuNzcuMjggMS43LjI4dDEuNi0uMjFxLjY4LS4yMiAxLjE4LS40OS41MS0uMjYuODgtLjQ4LjM4LS4yMS43NC0uMjEuNDggMCAuNzEuMzVsMS4xIDEuNHEtLjYzLjc0LTEuNDIgMS4yNS0uNzkuNS0xLjY1Ljh0LTEuNzUuNDNxLS44OS4xMi0xLjczLjEyLTEuNjYgMC0zLjA5LS41NS0xLjQyLS41NS0yLjQ4LTEuNjMtMS4wNS0xLjA3LTEuNjUtMi42Ni0uNjEtMS41OS0uNjEtMy42OCAwLTEuNjMuNTMtMy4wNi41Mi0xLjQ0IDEuNTEtMi41Ljk4LTEuMDYgMi40LTEuNjh0My4yLS42MnExLjUxIDAgMi43OC40OHQyLjE4IDEuNHEuOTIuOTIgMS40NCAyLjI3LjUyIDEuMzQuNTIgMy4wNiAwIC44Ni0uMTkgMS4xNy0uMTkuMy0uNzEuM20xMy42NC04LjQzaDMuODJ2MTUuOWgtMi4zNHEtLjc2IDAtLjk2LS43bC0uMjYtMS4yN3EtLjk4Ljk5LTIuMTUgMS42MS0xLjE4LjYxLTIuNzguNjEtMS4zIDAtMi4zLS40NC0xLS40NS0xLjY4LTEuMjUtLjY4LS44MS0xLjAzLTEuOTItLjM1LTEuMS0uMzUtMi40NHYtMTAuMWgzLjgzdjEwLjFxMCAxLjQ2LjY3IDIuMjZ0Mi4wMi44cTEgMCAxLjg2LS40NS44Ny0uNDQgMS42NS0xLjIxem0xNy41OSAxMS4xOXYtNy4xM3EtLjY1LS43OS0xLjQyLTEuMTItLjc3LS4zMi0xLjY1LS4zMi0uODcgMC0xLjU3LjMyLS42OS4zMy0xLjE5Ljk5dC0uNzYgMS42N3EtLjI2IDEuMDItLjI2IDIuMzkgMCAxLjQuMjIgMi4zNy4yMy45Ny42NSAxLjU4LjQxLjYxIDEuMDIuODguNi4yNyAxLjM1LjI3IDEuMTkgMCAyLjAzLS40OS44My0uNSAxLjU4LTEuNDFtMC0xOC4zMmgzLjgzdjIzLjAzaC0yLjM0cS0uNzYgMC0uOTYtLjdsLS4zMy0xLjUzcS0uOTYgMS4xLTIuMjEgMS43OHQtMi45LjY4cS0xLjMxIDAtMi4zOS0uNTQtMS4wOS0uNTQtMS44Ny0xLjU3dC0xLjIxLTIuNTVxLS40Mi0xLjUyLS40Mi0zLjQ4IDAtMS43Ni40OC0zLjI4dDEuMzgtMi42NHEuODktMS4xMSAyLjE1LTEuNzR0Mi44Mi0uNjNxMS4zMyAwIDIuMjguNDIuOTQuNDIgMS42OSAxLjEzem0xNC42NSA2Ljg4cTEuNzYgMCAzLjIxLjU3IDEuNDUuNTggMi40OCAxLjYzdDEuNTkgMi41Ny41NiAzLjRxMCAxLjg5LS41NiAzLjQxdC0xLjU5IDIuNTktMi40OCAxLjY0LTMuMjEuNTdxLTEuNzkgMC0zLjI0LS41Ny0xLjQ2LS41Ny0yLjQ5LTEuNjR0LTEuNi0yLjU5cS0uNTYtMS41Mi0uNTYtMy40MSAwLTEuODguNTYtMy40LjU3LTEuNTIgMS42LTIuNTd0Mi40OS0xLjYzcTEuNDUtLjU3IDMuMjQtLjU3bTAgMTMuNDRxMS45OCAwIDIuOTMtMS4zNC45Ni0xLjMzLjk2LTMuOXQtLjk2LTMuOTJxLS45NS0xLjM1LTIuOTMtMS4zNS0yLjAyIDAtMi45OSAxLjM1LS45NyAxLjM2LS45NyAzLjkydC45NyAzLjkgMi45OSAxLjM0bTMxLjg4LTE3LjU5LTEuMDQgMS45NnEtLjE4LjMzLS4zOS40OC0uMjEuMTQtLjUyLjE0LS4zMyAwLS43MS0uMjR0LS45MS0uNTNxLS41Mi0uMy0xLjIzLS41NC0uNy0uMjQtMS42Ni0uMjQtLjg3IDAtMS41Mi4yMXQtMS4xLjU4cS0uNDQuMzgtLjY1LjktLjIyLjUxLS4yMiAxLjEzIDAgLjguNDQgMS4zMi40NC41MyAxLjE3Ljl0MS42Ni42N3EuOTMuMjkgMS45MS42My45Ny4zMyAxLjkuNzd0MS42NiAxLjEycS43My42NyAxLjE3IDEuNjUuNDQuOTcuNDQgMi4zNyAwIDEuNTItLjUyIDIuODQtLjUyIDEuMzMtMS41MiAyLjMxLTEgLjk5LTIuNDQgMS41NS0xLjQ0LjU3LTMuMy41Ny0xLjA3IDAtMi4xMS0uMjEtMS4wMy0uMjEtMS45OS0uNi0uOTUtLjM5LTEuNzktLjkzdC0xLjQ5LTEuMjFsMS4yMy0ycS4xNS0uMjEuNC0uMzZ0LjUzLS4xNXEuMzkgMCAuODQuMzIuNDQuMzIgMS4wNi43MS42Mi4zOCAxLjQ1Ljd0MiAuMzJxMS43OCAwIDIuNzUtLjg1Ljk4LS44NC45OC0yLjQyIDAtLjg5LS40NC0xLjQ0LS40NC0uNTYtMS4xNy0uOTR0LTEuNjYtLjY1cS0uOTMtLjI2LTEuODktLjU3dC0xLjg5LS43NHEtLjkzLS40NC0xLjY2LTEuMTMtLjczLS43LTEuMTctMS43NS0uNDQtMS4wNC0uNDQtMi41OCAwLTEuMjIuNDktMi4zOS40OC0xLjE2IDEuNDEtMi4wNnQyLjMtMS40NHExLjM2LS41NCAzLjEzLS41NCAxLjk4IDAgMy42Ni42MiAxLjY3LjYyIDIuODUgMS43NG0xMy4zIDQuNGgzLjgzdjE1LjloLTIuMzRxLS43NiAwLS45Ni0uN2wtLjI3LTEuMjdxLS45Ny45OS0yLjE1IDEuNjEtMS4xOC42MS0yLjc4LjYxLTEuMyAwLTIuMy0uNDQtMS0uNDUtMS42OC0xLjI1LS42OC0uODEtMS4wMy0xLjkyLS4zNS0xLjEtLjM1LTIuNDR2LTEwLjFoMy44M3YxMC4xcTAgMS40Ni42NyAyLjI2LjY4LjggMi4wMy44Ljk5IDAgMS44Ni0uNDUuODYtLjQ0IDEuNjQtMS4yMXptMTAuNjMgNi4xMmg3LjIycTAtLjc0LS4yLTEuNC0uMjEtLjY2LS42My0xLjE2LS40Mi0uNDktMS4wNi0uNzgtLjY1LS4yOS0xLjUtLjI5LTEuNjYgMC0yLjYxLjk1LS45NS45NC0xLjIyIDIuNjhtOS43NyAyLjMxaC05Ljg1cS4xIDEuMjIuNDQgMi4xMS4zNC45LjkgMS40OHQxLjMyLjg3cS43Ny4yOCAxLjcuMjh0MS42LS4yMXEuNjgtLjIyIDEuMTgtLjQ5LjUxLS4yNi44OS0uNDguMzgtLjIxLjczLS4yMS40OCAwIC43MS4zNWwxLjExIDEuNHEtLjY0Ljc0LTEuNDMgMS4yNS0uNzkuNS0xLjY1Ljh0LTEuNzUuNDNxLS44OS4xMi0xLjczLjEyLTEuNjYgMC0zLjA5LS41NS0xLjQyLS41NS0yLjQ4LTEuNjMtMS4wNS0xLjA3LTEuNjUtMi42Ni0uNjEtMS41OS0uNjEtMy42OCAwLTEuNjMuNTMtMy4wNi41My0xLjQ0IDEuNTEtMi41dDIuNC0xLjY4IDMuMi0uNjJxMS41MSAwIDIuNzguNDh0Mi4xOCAxLjRxLjkyLjkyIDEuNDQgMi4yNy41MiAxLjM0LjUyIDMuMDYgMCAuODYtLjE5IDEuMTctLjE5LjMtLjcxLjNtMjIuOTQtMy43N2g3LjQ0djkuMDdxLTEuNzEgMS4yNi0zLjY0IDEuODR0LTQuMTMuNThxLTIuNzQgMC00Ljk3LS44NS0yLjIyLS44Ni0zLjc5LTIuMzgtMS41OC0xLjUyLTIuNDMtMy42Mi0uODUtMi4xMS0uODUtNC42MSAwLTIuNTIuODItNC42M3QyLjMzLTMuNjMgMy42Ny0yLjM1cTIuMTUtLjg0IDQuODMtLjg0IDEuMzcgMCAyLjU1LjIyIDEuMTkuMjEgMi4yLjU5IDEuMDIuMzggMS44Ni45Mi44My41NSAxLjUzIDEuMmwtMS4xOSAxLjg5cS0uMjguNDUtLjczLjU1dC0uOTgtLjIzbC0xLjAyLS41OHEtLjUxLS4zLTEuMTQtLjUyLS42My0uMjEtMS40MS0uMzV0LTEuODEtLjE0cS0xLjY1IDAtMyAuNTYtMS4zNC41NS0yLjI4IDEuNTktLjk1IDEuMDQtMS40NiAyLjV0LS41MSAzLjI1cTAgMS45My41NSAzLjQ0dDEuNTUgMi41NXExIDEuMDUgMi40MSAxLjZ0My4xNS41NXExLjI0IDAgMi4yMS0uMjYuOTgtLjI3IDEuOTEtLjcydi00LjA2aC0yLjgycS0uNCAwLS42My0uMjItLjIyLS4yMy0uMjItLjU1em0xMC45MS0xMS43OWgzLjgzdjIzLjAzaC0zLjgzem0xNi4wNiAxOC45MnYtMi42OHEtMS42Ni4wOC0yLjc5LjI5dC0xLjgyLjUzcS0uNjguMzMtLjk3Ljc2LS4zLjQ0LS4zLjk1IDAgMS4wMS42IDEuNDR0MS41Ni40M3ExLjE3IDAgMi4wMy0uNDIuODctLjQzIDEuNjktMS4zbS04LjA5LTguMzUtLjY5LTEuMjNxMi43NS0yLjUxIDYuNjEtMi41MSAxLjM5IDAgMi40OS40NnQxLjg2IDEuMjcgMS4xNiAxLjk1cS4zOSAxLjEzLjM5IDIuNDh2MTAuMDRoLTEuNzNxLS41NSAwLS44NC0uMTYtLjMtLjE3LS40Ny0uNjZsLS4zNC0xLjE1cS0uNi41NC0xLjE3Ljk1LS41OC40Mi0xLjIuNjktLjYyLjI4LTEuMzIuNDMtLjcxLjE1LTEuNTYuMTUtMS4wMSAwLTEuODYtLjI3dC0xLjQ3LS44MnEtLjYyLS41NC0uOTYtMS4zNS0uMzUtLjgtLjM1LTEuODcgMC0uNjEuMjEtMS4yLjItLjYuNjUtMS4xNC40Ni0uNTQgMS4xOS0xLjAyLjczLS40OSAxLjc5LS44NCAxLjA2LS4zNiAyLjQ3LS41OCAxLjQxLS4yMyAzLjIzLS4yN3YtLjkzcTAtMS42LS42OS0yLjM3LS42OC0uNzctMS45Ni0uNzctLjkzIDAtMS41NS4yMi0uNjEuMjItMS4wNy40OWwtLjg1LjQ5cS0uMzguMjItLjg0LjIyLS40MSAwLS42OC0uMjEtLjI4LS4yMS0uNDUtLjQ5bTI1Ljk5LTEuNzItLjg3IDEuMzhxLS4xNS4yNS0uMzIuMzV0LS40NC4xcS0uMjggMC0uNi0uMTYtLjMxLS4xNS0uNzMtLjM1LS40Mi0uMTktLjk1LS4zNS0uNTQtLjE1LTEuMjctLjE1LTEuMTMgMC0xLjc3LjQ4LS42NS40OC0uNjUgMS4yNSAwIC41Mi4zNC44Ny4zMy4zNC44OC42MS41NS4yNiAxLjI1LjQ3dDEuNDIuNDYgMS40Mi41NnEuNjkuMzIgMS4yNC44MXQuODkgMS4xN3EuMzMuNjguMzMgMS42NCAwIDEuMTUtLjQxIDIuMTJ0LTEuMjIgMS42N3EtLjguNzEtMS45OSAxLjEtMS4xOS40LTIuNzQuNC0uODIgMC0xLjYtLjE1dC0xLjUtLjQxLTEuMzQtLjYycS0uNjEtLjM2LTEuMDctLjc4bC44OC0xLjQ1cS4xNy0uMjcuNC0uNC4yNC0uMTQuNTktLjE0LjM2IDAgLjY4LjIuMzEuMi43My40M3QuOTkuNDRxLjU2LjIgMS40My4yLjY4IDAgMS4xNy0uMTcuNDktLjE2LjgxLS40Mi4zMS0uMjcuNDYtLjYxLjE1LS4zNS4xNS0uNzMgMC0uNTUtLjMzLS45MS0uMzQtLjM2LS44OS0uNjJ0LTEuMjUtLjQ3cS0uNzEtLjIxLTEuNDQtLjQ2LS43NC0uMjUtMS40NS0uNTgtLjctLjMzLTEuMjUtLjg1LS41NS0uNTEtLjg5LTEuMjUtLjMzLS43NS0uMzMtMS44IDAtLjk4LjM5LTEuODZ0MS4xNC0xLjU0IDEuODctMS4wNnExLjEzLS4zOSAyLjYtLjM5IDEuNjQgMCAyLjk5LjU0dDIuMjUgMS40M20xMy42MiAwLS44NiAxLjM4cS0uMTYuMjUtLjMzLjM1dC0uNDMuMXEtLjI4IDAtLjYtLjE2LS4zMi0uMTUtLjc0LS4zNS0uNDItLjE5LS45NS0uMzUtLjUzLS4xNS0xLjI2LS4xNS0xLjEzIDAtMS43OC40OC0uNjQuNDgtLjY0IDEuMjUgMCAuNTIuMzMuODcuMzQuMzQuODkuNjEuNTUuMjYgMS4yNC40Ny43LjIxIDEuNDIuNDZ0MS40Mi41NnEuNy4zMiAxLjI1LjgxdC44OCAxLjE3LjMzIDEuNjRxMCAxLjE1LS40MSAyLjEydC0xLjIxIDEuNjdxLS44MS43MS0yIDEuMS0xLjE4LjQtMi43My40LS44MiAwLTEuNjEtLjE1LS43OC0uMTUtMS41LS40MXQtMS4zMy0uNjItMS4wOC0uNzhsLjg4LTEuNDVxLjE4LS4yNy40MS0uNC4yMy0uMTQuNTktLjE0LjM1IDAgLjY3LjJ0Ljc0LjQzLjk4LjQ0cS41Ny4yIDEuNDQuMi42OCAwIDEuMTctLjE3LjQ4LS4xNi44LS40Mi4zMi0uMjcuNDctLjYxLjE0LS4zNS4xNC0uNzMgMC0uNTUtLjMzLS45MXQtLjg4LS42Mi0xLjI2LS40N3EtLjctLjIxLTEuNDQtLjQ2dC0xLjQ0LS41OHEtLjcxLS4zMy0xLjI2LS44NS0uNTUtLjUxLS44OC0xLjI1LS4zMy0uNzUtLjMzLTEuOCAwLS45OC4zOC0xLjg2LjM5LS44OCAxLjE0LTEuNTR0MS44OC0xLjA2cTEuMTItLjM5IDIuNTktLjM5IDEuNjUgMCAzIC41NCAxLjM0LjU0IDIuMjQgMS40MyIvPjwvc3ZnPg=="
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "tasting_feedback",
+        "confidence": 1,
+        "slots": {
+          "flavorTags": "热带水果"
+        }
+      }
+    ],
+    "intent": "tasting_feedback",
+    "confidence": 1,
+    "slots": {
+      "flavorTags": "热带水果"
+    },
+    "missingInfo": [],
+    "routeReason": "override match: tasting_feedback (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": true,
+        "turnsSinceMenu": 58,
+        "activeMenuCandidateCount": 1,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/ matched → forced to tasting_feedback",
+      "candidateScores": [
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "Pseudo Sue"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": true,
+    "updatedProfile": true,
+    "notes": [
+      "User provided taste feedback — profile updated"
+    ]
+  },
+  "route": {
+    "handler": "tasting_feedback",
+    "diagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [
+        "activeBeer"
+      ],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"tasting_feedback\" matched route \"handleTastingFeedback\" — all required context present",
+      "intent": "tasting_feedback"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "收到！已记录你对「Pseudo Sue」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？\n你的口味画像：喜欢柑橘风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "tasting_feedback",
+    "hasImage": true,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [
+        "activeBeer"
+      ],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"tasting_feedback\" matched route \"handleTastingFeedback\" — all required context present",
+      "intent": "tasting_feedback"
+    }
+  }
+}

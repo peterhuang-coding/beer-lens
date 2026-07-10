@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-07-10T11:59:01.508Z",
+  "windowSeconds": 36,
+  "counters": [
+    {
+      "name": "turn.count",
+      "value": 241,
+      "unit": "turns"
+    },
+    {
+      "name": "turn.avg_latency_ms",
+      "value": 2399,
+      "unit": "ms"
+    },
+    {
+      "name": "turn.success_rate",
+      "value": 1,
+      "unit": "ratio"
+    },
+    {
+      "name": "intent.hit_rate_rule",
+      "value": 0.8257261410788381,
+      "unit": "ratio",
+      "tags": {
+        "source": "rule"
+      }
+    },
+    {
+      "name": "intent.hit_rate_llm",
+      "value": 0.17427385892116182,
+      "unit": "ratio",
+      "tags": {
+        "source": "llm"
+      }
+    },
+    {
+      "name": "intent.hit_rate_fallback",
+      "value": 0,
+      "unit": "ratio",
+      "tags": {
+        "source": "fallback"
+      }
+    },
+    {
+      "name": "intent.multi_intent_rate",
+      "value": 0.14522821576763487,
+      "unit": "ratio"
+    },
+    {
+      "name": "handler.error_rate",
+      "value": 0,
+      "unit": "ratio"
+    },
+    {
+      "name": "knowledge.hit_rate",
+      "value": 0.26666666666666666,
+      "unit": "ratio"
+    },
+    {
+      "name": "guardrail.block_rate",
+      "value": 0,
+      "unit": "ratio"
+    },
+    {
+      "name": "transfer.human_suggestions",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "name": "memory.enabled.turns",
+      "value": 56,
+      "unit": "turns"
+    },
+    {
+      "name": "memory.disabled.turns",
+      "value": 0,
+      "unit": "turns"
+    },
+    {
+      "name": "memory.used_in_scoring.count",
+      "value": 56,
+      "unit": "count"
+    },
+    {
+      "name": "memory.correction.count",
+      "value": 0,
+      "unit": "count"
+    },
+    {
+      "name": "profile.confidence.avg",
+      "value": 0.6089285714285714,
+      "unit": "ratio"
+    },
+    {
+      "name": "tasting_episode.count",
+      "value": 22,
+      "unit": "count"
+    },
+    {
+      "name": "planner.total",
+      "value": 56,
+      "unit": "turns"
+    },
+    {
+      "name": "planner.success",
+      "value": 56,
+      "unit": "turns"
+    },
+    {
+      "name": "planner.failed",
+      "value": 0,
+      "unit": "turns"
+    },
+    {
+      "name": "planner.fallback",
+      "value": 14,
+      "unit": "turns"
+    },
+    {
+      "name": "planner.avg_steps",
+      "value": 3,
+      "unit": "steps"
+    }
+  ],
+  "intentDistribution": {
+    "beer_knowledge": 78,
+    "label_check": 11,
+    "menu_recommend": 97,
+    "profile_query": 15,
+    "tasting_feedback": 22,
+    "memory_correction": 17,
+    "unclear": 1
+  },
+  "intentSourceDistribution": {
+    "rule": 199,
+    "llm": 42,
+    "fallback": 0
+  },
+  "handlerErrors": {}
+}

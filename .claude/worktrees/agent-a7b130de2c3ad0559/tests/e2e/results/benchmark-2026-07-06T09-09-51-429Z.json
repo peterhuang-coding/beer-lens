@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T09:09:51.429Z",
+  "visionModel": "google/gemini-2.0-flash-001",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 5783,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "OpenRouter 404: {\"error\":{\"message\":\"No endpoints found for google/gemini-2.0-flash-001.\",\"code\":404},\"user_id\":\"user_2zP1vL1UQdBUXC4kUmAiXf352yJ\"}",
+      "durationMs": 5783
+    }
+  ]
+}

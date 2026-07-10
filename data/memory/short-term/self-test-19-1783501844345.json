@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-19-1783501844345",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:10:46.932Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783501844350_xhap53",
+      "userText": "你好",
+      "assistantReply": "你好！有什么啤酒方面的问题或者想聊的吗？比如你喜欢的风格，或者想了解的酿造知识，都可以告诉我。😊",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:10:46.932Z"
+    }
+  ]
+}

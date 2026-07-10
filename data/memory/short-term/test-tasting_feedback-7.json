@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-tasting_feedback-7",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:06.289Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611666275_r5wfpo",
+      "userText": "Pseudo Sue 4分，会再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：Pseudo Sue 4分，会再喝\n你的口味画像：暂无足够的品饮记录来生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-09T15:41:06.289Z"
+    }
+  ]
+}

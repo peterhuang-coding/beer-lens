@@ -1,0 +1,9 @@
+{
+  "name": "Beer Lens",
+  "short_name": "Beer Lens",
+  "description": "拍下酒单，找到今晚最值得喝的那杯。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f9f7",
+  "theme_color": "#0f1f18"
+}

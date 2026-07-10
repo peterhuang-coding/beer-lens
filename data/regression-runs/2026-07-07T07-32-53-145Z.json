@@ -1,0 +1,248 @@
+{
+  "timestamp": "2026-07-07T07:33:01.605Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/api/agent",
+    "userId": "regression-user",
+    "convPrefix": "regression",
+    "timeoutMs": 30000
+  },
+  "summary": {
+    "total": 10,
+    "passed": 3,
+    "failed": 7,
+    "errors": 0,
+    "passRate": "30.0%",
+    "durationMs": 8459
+  },
+  "results": [
+    {
+      "caseId": "reg_001",
+      "name": "推荐一款IPA",
+      "inputText": "推荐一款IPA",
+      "conversationId": "regression-regression-recommend-ipa",
+      "passed": false,
+      "durationMs": 159,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我可以帮你根据口味推荐啤酒！请先发一张酒单照片（图片清晰最准），或者直接告诉我具体酒名，我帮你对比评分和口感。你想喝什么风格？IPA？拉格？世涛？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "candidates too few: expected>=1 actual=0"
+      ],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_002",
+      "name": "今天想喝清爽一点，不要太苦",
+      "inputText": "今天想喝清爽一点，不要太苦",
+      "conversationId": "regression-regression-crisp-light",
+      "passed": true,
+      "durationMs": 147,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 今天想喝清爽一点 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 今天想喝清爽一点 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 今天想喝清爽一点 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：今天想喝清爽一点\n最值得尝新：今天想喝清爽一点\n我会先跳过：今天想喝清爽一点 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 今天想喝清爽一点。\n\n⚠️ 今天想喝清爽一点、不要太苦 数据不足，谨慎尝试。",
+      "candidateCount": 2,
+      "warnings": [
+        "unverified_rating_mentioned",
+        "missing_data_rating_mentioned",
+        "missing_data_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_003",
+      "name": "有IPA吗",
+      "inputText": "有IPA吗",
+      "conversationId": "regression-regression-filter-ipa",
+      "passed": false,
+      "durationMs": 1154,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "intent mismatch: expected=follow_up_filter actual=unclear"
+      ],
+      "checks": {
+        "intentMatch": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_004",
+      "name": "第3个怎么样",
+      "inputText": "第3个怎么样",
+      "conversationId": "regression-regression-pick-nth",
+      "passed": false,
+      "durationMs": 457,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "intent mismatch: expected=follow_up_filter actual=unclear"
+      ],
+      "checks": {
+        "intentMatch": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_005",
+      "name": "我给4.5分会再喝热带水果",
+      "inputText": "我给4.5分，会再喝，热带水果",
+      "conversationId": "regression-regression-tasting",
+      "passed": true,
+      "durationMs": 26,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果风味",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_006",
+      "name": "我不喜欢太苦的",
+      "inputText": "我不喜欢太苦的",
+      "conversationId": "regression-regression-dislike-bitter",
+      "passed": false,
+      "durationMs": 487,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "intent mismatch: expected=memory_correction actual=unclear"
+      ],
+      "checks": {
+        "intentMatch": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_007",
+      "name": "我的口味画像是什么",
+      "inputText": "我的口味画像是什么",
+      "conversationId": "regression-regression-profile-query",
+      "passed": false,
+      "durationMs": 32,
+      "actualIntent": "profile_query",
+      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果风味\n\n画像置信度：10%（基于 1 条品饮记录）\n\n偏好风味标签：热带水果（1）\n记录数：1 条\n\n📈 最近趋势：\n2026月07：1款 · 近三月均分 4.5 · 偏好风味：热带水果\n\n证据数：1 · 画像置信度：10% · 实验组：开启",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [
+        "missing keywords: [ABV]"
+      ],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_008",
+      "name": "这瓶酒过期了吗",
+      "inputText": "这瓶酒过期了吗",
+      "conversationId": "regression-regression-label-check",
+      "passed": false,
+      "durationMs": 468,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "intent mismatch: expected=label_check actual=unclear"
+      ],
+      "checks": {
+        "intentMatch": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_009",
+      "name": "什么是WestCoastIPA",
+      "inputText": "什么是West Coast IPA",
+      "conversationId": "regression-regression-knowledge",
+      "passed": false,
+      "durationMs": 473,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "抱歉，回答这个问题时出错了。请再试一次。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "missing keywords: [IPA, West Coast]",
+        "fallback/error reply detected"
+      ],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": false,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_010",
+      "name": "清空",
+      "inputText": "清空",
+      "conversationId": "regression-regression-clear",
+      "passed": true,
+      "durationMs": 552,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    }
+  ]
+}

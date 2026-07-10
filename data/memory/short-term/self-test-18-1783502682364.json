@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-18-1783502682364",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:24:42.375Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502682371_q095k5",
+      "userText": "重置我的记录",
+      "assistantReply": "根据你的口味画像：喜欢热带水果风味",
+      "intent": "profile_query",
+      "createdAt": "2026-07-08T09:24:42.375Z"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-16-1783494606820",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T07:10:10.614Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783494606830_vwub69",
+      "userText": "哪个不苦",
+      "assistantReply": "哈哈，这个问题有点意思！如果你是指啤酒不苦，那可能是指一些非常淡的啤酒，比如某些小麦啤酒或者皮尔森啤酒，它们的苦味比较轻。当然，还有些啤酒会通过特定的酿造工艺来减少苦味，比如使用特定类型的啤酒花或者调整啤酒花的添加时间。你是不是在找那种特别不苦的啤酒呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T07:10:10.614Z"
+    }
+  ],
+  "currentConstraints": [
+    "不苦"
+  ]
+}

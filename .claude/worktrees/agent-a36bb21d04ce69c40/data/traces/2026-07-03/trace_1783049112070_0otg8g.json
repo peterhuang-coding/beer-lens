@@ -1,0 +1,69 @@
+{
+  "traceId": "trace_1783049112070_0otg8g",
+  "userId": "test",
+  "channel": "web",
+  "conversationId": "test-bench",
+  "turnId": "trace_1783049112070_wvuarj",
+  "timestamp": "2026-07-03T03:25:12.073Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "不苦的有没有，顺便看看我口味",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "follow_up_filter",
+        "confidence": 0.92,
+        "slots": {
+          "constraint": "不苦"
+        }
+      },
+      {
+        "intent": "profile_query",
+        "confidence": 0.9,
+        "slots": {}
+      }
+    ],
+    "intent": "follow_up_filter",
+    "confidence": 0.92,
+    "slots": {
+      "constraint": "不苦"
+    },
+    "missingInfo": [],
+    "routeReason": "Multi-intent: follow_up_filter(92%), profile_query(90%)",
+    "source": "rule",
+    "isMultiIntent": true
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "帮我推荐一款IPA"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "follow_up_filter"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "酒单上没有符合「crisp」的酒。现有：帮我推荐一款IPA。要不要换个方向？\n\n顺便说一下，ABV 0-0%",
+    "candidateCount": 1,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "follow_up_filter",
+    "hasImage": false,
+    "warnings": []
+  }
+}

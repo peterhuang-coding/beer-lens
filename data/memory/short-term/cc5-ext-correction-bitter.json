@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-correction-bitter",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:39.111Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476631469_wo04fl",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:10:32.536Z"
+    },
+    {
+      "turnId": "trace_1783477663836_m4t6tj",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:27:45.593Z"
+    },
+    {
+      "turnId": "trace_1783477897632_dzqtv6",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:31:39.111Z"
+    }
+  ]
+}

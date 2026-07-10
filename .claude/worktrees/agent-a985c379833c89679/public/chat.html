@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Beer Lens — 啤酒推荐助手</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #0f1f18;
+    color: #e0e8e3;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  header {
+    padding: 12px 16px;
+    background: #16281e;
+    border-bottom: 1px solid #1e3628;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  header .logo { font-size: 22px; }
+  header h1 { font-size: 15px; font-weight: 600; }
+  header .badge {
+    margin-left: auto;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 99px;
+    background: #1e3628;
+    color: #7ab89a;
+  }
+
+  #chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .msg {
+    max-width: 92%;
+    animation: fadeIn 0.2s ease;
+  }
+  .msg.user { align-self: flex-end; }
+  .msg.agent { align-self: flex-start; }
+
+  .msg .bubble {
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .msg.user .bubble { background: #2a6041; color: #fff; border-bottom-right-radius: 4px; }
+  .msg.agent .bubble { background: #1a2e22; color: #ccdcd2; border-bottom-left-radius: 4px; }
+
+  .msg .label {
+    font-size: 11px;
+    color: #5a7a64;
+    margin-bottom: 4px;
+    padding: 0 4px;
+  }
+
+  .msg .image-preview {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    border: 1px solid #2a4632;
+  }
+
+  /* ── Live progress panel ── */
+  .progress-panel {
+    background: #16281e;
+    border: 1px solid #1e3628;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .progress-panel .pp-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #aacdb5;
+    font-size: 13px;
+  }
+  .progress-stages { display: flex; flex-direction: column; gap: 4px; }
+  .ps-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+  .ps-row.running { background: #1a3022; }
+  .ps-row.done { color: #889e90; }
+  .ps-row.error { background: #2a1a1a; color: #d97a6c; }
+  .ps-row.pending { color: #44604e; }
+
+  .ps-icon { width: 18px; text-align: center; flex-shrink: 0; font-size: 13px; }
+  .ps-label { flex: 1; }
+  .ps-dur { font-size: 10px; color: #5a7a64; }
+  .ps-model { font-size: 10px; color: #44604e; }
+
+  .ps-spinner {
+    width: 14px; height: 14px;
+    border: 2px solid #1e3628;
+    border-top-color: #3a7a4e;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Enrich progress */
+  .enrich-bar {
+    margin-top: 6px;
+    font-size: 11px;
+    color: #8aab94;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .enrich-bar .eb-track {
+    flex: 1;
+    height: 4px;
+    background: #0f1f18;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .enrich-bar .eb-fill {
+    height: 100%;
+    background: #3a7a4e;
+    border-radius: 2px;
+    transition: width 0.3s;
+  }
+
+  /* Candidate cards */
+  .candidates {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .card {
+    background: #16281e;
+    border: 1px solid #1e3628;
+    border-radius: 12px;
+    padding: 12px 14px;
+    position: relative;
+  }
+  .card.top { border-color: #3a7a4e; background: #192f21; }
+  .card .rank {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    background: #2a6041;
+    color: #fff;
+  }
+  .card.top .rank { background: #d4a017; color: #0f1f18; }
+
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .card .brewery { font-size: 12px; color: #8aab94; margin-bottom: 6px; }
+  .card .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .card .meta span {
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: #1a3022;
+    color: #aacdb5;
+    white-space: nowrap;
+  }
+  .card .meta .country { background: #223a2a; }
+  .card .meta .rating { background: #2a3a1e; color: #d4a017; font-weight: 600; }
+  .card .meta .price { background: #1e2a36; color: #8ab4d0; }
+
+  .card .scores {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .card .scores div { display: flex; flex-direction: column; }
+  .card .scores .label { font-size: 10px; color: #5a7a64; }
+  .card .scores .val { font-weight: 700; font-size: 18px; }
+  .card .scores .val.high { color: #5cc97a; }
+  .card .scores .val.mid { color: #d4a017; }
+  .card .scores .val.low { color: #c96a5c; }
+
+  .card .reason { font-size: 13px; color: #b0c8b8; line-height: 1.5; }
+  .card .risks { margin-top: 4px; font-size: 11px; color: #c9905c; }
+
+  /* Picks summary */
+  .picks {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    background: #16281e;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+  .picks .pick { display: flex; gap: 8px; align-items: baseline; }
+  .picks .pick-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .picks .pick-tag.top  { background: #d4a017; color: #0f1f18; }
+  .picks .pick-tag.safe { background: #3a7a4e; color: #fff; }
+  .picks .pick-tag.explore { background: #5a5090; color: #fff; }
+  .picks .pick-tag.avoid { background: #8a3a3a; color: #fff; }
+
+  /* Pipeline stages (collapsed detail) */
+  .pipeline { margin-top: 8px; }
+  .pipeline summary {
+    font-size: 12px;
+    color: #7ab89a;
+    cursor: pointer;
+    padding: 6px 0;
+    user-select: none;
+  }
+  .stage {
+    background: #111f17;
+    border: 1px solid #1a3024;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 6px 0;
+    font-size: 12px;
+  }
+  .stage .stage-hd {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #aacdb5;
+  }
+  .stage .stage-hd .st-icon { font-size: 15px; }
+  .stage .stage-hd .st-conf {
+    margin-left: auto;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: #1a3022;
+    color: #7ab89a;
+  }
+  .stage .stage-body { color: #889e90; line-height: 1.5; }
+  .stage .stage-body .ocr-raw {
+    background: #0a150e;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: monospace;
+    font-size: 11px;
+    margin: 4px 0;
+    max-height: 120px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .stage .stage-body .ocr-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 3px 0;
+    padding: 3px 0;
+    border-bottom: 1px solid #0a150e;
+  }
+  .stage .stage-body .ocr-item span {
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: #16281e;
+    white-space: nowrap;
+  }
+  .stage .risk-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 2px;
+    font-size: 10px;
+  }
+  .risk-high { background: #3a2020; color: #d97a6c; }
+  .risk-mid  { background: #3a3020; color: #d9b56c; }
+  .risk-low  { background: #1a3022; color: #6cd98a; }
+
+  .profile-banner {
+    font-size: 12px;
+    padding: 8px 12px;
+    background: #16281e;
+    border-radius: 8px;
+    color: #7ab89a;
+    margin-top: 4px;
+  }
+
+  /* Composer */
+  #composer {
+    padding: 10px 12px;
+    background: #16281e;
+    border-top: 1px solid #1e3628;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  #composer textarea {
+    flex: 1;
+    resize: none;
+    background: #0f1f18;
+    border: 1px solid #1e3628;
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: #e0e8e3;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 1.4;
+    max-height: 80px;
+    outline: none;
+  }
+  #composer textarea:focus { border-color: #3a7a4e; }
+  #composer button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #composer .btn-send { background: #2a6041; color: #fff; }
+  #composer .btn-send:disabled { background: #1e3628; color: #44604e; cursor: not-allowed; }
+  #composer .btn-image { background: #1a3022; color: #8aab94; font-size: 20px; }
+  #image-input { display: none; }
+
+  .image-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: #1e3628;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8aab94;
+    margin-bottom: 6px;
+  }
+  .image-badge button {
+    background: none;
+    border: none;
+    color: #c96a5c;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 2px;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="logo">🍺</span>
+  <h1>Beer Lens</h1>
+  <span class="badge" id="model-badge">agent</span>
+</header>
+
+<div id="chat"></div>
+
+<div id="composer">
+  <input type="file" id="image-input" accept="image/*" capture="environment">
+  <button class="btn-image" onclick="document.getElementById('image-input').click()" title="上传酒单照片">📷</button>
+  <textarea id="text-input" rows="1" placeholder="粘贴酒单照片 (⌘V)，或告诉我你今天想喝什么..."></textarea>
+  <button class="btn-send" id="send-btn" onclick="send()" disabled>↑</button>
+</div>
+
+<script>
+const chat = document.getElementById('chat');
+const textInput = document.getElementById('text-input');
+const imageInput = document.getElementById('image-input');
+const sendBtn = document.getElementById('send-btn');
+let currentImage = null;
+let messages = [];
+
+const WELCOME = `把酒单照片发给我，或者告诉我你今天想喝什么。
+
+我会帮你：
+• 识别酒单上的每一款酒
+• 查 Untappd 评分 + 酒厂资料
+• 算每毫升性价比
+• 按你的口味排序推荐`
+
+function init() {
+  addMsg('agent', WELCOME);
+  textInput.focus();
+}
+
+function addMsg(role, content, extra) {
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  let html = `<div class="label">${role === 'agent' ? 'Beer Lens' : '你'}</div>`;
+  if (extra && extra.imageDataUrl) {
+    html += `<img class="image-preview" src="${extra.imageDataUrl}" alt="上传的图片">`;
+  }
+  html += `<div class="bubble">${escapeHtml(content)}</div>`;
+  if (extra && extra.candidates) {
+    html += renderCandidates(extra.candidates);
+  }
+  if (extra && extra.picks) {
+    html += renderPicks(extra.picks);
+  }
+  if (extra && extra.stages) {
+    html += renderStages(extra.stages);
+  }
+  if (extra && extra.profileSummary) {
+    html += `<div class="profile-banner">📋 ${escapeHtml(extra.profileSummary)}</div>`;
+  }
+  div.innerHTML = html;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+  return div;
+}
+
+// ── Progress panel (live updates) ──
+
+const STAGE_LABELS = {
+  image_classification: '图片分类',
+  ocr: 'OCR 文字提取',
+  visual_quality: '视觉质量检查',
+  recommendation: '智能推荐',
+};
+
+const STAGE_ORDER = ['image_classification', 'ocr', 'visual_quality', 'recommendation'];
+
+function createProgressPanel() {
+  const div = document.createElement('div');
+  div.className = 'msg agent';
+  div.innerHTML = '<div class="label">Beer Lens</div>';
+  const panel = document.createElement('div');
+  panel.className = 'progress-panel';
+  panel.id = 'progress-panel';
+  panel.innerHTML = `
+    <div class="pp-title">⏳ 处理中...</div>
+    <div class="progress-stages" id="progress-stages">
+      ${STAGE_ORDER.map(s => `
+        <div class="ps-row pending" data-stage="${s}">
+          <span class="ps-icon">○</span>
+          <span class="ps-label">${STAGE_LABELS[s] || s}</span>
+          <span class="ps-model"></span>
+          <span class="ps-dur"></span>
+        </div>
+      `).join('')}
+    </div>
+    <div id="enrich-area" style="display:none"></div>
+  `;
+  div.appendChild(panel);
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+  return div;
+}
+
+function updateProgress(event) {
+  const panel = document.getElementById('progress-panel');
+  if (!panel) return;
+
+  const stagesEl = document.getElementById('progress-stages');
+
+  if (event.type === 'stage_start') {
+    const row = stagesEl?.querySelector(`[data-stage="${event.stage}"]`);
+    if (row) {
+      row.className = 'ps-row running';
+      row.querySelector('.ps-icon').innerHTML = '<span class="ps-spinner"></span>';
+      row.querySelector('.ps-model').textContent = event.model || '';
+    }
+    panel.querySelector('.pp-title').textContent = `⏳ ${event.label}...`;
+  }
+
+  if (event.type === 'stage_done') {
+    const row = stagesEl?.querySelector(`[data-stage="${event.stage}"]`);
+    if (row) {
+      row.className = 'ps-row done';
+      row.querySelector('.ps-icon').textContent = '✓';
+      row.querySelector('.ps-model').textContent = '';
+      row.querySelector('.ps-dur').textContent = `${(event.durationMs / 1000).toFixed(1)}s`;
+    }
+  }
+
+  if (event.type === 'stage_error') {
+    const row = stagesEl?.querySelector(`[data-stage="${event.stage}"]`);
+    if (row) {
+      row.className = 'ps-row error';
+      row.querySelector('.ps-icon').textContent = '✗';
+      row.querySelector('.ps-label').textContent = `${STAGE_LABELS[event.stage] || event.stage}: ${event.error}`;
+    }
+    panel.querySelector('.pp-title').textContent = `❌ ${event.stage} 失败`;
+  }
+
+  if (event.type === 'enrich_start') {
+    const area = document.getElementById('enrich-area');
+    if (area && event.count > 0) {
+      area.style.display = 'block';
+      area.innerHTML = `<div class="enrich-bar">
+        <span>🔎 查 Untappd 评分...</span>
+        <div class="eb-track"><div class="eb-fill" id="eb-fill" style="width:0%"></div></div>
+        <span id="eb-text">0/${event.count}</span>
+      </div>`;
+    }
+    panel.querySelector('.pp-title').textContent = `🔎 正在查 ${event.count} 款酒的 Untappd 资料...`;
+  }
+
+  if (event.type === 'enrich_progress') {
+    const fill = document.getElementById('eb-fill');
+    const text = document.getElementById('eb-text');
+    if (fill) fill.style.width = `${Math.round((event.done / event.total) * 100)}%`;
+    if (text) text.textContent = `${event.done}/${event.total}`;
+  }
+
+  if (event.type === 'enrich_done') {
+    panel.querySelector('.pp-title').textContent = '✅ 分析完成';
+  }
+
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// ── Candidate cards ──
+
+function renderCandidates(candidates) {
+  if (!candidates || candidates.length === 0) return '';
+  let html = '<div class="candidates">';
+  candidates.forEach((c, i) => {
+    const isTop = i === 0;
+    html += `<div class="card${isTop ? ' top' : ''}">`;
+    html += `<div class="rank">${isTop ? 'TOP' : '#' + (i + 1)}</div>`;
+    html += `<h3>${escapeHtml(c.displayName)}</h3>`;
+    html += `<div class="brewery">${escapeHtml(c.brewery)}</div>`;
+    html += '<div class="meta">';
+    if (c.style) html += `<span>${escapeHtml(c.style)}</span>`;
+    if (c.abv) html += `<span>${c.abv}% ABV</span>`;
+    if (c.breweryCountry) html += `<span class="country">📍 ${escapeHtml(c.breweryCountry)}</span>`;
+    if (c.untappdScore) {
+      html += `<span class="rating">⭐ ${c.untappdScore.toFixed(1)}`;
+      if (c.untappdRatingCount) html += ` (${formatCount(c.untappdRatingCount)})`;
+      html += '</span>';
+    }
+    if (c.price) {
+      let priceStr = `¥${c.price}`;
+      if (c.volumeMl) priceStr += `/${c.volumeMl}ml`;
+      html += `<span class="price">${priceStr}</span>`;
+      if (c.pricePerMl) {
+        html += `<span class="price">¥${(c.pricePerMl * 100).toFixed(2)}/100ml</span>`;
+      }
+      if (c.usBenchmark && c.savingsVsUS != null) {
+        const cls = c.savingsVsUS > 0 ? 'rating' : 'price';
+        html += `<span class="${cls}">🇺🇸 美国≈¥${c.usBenchmark} (${c.savingsVsUS > 0 ? '便宜' : '贵'}${Math.abs(c.savingsVsUS)}%)</span>`;
+      } else if (c.usBenchmark) {
+        html += `<span class="price">🇺🇸 美国≈¥${c.usBenchmark}</span>`;
+      }
+      if (c.valueScore != null) {
+        html += `<span class="price">性价比${valueLabel(c.valueScore)}</span>`;
+      }
+    }
+    html += '</div>';
+    html += '<div class="scores">';
+    if (c.untappdScore) {
+      html += `<div><span class="label">Untappd</span><span class="val high">⭐ ${c.untappdScore.toFixed(1)}</span></div>`;
+      if (c.untappdRatingCount) {
+        html += `<div><span class="label">评分人数</span><span class="val mid">${formatCount(c.untappdRatingCount)}</span></div>`;
+      }
+    }
+    if (c.pricePerMl != null && c.price != null) {
+      html += `<div><span class="label">每100ml</span><span class="val ${c.savingsVsUS > 0 ? 'high' : 'mid'}">¥${(c.pricePerMl * 100).toFixed(1)}</span></div>`;
+    }
+    html += '</div>';
+    html += `<div class="reason">${escapeHtml(c.reason)}</div>`;
+    if (c.riskFlags && c.riskFlags.length) {
+      html += `<div class="risks">⚠ ${c.riskFlags.map(escapeHtml).join(' · ')}</div>`;
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderPicks(picks) {
+  if (!picks) return '';
+  const items = [
+    { tag: 'top', cls: 'top', label: '只能喝一杯', p: picks.topPick },
+    { tag: 'safe', cls: 'safe', label: '最稳', p: picks.safePick },
+    { tag: 'explore', cls: 'explore', label: '尝新', p: picks.explorePick },
+    { tag: 'avoid', cls: 'avoid', label: '谨慎', p: picks.avoidOrCaution }
+  ];
+  let html = '<div class="picks">';
+  items.forEach(({ tag, cls, label, p }) => {
+    if (!p) return;
+    html += `<div class="pick"><span class="pick-tag ${cls}">${tag}</span><strong>${label}:</strong>&nbsp;${escapeHtml(p.reason)}</div>`;
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderStages(stages) {
+  let html = '<details class="pipeline"><summary>📊 流水线明细 (点击折叠)</summary>';
+
+  if (stages.imageContext) {
+    const ic = stages.imageContext;
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">🔍</span> 阶段1: 图片分类';
+    html += `<span class="st-conf">置信度 ${(ic.confidence*100).toFixed(0)}%</span></div>`;
+    html += `<div class="stage-body">类型: <strong>${escapeHtml(ic.imageType)}</strong> — ${escapeHtml(ic.reason)}`;
+    if (ic.visibleClues && ic.visibleClues.length) {
+      html += `<br>可见线索: ${ic.visibleClues.map(escapeHtml).join(' · ')}`;
+    }
+    html += '</div></div>';
+  }
+
+  if (stages.extracted) {
+    const ex = stages.extracted;
+    const items = ex.items || [];
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">📝</span> 阶段2: OCR 候选酒提取';
+    html += `<span class="st-conf">${items.length} 款酒</span></div>`;
+    html += '<div class="stage-body">';
+    if (ex.rawText) {
+      html += `<div class="ocr-raw">${escapeHtml(ex.rawText)}</div>`;
+    }
+    if (items.length) {
+      items.forEach((it, i) => {
+        html += `<div class="ocr-item">`;
+        html += `<span><strong>#${it.menuIndex||i+1}</strong> ${escapeHtml(it.beerName||'?')}</span>`;
+        if (it.brewery) html += `<span>🏭 ${escapeHtml(it.brewery)}</span>`;
+        if (it.style) html += `<span>${escapeHtml(it.style)}</span>`;
+        if (it.abv) html += `<span>${it.abv}%</span>`;
+        if (it.price != null) html += `<span>¥${it.price}</span>`;
+        if (it.serving) html += `<span>${escapeHtml(it.serving)}</span>`;
+        html += `<span>信度 ${(it.confidence*100).toFixed(0)}%</span>`;
+        html += '</div>';
+      });
+    }
+    if (ex.uncertainties && ex.uncertainties.length) {
+      html += `<div style="color:#d9b56c;margin-top:4px">⚠ ${ex.uncertainties.map(escapeHtml).join(' · ')}</div>`;
+    }
+    html += '</div></div>';
+  }
+
+  if (stages.visualQuality) {
+    const vq = stages.visualQuality;
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">🔬</span> 阶段3: 视觉质量检查';
+    html += `<span class="st-conf">氧化: ${formatRisk(vq.oxidationRisk)} | 新鲜度: ${formatRisk(vq.freshnessRisk)}</span></div>`;
+    html += '<div class="stage-body">';
+    if (vq.visualRiskFlags && vq.visualRiskFlags.length) {
+      vq.visualRiskFlags.forEach(f => {
+        html += `<span class="risk-tag ${riskClass(f)}">${escapeHtml(f)}</span>`;
+      });
+    } else {
+      html += '无明显风险标记';
+    }
+    if (vq.caveat) html += `<div style="margin-top:4px;color:#8aab94">${escapeHtml(vq.caveat)}</div>`;
+    html += '</div></div>';
+  }
+
+  // Stage 4: Untappd enrichment results
+  if (stages.enrichment && stages.enrichment.length) {
+    const enr = stages.enrichment;
+    const found = enr.filter(e => e.found).length;
+    html += '<div class="stage">';
+    html += '<div class="stage-hd"><span class="st-icon">🔎</span> 阶段4: Untappd 查分 + 美国酒厂比价';
+    html += `<span class="st-conf">找到 ${found}/${enr.length} 款</span></div>`;
+    html += '<div class="stage-body">';
+    // Pricing source note
+    html += '<div style="font-size:11px;color:#5a7a64;margin-bottom:8px;padding:6px 8px;background:#0a150e;border-radius:4px">';
+    html += '📎 <strong>美国酒厂定价来源</strong>: 基于 2024-2025 年美国精酿酒厂 taproom 实际价格观察 (BeerAdvocate/Untappd 价格追踪)<br>';
+    html += '计算公式: USD基准价 × 7.2汇率 × 1.08税 ÷ 容量 × 你的杯量 = 预估美国含税价';
+    html += '</div>';
+    enr.forEach(e => {
+      if (e.found) {
+        const verifiedIcon = e.verified ? '✅' : '🤖';
+        const verifiedTitle = e.verified ? '已通过网页搜索核实' : 'AI 估算，未经网页核实';
+        html += `<div class="ocr-item" style="flex-wrap:wrap;padding:4px 0">`;
+        html += `<span><strong>${escapeHtml(e.name)}</strong></span>`;
+        html += `<span title="${verifiedTitle}">${verifiedIcon} ${e.untappdScore?.toFixed(1)}</span>`;
+        if (e.ratingCount) html += `<span>${formatCount(e.ratingCount)} 人评</span>`;
+        if (e.untappdUrl) {
+          html += `<span>🔗 <a href="${escapeHtml(e.untappdUrl)}" target="_blank" rel="noopener" style="color:#7ab89a">Untappd</a></span>`;
+        }
+        html += '</div>';
+        // Pricing trace line
+        if (e.pricingBasis || e.usBenchmark != null) {
+          html += '<div style="font-size:11px;color:#6a8a74;margin:0 0 6px 12px;padding:3px 6px;border-left:2px solid #2a4632">';
+          if (e.pricingBasis) {
+            html += `<div>🇺🇸 基准: ${escapeHtml(e.pricingBasis)}</div>`;
+          }
+          if (e.price != null && e.volumeMl != null && e.usBenchmark != null && e.savingsVsUS != null) {
+            html += '<div>📐 ';
+            html += `当地 ¥${e.price}/${e.volumeMl}ml vs 美国≈¥${e.usBenchmark}/${e.volumeMl}ml`;
+            const diffLabel = e.savingsVsUS > 0
+              ? `便宜 ${e.savingsVsUS}%`
+              : e.savingsVsUS < 0
+                ? `贵 ${Math.abs(e.savingsVsUS)}%`
+                : '持平';
+            html += ` → <strong style="color:${e.savingsVsUS > 0 ? '#5cc97a' : '#c9905c'}">${diffLabel}</strong>`;
+            html += '</div>';
+          }
+          html += '</div>';
+        }
+      } else {
+        html += `<div class="ocr-item" style="color:#8a6a5c">`;
+        html += `<span>${escapeHtml(e.name)}</span><span>未找到</span>`;
+        html += '</div>';
+      }
+    });
+    html += '</div></div>';
+  }
+
+  html += '</details>';
+  return html;
+}
+
+function formatRisk(r) { const map={low:'低',medium:'中',high:'高',unknown:'?'}; return map[r]||r; }
+function riskClass(f) {
+  if (f.includes('oxidation')||f.includes('stale')||f.includes('damage')) return 'risk-high';
+  if (f.includes('haze')||f.includes('darken')||f.includes('foam')) return 'risk-mid';
+  return 'risk-low';
+}
+
+function scoreClass(s) { return s >= 80 ? 'high' : s >= 60 ? 'mid' : 'low'; }
+function formatCount(n) { return n >= 10000 ? (n / 1000).toFixed(0) + 'k' : n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n); }
+function valueLabel(v) { return v >= 2 ? '超值' : v >= 1 ? '划算' : v >= 0.5 ? '适中' : v >= 0.2 ? '偏贵' : '很贵'; }
+function escapeHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Image input ──
+
+imageInput.addEventListener('change', () => {
+  const file = imageInput.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    currentImage = { name: file.name, type: file.type, dataUrl: reader.result };
+    updateComposer();
+    showImageBadge();
+  };
+  reader.readAsDataURL(file);
+});
+
+textInput.addEventListener('input', updateComposer);
+textInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+});
+textInput.addEventListener('paste', (e) => {
+  const items = e.clipboardData?.items;
+  if (!items) return;
+  for (const item of items) {
+    if (item.type.startsWith('image/')) {
+      e.preventDefault();
+      const file = item.getAsFile();
+      if (!file) continue;
+      const reader = new FileReader();
+      reader.onload = () => {
+        currentImage = { name: 'paste-' + Date.now() + '.png', type: file.type, dataUrl: reader.result };
+        updateComposer();
+        showImageBadge();
+      };
+      reader.readAsDataURL(file);
+      break;
+    }
+  }
+});
+
+function showImageBadge() {
+  let badge = document.getElementById('image-badge');
+  if (!badge) {
+    badge = document.createElement('div');
+    badge.id = 'image-badge';
+    badge.className = 'image-badge';
+    badge.innerHTML = `📎 已粘贴图片 <button onclick="clearImage()">✕</button>`;
+    document.getElementById('composer').insertBefore(badge, textInput);
+  }
+  badge.style.display = 'flex';
+}
+
+function clearImage() {
+  currentImage = null;
+  const badge = document.getElementById('image-badge');
+  if (badge) badge.style.display = 'none';
+  imageInput.value = '';
+  updateComposer();
+}
+
+function updateComposer() {
+  sendBtn.disabled = !textInput.value.trim() && !currentImage;
+}
+
+// ── Send with SSE stream ──
+
+async function send() {
+  const text = textInput.value.trim();
+  if (!text && !currentImage) return;
+  if (currentImage) {
+    addMsg('user', text || '帮我看这张酒单', { imageDataUrl: currentImage.dataUrl });
+  } else {
+    addMsg('user', text);
+  }
+
+  messages.push({ role: 'user', content: text || '帮我看这张酒单' });
+
+  sendBtn.disabled = true;
+  textInput.value = '';
+  textInput.style.height = 'auto';
+
+  const imagePayload = currentImage
+    ? { name: currentImage.name, type: currentImage.type, dataUrl: currentImage.dataUrl }
+    : undefined;
+  currentImage = null;
+  clearImage();
+
+  // Create progress panel for live updates
+  const progressDiv = createProgressPanel();
+
+  try {
+    const resp = await fetch('/api/agent?stream=true', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ messages, image: imagePayload })
+    });
+
+    if (!resp.ok) {
+      const errText = await resp.text();
+      throw new Error(`API ${resp.status}: ${errText}`);
+    }
+
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
+
+      let eventType = '';
+      let eventData = '';
+
+      for (const line of lines) {
+        if (line.startsWith('event: ')) {
+          eventType = line.slice(7).trim();
+        } else if (line.startsWith('data: ')) {
+          eventData = line.slice(6);
+        } else if (line === '' && eventType && eventData) {
+          // Dispatch event
+          try {
+            const data = JSON.parse(eventData);
+
+            if (eventType === 'final') {
+              // Remove progress panel
+              progressDiv.remove();
+
+              messages.push({ role: 'assistant', content: data.reply });
+              addMsg('agent', data.reply, {
+                candidates: data.candidates,
+                picks: data.picks,
+                profileSummary: data.profileSummary,
+                stages: data.stages
+              });
+            } else if (eventType === 'fatal') {
+              progressDiv.remove();
+              addMsg('agent', `❌ 处理失败: ${data.error || '未知错误'}`);
+              messages.push({ role: 'assistant', content: `Error: ${data.error}` });
+            } else {
+              // Stage progress event
+              updateProgress({ type: eventType, ...data });
+            }
+          } catch (parseErr) {
+            // Skip unparseable events (keepalive comments etc)
+          }
+          eventType = '';
+          eventData = '';
+        }
+      }
+    }
+  } catch (err) {
+    progressDiv.remove();
+    addMsg('agent', `❌ 连接出错: ${err.message}`);
+    messages.push({ role: 'assistant', content: `Error: ${err.message}` });
+  }
+
+  updateComposer();
+  textInput.focus();
+}
+
+init();
+</script>
+</body>
+</html>

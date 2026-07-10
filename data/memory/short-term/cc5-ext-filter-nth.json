@@ -1,0 +1,67 @@
+{
+  "conversationId": "cc5-ext-filter-nth",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:28.052Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476618640_45wpr4",
+      "userText": "第3个怎么样",
+      "assistantReply": "我会这样点：\n\n1. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：第3个怎么样\n最值得尝新：第3个怎么样\n我会先跳过：第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 第3个怎么样。\n\n⚠️ 第3个怎么样 数据不足，谨慎尝试。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:10:18.700Z"
+    },
+    {
+      "turnId": "trace_1783477653175_iriqy3",
+      "userText": "第3个怎么样",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:27:33.186Z"
+    },
+    {
+      "turnId": "trace_1783477888044_0g3czl",
+      "userText": "第3个怎么样",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:31:28.052Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783476618640_rn12xr",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "第3个怎么样",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-08T02:10:18.700Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "第3个怎么样",
+    "brewery": ""
+  }
+}

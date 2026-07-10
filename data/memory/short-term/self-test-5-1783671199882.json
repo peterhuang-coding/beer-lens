@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-5-1783671199882",
+  "userId": "self-test",
+  "updatedAt": "2026-07-10T08:13:24.708Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783671199890_kmtujh",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "了解了，不喜欢太苦的啤酒，那我们可以往更偏甜或者果味的方向去考虑。比如一些水果啤酒、小麦啤酒或者是比利时白啤酒，这些通常苦味较低，口感更加清爽和柔和。你对热带水果或者柑橘类的味道感兴趣吗？这样的风味在一些啤酒中很常见，而且通常会给人带来清新的感觉。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:13:24.708Z"
+    }
+  ]
+}

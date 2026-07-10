@@ -1,0 +1,70 @@
+{
+  "conversationId": "cc5-ext-filter-not-bitter",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:29.094Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476619764_r1hs55",
+      "userText": "哪个不苦",
+      "assistantReply": "我会这样点：\n\n1. 哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：哪个不苦\n最值得尝新：哪个不苦\n我会先跳过：哪个不苦 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 哪个不苦。\n\n⚠️ 哪个不苦 数据不足，谨慎尝试。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:10:19.822Z"
+    },
+    {
+      "turnId": "trace_1783477654217_8r4qv9",
+      "userText": "哪个不苦",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:27:34.224Z"
+    },
+    {
+      "turnId": "trace_1783477889085_jcei7w",
+      "userText": "哪个不苦",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-08T02:31:29.094Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783476619764_rjohj3",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "哪个不苦",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-08T02:10:19.822Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "哪个不苦",
+    "brewery": ""
+  },
+  "currentConstraints": [
+    "不苦"
+  ]
+}

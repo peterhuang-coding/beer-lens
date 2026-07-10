@@ -1,0 +1,80 @@
+{
+  "conversationId": "vqa_beer_knowledge_2",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:25.724Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646275002_55han7",
+      "userText": "没错！Tree House的King JJJuliusss（4.66评分）和Hill Farmstead的Double Citra（4.48评分）也都是NEIPA的顶级代表。Tree House以浓郁果汁感和超顺滑口感闻名，Hill Farmstead则以平衡优雅著称。三家酒厂都在佛蒙特州，该地区被称为\"NEIPA的圣城\"。它们各有千秋——Alchemist开创了风格，Tree House把果汁感推向极致，Hill Farmstead展现了细腻的平衡美学。",
+      "assistantReply": "说得太对了！这三家酒厂确实代表了NEIPA的不同风格和极致追求。The Alchemist的Heady Topper开创了浑浊IPA的先河，以其浓郁的啤酒花香气和顺滑的口感赢得了无数粉丝。Tree House的King Julius则将果汁感和顺滑度提升到了新的高度，每一口都像是在喝新鲜榨的果汁。而Hill Farmstead的Double Citra则展现了更为细腻和平衡的风格，既有丰富的啤酒花香气，又不失优雅和清爽。\n\n佛蒙特州确实可以被称为“NEIPA的圣城”，这里的酒厂不仅在酿造技术上不断创新，还保持了对品质的极致追求。如果你喜欢浑浊IPA，这三家酒厂的作品绝对值得一试。你有没有试过它们的啤酒？最喜欢哪一款呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:18:00.407Z"
+    },
+    {
+      "turnId": "trace_1783646562920_eqefap",
+      "userText": "现在精酿圈好像都在喝那种浑浊的、像果汁一样的IPA，这风格是怎么来的？为什么它这么浑？",
+      "assistantReply": "你提到的这种风格，通常被称为新英格兰IPA（New England IPA，简称NEIPA）或者浑浊IPA。这种风格起源于美国新英格兰地区，特别是佛蒙特州，大概在2010年左右开始流行起来。NEIPA的特点就是它的浑浊外观、丰富的果香和较低的苦度，给人一种喝果汁的感觉。\n\n这种啤酒之所以会这么浑，主要是因为酿造过程中使用了特殊的工艺。首先，酿造时会加入大量的燕麦和小麦等未发芽谷物，这些谷物不仅增加了啤酒的口感，还带来了更多的蛋白质和多糖，这些都是造成浑浊的重要因素。其次，酿造者通常会在发酵后期进行干投（Dry Hopping），也就是在啤酒发酵完成后加入大量啤酒花，这不仅增加了啤酒的香气，还会让啤酒变得更加浑浊。最后，很多酿造者会选择不过滤或不过度澄清啤酒，保留了更多的天然成分，从而保持了浑浊的外观。\n\n这种风格的IPA之所以受到欢迎，很大程度上是因为它打破了传统IPA高苦度、干爽的风格，带来了更加丰富、柔和的口感，特别适合喜欢果香和低苦度啤酒的朋友们。你是不是也喜欢这种风格的啤酒呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:22:53.399Z"
+    },
+    {
+      "turnId": "trace_1783646788602_1u4k34",
+      "userText": "现在精酿圈好像都在喝那种浑浊的、像果汁一样的IPA，这风格是怎么来的？为什么它这么浑？",
+      "assistantReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:26:29.786Z"
+    },
+    {
+      "turnId": "trace_1783650325773_7vjuwq",
+      "userText": "现在精酿圈好像都在喝那种浑浊的、像果汁一样的IPA，这风格是怎么来的？为什么它这么浑？",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:25.877Z"
+    },
+    {
+      "turnId": "trace_1783650760920_1le5hb",
+      "userText": "什么是West Coast IPA？和New England IPA有什么区别？",
+      "assistantReply": "West Coast IPA 和 New England IPA 是两种非常流行的IPA风格，它们各自有着鲜明的特点。\n\n**West Coast IPA** 起源于美国西海岸，尤其是加利福尼亚地区。这种风格的IPA以其强烈的苦味和明显的酒花香气而著称。通常，West Coast IPA会使用大量的酒花，尤其是美国的酒花品种，比如西楚（Citra）、卡斯卡特（Cascade）、西姆科（Simcoe）等，这些酒花能带来柑橘、松树和热带水果的香气。这种风格的IPA通常颜色较深，酒体中等，酒精度也相对较高。\n\n**New England IPA**，也被称为“东北IPA”或“浑浊IPA”，起源于美国东北部的新英格兰地区。与West Coast IPA相比，New England IPA 更注重酒花的香气和味道，而不是苦味。这种风格的IPA通常呈现出浑浊的外观，这是因为酿造过程中使用了特殊的酵母和大量的未过滤酒花，这使得酒体更加丰满，口感更加顺滑。New England IPA 的味道更加偏向于甜味和果味，苦味相对较轻，但仍然能感受到酒花的存在。\n\n总的来说，West Coast IPA 更加干爽、苦涩，而 New England IPA 则更加甜润、果味浓郁，口感更加顺滑。希望这能帮助你更好地了解这两种风格的IPA！如果你喜欢热带水果和柑橘的味道，New England IPA 可能会更合你的口味。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T02:32:55.550Z"
+    },
+    {
+      "turnId": "trace_1783651045289_scg6os",
+      "userText": "什么是West Coast IPA？和New England IPA有什么区别？",
+      "assistantReply": "West Coast IPA 和 New England IPA 是两种非常受欢迎的 IPA（印度淡色艾尔）风格，它们各自代表了不同的酿造理念和风味特点。\n\n**West Coast IPA**：\n这种风格起源于美国西海岸，特别是加利福尼亚地区。West Coast IPA 以其强烈的苦味和明显的啤酒花香气著称。这种啤酒通常使用大量的美国啤酒花，如 Citra、Simcoe、Centennial 等，这些啤酒花能带来柑橘、松木和热带水果的香气。West Coast IPA 的酒体相对较干，酒精度中等到高，苦度值（IBUs）也比较高，通常在 60-100 之间。\n\n**New England IPA**（也叫 Northeast IPA 或 Hazy IPA）：\nNew England IPA 起源于美国东北部，尤其是佛蒙特州。这种风格的 IPA 以其浑浊的外观和丰富的果味而闻名。New England IPA 的酒体较为丰满，口感顺滑，苦度相对较低，通常在 40-70 IBUs 之间。这种啤酒通常使用大量的燕麦和小麦，使得酒体更加饱满和奶油般顺滑。啤酒花的使用也偏向于带来更多的果香和热带水果风味，而不是苦味。\n\n总结一下，West Coast IPA 更注重苦度和啤酒花的香气，而 New England IPA 则更注重酒体的顺滑和果味的丰富。希望这能帮助你更好地理解这两种风格的区别！如果你对这两种风格感兴趣，可以尝试一下，感受一下它们的不同之处。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T02:37:37.508Z"
+    },
+    {
+      "turnId": "trace_1783671093981_4le1sb",
+      "userText": "什么是West Coast IPA？和New England IPA有什么区别？",
+      "assistantReply": "West Coast IPA 和 New England IPA 是两种非常受欢迎的印度淡色艾尔（IPA）风格，它们各自有着鲜明的特点。\n\n**West Coast IPA**：\n- **特点**：这种风格的IPA起源于美国西海岸，特别是加利福尼亚州。它的特点是高度的苦味和强烈的酒花香气，通常使用大量的美国酒花，比如西楚（Citra）、卡斯卡特（Cascade）、西姆科（Simcoe）等，这些酒花会给啤酒带来柑橘、松木和热带水果的香气。\n- **口感**：苦味较重，酒体中等到饱满，酒精度中等到高，颜色从金黄色到深琥珀色不等。\n\n**New England IPA**（也称为“Hazy IPA”或“NEIPA”）：\n- **特点**：这种风格的IPA起源于美国东北部，特别是新英格兰地区。与West Coast IPA不同，New England IPA更注重酒花的香气和风味，而不是苦味。它的颜色通常是浑浊的，这是因为酿造过程中使用了大量未经过滤的酒花和小麦、燕麦等谷物，这些成分让啤酒具有奶油般的质感。\n- **口感**：苦味较轻，酒体丰满且顺滑，酒精度中等到高，带有浓郁的热带水果、柑橘和芒果等香气。\n\n总的来说，West Coast IPA 更偏向于苦和干，而 New England IPA 则更注重香气和口感的丰富度，更加顺滑和多汁。如果你喜欢热带水果和柑橘的香气，同时又希望啤酒口感更加顺滑，那么 New England IPA 会是不错的选择。如果你更喜欢那种鲜明的苦味和酒花的冲击感，那么 West Coast IPA 会更适合你。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:11:46.349Z"
+    },
+    {
+      "turnId": "trace_1783673919762_7euwwx",
+      "userText": "West Coast IPA和New England IPA有什么区别？",
+      "assistantReply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:58:41.296Z"
+    },
+    {
+      "turnId": "trace_1783674029616_7n9uyi",
+      "userText": "West Coast IPA和New England IPA有什么区别？",
+      "assistantReply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:00:30.540Z"
+    },
+    {
+      "turnId": "trace_1783674797565_izf1jy",
+      "userText": "West Coast IPA和New England IPA有什么区别？",
+      "assistantReply": "West Coast IPA 和 New England IPA（也常被称为 Hazy IPA）是两种非常受欢迎的 IPA 风格，它们在风味、外观和酿造方法上有一些显著的区别。\n\n**West Coast IPA**：\n- **风味**：这种风格的 IPA 通常以强烈的苦味和明显的酒花香气为特点，酒花的风味往往偏向于松木、柑橘和热带水果。\n- **外观**：颜色从金黄色到琥珀色不等，通常比较清澈。\n- **酿造方法**：使用较多的酒花，特别是在煮沸阶段，这增加了苦味和香气，但可能牺牲了一些酒花的果香和复杂性。\n\n**New England IPA**：\n- **风味**：这种风格的 IPA 更注重酒花的果香和甜味，苦味相对较低，口感更加圆润和饱满。\n- **外观**：通常呈浑浊的橙黄色，这是因为酿造过程中使用了大量未过滤的麦芽和酒花，以及某些酵母菌种的特性。\n- **酿造方法**：大量使用干投酒花（即在发酵过程中或之后加入酒花），这种方法可以增加酒花的香气和风味，同时减少苦味。\n\n总的来说，West Coast IPA 更偏向于苦和清爽，而 New England IPA 则更加注重果香和口感的丰富度。你更喜欢哪种风格呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:13:25.724Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

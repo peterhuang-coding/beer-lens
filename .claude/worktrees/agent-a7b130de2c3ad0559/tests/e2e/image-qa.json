@@ -1,0 +1,82 @@
+[
+  {
+    "id": "menu_clear_01",
+    "description": "清晰的酒单照片，应该能识别至少 3 款啤酒，推荐 IPA 相关风格",
+    "enabled": true,
+    "image": "menu-clear.jpg",
+    "text": "帮我看这张酒单，推荐一款",
+    "expect": {
+      "imageType": "menu",
+      "minCandidates": 3,
+      "maxCandidates": 20,
+      "hasReply": true,
+      "hasTopPick": true,
+      "ocrConfidenceMin": 0.5,
+      "noRiskFlags": ["hallucination"],
+      "intentShouldBe": "menu_recommend"
+    }
+  },
+  {
+    "id": "bottle_label_01",
+    "description": "单瓶酒标特写，应该识别出酒名、酒厂、风格、日期",
+    "enabled": true,
+    "image": "bottle-label.jpg",
+    "text": "帮我看看这瓶酒的生产日期",
+    "expect": {
+      "imageType": "bottle",
+      "minCandidates": 1,
+      "maxCandidates": 1,
+      "hasReply": true,
+      "hasBrewery": true,
+      "hasStyle": true,
+      "noRiskFlags": ["hallucination"],
+      "intentShouldBe": "label_check"
+    }
+  },
+  {
+    "id": "tap_list_01",
+    "description": "酒吧黑板/tap list，识别酒头列表中的生啤",
+    "enabled": true,
+    "image": "tap-list.jpg",
+    "text": "帮我看这个 tap list，有什么推荐的",
+    "expect": {
+      "imageType": "tap_list",
+      "minCandidates": 2,
+      "maxCandidates": 20,
+      "hasReply": true,
+      "hasTopPick": true,
+      "noRiskFlags": ["hallucination"],
+      "intentShouldBe": "menu_recommend"
+    }
+  },
+  {
+    "id": "glass_beer_01",
+    "description": "杯中酒液照片，不应编造酒名，应提示无法确认",
+    "enabled": true,
+    "image": "glass-beer.jpg",
+    "text": "这杯酒怎么样",
+    "expect": {
+      "imageType": "glass",
+      "minCandidates": 0,
+      "maxCandidates": 1,
+      "hasReply": true,
+      "shouldNotInventName": true,
+      "noRiskFlags": ["hallucination"],
+      "intentShouldBe": "menu_recommend"
+    }
+  },
+  {
+    "id": "menu_blurry_01",
+    "description": "模糊的低质量酒单照片，OCR 置信度应该低",
+    "enabled": true,
+    "image": "menu-blurry.jpg",
+    "text": "帮我看看这张酒单",
+    "expect": {
+      "imageType": "menu",
+      "hasReply": true,
+      "hasLowConfidence": true,
+      "noRiskFlags": ["hallucination"],
+      "intentShouldBe": "menu_recommend"
+    }
+  }
+]

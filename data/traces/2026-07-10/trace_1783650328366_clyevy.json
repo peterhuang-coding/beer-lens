@@ -1,0 +1,699 @@
+{
+  "traceId": "trace_1783650328366_clyevy",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_memory_correction_1",
+  "turnId": "trace_1783650328366_5obv0n",
+  "timestamp": "2026-07-10T02:25:28.368Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "上次我说喜欢IPA，你给我推荐了好多浑浊IPA（NEIPA），但我其实更喜欢西海岸IPA那种清亮、苦味明显的风格。",
+    "hasImage": true,
+    "imageName": "vqa_memory_correction_1.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik05MC41NyAzMDMuOTI1cS4yMiAwIC4zOS4xN2wxLjA2IDEuMTVxLS44OCAxLjA5LTIuMTYgMS42Ny0xLjI5LjU4LTMuMDkuNTgtMS42MSAwLTIuOS0uNTUtMS4yOC0uNTUtMi4xOS0xLjUzdC0xLjQtMi4zNHEtLjQ4LTEuMzYtLjQ4LTIuOTcgMC0xLjYzLjUyLTIuOTguNTItMS4zNiAxLjQ2LTIuMzQuOTUtLjk4IDIuMjYtMS41MyAxLjMxLS41NCAyLjktLjU0IDEuNTggMCAyLjgxLjUyIDEuMjIuNTIgMi4wOCAxLjM2bC0uOSAxLjI1cS0uMDguMTItLjIxLjIxLS4xMi4wOS0uMzQuMDktLjE1IDAtLjMxLS4wOS0uMTYtLjA4LS4zNS0uMi0uMTktLjEzLS40NC0uMjh0LS41OC0uMjhxLS4zMy0uMTItLjc3LS4yMS0uNDMtLjA4LTEtLjA4LS45NyAwLTEuNzguMzUtLjguMzQtMS4zOCAxLS41OC42NS0uOSAxLjYtLjMyLjk0LS4zMiAyLjE1IDAgMS4yMi4zNCAyLjE3LjM1Ljk1Ljk0IDEuNnQxLjM5IDFxLjguMzQgMS43Mi4zNC41NSAwIC45OS0uMDYuNDUtLjA2LjgyLS4xOS4zOC0uMTMuNzItLjM0LjMzLS4yLjY2LS41LjEtLjA5LjIxLS4xNC4xMS0uMDYuMjMtLjA2bTcuNDUtNy4wMXExLjE0IDAgMi4wNy4zNy45NC4zNyAxLjYxIDEuMDUuNjYuNjggMS4wMiAxLjY2dC4zNiAyLjE5cTAgMS4yMi0uMzYgMi4ydC0xLjAyIDEuNjdxLS42Ny42OS0xLjYxIDEuMDYtLjkzLjM3LTIuMDcuMzctMS4xNSAwLTIuMDktLjM3dC0xLjYtMS4wNnEtLjY3LS42OS0xLjA0LTEuNjctLjM2LS45OC0uMzYtMi4yIDAtMS4yMS4zNi0yLjE5LjM3LS45OCAxLjA0LTEuNjYuNjYtLjY4IDEuNi0xLjA1dDIuMDktLjM3bTAgOC42N3ExLjI4IDAgMS45LS44Ni42MS0uODYuNjEtMi41MnQtLjYxLTIuNTNxLS42Mi0uODctMS45LS44Ny0xLjMgMC0xLjkzLjg3LS42Mi44OC0uNjIgMi41M3QuNjIgMi41MXEuNjMuODcgMS45My44N205LjEzLTcuODkuMTUgMS4xNnEuNDgtLjkyIDEuMTQtMS40NS42Ni0uNTIgMS41Ni0uNTIuNzEgMCAxLjE0LjMxbC0uMTYgMS44NXEtLjA1LjE4LS4xNS4yNS0uMDkuMDgtLjI1LjA4LS4xNSAwLS40NC0uMDUtLjMtLjA1LS41OC0uMDUtLjQxIDAtLjczLjEydC0uNTguMzVxLS4yNS4yMi0uNDQuNTQtLjIuMzItLjM3LjczdjYuMzJoLTIuNDd2LTEwLjI2aDEuNDVxLjM4IDAgLjUzLjEzLjE1LjE0LjIuNDltNy40NiAwIC4xNSAxLjE2cS40OC0uOTIgMS4xNC0xLjQ1LjY2LS41MiAxLjU2LS41Mi43MSAwIDEuMTQuMzFsLS4xNiAxLjg1cS0uMDUuMTgtLjE1LjI1LS4wOS4wOC0uMjUuMDgtLjE1IDAtLjQ1LS4wNS0uMjktLjA1LS41Ny0uMDUtLjQxIDAtLjczLjEydC0uNTguMzVxLS4yNS4yMi0uNDUuNTQtLjE5LjMyLS4zNi43M3Y2LjMyaC0yLjQ3di0xMC4yNmgxLjQ1cS4zOCAwIC41My4xMy4xNS4xNC4yLjQ5bTcuMjMgMy4zM2g0LjY2cTAtLjQ4LS4xNC0uOS0uMTMtLjQzLS40LS43NXQtLjY5LS41cS0uNDEtLjE5LS45Ni0uMTktMS4wNyAwLTEuNjkuNjEtLjYxLjYxLS43OCAxLjczbTYuMyAxLjQ5aC02LjM1cS4wNi43OS4yOCAxLjM2LjIyLjU4LjU4Ljk2LjM2LjM3Ljg1LjU1LjUuMTkgMS4xLjE5dDEuMDMtLjE0cS40NC0uMTQuNzYtLjMxLjMzLS4xNy41Ny0uMzEuMjUtLjE0LjQ4LS4xNC4zMSAwIC40Ni4yM2wuNzEuOXEtLjQxLjQ4LS45Mi44MS0uNTEuMzItMS4wNy41MS0uNTUuMi0xLjEzLjI4LS41Ny4wOC0xLjExLjA4LTEuMDcgMC0xLjk5LS4zNi0uOTItLjM1LTEuNi0xLjA1LS42OC0uNjktMS4wNy0xLjcyLS4zOS0xLjAyLS4zOS0yLjM3IDAtMS4wNS4zNC0xLjk4LjM0LS45Mi45Ny0xLjYxLjY0LS42OCAxLjU1LTEuMDguOTItLjQgMi4wNy0uNC45NyAwIDEuNzkuMzF0MS40MS45cS41OS42LjkyIDEuNDYuMzQuODcuMzQgMS45OCAwIC41Ni0uMTIuNzYtLjEyLjE5LS40Ni4xOW0xMC40My00LjE3LS42NS45cS0uMTEuMTQtLjIyLjIyLS4xLjA4LS4zLjA4LS4xOSAwLS4zNy0uMTJsLS40My0uMjZxLS4yNS0uMTQtLjYtLjI2LS4zNC0uMTEtLjg1LS4xMS0uNjUgMC0xLjE0LjI0LS40OS4yMy0uODIuNjctLjMyLjQ0LS40OCAxLjA2LS4xNi42My0uMTYgMS40MiAwIC44Mi4xNyAxLjQ2LjE4LjY0LjUxIDEuMDcuMzMuNDQuOC42Ni40Ny4yMyAxLjA2LjIzdC45NS0uMTVxLjM3LS4xNC42Mi0uMzEuMjUtLjE4LjQzLS4zMy4xOS0uMTQuNDItLjE0LjMgMCAuNDUuMjNsLjcxLjlxLS40MS40OC0uODkuODEtLjQ4LjMyLTEgLjUxLS41MS4yLTEuMDYuMjgtLjU0LjA4LTEuMDguMDgtLjk1IDAtMS43OS0uMzYtLjg0LS4zNS0xLjQ3LTEuMDN0LTEtMS42N3EtLjM2LS45OC0uMzYtMi4yNCAwLTEuMTMuMzItMi4xLjMzLS45Ni45Ni0xLjY3LjYzLS43IDEuNTYtMS4xdDIuMTQtLjRxMS4xNSAwIDIuMDEuMzcuODcuMzcgMS41NiAxLjA2bTUuMDYgOS4xNXEtMS4zNCAwLTIuMDYtLjc1LS43MS0uNzYtLjcxLTIuMDl2LTUuNzNoLTEuMDVxLS4yIDAtLjM0LS4xM3QtLjE0LS4zOXYtLjk4bDEuNjUtLjI3LjUyLTIuOHEuMDUtLjIuMTktLjMxdC4zNi0uMTFoMS4yOHYzLjIzaDIuNzR2MS43NmgtMi43NHY1LjU2cTAgLjQ4LjIzLjc1LjI0LjI3LjY1LjI3LjIzIDAgLjM4LS4wNi4xNi0uMDUuMjctLjExLjEyLS4wNi4yMS0uMTIuMDktLjA1LjE4LS4wNS4xMSAwIC4xOC4wNS4wNy4wNi4xNS4xN2wuNzQgMS4ycS0uNTQuNDUtMS4yNC42OHQtMS40NS4yM200LjEtMTAuNDJoMi40OHYxMC4yNmgtMi40OHptMi44Mi0yLjk5cTAgLjMyLS4xMy42dC0uMzUuNDlxLS4yMS4yMS0uNS4zMy0uMjkuMTMtLjYyLjEzLS4zMiAwLS42MS0uMTMtLjI4LS4xMi0uNDktLjMzdC0uMzQtLjQ5cS0uMTItLjI4LS4xMi0uNiAwLS4zMy4xMi0uNjIuMTMtLjI5LjM0LS41dC40OS0uMzRxLjI5LS4xMi42MS0uMTIuMzMgMCAuNjIuMTIuMjkuMTMuNS4zNC4yMi4yMS4zNS41dC4xMy42Mm02LjcyIDIuODNxMS4xNCAwIDIuMDcuMzcuOTQuMzcgMS42IDEuMDUuNjcuNjggMS4wMyAxLjY2dC4zNiAyLjE5cTAgMS4yMi0uMzYgMi4ydC0xLjAzIDEuNjdxLS42Ni42OS0xLjYgMS4wNi0uOTMuMzctMi4wNy4zNy0xLjE1IDAtMi4wOS0uMzd0LTEuNjEtMS4wNnEtLjY2LS42OS0xLjAzLTEuNjctLjM2LS45OC0uMzYtMi4yIDAtMS4yMS4zNi0yLjE5LjM3LS45OCAxLjAzLTEuNjYuNjctLjY4IDEuNjEtMS4wNXQyLjA5LS4zN20wIDguNjdxMS4yOCAwIDEuODktLjg2LjYyLS44Ni42Mi0yLjUydC0uNjItMi41M3EtLjYxLS44Ny0xLjg5LS44Ny0xLjMgMC0xLjkzLjg3LS42Mi44OC0uNjIgMi41M3QuNjIgMi41MXEuNjMuODcgMS45My44N205LjA5LTguMDYuMTcuODFxLjMxLS4zMS42NS0uNTguMzUtLjI2LjczLS40NS4zOS0uMTguODMtLjI4LjQ0LS4xMS45Ni0uMTEuODQgMCAxLjQ5LjI5LjY1LjI4IDEuMDguNzkuNDQuNTIuNjYgMS4yMy4yMy43Mi4yMyAxLjU4djYuNTNoLTIuNDd2LTYuNTNxMC0uOTQtLjQzLTEuNDYtLjQzLS41MS0xLjMxLS41MS0uNjQgMC0xLjIuMjl0LTEuMDYuNzl2Ny40MmgtMi40N3YtMTAuMjZoMS41MXEuNDggMCAuNjMuNDVtMzEuNTItNC42NWgyLjExbC00LjQ5IDE0LjQ2aC0yLjQzbC0zLjE2LTkuODhxLS4xMy0uMzYtLjI0LS44OC0uMDYuMjUtLjEyLjQ3dC0uMTMuNDFsLTMuMTkgOS44OGgtMi40NGwtNC40OC0xNC40NmgyLjI1cS4zNSAwIC41OC4xNy4yNC4xNi4zMi40NGwyLjQ2IDguNjVxLjA4LjMyLjE1LjcuMDguMzcuMTYuNzguMDgtLjQyLjE3LS43OS4xLS4zNy4yMS0uNjlsMi44NC04LjY1cS4wOC0uMjMuMzEtLjQyLjI0LS4xOS41OC0uMTloLjc5cS4zNSAwIC41Ny4xN3QuMzMuNDRsMi44MyA4LjY1cS4yMS42Mi4zOCAxLjQzLjEzLS43OS4yOS0xLjQzbDIuNDYtOC42NXEuMDYtLjI1LjMtLjQzLjI1LS4xOC41OS0uMThtNS40NSA4LjE1aDQuNjZxMC0uNDgtLjE0LS45LS4xMy0uNDMtLjQtLjc1dC0uNjktLjVxLS40MS0uMTktLjk2LS4xOS0xLjA3IDAtMS42OS42MS0uNjEuNjEtLjc4IDEuNzNtNi4zIDEuNDloLTYuMzVxLjA2Ljc5LjI4IDEuMzYuMjIuNTguNTguOTYuMzYuMzcuODUuNTUuNS4xOSAxLjEuMTl0MS4wMy0uMTRxLjQ0LS4xNC43Ni0uMzEuMzMtLjE3LjU3LS4zMS4yNS0uMTQuNDgtLjE0LjMxIDAgLjQ2LjIzbC43MS45cS0uNDEuNDgtLjkyLjgxLS41MS4zMi0xLjA3LjUxLS41NS4yLTEuMTMuMjgtLjU3LjA4LTEuMTEuMDgtMS4wNyAwLTEuOTktLjM2LS45Mi0uMzUtMS42LTEuMDUtLjY4LS42OS0xLjA3LTEuNzItLjM5LTEuMDItLjM5LTIuMzcgMC0xLjA1LjM0LTEuOTguMzQtLjkyLjk3LTEuNjEuNjQtLjY4IDEuNTUtMS4wOC45Mi0uNCAyLjA3LS40Ljk3IDAgMS43OS4zMXQxLjQxLjlxLjU5LjYuOTIgMS40Ni4zNC44Ny4zNCAxLjk4IDAgLjU2LS4xMi43Ni0uMTIuMTktLjQ2LjE5bTkuMjUtNC4zMy0uNTYuODlxLS4xLjE2LS4yMS4yMi0uMTEuMDctLjI4LjA3LS4xOCAwLS4zOS0uMS0uMi0uMS0uNDctLjIyLS4yNy0uMTMtLjYyLS4yMy0uMzQtLjEtLjgxLS4xLS43MyAwLTEuMTUuMzEtLjQxLjMxLS40MS44MSAwIC4zMy4yMS41NS4yMi4yMy41Ny40LjM2LjE3LjgxLjMuNDUuMTQuOTEuMy40Ny4xNi45Mi4zNy40NS4yLjguNTEuMzYuMzIuNTcuNzYuMjIuNDQuMjIgMS4wNiAwIC43NC0uMjcgMS4zNi0uMjYuNjMtLjc4IDEuMDgtLjUyLjQ2LTEuMjkuNzEtLjc2LjI2LTEuNzYuMjYtLjUzIDAtMS4wNC0uMDktLjUtLjEtLjk3LS4yNy0uNDYtLjE3LS44Ni0uNC0uMzktLjIzLS42OS0uNWwuNTctLjk0cS4xMS0uMTcuMjYtLjI2dC4zOC0uMDkuNDMuMTNxLjIxLjEzLjQ4LjI4dC42My4yOHEuMzcuMTMuOTMuMTMuNDQgMCAuNzUtLjExLjMyLS4xLjUyLS4yNy4yMS0uMTcuMy0uNC4xLS4yMi4xLS40NiAwLS4zNi0uMjItLjU5LS4yMS0uMjMtLjU3LS40LS4zNS0uMTctLjgxLS4zMS0uNDUtLjEzLS45My0uMjktLjQ3LS4xNi0uOTMtLjM4LS40NS0uMjEtLjgxLS41NC0uMzUtLjMzLS41Ny0uODEtLjIxLS40OC0uMjEtMS4xNiAwLS42My4yNS0xLjJ0LjczLS45OXEuNDktLjQzIDEuMjEtLjY5LjczLS4yNSAxLjY4LS4yNSAxLjA2IDAgMS45My4zNXQxLjQ1LjkybTUuMzkgOS4zMXEtMS4zNCAwLTIuMDYtLjc1LS43MS0uNzYtLjcxLTIuMDl2LTUuNzNoLTEuMDVxLS4yIDAtLjM0LS4xM3QtLjE0LS4zOXYtLjk4bDEuNjUtLjI3LjUyLTIuOHEuMDUtLjIuMTktLjMxdC4zNi0uMTFoMS4yOHYzLjIzaDIuNzR2MS43NmgtMi43NHY1LjU2cTAgLjQ4LjIzLjc1LjI0LjI3LjY1LjI3LjIzIDAgLjM4LS4wNi4xNi0uMDUuMjctLjExLjEyLS4wNi4yMS0uMTIuMDktLjA1LjE4LS4wNS4xMSAwIC4xOC4wNS4wNy4wNi4xNS4xN2wuNzQgMS4ycS0uNTQuNDUtMS4yNC42OHQtMS40NS4yM20xOS4yLTMuNTdxLjIyIDAgLjM5LjE3bDEuMDYgMS4xNXEtLjg4IDEuMDktMi4xNiAxLjY3LTEuMjkuNTgtMy4wOS41OC0xLjYxIDAtMi45LS41NS0xLjI4LS41NS0yLjE5LTEuNTN0LTEuMzktMi4zNHEtLjQ5LTEuMzYtLjQ5LTIuOTcgMC0xLjYzLjUyLTIuOTguNTItMS4zNiAxLjQ3LTIuMzQuOTQtLjk4IDIuMjUtMS41MyAxLjMxLS41NCAyLjktLjU0IDEuNTggMCAyLjguNTIgMS4yMy41MiAyLjA5IDEuMzZsLS45IDEuMjVxLS4wOC4xMi0uMjEuMjEtLjEyLjA5LS4zNC4wOS0uMTUgMC0uMzEtLjA5LS4xNi0uMDgtLjM1LS4yLS4xOS0uMTMtLjQ0LS4yOHQtLjU4LS4yOHEtLjMzLS4xMi0uNzctLjIxLS40My0uMDgtMS0uMDgtLjk3IDAtMS43OC4zNS0uOC4zNC0xLjM4IDEtLjU4LjY1LS45IDEuNi0uMzIuOTQtLjMyIDIuMTUgMCAxLjIyLjM0IDIuMTcuMzUuOTUuOTQgMS42dDEuMzkgMXEuOC4zNCAxLjcyLjM0LjU1IDAgLjk5LS4wNi40NS0uMDYuODItLjE5LjM4LS4xMy43MS0uMzQuMzQtLjIuNjctLjUuMS0uMDkuMjEtLjE0LjExLS4wNi4yMy0uMDZtNy40NS03LjAxcTEuMTQgMCAyLjA3LjM3Ljk0LjM3IDEuNiAxLjA1LjY3LjY4IDEuMDMgMS42NnQuMzYgMi4xOXEwIDEuMjItLjM2IDIuMnQtMS4wMyAxLjY3cS0uNjYuNjktMS42IDEuMDYtLjkzLjM3LTIuMDcuMzctMS4xNSAwLTIuMDktLjM3dC0xLjYxLTEuMDZxLS42Ni0uNjktMS4wMy0xLjY3LS4zNi0uOTgtLjM2LTIuMiAwLTEuMjEuMzYtMi4xOS4zNy0uOTggMS4wMy0xLjY2LjY3LS42OCAxLjYxLTEuMDV0Mi4wOS0uMzdtMCA4LjY3cTEuMjggMCAxLjg5LS44Ni42Mi0uODYuNjItMi41MnQtLjYyLTIuNTNxLS42MS0uODctMS44OS0uODctMS4zIDAtMS45My44Ny0uNjIuODgtLjYyIDIuNTN0LjYyIDIuNTFxLjYzLjg3IDEuOTMuODdtMTIuMzctLjl2LTEuNzNxLTEuMDcuMDUtMS44LjE4LS43My4xNC0xLjE3LjM1dC0uNjMuNDktLjE5LjYxcTAgLjY1LjM4LjkzLjM5LjI4IDEuMDEuMjguNzYgMCAxLjMxLS4yNy41Ni0uMjggMS4wOS0uODRtLTUuMjItNS4zOS0uNDQtLjc5cTEuNzctMS42MiA0LjI2LTEuNjIuOSAwIDEuNjEuMy43MS4yOSAxLjIuODEuNDkuNTMuNzQgMS4yNi4yNi43My4yNiAxLjZ2Ni40OGgtMS4xMnEtLjM1IDAtLjU0LS4xLS4xOS0uMTEtLjMtLjQzbC0uMjItLjc0cS0uMzkuMzUtLjc2LjYxLS4zNy4yNy0uNzcuNDV0LS44Ni4yOHEtLjQ1LjA5LTEgLjA5LS42NSAwLTEuMi0uMTctLjU1LS4xOC0uOTUtLjUzdC0uNjItLjg3LS4yMi0xLjIxcTAtLjM5LjEzLS43OC4xMy0uMzguNDItLjczLjMtLjM1Ljc3LS42NnQxLjE1LS41NHEuNjktLjIzIDEuNi0uMzguOTEtLjE0IDIuMDgtLjE3di0uNnEwLTEuMDMtLjQ0LTEuNTMtLjQ0LS40OS0xLjI3LS40OS0uNiAwLTEgLjE0LS4zOS4xNC0uNjkuMzJsLS41NS4zMXEtLjI0LjE0LS41NC4xNC0uMjYgMC0uNDQtLjE0LS4xOC0uMTMtLjI5LS4zMW0xNi43Ny0xLjExLS41Ni44OXEtLjEuMTYtLjIxLjIyLS4xMS4wNy0uMjguMDctLjE4IDAtLjM5LS4xLS4yLS4xLS40Ny0uMjItLjI3LS4xMy0uNjItLjIzLS4zNC0uMS0uODEtLjEtLjczIDAtMS4xNC4zMS0uNDIuMzEtLjQyLjgxIDAgLjMzLjIxLjU1LjIyLjIzLjU3LjQuMzYuMTcuODEuMy40NS4xNC45MS4zLjQ3LjE2LjkyLjM3LjQ1LjIuOC41MS4zNi4zMi41Ny43Ni4yMi40NC4yMiAxLjA2IDAgLjc0LS4yNiAxLjM2LS4yNy42My0uNzkgMS4wOC0uNTIuNDYtMS4yOS43MS0uNzYuMjYtMS43Ni4yNi0uNTMgMC0xLjA0LS4wOS0uNS0uMS0uOTctLjI3LS40Ni0uMTctLjg2LS40LS4zOS0uMjMtLjY5LS41bC41Ny0uOTRxLjExLS4xNy4yNi0uMjZ0LjM4LS4wOS40NC4xM3EuMi4xMy40Ny4yOHQuNjMuMjhxLjM3LjEzLjkzLjEzLjQ0IDAgLjc1LS4xMS4zMi0uMS41My0uMjcuMi0uMTcuMjktLjQuMS0uMjIuMS0uNDYgMC0uMzYtLjIyLS41OS0uMjEtLjIzLS41Ny0uNC0uMzUtLjE3LS44MS0uMzEtLjQ1LS4xMy0uOTMtLjI5LS40Ny0uMTYtLjkyLS4zOC0uNDYtLjIxLS44Mi0uNTQtLjM1LS4zMy0uNTctLjgxLS4yMS0uNDgtLjIxLTEuMTYgMC0uNjMuMjUtMS4ydC43NC0uOTlxLjQ4LS40MyAxLjItLjY5LjczLS4yNSAxLjY4LS4yNSAxLjA2IDAgMS45My4zNXQxLjQ1LjkybTUuMzkgOS4zMXEtMS4zNCAwLTIuMDYtLjc1LS43MS0uNzYtLjcxLTIuMDl2LTUuNzNoLTEuMDVxLS4yIDAtLjM0LS4xM3QtLjE0LS4zOXYtLjk4bDEuNjUtLjI3LjUyLTIuOHEuMDUtLjIuMTktLjMxdC4zNi0uMTFoMS4yOHYzLjIzaDIuNzR2MS43NmgtMi43NHY1LjU2cTAgLjQ4LjI0Ljc1LjIzLjI3LjY0LjI3LjIzIDAgLjM5LS4wNi4xNS0uMDUuMjctLjExLjExLS4wNi4yLS4xMi4wOS0uMDUuMTgtLjA1LjExIDAgLjE4LjA1LjA3LjA2LjE1LjE3bC43NCAxLjJxLS41NC40NS0xLjI0LjY4dC0xLjQ1LjIzbTExLjk3LTE0LjYydjE0LjQ2aC0yLjd2LTE0LjQ2em01LjkyIDcuMjdoMi4wMXEuNzQgMCAxLjI5LS4xOS41NS0uMTguOTEtLjUzLjM3LS4zNC41NS0uODQuMTgtLjQ5LjE4LTEuMSAwLS41OC0uMTgtMS4wNXQtLjU0LS44LS45MS0uNTFxLS41NS0uMTctMS4zLS4xN2gtMi4wMXptLTIuNjktNy4yN2g0LjdxMS40NSAwIDIuNTEuMzR0MS43NS45NSAxLjAyIDEuNDZxLjM0Ljg1LjM0IDEuODYgMCAxLjA1LS4zNSAxLjkzLS4zNS44Ny0xLjA1IDEuNXQtMS43Ni45OHEtMS4wNS4zNS0yLjQ2LjM1aC0yLjAxdjUuMDloLTIuNjl6bTE1LjQyIDloNC42bC0xLjc2LTQuODFxLS4xMy0uMzItLjI3LS43NnQtLjI4LS45NXEtLjEzLjUxLS4yNy45NS0uMTQuNDUtLjI3Ljc4em0zLjY3LTkgNS42OCAxNC40NmgtMi4wOHEtLjM1IDAtLjU3LS4xOC0uMjItLjE3LS4zMy0uNDNsLTEuMDgtMi45NWgtNS45OWwtMS4wOCAyLjk1cS0uMDguMjMtLjMxLjQydC0uNTcuMTloLTIuMWw1LjY5LTE0LjQ2eiIvPjwvc3ZnPg=="
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "memory_correction",
+        "confidence": 1,
+        "slots": {
+          "beerName": "上次我说喜欢IPA"
+        }
+      }
+    ],
+    "intent": "memory_correction",
+    "confidence": 1,
+    "slots": {
+      "beerName": "上次我说喜欢IPA"
+    },
+    "missingInfo": [],
+    "routeReason": "override match: memory_correction (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "memory_correction",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆/ matched → forced to memory_correction",
+      "candidateScores": [
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "memory_correction",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像：喜欢柑橘风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783650328368_sofmlg",
+        "reason": "image + memory_correction — complex correction flow",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_rnm2",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "上次我说喜欢IPA，你给我推荐了好多浑浊IPA（NEIPA），但我其实更喜欢西海岸IPA那种清亮、苦味明显的风格。",
+              "hasImage": true
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:28.368Z",
+            "output": {
+              "intent": "memory_correction",
+              "confidence": 1,
+              "source": "rule",
+              "isMultiIntent": false,
+              "intents": [
+                {
+                  "intent": "memory_correction",
+                  "confidence": 1,
+                  "slots": {
+                    "beerName": "上次我说喜欢IPA"
+                  }
+                }
+              ],
+              "slots": {
+                "beerName": "上次我说喜欢IPA"
+              },
+              "missingInfo": [],
+              "routeReason": "override match: memory_correction (100%)"
+            },
+            "completedAt": "2026-07-10T02:25:28.368Z"
+          },
+          {
+            "id": "step_retrieve_memory_94u3",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user profile and preferences",
+            "input": {
+              "userId": "vqa-auto-test"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:28.368Z",
+            "output": {
+              "profile": {
+                "userId": "vqa-auto-test",
+                "updatedAt": "2026-07-10T02:25:22.405Z",
+                "summary": "喜欢柑橘风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "柑橘",
+                    "weight": 0.5,
+                    "evidenceCount": 1
+                  }
+                ],
+                "dislikedTags": [],
+                "notes": [
+                  "Pseudo Sue 4分，会再喝",
+                  "这酒不错，给5分，柑橘味",
+                  "不好喝，2分，不会再喝",
+                  "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                  "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+                ],
+                "confidence": 0.3,
+                "evidenceCount": 3,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 5,
+                    "topStyles": [
+                      "Pale Ale - American"
+                    ],
+                    "topTags": [
+                      "柑橘"
+                    ],
+                    "dislikedTags": [],
+                    "avgScore": 3.7,
+                    "abvRange": {
+                      "min": 5.8,
+                      "max": 5.8
+                    }
+                  }
+                ],
+                "updatedAt": "2026-07-10T02:25:22.408Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 0.3
+            },
+            "completedAt": "2026-07-10T02:25:28.368Z"
+          },
+          {
+            "id": "step_compose_answer_rekk",
+            "tool": "compose_answer",
+            "purpose": "Compose final reply with available context",
+            "input": {
+              "toolOutputs": {
+                "classify_intent": {
+                  "intent": "memory_correction",
+                  "confidence": 1,
+                  "source": "rule",
+                  "isMultiIntent": false,
+                  "intents": [
+                    {
+                      "intent": "memory_correction",
+                      "confidence": 1,
+                      "slots": {
+                        "beerName": "上次我说喜欢IPA"
+                      }
+                    }
+                  ],
+                  "slots": {
+                    "beerName": "上次我说喜欢IPA"
+                  },
+                  "missingInfo": [],
+                  "routeReason": "override match: memory_correction (100%)"
+                },
+                "retrieve_memory": {
+                  "profile": {
+                    "userId": "vqa-auto-test",
+                    "updatedAt": "2026-07-10T02:25:22.405Z",
+                    "summary": "喜欢柑橘风味",
+                    "preferredStyles": [],
+                    "dislikedStyles": [],
+                    "preferredTags": [
+                      {
+                        "value": "柑橘",
+                        "weight": 0.5,
+                        "evidenceCount": 1
+                      }
+                    ],
+                    "dislikedTags": [],
+                    "notes": [
+                      "Pseudo Sue 4分，会再喝",
+                      "这酒不错，给5分，柑橘味",
+                      "不好喝，2分，不会再喝",
+                      "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                      "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+                    ],
+                    "confidence": 0.3,
+                    "evidenceCount": 3,
+                    "correctionsCount": 0,
+                    "correctionsApplied": false
+                  },
+                  "trends": {
+                    "months": [
+                      {
+                        "month": "2026-07",
+                        "episodeCount": 5,
+                        "topStyles": [
+                          "Pale Ale - American"
+                        ],
+                        "topTags": [
+                          "柑橘"
+                        ],
+                        "dislikedTags": [],
+                        "avgScore": 3.7,
+                        "abvRange": {
+                          "min": 5.8,
+                          "max": 5.8
+                        }
+                      }
+                    ],
+                    "updatedAt": "2026-07-10T02:25:22.408Z"
+                  },
+                  "corrections": [],
+                  "hasProfile": true,
+                  "profileConfidence": 0.3
+                }
+              },
+              "reason": "image + memory_correction — complex correction flow"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:28.368Z",
+            "output": {
+              "reply": "根据你的口味画像：喜欢柑橘风味",
+              "candidates": [],
+              "picks": {
+                "topPick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "safePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "explorePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "avoidOrCaution": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                }
+              },
+              "profileSummary": "喜欢柑橘风味"
+            },
+            "completedAt": "2026-07-10T02:25:28.368Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "image + memory_correction — complex correction flow",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "compose_answer"
+          ],
+          "missingContext": [
+            "limited_profile_data",
+            "no_active_menu"
+          ],
+          "fallbackUsed": false
+        },
+        "finalAnswer": "根据你的口味画像：喜欢柑橘风味"
+      },
+      "planId": "plan_1783650328368_sofmlg",
+      "reason": "image + memory_correction — complex correction flow",
+      "success": true,
+      "fallback": false,
+      "steps": [
+        {
+          "id": "step_classify_intent_rnm2",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "memory_correction",
+            "confidence": 1,
+            "source": "rule",
+            "isMultiIntent": false,
+            "intents": [
+              {
+                "intent": "memory_correction",
+                "confidence": 1,
+                "slots": {
+                  "beerName": "上次我说喜欢IPA"
+                }
+              }
+            ],
+            "slots": {
+              "beerName": "上次我说喜欢IPA"
+            },
+            "missingInfo": [],
+            "routeReason": "override match: memory_correction (100%)"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_94u3",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile and preferences",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 800,
+            "_preview": "{\"profile\":{\"userId\":\"vqa-auto-test\",\"updatedAt\":\"2026-07-10T02:25:22.405Z\",\"summary\":\"喜欢柑橘风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"柑橘\",\"weight\":0.5,\"evidenceCount\":1}],..."
+          }
+        },
+        {
+          "id": "step_compose_answer_rekk",
+          "tool": "compose_answer",
+          "purpose": "Compose final reply with available context",
+          "status": "completed",
+          "outputSummary": {
+            "reply": "根据你的口味画像：喜欢柑橘风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢柑橘风味"
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "image + memory_correction — complex correction flow",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "compose_answer"
+        ],
+        "missingContext": [
+          "limited_profile_data",
+          "no_active_menu"
+        ],
+        "fallbackUsed": false
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": true,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "image + memory_correction — complex correction flow",
+      "fallbackUsed": false,
+      "stepCount": 3,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783650328368_sofmlg",
+      "reason": "image + memory_correction — complex correction flow",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_rnm2",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "上次我说喜欢IPA，你给我推荐了好多浑浊IPA（NEIPA），但我其实更喜欢西海岸IPA那种清亮、苦味明显的风格。",
+            "hasImage": true
+          },
+          "output": {
+            "intent": "memory_correction",
+            "confidence": 1,
+            "source": "rule",
+            "isMultiIntent": false,
+            "intents": [
+              {
+                "intent": "memory_correction",
+                "confidence": 1,
+                "slots": {
+                  "beerName": "上次我说喜欢IPA"
+                }
+              }
+            ],
+            "slots": {
+              "beerName": "上次我说喜欢IPA"
+            },
+            "missingInfo": [],
+            "routeReason": "override match: memory_correction (100%)"
+          },
+          "startedAt": "2026-07-10T02:25:28.368Z",
+          "completedAt": "2026-07-10T02:25:28.368Z"
+        },
+        {
+          "id": "step_retrieve_memory_94u3",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile and preferences",
+          "status": "completed",
+          "input": {
+            "userId": "vqa-auto-test"
+          },
+          "output": {
+            "profile": {
+              "userId": "vqa-auto-test",
+              "updatedAt": "2026-07-10T02:25:22.405Z",
+              "summary": "喜欢柑橘风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "柑橘",
+                  "weight": 0.5,
+                  "evidenceCount": 1
+                }
+              ],
+              "dislikedTags": [],
+              "notes": [
+                "Pseudo Sue 4分，会再喝",
+                "这酒不错，给5分，柑橘味",
+                "不好喝，2分，不会再喝",
+                "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+              ],
+              "confidence": 0.3,
+              "evidenceCount": 3,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 5,
+                  "topStyles": [
+                    "Pale Ale - American"
+                  ],
+                  "topTags": [
+                    "柑橘"
+                  ],
+                  "dislikedTags": [],
+                  "avgScore": 3.7,
+                  "abvRange": {
+                    "min": 5.8,
+                    "max": 5.8
+                  }
+                }
+              ],
+              "updatedAt": "2026-07-10T02:25:22.408Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 0.3
+          },
+          "startedAt": "2026-07-10T02:25:28.368Z",
+          "completedAt": "2026-07-10T02:25:28.368Z"
+        },
+        {
+          "id": "step_compose_answer_rekk",
+          "tool": "compose_answer",
+          "purpose": "Compose final reply with available context",
+          "status": "completed",
+          "input": {
+            "toolOutputs": {
+              "classify_intent": {
+                "intent": "memory_correction",
+                "confidence": 1,
+                "source": "rule",
+                "isMultiIntent": false,
+                "intents": [
+                  {
+                    "intent": "memory_correction",
+                    "confidence": 1,
+                    "slots": {
+                      "beerName": "上次我说喜欢IPA"
+                    }
+                  }
+                ],
+                "slots": {
+                  "beerName": "上次我说喜欢IPA"
+                },
+                "missingInfo": [],
+                "routeReason": "override match: memory_correction (100%)"
+              },
+              "retrieve_memory": {
+                "profile": {
+                  "userId": "vqa-auto-test",
+                  "updatedAt": "2026-07-10T02:25:22.405Z",
+                  "summary": "喜欢柑橘风味",
+                  "preferredStyles": [],
+                  "dislikedStyles": [],
+                  "preferredTags": [
+                    {
+                      "value": "柑橘",
+                      "weight": 0.5,
+                      "evidenceCount": 1
+                    }
+                  ],
+                  "dislikedTags": [],
+                  "notes": [
+                    "Pseudo Sue 4分，会再喝",
+                    "这酒不错，给5分，柑橘味",
+                    "不好喝，2分，不会再喝",
+                    "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                    "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+                  ],
+                  "confidence": 0.3,
+                  "evidenceCount": 3,
+                  "correctionsCount": 0,
+                  "correctionsApplied": false
+                },
+                "trends": {
+                  "months": [
+                    {
+                      "month": "2026-07",
+                      "episodeCount": 5,
+                      "topStyles": [
+                        "Pale Ale - American"
+                      ],
+                      "topTags": [
+                        "柑橘"
+                      ],
+                      "dislikedTags": [],
+                      "avgScore": 3.7,
+                      "abvRange": {
+                        "min": 5.8,
+                        "max": 5.8
+                      }
+                    }
+                  ],
+                  "updatedAt": "2026-07-10T02:25:22.408Z"
+                },
+                "corrections": [],
+                "hasProfile": true,
+                "profileConfidence": 0.3
+              }
+            },
+            "reason": "image + memory_correction — complex correction flow"
+          },
+          "output": {
+            "reply": "根据你的口味画像：喜欢柑橘风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢柑橘风味"
+          },
+          "startedAt": "2026-07-10T02:25:28.368Z",
+          "completedAt": "2026-07-10T02:25:28.368Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像：喜欢柑橘风味"
+    },
+    "diagnostics": {
+      "triggerReason": "image + memory_correction — complex correction flow",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ],
+      "missingContext": [
+        "limited_profile_data",
+        "no_active_menu"
+      ],
+      "fallbackUsed": false
+    }
+  }
+}

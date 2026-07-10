@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T09:17:32.232Z",
+  "visionModel": "qwen/qwen3-vl-8b-instruct",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 29010,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "[beer_signal] Could not parse JSON: {\n  \"sourceType\": \"tap_list\",\n  \"rawText\": \"1 斯塔姆 | 俄罗斯 ABV:4.7% 425ml ¥60 年轻领主 捷克皮尔森 Your Young Lordship Czech Pilsner Stamm | RUS 2 三得利 | 日本 ABV:5.5% 300ml ¥65 黑啤 德式黑啤（限定酒款） The Premium Malt's Black",
+      "durationMs": 29010
+    }
+  ]
+}

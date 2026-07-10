@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-德米海德拉10号",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:23.207Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611623073_o69g97",
+      "userText": "德米海德拉10号",
+      "assistantReply": "我会这样点：\n\n1. 德米海德拉10号 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 德米海德拉10号 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 德米海德拉10号 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：德米海德拉10号\n最值得尝新：德米海德拉10号\n我会先跳过：德米海德拉10号 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 德米海德拉10号。\n\n⚠️ 德米海德拉10号 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:23.207Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611623073_vqca5s",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "德米海德拉10号",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:23.207Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "德米海德拉10号",
+    "brewery": ""
+  }
+}

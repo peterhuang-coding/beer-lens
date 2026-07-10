@@ -1,0 +1,744 @@
+{
+  "traceId": "trace_1783651063514_7lq33m",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_memory_correction_1",
+  "turnId": "trace_1783651063514_x8zdaj",
+  "timestamp": "2026-07-10T02:37:43.526Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA，帮我纠正一下",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "memory_correction",
+        "confidence": 1,
+        "slots": {
+          "beerName": "上次我说喜欢IPA"
+        }
+      }
+    ],
+    "intent": "memory_correction",
+    "confidence": 1,
+    "slots": {
+      "beerName": "上次我说喜欢IPA"
+    },
+    "missingInfo": [],
+    "routeReason": "override match: memory_correction (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "memory_correction",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆/ matched → forced to memory_correction",
+      "candidateScores": [
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "memory_correction",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像：喜欢酒精和柑橘风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783651063525_j3t725",
+        "reason": "memory_correction with existing profile — correction → re-recommend flow",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_2o3l",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA，帮我纠正一下",
+              "hasImage": false
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:37:43.525Z",
+            "output": {
+              "intent": "memory_correction",
+              "confidence": 1,
+              "source": "rule",
+              "isMultiIntent": false,
+              "intents": [
+                {
+                  "intent": "memory_correction",
+                  "confidence": 1,
+                  "slots": {
+                    "beerName": "上次我说喜欢IPA"
+                  }
+                }
+              ],
+              "slots": {
+                "beerName": "上次我说喜欢IPA"
+              },
+              "missingInfo": [],
+              "routeReason": "override match: memory_correction (100%)"
+            },
+            "completedAt": "2026-07-10T02:37:43.525Z"
+          },
+          {
+            "id": "step_retrieve_memory_5msv",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user profile and preferences",
+            "input": {
+              "userId": "vqa-auto-test"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:37:43.525Z",
+            "output": {
+              "profile": {
+                "userId": "vqa-auto-test",
+                "updatedAt": "2026-07-10T02:37:25.264Z",
+                "summary": "喜欢酒精和柑橘风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "酒精",
+                    "weight": 2,
+                    "evidenceCount": 2
+                  },
+                  {
+                    "value": "柑橘",
+                    "weight": 0.5,
+                    "evidenceCount": 1
+                  }
+                ],
+                "dislikedTags": [],
+                "notes": [
+                  "Pseudo Sue 4分，会再喝",
+                  "这酒不错，给5分，柑橘味",
+                  "不好喝，2分，不会再喝",
+                  "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                  "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                  "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                  "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                  "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝",
+                  "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                  "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                  "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝"
+                ],
+                "confidence": 0.5,
+                "evidenceCount": 5,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 11,
+                    "topStyles": [
+                      "Pale Ale - American"
+                    ],
+                    "topTags": [
+                      "酒精",
+                      "柑橘"
+                    ],
+                    "dislikedTags": [],
+                    "avgScore": 4,
+                    "abvRange": {
+                      "min": 5.8,
+                      "max": 5.8
+                    }
+                  }
+                ],
+                "updatedAt": "2026-07-10T02:37:25.267Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 0.5
+            },
+            "completedAt": "2026-07-10T02:37:43.525Z"
+          },
+          {
+            "id": "step_compose_answer_z8lw",
+            "tool": "compose_answer",
+            "purpose": "Compose final reply with available context",
+            "input": {
+              "toolOutputs": {
+                "classify_intent": {
+                  "intent": "memory_correction",
+                  "confidence": 1,
+                  "source": "rule",
+                  "isMultiIntent": false,
+                  "intents": [
+                    {
+                      "intent": "memory_correction",
+                      "confidence": 1,
+                      "slots": {
+                        "beerName": "上次我说喜欢IPA"
+                      }
+                    }
+                  ],
+                  "slots": {
+                    "beerName": "上次我说喜欢IPA"
+                  },
+                  "missingInfo": [],
+                  "routeReason": "override match: memory_correction (100%)"
+                },
+                "retrieve_memory": {
+                  "profile": {
+                    "userId": "vqa-auto-test",
+                    "updatedAt": "2026-07-10T02:37:25.264Z",
+                    "summary": "喜欢酒精和柑橘风味",
+                    "preferredStyles": [],
+                    "dislikedStyles": [],
+                    "preferredTags": [
+                      {
+                        "value": "酒精",
+                        "weight": 2,
+                        "evidenceCount": 2
+                      },
+                      {
+                        "value": "柑橘",
+                        "weight": 0.5,
+                        "evidenceCount": 1
+                      }
+                    ],
+                    "dislikedTags": [],
+                    "notes": [
+                      "Pseudo Sue 4分，会再喝",
+                      "这酒不错，给5分，柑橘味",
+                      "不好喝，2分，不会再喝",
+                      "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                      "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                      "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                      "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                      "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝",
+                      "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                      "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                      "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝"
+                    ],
+                    "confidence": 0.5,
+                    "evidenceCount": 5,
+                    "correctionsCount": 0,
+                    "correctionsApplied": false
+                  },
+                  "trends": {
+                    "months": [
+                      {
+                        "month": "2026-07",
+                        "episodeCount": 11,
+                        "topStyles": [
+                          "Pale Ale - American"
+                        ],
+                        "topTags": [
+                          "酒精",
+                          "柑橘"
+                        ],
+                        "dislikedTags": [],
+                        "avgScore": 4,
+                        "abvRange": {
+                          "min": 5.8,
+                          "max": 5.8
+                        }
+                      }
+                    ],
+                    "updatedAt": "2026-07-10T02:37:25.267Z"
+                  },
+                  "corrections": [],
+                  "hasProfile": true,
+                  "profileConfidence": 0.5
+                }
+              },
+              "reason": "memory_correction with existing profile — correction → re-recommend flow"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:37:43.525Z",
+            "output": {
+              "reply": "根据你的口味画像：喜欢酒精和柑橘风味",
+              "candidates": [],
+              "picks": {
+                "topPick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "safePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "explorePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "avoidOrCaution": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                }
+              },
+              "profileSummary": "喜欢酒精和柑橘风味"
+            },
+            "completedAt": "2026-07-10T02:37:43.525Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "memory_correction with existing profile — correction → re-recommend flow",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "compose_answer"
+          ],
+          "missingContext": [
+            "limited_profile_data",
+            "no_active_menu"
+          ],
+          "fallbackUsed": false
+        },
+        "finalAnswer": "根据你的口味画像：喜欢酒精和柑橘风味"
+      },
+      "planId": "plan_1783651063525_j3t725",
+      "reason": "memory_correction with existing profile — correction → re-recommend flow",
+      "success": true,
+      "fallback": false,
+      "steps": [
+        {
+          "id": "step_classify_intent_2o3l",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "memory_correction",
+            "confidence": 1,
+            "source": "rule",
+            "isMultiIntent": false,
+            "intents": [
+              {
+                "intent": "memory_correction",
+                "confidence": 1,
+                "slots": {
+                  "beerName": "上次我说喜欢IPA"
+                }
+              }
+            ],
+            "slots": {
+              "beerName": "上次我说喜欢IPA"
+            },
+            "missingInfo": [],
+            "routeReason": "override match: memory_correction (100%)"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_5msv",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile and preferences",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 1261,
+            "_preview": "{\"profile\":{\"userId\":\"vqa-auto-test\",\"updatedAt\":\"2026-07-10T02:37:25.264Z\",\"summary\":\"喜欢酒精和柑橘风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"酒精\",\"weight\":2,\"evidenceCount\":2},..."
+          }
+        },
+        {
+          "id": "step_compose_answer_z8lw",
+          "tool": "compose_answer",
+          "purpose": "Compose final reply with available context",
+          "status": "completed",
+          "outputSummary": {
+            "reply": "根据你的口味画像：喜欢酒精和柑橘风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢酒精和柑橘风味"
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "memory_correction with existing profile — correction → re-recommend flow",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "compose_answer"
+        ],
+        "missingContext": [
+          "limited_profile_data",
+          "no_active_menu"
+        ],
+        "fallbackUsed": false
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "memory_correction with existing profile — correction → re-recommend flow",
+      "fallbackUsed": false,
+      "stepCount": 3,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783651063525_j3t725",
+      "reason": "memory_correction with existing profile — correction → re-recommend flow",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_2o3l",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "上次我说喜欢IPA，但其实我更喜欢西海岸IPA，帮我纠正一下",
+            "hasImage": false
+          },
+          "output": {
+            "intent": "memory_correction",
+            "confidence": 1,
+            "source": "rule",
+            "isMultiIntent": false,
+            "intents": [
+              {
+                "intent": "memory_correction",
+                "confidence": 1,
+                "slots": {
+                  "beerName": "上次我说喜欢IPA"
+                }
+              }
+            ],
+            "slots": {
+              "beerName": "上次我说喜欢IPA"
+            },
+            "missingInfo": [],
+            "routeReason": "override match: memory_correction (100%)"
+          },
+          "startedAt": "2026-07-10T02:37:43.525Z",
+          "completedAt": "2026-07-10T02:37:43.525Z"
+        },
+        {
+          "id": "step_retrieve_memory_5msv",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile and preferences",
+          "status": "completed",
+          "input": {
+            "userId": "vqa-auto-test"
+          },
+          "output": {
+            "profile": {
+              "userId": "vqa-auto-test",
+              "updatedAt": "2026-07-10T02:37:25.264Z",
+              "summary": "喜欢酒精和柑橘风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "酒精",
+                  "weight": 2,
+                  "evidenceCount": 2
+                },
+                {
+                  "value": "柑橘",
+                  "weight": 0.5,
+                  "evidenceCount": 1
+                }
+              ],
+              "dislikedTags": [],
+              "notes": [
+                "Pseudo Sue 4分，会再喝",
+                "这酒不错，给5分，柑橘味",
+                "不好喝，2分，不会再喝",
+                "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝",
+                "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝"
+              ],
+              "confidence": 0.5,
+              "evidenceCount": 5,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 11,
+                  "topStyles": [
+                    "Pale Ale - American"
+                  ],
+                  "topTags": [
+                    "酒精",
+                    "柑橘"
+                  ],
+                  "dislikedTags": [],
+                  "avgScore": 4,
+                  "abvRange": {
+                    "min": 5.8,
+                    "max": 5.8
+                  }
+                }
+              ],
+              "updatedAt": "2026-07-10T02:37:25.267Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 0.5
+          },
+          "startedAt": "2026-07-10T02:37:43.525Z",
+          "completedAt": "2026-07-10T02:37:43.525Z"
+        },
+        {
+          "id": "step_compose_answer_z8lw",
+          "tool": "compose_answer",
+          "purpose": "Compose final reply with available context",
+          "status": "completed",
+          "input": {
+            "toolOutputs": {
+              "classify_intent": {
+                "intent": "memory_correction",
+                "confidence": 1,
+                "source": "rule",
+                "isMultiIntent": false,
+                "intents": [
+                  {
+                    "intent": "memory_correction",
+                    "confidence": 1,
+                    "slots": {
+                      "beerName": "上次我说喜欢IPA"
+                    }
+                  }
+                ],
+                "slots": {
+                  "beerName": "上次我说喜欢IPA"
+                },
+                "missingInfo": [],
+                "routeReason": "override match: memory_correction (100%)"
+              },
+              "retrieve_memory": {
+                "profile": {
+                  "userId": "vqa-auto-test",
+                  "updatedAt": "2026-07-10T02:37:25.264Z",
+                  "summary": "喜欢酒精和柑橘风味",
+                  "preferredStyles": [],
+                  "dislikedStyles": [],
+                  "preferredTags": [
+                    {
+                      "value": "酒精",
+                      "weight": 2,
+                      "evidenceCount": 2
+                    },
+                    {
+                      "value": "柑橘",
+                      "weight": 0.5,
+                      "evidenceCount": 1
+                    }
+                  ],
+                  "dislikedTags": [],
+                  "notes": [
+                    "Pseudo Sue 4分，会再喝",
+                    "这酒不错，给5分，柑橘味",
+                    "不好喝，2分，不会再喝",
+                    "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                    "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                    "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                    "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                    "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝",
+                    "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                    "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。",
+                    "今天喝了Parabola，14.1%的酒精度，波本桶味很浓，给4.5分，会再喝"
+                  ],
+                  "confidence": 0.5,
+                  "evidenceCount": 5,
+                  "correctionsCount": 0,
+                  "correctionsApplied": false
+                },
+                "trends": {
+                  "months": [
+                    {
+                      "month": "2026-07",
+                      "episodeCount": 11,
+                      "topStyles": [
+                        "Pale Ale - American"
+                      ],
+                      "topTags": [
+                        "酒精",
+                        "柑橘"
+                      ],
+                      "dislikedTags": [],
+                      "avgScore": 4,
+                      "abvRange": {
+                        "min": 5.8,
+                        "max": 5.8
+                      }
+                    }
+                  ],
+                  "updatedAt": "2026-07-10T02:37:25.267Z"
+                },
+                "corrections": [],
+                "hasProfile": true,
+                "profileConfidence": 0.5
+              }
+            },
+            "reason": "memory_correction with existing profile — correction → re-recommend flow"
+          },
+          "output": {
+            "reply": "根据你的口味画像：喜欢酒精和柑橘风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢酒精和柑橘风味"
+          },
+          "startedAt": "2026-07-10T02:37:43.525Z",
+          "completedAt": "2026-07-10T02:37:43.525Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像：喜欢酒精和柑橘风味"
+    },
+    "diagnostics": {
+      "triggerReason": "memory_correction with existing profile — correction → re-recommend flow",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ],
+      "missingContext": [
+        "limited_profile_data",
+        "no_active_menu"
+      ],
+      "fallbackUsed": false
+    }
+  }
+}

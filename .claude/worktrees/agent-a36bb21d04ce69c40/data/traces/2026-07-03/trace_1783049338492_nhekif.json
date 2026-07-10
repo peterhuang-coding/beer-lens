@@ -1,0 +1,81 @@
+{
+  "traceId": "trace_1783049338492_nhekif",
+  "userId": "test",
+  "channel": "web",
+  "conversationId": "test-bench",
+  "turnId": "trace_1783049338492_r93954",
+  "timestamp": "2026-07-03T03:28:58.530Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "帮我推荐一款IPA，顺便看我口味",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.9,
+        "slots": {
+          "style": "IPA",
+          "beerName": "帮我推荐一款IPA"
+        }
+      },
+      {
+        "intent": "profile_query",
+        "confidence": 0.9,
+        "slots": {}
+      },
+      {
+        "intent": "follow_up_filter",
+        "confidence": 0.82,
+        "slots": {
+          "style": "IPA"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.9,
+    "slots": {
+      "style": "IPA",
+      "beerName": "帮我推荐一款IPA"
+    },
+    "missingInfo": [],
+    "routeReason": "Multi-intent: menu_recommend(90%), profile_query(90%), follow_up_filter(82%)",
+    "source": "rule",
+    "isMultiIntent": true
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "帮我推荐一款IPA"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. 帮我推荐一款IPA - 综合表现适中\n2. 帮我推荐一款IPA - 综合表现适中\n3. 帮我推荐一款IPA - 综合表现适中\n\n最稳：帮我推荐一款IPA\n最值得尝新：帮我推荐一款IPA\n我会先跳过：帮我推荐一款IPA\n\n如果只能喝一杯，选 帮我推荐一款IPA。\n\n顺便说一下，ABV 0-0%",
+    "candidateCount": 2,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned",
+      "missing_data_rating_mentioned"
+    ]
+  }
+}

@@ -1,0 +1,775 @@
+{
+  "traceId": "trace_1783650333414_h83dye",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_follow_up_filter_2",
+  "turnId": "trace_1783650333414_yn6vta",
+  "timestamp": "2026-07-10T02:25:33.453Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "最近天冷想喝点世涛，有什么推荐？",
+    "hasImage": true,
+    "imageName": "vqa_follow_up_filter_2.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik05MS4yNiAyOTEuNjNoLTguMDJ2NS4zNWg2Ljc3djIuNjloLTYuNzd2Ny4zNmgtMy4zOHYtMTguMDdoMTEuNHptMi4zNiAyLjU3aDMuMXYxMi44M2gtMy4xem0zLjUzLTMuNzNxMCAuNC0uMTYuNzV0LS40My42MS0uNjQuNDJxLS4zNi4xNS0uNzcuMTUtLjQgMC0uNzYtLjE1LS4zNS0uMTYtLjYxLS40Mi0uMjctLjI2LS40Mi0uNjEtLjE2LS4zNS0uMTYtLjc1IDAtLjQyLjE2LS43OC4xNS0uMzYuNDItLjYyLjI2LS4yNy42MS0uNDIuMzYtLjE2Ljc2LS4xNi40MSAwIC43Ny4xNi4zNy4xNS42NC40Mi4yNy4yNi40My42MnQuMTYuNzhtMi43Ni0yLjAxSDEwM3YxOC41N2gtMy4wOXptMTAuNDUgMTguNzdxLTEuNjcgMC0yLjU3LS45NC0uODktLjk1LS44OS0yLjYxdi03LjE2aC0xLjMxcS0uMjUgMC0uNDMtLjE3LS4xNy0uMTYtLjE3LS40OHYtMS4yM2wyLjA2LS4zNC42NS0zLjVxLjA2LS4yNS4yNC0uMzguMTctLjE0LjQ1LS4xNGgxLjZ2NC4wNGgzLjQydjIuMmgtMy40MnY2Ljk1cTAgLjYuMjkuOTMuMy4zNC44MS4zNC4yOCAwIC40OC0uMDcuMTktLjA3LjM0LS4xNC4xNC0uMDguMjUtLjE0LjEyLS4wNy4yMy0uMDcuMTQgMCAuMjIuMDcuMDkuMDYuMTkuMmwuOTIgMS41cS0uNjcuNTYtMS41NS44NS0uODcuMjktMS44MS4yOW03LjQ3LTguMDloNS44MnEwLS42LS4xNy0xLjEzdC0uNTEtLjkzcS0uMzMtLjQtLjg1LS42M3QtMS4yMS0uMjNxLTEuMzMgMC0yLjEuNzZ0LS45OCAyLjE2bTcuODcgMS44NmgtNy45NHEuMDguOTkuMzUgMS43MS4yOC43Mi43MyAxLjE5dDEuMDcuN3EuNjEuMjMgMS4zNi4yM3QxLjMtLjE4cS41NC0uMTcuOTUtLjM4bC43MS0uMzlxLjMxLS4xOC42LS4xOC4zOCAwIC41Ny4yOWwuODkgMS4xM3EtLjUxLjYtMS4xNSAxLS42NC40MS0xLjMzLjY1LS43LjI1LTEuNDIuMzV0LTEuMzkuMXEtMS4zNCAwLTIuNDktLjQ1LTEuMTUtLjQ0LTItMS4zMXQtMS4zNC0yLjE1cS0uNDgtMS4yOC0uNDgtMi45NyAwLTEuMzEuNDItMi40Ny40My0xLjE1IDEuMjItMi4wMXQxLjk0LTEuMzZxMS4xNC0uNSAyLjU4LS41IDEuMjEgMCAyLjI0LjM5IDEuMDIuMzkgMS43NiAxLjEzLjc0Ljc1IDEuMTYgMS44My40MSAxLjA4LjQxIDIuNDcgMCAuNy0uMTQuOTQtLjE2LjI0LS41OC4yNG01Ljc2LTYuMDIuMTkgMS40NXEuNi0xLjE1IDEuNDMtMS44MS44Mi0uNjUgMS45NS0uNjUuODggMCAxLjQyLjM4bC0uMiAyLjMycS0uMDYuMjItLjE4LjMyLS4xMi4wOS0uMzIuMDktLjE5IDAtLjU2LS4wNi0uMzYtLjA3LS43MS0uMDctLjUyIDAtLjkyLjE1dC0uNzIuNDRxLS4zMS4yOC0uNTYuNjgtLjI0LjQtLjQ1LjkxdjcuOWgtMy4wOVYyOTQuMmgxLjgxcS40OCAwIC42Ni4xNy4xOS4xNy4yNS42MW0xNi41MyA5LjQyaDMuNHEuOTQgMCAxLjU3LS4yMi42NC0uMjMgMS4wMi0uNi4zOC0uMzguNTUtLjg4dC4xNy0xLjA2cTAtLjU5LS4xOS0xLjA1LS4xOC0uNDctLjU4LS44LS40LS4zNC0xLjA0LS41MS0uNjMtLjE4LTEuNTEtLjE4aC0zLjM5em0yLjg2LTEyLjg1aC0yLjg2djUuMjNoMi42N3ExLjczIDAgMi42MS0uNjMuODgtLjYyLjg4LTEuOTggMC0xLjQyLS44LTIuMDJ0LTIuNS0uNm0tNi4yMi0yLjU5aDYuMjJxMS43OCAwIDMuMDQuMzMgMS4yNi4zNCAyLjA3Ljk2LjguNjMgMS4xOCAxLjUyLjM3Ljg4LjM3IDIgMCAuNjMtLjE4IDEuMjItLjE5LjU4LS41OSAxLjA4LS4zOS41MS0xIC45Mi0uNi40MS0xLjQ0LjcgMy43My44NCAzLjczIDQuMDMgMCAxLjE1LS40NCAyLjEyLS40NC45OC0xLjI4IDEuNjgtLjgzLjcxLTIuMDYgMS4xMS0xLjIyLjQtMi44LjRoLTYuODJ6bTIzLjkzIDUuMjRoMy4wOXYxMi44M2gtMS44OXEtLjYxIDAtLjc3LS41NmwtLjIxLTEuMDNxLS43OS44LTEuNzQgMS4zLS45NS40OS0yLjI0LjQ5LTEuMDUgMC0xLjg2LS4zNi0uOC0uMzUtMS4zNS0xdC0uODMtMS41NXEtLjI4LS44OS0uMjgtMS45NnYtOC4xNmgzLjA4djguMTZxMCAxLjE3LjU1IDEuODEuNTQuNjUgMS42My42NS44IDAgMS41LS4zNnQxLjMyLS45OHptMTQuMTkgOS4wM3YtNS43NXEtLjUyLS42NC0xLjE0LS45dC0xLjMzLS4yNnEtLjcgMC0xLjI3LjI2LS41Ni4yNi0uOTYuNzl0LS42MSAxLjM1LS4yMSAxLjkzcTAgMS4xMy4xOCAxLjkxdC41MiAxLjI4cS4zMy40OS44Mi43MXQxLjA5LjIycS45NiAwIDEuNjQtLjQuNjctLjQgMS4yNy0xLjE0bTAtMTQuNzdoMy4wOXYxOC41N2gtMS44OXEtLjYxIDAtLjc3LS41NmwtLjI3LTEuMjRxLS43Ny44OS0xLjc4IDEuNDQtMSAuNTUtMi4zNC41NS0xLjA1IDAtMS45My0uNDQtLjg3LS40NC0xLjUtMS4yN3QtLjk4LTIuMDZxLS4zNC0xLjIyLS4zNC0yLjggMC0xLjQyLjM5LTIuNjUuMzgtMS4yMiAxLjExLTIuMTIuNzItLjkgMS43NC0xLjQxIDEuMDEtLjUgMi4yNy0uNSAxLjA4IDAgMS44NC4zMy43Ni4zNCAxLjM2Ljkyem0xMC44MyAxMS44NHEuNTcgMCAxLS4xNS40Mi0uMTYuNy0uNDMuMjgtLjI4LjQzLS42Ny4xNC0uMzguMTQtLjg1IDAtLjk1LS41Ny0xLjUtLjU3LS41Ni0xLjctLjU2LTEuMTQgMC0xLjcxLjU2LS41Ny41NS0uNTcgMS41IDAgLjQ1LjE0Ljg0LjE1LjM5LjQzLjY3dC43MS40NHEuNDMuMTUgMSAuMTVtMy40OCA3LjMxcTAtLjM4LS4yMi0uNjItLjIzLS4yNC0uNjEtLjM3LS4zOS0uMTMtLjkxLS4xOXQtMS4xLS4wOXEtLjU4LS4wNC0xLjItLjA2LS42Mi0uMDMtMS4yMS0uMS0uNTEuMjktLjgzLjY3LS4zMi4zOS0uMzIuOTEgMCAuMzMuMTcuNjMuMTcuMjkuNTQuNS4zNy4yMi45Ni4zMy41OC4xMiAxLjQzLjEyLjg3IDAgMS40OS0uMTMuNjMtLjEzIDEuMDMtLjM2LjQxLS4yMy42LS41NS4xOC0uMzIuMTgtLjY5bS0uNjEtMTIuOTdoMy42OXYxLjE1cTAgLjU1LS42Ni42OGwtMS4xNS4yMXEuMjYuNjYuMjYgMS40NSAwIC45NS0uMzggMS43MnQtMS4wNiAxLjNxLS42Ny41NC0xLjU5Ljg0LS45Mi4yOS0xLjk4LjI5LS4zOCAwLS43My0uMDR0LS42OS0uMXEtLjYuMzYtLjYuODEgMCAuMzkuMzYuNTd0Ljk0LjI2cS41OS4wNyAxLjM0LjA5dDEuNTQuMDhxLjc5LjA3IDEuNTQuMjIuNzUuMTYgMS4zMy41LjU5LjM0Ljk1LjkyLjM1LjU4LjM1IDEuNDkgMCAuODUtLjQyIDEuNjUtLjQxLjgtMS4yMSAxLjQzLS43OS42Mi0xLjk1IDEtMS4xNS4zOC0yLjYzLjM4LTEuNDUgMC0yLjUyLS4yOC0xLjA4LS4yOC0xLjc5LS43NXQtMS4wNi0xLjA4LS4zNS0xLjI3cTAtLjkuNTQtMS41MXQxLjQ5LS45N3EtLjUxLS4yNi0uODEtLjd0LS4zLTEuMTVxMC0uMjkuMTEtLjU5LjEtLjMxLjMxLS42MXQuNTItLjU3Ljc0LS40OHEtLjk4LS41My0xLjU0LTEuNC0uNTUtLjg4LS41NS0yLjA1IDAtLjk1LjM4LTEuNzJ0MS4wNi0xLjMxcS42OC0uNTUgMS42MS0uODMuOTQtLjI5IDIuMDQtLjI5LjgyIDAgMS41NS4xNy43Mi4xNyAxLjMyLjQ5bTguMDggNC41aDUuODJxMC0uNi0uMTctMS4xM3QtLjUtLjkzcS0uMzQtLjQtLjg2LS42M3QtMS4yMS0uMjNxLTEuMzMgMC0yLjEuNzZ0LS45OCAyLjE2bTcuODcgMS44NmgtNy45NHEuMDguOTkuMzUgMS43MS4yOC43Mi43MyAxLjE5dDEuMDcuNyAxLjM3LjIzIDEuMjktLjE4cS41NC0uMTcuOTUtLjM4LjQxLS4yMi43MS0uMzkuMzEtLjE4LjYtLjE4LjM4IDAgLjU3LjI5bC44OSAxLjEzcS0uNTEuNi0xLjE1IDEtLjY0LjQxLTEuMzMuNjUtLjcuMjUtMS40Mi4zNS0uNzEuMS0xLjM5LjEtMS4zNCAwLTIuNDktLjQ1LTEuMTUtLjQ0LTItMS4zMXQtMS4zMy0yLjE1cS0uNDktMS4yOC0uNDktMi45NyAwLTEuMzEuNDItMi40Ny40My0xLjE1IDEuMjItMi4wMS44LS44NiAxLjk0LTEuMzZ0Mi41OC0uNXExLjIxIDAgMi4yNC4zOSAxLjAyLjM5IDEuNzYgMS4xMy43NC43NSAxLjE2IDEuODN0LjQyIDIuNDdxMCAuNy0uMTUuOTR0LS41OC4yNG03LjMxIDYuMjNxLTEuNjcgMC0yLjU3LS45NC0uODktLjk1LS44OS0yLjYxdi03LjE2aC0xLjMxcS0uMjUgMC0uNDMtLjE3LS4xNy0uMTYtLjE3LS40OHYtMS4yM2wyLjA2LS4zNC42NS0zLjVxLjA2LS4yNS4yNC0uMzguMTctLjE0LjQ1LS4xNGgxLjZ2NC4wNGgzLjQydjIuMmgtMy40MnY2Ljk1cTAgLjYuMjkuOTMuMy4zNC44MS4zNC4yOSAwIC40OC0uMDd0LjM0LS4xNHEuMTQtLjA4LjI1LS4xNC4xMi0uMDcuMjMtLjA3LjE0IDAgLjIyLjA3LjA5LjA2LjE5LjJsLjkzIDEuNXEtLjY4LjU2LTEuNTUuODUtLjg4LjI5LTEuODIuMjltMjIuOTktMTUuNmgtOC4wMnY1LjM1aDYuNzd2Mi42OWgtNi43N3Y3LjM2aC0zLjM4di0xOC4wN2gxMS40em00Ljk5IDMuMzUuMTkgMS40NXEuNi0xLjE1IDEuNDItMS44MS44My0uNjUgMS45NS0uNjUuODkgMCAxLjQzLjM4bC0uMiAyLjMycS0uMDcuMjItLjE5LjMyLS4xMS4wOS0uMzEuMDktLjE5IDAtLjU2LS4wNi0uMzctLjA3LS43Mi0uMDctLjUxIDAtLjkxLjE1dC0uNzIuNDRxLS4zMi4yOC0uNTYuNjgtLjI1LjQtLjQ2LjkxdjcuOWgtMy4wOVYyOTQuMmgxLjgycS40NyAwIC42Ni4xN3QuMjUuNjFtNi43LS43OGgzLjF2MTIuODNoLTMuMXptMy41Mi0zLjczcTAgLjQtLjE2Ljc1dC0uNDMuNjEtLjYzLjQycS0uMzYuMTUtLjc4LjE1LS40IDAtLjc1LS4xNS0uMzYtLjE2LS42Mi0uNDJ0LS40Mi0uNjEtLjE2LS43NXEwLS40Mi4xNi0uNzh0LjQyLS42MnEuMjYtLjI3LjYyLS40Mi4zNS0uMTYuNzUtLjE2LjQyIDAgLjc4LjE2LjM2LjE1LjYzLjQyLjI3LjI2LjQzLjYydC4xNi43OG01LjE3IDguNjdoNS44MnEwLS42LS4xNy0xLjEzdC0uNS0uOTNxLS4zNC0uNC0uODYtLjYzdC0xLjIxLS4yM3EtMS4zMyAwLTIuMS43NnQtLjk4IDIuMTZtNy44NyAxLjg2aC03Ljk0cS4wOC45OS4zNSAxLjcxLjI4LjcyLjczIDEuMTl0MS4wNy43IDEuMzcuMjMgMS4yOS0uMThxLjU0LS4xNy45NS0uMzguNDEtLjIyLjcxLS4zOS4zMS0uMTguNi0uMTguMzggMCAuNTcuMjlsLjg5IDEuMTNxLS41MS42LTEuMTUgMS0uNjQuNDEtMS4zMy42NS0uNy4yNS0xLjQyLjM1LS43MS4xLTEuMzkuMS0xLjM0IDAtMi40OS0uNDUtMS4xNS0uNDQtMi0xLjMxdC0xLjMzLTIuMTVxLS40OS0xLjI4LS40OS0yLjk3IDAtMS4zMS40Mi0yLjQ3LjQzLTEuMTUgMS4yMi0yLjAxLjgtLjg2IDEuOTQtMS4zNnQyLjU4LS41cTEuMjEgMCAyLjI0LjM5IDEuMDIuMzkgMS43NiAxLjEzLjc0Ljc1IDEuMTYgMS44M3QuNDIgMi40N3EwIC43LS4xNS45NHQtLjU4LjI0bTUuNzEtNi4yMy4yMiAxLjAxcS4zOC0uMzkuODEtLjcyLjQ0LS4zMy45Mi0uNTZ0MS4wMy0uMzZxLjU1LS4xNCAxLjItLjE0IDEuMDUgMCAxLjg2LjM2dDEuMzYgMXEuNTQuNjQuODIgMS41NC4yOC44OS4yOCAxLjk3djguMTZoLTMuMDh2LTguMTZxMC0xLjE4LS41NC0xLjgyLS41NC0uNjUtMS42NC0uNjUtLjggMC0xLjUuMzctLjcuMzYtMS4zMi45OHY5LjI4aC0zLjA5VjI5NC4yaDEuODlxLjYgMCAuNzguNTdtMTkuNDggOC40NnYtNS43NXEtLjUzLS42NC0xLjE1LS45LS42MS0uMjYtMS4zMy0uMjYtLjcgMC0xLjI2LjI2dC0uOTYuNzktLjYxIDEuMzVxLS4yMi44Mi0uMjIgMS45MyAwIDEuMTMuMTggMS45MS4xOS43OC41MiAxLjI4LjM0LjQ5LjgzLjcxdDEuMDkuMjJxLjk2IDAgMS42My0uNC42OC0uNCAxLjI4LTEuMTRtMC0xNC43N2gzLjA5djE4LjU3aC0xLjg5cS0uNjEgMC0uNzgtLjU2bC0uMjYtMS4yNHEtLjc3Ljg5LTEuNzggMS40NHQtMi4zNC41NXEtMS4wNSAwLTEuOTMtLjQ0LS44Ny0uNDQtMS41MS0xLjI3LS42My0uODMtLjk3LTIuMDYtLjM0LTEuMjItLjM0LTIuOCAwLTEuNDIuMzgtMi42NS4zOS0xLjIyIDEuMTItMi4xMi43Mi0uOSAxLjczLTEuNDEgMS4wMi0uNSAyLjI4LS41IDEuMDcgMCAxLjg0LjMzLjc2LjM0IDEuMzYuOTJ6bTYuMTcgMGgzLjA5djE4LjU3aC0zLjA5em0xNS4zNSA1Ljc0aDIuNDhsLTYuOTkgMTYuMzZxLS4xNC4zMi0uMzYuNDktLjIxLjE3LS42Ni4xN2gtMi4zbDIuNC01LjE1LTUuMTktMTEuODdoMi43MXEuMzYgMCAuNTcuMTguMjEuMTcuMzEuNGwyLjcyIDYuNjVxLjE0LjM0LjIzLjY3LjEuMzQuMTguNjkuMTItLjM1LjIzLS42OS4xMS0uMzUuMjUtLjY4bDIuNTctNi42NHEuMS0uMjUuMzMtLjQxLjI0LS4xNy41Mi0uMTciLz48L3N2Zz4="
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.95,
+        "slots": {
+          "style": "世涛",
+          "beerName": "最近天冷想喝点世涛"
+        }
+      },
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.95,
+    "slots": {
+      "style": "世涛",
+      "beerName": "最近天冷想喝点世涛"
+    },
+    "missingInfo": [],
+    "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)",
+    "source": "rule",
+    "isMultiIntent": true,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "confidence": 0.95,
+          "pattern": "酒单|推荐|喝什么|帮我看酒单"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "confidence": 0.85,
+          "pattern": "什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "negative_keyword",
+          "pattern": "推荐"
+        }
+      ],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "酒单推荐(menu_recommend) won over 啤酒知识(beer_knowledge) with gap 10%. Gap within multi-intent threshold — multi-intent enabled.",
+      "candidateScores": [
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0.95,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 95%)"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Excluded by negative rule/keyword"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "negative_keyword",
+          "type": "negative",
+          "matched": true,
+          "reason": "Negative keyword \"推荐\" hit"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.95,
+          "reason": "Pattern /酒单|推荐|喝什么|帮我看酒单/ matched"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783650333416_in4tqj",
+        "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_v21v",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "最近天冷想喝点世涛，有什么推荐？",
+              "hasImage": true
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:33.416Z",
+            "output": {
+              "intent": "menu_recommend",
+              "confidence": 0.95,
+              "source": "rule",
+              "isMultiIntent": true,
+              "intents": [
+                {
+                  "intent": "menu_recommend",
+                  "confidence": 0.95,
+                  "slots": {
+                    "style": "世涛",
+                    "beerName": "最近天冷想喝点世涛"
+                  }
+                },
+                {
+                  "intent": "beer_knowledge",
+                  "confidence": 0.85,
+                  "slots": {}
+                }
+              ],
+              "slots": {
+                "style": "世涛",
+                "beerName": "最近天冷想喝点世涛"
+              },
+              "missingInfo": [],
+              "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)"
+            },
+            "completedAt": "2026-07-10T02:25:33.416Z"
+          },
+          {
+            "id": "step_retrieve_memory_7fwv",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user taste profile and preferences",
+            "input": {
+              "userId": "vqa-auto-test"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:33.416Z",
+            "output": {
+              "profile": {
+                "userId": "vqa-auto-test",
+                "updatedAt": "2026-07-10T02:25:22.405Z",
+                "summary": "喜欢柑橘风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "柑橘",
+                    "weight": 0.5,
+                    "evidenceCount": 1
+                  }
+                ],
+                "dislikedTags": [],
+                "notes": [
+                  "Pseudo Sue 4分，会再喝",
+                  "这酒不错，给5分，柑橘味",
+                  "不好喝，2分，不会再喝",
+                  "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                  "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+                ],
+                "confidence": 0.3,
+                "evidenceCount": 3,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 5,
+                    "topStyles": [
+                      "Pale Ale - American"
+                    ],
+                    "topTags": [
+                      "柑橘"
+                    ],
+                    "dislikedTags": [],
+                    "avgScore": 3.7,
+                    "abvRange": {
+                      "min": 5.8,
+                      "max": 5.8
+                    }
+                  }
+                ],
+                "updatedAt": "2026-07-10T02:25:22.408Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 0.3
+            },
+            "completedAt": "2026-07-10T02:25:33.416Z"
+          },
+          {
+            "id": "step_search_beer_db_u3xw",
+            "tool": "search_beer_db",
+            "purpose": "Search beer database for candidates from OCR",
+            "input": {
+              "queries": [
+                "最近天冷想喝点世涛"
+              ]
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:33.416Z",
+            "output": {
+              "results": [
+                {
+                  "query": "最近天冷想喝点世涛",
+                  "found": false,
+                  "data": null
+                }
+              ],
+              "totalFound": 0
+            },
+            "completedAt": "2026-07-10T02:25:33.453Z"
+          },
+          {
+            "id": "step_score_recommendations_f29f",
+            "tool": "score_recommendations",
+            "purpose": "Score candidates with worthScore + fitScore against user profile",
+            "input": {
+              "candidates": [],
+              "profile": "[injected from retrieve_memory]",
+              "constraints": [
+                "世涛"
+              ]
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:33.453Z",
+            "output": {
+              "scored": [],
+              "picks": {
+                "topPick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "safePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "explorePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "avoidOrCaution": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                }
+              },
+              "reason": "No candidates to score"
+            },
+            "completedAt": "2026-07-10T02:25:33.453Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "search_beer_db",
+            "score_recommendations"
+          ],
+          "missingContext": [
+            "limited_profile_data",
+            "no_active_menu"
+          ],
+          "fallbackUsed": true
+        },
+        "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+      },
+      "planId": "plan_1783650333416_in4tqj",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "success": true,
+      "fallback": true,
+      "steps": [
+        {
+          "id": "step_classify_intent_v21v",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "menu_recommend",
+            "confidence": 0.95,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.95,
+                "slots": {
+                  "style": "世涛",
+                  "beerName": "最近天冷想喝点世涛"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "style": "世涛",
+              "beerName": "最近天冷想喝点世涛"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_7fwv",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 800,
+            "_preview": "{\"profile\":{\"userId\":\"vqa-auto-test\",\"updatedAt\":\"2026-07-10T02:25:22.405Z\",\"summary\":\"喜欢柑橘风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"柑橘\",\"weight\":0.5,\"evidenceCount\":1}],..."
+          }
+        },
+        {
+          "id": "step_search_beer_db_u3xw",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "outputSummary": {
+            "results": [
+              {
+                "query": "最近天冷想喝点世涛",
+                "found": false,
+                "data": null
+              }
+            ],
+            "totalFound": 0
+          }
+        },
+        {
+          "id": "step_score_recommendations_f29f",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "outputSummary": {
+            "scored": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "reason": "No candidates to score"
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "search_beer_db",
+          "score_recommendations"
+        ],
+        "missingContext": [
+          "limited_profile_data",
+          "no_active_menu"
+        ],
+        "fallbackUsed": true
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": true,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "fallbackUsed": true,
+      "stepCount": 4,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783650333416_in4tqj",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_v21v",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "最近天冷想喝点世涛，有什么推荐？",
+            "hasImage": true
+          },
+          "output": {
+            "intent": "menu_recommend",
+            "confidence": 0.95,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.95,
+                "slots": {
+                  "style": "世涛",
+                  "beerName": "最近天冷想喝点世涛"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "style": "世涛",
+              "beerName": "最近天冷想喝点世涛"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(95%), beer_knowledge(85%)"
+          },
+          "startedAt": "2026-07-10T02:25:33.416Z",
+          "completedAt": "2026-07-10T02:25:33.416Z"
+        },
+        {
+          "id": "step_retrieve_memory_7fwv",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "input": {
+            "userId": "vqa-auto-test"
+          },
+          "output": {
+            "profile": {
+              "userId": "vqa-auto-test",
+              "updatedAt": "2026-07-10T02:25:22.405Z",
+              "summary": "喜欢柑橘风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "柑橘",
+                  "weight": 0.5,
+                  "evidenceCount": 1
+                }
+              ],
+              "dislikedTags": [],
+              "notes": [
+                "Pseudo Sue 4分，会再喝",
+                "这酒不错，给5分，柑橘味",
+                "不好喝，2分，不会再喝",
+                "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+              ],
+              "confidence": 0.3,
+              "evidenceCount": 3,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 5,
+                  "topStyles": [
+                    "Pale Ale - American"
+                  ],
+                  "topTags": [
+                    "柑橘"
+                  ],
+                  "dislikedTags": [],
+                  "avgScore": 3.7,
+                  "abvRange": {
+                    "min": 5.8,
+                    "max": 5.8
+                  }
+                }
+              ],
+              "updatedAt": "2026-07-10T02:25:22.408Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 0.3
+          },
+          "startedAt": "2026-07-10T02:25:33.416Z",
+          "completedAt": "2026-07-10T02:25:33.416Z"
+        },
+        {
+          "id": "step_search_beer_db_u3xw",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "input": {
+            "queries": [
+              "最近天冷想喝点世涛"
+            ]
+          },
+          "output": {
+            "results": [
+              {
+                "query": "最近天冷想喝点世涛",
+                "found": false,
+                "data": null
+              }
+            ],
+            "totalFound": 0
+          },
+          "startedAt": "2026-07-10T02:25:33.416Z",
+          "completedAt": "2026-07-10T02:25:33.453Z"
+        },
+        {
+          "id": "step_score_recommendations_f29f",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "input": {
+            "candidates": [],
+            "profile": "[injected from retrieve_memory]",
+            "constraints": [
+              "世涛"
+            ]
+          },
+          "output": {
+            "scored": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "reason": "No candidates to score"
+          },
+          "startedAt": "2026-07-10T02:25:33.453Z",
+          "completedAt": "2026-07-10T02:25:33.453Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+    },
+    "diagnostics": {
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ],
+      "missingContext": [
+        "limited_profile_data",
+        "no_active_menu"
+      ],
+      "fallbackUsed": true
+    }
+  }
+}

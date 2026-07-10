@@ -1,0 +1,14 @@
+{
+  "conversationId": "qa-tap-list-1",
+  "userId": "qa-test",
+  "updatedAt": "2026-07-08T07:16:42.368Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783494997314_3wum2e",
+      "userText": "帮我看这个酒单",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-08T07:16:42.368Z"
+    }
+  ]
+}

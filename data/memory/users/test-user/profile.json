@@ -1,0 +1,14 @@
+{
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:13:16.121Z",
+  "summary": "暂无足够的品饮记录来生成口味画像。",
+  "preferredStyles": [],
+  "dislikedStyles": [],
+  "preferredTags": [],
+  "dislikedTags": [],
+  "notes": [],
+  "confidence": 0,
+  "evidenceCount": 0,
+  "correctionsCount": 0,
+  "correctionsApplied": false
+}

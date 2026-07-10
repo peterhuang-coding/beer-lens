@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-黑豹",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:21.964Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611621872_lbt8j1",
+      "userText": "黑豹",
+      "assistantReply": "我会这样点：\n\n1. Panther Lake Porter - 评分4.0\n2. Panther Lake Porter - 评分4.0\n3. Panther Lake Porter - 评分4.0\n\n最稳：Panther Lake Porter\n最值得尝新：Panther Lake Porter\n我会先跳过：Panther Lake Porter - 评分4.0\n\n如果只能喝一杯，选 Panther Lake Porter。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:21.964Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611621872_vo95wq",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Panther Lake Porter",
+        "brewery": "Silver City Brewing Co.",
+        "style": "American Porter",
+        "abv": 6,
+        "price": null,
+        "rating": 3.96
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:21.964Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Panther Lake Porter",
+    "brewery": "Silver City Brewing Co."
+  }
+}

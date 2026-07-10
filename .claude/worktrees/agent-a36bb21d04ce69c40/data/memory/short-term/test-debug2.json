@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-debug2",
+  "userId": "local-user",
+  "updatedAt": "2026-07-02T02:20:01.945Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1782958801849_avse61",
+      "userText": "帮我看这张酒单",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-02T02:20:01.945Z"
+    }
+  ]
+}

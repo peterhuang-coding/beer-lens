@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-07-05T14:45:09.316Z",
+  "visionModel": "qwen/qwen-2.5-7b-instruct",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 1,
+  "passed": 0,
+  "failed": 0,
+  "total": 0,
+  "results": [
+    {
+      "id": "menu_clear_01",
+      "status": "skipped",
+      "reason": "image_not_found: menu-clear.jpg",
+      "durationMs": 0
+    },
+    {
+      "id": "bottle_label_01",
+      "status": "skipped",
+      "reason": "image_not_found: bottle-label.jpg",
+      "durationMs": 0
+    },
+    {
+      "id": "tap_list_01",
+      "status": "skipped",
+      "reason": "image_not_found: tap-list.jpg",
+      "durationMs": 0
+    },
+    {
+      "id": "glass_beer_01",
+      "status": "skipped",
+      "reason": "image_not_found: glass-beer.jpg",
+      "durationMs": 0
+    },
+    {
+      "id": "menu_blurry_01",
+      "status": "skipped",
+      "reason": "image_not_found: menu-blurry.jpg",
+      "durationMs": 0
+    }
+  ]
+}

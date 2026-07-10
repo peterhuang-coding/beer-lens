@@ -1,0 +1,197 @@
+{
+  "conversationId": "qa-tap-final",
+  "userId": "qa-test",
+  "updatedAt": "2026-07-08T09:04:09.990Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783501347020_3ykxoh",
+      "userText": "帮我看这个酒单",
+      "assistantReply": "我会这样点：\n\n1. 年轻领主 - 无评分数据，无法判断质量（有风险，见下方）\n2. 年轻领主 - 无评分数据，无法判断质量\n3. 年轻领主 - 无评分数据，无法判断质量\n\n最稳：年轻领主\n最值得尝新：年轻领主\n我会先跳过：年轻领主 - 无评分数据，无法判断质量\n\n如果只能喝一杯，选 年轻领主。\n\n⚠️ 年轻领主、双倍干投暴龙苏、科隆、棱镜之外、奢华冰冻池塘、罗萨达、黑啤、查博斯、黑豹、德米海德拉10号、蜂巢-第6批次、赛博暴龙、酷酷、电光酒花、一样一样的、果味满满34号、甜甜圈波士顿奶油 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-08T09:04:09.990Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783501347020_zp0cm8",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "年轻领主",
+        "brewery": "斯塔姆 | 俄罗斯",
+        "style": "Czech Pilsner",
+        "abv": 4.7,
+        "price": 60,
+        "rating": null
+      },
+      {
+        "candidateId": "4",
+        "displayName": "双倍干投暴龙苏",
+        "brewery": "击倒巨人 | 美国",
+        "style": "DDH Hazy Pale Ale",
+        "abv": 5.8,
+        "price": 90,
+        "rating": null
+      },
+      {
+        "candidateId": "7",
+        "displayName": "科隆",
+        "brewery": "嘉雄 | 德国",
+        "style": "Kölsch",
+        "abv": 4.8,
+        "price": 55,
+        "rating": null
+      },
+      {
+        "candidateId": "10",
+        "displayName": "棱镜之外",
+        "brewery": "艾尔复兴 | 美国",
+        "style": "Double Hazy IPA",
+        "abv": 8.5,
+        "price": 110,
+        "rating": null
+      },
+      {
+        "candidateId": "13",
+        "displayName": "奢华冰冻池塘",
+        "brewery": "鸭池 | 瑞典",
+        "style": "Imperial Fruited Gose",
+        "abv": 9,
+        "price": 100,
+        "rating": null
+      },
+      {
+        "candidateId": "16",
+        "displayName": "罗萨达",
+        "brewery": "迷眼动物 | 美国",
+        "style": "Fruited Sour Ale",
+        "abv": 6,
+        "price": 75,
+        "rating": null
+      },
+      {
+        "candidateId": "2",
+        "displayName": "黑啤",
+        "brewery": "三得利 | 日本",
+        "style": "The Premium Malt's Black",
+        "abv": 5.5,
+        "price": 65,
+        "rating": null
+      },
+      {
+        "candidateId": "8",
+        "displayName": "查博斯",
+        "brewery": "云水 | 英国",
+        "style": "Triple Hazy IPA",
+        "abv": 10,
+        "price": 130,
+        "rating": null
+      },
+      {
+        "candidateId": "11",
+        "displayName": "黑豹",
+        "brewery": "洛莱 | 美国",
+        "style": "Double Hazy IPA",
+        "abv": 8.5,
+        "price": 115,
+        "rating": null
+      },
+      {
+        "candidateId": "14",
+        "displayName": "德米海德拉10号",
+        "brewery": "凡人 | 美国",
+        "style": "Fruited Sour Ale",
+        "abv": 5,
+        "price": 90,
+        "rating": null
+      },
+      {
+        "candidateId": "17",
+        "displayName": "蜂巢-第6批次",
+        "brewery": "副计划 | 美国",
+        "style": "Farmhouse Saison",
+        "abv": 5,
+        "price": 105,
+        "rating": null
+      },
+      {
+        "candidateId": "3",
+        "displayName": "赛博暴龙",
+        "brewery": "击倒巨人 | 美国",
+        "style": "West Coast IPA",
+        "abv": 7.2,
+        "price": 85,
+        "rating": null
+      },
+      {
+        "candidateId": "6",
+        "displayName": "酷酷",
+        "brewery": "望月者 | 美国",
+        "style": "Hazy IPA",
+        "abv": 7,
+        "price": 90,
+        "rating": null
+      },
+      {
+        "candidateId": "9",
+        "displayName": "电光酒花",
+        "brewery": "望月者 | 美国",
+        "style": "Double Hazy IPA",
+        "abv": 8.5,
+        "price": 100,
+        "rating": null
+      },
+      {
+        "candidateId": "12",
+        "displayName": "一样一样的",
+        "brewery": "家园 | 美国",
+        "style": "Triple Hazy IPA",
+        "abv": 10,
+        "price": 90,
+        "rating": null
+      },
+      {
+        "candidateId": "15",
+        "displayName": "果味满满34号",
+        "brewery": "回头客 | 美国",
+        "style": "Fruited Sour Ale",
+        "abv": 5.4,
+        "price": 90,
+        "rating": null
+      },
+      {
+        "candidateId": "18",
+        "displayName": "甜甜圈波士顿奶油",
+        "brewery": "酋长高 | 挪威",
+        "style": "Imperial Pastry Stout",
+        "abv": 11.5,
+        "price": 85,
+        "rating": null
+      }
+    ],
+    "source": "ocr",
+    "createdAt": "2026-07-08T09:04:09.990Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "年轻领主",
+    "brewery": "斯塔姆 | 俄罗斯"
+  }
+}

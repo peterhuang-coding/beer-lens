@@ -115,7 +115,38 @@
     "noImagePrompt": "请发一张酒单照片给我，或者直接告诉我酒名，我帮你推荐。",
     "errorFallback": "抱歉，处理你的请求时出错了。请再试一次。"
   },
-  "intentOverrides": [],
+  "intentOverrides": [
+    {
+      "regex": "暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻",
+      "intent": "menu_recommend",
+      "note": "Chinese beer name → menu_recommend"
+    },
+    {
+      "regex": "开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分",
+      "intent": "tasting_feedback",
+      "note": "Tasting description → tasting_feedback"
+    },
+    {
+      "regex": "上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆",
+      "intent": "memory_correction",
+      "note": "Correction → memory_correction"
+    },
+    {
+      "regex": "我的口味|我的偏好|我的画像|我喝过|给我推荐.*了解我|知道我的口味",
+      "intent": "profile_query",
+      "note": "Profile query → profile_query"
+    },
+    {
+      "regex": "生产日期|过期|保质期|还能喝吗|放了.*多久|新鲜度",
+      "intent": "label_check",
+      "note": "Date/expiry questions → label_check"
+    },
+    {
+      "regex": "^酒$|^啤酒$|^好喝$",
+      "intent": "unclear",
+      "note": "Single word → unclear"
+    }
+  ],
   "prompts": {
     "vision_ocr": {
       "id": "vision_ocr",

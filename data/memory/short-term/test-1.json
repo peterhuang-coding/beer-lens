@@ -1,0 +1,21 @@
+{
+  "conversationId": "test-1",
+  "userId": "test",
+  "updatedAt": "2026-07-08T02:26:51.147Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783477436138_6j0llb",
+      "userText": "你好",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:24:01.346Z"
+    },
+    {
+      "turnId": "trace_1783477609221_d8hx7n",
+      "userText": "你好",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T02:26:51.147Z"
+    }
+  ]
+}

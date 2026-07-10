@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-13-1783612184605",
+  "userId": "self-test",
+  "updatedAt": "2026-07-09T15:49:48.340Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783612184611_j1yquf",
+      "userText": "喜欢什么风格的啤酒",
+      "assistantReply": "嘿，根据你之前提到的偏好，像是热带水果、柑橘风味，清爽且低甜度的啤酒，我觉得你会喜欢一些IPA（印度淡色艾尔）或者Saison（法式农夫啤酒）。这两种风格都倾向于有明显的果香和清新的口感，IPA可能会更苦一些，而Saison则通常带有更复杂的香料味道。你觉得呢？有没有试过这两种风格的啤酒？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-09T15:49:48.340Z"
+    }
+  ]
+}

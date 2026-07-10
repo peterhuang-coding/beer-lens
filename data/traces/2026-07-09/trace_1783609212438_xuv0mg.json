@@ -1,0 +1,264 @@
+{
+  "traceId": "trace_1783609212438_xuv0mg",
+  "userId": "test-user",
+  "channel": "web",
+  "conversationId": "test-cc-a-1",
+  "turnId": "trace_1783609212438_wrh34r",
+  "timestamp": "2026-07-09T15:00:19.939Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "推荐双倍干投暴龙苏",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.82,
+        "slots": {}
+      }
+    ],
+    "intent": "beer_knowledge",
+    "confidence": 0.82,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "LLM intent classification",
+    "source": "llm",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [],
+      "matchedSamples": [],
+      "negativeRulesHit": [
+        {
+          "intentId": "label_check",
+          "ruleId": "label_not_pure_menu",
+          "pattern": "^(酒单|推荐|帮我.*选|帮我.*挑|喝什么).{0,15}$"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "negative_keyword",
+          "pattern": "推荐"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_not_pure_recommend",
+          "pattern": "^(推荐|帮我.*选|帮我.*挑|喝什么|帮我推荐).{0,10}$"
+        }
+      ],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "fallbackReason": "No intent reached threshold 0.7. Excluded: label_check, follow_up_filter, beer_knowledge. Context-excluded: follow_up_filter. Falling back to unclear.",
+      "finalDecisionReason": "No intent reached threshold 0.7. Excluded: label_check, follow_up_filter, beer_knowledge. Context-excluded: follow_up_filter. Falling back to unclear.",
+      "candidateScores": [
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Excluded by negative rule/keyword"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Excluded by negative rule/keyword"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Excluded by negative rule/keyword"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_not_pure_menu",
+          "type": "negative",
+          "matched": true,
+          "reason": "Negative rule matched: /^(酒单|推荐|帮我.*选|帮我.*挑|喝什么).{0,15}$/"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "negative_keyword",
+          "type": "negative",
+          "matched": true,
+          "reason": "Negative keyword \"推荐\" hit"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_not_pure_recommend",
+          "type": "negative",
+          "matched": true,
+          "reason": "Negative rule matched: /^(推荐|帮我.*选|帮我.*挑|喝什么|帮我推荐).{0,10}$/"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_text_recommend",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /推荐.*啤酒|推荐.*IPA|推荐.*拉格|推荐.*世涛|推荐.*酸啤|推荐.*小麦|推荐.*波特|推荐.*皮尔森|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_style_direct",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /^推荐世涛$|^推荐酸啤$|^推荐小麦$|^推荐波特$|^推荐皮尔森$|^推荐烈性$|^推荐清淡$/ did not match or confidence 0.88 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_implicit_want",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /想喝|好想喝|想试试|想尝|想试|馋了|想喝点|想.*一杯|想.*来.*杯|好渴|热.*喝|天.*热.*喝|口渴|想.*啤/ did not match or confidence 0.75 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_implicit_explore",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /有什么.*新|最近.*流行|新出.*什么|有什么.*特别|有什么.*好|没喝过.*推荐|换.*口味|试.*新的|尝.*新的/ did not match or confidence 0.72 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "beer_knowledge",
+    "diagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "beer_knowledge",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct",
+      "vision": "qwen/qwen3-vl-8b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleBeerKnowledge",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"beer_knowledge\" matched route \"handleBeerKnowledge\" — all required context present",
+      "intent": "beer_knowledge"
+    }
+  }
+}

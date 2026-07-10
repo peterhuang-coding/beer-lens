@@ -1,0 +1,237 @@
+{
+  "timestamp": "2026-07-07T07:36:44.593Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/api/agent",
+    "userId": "regression-user",
+    "convPrefix": "regression-fresh2",
+    "timeoutMs": 30000
+  },
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "errors": 0,
+    "passRate": "100.0%",
+    "durationMs": 6757
+  },
+  "results": [
+    {
+      "caseId": "reg_001",
+      "name": "推荐一款IPA",
+      "inputText": "推荐一款IPA",
+      "conversationId": "regression-fresh2-regression-recommend-ipa",
+      "passed": true,
+      "durationMs": 105,
+      "actualIntent": "menu_recommend",
+      "actualReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "high_abv_candidate: Third Anniversary Imperial IPA (10%)"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_002",
+      "name": "今天想喝清爽一点，不要太苦",
+      "inputText": "今天想喝清爽一点，不要太苦",
+      "conversationId": "regression-fresh2-regression-crisp-light",
+      "passed": true,
+      "durationMs": 85,
+      "actualIntent": "menu_recommend",
+      "actualReply": "按你想要清爽、不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n2. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n3. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n\n最稳：Pilsner Urquell Tradiční / Traditional (at brewery tour)\n最值得尝新：Pilsner Urquell Tradiční / Traditional (at brewery tour)\n我会先跳过：Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n\n如果只能喝一杯，选 Pilsner Urquell Tradiční ",
+      "candidateCount": 2,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_003",
+      "name": "有IPA吗",
+      "inputText": "有IPA吗",
+      "conversationId": "regression-fresh2-regression-filter-ipa",
+      "passed": true,
+      "durationMs": 75,
+      "actualIntent": "follow_up_filter",
+      "actualReply": "我会这样点：\n\n1. 有IPA吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有IPA吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有IPA吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有IPA吗\n最值得尝新：有IPA吗\n我会先跳过：有IPA吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有IPA吗。\n\n⚠️ 有IPA吗 数据不足，谨慎尝试。",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned",
+        "missing_data_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_004",
+      "name": "第3个怎么样",
+      "inputText": "第3个怎么样",
+      "conversationId": "regression-fresh2-regression-pick-nth",
+      "passed": true,
+      "durationMs": 68,
+      "actualIntent": "follow_up_filter",
+      "actualReply": "我会这样点：\n\n1. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：第3个怎么样\n最值得尝新：第3个怎么样\n我会先跳过：第3个怎么样 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 第3个怎么样。\n\n⚠️ 第3个怎么样 数据不足，谨慎尝试。",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned",
+        "missing_data_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_005",
+      "name": "我给4.5分会再喝热带水果",
+      "inputText": "我给4.5分，会再喝，热带水果",
+      "conversationId": "regression-fresh2-regression-tasting",
+      "passed": true,
+      "durationMs": 24,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果风味",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_006",
+      "name": "我不喜欢太苦的",
+      "inputText": "我不喜欢太苦的",
+      "conversationId": "regression-fresh2-regression-dislike-bitter",
+      "passed": true,
+      "durationMs": 24,
+      "actualIntent": "memory_correction",
+      "actualReply": "根据你的口味画像：喜欢热带水果风味\n\n\n（基于：memory_correction with existing profile — correction → re-recommend flow）",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_007",
+      "name": "我的口味画像是什么",
+      "inputText": "我的口味画像是什么",
+      "conversationId": "regression-fresh2-regression-profile-query",
+      "passed": true,
+      "durationMs": 33,
+      "actualIntent": "profile_query",
+      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果风味\n\n画像置信度：50%（基于 5 条品饮记录）\n\n偏好风味标签：热带水果（5）\nABV 舒适区：暂无足够记录\n记录数：5 条\n\n📈 最近趋势：\n2026月07：5款 · 近三月均分 4.5 · 偏好风味：热带水果\n\n证据数：5 · 画像置信度：50% · 实验组：开启",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_008",
+      "name": "这瓶酒过期了吗",
+      "inputText": "这瓶酒过期了吗",
+      "conversationId": "regression-fresh2-regression-label-check",
+      "passed": true,
+      "durationMs": 857,
+      "actualIntent": "label_check",
+      "actualReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_009",
+      "name": "什么是WestCoastIPA",
+      "inputText": "什么是West Coast IPA",
+      "conversationId": "regression-fresh2-regression-knowledge",
+      "passed": true,
+      "durationMs": 533,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_010",
+      "name": "清空",
+      "inputText": "清空",
+      "conversationId": "regression-fresh2-regression-clear",
+      "passed": true,
+      "durationMs": 448,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    }
+  ]
+}

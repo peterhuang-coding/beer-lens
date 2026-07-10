@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-knowledge-stout-vs-imperial",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:47.828Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476638935_2xdnl7",
+      "userText": "讲讲世涛和帝国世涛的区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:10:39.376Z"
+    },
+    {
+      "turnId": "trace_1783477674825_sm6fyq",
+      "userText": "世涛和帝国世涛的区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:27:55.563Z"
+    },
+    {
+      "turnId": "trace_1783477906580_pcp6iq",
+      "userText": "世涛和帝国世涛的区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:31:47.828Z"
+    }
+  ]
+}

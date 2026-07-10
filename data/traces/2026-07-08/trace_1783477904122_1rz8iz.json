@@ -1,0 +1,740 @@
+{
+  "traceId": "trace_1783477904122_1rz8iz",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-label-can",
+  "turnId": "trace_1783477904122_ym4tkp",
+  "timestamp": "2026-07-08T02:31:44.806Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "看看这罐啤酒",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "unclear",
+        "confidence": 0.2,
+        "slots": {}
+      }
+    ],
+    "intent": "unclear",
+    "confidence": 0.2,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "LLM fallback failed: OpenRouter 403: {\"error\":{\"message\":\"This model is not available in your region.\",\"code\":403}}",
+    "source": "fallback",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像：喜欢热带水果和苦风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783477904804_0kbtxi",
+        "reason": "low confidence (20%) + beer domain keywords: 啤酒, 罐",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_8gkw",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "看看这罐啤酒",
+              "hasImage": false
+            },
+            "status": "completed",
+            "startedAt": "2026-07-08T02:31:44.804Z",
+            "output": {
+              "intent": "unclear",
+              "confidence": 0.2,
+              "source": "fallback",
+              "isMultiIntent": false,
+              "intents": [
+                {
+                  "intent": "unclear",
+                  "confidence": 0.2,
+                  "slots": {}
+                }
+              ],
+              "slots": {},
+              "missingInfo": [],
+              "routeReason": "LLM fallback failed: OpenRouter 403: {\"error\":{\"message\":\"This model is not available in your region.\",\"code\":403}}"
+            },
+            "completedAt": "2026-07-08T02:31:44.805Z"
+          },
+          {
+            "id": "step_retrieve_memory_ylve",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user profile for context",
+            "input": {
+              "userId": "regression-user"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-08T02:31:44.805Z",
+            "output": {
+              "profile": {
+                "userId": "regression-user",
+                "updatedAt": "2026-07-08T02:31:35.043Z",
+                "summary": "喜欢热带水果和苦风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "热带水果",
+                    "weight": 8,
+                    "evidenceCount": 8
+                  },
+                  {
+                    "value": "苦",
+                    "weight": 3,
+                    "evidenceCount": 3
+                  }
+                ],
+                "dislikedTags": [
+                  {
+                    "value": "酸",
+                    "weight": 3,
+                    "evidenceCount": 3
+                  }
+                ],
+                "notes": [
+                  "我给4.5分，会再喝，热带水果",
+                  "我给4.5分，会再喝，热带水果",
+                  "我给4.5分，会再喝，热带水果",
+                  "我给4.5分，会再喝，热带水果",
+                  "我给4.5分，会再喝，热带水果",
+                  "我给4.5分，会再喝，热带水果",
+                  "3.5分，不会再喝",
+                  "4分",
+                  "这杯不错，给4.5分",
+                  "2分，不会再喝，偏酸",
+                  "会再喝，苦度刚好",
+                  "我给4.5分，会再喝，热带水果",
+                  "3.5分，不会再喝",
+                  "4分",
+                  "这杯不错，给4.5分",
+                  "2分，不会再喝，偏酸",
+                  "会再喝，苦度刚好",
+                  "我给4.5分，会再喝，热带水果",
+                  "3.5分，不会再喝",
+                  "4分",
+                  "这杯不错，给4.5分",
+                  "2分，不会再喝，偏酸",
+                  "会再喝，苦度刚好"
+                ],
+                "confidence": 1,
+                "evidenceCount": 23,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 23,
+                    "topStyles": [],
+                    "topTags": [
+                      "热带水果",
+                      "苦"
+                    ],
+                    "dislikedTags": [
+                      "酸"
+                    ],
+                    "avgScore": 3.9,
+                    "abvRange": null
+                  }
+                ],
+                "updatedAt": "2026-07-08T02:31:35.047Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 1
+            },
+            "completedAt": "2026-07-08T02:31:44.805Z"
+          },
+          {
+            "id": "step_compose_answer_wd26",
+            "tool": "compose_answer",
+            "purpose": "Compose contextual response",
+            "input": {
+              "toolOutputs": {
+                "classify_intent": {
+                  "intent": "unclear",
+                  "confidence": 0.2,
+                  "source": "fallback",
+                  "isMultiIntent": false,
+                  "intents": [
+                    {
+                      "intent": "unclear",
+                      "confidence": 0.2,
+                      "slots": {}
+                    }
+                  ],
+                  "slots": {},
+                  "missingInfo": [],
+                  "routeReason": "LLM fallback failed: OpenRouter 403: {\"error\":{\"message\":\"This model is not available in your region.\",\"code\":403}}"
+                },
+                "retrieve_memory": {
+                  "profile": {
+                    "userId": "regression-user",
+                    "updatedAt": "2026-07-08T02:31:35.043Z",
+                    "summary": "喜欢热带水果和苦风味",
+                    "preferredStyles": [],
+                    "dislikedStyles": [],
+                    "preferredTags": [
+                      {
+                        "value": "热带水果",
+                        "weight": 8,
+                        "evidenceCount": 8
+                      },
+                      {
+                        "value": "苦",
+                        "weight": 3,
+                        "evidenceCount": 3
+                      }
+                    ],
+                    "dislikedTags": [
+                      {
+                        "value": "酸",
+                        "weight": 3,
+                        "evidenceCount": 3
+                      }
+                    ],
+                    "notes": [
+                      "我给4.5分，会再喝，热带水果",
+                      "我给4.5分，会再喝，热带水果",
+                      "我给4.5分，会再喝，热带水果",
+                      "我给4.5分，会再喝，热带水果",
+                      "我给4.5分，会再喝，热带水果",
+                      "我给4.5分，会再喝，热带水果",
+                      "3.5分，不会再喝",
+                      "4分",
+                      "这杯不错，给4.5分",
+                      "2分，不会再喝，偏酸",
+                      "会再喝，苦度刚好",
+                      "我给4.5分，会再喝，热带水果",
+                      "3.5分，不会再喝",
+                      "4分",
+                      "这杯不错，给4.5分",
+                      "2分，不会再喝，偏酸",
+                      "会再喝，苦度刚好",
+                      "我给4.5分，会再喝，热带水果",
+                      "3.5分，不会再喝",
+                      "4分",
+                      "这杯不错，给4.5分",
+                      "2分，不会再喝，偏酸",
+                      "会再喝，苦度刚好"
+                    ],
+                    "confidence": 1,
+                    "evidenceCount": 23,
+                    "correctionsCount": 0,
+                    "correctionsApplied": false
+                  },
+                  "trends": {
+                    "months": [
+                      {
+                        "month": "2026-07",
+                        "episodeCount": 23,
+                        "topStyles": [],
+                        "topTags": [
+                          "热带水果",
+                          "苦"
+                        ],
+                        "dislikedTags": [
+                          "酸"
+                        ],
+                        "avgScore": 3.9,
+                        "abvRange": null
+                      }
+                    ],
+                    "updatedAt": "2026-07-08T02:31:35.047Z"
+                  },
+                  "corrections": [],
+                  "hasProfile": true,
+                  "profileConfidence": 1
+                }
+              },
+              "reason": "low confidence (20%) + beer domain keywords: 啤酒, 罐"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-08T02:31:44.805Z",
+            "output": {
+              "reply": "根据你的口味画像：喜欢热带水果和苦风味",
+              "candidates": [],
+              "picks": {
+                "topPick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "safePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "explorePick": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                },
+                "avoidOrCaution": {
+                  "candidateId": "",
+                  "label": "",
+                  "reason": "暂无",
+                  "worthScore": 0,
+                  "fitScore": 0
+                }
+              },
+              "profileSummary": "喜欢热带水果和苦风味"
+            },
+            "completedAt": "2026-07-08T02:31:44.805Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "low confidence (20%) + beer domain keywords: 啤酒, 罐",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "compose_answer"
+          ],
+          "missingContext": [
+            "limited_profile_data",
+            "no_active_menu"
+          ],
+          "fallbackUsed": false
+        },
+        "finalAnswer": "根据你的口味画像：喜欢热带水果和苦风味"
+      },
+      "planId": "plan_1783477904804_0kbtxi",
+      "reason": "low confidence (20%) + beer domain keywords: 啤酒, 罐",
+      "success": true,
+      "fallback": false,
+      "steps": [
+        {
+          "id": "step_classify_intent_8gkw",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "unclear",
+            "confidence": 0.2,
+            "source": "fallback",
+            "isMultiIntent": false,
+            "intents": [
+              {
+                "intent": "unclear",
+                "confidence": 0.2,
+                "slots": {}
+              }
+            ],
+            "slots": {},
+            "missingInfo": [],
+            "routeReason": "LLM fallback failed: OpenRouter 403: {\"error\":{\"message\":\"This model is not available in your region.\",\"code\":403}}"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_ylve",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile for context",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 954,
+            "_preview": "{\"profile\":{\"userId\":\"regression-user\",\"updatedAt\":\"2026-07-08T02:31:35.043Z\",\"summary\":\"喜欢热带水果和苦风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"热带水果\",\"weight\":8,\"evidenceCount..."
+          }
+        },
+        {
+          "id": "step_compose_answer_wd26",
+          "tool": "compose_answer",
+          "purpose": "Compose contextual response",
+          "status": "completed",
+          "outputSummary": {
+            "reply": "根据你的口味画像：喜欢热带水果和苦风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢热带水果和苦风味"
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "low confidence (20%) + beer domain keywords: 啤酒, 罐",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "compose_answer"
+        ],
+        "missingContext": [
+          "limited_profile_data",
+          "no_active_menu"
+        ],
+        "fallbackUsed": false
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "analysis": "openai/gpt-4o-mini",
+      "vision": "google/gemini-2.5-flash",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "low confidence (20%) + beer domain keywords: 啤酒, 罐",
+      "fallbackUsed": false,
+      "stepCount": 3,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783477904804_0kbtxi",
+      "reason": "low confidence (20%) + beer domain keywords: 啤酒, 罐",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_8gkw",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "看看这罐啤酒",
+            "hasImage": false
+          },
+          "output": {
+            "intent": "unclear",
+            "confidence": 0.2,
+            "source": "fallback",
+            "isMultiIntent": false,
+            "intents": [
+              {
+                "intent": "unclear",
+                "confidence": 0.2,
+                "slots": {}
+              }
+            ],
+            "slots": {},
+            "missingInfo": [],
+            "routeReason": "LLM fallback failed: OpenRouter 403: {\"error\":{\"message\":\"This model is not available in your region.\",\"code\":403}}"
+          },
+          "startedAt": "2026-07-08T02:31:44.804Z",
+          "completedAt": "2026-07-08T02:31:44.805Z"
+        },
+        {
+          "id": "step_retrieve_memory_ylve",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user profile for context",
+          "status": "completed",
+          "input": {
+            "userId": "regression-user"
+          },
+          "output": {
+            "profile": {
+              "userId": "regression-user",
+              "updatedAt": "2026-07-08T02:31:35.043Z",
+              "summary": "喜欢热带水果和苦风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "热带水果",
+                  "weight": 8,
+                  "evidenceCount": 8
+                },
+                {
+                  "value": "苦",
+                  "weight": 3,
+                  "evidenceCount": 3
+                }
+              ],
+              "dislikedTags": [
+                {
+                  "value": "酸",
+                  "weight": 3,
+                  "evidenceCount": 3
+                }
+              ],
+              "notes": [
+                "我给4.5分，会再喝，热带水果",
+                "我给4.5分，会再喝，热带水果",
+                "我给4.5分，会再喝，热带水果",
+                "我给4.5分，会再喝，热带水果",
+                "我给4.5分，会再喝，热带水果",
+                "我给4.5分，会再喝，热带水果",
+                "3.5分，不会再喝",
+                "4分",
+                "这杯不错，给4.5分",
+                "2分，不会再喝，偏酸",
+                "会再喝，苦度刚好",
+                "我给4.5分，会再喝，热带水果",
+                "3.5分，不会再喝",
+                "4分",
+                "这杯不错，给4.5分",
+                "2分，不会再喝，偏酸",
+                "会再喝，苦度刚好",
+                "我给4.5分，会再喝，热带水果",
+                "3.5分，不会再喝",
+                "4分",
+                "这杯不错，给4.5分",
+                "2分，不会再喝，偏酸",
+                "会再喝，苦度刚好"
+              ],
+              "confidence": 1,
+              "evidenceCount": 23,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 23,
+                  "topStyles": [],
+                  "topTags": [
+                    "热带水果",
+                    "苦"
+                  ],
+                  "dislikedTags": [
+                    "酸"
+                  ],
+                  "avgScore": 3.9,
+                  "abvRange": null
+                }
+              ],
+              "updatedAt": "2026-07-08T02:31:35.047Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 1
+          },
+          "startedAt": "2026-07-08T02:31:44.805Z",
+          "completedAt": "2026-07-08T02:31:44.805Z"
+        },
+        {
+          "id": "step_compose_answer_wd26",
+          "tool": "compose_answer",
+          "purpose": "Compose contextual response",
+          "status": "completed",
+          "input": {
+            "toolOutputs": {
+              "classify_intent": {
+                "intent": "unclear",
+                "confidence": 0.2,
+                "source": "fallback",
+                "isMultiIntent": false,
+                "intents": [
+                  {
+                    "intent": "unclear",
+                    "confidence": 0.2,
+                    "slots": {}
+                  }
+                ],
+                "slots": {},
+                "missingInfo": [],
+                "routeReason": "LLM fallback failed: OpenRouter 403: {\"error\":{\"message\":\"This model is not available in your region.\",\"code\":403}}"
+              },
+              "retrieve_memory": {
+                "profile": {
+                  "userId": "regression-user",
+                  "updatedAt": "2026-07-08T02:31:35.043Z",
+                  "summary": "喜欢热带水果和苦风味",
+                  "preferredStyles": [],
+                  "dislikedStyles": [],
+                  "preferredTags": [
+                    {
+                      "value": "热带水果",
+                      "weight": 8,
+                      "evidenceCount": 8
+                    },
+                    {
+                      "value": "苦",
+                      "weight": 3,
+                      "evidenceCount": 3
+                    }
+                  ],
+                  "dislikedTags": [
+                    {
+                      "value": "酸",
+                      "weight": 3,
+                      "evidenceCount": 3
+                    }
+                  ],
+                  "notes": [
+                    "我给4.5分，会再喝，热带水果",
+                    "我给4.5分，会再喝，热带水果",
+                    "我给4.5分，会再喝，热带水果",
+                    "我给4.5分，会再喝，热带水果",
+                    "我给4.5分，会再喝，热带水果",
+                    "我给4.5分，会再喝，热带水果",
+                    "3.5分，不会再喝",
+                    "4分",
+                    "这杯不错，给4.5分",
+                    "2分，不会再喝，偏酸",
+                    "会再喝，苦度刚好",
+                    "我给4.5分，会再喝，热带水果",
+                    "3.5分，不会再喝",
+                    "4分",
+                    "这杯不错，给4.5分",
+                    "2分，不会再喝，偏酸",
+                    "会再喝，苦度刚好",
+                    "我给4.5分，会再喝，热带水果",
+                    "3.5分，不会再喝",
+                    "4分",
+                    "这杯不错，给4.5分",
+                    "2分，不会再喝，偏酸",
+                    "会再喝，苦度刚好"
+                  ],
+                  "confidence": 1,
+                  "evidenceCount": 23,
+                  "correctionsCount": 0,
+                  "correctionsApplied": false
+                },
+                "trends": {
+                  "months": [
+                    {
+                      "month": "2026-07",
+                      "episodeCount": 23,
+                      "topStyles": [],
+                      "topTags": [
+                        "热带水果",
+                        "苦"
+                      ],
+                      "dislikedTags": [
+                        "酸"
+                      ],
+                      "avgScore": 3.9,
+                      "abvRange": null
+                    }
+                  ],
+                  "updatedAt": "2026-07-08T02:31:35.047Z"
+                },
+                "corrections": [],
+                "hasProfile": true,
+                "profileConfidence": 1
+              }
+            },
+            "reason": "low confidence (20%) + beer domain keywords: 啤酒, 罐"
+          },
+          "output": {
+            "reply": "根据你的口味画像：喜欢热带水果和苦风味",
+            "candidates": [],
+            "picks": {
+              "topPick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "safePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "explorePick": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              },
+              "avoidOrCaution": {
+                "candidateId": "",
+                "label": "",
+                "reason": "暂无",
+                "worthScore": 0,
+                "fitScore": 0
+              }
+            },
+            "profileSummary": "喜欢热带水果和苦风味"
+          },
+          "startedAt": "2026-07-08T02:31:44.805Z",
+          "completedAt": "2026-07-08T02:31:44.805Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像：喜欢热带水果和苦风味"
+    },
+    "diagnostics": {
+      "triggerReason": "low confidence (20%) + beer domain keywords: 啤酒, 罐",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "compose_answer"
+      ],
+      "missingContext": [
+        "limited_profile_data",
+        "no_active_menu"
+      ],
+      "fallbackUsed": false
+    }
+  }
+}

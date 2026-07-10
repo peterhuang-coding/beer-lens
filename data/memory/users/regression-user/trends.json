@@ -1,0 +1,20 @@
+{
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:35.047Z",
+  "months": [
+    {
+      "month": "2026-07",
+      "episodeCount": 23,
+      "topStyles": [],
+      "topTags": [
+        "热带水果",
+        "苦"
+      ],
+      "dislikedTags": [
+        "酸"
+      ],
+      "avgScore": 3.9,
+      "abvRange": null
+    }
+  ]
+}

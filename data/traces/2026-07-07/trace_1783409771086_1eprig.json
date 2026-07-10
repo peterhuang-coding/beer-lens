@@ -1,0 +1,284 @@
+{
+  "traceId": "trace_1783409771086_1eprig",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "regression-fresh-regression-profile-query",
+  "turnId": "trace_1783409771086_efq8y4",
+  "timestamp": "2026-07-07T07:36:11.095Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "我的口味画像是什么",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "profile_query",
+        "confidence": 0.9,
+        "slots": {}
+      }
+    ],
+    "intent": "profile_query",
+    "confidence": 0.9,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "rule match: profile_query (90%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "confidence": 0.9,
+          "pattern": "我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "画像查询(profile_query) won via positive_rule (confidence 90%). Other intents did not match or scored below threshold.",
+      "candidateScores": [
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "rule",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_text_recommend",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /推荐.*啤酒|推荐.*IPA|推荐.*拉格|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_implicit_want",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /想喝|好想喝|想试试|想尝|想试|馋了|想喝点|想.*一杯|想.*来.*杯|好渴|热.*喝|天.*热.*喝|口渴|想.*啤/ did not match or confidence 0.75 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_implicit_explore",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /有什么.*新|最近.*流行|新出.*什么|有什么.*特别|有什么.*好|没喝过.*推荐|换.*口味|试.*新的|尝.*新的/ did not match or confidence 0.72 < 0.7"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "followup_index",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /第[\\d一二三四五六七八九十]+[个款杯号种]/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "followup_which",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /哪个|哪款|哪一种|哪一杯|哪个好|哪.*好喝|哪.*推荐/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "followup_has_style",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /有.*吗|有没有.*IPA|有没有.*拉格|有没有.*世涛|有没有.*小麦|有没有.*酸/ did not match or confidence 0.88 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.9,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ matched"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|West\\s*Coast\\s*IPA|west\\s*coast\\s*ipa|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对|不喜欢|别再说我喜欢|不要再说我喜欢/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "sample_match",
+          "type": "positive",
+          "matched": false,
+          "reason": "Sample score 0.00 < 0.7"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "sample_match",
+          "type": "positive",
+          "matched": false,
+          "reason": "Sample score 0.00 < 0.7"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "sample_match",
+          "type": "positive",
+          "matched": false,
+          "reason": "Sample score 0.00 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "sample_match",
+          "type": "positive",
+          "matched": false,
+          "reason": "Sample score 0.00 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "sample_match",
+          "type": "positive",
+          "matched": false,
+          "reason": "Sample score 0.00 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "sample_match",
+          "type": "positive",
+          "matched": false,
+          "reason": "Sample score 0.00 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "profile_query",
+    "diagnosis": {
+      "selectedHandler": "handleProfileQuery",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"profile_query\" matched route \"handleProfileQuery\" — all required context present",
+      "intent": "profile_query"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果风味\n\n画像置信度：40%（基于 4 条品饮记录）\n\n偏好风味标签：热带水果（4）\nABV 舒适区：暂无足够记录\n记录数：4 条\n\n📈 最近趋势：\n2026月07：4款 · 近三月均分 4.5 · 偏好风味：热带水果\n\n证据数：4 · 画像置信度：40% · 实验组：开启",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "profile_query",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned"
+    ],
+    "routeDiagnosis": {
+      "selectedHandler": "handleProfileQuery",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"profile_query\" matched route \"handleProfileQuery\" — all required context present",
+      "intent": "profile_query"
+    }
+  }
+}

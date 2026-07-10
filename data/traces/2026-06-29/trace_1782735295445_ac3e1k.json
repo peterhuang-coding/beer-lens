@@ -1,0 +1,65 @@
+{
+  "traceId": "trace_1782735295445_ac3e1k",
+  "userId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "channel": "feishu",
+  "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "turnId": "om_x100b6b12556d28b0b4cc15c0c604fef",
+  "timestamp": "2026-06-29T12:15:59.785Z",
+  "input": {
+    "messageCount": 19,
+    "lastUserText": "推荐 IPA",
+    "hasImage": true,
+    "imageName": "img_v3_02134_027455d0-b217-4ec1-8737-f9465a66e2dg.jpg",
+    "imageType": "image/jpeg"
+  },
+  "intentResult": {
+    "intent": "menu_recommend",
+    "confidence": 0.95,
+    "slots": {
+      "beerName": "IPA",
+      "style": "ipa"
+    },
+    "missingInfo": [],
+    "routeReason": "Rule matched: menu_recommend (confidence 0.95)",
+    "source": "rule"
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 2,
+      "hasLastRecommendation": true,
+      "activeBeerName": "® ABV:11.5% 300ml ¥OO"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. Racer 5 India Pale Ale - 评分4.2 - IPA推荐\n2. American - 评分2.3\n3. Echidna - 评分4.4\n\n最稳：American\n最值得尝新：Echidna\n我会先跳过：RIRERR\n\n如果只能喝一杯，选 Racer 5 India Pale Ale。",
+    "candidateCount": 38,
+    "topPickId": "5"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": true,
+    "warnings": [
+      "high_abv_candidate: St. Bernardus Abt 12 (10%)",
+      "high_abv_candidate: Trappist Westvleteren 12 (10.2%)",
+      "high_abv_candidate: Dragonslayer (9.5%)",
+      "high_abv_candidate: Fractional BA Steeple (14.5%)",
+      "high_abv_candidate: Trappistes Rochefort 10 (11.3%)",
+      "high_abv_candidate: Sierra Nevada Bigfoot Barleywine Style Ale (9.6%)",
+      "missing_data_rating_mentioned"
+    ]
+  }
+}

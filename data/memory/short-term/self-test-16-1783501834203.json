@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-16-1783501834203",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:10:39.997Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783501834207_14ta72",
+      "userText": "哪个不苦",
+      "assistantReply": "如果你不喜欢苦味的啤酒，可以试试一些比较轻盈和清爽的风格，比如小麦啤酒（Weissbier）或者比利时白啤酒（Belgian Witbier）。这些啤酒通常带有热带水果和柑橘的香气，口感比较清爽，苦味较轻。另外，一些水果风味的啤酒也是不错的选择，比如添加了柠檬、青柠或者芒果等水果的啤酒，它们通常会带来更多的甜味和果香，减少苦味。你觉得这些风格怎么样？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:10:39.997Z"
+    }
+  ],
+  "currentConstraints": [
+    "不苦"
+  ]
+}

@@ -2112,6 +2112,22 @@ function RawDataView() {
             onClick={() => { setVqaTab(vqaTab === "raw-data" ? "query" : "raw-data"); fetchTasks(); }}>
             [{vqaTab === "raw-data" ? "切换到 Query" : "切换到 VQA"}]
           </span>
+          {vqaTab === "raw-data" && (
+            <span style={{ marginLeft: 10, display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <button onClick={runAutoTest} disabled={autoTesting}
+                style={{
+                  padding: "4px 12px", fontSize: 11, borderRadius: 4, cursor: autoTesting ? "not-allowed" : "pointer",
+                  background: autoTesting ? "#21262d" : "#f0883e22",
+                  color: autoTesting ? "#484f58" : "#f0883e",
+                  border: "1px solid #f0883e44",
+                }}>
+                {autoTesting ? "⏳ 测试中..." : "⚡ 一键自测"}
+              </button>
+              {autoTestProgress && (
+                <span style={{ fontSize: 11, color: "#8b949e" }}>{autoTestProgress}</span>
+              )}
+            </span>
+          )}
         </h3>
         <div style={{ display: "flex", gap: 4, marginBottom: 10, flexWrap: "wrap" }}>
           {["pending", "labeled", "skipped", "exported"].map((s) => (
@@ -2172,6 +2188,33 @@ function RawDataView() {
                 </div>
                 <label style={formLabelStyle}>可见文字</label>
                 <textarea value={labels.visibleText || ""} onChange={(e) => updateLabel("visibleText", e.target.value)} rows={3} style={{ ...formInputStyle, resize: "vertical" }} />
+
+                {/* Auto-test result */}
+                {selected.labels?.autoTestResult && (
+                  <div style={{ marginTop: 16, padding: 12, borderRadius: 6, border: `1px solid ${selected.labels.autoTestResult.pass ? "#3fb95044" : "#da363344"}`, background: selected.labels.autoTestResult.pass ? "#1a3022" : "#2a1a1a" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: selected.labels.autoTestResult.pass ? "#3fb950" : "#da3633" }}>
+                        ⚡ 自动测试: {selected.labels.autoTestResult.pass ? "✅ 通过" : "❌ 失败"}
+                      </span>
+                      <span style={{ fontSize: 10, color: "#8b949e" }}>
+                        {selected.labels.autoTestResult.testedAt ? new Date(selected.labels.autoTestResult.testedAt).toLocaleString() : ""}
+                      </span>
+                    </div>
+                    <div style={{ fontSize: 11, color: "#8b949e", marginBottom: 4 }}>
+                      候选数: <strong style={{ color: selected.labels.autoTestResult.candidates > 0 ? "#3fb950" : "#da3633" }}>{selected.labels.autoTestResult.candidates}</strong>
+                    </div>
+                    {selected.labels.autoTestResult.candidateNames?.length > 0 && (
+                      <div style={{ fontSize: 11, color: "#8b949e" }}>
+                        候选酒: <span style={{ color: "#c9d1d9" }}>{selected.labels.autoTestResult.candidateNames.join(", ")}</span>
+                      </div>
+                    )}
+                    {selected.labels.autoTestResult.error && (
+                      <div style={{ fontSize: 10, color: "#da3633", marginTop: 4, wordBreak: "break-word" }}>
+                        错误: {selected.labels.autoTestResult.error}
+                      </div>
+                    )}
+                  </div>
+                )}
               </>
             ) : (
               <>

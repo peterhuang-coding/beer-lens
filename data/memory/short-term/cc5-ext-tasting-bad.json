@@ -1,0 +1,28 @@
+{
+  "conversationId": "cc5-ext-tasting-bad",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:34.526Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476628413_4icmqc",
+      "userText": "2分，不会再喝，偏酸",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分，不会再喝，偏酸\n你的口味画像：喜欢热带水果风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-08T02:10:28.421Z"
+    },
+    {
+      "turnId": "trace_1783477660728_r4h4mo",
+      "userText": "2分，不会再喝，偏酸",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分，不会再喝，偏酸\n你的口味画像：喜欢热带水果和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-08T02:27:40.738Z"
+    },
+    {
+      "turnId": "trace_1783477894516_tpnr9v",
+      "userText": "2分，不会再喝，偏酸",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分，不会再喝，偏酸\n你的口味画像：喜欢热带水果和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-08T02:31:34.526Z"
+    }
+  ]
+}

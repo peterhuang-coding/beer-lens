@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(python3 -c ' *)",
+      "Bash(node /Users/Zhuanz/Desktop/beer-lens/scripts/auto-test-vqa.mjs)",
+      "Bash(node /Users/Zhuanz/Desktop/beer-lens/scripts/generate-vqa-tasks.mjs)",
+      "Bash(node /Users/Zhuanz/Desktop/beer-lens/scripts/run-vqa-tests.mjs)",
+      "Bash(node /Users/Zhuanz/Desktop/beer-lens/scripts/auto-fix.mjs)",
+      "Bash(python3 -c \"import sys,json; print\\('Saved:', json.loads\\(sys.stdin.read\\(\\)\\)\\)\")",
+      "Bash(xargs -0 ls -1t)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s *)",
+      "Bash(curl -sL *)",
+      "Bash(curl -sI *)",
+      "Bash(lsof -ti:*)",
+      "Bash(sleep *)",
+      "Bash(tsc *)"
+    ]
+  }
+}

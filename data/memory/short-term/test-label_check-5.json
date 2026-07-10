@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-label_check-5",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:05.272Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611663932_1dy5qn",
+      "userText": "这瓶酒过期了吗",
+      "assistantReply": "请提供酒标上的生产日期或最佳饮用日期，或者发一张酒标照片，以便我帮助你判断。",
+      "intent": "label_check",
+      "createdAt": "2026-07-09T15:41:05.272Z"
+    }
+  ]
+}

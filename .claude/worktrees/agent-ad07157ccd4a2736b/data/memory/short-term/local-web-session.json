@@ -1,0 +1,431 @@
+{
+  "conversationId": "local-web-session",
+  "userId": "local-user",
+  "updatedAt": "2026-07-02T02:05:35.425Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1782393389486_6vejeq",
+      "userText": "给我推荐",
+      "assistantReply": "我这里不能确认这款酒的数据，先不编评分。你可以发清楚一点的酒单/酒标，我再帮你判断。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-06-25T13:17:07.406Z"
+    },
+    {
+      "turnId": "trace_1782394325636_wo6kn3",
+      "userText": "重新给我推荐",
+      "assistantReply": "为了更好地推荐，我建议你尝试以下几种风格的啤酒：\n\n1. **Hazy IPA**：这种风格通常具有丰富的热带水果和柑橘风味，口感清爽，苦味较低，非常适合你的偏好。\n\n2. **Session IPA**：如果你想要一款酒精度较低的IPA，这个选择会很合适。它们通常清爽，适合长时间饮用。\n\n3. **Pilsner**：经典的皮尔森啤酒清爽、干净，适合喜欢低甜度的饮者。\n\n4. **Wheat Beer（小麦啤酒）**：这种啤酒通常口感顺滑，带有柑橘和香料的风味，适合夏天饮用。\n\n如果你能提供酒单或具体的啤酒名称，我可以给你更精准的推荐！",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-06-25T13:32:08.811Z"
+    },
+    {
+      "turnId": "trace_1782730055144_yfsh9z",
+      "userText": "我要喝 IPA",
+      "assistantReply": "从酒单中，适合你的 IPA 有以下几款：",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-06-29T10:47:45.669Z"
+    },
+    {
+      "turnId": "trace_1782735402523_8fcc6k",
+      "userText": "推荐 IPA",
+      "assistantReply": "我会这样点：\n\n1. Racer 5 India Pale Ale - 评分4.2 - IPA推荐\n2. American - 评分2.3\n3. Echidna - 评分4.4\n\n最稳：American\n最值得尝新：Echidna\n我会先跳过：RIRERR\n\n如果只能喝一杯，选 Racer 5 India Pale Ale。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-06-29T12:17:47.178Z"
+    },
+    {
+      "turnId": "trace_1782878449132_36mxy2",
+      "userText": "我要喝酒",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-01T04:00:49.272Z"
+    },
+    {
+      "turnId": "trace_1782878457331_0k34aq",
+      "userText": "我需要喝酒",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-01T04:00:57.419Z"
+    },
+    {
+      "turnId": "trace_1782957935404_t1kalr",
+      "userText": "这些是什么酒？",
+      "assistantReply": "抱歉，分析这张酒标时出错了。请拍一张清楚的酒标正面照再试试。",
+      "intent": "label_check",
+      "createdAt": "2026-07-02T02:05:35.425Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1782735402523_evsqew",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "RIRERR",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "2",
+        "displayName": "American",
+        "brewery": "Pittsburgh Brewing Co.",
+        "style": "American Adjunct Lager",
+        "abv": 0,
+        "price": null,
+        "rating": 2.25
+      },
+      {
+        "candidateId": "3",
+        "displayName": "1554 Enlightened Black Ale",
+        "brewery": "New Belgium Brewing",
+        "style": "Belgian Dark Ale",
+        "abv": 5.6,
+        "price": null,
+        "rating": 3.96
+      },
+      {
+        "candidateId": "4",
+        "displayName": "ABV:6",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "5",
+        "displayName": "Racer 5 India Pale Ale",
+        "brewery": "Bear Republic Brewing Co.",
+        "style": "American IPA",
+        "abv": 7,
+        "price": null,
+        "rating": 4.23
+      },
+      {
+        "candidateId": "6",
+        "displayName": "¥90 |",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "7",
+        "displayName": "ABV:5.5%",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "8",
+        "displayName": "Dos Equis Amber Lager",
+        "brewery": "Cervecería Cuauhtémoc Moctezuma, S.A. de C.V.",
+        "style": "Vienna Lager",
+        "abv": 4.5,
+        "price": null,
+        "rating": 3.35
+      },
+      {
+        "candidateId": "9",
+        "displayName": "¥OYI",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "10",
+        "displayName": "330ml",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "11",
+        "displayName": "473ml | |",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "12",
+        "displayName": "ABV",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "13",
+        "displayName": "5.8%",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "14",
+        "displayName": "|  ratte",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "15",
+        "displayName": "Kalik",
+        "brewery": "Commonwealth Brewery Ltd.",
+        "style": "American Adjunct Lager",
+        "abv": 0,
+        "price": null,
+        "rating": 2.94
+      },
+      {
+        "candidateId": "16",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      },
+      {
+        "candidateId": "17",
+        "displayName": "Aecht Schlenkerla Rauchbier Märzen",
+        "brewery": "Brauerei Heller-Trum / Schlenkerla",
+        "style": "Rauchbier",
+        "abv": 5.4,
+        "price": null,
+        "rating": 3.83
+      },
+      {
+        "candidateId": "18",
+        "displayName": "Aecht Schlenkerla Rauchbier Märzen",
+        "brewery": "Brauerei Heller-Trum / Schlenkerla",
+        "style": "Rauchbier",
+        "abv": 5.4,
+        "price": null,
+        "rating": 3.83
+      },
+      {
+        "candidateId": "19",
+        "displayName": "ABV:4",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "20",
+        "displayName": "St. Bernardus Abt 12",
+        "brewery": "Brouwerij St. Bernardus NV",
+        "style": "Quadrupel (Quad)",
+        "abv": 10,
+        "price": null,
+        "rating": 4.33
+      },
+      {
+        "candidateId": "21",
+        "displayName": "*s Re aro",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "22",
+        "displayName": "Fruited Sour Ale",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "23",
+        "displayName": "ABV:13.8%",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "24",
+        "displayName": "Trappist Westvleteren 12",
+        "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)",
+        "style": "Quadrupel (Quad)",
+        "abv": 10.2,
+        "price": null,
+        "rating": 4.62
+      },
+      {
+        "candidateId": "25",
+        "displayName": "Echidna",
+        "brewery": "Mortalis Brewing Company",
+        "style": "Sour - Smoothie / Pastry",
+        "abv": 7,
+        "price": null,
+        "rating": 4.4
+      },
+      {
+        "candidateId": "26",
+        "displayName": "Fat Tire Amber Ale",
+        "brewery": "New Belgium Brewing",
+        "style": "American Amber / Red Ale",
+        "abv": 5.2,
+        "price": null,
+        "rating": 3.82
+      },
+      {
+        "candidateId": "27",
+        "displayName": "Dragonslayer",
+        "brewery": "Middle Ages Brewing Co., Ltd.",
+        "style": "Russian Imperial Stout",
+        "abv": 9.5,
+        "price": null,
+        "rating": 4.01
+      },
+      {
+        "candidateId": "28",
+        "displayName": "琥珀拉格 «6.70",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "29",
+        "displayName": "Tröegs Hopback Amber Ale",
+        "brewery": "Tröegs Brewing Company",
+        "style": "American Amber / Red Ale",
+        "abv": 6,
+        "price": null,
+        "rating": 4.18
+      },
+      {
+        "candidateId": "30",
+        "displayName": "Fractional BA Steeple",
+        "brewery": "3 Sons Brewing Co.",
+        "style": "Stout - Imperial / Double Pastry",
+        "abv": 14.5,
+        "price": null,
+        "rating": 4.44
+      },
+      {
+        "candidateId": "31",
+        "displayName": "Tröegs Nugget Nectar",
+        "brewery": "Tröegs Brewing Company",
+        "style": "American Amber / Red Ale",
+        "abv": 7.5,
+        "price": null,
+        "rating": 4.4
+      },
+      {
+        "candidateId": "32",
+        "displayName": "Cyber Sue",
+        "brewery": "Toppling Goliath Brewing Co.",
+        "style": "IPA - American",
+        "abv": 7.2,
+        "price": null,
+        "rating": 3.86
+      },
+      {
+        "candidateId": "33",
+        "displayName": "Trappistes Rochefort 10",
+        "brewery": "Brasserie de Rochefort",
+        "style": "Quadrupel (Quad)",
+        "abv": 11.3,
+        "price": null,
+        "rating": 4.34
+      },
+      {
+        "candidateId": "34",
+        "displayName": "Sierra Nevada Bigfoot Barleywine Style Ale",
+        "brewery": "Sierra Nevada Brewing Co.",
+        "style": "American Barleywine",
+        "abv": 9.6,
+        "price": null,
+        "rating": 3.97
+      },
+      {
+        "candidateId": "35",
+        "displayName": "¥ 50/ 2",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "36",
+        "displayName": "wie.      ci      ae",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "37",
+        "displayName": "Mill Street ESB",
+        "brewery": "Mill Street Brew Pub",
+        "style": "Extra Special / Strong Bitter (ESB)",
+        "abv": 4.5,
+        "price": null,
+        "rating": 3.78
+      },
+      {
+        "candidateId": "38",
+        "displayName": "Grisette (Blend #10)",
+        "brewery": "Side Project Brewing",
+        "style": "Grisette",
+        "abv": 4.5,
+        "price": null,
+        "rating": 4.25
+      }
+    ],
+    "source": "ocr",
+    "createdAt": "2026-06-29T12:17:47.178Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "5",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "2",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "25",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "5",
+    "displayName": "Racer 5 India Pale Ale",
+    "brewery": "Bear Republic Brewing Co."
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

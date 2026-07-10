@@ -1,0 +1,951 @@
+{
+  "timestamp": "2026-07-08T02:28:09.729Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/api/agent",
+    "userId": "regression-user",
+    "convPrefix": "cc5-ext",
+    "timeoutMs": 30000
+  },
+  "summary": {
+    "total": 44,
+    "passed": 40,
+    "failed": 4,
+    "errors": 0,
+    "passRate": "90.9%",
+    "durationMs": 46953
+  },
+  "results": [
+    {
+      "caseId": "reg_001",
+      "name": "推荐一款IPA",
+      "inputText": "推荐一款IPA",
+      "conversationId": "cc5-ext-recommend-ipa",
+      "passed": false,
+      "durationMs": 53,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "high_abv_candidate: Third Anniversary Imperial IPA (10%)"
+      ],
+      "failures": [
+        "missing keywords: [推荐]"
+      ],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": false,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_002",
+      "name": "想喝清爽不苦的",
+      "inputText": "想喝清爽不苦的",
+      "conversationId": "cc5-ext-recommend-crisp",
+      "passed": false,
+      "durationMs": 18,
+      "actualIntent": "follow_up_filter",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "intent mismatch: expected=menu_recommend actual=follow_up_filter",
+        "candidates too few: expected>=1 actual=0"
+      ],
+      "checks": {
+        "intentMatch": false,
+        "candidateCount": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_003",
+      "name": "推荐一款世涛",
+      "inputText": "推荐一款世涛",
+      "conversationId": "cc5-ext-recommend-stout",
+      "passed": true,
+      "durationMs": 91,
+      "actualIntent": "menu_recommend",
+      "actualReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Stout - 评分3.8，1475+人评分\n2. Stout - 评分3.8，1475+人评分\n3. Stout - 评分3.8，1475+人评分\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8，1475+人评分\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_004",
+      "name": "帮我推荐拉格",
+      "inputText": "帮我推荐拉格",
+      "conversationId": "cc5-ext-recommend-lager",
+      "passed": true,
+      "durationMs": 14,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低（有风险，见下方）\n2. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n3. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n最稳：Original Lager\n最值得尝新：Original Lager\n我会先跳过：Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n如果只能喝一杯，选 Original Lager。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_005",
+      "name": "推荐酸啤",
+      "inputText": "推荐酸啤",
+      "conversationId": "cc5-ext-recommend-sour",
+      "passed": false,
+      "durationMs": 1827,
+      "actualIntent": "unclear",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "intent mismatch: expected=menu_recommend actual=unclear",
+        "candidates too few: expected>=1 actual=0"
+      ],
+      "checks": {
+        "intentMatch": false,
+        "candidateCount": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_006",
+      "name": "帮我推荐一款",
+      "inputText": "帮我推荐一款",
+      "conversationId": "cc5-ext-recommend-generic",
+      "passed": true,
+      "durationMs": 76,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：帮我推荐一款\n最值得尝新：帮我推荐一款\n我会先跳过：帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 帮我推荐一款。\n\n⚠️ 帮我推荐一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned",
+        "missing_data_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_007",
+      "name": "今天喝什么好",
+      "inputText": "今天喝什么好",
+      "conversationId": "cc5-ext-recommend-daily",
+      "passed": true,
+      "durationMs": 74,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：今天喝什么好\n最值得尝新：今天喝什么好\n我会先跳过：今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 今天喝什么好。\n\n⚠️ 今天喝什么好 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned",
+        "missing_data_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_008",
+      "name": "想喝点烈的",
+      "inputText": "想喝点烈的",
+      "conversationId": "cc5-ext-recommend-strong",
+      "passed": true,
+      "durationMs": 17,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imp",
+      "candidateCount": 2,
+      "warnings": [
+        "high_abv_candidate: Barrel Aged Imperial German Chocolate Cupcake Stout (11%)",
+        "high_abv_candidate: Double IPA (10%)"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_009",
+      "name": "有什么好喝的啤酒",
+      "inputText": "有什么好喝的啤酒",
+      "conversationId": "cc5-ext-recommend-whatsgood",
+      "passed": true,
+      "durationMs": 72,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么好喝的啤酒\n最值得尝新：有什么好喝的啤酒\n我会先跳过：有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么好喝的啤酒。\n\n⚠️ 有什么好喝的啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned",
+        "missing_data_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_010",
+      "name": "有IPA吗（无上下文→unclear）",
+      "inputText": "有IPA吗",
+      "conversationId": "cc5-ext-filter-ipa",
+      "passed": true,
+      "durationMs": 3134,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_011",
+      "name": "第3个怎么样",
+      "inputText": "第3个怎么样",
+      "conversationId": "cc5-ext-filter-nth",
+      "passed": true,
+      "durationMs": 25,
+      "actualIntent": "follow_up_filter",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_012",
+      "name": "有没有世涛",
+      "inputText": "有没有世涛",
+      "conversationId": "cc5-ext-filter-stout",
+      "passed": true,
+      "durationMs": 20,
+      "actualIntent": "follow_up_filter",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_013",
+      "name": "哪个不苦",
+      "inputText": "哪个不苦",
+      "conversationId": "cc5-ext-filter-not-bitter",
+      "passed": true,
+      "durationMs": 19,
+      "actualIntent": "follow_up_filter",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_014",
+      "name": "第一个怎么样（无上下文→unclear）",
+      "inputText": "第一个怎么样",
+      "conversationId": "cc5-ext-filter-1st",
+      "passed": true,
+      "durationMs": 654,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_015",
+      "name": "有没有酸啤（无上下文→unclear）",
+      "inputText": "有没有酸啤",
+      "conversationId": "cc5-ext-filter-sour",
+      "passed": true,
+      "durationMs": 2261,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_016",
+      "name": "我给4.5分会再喝热带水果",
+      "inputText": "我给4.5分，会再喝，热带水果",
+      "conversationId": "cc5-ext-tasting-full",
+      "passed": true,
+      "durationMs": 22,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_017",
+      "name": "3.5分，不会再喝",
+      "inputText": "3.5分，不会再喝",
+      "conversationId": "cc5-ext-tasting-low",
+      "passed": true,
+      "durationMs": 20,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n你不会再喝这杯酒。\n备注：3.5分，不会再喝\n你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_018",
+      "name": "4分",
+      "inputText": "4分",
+      "conversationId": "cc5-ext-tasting-score-only",
+      "passed": true,
+      "durationMs": 15,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分\n你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_019",
+      "name": "这杯不错，给4.5分",
+      "inputText": "这杯不错，给4.5分",
+      "conversationId": "cc5-ext-tasting-good",
+      "passed": true,
+      "durationMs": 21,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：这杯不错，给4.5分\n你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_020",
+      "name": "2分，不会再喝，偏酸",
+      "inputText": "2分，不会再喝，偏酸",
+      "conversationId": "cc5-ext-tasting-bad",
+      "passed": true,
+      "durationMs": 14,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分，不会再喝，偏酸\n你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_021",
+      "name": "会再喝，苦度刚好",
+      "inputText": "会再喝，苦度刚好",
+      "conversationId": "cc5-ext-tasting-would-drink",
+      "passed": true,
+      "durationMs": 16,
+      "actualIntent": "tasting_feedback",
+      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你会再喝这杯酒。\n备注：会再喝，苦度刚好\n你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_022",
+      "name": "我的口味画像是什么",
+      "inputText": "我的口味画像是什么",
+      "conversationId": "cc5-ext-profile-what",
+      "passed": true,
+      "durationMs": 20,
+      "actualIntent": "profile_query",
+      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 17 条品饮记录）\n\n偏好风味标签：热带水果（7）、苦（2）\nABV 舒适区：暂无足够记录\n记录数：17 条\n\n📈 最近趋势：\n2026月07：17款 · 近三月均分 4 · 偏好风味：热带水果、苦\n\n证据数：17 · 画像置信度：100% · 实验组：开启",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_023",
+      "name": "看看我的口味偏好",
+      "inputText": "看看我的口味偏好",
+      "conversationId": "cc5-ext-profile-prefs",
+      "passed": true,
+      "durationMs": 19,
+      "actualIntent": "profile_query",
+      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 17 条品饮记录）\n\n偏好风味标签：热带水果（7）、苦（2）\nABV 舒适区：暂无足够记录\n记录数：17 条\n\n📈 最近趋势：\n2026月07：17款 · 近三月均分 4 · 偏好风味：热带水果、苦\n\n证据数：17 · 画像置信度：100% · 实验组：开启",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_024",
+      "name": "我喝过哪些酒",
+      "inputText": "我喝过哪些酒",
+      "conversationId": "cc5-ext-profile-history",
+      "passed": true,
+      "durationMs": 19,
+      "actualIntent": "profile_query",
+      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 17 条品饮记录）\n\n偏好风味标签：热带水果（7）、苦（2）\nABV 舒适区：暂无足够记录\n记录数：17 条\n\n📈 最近趋势：\n2026月07：17款 · 近三月均分 4 · 偏好风味：热带水果、苦\n\n证据数：17 · 画像置信度：100% · 实验组：开启",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_025",
+      "name": "帮我看看口味画像",
+      "inputText": "帮我看看口味画像",
+      "conversationId": "cc5-ext-profile-check",
+      "passed": true,
+      "durationMs": 20,
+      "actualIntent": "profile_query",
+      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 17 条品饮记录）\n\n偏好风味标签：热带水果（7）、苦（2）\nABV 舒适区：暂无足够记录\n记录数：17 条\n\n📈 最近趋势：\n2026月07：17款 · 近三月均分 4 · 偏好风味：热带水果、苦\n\n证据数：17 · 画像置信度：100% · 实验组：开启",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_026",
+      "name": "我不喜欢太苦的（无上下文→unclear）",
+      "inputText": "我不喜欢太苦的",
+      "conversationId": "cc5-ext-correction-bitter",
+      "passed": true,
+      "durationMs": 1763,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_027",
+      "name": "我不喜欢IPA（无上下文→unclear）",
+      "inputText": "我不喜欢IPA",
+      "conversationId": "cc5-ext-correction-ipa",
+      "passed": true,
+      "durationMs": 656,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_028",
+      "name": "重置我的记录",
+      "inputText": "重置我的记录",
+      "conversationId": "cc5-ext-correction-reset",
+      "passed": true,
+      "durationMs": 18,
+      "actualIntent": "profile_query",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_029",
+      "name": "清空我的偏好",
+      "inputText": "清空我的偏好",
+      "conversationId": "cc5-ext-correction-clear-prefs",
+      "passed": true,
+      "durationMs": 21,
+      "actualIntent": "profile_query",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_030",
+      "name": "酒标检查（无图片→unclear）",
+      "inputText": "这瓶酒过期了吗",
+      "conversationId": "cc5-ext-label-expiry",
+      "passed": true,
+      "durationMs": 814,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_031",
+      "name": "生产日期检查（无图片→unclear）",
+      "inputText": "帮我看看这瓶酒的生产日期",
+      "conversationId": "cc5-ext-label-date",
+      "passed": true,
+      "durationMs": 705,
+      "actualIntent": "label_check",
+      "actualReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_032",
+      "name": "罐装啤酒检查（无图片→unclear）",
+      "inputText": "看看这罐啤酒",
+      "conversationId": "cc5-ext-label-can",
+      "passed": true,
+      "durationMs": 2229,
+      "actualIntent": "unclear",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_033",
+      "name": "什么是West Coast IPA",
+      "inputText": "什么是West Coast IPA",
+      "conversationId": "cc5-ext-knowledge-wcipa",
+      "passed": true,
+      "durationMs": 777,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_034",
+      "name": "世涛和帝国世涛的区别",
+      "inputText": "世涛和帝国世涛的区别",
+      "conversationId": "cc5-ext-knowledge-stout-vs-imperial",
+      "passed": false,
+      "durationMs": 744,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "missing keywords: [世涛]"
+      ],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": false,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_035",
+      "name": "IPA和拉格有什么区别",
+      "inputText": "IPA和拉格有什么区别",
+      "conversationId": "cc5-ext-knowledge-ipa-vs-lager",
+      "passed": true,
+      "durationMs": 703,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_036",
+      "name": "啤酒是怎么酿造的",
+      "inputText": "啤酒是怎么酿造的",
+      "conversationId": "cc5-ext-knowledge-brewing",
+      "passed": true,
+      "durationMs": 620,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_037",
+      "name": "什么是新英格兰IPA",
+      "inputText": "什么是新英格兰IPA",
+      "conversationId": "cc5-ext-knowledge-neipa",
+      "passed": true,
+      "durationMs": 849,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_038",
+      "name": "精酿和工业啤酒的区别",
+      "inputText": "精酿和工业啤酒的区别",
+      "conversationId": "cc5-ext-knowledge-craft-vs-mass",
+      "passed": true,
+      "durationMs": 759,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_039",
+      "name": "介绍一下酸啤风格",
+      "inputText": "介绍一下酸啤风格",
+      "conversationId": "cc5-ext-knowledge-sour",
+      "passed": true,
+      "durationMs": 865,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_040",
+      "name": "你好（模糊输入→unclear）",
+      "inputText": "你好",
+      "conversationId": "cc5-ext-vague-hello",
+      "passed": true,
+      "durationMs": 2121,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_041",
+      "name": "谢谢（模糊输入→unclear）",
+      "inputText": "谢谢",
+      "conversationId": "cc5-ext-vague-thanks",
+      "passed": true,
+      "durationMs": 734,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_042",
+      "name": "帮我看看这个（模糊输入→unclear）",
+      "inputText": "帮我看看这个",
+      "conversationId": "cc5-ext-vague-this",
+      "passed": true,
+      "durationMs": 951,
+      "actualIntent": "unclear",
+      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_043",
+      "name": "什么是干投酒花",
+      "inputText": "什么是干投酒花",
+      "conversationId": "cc5-ext-knowledge-dry-hop",
+      "passed": true,
+      "durationMs": 785,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_044",
+      "name": "IPA是什么",
+      "inputText": "IPA是什么",
+      "conversationId": "cc5-ext-knowledge-what-is-ipa",
+      "passed": true,
+      "durationMs": 777,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    }
+  ]
+}

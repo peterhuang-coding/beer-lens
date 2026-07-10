@@ -1,0 +1,14 @@
+{
+  "conversationId": "regression-fresh2-regression-dislike-bitter",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-07T07:36:40.721Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783409800710_rlzko4",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "根据你的口味画像：喜欢热带水果风味\n\n\n（基于：memory_correction with existing profile — correction → re-recommend flow）",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-07T07:36:40.721Z"
+    }
+  ]
+}

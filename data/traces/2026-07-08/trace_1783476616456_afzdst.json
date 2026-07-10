@@ -1,0 +1,99 @@
+{
+  "traceId": "trace_1783476616456_afzdst",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-recommend-strong",
+  "turnId": "trace_1783476616456_2wusny",
+  "timestamp": "2026-07-08T02:10:16.537Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "想喝点烈的",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.75,
+        "slots": {
+          "style": "烈",
+          "beerName": "想喝点烈的"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.75,
+    "slots": {
+      "style": "烈",
+      "beerName": "想喝点烈的"
+    },
+    "missingInfo": [],
+    "routeReason": "rule match: menu_recommend (75%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+    "candidateCount": 2,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [
+      "high_abv_candidate: Barrel Aged Imperial German Chocolate Cupcake Stout (11%)",
+      "high_abv_candidate: Double IPA (10%)"
+    ],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "userId": "local-user",
+  "updatedAt": "2026-07-08T02:45:28.922Z",
+  "favorites": {
+    "topBreweries": [],
+    "topCountries": [],
+    "topStyles": []
+  },
+  "abvEvolution": [],
+  "flavorCloud": [],
+  "pendingFeedback": [],
+  "totalEpisodes": 0,
+  "totalSessions": 1,
+  "frequentIntents": {}
+}

@@ -1,0 +1,94 @@
+{
+  "traceId": "trace_1783477895037_12p22d",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-tasting-would-drink",
+  "turnId": "trace_1783477895037_8las9s",
+  "timestamp": "2026-07-08T02:31:35.044Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "会再喝，苦度刚好",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "tasting_feedback",
+        "confidence": 0.9,
+        "slots": {
+          "flavorTags": "苦"
+        }
+      }
+    ],
+    "intent": "tasting_feedback",
+    "confidence": 0.9,
+    "slots": {
+      "flavorTags": "苦"
+    },
+    "missingInfo": [],
+    "routeReason": "rule match: tasting_feedback (90%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": true,
+    "updatedProfile": true,
+    "notes": [
+      "User provided taste feedback — profile updated"
+    ]
+  },
+  "route": {
+    "handler": "tasting_feedback",
+    "diagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "activeBeer"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"tasting_feedback\" missing context [activeBeer] — proceeding with fallbackReply",
+      "intent": "tasting_feedback"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你会再喝这杯酒。\n备注：会再喝，苦度刚好\n你的口味画像：喜欢热带水果和苦风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "tasting_feedback",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [],
+      "missingContext": [
+        "activeBeer"
+      ],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": true,
+      "routeReason": "Intent \"tasting_feedback\" missing context [activeBeer] — proceeding with fallbackReply",
+      "intent": "tasting_feedback"
+    }
+  }
+}

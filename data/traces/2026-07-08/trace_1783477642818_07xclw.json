@@ -1,0 +1,99 @@
+{
+  "traceId": "trace_1783477642818_07xclw",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-recommend-ipa",
+  "turnId": "trace_1783477642818_r8ea3u",
+  "timestamp": "2026-07-08T02:27:22.825Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "推荐一款IPA",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.9,
+        "slots": {
+          "style": "IPA",
+          "beerName": "推荐一款IPA"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.9,
+    "slots": {
+      "style": "IPA",
+      "beerName": "推荐一款IPA"
+    },
+    "missingInfo": [],
+    "routeReason": "rule match: menu_recommend (90%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "Third Anniversary Imperial IPA"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+    "candidateCount": 1,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [
+      "high_abv_candidate: Third Anniversary Imperial IPA (10%)"
+    ],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

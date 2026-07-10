@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-label_check-4",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:03.918Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611658666_abtxg8",
+      "userText": "帮我看这个酒标",
+      "assistantReply": "请发一张酒标照片，我来帮你解读。",
+      "intent": "label_check",
+      "createdAt": "2026-07-09T15:41:03.918Z"
+    }
+  ]
+}

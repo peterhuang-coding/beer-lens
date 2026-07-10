@@ -1,0 +1,34 @@
+{
+  "userId": "self-test",
+  "updatedAt": "2026-07-10T08:20:50.373Z",
+  "favorites": {
+    "topBreweries": [],
+    "topCountries": [],
+    "topStyles": []
+  },
+  "abvEvolution": [],
+  "flavorCloud": [
+    {
+      "tag": "热带水果",
+      "count": 8,
+      "category": "aroma"
+    },
+    {
+      "tag": "苦",
+      "count": 1,
+      "category": "taste"
+    }
+  ],
+  "pendingFeedback": [
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-08T09:17:04.858Z"
+    }
+  ],
+  "totalEpisodes": 9,
+  "totalSessions": 1,
+  "frequentIntents": {
+    "tasting_feedback": 8
+  }
+}

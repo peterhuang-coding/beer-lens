@@ -1,0 +1,91 @@
+{
+  "crawledAt": "2026-07-08T02:29:59.886Z",
+  "sources": [
+    {
+      "name": "beer-wikimedia-labels",
+      "url": "fixture://example",
+      "description": "Real beer label images from Wikimedia Commons (CC-BY / public domain) — via local fixture"
+    },
+    {
+      "name": "ratebeer-brewery-list",
+      "url": "https://www.ratebeer.com/brewers/",
+      "description": "RateBeer brewery directory — many beer label images via OG tags"
+    },
+    {
+      "name": "untappd-top-rated",
+      "url": "https://untappd.com/beer/top_rated",
+      "description": "Untappd top rated beers — rich beer images with OG metadata"
+    },
+    {
+      "name": "flickr-beer-labels",
+      "url": "https://www.flickr.com/search/?text=beer+label&license=2%2C3%2C4%2C5%2C6%2C9",
+      "description": "Flickr — beer label images under Creative Commons license"
+    }
+  ],
+  "itemCount": 7,
+  "items": [
+    {
+      "sourceName": "beer-wikimedia-labels",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pliny_the_Elder_ale.jpg/800px-Pliny_the_Elder_ale.jpg",
+      "pageTitle": "Real Beer Label Images — VQA Test Fixture",
+      "pageDescription": "Public domain and freely licensed beer label images for VQA annotation testing. Sources: Wikimedia Commons, Flickr.",
+      "candidateBeerName": "Pliny the Elder Double IPA",
+      "crawledAt": "2026-07-08T02:29:48.838Z"
+    },
+    {
+      "sourceName": "beer-wikimedia-labels",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Guinness_Draught.jpg/800px-Guinness_Draught.jpg",
+      "pageTitle": "Real Beer Label Images — VQA Test Fixture",
+      "pageDescription": "Public domain and freely licensed beer label images for VQA annotation testing. Sources: Wikimedia Commons, Flickr.",
+      "candidateBeerName": "Guinness Draught Stout",
+      "crawledAt": "2026-07-08T02:29:48.838Z"
+    },
+    {
+      "sourceName": "beer-wikimedia-labels",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sierra_Nevada_Pale_Ale_bottle.jpg/800px-Sierra_Nevada_Pale_Ale_bottle.jpg",
+      "pageTitle": "Real Beer Label Images — VQA Test Fixture",
+      "pageDescription": "Public domain and freely licensed beer label images for VQA annotation testing. Sources: Wikimedia Commons, Flickr.",
+      "candidateBeerName": "Sierra Nevada Pale Ale",
+      "crawledAt": "2026-07-08T02:29:48.838Z"
+    },
+    {
+      "sourceName": "beer-wikimedia-labels",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Chimay_blue.jpg/800px-Chimay_blue.jpg",
+      "pageTitle": "Real Beer Label Images — VQA Test Fixture",
+      "pageDescription": "Public domain and freely licensed beer label images for VQA annotation testing. Sources: Wikimedia Commons, Flickr.",
+      "candidateBeerName": "Chimay Blue",
+      "crawledAt": "2026-07-08T02:29:48.838Z"
+    },
+    {
+      "sourceName": "beer-wikimedia-labels",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Hoegaarden.jpg/800px-Hoegaarden.jpg",
+      "pageTitle": "Real Beer Label Images — VQA Test Fixture",
+      "pageDescription": "Public domain and freely licensed beer label images for VQA annotation testing. Sources: Wikimedia Commons, Flickr.",
+      "candidateBeerName": "Hoegaarden Witbier",
+      "crawledAt": "2026-07-08T02:29:48.838Z"
+    },
+    {
+      "sourceName": "beer-wikimedia-labels",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bottles_of_beer_on_a_shelf.jpg/800px-Bottles_of_beer_on_a_shelf.jpg",
+      "pageTitle": "Real Beer Label Images — VQA Test Fixture",
+      "pageDescription": "Public domain and freely licensed beer label images for VQA annotation testing. Sources: Wikimedia Commons, Flickr.",
+      "candidateBeerName": "Various Beer Bottles",
+      "crawledAt": "2026-07-08T02:29:48.838Z"
+    },
+    {
+      "sourceName": "beer-wikimedia-labels",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Draft_beer_tap_handles.jpg/800px-Draft_beer_tap_handles.jpg",
+      "pageTitle": "Real Beer Label Images — VQA Test Fixture",
+      "pageDescription": "Public domain and freely licensed beer label images for VQA annotation testing. Sources: Wikimedia Commons, Flickr.",
+      "candidateBeerName": "Draft Beer Tap Handles",
+      "crawledAt": "2026-07-08T02:29:48.838Z"
+    }
+  ]
+}

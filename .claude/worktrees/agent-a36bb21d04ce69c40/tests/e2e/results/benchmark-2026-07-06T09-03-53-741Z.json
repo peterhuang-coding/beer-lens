@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T09:03:53.747Z",
+  "visionModel": "nvidia/nemotron-nano-12b-v2-vl:free",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 28492,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "[image_context] Could not parse JSON: {\n  \"imageType\": \"tap_list\",\n  \"confidence\": 0.95,\n  \"reason\": \"The image displays a structured list of beverages with names, alcohol by volume (ABV), volume, and prices, which is characteristic of a ",
+      "durationMs": 28492
+    }
+  ]
+}

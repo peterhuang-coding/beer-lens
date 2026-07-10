@@ -1,0 +1,77 @@
+{
+  "conversationId": "vqa_unclear_1",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:34.805Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646309574_ft636w",
+      "userText": "Founders Breakfast Stout是经典中的经典！8.3%ABV，评分4.18。它有浓郁的冷萃咖啡和黑巧克力风味，燕麦带来的丝滑口感，烘焙麦芽的微焦香，喝起来就像一杯液态的摩卡咖啡。很多人把它作为\"世涛入门\"的第一课，但它也深受老酒鬼的喜爱。你朋友品味不错！",
+      "assistantReply": "看来我重复了自己，哈哈。不过，关于Founders Breakfast Stout，确实如我所说，它是一款非常出色的啤酒，无论是对于初尝世涛的人来说，还是对于那些已经对这种风格非常熟悉的啤酒爱好者来说，都是一个极好的选择。它的复杂风味和平衡感，使得每一口都能带来新的发现。你第一次尝试的时候感觉怎么样？有没有什么特别让你印象深刻的风味？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:18:34.987Z"
+    },
+    {
+      "turnId": "trace_1783646588122_l1mg0p",
+      "userText": "我拍了一张照片（不过有点糊），你帮我看看这个怎么样？",
+      "assistantReply": "嗨！虽然我看不到照片，不过如果你能描述一下照片里的啤酒或者啤酒瓶上的信息，我也可以帮你分析分析哦！比如啤酒的风格、品牌或者是包装上的特点，这样我就能给你提供一些有用的信息了。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:23:12.668Z"
+    },
+    {
+      "turnId": "trace_1783646793539_bjhuct",
+      "userText": "我拍了一张照片（不过有点糊），你帮我看看这个怎么样？",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:26:36.081Z"
+    },
+    {
+      "turnId": "trace_1783650334347_qo3k3c",
+      "userText": "我拍了一张照片（不过有点糊），你帮我看看这个怎么样？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:36.829Z"
+    },
+    {
+      "turnId": "trace_1783650789455_uh6t0j",
+      "userText": "酒",
+      "assistantReply": "嗨！提到“酒”，世界可大了去了，从啤酒、葡萄酒到烈酒，每一种都有它独特的风味和故事。你对哪一种特别感兴趣？或者，你是不是想聊聊啤酒？我可是对啤酒挺在行的！😊",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T02:33:15.151Z"
+    },
+    {
+      "turnId": "trace_1783651063588_sozwpt",
+      "userText": "酒",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T02:37:51.179Z"
+    },
+    {
+      "turnId": "trace_1783671114463_g27x89",
+      "userText": "酒",
+      "assistantReply": "嘿，提到酒，你是不是对啤酒特别感兴趣？我这里可以聊聊各种啤酒的风格、酿造工艺，或者是推荐一些符合你口味的啤酒。比如说，你喜欢热带水果、柑橘风味的啤酒，这些通常在IPA（印度淡色艾尔）或者新英格兰IPA（NEIPA）中能找到。想聊点什么？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:12:00.639Z"
+    },
+    {
+      "turnId": "trace_1783673928008_zniuy8",
+      "userText": "酒",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:58:50.680Z"
+    },
+    {
+      "turnId": "trace_1783674035242_pfx06r",
+      "userText": "酒",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:00:37.633Z"
+    },
+    {
+      "turnId": "trace_1783674814801_kcr2cu",
+      "userText": "酒",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-10T09:13:34.805Z"
+    }
+  ]
+}

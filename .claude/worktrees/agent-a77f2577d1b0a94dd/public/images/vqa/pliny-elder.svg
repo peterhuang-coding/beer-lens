@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f5e6c8" rx="8"/>
+  <rect x="60" y="30" width="280" height="240" rx="12" fill="#d4a017"/>
+  <rect x="80" y="50" width="240" height="200" rx="8" fill="#f0d080"/>
+  <text x="200" y="120" text-anchor="middle" font-size="22" font-weight="bold" fill="#5a3e00" font-family="Arial">Pliny the Elder</text>
+  <text x="200" y="150" text-anchor="middle" font-size="16" fill="#7a5e00" font-family="Arial">Double IPA</text>
+  <text x="200" y="180" text-anchor="middle" font-size="14" fill="#8a6e00" font-family="Arial">Russian River Brewing</text>
+  <text x="200" y="210" text-anchor="middle" font-size="12" fill="#9a7e00" font-family="Arial">ABV 8.0%</text>
+</svg>

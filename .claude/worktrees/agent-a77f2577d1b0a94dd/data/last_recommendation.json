@@ -1,0 +1,50 @@
+{
+  "candidates": [
+    {
+      "displayName": "实现仪式 (Realization And Ritual)",
+      "brewery": "印记 (Imprint)",
+      "breweryCountry": "美国",
+      "style": "DDH Double Hazy IPA",
+      "abv": 7.6,
+      "hops": [],
+      "untappdScore": 4.25
+    },
+    {
+      "displayName": "自我否定5号 (I Must Look Like A Dork - Motukea)",
+      "brewery": "Hoof Hearted",
+      "breweryCountry": "美国",
+      "style": "Double Hazy IPA",
+      "abv": 8.6,
+      "hops": [],
+      "untappdScore": 4.15
+    },
+    {
+      "displayName": "符号学法则反托 (Symbology FaFanto)",
+      "brewery": "Mortalis",
+      "breweryCountry": "美国",
+      "style": "Triple Hazy",
+      "abv": 9.5,
+      "hops": [],
+      "untappdScore": 4.3
+    },
+    {
+      "displayName": "未世迭兆 (Prophecies)",
+      "brewery": "艾尔集 (Aleworks)",
+      "breweryCountry": "美国",
+      "style": "Hazy IPA",
+      "abv": 7.2,
+      "hops": [],
+      "untappdScore": 3.9
+    },
+    {
+      "displayName": "多重视野 (shifted visions)",
+      "brewery": "艾尔集 (Aleworks)",
+      "breweryCountry": "美国",
+      "style": "Hazy IPA",
+      "abv": 7.1,
+      "hops": [],
+      "untappdScore": 3.85
+    }
+  ],
+  "timestamp": "2026-06-02T14:16:18.891Z"
+}

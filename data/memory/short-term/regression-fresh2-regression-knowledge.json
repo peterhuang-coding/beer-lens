@@ -1,0 +1,17 @@
+{
+  "conversationId": "regression-fresh2-regression-knowledge",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-07T07:36:43.644Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783409803126_xmfeuh",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-07T07:36:43.644Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

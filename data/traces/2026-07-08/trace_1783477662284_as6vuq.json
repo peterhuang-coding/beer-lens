@@ -1,0 +1,88 @@
+{
+  "traceId": "trace_1783477662284_as6vuq",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-profile-prefs",
+  "turnId": "trace_1783477662284_g12bb1",
+  "timestamp": "2026-07-08T02:27:42.288Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "看看我的口味偏好",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "profile_query",
+        "confidence": 0.9,
+        "slots": {}
+      }
+    ],
+    "intent": "profile_query",
+    "confidence": 0.9,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "rule match: profile_query (90%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "profile_query",
+    "diagnosis": {
+      "selectedHandler": "handleProfileQuery",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"profile_query\" matched route \"handleProfileQuery\" — all required context present",
+      "intent": "profile_query"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 17 条品饮记录）\n\n偏好风味标签：热带水果（7）、苦（2）\nABV 舒适区：暂无足够记录\n记录数：17 条\n\n📈 最近趋势：\n2026月07：17款 · 近三月均分 4 · 偏好风味：热带水果、苦\n\n证据数：17 · 画像置信度：100% · 实验组：开启",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "profile_query",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned"
+    ],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleProfileQuery",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"profile_query\" matched route \"handleProfileQuery\" — all required context present",
+      "intent": "profile_query"
+    }
+  }
+}

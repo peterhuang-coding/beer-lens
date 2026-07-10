@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-酷酷",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:09.919Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611609799_vpmklk",
+      "userText": "酷酷",
+      "assistantReply": "我会这样点：\n\n1. Coolship Collection: The Beginning - 评分4.1，448人评分\n2. Coolship Collection: The Beginning - 评分4.1，448人评分\n3. Coolship Collection: The Beginning - 评分4.1，448人评分\n\n最稳：Coolship Collection: The Beginning\n最值得尝新：Coolship Collection: The Beginning\n我会先跳过：Coolship Collection: The Beginning - 评分4.1，448人评分\n\n如果只能喝一杯，选 Coolship Collection: The Beginning。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:09.919Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611609799_njljys",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Coolship Collection: The Beginning",
+        "brewery": "La Sirène Brewing",
+        "style": "Lambic - Traditional",
+        "abv": 5.5,
+        "price": null,
+        "rating": 4.1
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:09.919Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Coolship Collection: The Beginning",
+    "brewery": "La Sirène Brewing"
+  }
+}

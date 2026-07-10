@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://beer-lens.local/schemas/beer-benchmark.json",
+  "title": "BeerBenchmark",
+  "type": "object",
+  "required": [
+    "entry_id",
+    "created_at",
+    "beer",
+    "overall_score",
+    "would_drink_again",
+    "aroma_tags",
+    "taste_tags"
+  ],
+  "properties": {
+    "entry_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "beer": {
+      "type": "object",
+      "required": ["display_name"],
+      "properties": {
+        "display_name": {
+          "type": "string"
+        },
+        "beer_name": {
+          "type": ["string", "null"]
+        },
+        "brewery": {
+          "type": ["string", "null"]
+        },
+        "style": {
+          "type": ["string", "null"]
+        },
+        "abv": {
+          "type": ["number", "null"]
+        }
+      }
+    },
+    "overall_score": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "would_drink_again": {
+      "type": "string",
+      "enum": ["no", "maybe", "yes"]
+    },
+    "aroma_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "citrus",
+          "tropical",
+          "stone_fruit",
+          "pine",
+          "grassy",
+          "floral",
+          "bread",
+          "caramel",
+          "coffee",
+          "sour_funk",
+          "smoke",
+          "alcohol",
+          "unclear"
+        ]
+      }
+    },
+    "taste_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "crisp",
+          "smooth",
+          "juicy",
+          "dry_finish",
+          "sweet",
+          "bitter",
+          "sour",
+          "heavy_body",
+          "thin_body",
+          "sharp",
+          "balanced"
+        ]
+      }
+    },
+    "context_fit": {
+      "type": ["string", "null"],
+      "enum": ["miss", "partial", "match", "perfect", null]
+    },
+    "drinking_context": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "first_beer",
+          "with_food",
+          "slow_sip",
+          "explore",
+          "social",
+          "dessert",
+          "hot_day",
+          "cold_day"
+        ]
+      }
+    },
+    "note": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["chat_text", "choice_form", "voice", "import"]
+    }
+  }
+}

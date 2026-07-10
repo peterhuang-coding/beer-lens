@@ -1,0 +1,21 @@
+{
+  "conversationId": "test-taste",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:41:42.560Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611663429_w27b5d",
+      "userText": "这瓶酒不错，给4分，会再喝",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-09T15:41:03.435Z"
+    },
+    {
+      "turnId": "trace_1783611702554_4vu4j4",
+      "userText": "这瓶酒不错，给4分，会再喝",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-09T15:41:42.560Z"
+    }
+  ]
+}

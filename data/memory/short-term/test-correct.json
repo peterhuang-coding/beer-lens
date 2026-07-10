@@ -1,0 +1,21 @@
+{
+  "conversationId": "test-correct",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:41:53.553Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611668984_xp3enm",
+      "userText": "清空我的记忆",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-09T15:41:08.987Z"
+    },
+    {
+      "turnId": "trace_1783611713548_pthxa4",
+      "userText": "清空我的记忆",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-09T15:41:53.553Z"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "crawledAt": "2026-07-07T09:01:29.916Z",
+  "sources": [
+    {
+      "name": "beer-fixture-example",
+      "url": "fixture://example",
+      "description": "Local fixture HTML for testing — a sample craft beer review page"
+    },
+    {
+      "name": "ratebeer-brewery-list",
+      "url": "https://www.ratebeer.com/brewers/",
+      "description": "RateBeer brewery directory — many beer label images via OG tags"
+    },
+    {
+      "name": "untappd-top-rated",
+      "url": "https://untappd.com/beer/top_rated",
+      "description": "Untappd top rated beers — rich beer images with OG metadata"
+    }
+  ],
+  "itemCount": 7,
+  "items": [
+    {
+      "sourceName": "beer-fixture-example",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://example.com/images/beer-collection-2026.jpg",
+      "pageTitle": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+      "pageDescription": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+      "candidateBeerName": "Pliny the Elder Double IPA",
+      "crawledAt": "2026-07-07T09:01:28.923Z"
+    },
+    {
+      "sourceName": "beer-fixture-example",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://example.com/images/pliny-elder.jpg",
+      "pageTitle": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+      "pageDescription": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+      "candidateBeerName": "Russian River Brewing 的经典 IPA，酒花香气浓郁，ABV 8.0%。",
+      "crawledAt": "2026-07-07T09:01:28.923Z"
+    },
+    {
+      "sourceName": "beer-fixture-example",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://cdn.example.com/beers/heady-topper.png",
+      "pageTitle": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+      "pageDescription": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+      "candidateBeerName": "Heady Topper Double IPA",
+      "crawledAt": "2026-07-07T09:01:28.923Z"
+    },
+    {
+      "sourceName": "beer-fixture-example",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://example.com/images/julius.jpg",
+      "pageTitle": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+      "pageDescription": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+      "candidateBeerName": "The Alchemist 出品，浑浊 IPA 的标杆，ABV 8.0%。",
+      "crawledAt": "2026-07-07T09:01:28.923Z"
+    },
+    {
+      "sourceName": "beer-fixture-example",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://cdn.example.com/beers/kbs-stout.png",
+      "pageTitle": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+      "pageDescription": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+      "candidateBeerName": "Tree House Julius IPA",
+      "crawledAt": "2026-07-07T09:01:28.923Z"
+    },
+    {
+      "sourceName": "beer-fixture-example",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://cdn.example.com/beers/cantillon-foufoune.jpg",
+      "pageTitle": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+      "pageDescription": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+      "candidateBeerName": "Tree House Brewing 的 Julius，果汁感爆棚的浑浊 IPA。",
+      "crawledAt": "2026-07-07T09:01:28.923Z"
+    },
+    {
+      "sourceName": "beer-fixture-example",
+      "sourceUrl": "fixture://example",
+      "imageUrl": "https://example.com/images/beer-tap-list.jpg",
+      "pageTitle": "2026 年度精酿啤酒推荐 | Best Craft Beers of 2026",
+      "pageDescription": "2026年最值得尝试的精酿啤酒，包括IPA、Stout、Sour等风格。带你发现 Tree House, Other Half, Russian River 等顶级酒厂。",
+      "candidateBeerName": "Founders KBS Imperial Stout",
+      "crawledAt": "2026-07-07T09:01:28.923Z"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-13-1783501829258",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:10:32.558Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783501829262_qt24ph",
+      "userText": "喜欢什么风格的啤酒",
+      "assistantReply": "嘿，根据你之前提到的偏好，像是热带水果、柑橘的风味，清爽又不太甜的啤酒，我觉得你可能会喜欢IPA（印度淡色艾尔）或者是新英格兰IPA（浑浊IPA）。这两种风格的啤酒通常都有丰富的果香，尤其是柑橘和热带水果的味道，同时又保持了一定的清爽度，不会太甜腻。你觉得呢？有没有试过这两种风格？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:10:32.558Z"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "conversationId": "vqa_memory_correction_2",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:25.762Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646296675_lpd008",
+      "userText": "既然您能接受BCBS的水平，推荐：Parabola（Firestone Walker，14.1%ABV，评分4.42）——波本桶陈的Russian Imperial Stout，黑巧和焦糖味浓郁；Darkness Barrel-Aged（Surly，12%ABV，评分4.47）——黑麦桶陈，辛香和深色水果风味。如果遇到Bourbon Barrel Aged Expedition Stout（Bell's，13.4%ABV，评分4.41）也值得一试。不过建议从12%左右慢慢往上喝，避免一步到15%+的巨兽！",
+      "assistantReply": "对的，慢慢来，让味蕾逐渐适应更高酒精度数是个不错的选择。Parabola 和 Darkness Barrel-Aged 都是很好的起点，它们不仅有丰富的风味，而且波本桶带来的复杂层次感也非常适合您现在的口味。Bourbon Barrel Aged Expedition Stout 也是个经典选择，Bell's 的这款世涛平衡了甜味和酒精感，使得整体口感更为顺滑。尝试这些酒款时，记得慢慢品尝，感受每一口的变化，这样能更好地体会到桶陈世涛的魅力。祝您品饮愉快！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:18:23.693Z"
+    },
+    {
+      "turnId": "trace_1783646581652_tesmcj",
+      "userText": "我之前跟你说我喝不了高度数世涛，但我最近试了Bourbon County Brand Stout Vanilla Rye（13.6%），发现其实很好喝！我的耐受度好像被低估了。",
+      "assistantReply": "哇，这真是个好消息！Bourbon County Brand Stout Vanilla Rye 是一款非常特别的世涛，加入了香草和裸麦，让酒体更加丰富和复杂，同时也有一定的甜味来平衡酒精的烈度。看来你对高酒精度的接受度确实比你想象中的要高。这种酒通常在橡木桶中陈酿，带来了独特的波本威士忌香气，这也是很多人喜欢它的原因。下次不妨再试试其他风格的高酒精度啤酒，比如帝国IPA或者比利时强艾尔，可能会有意想不到的惊喜哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:23:08.082Z"
+    },
+    {
+      "turnId": "trace_1783646790699_zwkzrl",
+      "userText": "我之前跟你说我喝不了高度数世涛，但我最近试了Bourbon County Brand Stout Vanilla Rye（13.6%），发现其实很好喝！我的耐受度好像被低估了。",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:26:33.494Z"
+    },
+    {
+      "turnId": "trace_1783650328810_hmeif9",
+      "userText": "我之前跟你说我喝不了高度数世涛，但我最近试了Bourbon County Brand Stout Vanilla Rye（13.6%），发现其实很好喝！我的耐受度好像被低估了。",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:32.490Z"
+    },
+    {
+      "turnId": "trace_1783650789297_dvw7l6",
+      "userText": "清空我的记忆，重置",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T02:33:09.309Z"
+    },
+    {
+      "turnId": "trace_1783651063532_gtjw24",
+      "userText": "清空我的记忆，重置",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T02:37:43.547Z"
+    },
+    {
+      "turnId": "trace_1783671114410_h4boxx",
+      "userText": "清空我的记忆，重置",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T08:11:54.424Z"
+    },
+    {
+      "turnId": "trace_1783673921327_otkf35",
+      "userText": "清空我的所有记忆，重置",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T08:58:41.331Z"
+    },
+    {
+      "turnId": "trace_1783674030574_9ryvbp",
+      "userText": "清空我的所有记忆，重置",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T09:00:30.577Z"
+    },
+    {
+      "turnId": "trace_1783674805756_aaqf9a",
+      "userText": "清空我的所有记忆，重置",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-10T09:13:25.762Z"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T08:55:48.921Z",
+  "visionModel": "nvidia/nemotron-nano-12b-v2-vl:free",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 21568,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "[image_context] Could not parse JSON: {\n  \"imageType\": \"tap_list\",\n  \"confidence\": 0.95,\n  \"reason\": \"The image shows a detailed list of beers with names, ABV, volume, and prices, which is characteristic of a tap list in a bar or pub sett",
+      "durationMs": 21568
+    }
+  ]
+}

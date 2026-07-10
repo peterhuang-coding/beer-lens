@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-年轻领主",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:15.928Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611615825_uf238t",
+      "userText": "年轻领主",
+      "assistantReply": "我会这样点：\n\n1. Young's Double Chocolate Stout - 评分4.1，2257+人评分\n2. Young's Double Chocolate Stout - 评分4.1，2257+人评分\n3. Young's Double Chocolate Stout - 评分4.1，2257+人评分\n\n最稳：Young's Double Chocolate Stout\n最值得尝新：Young's Double Chocolate Stout\n我会先跳过：Young's Double Chocolate Stout - 评分4.1，2257+人评分\n\n如果只能喝一杯，选 Young's Double Chocolate Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:15.928Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611615825_sh8sl8",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Young's Double Chocolate Stout",
+        "brewery": "Wells & Young's Ltd",
+        "style": "Milk / Sweet Stout",
+        "abv": 5.2,
+        "price": null,
+        "rating": 4.07
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:15.928Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Young's Double Chocolate Stout",
+    "brewery": "Wells & Young's Ltd"
+  }
+}

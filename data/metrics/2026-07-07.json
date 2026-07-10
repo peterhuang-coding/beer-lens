@@ -1,0 +1,9382 @@
+[
+  {
+    "timestamp": "2026-07-07T09:59:59.601Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 76,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:00:29.603Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 76,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:00:59.604Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 2,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 43,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 2,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 2,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 2
+    },
+    "intentSourceDistribution": {
+      "rule": 2,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:01:29.605Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 2,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 43,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 2,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 2,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 2
+    },
+    "intentSourceDistribution": {
+      "rule": 2,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:01:59.606Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 3,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 44,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 3,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 3,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 3
+    },
+    "intentSourceDistribution": {
+      "rule": 3,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:03:01.112Z",
+    "windowSeconds": 31,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:03:31.112Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:04:01.113Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:04:31.115Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:05:01.116Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:05:31.117Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:06:01.119Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:06:31.120Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:07:01.121Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:07:31.123Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:08:01.124Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:08:31.125Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:09:01.125Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:09:31.127Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:10:01.128Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:10:31.129Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:11:01.131Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:11:31.132Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:12:01.133Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:12:31.134Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:13:01.134Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:13:31.135Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:14:01.134Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:14:31.136Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:15:01.138Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:15:31.139Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:16:01.140Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:16:31.141Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:17:01.143Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:17:31.145Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:18:01.146Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:18:31.147Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:19:01.148Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:19:31.149Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:20:01.150Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:36:20.417Z",
+    "windowSeconds": 979,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T10:52:30.253Z",
+    "windowSeconds": 970,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T11:08:46.852Z",
+    "windowSeconds": 976,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T11:26:32.605Z",
+    "windowSeconds": 1066,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T11:44:18.312Z",
+    "windowSeconds": 1066,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T11:59:36.024Z",
+    "windowSeconds": 918,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T12:15:26.765Z",
+    "windowSeconds": 951,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T12:21:00.481Z",
+    "windowSeconds": 334,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T12:21:30.467Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T13:21:57.730Z",
+    "windowSeconds": 3627,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T13:22:27.732Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T14:10:22.247Z",
+    "windowSeconds": 2875,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T14:23:15.581Z",
+    "windowSeconds": 773,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T14:39:29.614Z",
+    "windowSeconds": 974,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T15:24:12.792Z",
+    "windowSeconds": 2683,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T15:24:42.793Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T16:25:10.071Z",
+    "windowSeconds": 3627,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T16:25:40.073Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T17:46:14.115Z",
+    "windowSeconds": 4834,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T17:52:46.504Z",
+    "windowSeconds": 392,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T17:53:16.505Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T19:31:56.289Z",
+    "windowSeconds": 5920,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T19:47:51.807Z",
+    "windowSeconds": 956,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T20:15:03.991Z",
+    "windowSeconds": 1632,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T20:32:08.856Z",
+    "windowSeconds": 1025,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T21:53:56.601Z",
+    "windowSeconds": 4908,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T22:16:02.656Z",
+    "windowSeconds": 1326,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T22:16:32.657Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T23:16:55.187Z",
+    "windowSeconds": 3623,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  },
+  {
+    "timestamp": "2026-07-07T23:17:25.189Z",
+    "windowSeconds": 30,
+    "counters": [
+      {
+        "name": "turn.count",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "turn.avg_latency_ms",
+        "value": 52,
+        "unit": "ms"
+      },
+      {
+        "name": "turn.success_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "intent.hit_rate_rule",
+        "value": 1,
+        "unit": "ratio",
+        "tags": {
+          "source": "rule"
+        }
+      },
+      {
+        "name": "intent.hit_rate_llm",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "llm"
+        }
+      },
+      {
+        "name": "intent.hit_rate_fallback",
+        "value": 0,
+        "unit": "ratio",
+        "tags": {
+          "source": "fallback"
+        }
+      },
+      {
+        "name": "intent.multi_intent_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "handler.error_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "knowledge.hit_rate",
+        "value": 1,
+        "unit": "ratio"
+      },
+      {
+        "name": "guardrail.block_rate",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "transfer.human_suggestions",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "memory.enabled.turns",
+        "value": 1,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.disabled.turns",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "memory.used_in_scoring.count",
+        "value": 1,
+        "unit": "count"
+      },
+      {
+        "name": "memory.correction.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "profile.confidence.avg",
+        "value": 0,
+        "unit": "ratio"
+      },
+      {
+        "name": "tasting_episode.count",
+        "value": 0,
+        "unit": "count"
+      },
+      {
+        "name": "planner.total",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.success",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.failed",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.fallback",
+        "value": 0,
+        "unit": "turns"
+      },
+      {
+        "name": "planner.avg_steps",
+        "value": 0,
+        "unit": "steps"
+      }
+    ],
+    "intentDistribution": {
+      "menu_recommend": 1
+    },
+    "intentSourceDistribution": {
+      "rule": 1,
+      "llm": 0,
+      "fallback": 0
+    },
+    "handlerErrors": {}
+  }
+]

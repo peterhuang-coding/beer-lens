@@ -1,0 +1,811 @@
+{
+  "timestamp": "2026-07-08T02:15:46.814Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/api/agent",
+    "userId": "regression-user",
+    "convPrefix": "cc5-ext",
+    "timeoutMs": 30000
+  },
+  "summary": {
+    "total": 44,
+    "passed": 0,
+    "failed": 0,
+    "errors": 44,
+    "passRate": "0.0%",
+    "durationMs": 23956
+  },
+  "results": [
+    {
+      "caseId": "reg_001",
+      "name": "推荐一款IPA",
+      "inputText": "推荐一款IPA",
+      "conversationId": "cc5-ext-recommend-ipa",
+      "passed": false,
+      "durationMs": 140,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_002",
+      "name": "想喝清爽不苦的",
+      "inputText": "想喝清爽不苦的",
+      "conversationId": "cc5-ext-recommend-crisp",
+      "passed": false,
+      "durationMs": 61,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_003",
+      "name": "推荐一款世涛",
+      "inputText": "推荐一款世涛",
+      "conversationId": "cc5-ext-recommend-stout",
+      "passed": false,
+      "durationMs": 56,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_004",
+      "name": "帮我推荐拉格",
+      "inputText": "帮我推荐拉格",
+      "conversationId": "cc5-ext-recommend-lager",
+      "passed": false,
+      "durationMs": 53,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_005",
+      "name": "推荐酸啤",
+      "inputText": "推荐酸啤",
+      "conversationId": "cc5-ext-recommend-sour",
+      "passed": false,
+      "durationMs": 62,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_006",
+      "name": "帮我推荐一款",
+      "inputText": "帮我推荐一款",
+      "conversationId": "cc5-ext-recommend-generic",
+      "passed": false,
+      "durationMs": 54,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_007",
+      "name": "今天喝什么好",
+      "inputText": "今天喝什么好",
+      "conversationId": "cc5-ext-recommend-daily",
+      "passed": false,
+      "durationMs": 55,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_008",
+      "name": "想喝点烈的",
+      "inputText": "想喝点烈的",
+      "conversationId": "cc5-ext-recommend-strong",
+      "passed": false,
+      "durationMs": 33,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_009",
+      "name": "有什么好喝的啤酒",
+      "inputText": "有什么好喝的啤酒",
+      "conversationId": "cc5-ext-recommend-whatsgood",
+      "passed": false,
+      "durationMs": 46,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_010",
+      "name": "有IPA吗（无上下文→unclear）",
+      "inputText": "有IPA吗",
+      "conversationId": "cc5-ext-filter-ipa",
+      "passed": false,
+      "durationMs": 44,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_011",
+      "name": "第3个怎么样",
+      "inputText": "第3个怎么样",
+      "conversationId": "cc5-ext-filter-nth",
+      "passed": false,
+      "durationMs": 60,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_012",
+      "name": "有没有世涛",
+      "inputText": "有没有世涛",
+      "conversationId": "cc5-ext-filter-stout",
+      "passed": false,
+      "durationMs": 50,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_013",
+      "name": "哪个不苦",
+      "inputText": "哪个不苦",
+      "conversationId": "cc5-ext-filter-not-bitter",
+      "passed": false,
+      "durationMs": 55,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_014",
+      "name": "第一个怎么样（无上下文→unclear）",
+      "inputText": "第一个怎么样",
+      "conversationId": "cc5-ext-filter-1st",
+      "passed": false,
+      "durationMs": 53,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_015",
+      "name": "有没有酸啤（无上下文→unclear）",
+      "inputText": "有没有酸啤",
+      "conversationId": "cc5-ext-filter-sour",
+      "passed": false,
+      "durationMs": 57,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_016",
+      "name": "我给4.5分会再喝热带水果",
+      "inputText": "我给4.5分，会再喝，热带水果",
+      "conversationId": "cc5-ext-tasting-full",
+      "passed": false,
+      "durationMs": 43,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_017",
+      "name": "3.5分，不会再喝",
+      "inputText": "3.5分，不会再喝",
+      "conversationId": "cc5-ext-tasting-low",
+      "passed": false,
+      "durationMs": 62,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_018",
+      "name": "4分",
+      "inputText": "4分",
+      "conversationId": "cc5-ext-tasting-score-only",
+      "passed": false,
+      "durationMs": 49,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_019",
+      "name": "这杯不错，给4.5分",
+      "inputText": "这杯不错，给4.5分",
+      "conversationId": "cc5-ext-tasting-good",
+      "passed": false,
+      "durationMs": 42,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_020",
+      "name": "2分，不会再喝，偏酸",
+      "inputText": "2分，不会再喝，偏酸",
+      "conversationId": "cc5-ext-tasting-bad",
+      "passed": false,
+      "durationMs": 50,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_021",
+      "name": "会再喝，苦度刚好",
+      "inputText": "会再喝，苦度刚好",
+      "conversationId": "cc5-ext-tasting-would-drink",
+      "passed": false,
+      "durationMs": 52,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_022",
+      "name": "我的口味画像是什么",
+      "inputText": "我的口味画像是什么",
+      "conversationId": "cc5-ext-profile-what",
+      "passed": false,
+      "durationMs": 34,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_023",
+      "name": "看看我的口味偏好",
+      "inputText": "看看我的口味偏好",
+      "conversationId": "cc5-ext-profile-prefs",
+      "passed": false,
+      "durationMs": 33,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_024",
+      "name": "我喝过哪些酒",
+      "inputText": "我喝过哪些酒",
+      "conversationId": "cc5-ext-profile-history",
+      "passed": false,
+      "durationMs": 33,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_025",
+      "name": "帮我看看口味画像",
+      "inputText": "帮我看看口味画像",
+      "conversationId": "cc5-ext-profile-check",
+      "passed": false,
+      "durationMs": 41,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_026",
+      "name": "我不喜欢太苦的（无上下文→unclear）",
+      "inputText": "我不喜欢太苦的",
+      "conversationId": "cc5-ext-correction-bitter",
+      "passed": false,
+      "durationMs": 43,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_027",
+      "name": "我不喜欢IPA（无上下文→unclear）",
+      "inputText": "我不喜欢IPA",
+      "conversationId": "cc5-ext-correction-ipa",
+      "passed": false,
+      "durationMs": 48,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_028",
+      "name": "重置我的记录",
+      "inputText": "重置我的记录",
+      "conversationId": "cc5-ext-correction-reset",
+      "passed": false,
+      "durationMs": 55,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_029",
+      "name": "清空我的偏好",
+      "inputText": "清空我的偏好",
+      "conversationId": "cc5-ext-correction-clear-prefs",
+      "passed": false,
+      "durationMs": 45,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_030",
+      "name": "酒标检查（无图片→unclear）",
+      "inputText": "这瓶酒过期了吗",
+      "conversationId": "cc5-ext-label-expiry",
+      "passed": false,
+      "durationMs": 54,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_031",
+      "name": "生产日期检查（无图片→unclear）",
+      "inputText": "帮我看看这瓶酒的生产日期",
+      "conversationId": "cc5-ext-label-date",
+      "passed": false,
+      "durationMs": 52,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_032",
+      "name": "罐装啤酒检查（无图片→unclear）",
+      "inputText": "看看这罐啤酒",
+      "conversationId": "cc5-ext-label-can",
+      "passed": false,
+      "durationMs": 63,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_033",
+      "name": "什么是West Coast IPA",
+      "inputText": "什么是West Coast IPA",
+      "conversationId": "cc5-ext-knowledge-wcipa",
+      "passed": false,
+      "durationMs": 53,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_034",
+      "name": "世涛和帝国世涛的区别",
+      "inputText": "世涛和帝国世涛的区别",
+      "conversationId": "cc5-ext-knowledge-stout-vs-imperial",
+      "passed": false,
+      "durationMs": 50,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_035",
+      "name": "IPA和拉格有什么区别",
+      "inputText": "IPA和拉格有什么区别",
+      "conversationId": "cc5-ext-knowledge-ipa-vs-lager",
+      "passed": false,
+      "durationMs": 57,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_036",
+      "name": "啤酒是怎么酿造的",
+      "inputText": "啤酒是怎么酿造的",
+      "conversationId": "cc5-ext-knowledge-brewing",
+      "passed": false,
+      "durationMs": 47,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_037",
+      "name": "什么是新英格兰IPA",
+      "inputText": "什么是新英格兰IPA",
+      "conversationId": "cc5-ext-knowledge-neipa",
+      "passed": false,
+      "durationMs": 60,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_038",
+      "name": "精酿和工业啤酒的区别",
+      "inputText": "精酿和工业啤酒的区别",
+      "conversationId": "cc5-ext-knowledge-craft-vs-mass",
+      "passed": false,
+      "durationMs": 55,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_039",
+      "name": "介绍一下酸啤风格",
+      "inputText": "介绍一下酸啤风格",
+      "conversationId": "cc5-ext-knowledge-sour",
+      "passed": false,
+      "durationMs": 51,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_040",
+      "name": "你好（模糊输入→unclear）",
+      "inputText": "你好",
+      "conversationId": "cc5-ext-vague-hello",
+      "passed": false,
+      "durationMs": 59,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_041",
+      "name": "谢谢（模糊输入→unclear）",
+      "inputText": "谢谢",
+      "conversationId": "cc5-ext-vague-thanks",
+      "passed": false,
+      "durationMs": 54,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_042",
+      "name": "帮我看看这个（模糊输入→unclear）",
+      "inputText": "帮我看看这个",
+      "conversationId": "cc5-ext-vague-this",
+      "passed": false,
+      "durationMs": 36,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_043",
+      "name": "什么是干投酒花",
+      "inputText": "什么是干投酒花",
+      "conversationId": "cc5-ext-knowledge-dry-hop",
+      "passed": false,
+      "durationMs": 175,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_044",
+      "name": "IPA是什么",
+      "inputText": "IPA是什么",
+      "conversationId": "cc5-ext-knowledge-what-is-ipa",
+      "passed": false,
+      "durationMs": 60,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "HTTP 500: Internal Server Error"
+      ],
+      "checks": {
+        "error": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "traceId": "trace_1783650760852_rd9y8d",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_tasting_feedback_1",
+  "turnId": "trace_1783650760852_s418hi",
+  "timestamp": "2026-07-10T02:32:40.863Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "tasting_feedback",
+        "confidence": 1,
+        "slots": {
+          "flavorTags": "热带水果"
+        }
+      }
+    ],
+    "intent": "tasting_feedback",
+    "confidence": 1,
+    "slots": {
+      "flavorTags": "热带水果"
+    },
+    "missingInfo": [],
+    "routeReason": "override match: tasting_feedback (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": true,
+        "turnsSinceMenu": 66,
+        "activeMenuCandidateCount": 1,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/ matched → forced to tasting_feedback",
+      "candidateScores": [
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "Pseudo Sue"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": true,
+    "updatedProfile": true,
+    "notes": [
+      "User provided taste feedback — profile updated"
+    ]
+  },
+  "route": {
+    "handler": "tasting_feedback",
+    "diagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [
+        "activeBeer"
+      ],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"tasting_feedback\" matched route \"handleTastingFeedback\" — all required context present",
+      "intent": "tasting_feedback"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "收到！已记录你对「Pseudo Sue」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？\n你的口味画像：喜欢柑橘风味",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "tasting_feedback",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleTastingFeedback",
+      "requiredContextMatched": [
+        "activeBeer"
+      ],
+      "missingContext": [],
+      "requiredTools": [
+        "memory_profile"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"tasting_feedback\" matched route \"handleTastingFeedback\" — all required context present",
+      "intent": "tasting_feedback"
+    }
+  }
+}

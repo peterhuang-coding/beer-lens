@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-17-1783494610610",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T07:10:14.908Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783494610631_uzmvz3",
+      "userText": "有没有世涛",
+      "assistantReply": "有啊，世涛（Stout）是一种非常经典的深色啤酒，口感浓郁，苦味重，有时候还会带有一些焦糖或者咖啡的味道。你喜欢这种风格的啤酒吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T07:10:14.908Z"
+    }
+  ]
+}

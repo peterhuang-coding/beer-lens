@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "crawledAt": "2026-07-08T02:13:07.031Z",
+  "errorCount": 3,
+  "errors": [
+    {
+      "sourceName": "ratebeer-brewery-list",
+      "sourceUrl": "https://www.ratebeer.com/brewers/",
+      "errorMessage": "fetch failed",
+      "errorType": "unknown",
+      "timestamp": "2026-07-08T02:12:55.928Z"
+    },
+    {
+      "sourceName": "untappd-top-rated",
+      "sourceUrl": "https://untappd.com/beer/top_rated",
+      "errorMessage": "HTTP 403",
+      "errorType": "http_error",
+      "timestamp": "2026-07-08T02:12:56.530Z"
+    },
+    {
+      "sourceName": "flickr-beer-labels",
+      "sourceUrl": "https://www.flickr.com/search/?text=beer+label&license=2%2C3%2C4%2C5%2C6%2C9",
+      "errorMessage": "fetch failed",
+      "errorType": "unknown",
+      "timestamp": "2026-07-08T02:13:07.030Z"
+    }
+  ]
+}

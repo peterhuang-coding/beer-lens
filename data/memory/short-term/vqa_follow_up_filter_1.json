@@ -1,0 +1,120 @@
+{
+  "conversationId": "vqa_follow_up_filter_1",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:32.977Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646303704_dr1gw8",
+      "userText": "Pseudo Sue的IBU大约在30-35左右，远低于Pliny the Elder的约100IBU。普通淡拉格大概10-15IBU，所以30-35的苦度只是略有感觉，更多是饱满的果汁风味。5.8%的酒精度也很适合慢慢品一晚上！",
+      "assistantReply": "对的，Pseudo Sue 的 IBU 大约在 30-35 左右，确实比 Pliny the Elder 低很多。这个苦度水平在啤酒中算是比较温和的，尤其是对比那些高 IBU 的 IPA。Pseudo Sue 的果汁风味非常突出，Citra 酒花带来的热带水果和柑橘香气会让你感觉像是在喝一杯果汁，但又不失啤酒的复杂层次。5.8% 的酒精度也适中，非常适合慢慢品尝，享受一个美好的夜晚。希望你会喜欢这款啤酒！如果还有什么其他问题，随时告诉我哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:18:29.552Z"
+    },
+    {
+      "turnId": "trace_1783646588091_lhc20s",
+      "userText": "我想喝IPA，有什么推荐的？",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:23:08.098Z"
+    },
+    {
+      "turnId": "trace_1783646793500_wfqdft",
+      "userText": "我想喝IPA，有什么推荐的？",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:33.514Z"
+    },
+    {
+      "turnId": "trace_1783650332942_bops5e",
+      "userText": "我想喝IPA，有什么推荐的？",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:32.993Z"
+    },
+    {
+      "turnId": "trace_1783650789313_3q88ns",
+      "userText": "推荐IPA",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；符合你要的IPA；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；符合你要的IPA；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；符合你要的IPA；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；符合你要的IPA；酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:33:09.359Z"
+    },
+    {
+      "turnId": "trace_1783651063552_xbybb4",
+      "userText": "推荐IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:37:43.566Z"
+    },
+    {
+      "turnId": "trace_1783671114428_w38hzb",
+      "userText": "推荐IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:11:54.443Z"
+    },
+    {
+      "turnId": "trace_1783673921334_q971ln",
+      "userText": "这里面哪款苦味最轻？",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T08:58:45.841Z"
+    },
+    {
+      "turnId": "trace_1783674030579_gqodho",
+      "userText": "这里面哪款苦味最轻？",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:00:33.517Z"
+    },
+    {
+      "turnId": "trace_1783674805765_ai0we8",
+      "userText": "这里面哪款苦味最轻？",
+      "assistantReply": "通常来说，这三款IPA都属于苦味比较明显的类型，因为它们都是美国IPA的经典代表，以使用大量酒花而闻名。不过，如果要在这三款中选择苦味最轻的，**King Sue** 可能会是相对柔和的选择。不过，这并不意味着它的苦味就很轻，只是相对于另外两款来说，可能会稍微温和一些。\n\n如果你对苦味非常敏感，可能需要寻找一些专门标注为“低苦”或者“session”（会话型）的IPA，这些类型的IPA通常苦味会更轻，更加容易入口。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T09:13:32.977Z"
+    }
+  ],
+  "currentConstraints": [
+    "拉格",
+    "IPA"
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783671114428_yyrnai",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-10T08:11:54.443Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "traceId": "trace_1783674028260_fn6ydl",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_label_check_2",
+  "turnId": "trace_1783674028260_51jisj",
+  "timestamp": "2026-07-10T09:00:28.331Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "这瓶啤酒过期了吗？怎么看日期？",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 1,
+        "slots": {
+          "beerName": "这瓶啤酒过期了吗"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 1,
+    "slots": {
+      "beerName": "这瓶啤酒过期了吗"
+    },
+    "missingInfo": [],
+    "routeReason": "override match: menu_recommend (100%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "override",
+          "confidence": 1,
+          "pattern": "暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": false,
+        "hasActiveMenu": true,
+        "turnsSinceMenu": 1,
+        "activeMenuCandidateCount": 1,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "User override rule /暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期/ matched → forced to menu_recommend",
+      "candidateScores": [
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 1,
+          "source": "override",
+          "reason": "Override regex /暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期/"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "override",
+          "type": "positive",
+          "matched": true,
+          "confidence": 1,
+          "reason": "User override: /暴龙苏|暴龙|领主|查博斯|黑豹|酷酷|电光酒花|果味满满|一样一样的|棱镜之外|蜂巢|德米海德拉|科隆|罗萨达|甜甜圈|黑啤|奢华冰冻|冷柜|冰柜|生产日期|过期|保质期|日期/"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "这瓶啤酒过期了吗？怎么看日期？"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：这瓶啤酒过期了吗？怎么看日期？\n最值得尝新：这瓶啤酒过期了吗？怎么看日期？\n我会先跳过：这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 这瓶啤酒过期了吗？怎么看日期？。\n\n⚠️ 这瓶啤酒过期了吗？怎么看日期？ 数据不足，谨慎尝试。\n\n💡 你很喜欢Pale Ale - American，要不要试试Ipa？",
+    "candidateCount": 1,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [
+      "unverified_rating_mentioned"
+    ],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

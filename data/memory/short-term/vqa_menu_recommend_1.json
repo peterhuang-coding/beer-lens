@@ -1,0 +1,119 @@
+{
+  "conversationId": "vqa_menu_recommend_1",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:12:54.031Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646215328_mz89v6",
+      "userText": "Pliny the Elder听起来不错！不过8度会不会太烈了？我平时喝6度左右的。",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:17:05.819Z"
+    },
+    {
+      "turnId": "trace_1783646513010_1yvhq4",
+      "userText": "我发了一张我们这酒吧的酒单照片，你能帮我看看有什么好酒吗？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:21:59.023Z"
+    },
+    {
+      "turnId": "trace_1783646767822_6wxnpi",
+      "userText": "我发了一张我们这酒吧的酒单照片，你能帮我看看有什么好酒吗？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:14.931Z"
+    },
+    {
+      "turnId": "trace_1783650303281_55f77e",
+      "userText": "我发了一张我们这酒吧的酒单照片，你能帮我看看有什么好酒吗？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:09.533Z"
+    },
+    {
+      "turnId": "trace_1783650738366_g67ahi",
+      "userText": "推荐IPA，我喜欢苦味明显的",
+      "assistantReply": "我会这样点：\n\n1. 我喜欢苦味明显的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 我喜欢苦味明显的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 我喜欢苦味明显的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：我喜欢苦味明显的\n最值得尝新：我喜欢苦味明显的\n我会先跳过：我喜欢苦味明显的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 我喜欢苦味明显的。\n\n⚠️ 我喜欢苦味明显的 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:32:18.463Z"
+    },
+    {
+      "turnId": "trace_1783651026106_uiqtlp",
+      "userText": "推荐IPA，我喜欢苦味明显的",
+      "assistantReply": "酒单上没有符合「IPA」的酒。现有：我喜欢苦味明显的。要不要换个方向？\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:37:06.117Z"
+    },
+    {
+      "turnId": "trace_1783671069042_j643c7",
+      "userText": "推荐IPA，我喜欢苦味明显的",
+      "assistantReply": "酒单上没有符合「IPA」的酒。现有：我喜欢苦味明显的。要不要换个方向？\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:11:09.050Z"
+    },
+    {
+      "turnId": "trace_1783673914619_dpluvy",
+      "userText": "帮我推荐一款IPA，要苦味明显的，西海岸风格最好",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:58:34.624Z"
+    },
+    {
+      "turnId": "trace_1783674024629_hdgwoo",
+      "userText": "帮我推荐一款IPA，要苦味明显的，西海岸风格最好",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T09:00:24.635Z"
+    },
+    {
+      "turnId": "trace_1783674774026_bwu6s8",
+      "userText": "帮我推荐一款IPA，要苦味明显的，西海岸风格最好",
+      "assistantReply": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T09:12:54.031Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783671069042_3jh5dy",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "我喜欢苦味明显的",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-10T08:11:09.050Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "safePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "explorePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "avoidOrCaution": {
+      "candidateId": "",
+      "label": ""
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "我喜欢苦味明显的",
+    "brewery": ""
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

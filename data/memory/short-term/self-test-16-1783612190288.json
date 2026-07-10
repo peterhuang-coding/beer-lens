@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-16-1783612190288",
+  "userId": "self-test",
+  "updatedAt": "2026-07-09T15:49:55.281Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783612190295_qpt6h0",
+      "userText": "哪个不苦",
+      "assistantReply": "如果你不喜欢苦味的啤酒，可以试试一些比较轻盈、清爽的风格，比如小麦啤酒（Weissbier）或者比利时白啤酒（Belgian Witbier）。这些啤酒通常带有明显的水果香和香料味，口感比较清新，苦味较低。另外，一些酸啤酒（如柏林白啤酒 Berliner Weisse）也是不错的选择，它们通常带有清新的酸味，而不是苦味。你觉得这些风格听起来怎么样？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-09T15:49:55.281Z"
+    }
+  ],
+  "currentConstraints": [
+    "不苦"
+  ]
+}

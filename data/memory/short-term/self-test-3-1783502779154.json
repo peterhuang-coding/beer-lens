@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-3-1783502779154",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:26:24.673Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502779168_jzc4s7",
+      "userText": "第3个怎么样",
+      "assistantReply": "嗨！你说的“第3个”是指什么呢？是某种啤酒的种类、品牌，还是品酒过程中的某个步骤？能给我多一点信息吗？这样我才能更好地帮你解答。😊",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:26:24.673Z"
+    }
+  ]
+}

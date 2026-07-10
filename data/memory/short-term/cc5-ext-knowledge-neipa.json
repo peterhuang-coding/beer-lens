@@ -1,0 +1,31 @@
+{
+  "conversationId": "cc5-ext-knowledge-neipa",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-08T02:31:51.497Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783476641847_z58pkf",
+      "userText": "什么是新英格兰IPA",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:10:42.363Z"
+    },
+    {
+      "turnId": "trace_1783477678392_tp6xpe",
+      "userText": "什么是新英格兰IPA",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:27:59.237Z"
+    },
+    {
+      "turnId": "trace_1783477910760_f7olz1",
+      "userText": "什么是新英格兰IPA",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T02:31:51.497Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

@@ -1,0 +1,789 @@
+{
+  "traceId": "trace_1783650325236_q0vc8n",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_beer_knowledge_1",
+  "turnId": "trace_1783650325236_xetv5t",
+  "timestamp": "2026-07-10T02:25:25.326Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题。",
+    "hasImage": true,
+    "imageName": "vqa_beer_knowledge_1.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik04My4xODUgMjg3LjE5djIwLjk3aC0zLjkxdi0yMC45N3ptOC41OSAxMC41NGgyLjkxcTEuMDcgMCAxLjg3LS4yNi44LS4yNyAxLjMzLS43N3QuNzktMS4yMi4yNi0xLjZxMC0uODQtLjI2LTEuNTMtLjI2LS42OC0uNzktMS4xNS0uNTItLjQ4LTEuMzItLjc0LS43OS0uMjUtMS44OC0uMjVoLTIuOTF6bS0zLjkxLTEwLjU0aDYuODJxMi4xIDAgMy42NC41IDEuNTQuNDkgMi41NCAxLjM3IDEgLjg5IDEuNDggMi4xMi40OSAxLjIzLjQ5IDIuNyAwIDEuNTItLjUxIDIuNzl0LTEuNTIgMi4xOHEtMS4wMi45MS0yLjU1IDEuNDJ0LTMuNTcuNTFoLTIuOTF2Ny4zOGgtMy45MXptMjIuMzYgMTMuMDVoNi42N2wtMi41NS02Ljk3cS0uMTktLjQ3LS4zOS0xLjEtLjItLjY0LS40MS0xLjM4LS4xOC43NC0uMzkgMS4zOC0uMi42NS0uMzkgMS4xM3ptNS4zMy0xMy4wNSA4LjIzIDIwLjk3aC0zLjAxcS0uNTEgMC0uODMtLjI1LS4zMi0uMjYtLjQ4LS42M2wtMS41Ny00LjI4aC04LjY4bC0xLjU3IDQuMjhxLS4xMS4zMy0uNDUuNi0uMzMuMjgtLjgyLjI4aC0zLjA1bDguMjUtMjAuOTd6bTI3LjQ3IDYuMDloMi44M2wtNS45IDE0Ljg4aC0zLjI1bC01LjktMTQuODhoMi45NnEuNCAwIC42Ny4xOXQuMzYuNDhsMi44NyA3Ljk1cS4yMy42OS40IDEuMzYuMTguNjcuMzEgMS4zMy4xNC0uNjYuMzItMS4zMy4xNy0uNjcuNDItMS4zNmwyLjkzLTcuOTVxLjEtLjI5LjM2LS40OHQuNjItLjE5bTE0LjYyIDEuNjEtLjgxIDEuMjlxLS4xNS4yMy0uMzEuMzMtLjE2LjA5LS40LjA5LS4yNiAwLS41Ni0uMTQtLjMtLjE1LS42OS0uMzN0LS44OS0uMzJxLS41LS4xNS0xLjE4LS4xNS0xLjA2IDAtMS42Ni40NS0uNjEuNDUtLjYxIDEuMTcgMCAuNDguMzIuODEuMzEuMzMuODIuNTcuNTIuMjUgMS4xNy40NC42NS4yIDEuMzMuNDMuNjcuMjMgMS4zMi41My42Ni4zIDEuMTcuNzYuNTEuNDUuODMgMS4wOS4zMS42NC4zMSAxLjU0IDAgMS4wNy0uMzkgMS45OC0uMzguOS0xLjEzIDEuNTYtLjc2LjY2LTEuODcgMS4wM3QtMi41Ni4zN3EtLjc3IDAtMS41LS4xNC0uNzMtLjEzLTEuNC0uMzgtLjY4LS4yNS0xLjI1LS41OHQtMS4wMS0uNzJsLjgzLTEuMzdxLjE2LS4yNC4zNy0uMzcuMjItLjE0LjU2LS4xNC4zMyAwIC42My4xOS4yOS4xOS42OS40MS4zOS4yMi45Mi40LjUzLjE5IDEuMzQuMTkuNjQgMCAxLjA5LS4xNS40Ni0uMTUuNzYtLjQuMjktLjI0LjQzLS41N3QuMTQtLjY3cTAtLjUzLS4zMS0uODZ0LS44My0uNThxLS41MS0uMjUtMS4xNy0uNDQtLjY2LS4yLTEuMzUtLjQzdC0xLjM1LS41NHEtLjY2LS4zMi0xLjE4LS43OS0uNTEtLjQ4LS44Mi0xLjE4LS4zMS0uNjktLjMxLTEuNjggMC0uOTEuMzYtMS43NHQxLjA2LTEuNDRxLjcxLS42MiAxLjc2LS45OXQyLjQzLS4zN3ExLjUzIDAgMi44LjUxIDEuMjYuNTEgMi4xIDEuMzNtMTQuMzcgMTAuMDVoOC4zOHYzLjIyaC0xMi4yOHYtMjAuOTdoMy45em0xOC40Ni0uNjJ2LTIuNTFxLTEuNTUuMDctMi42MS4yNy0xLjA2LjE5LTEuNy41LS42NC4zLS45MS43MS0uMjguNC0uMjguODggMCAuOTQuNTYgMS4zNXQxLjQ2LjQxcTEuMSAwIDEuOS0uNC44MS0uNCAxLjU4LTEuMjFtLTcuNTctNy44Mi0uNjQtMS4xNHEyLjU3LTIuMzUgNi4xOC0yLjM1IDEuMyAwIDIuMzMuNDMgMS4wMy40MiAxLjc0IDEuMTguNzEuNzcgMS4wOCAxLjgyLjM3IDEuMDYuMzcgMi4zMnY5LjRoLTEuNjJxLS41MSAwLS43OS0uMTUtLjI3LS4xNS0uNDMtLjYybC0uMzItMS4wN3EtLjU3LjUxLTEuMS44OS0uNTQuMzgtMS4xMi42NS0uNTguMjYtMS4yNC4zOS0uNjYuMTQtMS40Ni4xNC0uOTQgMC0xLjc0LS4yNS0uNzktLjI2LTEuMzctLjc2LS41OC0uNTEtLjktMS4yNi0uMzItLjc2LS4zMi0xLjc2IDAtLjU2LjE5LTEuMTJ0LjYxLTEuMDdxLjQzLS41MSAxLjExLS45NnQxLjY4LS43OHEuOTktLjMzIDIuMzEtLjU0dDMuMDItLjI2di0uODdxMC0xLjQ5LS42NC0yLjIxdC0xLjg0LS43MnEtLjg3IDAtMS40NS4yMS0uNTcuMi0xIC40NS0uNDQuMjYtLjc5LjQ2LS4zNi4yLS43OS4yLS4zOCAwLS42NC0uMTktLjI2LS4yLS40Mi0uNDZtMTkuODYgMy44NnEuNjcgMCAxLjE2LS4xOC41LS4xOC44Mi0uNS4zMy0uMzIuNS0uNzcuMTYtLjQ1LjE2LS45OSAwLTEuMS0uNjYtMS43NC0uNjYtLjY1LTEuOTgtLjY1dC0xLjk4LjY1cS0uNjYuNjQtLjY2IDEuNzQgMCAuNTMuMTcuOTcuMTcuNDUuNDkuNzguMzMuMzMuODMuNTF0MS4xNS4xOG00LjA1IDguNDdxMC0uNDQtLjI2LS43MS0uMjYtLjI4LS43MS0uNDN0LTEuMDUtLjIzcS0uNjEtLjA3LTEuMjgtLjEtLjY3LS4wNC0xLjM5LS4wN3QtMS40LS4xMnEtLjYuMzQtLjk3Ljc5dC0uMzcgMS4wNHEwIC4zOS4yLjczdC42Mi41OXEuNDMuMjUgMS4xMS4zOC42OC4xNCAxLjY3LjE0IDEgMCAxLjczLS4xNS43Mi0uMTUgMS4xOS0uNDJ0LjY5LS42NC4yMi0uOG0tLjcxLTE1LjA0aDQuMjh2MS4zM3EwIC42NC0uNzcuNzlsLTEuMzQuMjRxLjMxLjc3LjMxIDEuNjkgMCAxLjEtLjQ0IDEuOTktLjQ1Ljg5LTEuMjMgMS41MS0uNzguNjMtMS44NS45Ny0xLjA2LjM0LTIuMy4zNC0uNDMgMC0uODQtLjA0LS40LS4wNS0uOC0uMTItLjY5LjQyLS42OS45NCAwIC40NS40MS42NnQxLjEuM3EuNjguMDkgMS41NS4xMXQxLjc4LjA5cS45MS4wOCAxLjc4LjI2dDEuNTYuNTdxLjY4LjM5IDEuMDkgMS4wNy40MS42Ny40MSAxLjczIDAgLjk4LS40OCAxLjkxLS40OS45My0xLjQxIDEuNjYtLjkyLjcyLTIuMjYgMS4xNnQtMy4wNS40NHEtMS42OCAwLTIuOTMtLjMyLTEuMjUtLjMzLTIuMDctLjg3LS44My0uNTUtMS4yNC0xLjI2LS40LS43MS0uNC0xLjQ3IDAtMS4wNS42My0xLjc1LjYzLS43MSAxLjczLTEuMTMtLjU5LS4zLS45NC0uODF0LS4zNS0xLjMzcTAtLjM0LjEyLS42OS4xMy0uMzYuMzctLjcuMjMtLjM1LjYtLjY2LjM2LS4zMi44NS0uNTYtMS4xMy0uNjEtMS43Ny0xLjYzLS42NS0xLjAxLS42NS0yLjM3IDAtMS4xMS40NC0yIC40NS0uODkgMS4yNC0xLjUydDEuODctLjk2cTEuMDgtLjM0IDIuMzUtLjM0Ljk2IDAgMS44LjIuODQuMTkgMS41NC41N205LjM2IDUuMjJoNi43NnEwLS43LS4xOS0xLjMxLS4yLS42Mi0uNTktMS4wOC0uMzktLjQ3LS45OS0uNzMtLjYxLS4yNy0xLjQtLjI3LTEuNTYgMC0yLjQ1Ljg4LS44OS44OS0xLjE0IDIuNTFtOS4xNCAyLjE2aC05LjIxcS4wOSAxLjE1LjQxIDEuOTh0Ljg0IDEuMzhxLjUyLjU0IDEuMjQuODF0MS41OS4yNyAxLjUtLjIxcS42My0uMiAxLjEtLjQ0LjQ3LS4yNS44My0uNDUuMzUtLjIxLjY4LS4yMS40NSAwIC42Ny4zNGwxLjAzIDEuM3EtLjU5LjctMS4zMyAxLjE3dC0xLjU1Ljc1cS0uOC4yOS0xLjY0LjQtLjgzLjEyLTEuNjEuMTItMS41NSAwLTIuODktLjUyLTEuMzMtLjUxLTIuMzItMS41Mi0uOTgtMS4wMS0xLjU1LTIuNDktLjU2LTEuNDktLjU2LTMuNDUgMC0xLjUyLjQ5LTIuODZ0MS40MS0yLjM0cS45Mi0uOTkgMi4yNS0xLjU3dDIuOTktLjU4cTEuNDEgMCAyLjYuNDV0Mi4wNCAxLjMxcS44Ni44NyAxLjM0IDIuMTIuNDkgMS4yNS40OSAyLjg2IDAgLjgyLS4xNyAxLjEtLjE4LjI4LS42Ny4yOG02LjY4LTYuOTkuMjIgMS42OHEuNy0xLjMzIDEuNjUtMi4wOS45Ni0uNzYgMi4yNy0uNzYgMS4wMyAwIDEuNjUuNDVsLS4yMyAyLjY4cS0uMDcuMjYtLjIxLjM3dC0uMzcuMTFxLS4yMiAwLS42NS0uMDctLjQzLS4wOC0uODMtLjA4LS42IDAtMS4wNi4xOC0uNDYuMTctLjgzLjUtLjM3LjMyLS42Ni43OS0uMjguNDYtLjUzIDEuMDZ2OS4xNmgtMy41OHYtMTQuODhoMi4xMXEuNTUgMCAuNzYuMi4yMi4xOS4yOS43bTI3LjQxLTUuMDItLjk3IDEuODVxLS4xOC4zLS4zNy40NC0uMi4xNC0uNDkuMTQtLjMgMC0uNjYtLjIzLS4zNS0uMjItLjg1LS41LS40OS0uMjctMS4xNS0uNS0uNjYtLjIyLTEuNTYtLjIyLS44MSAwLTEuNDIuMTktLjYxLjItMS4wMi41NS0uNDEuMzQtLjYyLjgzLS4yLjQ5LS4yIDEuMDcgMCAuNzMuNDEgMS4yMy40Mi40OSAxLjEuODR0MS41NS42MnEuODcuMjggMS43OC41OS45Mi4zMSAxLjc5LjcyLjg3LjQyIDEuNTUgMS4wNXQxLjA5IDEuNTRxLjQyLjkyLjQyIDIuMjIgMCAxLjQyLS40OSAyLjY2dC0xLjQyIDIuMTZxLS45NC45Mi0yLjI4IDEuNDUtMS4zNS41My0zLjA5LjUzLTEgMC0xLjk3LS4xOS0uOTgtLjItMS44Ny0uNTZ0LTEuNjctLjg3cS0uNzktLjUxLTEuMzktMS4xM2wxLjE0LTEuODdxLjE1LS4yMS4zOC0uMzQuMjMtLjE0LjQ5LS4xNC4zNiAwIC43OC4zLjQyLjI5IDEgLjY1LjU4LjM3IDEuMzYuNjYuNzguMyAxLjg2LjMgMS42NyAwIDIuNTgtLjc5LjkyLS43OS45Mi0yLjI3IDAtLjgyLS40Mi0xLjM1LS40MS0uNTItMS4wOS0uODctLjY4LS4zNi0xLjU1LS42MS0uODctLjI0LTEuNzctLjUzdC0xLjc3LS43cS0uODctLjQtMS41NS0xLjA2LS42OC0uNjUtMS4xLTEuNjMtLjQxLS45OC0uNDEtMi40MSAwLTEuMTUuNDYtMi4yMy40NS0xLjA5IDEuMzItMS45M3QyLjE1LTEuMzUgMi45My0uNTFxMS44NiAwIDMuNDIuNTggMS41Ny41OCAyLjY3IDEuNjJtOC4xNiAxOS4yM3EtMS45NCAwLTIuOTgtMS4wOS0xLjAzLTEuMS0xLjAzLTMuMDN2LTguM2gtMS41M3EtLjI5IDAtLjQ5LS4xOXQtLjItLjU3di0xLjQybDIuMzktLjM5Ljc1LTQuMDZxLjA4LS4yOS4yOC0uNDV0LjUyLS4xNmgxLjg2djQuNjhoMy45N3YyLjU2aC0zLjk3djguMDZxMCAuNjkuMzQgMS4wOC4zNC40LjkzLjQuMzQgMCAuNTYtLjA4LjIzLS4wOC4zOS0uMTcuMTctLjA5LjMtLjE3dC4yNi0uMDhxLjE2IDAgLjI2LjA4dC4yMi4yNGwxLjA3IDEuNzRxLS43OC42Ni0xLjc5Ljk5LTEuMDIuMzMtMi4xMS4zM20xNi40Ny0xNS4xMWgyLjg4bC04LjExIDE4Ljk3cS0uMTYuMzgtLjQxLjU3LS4yNi4yLS43OC4yaC0yLjY3bDIuNzktNS45OC02LjAyLTEzLjc2aDMuMTVxLjQyIDAgLjY2LjIxLjI0LjIuMzUuNDZsMy4xNiA3LjcxcS4xNi40LjI3Ljc5dC4yMS43OWwuMjYtLjhxLjEzLS40LjI5LS43OWwyLjk5LTcuN3EuMTEtLjI5LjM4LS40OHQuNi0uMTltNC43LTYuNjdoMy41OHYyMS41NWgtMy41OHptOS45OSAxMi40aDYuNzZxMC0uNy0uMi0xLjMxLS4xOS0uNjItLjU4LTEuMDgtLjM5LS40Ny0xLS43My0uNi0uMjctMS40LS4yNy0xLjU1IDAtMi40NC44OC0uODkuODktMS4xNCAyLjUxbTkuMTQgMi4xNmgtOS4yMXEuMDkgMS4xNS40MSAxLjk4dC44NCAxLjM4cS41Mi41NCAxLjI0LjgxdDEuNTkuMjcgMS41LS4yMXEuNjMtLjIgMS4xLS40NC40Ny0uMjUuODItLjQ1LjM2LS4yMS42OS0uMjEuNDUgMCAuNjcuMzRsMS4wMyAxLjNxLS41OS43LTEuMzMgMS4xN3QtMS41NS43NXEtLjguMjktMS42NC40LS44My4xMi0xLjYxLjEyLTEuNTYgMC0yLjg5LS41Mi0xLjMzLS41MS0yLjMyLTEuNTJ0LTEuNTUtMi40OXEtLjU3LTEuNDktLjU3LTMuNDUgMC0xLjUyLjUtMi44Ni40OS0xLjM0IDEuNDEtMi4zNC45Mi0uOTkgMi4yNS0xLjU3IDEuMzItLjU4IDIuOTktLjU4IDEuNDEgMCAyLjYuNDV0Mi4wNCAxLjMxcS44Ni44NyAxLjM0IDIuMTIuNDkgMS4yNS40OSAyLjg2IDAgLjgyLS4xNyAxLjEtLjE4LjI4LS42Ny4yOG0xMy40MS02LjI4LS44MSAxLjI5cS0uMTUuMjMtLjMxLjMzLS4xNi4wOS0uNC4wOS0uMjYgMC0uNTYtLjE0LS4zLS4xNS0uNjktLjMzdC0uODktLjMycS0uNS0uMTUtMS4xOC0uMTUtMS4wNiAwLTEuNjYuNDV0LS42IDEuMTdxMCAuNDguMzEuODF0LjgyLjU3cS41Mi4yNSAxLjE3LjQ0LjY1LjIgMS4zMy40My42Ny4yMyAxLjMyLjUzLjY2LjMgMS4xNy43Ni41Mi40NS44MyAxLjA5dC4zMSAxLjU0cTAgMS4wNy0uMzggMS45OC0uMzkuOS0xLjE0IDEuNTYtLjc2LjY2LTEuODcgMS4wMy0xLjEuMzctMi41NS4zNy0uNzcgMC0xLjUxLS4xNC0uNzMtLjEzLTEuNC0uMzgtLjY4LS4yNS0xLjI1LS41OHQtMS4wMS0uNzJsLjgzLTEuMzdxLjE2LS4yNC4zOC0uMzcuMjEtLjE0LjU1LS4xNC4zMyAwIC42My4xOXQuNjkuNDEuOTIuNHEuNTMuMTkgMS4zNC4xOS42NCAwIDEuMDktLjE1LjQ2LS4xNS43Ni0uNC4zLS4yNC40My0uNTcuMTQtLjMzLjE0LS42NyAwLS41My0uMzEtLjg2dC0uODMtLjU4cS0uNTEtLjI1LTEuMTctLjQ0LS42Ni0uMi0xLjM1LS40M3QtMS4zNS0uNTRxLS42Ni0uMzItMS4xNy0uNzktLjUyLS40OC0uODMtMS4xOC0uMzEtLjY5LS4zMS0xLjY4IDAtLjkxLjM2LTEuNzR0MS4wNy0xLjQ0cS43LS42MiAxLjc1LS45OXQyLjQzLS4zN3ExLjU0IDAgMi44LjUxdDIuMSAxLjMzIi8+PC9zdmc+"
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.85,
+        "slots": {
+          "style": "IPA",
+          "beerName": "我经常喝酒但分不清IPA和拉格"
+        }
+      },
+      {
+        "intent": "beer_knowledge",
+        "confidence": 0.85,
+        "slots": {}
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.85,
+    "slots": {
+      "style": "IPA",
+      "beerName": "我经常喝酒但分不清IPA和拉格"
+    },
+    "missingInfo": [],
+    "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)",
+    "source": "rule",
+    "isMultiIntent": true,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "confidence": 0.85,
+          "pattern": ".*"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "confidence": 0.85,
+          "pattern": "什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "酒单推荐(menu_recommend) won over 啤酒知识(beer_knowledge) with gap 0%. Gap within multi-intent threshold — multi-intent enabled.",
+      "candidateScores": [
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Context conditions not met"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒单|推荐|喝什么|帮我看酒单/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /.*/ matched"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "planner"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+    "candidateCount": 1,
+    "topPickId": "db_0"
+  },
+  "stages": {
+    "planner": {
+      "plan": {
+        "id": "plan_1783650325239_mpl4ke",
+        "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "mode": "planner",
+        "maxSteps": 4,
+        "steps": [
+          {
+            "id": "step_classify_intent_wl25",
+            "tool": "classify_intent",
+            "purpose": "Classify user intent to confirm routing",
+            "input": {
+              "text": "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题。",
+              "hasImage": true
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.239Z",
+            "output": {
+              "intent": "menu_recommend",
+              "confidence": 0.85,
+              "source": "rule",
+              "isMultiIntent": true,
+              "intents": [
+                {
+                  "intent": "menu_recommend",
+                  "confidence": 0.85,
+                  "slots": {
+                    "style": "IPA",
+                    "beerName": "我经常喝酒但分不清IPA和拉格"
+                  }
+                },
+                {
+                  "intent": "beer_knowledge",
+                  "confidence": 0.85,
+                  "slots": {}
+                }
+              ],
+              "slots": {
+                "style": "IPA",
+                "beerName": "我经常喝酒但分不清IPA和拉格"
+              },
+              "missingInfo": [],
+              "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)"
+            },
+            "completedAt": "2026-07-10T02:25:25.239Z"
+          },
+          {
+            "id": "step_retrieve_memory_lz8y",
+            "tool": "retrieve_memory",
+            "purpose": "Retrieve user taste profile and preferences",
+            "input": {
+              "userId": "vqa-auto-test"
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.239Z",
+            "output": {
+              "profile": {
+                "userId": "vqa-auto-test",
+                "updatedAt": "2026-07-10T02:25:22.405Z",
+                "summary": "喜欢柑橘风味",
+                "preferredStyles": [],
+                "dislikedStyles": [],
+                "preferredTags": [
+                  {
+                    "value": "柑橘",
+                    "weight": 0.5,
+                    "evidenceCount": 1
+                  }
+                ],
+                "dislikedTags": [],
+                "notes": [
+                  "Pseudo Sue 4分，会再喝",
+                  "这酒不错，给5分，柑橘味",
+                  "不好喝，2分，不会再喝",
+                  "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                  "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+                ],
+                "confidence": 0.3,
+                "evidenceCount": 3,
+                "correctionsCount": 0,
+                "correctionsApplied": false
+              },
+              "trends": {
+                "months": [
+                  {
+                    "month": "2026-07",
+                    "episodeCount": 5,
+                    "topStyles": [
+                      "Pale Ale - American"
+                    ],
+                    "topTags": [
+                      "柑橘"
+                    ],
+                    "dislikedTags": [],
+                    "avgScore": 3.7,
+                    "abvRange": {
+                      "min": 5.8,
+                      "max": 5.8
+                    }
+                  }
+                ],
+                "updatedAt": "2026-07-10T02:25:22.408Z"
+              },
+              "corrections": [],
+              "hasProfile": true,
+              "profileConfidence": 0.3
+            },
+            "completedAt": "2026-07-10T02:25:25.240Z"
+          },
+          {
+            "id": "step_search_beer_db_whc5",
+            "tool": "search_beer_db",
+            "purpose": "Search beer database for candidates from OCR",
+            "input": {
+              "queries": [
+                "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题"
+              ]
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.240Z",
+            "output": {
+              "results": [
+                {
+                  "query": "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题",
+                  "found": true,
+                  "data": {
+                    "beerName": "Participation Lager",
+                    "brewery": "Magic Hat Brewing Company",
+                    "style": "American Adjunct Lager",
+                    "abv": 5,
+                    "rating": 3.6,
+                    "ratingCount": 58
+                  }
+                }
+              ],
+              "totalFound": 1
+            },
+            "completedAt": "2026-07-10T02:25:25.324Z"
+          },
+          {
+            "id": "step_score_recommendations_atky",
+            "tool": "score_recommendations",
+            "purpose": "Score candidates with worthScore + fitScore against user profile",
+            "input": {
+              "candidates": "[1 candidates from search_beer_db]",
+              "profile": "[injected from retrieve_memory]",
+              "constraints": [
+                "不苦",
+                "IPA",
+                "拉格"
+              ]
+            },
+            "status": "completed",
+            "startedAt": "2026-07-10T02:25:25.324Z",
+            "output": {
+              "scored": [
+                {
+                  "candidateId": "db_0",
+                  "displayName": "Participation Lager",
+                  "worthScore": 43,
+                  "fitScore": 62,
+                  "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                  "riskFlags": [
+                    "低样本评分"
+                  ]
+                }
+              ],
+              "picks": {
+                "topPick": {
+                  "candidateId": "db_0",
+                  "label": "最佳",
+                  "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                  "worthScore": 43,
+                  "fitScore": 62
+                },
+                "safePick": {
+                  "candidateId": "db_0",
+                  "label": "最稳",
+                  "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                  "worthScore": 43,
+                  "fitScore": 62
+                },
+                "explorePick": {
+                  "candidateId": "db_0",
+                  "label": "尝新",
+                  "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                  "worthScore": 43,
+                  "fitScore": 62
+                },
+                "avoidOrCaution": {
+                  "candidateId": "db_0",
+                  "label": "谨慎",
+                  "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                  "worthScore": 43,
+                  "fitScore": 62
+                }
+              },
+              "candidateCount": 1
+            },
+            "completedAt": "2026-07-10T02:25:25.325Z"
+          }
+        ],
+        "diagnostics": {
+          "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+          "selectedTools": [
+            "classify_intent",
+            "retrieve_memory",
+            "search_beer_db",
+            "score_recommendations"
+          ],
+          "missingContext": [
+            "limited_profile_data",
+            "no_active_menu"
+          ],
+          "fallbackUsed": true
+        },
+        "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+      },
+      "planId": "plan_1783650325239_mpl4ke",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "success": true,
+      "fallback": true,
+      "steps": [
+        {
+          "id": "step_classify_intent_wl25",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "outputSummary": {
+            "intent": "menu_recommend",
+            "confidence": 0.85,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.85,
+                "slots": {
+                  "style": "IPA",
+                  "beerName": "我经常喝酒但分不清IPA和拉格"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "style": "IPA",
+              "beerName": "我经常喝酒但分不清IPA和拉格"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)"
+          }
+        },
+        {
+          "id": "step_retrieve_memory_lz8y",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 800,
+            "_preview": "{\"profile\":{\"userId\":\"vqa-auto-test\",\"updatedAt\":\"2026-07-10T02:25:22.405Z\",\"summary\":\"喜欢柑橘风味\",\"preferredStyles\":[],\"dislikedStyles\":[],\"preferredTags\":[{\"value\":\"柑橘\",\"weight\":0.5,\"evidenceCount\":1}],..."
+          }
+        },
+        {
+          "id": "step_search_beer_db_whc5",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "outputSummary": {
+            "results": [
+              {
+                "query": "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题",
+                "found": true,
+                "data": {
+                  "beerName": "Participation Lager",
+                  "brewery": "Magic Hat Brewing Company",
+                  "style": "American Adjunct Lager",
+                  "abv": 5,
+                  "rating": 3.6,
+                  "ratingCount": 58
+                }
+              }
+            ],
+            "totalFound": 1
+          }
+        },
+        {
+          "id": "step_score_recommendations_atky",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "outputSummary": {
+            "_truncated": true,
+            "_size": 623,
+            "_preview": "{\"scored\":[{\"candidateId\":\"db_0\",\"displayName\":\"Participation Lager\",\"worthScore\":43,\"fitScore\":62,\"reason\":\"评分3.6 - 符合你要的拉格/皮尔森\",\"riskFlags\":[\"低样本评分\"]}],\"picks\":{\"topPick\":{\"candidateId\":\"db_0\",\"labe..."
+          }
+        }
+      ],
+      "diagnostics": {
+        "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+        "selectedTools": [
+          "classify_intent",
+          "retrieve_memory",
+          "search_beer_db",
+          "score_recommendations"
+        ],
+        "missingContext": [
+          "limited_profile_data",
+          "no_active_menu"
+        ],
+        "fallbackUsed": true
+      }
+    }
+  },
+  "errors": [],
+  "debug": {
+    "route": "planner",
+    "hasImage": true,
+    "warnings": [
+      "reply_mentions_no_candidates"
+    ],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "planner": {
+      "used": true,
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "fallbackUsed": true,
+      "stepCount": 4,
+      "toolIds": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ]
+    }
+  },
+  "planner": {
+    "plan": {
+      "id": "plan_1783650325239_mpl4ke",
+      "reason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "mode": "planner",
+      "maxSteps": 4,
+      "steps": [
+        {
+          "id": "step_classify_intent_wl25",
+          "tool": "classify_intent",
+          "purpose": "Classify user intent to confirm routing",
+          "status": "completed",
+          "input": {
+            "text": "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题。",
+            "hasImage": true
+          },
+          "output": {
+            "intent": "menu_recommend",
+            "confidence": 0.85,
+            "source": "rule",
+            "isMultiIntent": true,
+            "intents": [
+              {
+                "intent": "menu_recommend",
+                "confidence": 0.85,
+                "slots": {
+                  "style": "IPA",
+                  "beerName": "我经常喝酒但分不清IPA和拉格"
+                }
+              },
+              {
+                "intent": "beer_knowledge",
+                "confidence": 0.85,
+                "slots": {}
+              }
+            ],
+            "slots": {
+              "style": "IPA",
+              "beerName": "我经常喝酒但分不清IPA和拉格"
+            },
+            "missingInfo": [],
+            "routeReason": "Multi-intent: menu_recommend(85%), beer_knowledge(85%)"
+          },
+          "startedAt": "2026-07-10T02:25:25.239Z",
+          "completedAt": "2026-07-10T02:25:25.239Z"
+        },
+        {
+          "id": "step_retrieve_memory_lz8y",
+          "tool": "retrieve_memory",
+          "purpose": "Retrieve user taste profile and preferences",
+          "status": "completed",
+          "input": {
+            "userId": "vqa-auto-test"
+          },
+          "output": {
+            "profile": {
+              "userId": "vqa-auto-test",
+              "updatedAt": "2026-07-10T02:25:22.405Z",
+              "summary": "喜欢柑橘风味",
+              "preferredStyles": [],
+              "dislikedStyles": [],
+              "preferredTags": [
+                {
+                  "value": "柑橘",
+                  "weight": 0.5,
+                  "evidenceCount": 1
+                }
+              ],
+              "dislikedTags": [],
+              "notes": [
+                "Pseudo Sue 4分，会再喝",
+                "这酒不错，给5分，柑橘味",
+                "不好喝，2分，不会再喝",
+                "我刚喝了一口朋友推荐的Pseudo Sue，感觉好惊艳啊！闻起来像热带水果炸弹，喝下去很顺滑完全不苦，这是IPA吗？怎么跟我之前喝的IPA不一样？",
+                "今天开了一瓶Parabola！天呐14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，还有一点橡木和香草。这酒也太复杂了吧，不过一瓶下肚已经有点晕了哈哈。"
+              ],
+              "confidence": 0.3,
+              "evidenceCount": 3,
+              "correctionsCount": 0,
+              "correctionsApplied": false
+            },
+            "trends": {
+              "months": [
+                {
+                  "month": "2026-07",
+                  "episodeCount": 5,
+                  "topStyles": [
+                    "Pale Ale - American"
+                  ],
+                  "topTags": [
+                    "柑橘"
+                  ],
+                  "dislikedTags": [],
+                  "avgScore": 3.7,
+                  "abvRange": {
+                    "min": 5.8,
+                    "max": 5.8
+                  }
+                }
+              ],
+              "updatedAt": "2026-07-10T02:25:22.408Z"
+            },
+            "corrections": [],
+            "hasProfile": true,
+            "profileConfidence": 0.3
+          },
+          "startedAt": "2026-07-10T02:25:25.239Z",
+          "completedAt": "2026-07-10T02:25:25.240Z"
+        },
+        {
+          "id": "step_search_beer_db_whc5",
+          "tool": "search_beer_db",
+          "purpose": "Search beer database for candidates from OCR",
+          "status": "completed",
+          "input": {
+            "queries": [
+              "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题"
+            ]
+          },
+          "output": {
+            "results": [
+              {
+                "query": "我经常喝酒但分不清IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题",
+                "found": true,
+                "data": {
+                  "beerName": "Participation Lager",
+                  "brewery": "Magic Hat Brewing Company",
+                  "style": "American Adjunct Lager",
+                  "abv": 5,
+                  "rating": 3.6,
+                  "ratingCount": 58
+                }
+              }
+            ],
+            "totalFound": 1
+          },
+          "startedAt": "2026-07-10T02:25:25.240Z",
+          "completedAt": "2026-07-10T02:25:25.324Z"
+        },
+        {
+          "id": "step_score_recommendations_atky",
+          "tool": "score_recommendations",
+          "purpose": "Score candidates with worthScore + fitScore against user profile",
+          "status": "completed",
+          "input": {
+            "candidates": "[1 candidates from search_beer_db]",
+            "profile": "[injected from retrieve_memory]",
+            "constraints": [
+              "不苦",
+              "IPA",
+              "拉格"
+            ]
+          },
+          "output": {
+            "scored": [
+              {
+                "candidateId": "db_0",
+                "displayName": "Participation Lager",
+                "worthScore": 43,
+                "fitScore": 62,
+                "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                "riskFlags": [
+                  "低样本评分"
+                ]
+              }
+            ],
+            "picks": {
+              "topPick": {
+                "candidateId": "db_0",
+                "label": "最佳",
+                "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                "worthScore": 43,
+                "fitScore": 62
+              },
+              "safePick": {
+                "candidateId": "db_0",
+                "label": "最稳",
+                "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                "worthScore": 43,
+                "fitScore": 62
+              },
+              "explorePick": {
+                "candidateId": "db_0",
+                "label": "尝新",
+                "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                "worthScore": 43,
+                "fitScore": 62
+              },
+              "avoidOrCaution": {
+                "candidateId": "db_0",
+                "label": "谨慎",
+                "reason": "评分3.6 - 符合你要的拉格/皮尔森",
+                "worthScore": 43,
+                "fitScore": 62
+              }
+            },
+            "candidateCount": 1
+          },
+          "startedAt": "2026-07-10T02:25:25.324Z",
+          "completedAt": "2026-07-10T02:25:25.325Z"
+        }
+      ],
+      "finalAnswer": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。"
+    },
+    "diagnostics": {
+      "triggerReason": "multi-intent detected: menu_recommend, beer_knowledge",
+      "selectedTools": [
+        "classify_intent",
+        "retrieve_memory",
+        "search_beer_db",
+        "score_recommendations"
+      ],
+      "missingContext": [
+        "limited_profile_data",
+        "no_active_menu"
+      ],
+      "fallbackUsed": true
+    }
+  }
+}

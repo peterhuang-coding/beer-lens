@@ -1,0 +1,63 @@
+{
+  "conversationId": "t",
+  "userId": "t",
+  "updatedAt": "2026-07-08T07:08:18.013Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783487475846_c9wwvm",
+      "userText": "推荐一款IPA",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-08T05:11:15.902Z"
+    },
+    {
+      "turnId": "trace_1783494493661_pws6hd",
+      "userText": "IPA",
+      "assistantReply": "IPA 是IPA，IPA 爱尔兰淡艾尔（India Pale Ale）的简称，是一种非常受欢迎的啤酒风格。它的特点是酒体中等到饱满，有明显的酒花香气和味道，通常带有柑橘、柠檬、甚至热带水果的风味。IPA 的酒精度和苦度都比较高，给人一种清爽又刺激的感觉。你喜欢IPA吗？有没有尝试过哪些款式的IPA？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T07:08:18.013Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783487475846_96lp9v",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-08T05:11:15.902Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

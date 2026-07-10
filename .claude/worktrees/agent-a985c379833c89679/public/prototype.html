@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beer Lens Prototype</title>
+    <style>
+      :root {
+        --ink: #122018;
+        --muted: #5a6a60;
+        --paper: #f7f9f7;
+        --surface: #ffffff;
+        --line: #d7e0d9;
+        --green: #147a55;
+        --green-dark: #0f4d38;
+        --coral: #e65f48;
+        --cyan: #2f9ca2;
+        --gold: #d8a321;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+
+      .scan-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr);
+        min-height: 92vh;
+      }
+
+      .scan-copy {
+        align-content: center;
+        display: grid;
+        gap: 22px;
+        padding: 48px;
+      }
+
+      .eyebrow {
+        color: var(--coral);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        margin: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 8vw, 5.8rem);
+        line-height: 0.95;
+        max-width: 9ch;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        line-height: 1;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+        max-width: 34rem;
+      }
+
+      .upload-button {
+        align-items: center;
+        background: var(--green);
+        border: 2px solid var(--green);
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        display: inline-flex;
+        font-weight: 800;
+        height: 52px;
+        justify-content: center;
+        max-width: 240px;
+        padding: 0 22px;
+      }
+
+      .upload-button input {
+        height: 1px;
+        opacity: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      .camera-surface {
+        min-height: 92vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .camera-surface img {
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
+      }
+
+      .scan-status {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        bottom: 24px;
+        color: var(--ink);
+        font-weight: 800;
+        left: 24px;
+        padding: 14px 18px;
+        position: absolute;
+      }
+
+      .content-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: minmax(260px, 0.95fr) minmax(300px, 1.05fr);
+        padding: 28px;
+      }
+
+      .section-heading {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .beer-list,
+      .detail-card,
+      .feedback-panel,
+      .profile-panel {
+        display: grid;
+        gap: 14px;
+      }
+
+      .beer-card,
+      .detail-card,
+      .feedback-panel,
+      .profile-panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .beer-card {
+        align-items: center;
+        color: var(--ink);
+        cursor: pointer;
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 72px minmax(0, 1fr) 54px;
+        min-height: 96px;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .beer-card.selected {
+        border-color: var(--green);
+        box-shadow: 0 0 0 2px rgba(20, 122, 85, 0.18);
+      }
+
+      .beer-card img {
+        aspect-ratio: 1;
+        border-radius: 8px;
+        object-fit: cover;
+        width: 72px;
+      }
+
+      .beer-card-main {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .beer-card-main strong,
+      .beer-card-main span {
+        overflow-wrap: anywhere;
+      }
+
+      .beer-card-main span,
+      .detail-topline,
+      .brewery,
+      .reason,
+      .caution,
+      .profile-panel p,
+      .next-pick p {
+        color: var(--muted);
+      }
+
+      .score-pill {
+        align-items: center;
+        background: #e8f4ee;
+        border-radius: 8px;
+        color: var(--green-dark);
+        display: flex;
+        font-weight: 900;
+        height: 48px;
+        justify-content: center;
+        width: 48px;
+      }
+
+      .detail-card,
+      .feedback-panel,
+      .profile-panel {
+        padding: 22px;
+      }
+
+      .detail-topline {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+        gap: 10px;
+        justify-content: space-between;
+      }
+
+      .brewery {
+        font-weight: 700;
+      }
+
+      .score-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .score-grid div {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        display: grid;
+        gap: 8px;
+        min-height: 108px;
+        padding: 16px;
+      }
+
+      .score-grid strong {
+        color: var(--green);
+        font-size: 2.4rem;
+      }
+
+      .reason,
+      .caution,
+      .profile-panel p,
+      .next-pick p {
+        line-height: 1.65;
+      }
+
+      .caution {
+        border-left: 4px solid var(--gold);
+        padding-left: 12px;
+      }
+
+      .hop-row,
+      .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .hop-row span,
+      .tag-cloud button,
+      .tag-cloud span {
+        background: #eef6f4;
+        border: 1px solid #cfe2dc;
+        border-radius: 8px;
+        color: var(--green-dark);
+        font-weight: 750;
+        padding: 9px 11px;
+      }
+
+      .rating-row {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .rating-row button {
+        background: var(--ink);
+        border: 0;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-weight: 900;
+        min-height: 46px;
+      }
+
+      .tag-cloud button {
+        background: #ffffff;
+        cursor: pointer;
+      }
+
+      .tag-cloud button.active {
+        background: var(--cyan);
+        border-color: var(--cyan);
+        color: #ffffff;
+      }
+
+      textarea {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        min-height: 112px;
+        padding: 14px;
+        resize: vertical;
+        width: 100%;
+      }
+
+      .saved-note {
+        background: #f0f7f4;
+        border-radius: 8px;
+        color: var(--green-dark);
+        font-weight: 800;
+        padding: 12px;
+      }
+
+      .profile-metric {
+        align-items: end;
+        display: flex;
+        gap: 10px;
+      }
+
+      .profile-metric strong {
+        color: var(--coral);
+        font-size: 4rem;
+        line-height: 0.85;
+      }
+
+      .next-pick {
+        border-top: 1px solid var(--line);
+        display: grid;
+        gap: 8px;
+        padding-top: 16px;
+      }
+
+      @media (max-width: 860px) {
+        .scan-panel {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .scan-copy {
+          min-height: 54vh;
+          padding: 28px 20px;
+        }
+
+        h1 {
+          max-width: 11ch;
+        }
+
+        .camera-surface {
+          min-height: 42vh;
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+          padding: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="scan-panel" aria-labelledby="scan-title">
+        <div class="scan-copy">
+          <p class="eyebrow">Beer Lens</p>
+          <h1 id="scan-title">拍下酒单，找到今晚最值得喝的那杯。</h1>
+          <p class="lead">识别酒名、查风格和口碑，再结合你的口味记录，把酒单变成可行动的排序。</p>
+          <label class="upload-button">
+            <input id="fileInput" type="file" accept="image/*" capture="environment" />
+            拍照或上传酒单
+          </label>
+        </div>
+        <div class="camera-surface" aria-live="polite">
+          <img
+            id="preview"
+            src="https://images.unsplash.com/photo-1518176258769-f227c798150e?auto=format&fit=crop&w=1100&q=80"
+            alt="桌面上的啤酒和酒单"
+          />
+          <div class="scan-status" id="scanStatus">等待酒单照片</div>
+        </div>
+      </section>
+
+      <section class="content-grid" aria-label="酒单推荐和反馈">
+        <div>
+          <div class="section-heading">
+            <p class="eyebrow">Tonight</p>
+            <h2>推荐排序</h2>
+          </div>
+          <div class="beer-list" id="beerList"></div>
+        </div>
+
+        <article class="detail-card" id="detailCard"></article>
+
+        <section class="feedback-panel" aria-labelledby="feedback-title">
+          <div class="section-heading">
+            <p class="eyebrow">Feedback</p>
+            <h2 id="feedback-title">喝完记一笔</h2>
+          </div>
+          <div class="rating-row" id="ratingRow"></div>
+          <div class="tag-cloud" id="tagCloud"></div>
+          <textarea id="note" placeholder="比如：香气很好，但后段有点甜。"></textarea>
+          <div class="saved-note" id="savedNote">点一个分数就会写入口味画像。</div>
+        </section>
+
+        <aside class="profile-panel" aria-labelledby="profile-title">
+          <div class="section-heading">
+            <p class="eyebrow">Profile</p>
+            <h2 id="profile-title">口味画像</h2>
+          </div>
+          <div class="profile-metric">
+            <strong id="averageScore">4.2</strong>
+            <span>当前平均反馈</span>
+          </div>
+          <p>目前更偏向 Hazy IPA、清爽型 Pilsner 和低甜度酒花香，酸味与野菌气息需要看场景。</p>
+          <div class="tag-cloud" id="profileTags"></div>
+          <div class="next-pick">
+            <span>下一杯推荐</span>
+            <strong>Green City</strong>
+            <p>理由：高匹配酒花、合适 ABV、风险低。</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const beers = [
+        {
+          id: 1,
+          name: "Green City",
+          brewery: "Other Half Brewing",
+          style: "Hazy IPA",
+          abv: 7.0,
+          hops: ["Citra", "Mosaic", "Centennial"],
+          worthScore: 94,
+          tasteMatch: 91,
+          priceNote: "适合优先点，价格高一点也值",
+          reason: "你偏好的热带水果、低苦度、浓郁酒花香都命中，ABV 也在你的高分区间。",
+          caution: "如果酒单没有标注新鲜日期，先问一下开桶时间。",
+          image: "https://images.unsplash.com/photo-1618885472179-5e474019f2a9?auto=format&fit=crop&w=900&q=80",
+          source: "High confidence"
+        },
+        {
+          id: 2,
+          name: "Pivo Pils",
+          brewery: "Firestone Walker",
+          style: "German Pilsner",
+          abv: 5.3,
+          hops: ["Saphir", "Spalter Select"],
+          worthScore: 86,
+          tasteMatch: 78,
+          priceNote: "清爽安全，适合作为第一杯",
+          reason: "干净、脆、收口利落。你给拉格类酒评分稳定，但很少给满分。",
+          caution: "不是强烈香气型，想要酒花爆炸感时可以跳过。",
+          image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=900&q=80",
+          source: "High confidence"
+        },
+        {
+          id: 3,
+          name: "Oude Geuze",
+          brewery: "Boon",
+          style: "Lambic / Gueuze",
+          abv: 7.0,
+          hops: ["Aged hops"],
+          worthScore: 89,
+          tasteMatch: 58,
+          priceNote: "经典好酒，但不一定适合今晚",
+          reason: "酒本身值得喝，不过你历史上对高酸、皮革、谷仓气息反馈分化很大。",
+          caution: "适合想探索时点，不适合只想喝一杯舒服的。",
+          image: "https://images.unsplash.com/photo-1532635042-a6f6ad4745f9?auto=format&fit=crop&w=900&q=80",
+          source: "Needs review"
+        }
+      ].sort((left, right) => right.worthScore + right.tasteMatch - (left.worthScore + left.tasteMatch));
+
+      const flavorTags = ["热带水果", "柑橘", "松针", "花香", "清爽", "苦", "甜", "酸", "酒体厚", "咖啡", "焦糖", "酒精感"];
+      let selected = beers[0];
+      let activeTags = ["热带水果", "柑橘"];
+      const ratings = {};
+
+      function renderBeerList() {
+        document.getElementById("beerList").innerHTML = beers
+          .map(
+            (beer) => `
+              <button class="beer-card ${selected.id === beer.id ? "selected" : ""}" data-id="${beer.id}">
+                <img src="${beer.image}" alt="${beer.name} 啤酒氛围图" />
+                <span class="beer-card-main">
+                  <strong>${beer.name}</strong>
+                  <span>${beer.brewery} · ${beer.style} · ${beer.abv}% ABV</span>
+                </span>
+                <span class="score-pill">${beer.worthScore}</span>
+              </button>
+            `
+          )
+          .join("");
+
+        document.querySelectorAll(".beer-card").forEach((button) => {
+          button.addEventListener("click", () => {
+            selected = beers.find((beer) => beer.id === Number(button.dataset.id));
+            renderAll();
+          });
+        });
+      }
+
+      function renderDetail() {
+        document.getElementById("detailCard").innerHTML = `
+          <div class="detail-topline">
+            <span>${selected.source}</span>
+            <span>${selected.priceNote}</span>
+          </div>
+          <h2>${selected.name}</h2>
+          <p class="brewery">${selected.brewery}</p>
+          <div class="score-grid">
+            <div><span>Worth Score</span><strong>${selected.worthScore}</strong></div>
+            <div><span>Taste Match</span><strong>${selected.tasteMatch}</strong></div>
+          </div>
+          <p class="reason">${selected.reason}</p>
+          <p class="caution">${selected.caution}</p>
+          <div class="hop-row">${selected.hops.map((hop) => `<span>${hop}</span>`).join("")}</div>
+        `;
+      }
+
+      function renderFeedback() {
+        document.getElementById("ratingRow").innerHTML = [1, 2, 3, 4, 5]
+          .map((score) => `<button data-score="${score}">${score}</button>`)
+          .join("");
+
+        document.querySelectorAll("[data-score]").forEach((button) => {
+          button.addEventListener("click", () => {
+            ratings[selected.id] = {
+              score: Number(button.dataset.score),
+              tags: [...activeTags],
+              note: document.getElementById("note").value
+            };
+            document.getElementById("note").value = "";
+            renderAll();
+          });
+        });
+
+        document.getElementById("tagCloud").innerHTML = flavorTags
+          .map((tag) => `<button class="${activeTags.includes(tag) ? "active" : ""}" data-tag="${tag}">${tag}</button>`)
+          .join("");
+
+        document.querySelectorAll("[data-tag]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const tag = button.dataset.tag;
+            activeTags = activeTags.includes(tag) ? activeTags.filter((item) => item !== tag) : [...activeTags, tag];
+            renderFeedback();
+          });
+        });
+
+        const current = ratings[selected.id];
+        document.getElementById("savedNote").textContent = current
+          ? `已记录 ${current.score}/5：${current.tags.join("、")}`
+          : "点一个分数就会写入口味画像。";
+      }
+
+      function renderProfile() {
+        const values = Object.values(ratings);
+        const average = values.length ? values.reduce((total, rating) => total + rating.score, 0) / values.length : 4.2;
+        const tags = values.flatMap((rating) => rating.tags);
+        const topTags = tags.length ? [...new Set(tags)].slice(0, 4) : ["热带水果", "柑橘", "清爽", "低甜度"];
+        document.getElementById("averageScore").textContent = average.toFixed(1);
+        document.getElementById("profileTags").innerHTML = topTags.map((tag) => `<span>${tag}</span>`).join("");
+      }
+
+      function renderAll() {
+        renderBeerList();
+        renderDetail();
+        renderFeedback();
+        renderProfile();
+      }
+
+      document.getElementById("fileInput").addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+        document.getElementById("preview").src = URL.createObjectURL(file);
+        document.getElementById("scanStatus").textContent = "正在识别酒单...";
+        window.setTimeout(() => {
+          document.getElementById("scanStatus").textContent = "识别到 3 款候选酒";
+        }, 900);
+      });
+
+      renderAll();
+    </script>
+  </body>
+</html>

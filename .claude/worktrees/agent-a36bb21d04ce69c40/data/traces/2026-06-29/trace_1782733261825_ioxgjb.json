@@ -1,0 +1,51 @@
+{
+  "traceId": "trace_1782733261825_ioxgjb",
+  "userId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "channel": "feishu",
+  "conversationId": "oc_e2d3bf47dcdf4ec6c7ec15d6b264190e",
+  "turnId": "om_x100b6b11d20c14a4b3045e8b2294bd0",
+  "timestamp": "2026-06-29T11:41:05.295Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "hello",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intent": "beer_knowledge",
+    "confidence": 0.82,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "用户询问啤酒风格知识",
+    "source": "llm"
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "beer_knowledge"
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "你好！很高兴见到你。今天想聊聊啤酒吗？你有没有特别想了解的风格，或者想要推荐的类型？",
+    "candidateCount": 0,
+    "topPickId": "empty"
+  },
+  "errors": [],
+  "debug": {
+    "route": "beer_knowledge",
+    "hasImage": false,
+    "warnings": []
+  }
+}

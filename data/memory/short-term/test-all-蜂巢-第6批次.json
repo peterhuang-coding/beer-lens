@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-蜂巢-第6批次",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:24.378Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611624302_67nxqm",
+      "userText": "蜂巢-第6批次",
+      "assistantReply": "我会这样点：\n\n1. Parabola - 评分4.4，32789+人评分；酒精度14.1%，非常高，谨慎（有风险，见下方）\n2. Parabola - 评分4.4，32789+人评分；酒精度14.1%，非常高，谨慎\n3. Parabola - 评分4.4，32789+人评分；酒精度14.1%，非常高，谨慎\n\n最稳：Parabola\n最值得尝新：Parabola\n我会先跳过：Parabola - 评分4.4，32789+人评分；酒精度14.1%，非常高，谨慎\n\n如果只能喝一杯，选 Parabola。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:24.378Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611624302_e93fif",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Parabola",
+        "brewery": "Firestone Walker Brewing Company",
+        "style": "Stout - Russian Imperial",
+        "abv": 14.1,
+        "price": null,
+        "rating": 4.42
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:24.378Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Parabola",
+    "brewery": "Firestone Walker Brewing Company"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "timestamp": "2026-07-07T07:25:44.006Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/api/agent",
+    "userId": "regression-user",
+    "convPrefix": "regression",
+    "timeoutMs": 30000
+  },
+  "summary": {
+    "total": 10,
+    "passed": 0,
+    "failed": 0,
+    "errors": 10,
+    "passRate": "0.0%",
+    "durationMs": 4551
+  },
+  "results": [
+    {
+      "caseId": "reg_001",
+      "name": "推荐一款IPA",
+      "inputText": "推荐一款IPA",
+      "conversationId": "regression-regression-recommend-ipa",
+      "passed": false,
+      "durationMs": 34,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_002",
+      "name": "今天想喝清爽一点，不要太苦",
+      "inputText": "今天想喝清爽一点，不要太苦",
+      "conversationId": "regression-regression-crisp-light",
+      "passed": false,
+      "durationMs": 2,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_003",
+      "name": "有IPA吗",
+      "inputText": "有IPA吗",
+      "conversationId": "regression-regression-filter-ipa",
+      "passed": false,
+      "durationMs": 1,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_004",
+      "name": "第3个怎么样",
+      "inputText": "第3个怎么样",
+      "conversationId": "regression-regression-pick-nth",
+      "passed": false,
+      "durationMs": 2,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_005",
+      "name": "我给4.5分会再喝热带水果",
+      "inputText": "我给4.5分，会再喝，热带水果",
+      "conversationId": "regression-regression-tasting",
+      "passed": false,
+      "durationMs": 1,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_006",
+      "name": "我不喜欢太苦的",
+      "inputText": "我不喜欢太苦的",
+      "conversationId": "regression-regression-dislike-bitter",
+      "passed": false,
+      "durationMs": 1,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_007",
+      "name": "我的口味画像是什么",
+      "inputText": "我的口味画像是什么",
+      "conversationId": "regression-regression-profile-query",
+      "passed": false,
+      "durationMs": 1,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_008",
+      "name": "这瓶酒过期了吗",
+      "inputText": "这瓶酒过期了吗",
+      "conversationId": "regression-regression-label-check",
+      "passed": false,
+      "durationMs": 1,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_009",
+      "name": "什么是WestCoastIPA",
+      "inputText": "什么是West Coast IPA",
+      "conversationId": "regression-regression-knowledge",
+      "passed": false,
+      "durationMs": 2,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    },
+    {
+      "caseId": "reg_010",
+      "name": "清空",
+      "inputText": "清空",
+      "conversationId": "regression-regression-clear",
+      "passed": false,
+      "durationMs": 5,
+      "actualIntent": "error",
+      "actualReply": "",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [
+        "fetch failed"
+      ],
+      "checks": {
+        "error": true
+      }
+    }
+  ]
+}

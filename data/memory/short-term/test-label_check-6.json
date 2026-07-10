@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-label_check-6",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:06.265Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611665289_c0tlql",
+      "userText": "检查这瓶啤酒的生产日期",
+      "assistantReply": "请提供酒标照片，以便查看生产日期。",
+      "intent": "label_check",
+      "createdAt": "2026-07-09T15:41:06.265Z"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "traceId": "trace_1783477644449_o3f7nc",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-recommend-lager",
+  "turnId": "trace_1783477644449_2ib42k",
+  "timestamp": "2026-07-08T02:27:24.454Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "帮我推荐拉格",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.9,
+        "slots": {
+          "style": "拉格",
+          "beerName": "帮我推荐拉格"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.9,
+    "slots": {
+      "style": "拉格",
+      "beerName": "帮我推荐拉格"
+    },
+    "missingInfo": [],
+    "routeReason": "rule match: menu_recommend (90%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "lastMenuCandidateCount": 1,
+      "hasLastRecommendation": true,
+      "activeBeerName": "Original Lager"
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "我会这样点：\n\n1. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低（有风险，见下方）\n2. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n3. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n最稳：Original Lager\n最值得尝新：Original Lager\n我会先跳过：Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n如果只能喝一杯，选 Original Lager。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+    "candidateCount": 1,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

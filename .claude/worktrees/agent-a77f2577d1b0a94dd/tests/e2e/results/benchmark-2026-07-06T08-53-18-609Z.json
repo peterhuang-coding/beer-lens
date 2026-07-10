@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T08:53:18.612Z",
+  "visionModel": "qwen/qwen-2.5-7b-instruct",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 10661,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "OpenRouter 404: {\"error\":{\"message\":\"No endpoints found that support image input\",\"code\":404}}",
+      "durationMs": 10661
+    }
+  ]
+}

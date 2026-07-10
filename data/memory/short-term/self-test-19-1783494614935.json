@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-19-1783494614935",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T07:10:18.948Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783494614966_k1zxwf",
+      "userText": "你好",
+      "assistantReply": "你好！很高兴遇到你。你最近有想尝试什么类型的啤酒吗？或者对啤酒有什么想知道的？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T07:10:18.948Z"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-4-1783671199856",
+  "userId": "self-test",
+  "updatedAt": "2026-07-10T08:13:19.881Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783671199863_ce4ufk",
+      "userText": "我给4.5分，会再喝，热带水果",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-10T08:13:19.881Z"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "conversationId": "vqa_profile_query_2",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:25.746Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646280443_79wuep",
+      "userText": "虽然ABV接近8%，但King Sue是NEIPA风格，酒精度被浓郁的水果香气和顺滑口感掩盖得很好，喝起来感觉比实际度数低。不像西海岸IPA那种酒精感明显。建议你慢慢喝，配点炸鸡或者薯条，体验会更好。如果实在担心，可以先点一杯试试！",
+      "assistantReply": "听起来你对我的建议挺满意的，不过还是有点担心酒精度数。其实，NEIPA（新英格兰IPA）的特点就是口感丰富、顺滑，而且热带水果和柑橘的香气非常浓郁，这些都会让你感觉不到那么强烈的酒精感。不过，每个人的感受不同，如果你还是不太放心，可以先点一小杯尝尝，感受一下这款啤酒的风味。如果喜欢的话，再点一杯也不迟。酒吧里通常都有小杯选项，这样你也可以尝试其他风格的啤酒，比如一些低酒精度的酸啤或者赛松，这些都是不错的选择。希望你今天能享受一个美好的夜晚！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-10T01:18:04.911Z"
+    },
+    {
+      "turnId": "trace_1783646581615_xkmuja",
+      "userText": "今天发工资了心情好，想去精酿吧喝一杯好的。你之前知道我口味，帮我推荐一款？",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:23:01.631Z"
+    },
+    {
+      "turnId": "trace_1783646790672_sidv8s",
+      "userText": "今天发工资了心情好，想去精酿吧喝一杯好的。你之前知道我口味，帮我推荐一款？",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:30.679Z"
+    },
+    {
+      "turnId": "trace_1783650327897_fdf7vs",
+      "userText": "今天发工资了心情好，想去精酿吧喝一杯好的。你之前知道我口味，帮我推荐一款？",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:27.959Z"
+    },
+    {
+      "turnId": "trace_1783650789261_ffdvkl",
+      "userText": "今天发工资了心情好，想去精酿吧喝一杯好的。你之前知道我口味，帮我推荐一款？",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:33:09.278Z"
+    },
+    {
+      "turnId": "trace_1783651063497_v0e5qr",
+      "userText": "今天发工资了心情好，想去精酿吧喝一杯好的。你之前知道我口味，帮我推荐一款？",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:37:43.508Z"
+    },
+    {
+      "turnId": "trace_1783671114373_y9wl4j",
+      "userText": "今天发工资了心情好，想去精酿吧喝一杯好的。你之前知道我口味，帮我推荐一款？",
+      "assistantReply": "根据你的口味画像：喜欢酒精和柑橘风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:11:54.389Z"
+    },
+    {
+      "turnId": "trace_1783673921314_nxpe9k",
+      "userText": "我之前喝过哪些啤酒？帮我看看历史记录",
+      "assistantReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味\n\n画像置信度：90%（基于 9 条品饮记录）\n\n偏好风格：Pale Ale - American（权重 3，1次）\n偏好风味标签：酒精（5）、柑橘（1.5）、焦糖（1）、酸（0.5）\nABV 舒适区：5.8% - 5.8%（基于 1 条记录）\n记录数：17 条\n\n📈 最近趋势：\n2026月07：17款 · 近三月均分 4.1 · 偏好风格：Pale Ale - American，偏好风味：酒精、柑橘、焦糖、酸\n\n证据数：9 · 画像置信度：90% · 实验组：开启",
+      "intent": "profile_query",
+      "createdAt": "2026-07-10T08:58:41.319Z"
+    },
+    {
+      "turnId": "trace_1783674030563_qkizro",
+      "userText": "我之前喝过哪些啤酒？帮我看看历史记录",
+      "assistantReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味\n\n画像置信度：100%（基于 12 条品饮记录）\n\n偏好风格：Pale Ale - American（权重 6，2次）\n偏好风味标签：酒精（7）、柑橘（2.5）、焦糖（2）、酸（1）\nABV 舒适区：5.8% - 5.8%（基于 2 条记录）\n记录数：20 条\n\n📈 最近趋势：\n2026月07：20款 · 近三月均分 4 · 偏好风格：Pale Ale - American，偏好风味：酒精、柑橘、焦糖、酸\n\n证据数：12 · 画像置信度：100% · 实验组：开启",
+      "intent": "profile_query",
+      "createdAt": "2026-07-10T09:00:30.566Z"
+    },
+    {
+      "turnId": "trace_1783674805741_fdrbwi",
+      "userText": "我之前喝过哪些啤酒？帮我看看历史记录",
+      "assistantReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味\n\n画像置信度：100%（基于 15 条品饮记录）\n\n偏好风格：Pale Ale - American（权重 9，3次）\n偏好风味标签：酒精（9）、柑橘（3.5）、焦糖（3）、酸（1.5）\nABV 舒适区：5.8% - 5.8%（基于 3 条记录）\n记录数：23 条\n\n📈 最近趋势：\n2026月07：23款 · 近三月均分 4 · 偏好风格：Pale Ale - American，偏好风味：酒精、柑橘、焦糖、酸\n\n证据数：15 · 画像置信度：100% · 实验组：开启",
+      "intent": "profile_query",
+      "createdAt": "2026-07-10T09:13:25.746Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

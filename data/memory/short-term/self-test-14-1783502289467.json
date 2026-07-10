@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-14-1783502289467",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:18:10.269Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502289474_8xviqp",
+      "userText": "看看这罐啤酒",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-08T09:18:10.269Z"
+    }
+  ]
+}

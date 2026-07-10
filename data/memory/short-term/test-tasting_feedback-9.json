@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-tasting_feedback-9",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:06.344Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611666327_pg9vly",
+      "userText": "不好喝，2分，不会再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：不好喝，2分，不会再喝\n你的口味画像：喜欢柑橘风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-09T15:41:06.344Z"
+    }
+  ]
+}

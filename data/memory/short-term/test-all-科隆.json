@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-all-科隆",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:40:17.126Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611617034_5lbzrc",
+      "userText": "科隆",
+      "assistantReply": "我会这样点：\n\n1. Kölsch - 评分3.9\n2. Kölsch - 评分3.9\n3. Kölsch - 评分3.9\n\n最稳：Kölsch\n最值得尝新：Kölsch\n我会先跳过：Kölsch - 评分3.9\n\n如果只能喝一杯，选 Kölsch。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-09T15:40:17.126Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783611617034_itv19s",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Kölsch",
+        "brewery": "Heiner Brau",
+        "style": "Kölsch",
+        "abv": 0,
+        "price": null,
+        "rating": 3.85
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-09T15:40:17.126Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Kölsch",
+    "brewery": "Heiner Brau"
+  }
+}

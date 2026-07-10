@@ -1,0 +1,56 @@
+{
+  "conversationId": "manual-reg1",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-07T07:35:57.759Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783409757644_e1tosu",
+      "userText": "推荐一款IPA",
+      "assistantReply": "给你推荐这几款：\n\n我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-07T07:35:57.759Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783409757644_tmvocy",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-07T07:35:57.759Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

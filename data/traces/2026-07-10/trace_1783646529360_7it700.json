@@ -1,0 +1,249 @@
+{
+  "traceId": "trace_1783646529360_7it700",
+  "userId": "vqa-auto-test",
+  "channel": "web",
+  "conversationId": "vqa_label_check_2",
+  "turnId": "trace_1783646529360_sdmi74",
+  "timestamp": "2026-07-10T01:22:16.010Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+    "hasImage": true,
+    "imageName": "vqa_label_check_2.jpg",
+    "imageType": "image/jpeg",
+    "imageUrl": "data:image/jpeg;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNDAwIDYwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjxwYXRoIGZpbGw9IiNlZWUiIGQ9Ik03OS4xNiAzMDMuMjg1aDIuNDVxLjY3IDAgMS4xMy0uMTZ0LjczLS40M3EuMjgtLjI3LjQtLjYzdC4xMi0uNzdxMC0uNDItLjEzLS43Ni0uMTQtLjM0LS40My0uNTgtLjI5LS4yMy0uNzQtLjM2dC0xLjA5LS4xM2gtMi40NHptMi4wNi05LjI1aC0yLjA2djMuNzZoMS45MnExLjI1IDAgMS44OC0uNDV0LjYzLTEuNDNxMC0xLjAyLS41Ny0xLjQ1LS41OC0uNDMtMS44LS40M20tNC40OC0xLjg3aDQuNDhxMS4yOCAwIDIuMTkuMjQuOS4yNCAxLjQ4LjY5LjU5LjQ1Ljg2IDEuMDl0LjI3IDEuNDRxMCAuNDYtLjE0Ljg4LS4xMy40Mi0uNDIuNzgtLjI4LjM3LS43Mi42Ni0uNDMuMy0xLjA0LjUxIDIuNjguNiAyLjY4IDIuODkgMCAuODMtLjMxIDEuNTMtLjMyLjcxLS45MiAxLjIyLS42LjUtMS40OC43OS0uODkuMjktMi4wMi4yOWgtNC45MXptMTMuMjUgNy4zM2g0LjJxMC0uNDMtLjEyLS44MS0uMTMtLjM5LS4zNy0uNjctLjI0LS4yOS0uNjItLjQ2LS4zNy0uMTctLjg2LS4xNy0uOTcgMC0xLjUyLjU1dC0uNzEgMS41Nm01LjY3IDEuMzRoLTUuNzFxLjA1LjcxLjI1IDEuMjN0LjUyLjg2cS4zMy4zMy43Ny41LjQ1LjE3Ljk5LjE3dC45My0uMTMuNjgtLjI4cS4zLS4xNS41Mi0uMjguMjItLjEyLjQyLS4xMi4yOCAwIC40Mi4ybC42NC44MXEtLjM3LjQzLS44My43My0uNDYuMjktLjk2LjQ3LS41LjE3LTEuMDIuMjQtLjUxLjA4LTEgLjA4LS45NiAwLTEuNzktLjMydC0xLjQ0LS45NS0uOTYtMS41NXEtLjM2LS45Mi0uMzYtMi4xNCAwLS45NC4zMS0xLjc3LjMxLS44NC44OC0xLjQ1LjU3LS42MiAxLjM5LS45OC44My0uMzYgMS44Ni0uMzYuODcgMCAxLjYxLjI4dDEuMjcuODJxLjUzLjUzLjgzIDEuMzEuMzEuNzguMzEgMS43OCAwIC41LS4xMS42OC0uMTEuMTctLjQyLjE3bTMuOTUtMS4zNGg0LjE5cTAtLjQzLS4xMi0uODEtLjEyLS4zOS0uMzctLjY3LS4yNC0uMjktLjYxLS40Ni0uMzgtLjE3LS44Ny0uMTctLjk2IDAtMS41Mi41NS0uNTUuNTUtLjcgMS41Nm01LjY3IDEuMzRoLTUuNzJxLjA1LjcxLjI1IDEuMjN0LjUyLjg2cS4zMy4zMy43Ny41LjQ1LjE3Ljk5LjE3dC45My0uMTMuNjgtLjI4cS4zLS4xNS41Mi0uMjguMjItLjEyLjQzLS4xMi4yNyAwIC40MS4ybC42NC44MXEtLjM3LjQzLS44My43My0uNDYuMjktLjk2LjQ3LS41LjE3LTEuMDIuMjQtLjUxLjA4LTEgLjA4LS45NiAwLTEuNzktLjMydC0xLjQ0LS45NS0uOTYtMS41NS0uMzUtMi4xNHEwLS45NC4zLTEuNzcuMzEtLjg0Ljg4LTEuNDUuNTctLjYyIDEuMzktLjk4LjgzLS4zNiAxLjg2LS4zNi44OCAwIDEuNjEuMjguNzQuMjggMS4yNy44Mi41My41My44NCAxLjMxLjMuNzguMyAxLjc4IDAgLjUtLjExLjY4LS4xMS4xNy0uNDEuMTdtNC4xNC00LjM0LjE0IDEuMDVxLjQzLS44MyAxLjAzLTEuMy41OS0uNDggMS40LS40OC42NCAwIDEuMDMuMjhsLS4xNSAxLjY3cS0uMDQuMTYtLjEzLjIzLS4wOC4wNy0uMjMuMDctLjEzIDAtLjQtLjA1LS4yNi0uMDQtLjUyLS4wNC0uMzcgMC0uNjUuMS0uMjkuMTEtLjUyLjMxLS4yMy4yMS0uNDEuNDktLjE3LjI5LS4zMi42NnY1LjY5aC0yLjIzdi05LjIzaDEuMzFxLjM0IDAgLjQ3LjEyLjE0LjEyLjE4LjQzbTExLjkgNi42OGg1LjJ2MmgtNy42MnYtMTMuMDFoMi40MnptMTEuNDYtLjM5di0xLjU1cS0uOTYuMDQtMS42Mi4xNi0uNjYuMTMtMS4wNS4zMS0uNC4xOS0uNTcuNDUtLjE3LjI1LS4xNy41NCAwIC41OS4zNC44NC4zNS4yNS45MS4yNS42OCAwIDEuMTgtLjI0LjUtLjI1Ljk4LS43Nm0tNC43LTQuODUtLjM5LS43MXExLjU5LTEuNDYgMy44My0xLjQ2LjgxIDAgMS40NS4yN3QxLjA4Ljc0LjY3IDEuMTNxLjIzLjY1LjIzIDEuNDR2NS44M2gtMS4wMXEtLjMxIDAtLjQ5LS4wOS0uMTctLjEtLjI3LS4zOWwtLjE5LS42NnEtLjM1LjMxLS42OS41NS0uMzMuMjQtLjY5LjR0LS43Ny4yNXEtLjQxLjA4LS45LjA4LS41OSAwLTEuMDgtLjE1LS41LS4xNi0uODYtLjQ4LS4zNi0uMzEtLjU2LS43OHQtLjItMS4wOXEwLS4zNS4xMi0uNy4xMi0uMzQuMzgtLjY2LjI3LS4zMS42OS0uNTkuNDMtLjI4IDEuMDQtLjQ5LjYyLS4yIDEuNDQtLjMzLjgyLS4xNCAxLjg3LS4xNnYtLjU0cTAtLjkzLS40LTEuMzctLjM5LS40NS0xLjE0LS40NS0uNTQgMC0uOS4xMy0uMzUuMTItLjYyLjI4dC0uNDkuMjhxLS4yMi4xMy0uNDkuMTMtLjI0IDAtLjQtLjEydC0uMjYtLjI5bTExLjE4LjcxdjQuMTRxLjM4LjQ1LjgyLjY0LjQ1LjE5Ljk0LjE5LjUyIDAgLjkzLS4xOC40MS0uMTkuNjktLjU4LjI5LS4zOS40NC0xIC4xNi0uNi4xNi0xLjQ1IDAtMS41Mi0uNTEtMi4yLS41LS42OC0xLjQ1LS42OC0uNjMgMC0xLjExLjI5dC0uOTEuODNtMC02Ljg0djUuMjdxLjU2LS41OSAxLjI0LS45My42OC0uMzUgMS41NS0uMzUuOCAwIDEuNDQuMzIuNjUuMzEgMS4xLjkuNDYuNTkuNyAxLjQzLjI0LjgzLjI0IDEuODggMCAxLjEyLS4yOCAyLjA0dC0uNzkgMS41N3EtLjUyLjY1LTEuMjUgMS4wMS0uNzMuMzctMS42Mi4zNy0uNDMgMC0uNzgtLjA5dC0uNjUtLjI0LS41NS0uMzdxLS4yNC0uMjItLjQ3LS40OWwtLjEuNjJxLS4wNS4yMy0uMTguMzN0LS4zNi4xaC0xLjQ2di0xMy4zN3ptOS43NSA3LjY5aDQuMTlxMC0uNDMtLjEyLS44MS0uMTItLjM5LS4zNy0uNjctLjI0LS4yOS0uNjEtLjQ2LS4zOC0uMTctLjg3LS4xNy0uOTYgMC0xLjUyLjU1LS41NS41NS0uNyAxLjU2bTUuNjcgMS4zNGgtNS43MnEuMDYuNzEuMjUgMS4yMy4yLjUyLjUzLjg2LjMyLjMzLjc2LjUuNDUuMTcuOTkuMTd0LjkzLS4xMy42OS0uMjhxLjI5LS4xNS41MS0uMjguMjItLjEyLjQzLS4xMi4yOCAwIC40MS4ybC42NC44MXEtLjM3LjQzLS44My43My0uNDYuMjktLjk2LjQ3LS41LjE3LTEuMDEuMjQtLjUyLjA4LTEuMDEuMDgtLjk2IDAtMS43OS0uMzJ0LTEuNDQtLjk1LS45Ni0xLjU1LS4zNS0yLjE0cTAtLjk0LjMtMS43Ny4zMS0uODQuODgtMS40NS41Ny0uNjIgMS40LS45OC44Mi0uMzYgMS44NS0uMzYuODggMCAxLjYyLjI4LjczLjI4IDEuMjYuODIuNTQuNTMuODQgMS4zMXQuMyAxLjc4cTAgLjUtLjExLjY4LS4xMS4xNy0uNDEuMTdtMi4yMS05LjAzaDIuMjJ2MTMuMzdoLTIuMjJ6bTE4LjE0LjM2di44OXEwIC40MS0uMjQuNzVsLTYuNjggOS40M2g2Ljc2djEuOTRoLTkuOXYtLjk1cTAtLjE4LjA3LS4zNS4wNi0uMTcuMTYtLjMxbDYuNjktOS40OGgtNi40OXYtMS45MnptNS42NyAzLjYzcTEuMDIgMCAxLjg2LjMzLjg0LjM0IDEuNDQuOTV0LjkzIDEuNDlxLjMyLjg5LjMyIDEuOTcgMCAxLjEtLjMyIDEuOTgtLjMzLjg5LS45MyAxLjUxdC0xLjQ0Ljk1cS0uODQuMzQtMS44Ni4zNC0xLjA0IDAtMS44OS0uMzQtLjg0LS4zMy0xLjQ0LS45NXQtLjkzLTEuNTFxLS4zMy0uODgtLjMzLTEuOTggMC0xLjA4LjMzLTEuOTcuMzMtLjg4LjkzLTEuNDl0MS40NC0uOTVxLjg1LS4zMyAxLjg5LS4zM20wIDcuOHExLjE1IDAgMS43LS43N3QuNTUtMi4yN3EwLTEuNDktLjU1LTIuMjctLjU1LS43OS0xLjctLjc5LTEuMTcgMC0xLjc0Ljc5LS41Ni43OS0uNTYgMi4yNyAwIDEuNDkuNTYgMi4yNy41Ny43NyAxLjc0Ljc3bTguNDcgMS41OGgtMi4yMnYtOS4yM2gxLjM2cS40MyAwIC41Ny40bC4xNC42OHEuMjQtLjI3LjUxLS40OS4yNi0uMjMuNTctLjM5LjMtLjE2LjY0LS4yNS4zNS0uMS43Ni0uMS44OCAwIDEuNDQuNDcuNTYuNDguODQgMS4yNi4yMi0uNDYuNTQtLjc5LjMzLS4zMy43MS0uNTMuMzktLjIxLjgzLS4zMS40My0uMS44Ny0uMS43NyAwIDEuMzYuMjQuNi4yMyAxIC42OC40MS40NS42MiAxLjF0LjIxIDEuNDh2NS44OGgtMi4yMnYtNS44OHEwLS44OC0uMzktMS4zMi0uMzktLjQ1LTEuMTMtLjQ1LS4zNSAwLS42NC4xMi0uMjkuMTEtLjUxLjMzdC0uMzUuNTZxLS4xMi4zMy0uMTIuNzZ2NS44OGgtMi4yNHYtNS44OHEwLS45Mi0uMzctMS4zNS0uMzctLjQyLTEuMDktLjQyLS40OSAwLS45MS4yNHQtLjc4LjY1em0xNS4wOC02LjUzdjQuMTRxLjM4LjQ1LjgyLjY0LjQ1LjE5Ljk0LjE5LjUyIDAgLjkyLS4xOC40MS0uMTkuNy0uNTh0LjQ0LTFxLjE2LS42LjE2LTEuNDUgMC0xLjUyLS41MS0yLjItLjUtLjY4LTEuNDUtLjY4LS42NCAwLTEuMTEuMjktLjQ4LjI5LS45MS44M20wLTYuODR2NS4yN3EuNTYtLjU5IDEuMjQtLjkzLjY4LS4zNSAxLjU1LS4zNS44IDAgMS40NC4zMi42NS4zMSAxLjEuOS40Ni41OS43IDEuNDMuMjQuODMuMjQgMS44OCAwIDEuMTItLjI4IDIuMDR0LS43OSAxLjU3cS0uNTIuNjUtMS4yNSAxLjAxLS43My4zNy0xLjYyLjM3LS40MyAwLS43OC0uMDl0LS42NS0uMjQtLjU1LS4zN3EtLjI0LS4yMi0uNDctLjQ5bC0uMS42MnEtLjA1LjIzLS4xOC4zM3QtLjM2LjFoLTEuNDZ2LTEzLjM3em04LjA2IDQuMTRoMi4yM3Y5LjIzaC0yLjIzem0yLjU0LTIuN3EwIC4yOS0uMTIuNTQtLjExLjI2LS4zMS40NS0uMTkuMTgtLjQ1LjMtLjI2LjExLS41Ni4xMS0uMjkgMC0uNTQtLjExLS4yNi0uMTItLjQ1LS4zLS4xOS0uMTktLjMtLjQ1LS4xMS0uMjUtLjExLS41NHQuMTEtLjU1LjMtLjQ1LjQ1LS4zcS4yNS0uMTIuNTQtLjEyLjMgMCAuNTYuMTIuMjYuMTEuNDUuMy4yLjE5LjMxLjQ1LjEyLjI2LjEyLjU1bTMuNzIgNi4yNWg0LjE5cTAtLjQzLS4xMi0uODEtLjEyLS4zOS0uMzYtLjY3LS4yNS0uMjktLjYyLS40NnQtLjg3LS4xN3EtLjk2IDAtMS41Mi41NS0uNTUuNTUtLjcgMS41Nm01LjY3IDEuMzRoLTUuNzJxLjA2LjcxLjI1IDEuMjMuMi41Mi41My44Ni4zMi4zMy43Ny41LjQ0LjE3Ljk4LjE3dC45My0uMTMuNjktLjI4cS4yOS0uMTUuNTEtLjI4LjIyLS4xMi40My0uMTIuMjggMCAuNDEuMmwuNjQuODFxLS4zNy40My0uODMuNzMtLjQ2LjI5LS45Ni40Ny0uNS4xNy0xLjAxLjI0LS41Mi4wOC0xLjAxLjA4LS45NiAwLTEuNzktLjMydC0xLjQ0LS45NS0uOTYtMS41NS0uMzUtMi4xNHEwLS45NC4zLTEuNzcuMzEtLjg0Ljg4LTEuNDUuNTctLjYyIDEuNC0uOTguODItLjM2IDEuODYtLjM2Ljg3IDAgMS42MS4yOC43My4yOCAxLjI3LjgyLjUzLjUzLjgzIDEuMzF0LjMgMS43OHEwIC41LS4xMS42OC0uMTEuMTctLjQxLjE3bTE4LjQ3LTIuMTdxMCAxLjQzLS40OCAyLjYzdC0xLjM0IDIuMDZxLS44Ny44Ny0yLjA4IDEuMzQtMS4yMi40OC0yLjcuNDhoLTQuOTZ2LTEzLjAxaDQuOTZxMS40OCAwIDIuNy40OCAxLjIxLjQ4IDIuMDggMS4zNC44Ni44NiAxLjM0IDIuMDUuNDggMS4yLjQ4IDIuNjNtLTIuNDkgMHEwLTEuMDctLjI4LTEuOTItLjI5LS44NS0uODItMS40NC0uNTQtLjU5LTEuMy0uOS0uNzYtLjMyLTEuNzEtLjMyaC0yLjUzdjkuMTZoMi41M3EuOTUgMCAxLjcxLS4zMS43Ni0uMzIgMS4zLS45MS41My0uNTkuODItMS40NC4yOC0uODUuMjgtMS45Mm0xMC0yLjcyaDIuMjJ2OS4yM2gtMS4zNnEtLjQ0IDAtLjU1LS40MWwtLjE2LS43M3EtLjU2LjU3LTEuMjUuOTMtLjY4LjM1LTEuNjEuMzUtLjc1IDAtMS4zNC0uMjUtLjU4LS4yNi0uOTctLjczLS40LS40Ny0uNi0xLjExdC0uMi0xLjQydi01Ljg2aDIuMjJ2NS44NnEwIC44NS4zOSAxLjMxLjM5LjQ3IDEuMTguNDcuNTcgMCAxLjA4LS4yNi41LS4yNi45NS0uNzF6bTEwLjU2Ljk5LS41MS44MXEtLjA5LjE0LS4xOS4yLS4wOS4wNi0uMjUuMDZ0LS4zNC0uMDlxLS4xOS0uMDktLjQzLS4yMS0uMjQtLjExLS41Ni0uMi0uMzEtLjA5LS43My0uMDktLjY2IDAtMS4wMy4yOHQtLjM3LjczcTAgLjMuMTkuNXQuNTEuMzVxLjMyLjE2LjczLjI4LjQuMTIuODIuMjYuNDIuMTUuODMuMzMuNC4xOS43Mi40N3QuNTEuNjhxLjIuNC4yLjk1IDAgLjY3LS4yNCAxLjIzLS4yNC41Ny0uNzEuOTgtLjQ3LjQtMS4xNi42My0uNjguMjMtMS41OC4yMy0uNDggMC0uOTQtLjA4LS40NS0uMDktLjg3LS4yNHQtLjc3LS4zNnEtLjM2LS4yMS0uNjMtLjQ1bC41Mi0uODVxLjA5LS4xNS4yMy0uMjMuMTMtLjA4LjM0LS4wOHQuMzkuMTJsLjQzLjI1cS4yNC4xMy41Ny4yNXQuODMuMTJxLjQgMCAuNjgtLjEuMjktLjA5LjQ3LS4yNS4xOS0uMTUuMjctLjM1LjA5LS4yLjA5LS40MiAwLS4zMi0uMi0uNTMtLjE5LS4yMS0uNTEtLjM2dC0uNzMtLjI3cS0uNDEtLjEzLS44NC0uMjctLjQyLS4xNC0uODMtLjM0LS40MS0uMTktLjczLS40OXQtLjUxLS43M3EtLjItLjQzLS4yLTEuMDQgMC0uNTcuMjMtMS4wOC4yMi0uNTEuNjYtLjkuNDQtLjM4IDEuMDktLjYxdDEuNTEtLjIzcS45NSAwIDEuNzMuMzIuNzkuMzEgMS4zMS44Mm00Ljg1IDguMzhxLTEuMjEgMC0xLjg1LS42OHQtLjY0LTEuODd2LTUuMTZoLS45NXEtLjE4IDAtLjMxLS4xMi0uMTItLjExLS4xMi0uMzV2LS44OGwxLjQ4LS4yNC40Ny0yLjUycS4wNS0uMTguMTctLjI4LjEzLS4xLjMzLS4xaDEuMTV2Mi45MWgyLjQ2djEuNThoLTIuNDZ2NXEwIC40NC4yMS42OHQuNTguMjRxLjIxIDAgLjM1LS4wNXQuMjQtLjEuMTgtLjFxLjA5LS4wNS4xNy0uMDUuMSAwIC4xNi4wNXQuMTMuMTRsLjY3IDEuMDhxLS40OS40MS0xLjEyLjYyLS42My4yLTEuMy4ybTE2LjU1LTExLjIzaC01Ljc4djMuNjFoNC41NnYxLjg2aC00LjU2djMuNjhoNS43OHYxLjk0aC04LjIxdi0xMy4wMWg4LjIxem02Ljg4IDYuMjMgMy4xNSA0Ljg2aC0yLjE0cS0uMjQgMC0uMzktLjEzLS4xNS0uMTItLjI1LS4yOGwtMS45NS0zLjIycS0uMDQuMTYtLjEuMjktLjA2LjE0LS4xMy4yNWwtMS43MyAyLjY4cS0uMS4xNS0uMjQuMjgtLjE1LjEzLS4zNi4xM2gtMS45OWwzLjE2LTQuNzYtMy4wNC00LjQ3aDIuMTRxLjI1IDAgLjM2LjA2LjEyLjA3LjIxLjIybDEuOTQgMy4wOHEuMS0uMy4yOC0uNmwxLjU1LTIuNDNxLjItLjMzLjUyLS4zM2gyLjA0em02LjUzLTEuNjd2NC4xNHEuMzguNDUuODIuNjQuNDUuMTkuOTcuMTkuNSAwIC45MS0uMTkuNC0uMTkuNjktLjU3LjI4LS4zOS40My0uOTguMTYtLjU5LjE2LTEuMzkgMC0uODEtLjEzLTEuMzd0LS4zOC0uOTJxLS4yNC0uMzUtLjU5LS41MS0uMzQtLjE2LS43OC0uMTYtLjcgMC0xLjE4LjI5LS40OS4yOS0uOTIuODNtLS4zLTIuMy4xOC44NnEuNTctLjY0IDEuMjktMS4wNHQxLjY5LS40cS43NiAwIDEuMzguMzIuNjMuMzEgMS4wOC45MS40Ni42LjcgMS40OC4yNS44OC4yNSAyLjAxIDAgMS4wNC0uMjggMS45MnQtLjc5IDEuNTNxLS41Mi42NS0xLjI1IDEuMDEtLjc0LjM3LTEuNjUuMzctLjc3IDAtMS4zMi0uMjR0LS45OC0uNjd2My43OWgtMi4yMnYtMTIuMjVoMS4zNnEuNDMgMCAuNTYuNG04LjM3LS40aDIuMjN2OS4yM2gtMi4yM3ptMi41NC0yLjdxMCAuMjktLjEyLjU0LS4xMS4yNi0uMzEuNDUtLjE5LjE4LS40NS4zLS4yNi4xMS0uNTYuMTEtLjI5IDAtLjU0LS4xMS0uMjYtLjEyLS40NS0uMy0uMTktLjE5LS4zLS40NS0uMTEtLjI1LS4xMS0uNTR0LjExLS41NS4zLS40NS40NS0uM3EuMjUtLjEyLjU0LS4xMi4zIDAgLjU2LjEyLjI2LjExLjQ1LjMuMi4xOS4zMS40NS4xMi4yNi4xMi41NW0zLjkyIDMuMjUuMTQgMS4wNXEuNDMtLjgzIDEuMDMtMS4zLjU5LS40OCAxLjQtLjQ4LjY0IDAgMS4wMy4yOGwtLjE1IDEuNjdxLS4wNC4xNi0uMTMuMjMtLjA4LjA3LS4yMy4wNy0uMTMgMC0uNC0uMDUtLjI2LS4wNC0uNTItLjA0LS4zNyAwLS42NS4xLS4yOS4xMS0uNTIuMzEtLjIzLjIxLS40MS40OS0uMTcuMjktLjMyLjY2djUuNjloLTIuMjN2LTkuMjNoMS4zMXEuMzQgMCAuNDcuMTIuMTQuMTIuMTguNDNtMTEuMzYtLjU1aDEuNzhsLTUuMDMgMTEuNzdxLS4xLjIzLS4yNS4zNS0uMTYuMTMtLjQ4LjEzaC0xLjY2bDEuNzMtMy43MS0zLjc0LTguNTRoMS45NnEuMjYgMCAuNC4xMi4xNS4xMy4yMy4yOWwxLjk2IDQuNzlxLjEuMjQuMTYuNDguMDcuMjUuMTMuNS4wOS0uMjUuMTctLjV0LjE4LS40OWwxLjg1LTQuNzhxLjA3LS4xOC4yNC0uMy4xNy0uMTEuMzctLjExIi8+PC9zdmc+"
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.85,
+        "slots": {
+          "beerName": "我在酒类专卖店看到一瓶Zombie Dust"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.85,
+    "slots": {
+      "beerName": "我在酒类专卖店看到一瓶Zombie Dust"
+    },
+    "missingInfo": [],
+    "routeReason": "rule match: menu_recommend (85%)",
+    "source": "rule",
+    "isMultiIntent": false,
+    "diagnosis": {
+      "matchedRules": [
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "confidence": 0.85,
+          "pattern": ".*"
+        }
+      ],
+      "matchedSamples": [],
+      "negativeRulesHit": [],
+      "contextSignals": {
+        "hasImage": true,
+        "hasActiveMenu": false,
+        "turnsSinceMenu": 999,
+        "activeMenuCandidateCount": 0,
+        "hasTastingHistory": false
+      },
+      "threshold": 0.7,
+      "finalDecisionReason": "酒单推荐(menu_recommend) won via positive_rule (confidence 85%). Other intents did not match or scored below threshold.",
+      "candidateScores": [
+        {
+          "intentId": "label_check",
+          "label": "酒标检查",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "label": "品饮反馈",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "profile_query",
+          "label": "画像查询",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "label": "啤酒知识",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "memory_correction",
+          "label": "记忆纠正",
+          "score": 0,
+          "source": "sample",
+          "reason": "No sample matched"
+        },
+        {
+          "intentId": "menu_recommend",
+          "label": "酒单推荐",
+          "score": 0.85,
+          "source": "rule",
+          "reason": "Matched via rule (confidence 85%)"
+        },
+        {
+          "intentId": "follow_up_filter",
+          "label": "追问过滤",
+          "score": 0,
+          "source": "excluded",
+          "reason": "Context conditions not met"
+        },
+        {
+          "intentId": "unclear",
+          "label": "意图不明",
+          "score": 0,
+          "source": "excluded",
+          "reason": "No rule or sample matched"
+        }
+      ],
+      "ruleTrace": [
+        {
+          "intentId": "follow_up_filter",
+          "ruleId": "context_condition",
+          "type": "negative",
+          "matched": false,
+          "reason": "Context conditions not met for follow_up_filter"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒单|推荐|喝什么|帮我看酒单/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "menu_recommend",
+          "ruleId": "menu_img_any",
+          "type": "positive",
+          "matched": true,
+          "confidence": 0.85,
+          "reason": "Pattern /.*/ matched"
+        },
+        {
+          "intentId": "label_check",
+          "ruleId": "label_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标/ did not match or confidence 0.95 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_score",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /[1-5](\\.\\d+)?\\s*分/ did not match or confidence 0.92 < 0.7"
+        },
+        {
+          "intentId": "tasting_feedback",
+          "ruleId": "feedback_would_again",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /会再喝|不会再喝|看情况/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "profile_query",
+          "ruleId": "profile_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味/ did not match or confidence 0.9 < 0.7"
+        },
+        {
+          "intentId": "beer_knowledge",
+          "ruleId": "knowledge_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_keywords",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /不是|纠正|记错|应该是|改成|不对/ did not match or confidence 0.85 < 0.7"
+        },
+        {
+          "intentId": "memory_correction",
+          "ruleId": "correction_reset",
+          "type": "positive",
+          "matched": false,
+          "reason": "Pattern /清空|清除|重置|清掉|清一下|reset|clear/ did not match or confidence 0.85 < 0.7"
+        }
+      ]
+    }
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": true,
+    "warnings": [],
+    "modelNames": {
+      "vision": "qwen/qwen3-vl-8b-instruct",
+      "analysis": "qwen/qwen-2.5-72b-instruct",
+      "chat": "qwen/qwen-2.5-72b-instruct"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

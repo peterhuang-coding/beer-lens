@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T09:20:45.490Z",
+  "visionModel": "qwen/qwen3-vl-8b-instruct",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 38810,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "[visual_quality] Could not parse JSON: {\n  \"canAssess\": true,\n  \"visualRiskFlags\": [],\n  \"oxidationRisk\": \"unknown\",\n  \"freshnessRisk\": \"unknown\",\n  \"lightstrikeRisk\": \"unknown\",\n  \"evidence\": [],\n  \"caveat\": \"仅能判断为疑似风险，无明确视觉证据支持氧化、新鲜度或光照问",
+      "durationMs": 38810
+    }
+  ]
+}

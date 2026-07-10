@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-profile_query-12",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:06.383Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611666380_vbnf60",
+      "userText": "我之前喝过什么",
+      "assistantReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢柑橘风味\n\n画像置信度：30%（基于 3 条品饮记录）\n\n偏好风味标签：柑橘（0.5）\nABV 舒适区：暂无足够记录\n记录数：3 条\n\n📈 最近趋势：\n2026月07：3款 · 近三月均分 3.7 · 偏好风味：柑橘\n\n证据数：3 · 画像置信度：30% · 实验组：开启",
+      "intent": "profile_query",
+      "createdAt": "2026-07-09T15:41:06.383Z"
+    }
+  ]
+}

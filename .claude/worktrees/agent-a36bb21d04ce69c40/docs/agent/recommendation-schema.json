@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://beer-lens.local/schemas/recommendation-result.json",
+  "title": "BeerRecommendationResult",
+  "type": "object",
+  "required": ["request", "candidates", "recommendations", "agent_reply"],
+  "properties": {
+    "request": {
+      "type": "object",
+      "required": ["user_intent", "inputs"],
+      "properties": {
+        "user_intent": {
+          "type": "string",
+          "description": "The user's stated goal, constraint, or mood."
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["photo", "text", "venue", "location"]
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/beer_candidate"
+      }
+    },
+    "recommendations": {
+      "type": "object",
+      "required": ["top_pick", "safe_pick", "explore_pick", "avoid_or_caution"],
+      "properties": {
+        "top_pick": {
+          "$ref": "#/$defs/pick"
+        },
+        "safe_pick": {
+          "$ref": "#/$defs/pick"
+        },
+        "explore_pick": {
+          "$ref": "#/$defs/pick"
+        },
+        "avoid_or_caution": {
+          "$ref": "#/$defs/pick"
+        }
+      }
+    },
+    "agent_reply": {
+      "type": "string",
+      "description": "Human-readable recommendation in the user's language."
+    },
+    "follow_up_question": {
+      "type": ["string", "null"],
+      "description": "Only ask if confidence is too low or a constraint is missing."
+    }
+  },
+  "$defs": {
+    "beer_candidate": {
+      "type": "object",
+      "required": [
+        "candidate_id",
+        "display_name",
+        "confidence",
+        "worth_score",
+        "fit_score",
+        "evidence"
+      ],
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "menu_index": {
+          "type": ["integer", "null"]
+        },
+        "raw_text": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "beer_name": {
+          "type": ["string", "null"]
+        },
+        "brewery": {
+          "type": ["string", "null"]
+        },
+        "style": {
+          "type": ["string", "null"]
+        },
+        "abv": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 30
+        },
+        "ibu": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "price": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "serving": {
+          "type": ["string", "null"]
+        },
+        "hops": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "worth_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "fit_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "risk_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "low_confidence_match",
+              "freshness_unknown",
+              "style_mismatch",
+              "price_high",
+              "polarizing_flavor",
+              "high_abv",
+              "likely_too_sweet",
+              "likely_too_bitter",
+              "likely_too_sour"
+            ]
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["source", "summary", "confidence"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "user_profile",
+            "ocr",
+            "untappd",
+            "venue_site",
+            "google_places",
+            "social_web",
+            "manual_user_input",
+            "agent_inference"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "url": {
+          "type": ["string", "null"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "updated_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    },
+    "pick": {
+      "type": "object",
+      "required": ["candidate_id", "label", "reason", "score_summary"],
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "score_summary": {
+          "type": "object",
+          "required": ["worth_score", "fit_score"],
+          "properties": {
+            "worth_score": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "fit_score": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        }
+      }
+    }
+  }
+}

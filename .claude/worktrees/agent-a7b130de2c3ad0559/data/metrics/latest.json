@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-07-05T13:14:03.274Z",
+  "windowSeconds": 30,
+  "counters": [
+    {
+      "name": "turn.count",
+      "value": 23,
+      "unit": "turns"
+    },
+    {
+      "name": "turn.avg_latency_ms",
+      "value": 10,
+      "unit": "ms"
+    },
+    {
+      "name": "turn.success_rate",
+      "value": 1,
+      "unit": "ratio"
+    },
+    {
+      "name": "intent.hit_rate_rule",
+      "value": 1,
+      "unit": "ratio",
+      "tags": {
+        "source": "rule"
+      }
+    },
+    {
+      "name": "intent.hit_rate_llm",
+      "value": 0,
+      "unit": "ratio",
+      "tags": {
+        "source": "llm"
+      }
+    },
+    {
+      "name": "intent.hit_rate_fallback",
+      "value": 0,
+      "unit": "ratio",
+      "tags": {
+        "source": "fallback"
+      }
+    },
+    {
+      "name": "intent.multi_intent_rate",
+      "value": 0.8695652173913043,
+      "unit": "ratio"
+    },
+    {
+      "name": "handler.error_rate",
+      "value": 0,
+      "unit": "ratio"
+    },
+    {
+      "name": "knowledge.hit_rate",
+      "value": 0,
+      "unit": "ratio"
+    },
+    {
+      "name": "guardrail.block_rate",
+      "value": 0,
+      "unit": "ratio"
+    },
+    {
+      "name": "transfer.human_suggestions",
+      "value": 0,
+      "unit": "count"
+    }
+  ],
+  "intentDistribution": {
+    "menu_recommend": 4,
+    "tasting_feedback": 5,
+    "follow_up_filter": 14
+  },
+  "intentSourceDistribution": {
+    "rule": 23,
+    "llm": 0,
+    "fallback": 0
+  },
+  "handlerErrors": {}
+}

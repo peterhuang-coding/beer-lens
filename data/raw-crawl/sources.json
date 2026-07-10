@@ -1,0 +1,22 @@
+[
+  {
+    "name": "beer-wikimedia-labels",
+    "url": "fixture://example",
+    "description": "Real beer label images from Wikimedia Commons (CC-BY / public domain) — via local fixture"
+  },
+  {
+    "name": "ratebeer-brewery-list",
+    "url": "https://www.ratebeer.com/brewers/",
+    "description": "RateBeer brewery directory — many beer label images via OG tags"
+  },
+  {
+    "name": "untappd-top-rated",
+    "url": "https://untappd.com/beer/top_rated",
+    "description": "Untappd top rated beers — rich beer images with OG metadata"
+  },
+  {
+    "name": "flickr-beer-labels",
+    "url": "https://www.flickr.com/search/?text=beer+label&license=2%2C3%2C4%2C5%2C6%2C9",
+    "description": "Flickr — beer label images under Creative Commons license"
+  }
+]

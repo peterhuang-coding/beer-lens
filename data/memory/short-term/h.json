@@ -1,0 +1,17 @@
+{
+  "conversationId": "h",
+  "userId": "t",
+  "updatedAt": "2026-07-08T03:45:52.457Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783482350390_zjtta4",
+      "userText": "IPA",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-08T03:45:52.457Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

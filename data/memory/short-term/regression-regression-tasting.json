@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-regression-tasting",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-07T07:35:45.292Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783409577075_ntllou",
+      "userText": "我给4.5分，会再喝，热带水果",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-07T07:32:57.093Z"
+    },
+    {
+      "turnId": "trace_1783409710216_xqrdag",
+      "userText": "我给4.5分，会再喝，热带水果",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-07T07:35:10.235Z"
+    },
+    {
+      "turnId": "trace_1783409745271_n3zcb4",
+      "userText": "我给4.5分，会再喝，热带水果",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-07T07:35:45.292Z"
+    }
+  ]
+}

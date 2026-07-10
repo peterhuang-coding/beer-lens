@@ -1,0 +1,25 @@
+{
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:07.137Z",
+  "months": [
+    {
+      "month": "2026-07",
+      "episodeCount": 23,
+      "topStyles": [
+        "Pale Ale - American"
+      ],
+      "topTags": [
+        "酒精",
+        "柑橘",
+        "焦糖",
+        "酸"
+      ],
+      "dislikedTags": [],
+      "avgScore": 4,
+      "abvRange": {
+        "min": 5.8,
+        "max": 5.8
+      }
+    }
+  ]
+}

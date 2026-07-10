@@ -1,0 +1,96 @@
+{
+  "traceId": "trace_1783476608402_129b6a",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-recommend-crisp",
+  "turnId": "trace_1783476608402_bzj79b",
+  "timestamp": "2026-07-08T02:10:08.466Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "今天想喝清爽一点，不要太苦",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "menu_recommend",
+        "confidence": 0.75,
+        "slots": {
+          "style": "清爽",
+          "beerName": "今天想喝清爽一点"
+        }
+      }
+    ],
+    "intent": "menu_recommend",
+    "confidence": 0.75,
+    "slots": {
+      "style": "清爽",
+      "beerName": "今天想喝清爽一点"
+    },
+    "missingInfo": [],
+    "routeReason": "rule match: menu_recommend (75%)",
+    "source": "rule",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "menu_recommend",
+    "diagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "按你想要清爽、不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n2. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n3. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n\n最稳：Pilsner Urquell Tradiční / Traditional (at brewery tour)\n最值得尝新：Pilsner Urquell Tradiční / Traditional (at brewery tour)\n我会先跳过：Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n\n如果只能喝一杯，选 Pilsner Urquell Tradiční / Traditional (at brewery tour)。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+    "candidateCount": 2,
+    "topPickId": "1"
+  },
+  "errors": [],
+  "debug": {
+    "route": "menu_recommend",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleMenuRecommend",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [
+        "vision_pipeline",
+        "beer_db_lookup",
+        "recommendation_scoring"
+      ],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"menu_recommend\" matched route \"handleMenuRecommend\" — all required context present",
+      "intent": "menu_recommend"
+    }
+  }
+}

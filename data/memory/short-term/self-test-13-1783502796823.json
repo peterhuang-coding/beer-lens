@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-13-1783502796823",
+  "userId": "self-test",
+  "updatedAt": "2026-07-08T09:26:40.263Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783502796827_15twsy",
+      "userText": "喜欢什么风格的啤酒",
+      "assistantReply": "嘿，根据你之前提到的口味偏好，你似乎喜欢带有热带水果和柑橘风味的啤酒，同时偏好清爽且低甜度的口感。这样的描述听起来像是IPA（印度淡色艾尔）或者新英格兰IPA（NEIPA）的风格，尤其是那些以柑橘和热带水果香气著称的啤酒。这类啤酒通常使用了大量的美国或新西兰啤酒花，比如西楚（Citra）、莫塔伊卡（Motueka）或马赛克（Mosaic），它们能给啤酒带来非常鲜明的果香和清新的口感。你觉得这样的风格怎么样？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-08T09:26:40.263Z"
+    }
+  ]
+}

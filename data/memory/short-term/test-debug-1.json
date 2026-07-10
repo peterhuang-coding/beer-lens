@@ -1,0 +1,17 @@
+{
+  "conversationId": "test-debug-1",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:54.709Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611701780_vs6vv7",
+      "userText": "什么是IPA",
+      "assistantReply": "IPA 是 India Pale Ale 的缩写，是一种起源于英国的啤酒风格。它的故事挺有意思的，据说最早是为了满足英国东印度公司员工的需求，他们需要一种能在长途海上旅行中保持新鲜的啤酒。为了做到这一点，酿酒师们在酿造过程中增加了更多的酒花和酒精度，这样啤酒就能更好地抵抗长时间的海上颠簸和温度变化。\n\nIPA 的特点就是酒花味比较重，有明显的苦味，同时也带有柑橘、热带水果等香气，口感比较饱满。现代的 IPA 有很多变种，比如美式 IPA 通常更强调酒花的香气和苦味，而英式 IPA 则更偏向于麦芽的甜味和酒花的平衡。还有双倍 IPA（DIPA）或者帝国 IPA（Imperial IPA），酒精度更高，酒花味也更浓烈。\n\n你喜欢尝试不同风格的 IPA 吗？或者有没有什么特定的风味偏好？比如更喜欢果香浓郁的还是苦味更重的？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-09T15:41:54.709Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

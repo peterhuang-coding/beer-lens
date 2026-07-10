@@ -1,0 +1,21 @@
+{
+  "conversationId": "test-label",
+  "userId": "test-user",
+  "updatedAt": "2026-07-09T15:41:42.541Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611660652_socb8k",
+      "userText": "帮我看看这瓶酒的生产日期",
+      "assistantReply": "请提供酒标照片，以便查看生产日期。",
+      "intent": "label_check",
+      "createdAt": "2026-07-09T15:41:03.377Z"
+    },
+    {
+      "turnId": "trace_1783611694593_bd5jmj",
+      "userText": "帮我看看这瓶酒的生产日期",
+      "assistantReply": "请提供酒标照片，以便查看生产日期。",
+      "intent": "label_check",
+      "createdAt": "2026-07-09T15:41:42.541Z"
+    }
+  ]
+}

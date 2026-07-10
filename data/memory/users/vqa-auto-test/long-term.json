@@ -1,0 +1,111 @@
+{
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:07.138Z",
+  "favorites": {
+    "topBreweries": [
+      {
+        "name": "Toppling Goliath Brewing Co.",
+        "count": 7
+      }
+    ],
+    "topCountries": [],
+    "topStyles": [
+      {
+        "name": "Pale Ale - American",
+        "count": 7,
+        "avgRating": 1.9
+      }
+    ]
+  },
+  "abvEvolution": [
+    {
+      "month": "2026-07",
+      "avgAbv": 5.8,
+      "count": 7
+    }
+  ],
+  "flavorCloud": [
+    {
+      "tag": "酒精",
+      "count": 13,
+      "category": "aroma"
+    },
+    {
+      "tag": "焦糖",
+      "count": 7,
+      "category": "aroma"
+    },
+    {
+      "tag": "柑橘",
+      "count": 4,
+      "category": "aroma"
+    },
+    {
+      "tag": "热带水果",
+      "count": 4,
+      "category": "aroma"
+    },
+    {
+      "tag": "顺滑",
+      "count": 4,
+      "category": "taste"
+    },
+    {
+      "tag": "苦",
+      "count": 4,
+      "category": "taste"
+    },
+    {
+      "tag": "酸",
+      "count": 3,
+      "category": "aroma"
+    }
+  ],
+  "pendingFeedback": [
+    {
+      "beerName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "recommendedAt": "2026-07-10T02:25:21.952Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-10T02:25:22.404Z"
+    },
+    {
+      "beerName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "recommendedAt": "2026-07-10T02:32:40.862Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-10T02:32:40.878Z"
+    },
+    {
+      "beerName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "recommendedAt": "2026-07-10T02:37:25.221Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-10T02:37:25.240Z"
+    },
+    {
+      "beerName": "Pseudo Sue",
+      "brewery": "Toppling Goliath Brewing Co.",
+      "recommendedAt": "2026-07-10T08:11:23.871Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-10T08:11:23.892Z"
+    }
+  ],
+  "totalEpisodes": 23,
+  "totalSessions": 1,
+  "frequentIntents": {
+    "tasting_feedback": 15
+  }
+}

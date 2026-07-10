@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-memory_correction-17",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-09T15:41:29.381Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783611689374_1mi90w",
+      "userText": "重置我的口味画像",
+      "assistantReply": "根据你的口味画像：喜欢柑橘风味",
+      "intent": "profile_query",
+      "createdAt": "2026-07-09T15:41:29.381Z"
+    }
+  ]
+}

@@ -118,6 +118,50 @@ async function resolveBeerCandidates(queries: string[]): Promise<{ candidates: S
 
   const results = await lookupBeers(queries);
 
+  // Phase 2: For queries that didn't hit SQLite, try enrichCandidates (web search)
+  // This covers Chinese-named/niche beers not in the RateBeer/Untappd dataset.
+  const missedQueries: { idx: number; raw: string }[] = [];
+  for (let i = 0; i < queries.length; i++) {
+    if (!results[i]?.found) {
+      missedQueries.push({ idx: i, raw: queries[i] });
+    }
+  }
+
+  if (missedQueries.length > 0) {
+    try {
+      const enriched = await enrichCandidates(
+        missedQueries.map((q) => ({ beerName: q.raw })),
+      );
+      for (let fi = 0; fi < missedQueries.length; fi++) {
+        const { idx } = missedQueries[fi];
+        const enrichedBeer = enriched[fi];
+        if (enrichedBeer && enrichedBeer.source !== "none" && enrichedBeer.untappdScore != null) {
+          // Promote enricher result into a BeerLookupResult
+          results[idx] = {
+            query: queries[idx],
+            found: true,
+            data: {
+              id: enrichedBeer.untappdId ?? `enriched_${idx}`,
+              name: enrichedBeer.beerName,
+              brewery: enrichedBeer.breweryName,
+              style: enrichedBeer.style,
+              abv: enrichedBeer.abv,
+              rating: enrichedBeer.untappdScore ?? 0,
+              ratings_count: enrichedBeer.untappdRatingCount ?? 0,
+              source: "untappd",
+              found: true,
+              confidence: "medium",
+              untappd_url: enrichedBeer.untappdUrl ?? undefined,
+              country: enrichedBeer.breweryCountry ?? undefined,
+            },
+          };
+        }
+      }
+    } catch {
+      // enricher failed silently — keep original results
+    }
+  }
+
   const candidates = queries.map((raw, i) => {
     const result: BeerLookupResult | undefined = results[i];
     const data = result?.data;

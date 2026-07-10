@@ -1,0 +1,17 @@
+{
+  "userId": "self-test",
+  "updatedAt": "2026-07-10T08:20:50.373Z",
+  "months": [
+    {
+      "month": "2026-07",
+      "episodeCount": 9,
+      "topStyles": [],
+      "topTags": [
+        "热带水果"
+      ],
+      "dislikedTags": [],
+      "avgScore": 4.5,
+      "abvRange": null
+    }
+  ]
+}

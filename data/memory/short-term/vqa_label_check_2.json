@@ -1,0 +1,119 @@
+{
+  "conversationId": "vqa_label_check_2",
+  "userId": "vqa-auto-test",
+  "updatedAt": "2026-07-10T09:13:07.108Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783646255037_5sg578",
+      "userText": "买回来放冰箱冷藏（4°C左右）可以减缓老化，但已经瓶装14个月了，建议1-2周内喝掉，不要再存放。喝的时候注意不要阳光直射。说真的，如果你对IPA的香气有要求，这瓶可能不会让你惊艳——Zombie Dust的新鲜体验是非常惊艳的！",
+      "assistantReply": "了解了，这款酒确实需要尽快饮用以保证最佳风味。Zombie Dust IPA 的确以其新鲜时的香气和口感著称。按照你的描述，建议在1-2周内享用，并避免阳光直射，以减少风味损失。希望你能享受这瓶酒！如果有更多关于酒标信息的问题，可以发一张酒标照片给我，我会帮你解读。",
+      "intent": "label_check",
+      "createdAt": "2026-07-10T01:17:39.220Z"
+    },
+    {
+      "turnId": "trace_1783646529360_sdmi74",
+      "userText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:22:16.013Z"
+    },
+    {
+      "turnId": "trace_1783646781053_5f8snu",
+      "userText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T01:26:24.006Z"
+    },
+    {
+      "turnId": "trace_1783650318548_5rycvo",
+      "userText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+      "assistantReply": "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:25:21.052Z"
+    },
+    {
+      "turnId": "trace_1783650760698_le8pbu",
+      "userText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+      "assistantReply": "我会这样点：\n\n1. Zombie Dust - 评分4.2，308034+人评分\n2. Zombie Dust - 评分4.2，308034+人评分\n3. Zombie Dust - 评分4.2，308034+人评分\n\n最稳：Zombie Dust\n最值得尝新：Zombie Dust\n我会先跳过：Zombie Dust - 评分4.2，308034+人评分\n\n如果只能喝一杯，选 Zombie Dust。\n\n⚠️ 拍了瓶身的标签照片、你帮我看看上面的日期信息？ 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:32:40.848Z"
+    },
+    {
+      "turnId": "trace_1783651045046_r8a6l4",
+      "userText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+      "assistantReply": "我会这样点：\n\n1. Zombie Dust - 评分4.2，308034+人评分\n2. Zombie Dust - 评分4.2，308034+人评分\n3. Zombie Dust - 评分4.2，308034+人评分\n\n最稳：Zombie Dust\n最值得尝新：Zombie Dust\n我会先跳过：Zombie Dust - 评分4.2，308034+人评分\n\n如果只能喝一杯，选 Zombie Dust。\n\n⚠️ 拍了瓶身的标签照片、你帮我看看上面的日期信息？ 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T02:37:25.206Z"
+    },
+    {
+      "turnId": "trace_1783671083719_6ddqyy",
+      "userText": "我在酒类专卖店看到一瓶Zombie Dust，拍了瓶身的标签照片，你帮我看看上面的日期信息？",
+      "assistantReply": "我会这样点：\n\n1. Zombie Dust - 评分4.2，308034+人评分\n2. Zombie Dust - 评分4.2，308034+人评分\n3. Zombie Dust - 评分4.2，308034+人评分\n\n最稳：Zombie Dust\n最值得尝新：Zombie Dust\n我会先跳过：Zombie Dust - 评分4.2，308034+人评分\n\n如果只能喝一杯，选 Zombie Dust。\n\n⚠️ 拍了瓶身的标签照片、你帮我看看上面的日期信息？ 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:11:23.855Z"
+    },
+    {
+      "turnId": "trace_1783673918685_kyt45e",
+      "userText": "这瓶啤酒过期了吗？怎么看日期？",
+      "assistantReply": "我会这样点：\n\n1. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：这瓶啤酒过期了吗？怎么看日期？\n最值得尝新：这瓶啤酒过期了吗？怎么看日期？\n我会先跳过：这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 这瓶啤酒过期了吗？怎么看日期？。\n\n⚠️ 这瓶啤酒过期了吗？怎么看日期？ 数据不足，谨慎尝试。\n\n💡 你最近喜欢柑橘风味的啤酒，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T08:58:38.768Z"
+    },
+    {
+      "turnId": "trace_1783674028260_51jisj",
+      "userText": "这瓶啤酒过期了吗？怎么看日期？",
+      "assistantReply": "我会这样点：\n\n1. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：这瓶啤酒过期了吗？怎么看日期？\n最值得尝新：这瓶啤酒过期了吗？怎么看日期？\n我会先跳过：这瓶啤酒过期了吗？怎么看日期？ - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 这瓶啤酒过期了吗？怎么看日期？。\n\n⚠️ 这瓶啤酒过期了吗？怎么看日期？ 数据不足，谨慎尝试。\n\n💡 你很喜欢Pale Ale - American，要不要试试Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-10T09:00:28.333Z"
+    },
+    {
+      "turnId": "trace_1783674785708_d8vy54",
+      "userText": "这瓶啤酒过期了吗？怎么看日期？",
+      "assistantReply": "请提供酒标照片，以便查看生产日期或保质期信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-10T09:13:07.108Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783674028260_fn6ydl",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "这瓶啤酒过期了吗？怎么看日期？",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-10T09:00:28.333Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "这瓶啤酒过期了吗？怎么看日期？",
+    "brewery": ""
+  }
+}

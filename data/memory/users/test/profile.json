@@ -1,0 +1,21 @@
+{
+  "userId": "test",
+  "updatedAt": "2026-07-03T03:28:58.474Z",
+  "summary": "ABV 0-0%",
+  "preferredStyles": [],
+  "dislikedStyles": [],
+  "preferredTags": [],
+  "dislikedTags": [],
+  "abvComfortRange": {
+    "min": 0,
+    "max": 0,
+    "evidenceCount": 5
+  },
+  "notes": [
+    "4分，再推荐一款IPA",
+    "4分，再推荐一款IPA",
+    "喝了Green City，4.5分，顺便推荐下一杯",
+    "4分，再推荐一款IPA",
+    "喝了Green City，4.5分，顺便推荐下一杯"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "traceId": "trace_1783477914804_4ir52x",
+  "userId": "regression-user",
+  "channel": "web",
+  "conversationId": "cc5-ext-vague-hello",
+  "turnId": "trace_1783477914804_la3umr",
+  "timestamp": "2026-07-08T02:31:55.492Z",
+  "input": {
+    "messageCount": 1,
+    "lastUserText": "你好",
+    "hasImage": false
+  },
+  "intentResult": {
+    "intents": [
+      {
+        "intent": "unclear",
+        "confidence": 0.2,
+        "slots": {}
+      }
+    ],
+    "intent": "unclear",
+    "confidence": 0.2,
+    "slots": {},
+    "missingInfo": [],
+    "routeReason": "LLM fallback failed: OpenRouter 403: {\"error\":{\"message\":\"This model is not available in your region.\",\"code\":403}}",
+    "source": "fallback",
+    "isMultiIntent": false
+  },
+  "memorySnapshot": {
+    "shortTerm": {
+      "hasLastRecommendation": false,
+      "activeBeerName": null
+    },
+    "profileSummary": "还没有正式记录。先按热带水果、柑橘、清爽、低甜度作为冷启动偏好。"
+  },
+  "memoryDelta": {
+    "wroteShortTerm": true,
+    "wroteEpisodic": false,
+    "updatedProfile": false,
+    "notes": [
+      "Dialog turn completed — no profile change"
+    ]
+  },
+  "route": {
+    "handler": "unclear",
+    "diagnosis": {
+      "selectedHandler": "handleUnclear",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"unclear\" matched route \"handleUnclear\" — all required context present",
+      "intent": "unclear"
+    }
+  },
+  "output": {
+    "mode": "recommend",
+    "reply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+    "candidateCount": 0,
+    "topPickId": ""
+  },
+  "errors": [],
+  "debug": {
+    "route": "unclear",
+    "hasImage": false,
+    "warnings": [],
+    "modelNames": {
+      "vision": "google/gemini-2.5-flash",
+      "analysis": "openai/gpt-4o-mini",
+      "chat": "openai/gpt-4o-mini"
+    },
+    "routeDiagnosis": {
+      "selectedHandler": "handleUnclear",
+      "requiredContextMatched": [],
+      "missingContext": [],
+      "requiredTools": [],
+      "fallbackUsed": false,
+      "routeReason": "Intent \"unclear\" matched route \"handleUnclear\" — all required context present",
+      "intent": "unclear"
+    }
+  }
+}

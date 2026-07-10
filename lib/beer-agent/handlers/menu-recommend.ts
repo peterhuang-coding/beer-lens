@@ -94,9 +94,12 @@ function extractBeerSegments(text: string): string[] {
 
 function genericRecommendationQueries(text: string): string[] {
   const queries: string[] = [];
-  if (/west\s*coast\s*ipa|西海岸\s*IPA/i.test(text)) queries.push("West Coast IPA");
+  if (/west\s*coast\s*ipa|西海岸/i.test(text)) queries.push("West Coast IPA");
   if (/hazy\s*ipa|浑浊\s*IPA/i.test(text)) queries.push("Hazy IPA");
-  if (/IPA|ipa/i.test(text)) queries.push("IPA");
+  if (/IPA|ipa/i.test(text)) {
+    queries.push("West Coast IPA");
+    queries.push("IPA");
+  }
   if (/拉格|lager|皮尔森|pils/i.test(text)) queries.push("Lager");
   if (/世涛|stout/i.test(text)) queries.push("Stout");
   if (/酸|sour|gose/i.test(text)) queries.push("Sour");

@@ -238,7 +238,24 @@ export async function runBeerDialogTurn(
 
   // Read short-term memory for multi-turn context
   const stm = await readShortTermMemory(request.conversationId).catch(() => null);
-  const menuCandidateCount = stm?.lastMenu?.candidates?.length ?? 0;
+  let menuCandidateCount = stm?.lastMenu?.candidates?.length ?? 0;
+  // Fallback: parse conversation history for assistant recommendation context
+  // This handles VQA-style multi-turn tests where all messages are sent in one API call
+  if (menuCandidateCount === 0 && request.messages.length >= 3) {
+    const assistantMsgs = request.messages.filter(m => m.role === "assistant");
+    for (const msg of assistantMsgs) {
+      const content = msg.content || "";
+      // Detect recommendation patterns in assistant replies (评分/ABV/recommend keywords)
+      if (/推荐|评分[\d.]|ABV|酒精度|IBU|ibu/.test(content)) {
+        // Extract potential beer names (English words 2+ chars) from assistant reply
+        const beerNames = content.match(/[A-Z][a-zA-Z]+(?:\s[A-Z][a-zA-Z]+)*/g);
+        if (beerNames && beerNames.length > 0) {
+          menuCandidateCount = beerNames.length;
+          break;
+        }
+      }
+    }
+  }
   const turnsSinceMenu = stm?.lastMenu?.createdAt
     ? Math.floor((Date.now() - new Date(stm.lastMenu.createdAt).getTime()) / 60000)
     : 999;

@@ -258,9 +258,14 @@ export async function runBeerDialogTurn(
       }
     }
   }
-  const turnsSinceMenu = stm?.lastMenu?.createdAt
-    ? Math.floor((Date.now() - new Date(stm.lastMenu.createdAt).getTime()) / 60000)
-    : 999;
+  // CRITICAL: When menu is detected via message history (not short-term memory),
+  // turnsSinceMenu was still 999 and caused follow_up_filter context condition to fail.
+  // Override it to 0 when we detected candidates from messages.
+  const menuDetectedFromMessages = menuCandidateCount > 0 && !stm?.lastMenu?.createdAt;
+  const turnsSinceMenu = menuDetectedFromMessages ? 0
+    : stm?.lastMenu?.createdAt
+      ? Math.floor((Date.now() - new Date(stm.lastMenu.createdAt).getTime()) / 60000)
+      : 999;
 
   const context: IntentContext = {
     hasImage,

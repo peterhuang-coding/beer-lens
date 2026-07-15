@@ -360,7 +360,7 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
     rules: [
       {
         id: "profile_keywords",
-        pattern: "我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味",
+        pattern: "我的口味|我喜欢什么|我喜欢|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味|我的偏好|适合.*风格|适合.*啤酒|我偏好的风格|喜好的风格|我的风格偏好|喜欢什么风格|风格偏好|啤酒风格.*喜欢",
         type: "positive",
         confidence: 0.90,
         requiresImage: false,
@@ -391,7 +391,7 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
     rules: [
       {
         id: "knowledge_keywords",
-        pattern: "什么是|区别|为什么|怎么酿|风格.*什么|什么.*风格|风格定义|风格分类|风格特点|风格.*介绍|风格.*解释|解释.*风格|风格知识|风格.*差异|风格.*对比|风格.*区别|什么.*酒|这种风格|那种风格|风格之间|酒厂.*风格|酒厂.*什么|酒厂.*怎么|酒厂.*样|酒厂.*特色|酿造|发酵|酿酒知识|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.酒|这酒.*怎么",
+        pattern: "什么是|区别|为什么|怎么酿|风格.*分类|风格.*定义|风格.*特点|风格.*介绍|风格.*解释|风格知识|风格.*差异|风格.*对比|风格.*区别|风格.*意思|风格.*起源|酿造|发酵|酿酒知识|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|酒厂.*历史|酒厂.*特色|酒厂.*故事",
         type: "positive",
         confidence: 0.85,
         requiresImage: false,
@@ -416,6 +416,22 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
       {
         id: "knowledge_not_feedback",
         pattern: "\\d+(\\.\\d+)?\\s*分|会再喝|不会再喝|喝了一口|回味",
+        type: "negative",
+        confidence: 0,
+        requiresImage: false,
+      },
+      // Negative: profile_query patterns — these should never be beer_knowledge
+      {
+        id: "knowledge_not_profile",
+        pattern: "适合.*风格|适合.*啤酒|我喜欢.*风格|口味偏好|口味画像|我的记录|喝过什么|喝过哪些|看过.*画像",
+        type: "negative",
+        confidence: 0,
+        requiresImage: false,
+      },
+      // Negative: follow_up_filter-like text (availability/selection questions) without active menu
+      {
+        id: "knowledge_not_filter_like",
+        pattern: "有没有|可以.*选|可以选择|哪.*可以|哪款.*好|哪个.*好|选哪",
         type: "negative",
         confidence: 0,
         requiresImage: false,

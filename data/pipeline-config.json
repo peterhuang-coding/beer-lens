@@ -142,7 +142,7 @@
       "note": "Date/expiry questions → label_check"
     },
     {
-      "regex": "^酒$|^啤酒$|^好喝$",
+      "regex": "^酒$|^啤酒$|^好喝$|^嗯$|^哦$|^呃$|^啊$|^嗯嗯$|^哦哦$|^你好$|^您好$|^谢谢$|^嗨$|^hello$|^hi$|^hi there$|^酒水$",
       "intent": "unclear",
       "note": "Single word → unclear"
     }
@@ -159,7 +159,7 @@
     "intent_classify": {
       "id": "intent_classify",
       "name": "意图分类提示词",
-      "content": "你是 Beer Lens 意图识别器。只输出 JSON。\n\n用户输入：{text}\n有图片：{hasImage}\n有上一轮酒单：{hasLastMenuCandidates}\n\n意图类型：menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | follow_up_filter | unclear\n\n注意：follow_up_filter 只在有上一轮酒单（hasLastMenuCandidates=true）时才可选。\n\n返回：\n{\"intents\":[{\"intent\":\"beer_knowledge\",\"confidence\":0.82}],\"primary\":\"beer_knowledge\",\"slots\":{},\"missingInfo\":[],\"routeReason\":\"LLM classification\",\"source\":\"llm\",\"isMultiIntent\":false}",
+      "content": "你是 Beer Lens 意图识别器。只输出 JSON。\n\n用户输入：{text}\n有图片：{hasImage}\n有上一轮酒单：{hasLastMenuCandidates}\n\n意图类型：menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | follow_up_filter | unclear\n\n选择规则（严格按优先级判断）：\n1. label_check：用户问日期/过期/酒标信息，或上传单瓶照片\n2. menu_recommend：用户请求推荐啤酒、选酒、描述想喝什么风格\n3. tasting_feedback：用户给评分(1-5分)、说是否再喝、描述风味\n4. follow_up_filter：有酒单时追问筛选（哪个好喝、有没有IPA），没有酒单时不要选\n5. profile_query：用户问自己的口味、偏好、品饮记录\n6. memory_correction：用户纠正之前的记忆或推荐\n7. beer_knowledge：用户问啤酒专业知识（风格定义、酿造工艺、历史），且不是推荐/反馈/纠正\n8. unclear：非常短的输入、问候、感谢、单字/语气词，或以上都不匹配\n\n注意：不要把推荐、评分反馈、记忆纠正、意图不明误判为 beer_knowledge。\n\n返回：\n{\"intents\":[{\"intent\":\"unclear\",\"confidence\":0.5}],\"primary\":\"unclear\",\"slots\":{},\"missingInfo\":[],\"routeReason\":\"LLM classification\",\"source\":\"llm\",\"isMultiIntent\":false}",
       "version": 1,
       "updatedAt": "2026-07-06T00:00:00.000Z",
       "note": "初始版本 - LLM intent fallback prompt"

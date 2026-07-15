@@ -392,9 +392,33 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
     rules: [
       {
         id: "knowledge_keywords",
-        pattern: "什么是|区别|为什么|怎么酿|风格|定义|解释|酿造|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.*风格|怎么样.*酒|酒厂.*怎么|酒厂.*样|这酒.*怎么",
+        pattern: "什么是|区别|为什么|怎么酿|风格.*什么|什么.*风格|风格定义|风格分类|风格特点|风格.*介绍|风格.*解释|解释.*风格|风格知识|风格.*差异|风格.*对比|风格.*区别|什么.*酒|这种风格|那种风格|风格之间|酒厂.*风格|酒厂.*什么|酒厂.*怎么|酒厂.*样|酒厂.*特色|酿造|发酵|酿酒知识|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|怎么样.酒|这酒.*怎么",
         type: "positive",
         confidence: 0.85,
+        requiresImage: false,
+      },
+      // Negative: if text looks like a recommendation (推荐/帮我选) — don't route to knowledge
+      {
+        id: "knowledge_not_recommend",
+        pattern: "推荐|帮我看|帮我选|帮我挑|选.*酒|挑.*酒|喝什么",
+        type: "negative",
+        confidence: 0,
+        requiresImage: false,
+      },
+      // Negative: memory_correction patterns (不是/纠正/记错)
+      {
+        id: "knowledge_not_correction",
+        pattern: "上次|记错|纠正|不是.*酒|改成|更爱|其实是|说错了|更正|前面说得不对",
+        type: "negative",
+        confidence: 0,
+        requiresImage: false,
+      },
+      // Negative: tasting_feedback patterns (评分/反馈)
+      {
+        id: "knowledge_not_feedback",
+        pattern: "\\d+(\\.\\d+)?\\s*分|会再喝|不会再喝|喝了一口|回味",
+        type: "negative",
+        confidence: 0,
         requiresImage: false,
       },
       // Negative: if it looks purely like a recommendation (short, only has recommend keywords)

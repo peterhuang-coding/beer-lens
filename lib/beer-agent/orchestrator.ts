@@ -245,14 +245,16 @@ export async function runBeerDialogTurn(
     const assistantMsgs = request.messages.filter(m => m.role === "assistant");
     for (const msg of assistantMsgs) {
       const content = msg.content || "";
-      // Detect recommendation patterns in assistant replies (评分/ABV/recommend keywords)
-      if (/推荐|评分[\d.]|ABV|酒精度|IBU|ibu/.test(content)) {
-        // Extract potential beer names (English words 2+ chars) from assistant reply
+      // Detect prior recommendation: any assistant message with recommendation/beer content
+      if (/推荐|评分[\d.]|ABV|酒精度|IBU|ibu|这款|那款|选|建议|试试|可以|好喝|味道/.test(content)) {
+        // Extract potential beer names (English or Chinese) from assistant reply
         const beerNames = content.match(/[A-Z][a-zA-Z]+(?:\s[A-Z][a-zA-Z]+)*/g);
         if (beerNames && beerNames.length > 0) {
           menuCandidateCount = beerNames.length;
           break;
         }
+        // Fallback: Any assistant reply with recommendation-like content → assume 1+ candidates
+        menuCandidateCount = Math.max(menuCandidateCount, 1);
       }
     }
   }

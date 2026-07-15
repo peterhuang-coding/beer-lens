@@ -212,17 +212,8 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         requiresImage: false,
       },
       // ── 追问/筛选关键词（有活跃菜单时触发推荐路径的 follow-up 模式）──
-      {
-        id: "menu_followup_keywords",
-        pattern: "有.*吗|有没有|不苦|不要太苦|太苦|清爽|第.*个|第.*款|第.*杯|哪个|多少钱|介绍一下|说说|尝新|便宜的|贵的|推荐.*第",
-        type: "positive",
-        confidence: 0.78,
-        requiresImage: false,
-        conditions: [
-          { field: "hasActiveMenu", op: "eq", value: true },
-          { field: "turnsSinceMenu", op: "lt", value: 30 },
-        ],
-      },
+      // NOTE: 此规则已被移除，追问场景由 follow_up_filter (priority 18) 处理。
+      // 保留 follow_up_filter 的 negativeKeywords 以防止其被错误排除。
       // Negative: only exclude if the text is PURELY about label/date (not mixed with recommendation keywords)
       {
         id: "menu_not_pure_label",
@@ -329,6 +320,14 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         pattern: "会再喝|不会再喝|看情况",
         type: "positive",
         confidence: 0.90,
+        requiresImage: false,
+      },
+      // ── 记忆纠正排除：如果包含更正/纠正关键词，不应算作品饮反馈 ──
+      {
+        id: "feedback_not_correction",
+        pattern: "不是|纠正|记错|应该是|改成|不对|更正|上次.*说|更爱|其实是|说错了|前面说得不对|改一下|重置|清空|清除|清掉",
+        type: "negative",
+        confidence: 0,
         requiresImage: false,
       },
     ],
@@ -527,7 +526,7 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
       },
       {
         id: "followup_which",
-        pattern: "哪个|哪款|哪一种|哪一杯|哪个好|哪.*好喝|哪.*推荐",
+        pattern: "哪个|哪款|哪一款|哪一种|哪一杯|哪一个|哪个好|哪.*好喝|哪.*推荐",
         type: "positive",
         confidence: 0.85,
         requiresImage: false,
@@ -575,7 +574,9 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         ],
       },
     ],
-    negativeKeywords: ["推荐", "帮我选", "帮我看酒单", "酒单", "喝什么"],
+    negativeKeywords: ["帮我选", "帮我看酒单", "酒单"],
+    // NOTE: "推荐" 和 "喝什么" 不放在 negativeKeywords 中，因为它们可能出现在追问场景
+    // （如"推荐哪款""推荐的哪个好喝"），此时不应排除 follow_up_filter。
     samples: [
       { text: "有 IPA 吗", weight: 0.90, expectedIntent: "follow_up_filter", note: "有酒单时追问IPA" },
       { text: "第3个怎么样", weight: 0.90, expectedIntent: "follow_up_filter", note: "按序号追问" },

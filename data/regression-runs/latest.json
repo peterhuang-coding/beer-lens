@@ -1,32 +1,34 @@
 {
-  "timestamp": "2026-07-08T02:32:00.316Z",
+  "timestamp": "2026-07-16T16:52:51.284Z",
   "config": {
     "baseUrl": "http://localhost:3000/api/agent",
     "userId": "regression-user",
-    "convPrefix": "cc5-ext",
+    "convPrefix": "regression",
     "timeoutMs": 30000
   },
   "summary": {
-    "total": 44,
-    "passed": 44,
-    "failed": 0,
-    "errors": 0,
-    "passRate": "100.0%",
-    "durationMs": 39512
+    "total": 100,
+    "passed": 98,
+    "failed": 1,
+    "errors": 1,
+    "passRate": "98.0%",
+    "durationMs": 267546
   },
   "results": [
     {
-      "caseId": "reg_001",
-      "name": "推荐一款IPA",
-      "inputText": "推荐一款IPA",
-      "conversationId": "cc5-ext-recommend-ipa",
+      "caseId": "reg_300",
+      "name": "推荐一款浑浊IPA",
+      "inputText": "推荐一款浑浊IPA",
+      "conversationId": "regression-gen-reg_300",
       "passed": true,
-      "durationMs": 59,
+      "durationMs": 44,
       "actualIntent": "menu_recommend",
-      "actualReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
-      "candidateCount": 1,
+      "actualReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 3,
       "warnings": [
-        "high_abv_candidate: Third Anniversary Imperial IPA (10%)"
+        "high_abv_candidate: 110K+OT Batch #3 - The Other West Coast IPA (10%)",
+        "high_abv_candidate: Third Anniversary Imperial IPA (10%)",
+        "missing_data_rating_mentioned"
       ],
       "failures": [],
       "checks": {
@@ -39,31 +41,58 @@
       }
     },
     {
-      "caseId": "reg_002",
-      "name": "想喝清爽不苦的（follow_up_filter）",
-      "inputText": "想喝清爽不苦的",
-      "conversationId": "cc5-ext-recommend-crisp",
+      "caseId": "reg_301",
+      "name": "求推荐西海岸IPA",
+      "inputText": "求推荐西海岸IPA",
+      "conversationId": "regression-gen-reg_301",
       "passed": true,
-      "durationMs": 13,
-      "actualIntent": "follow_up_filter",
-      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
-      "warnings": [],
+      "durationMs": 15,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Othe",
+      "candidateCount": 1,
+      "warnings": [
+        "high_abv_candidate: 110K+OT Batch #3 - The Other West Coast IPA (10%)"
+      ],
       "failures": [],
       "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
-        "hasWarnings": false
+        "hasWarnings": true
       }
     },
     {
-      "caseId": "reg_003",
-      "name": "推荐一款世涛",
-      "inputText": "推荐一款世涛",
-      "conversationId": "cc5-ext-recommend-stout",
+      "caseId": "reg_302",
+      "name": "推荐双倍IPA啤酒",
+      "inputText": "推荐双倍IPA啤酒",
+      "conversationId": "regression-gen-reg_302",
       "passed": true,
-      "durationMs": 23,
+      "durationMs": 14,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐双倍IPA啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐双倍IPA啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐双倍IPA啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐双倍IPA啤酒\n最值得尝新：推荐双倍IPA啤酒\n我会先跳过：推荐双倍IPA啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐双倍IPA啤酒。\n\n⚠️ 推荐双倍IPA啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_303",
+      "name": "推荐牛奶世涛",
+      "inputText": "推荐牛奶世涛",
+      "conversationId": "regression-gen-reg_303",
+      "passed": true,
+      "durationMs": 11,
       "actualIntent": "menu_recommend",
       "actualReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
       "candidateCount": 1,
@@ -79,108 +108,17 @@
       }
     },
     {
-      "caseId": "reg_004",
-      "name": "帮我推荐拉格",
-      "inputText": "帮我推荐拉格",
-      "conversationId": "cc5-ext-recommend-lager",
-      "passed": true,
-      "durationMs": 21,
-      "actualIntent": "menu_recommend",
-      "actualReply": "我会这样点：\n\n1. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低（有风险，见下方）\n2. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n3. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n最稳：Original Lager\n最值得尝新：Original Lager\n我会先跳过：Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n如果只能喝一杯，选 Original Lager。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
-      "candidateCount": 1,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "candidateCount": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_005",
-      "name": "推荐酸啤",
-      "inputText": "帮我推荐一款酸啤",
-      "conversationId": "cc5-ext-recommend-sour",
-      "passed": true,
-      "durationMs": 102,
-      "actualIntent": "menu_recommend",
-      "actualReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Soursmith Black Raspberry - 评分4.4，4779+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Soursmith Black Raspberry\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
-      "candidateCount": 1,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "candidateCount": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_006",
-      "name": "帮我推荐一款",
-      "inputText": "帮我推荐一款",
-      "conversationId": "cc5-ext-recommend-generic",
-      "passed": true,
-      "durationMs": 72,
-      "actualIntent": "menu_recommend",
-      "actualReply": "我会这样点：\n\n1. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：帮我推荐一款\n最值得尝新：帮我推荐一款\n我会先跳过：帮我推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 帮我推荐一款。\n\n⚠️ 帮我推荐一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
-      "candidateCount": 1,
-      "warnings": [
-        "unverified_rating_mentioned",
-        "missing_data_rating_mentioned"
-      ],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "candidateCount": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": true
-      }
-    },
-    {
-      "caseId": "reg_007",
-      "name": "今天喝什么好",
-      "inputText": "今天喝什么好",
-      "conversationId": "cc5-ext-recommend-daily",
-      "passed": true,
-      "durationMs": 67,
-      "actualIntent": "menu_recommend",
-      "actualReply": "我会这样点：\n\n1. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：今天喝什么好\n最值得尝新：今天喝什么好\n我会先跳过：今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 今天喝什么好。\n\n⚠️ 今天喝什么好 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
-      "candidateCount": 1,
-      "warnings": [
-        "unverified_rating_mentioned",
-        "missing_data_rating_mentioned"
-      ],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "candidateCount": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": true
-      }
-    },
-    {
-      "caseId": "reg_008",
-      "name": "想喝点烈的",
-      "inputText": "想喝点烈的",
-      "conversationId": "cc5-ext-recommend-strong",
+      "caseId": "reg_304",
+      "name": "推荐帝国世涛",
+      "inputText": "推荐帝国世涛",
+      "conversationId": "regression-gen-reg_304",
       "passed": true,
       "durationMs": 14,
       "actualIntent": "menu_recommend",
-      "actualReply": "我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7；评分样本少，置信度降低，酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imp",
+      "actualReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
       "candidateCount": 2,
       "warnings": [
-        "high_abv_candidate: Barrel Aged Imperial German Chocolate Cupcake Stout (11%)",
-        "high_abv_candidate: Double IPA (10%)"
+        "high_abv_candidate: Barrel Aged Imperial German Chocolate Cupcake Stout (11%)"
       ],
       "failures": [],
       "checks": {
@@ -193,18 +131,656 @@
       }
     },
     {
-      "caseId": "reg_009",
-      "name": "有什么好喝的啤酒",
-      "inputText": "有什么好喝的啤酒",
-      "conversationId": "cc5-ext-recommend-whatsgood",
+      "caseId": "reg_305",
+      "name": "推荐法兰德斯红艾尔",
+      "inputText": "推荐法兰德斯红艾尔",
+      "conversationId": "regression-gen-reg_305",
+      "passed": true,
+      "durationMs": 75,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐法兰德斯红艾尔\n最值得尝新：推荐法兰德斯红艾尔\n我会先跳过：推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐法兰德斯红艾尔。\n\n⚠️ 推荐法兰德斯红艾尔 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_306",
+      "name": "推荐比利时三料",
+      "inputText": "推荐比利时三料",
+      "conversationId": "regression-gen-reg_306",
+      "passed": true,
+      "durationMs": 74,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐比利时三料 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐比利时三料 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐比利时三料 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐比利时三料\n最值得尝新：推荐比利时三料\n我会先跳过：推荐比利时三料 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐比利时三料。\n\n⚠️ 推荐比利时三料 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_307",
+      "name": "推荐德式小麦",
+      "inputText": "推荐德式小麦",
+      "conversationId": "regression-gen-reg_307",
+      "passed": true,
+      "durationMs": 12,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_308",
+      "name": "推荐比利时小麦",
+      "inputText": "推荐比利时小麦",
+      "conversationId": "regression-gen-reg_308",
+      "passed": true,
+      "durationMs": 18,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_309",
+      "name": "推荐赛森啤酒",
+      "inputText": "推荐赛森啤酒",
+      "conversationId": "regression-gen-reg_309",
+      "passed": true,
+      "durationMs": 60,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐赛森啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐赛森啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐赛森啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐赛森啤酒\n最值得尝新：推荐赛森啤酒\n我会先跳过：推荐赛森啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐赛森啤酒。\n\n⚠️ 推荐赛森啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_310",
+      "name": "推荐博克烈性啤酒",
+      "inputText": "推荐博克烈性啤酒",
+      "conversationId": "regression-gen-reg_310",
+      "passed": true,
+      "durationMs": 79,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐博克烈性啤酒\n最值得尝新：推荐博克烈性啤酒\n我会先跳过：推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐博克烈性啤酒。\n\n⚠️ 推荐博克烈性啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_311",
+      "name": "推荐修道院啤酒",
+      "inputText": "推荐修道院啤酒",
+      "conversationId": "regression-gen-reg_311",
+      "passed": true,
+      "durationMs": 77,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐修道院啤酒\n最值得尝新：推荐修道院啤酒\n我会先跳过：推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐修道院啤酒。\n\n⚠️ 推荐修道院啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_312",
+      "name": "推荐兰比克酸啤",
+      "inputText": "推荐兰比克酸啤",
+      "conversationId": "regression-gen-reg_312",
+      "passed": true,
+      "durationMs": 76,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐兰比克酸啤 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. 推荐兰比克酸啤 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. 推荐兰比克酸啤 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：推荐兰比克酸啤\n最值得尝新：推荐兰比克酸啤\n我会先跳过：推荐兰比克酸啤 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 推荐兰比克酸啤。\n\n⚠️ 推荐兰比克酸啤 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_313",
+      "name": "推荐古斯酸啤酒",
+      "inputText": "推荐古斯酸啤酒",
+      "conversationId": "regression-gen-reg_313",
+      "passed": true,
+      "durationMs": 79,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：推荐古斯酸啤酒\n最值得尝新：推荐古斯酸啤酒\n我会先跳过：推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 推荐古斯酸啤酒。\n\n⚠️ 推荐古斯酸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_314",
+      "name": "推荐波特啤酒",
+      "inputText": "推荐波特啤酒",
+      "conversationId": "regression-gen-reg_314",
+      "passed": true,
+      "durationMs": 82,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐波特啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐波特啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐波特啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐波特啤酒\n最值得尝新：推荐波特啤酒\n我会先跳过：推荐波特啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐波特啤酒。\n\n⚠️ 推荐波特啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_315",
+      "name": "类似Pliny the Elder的推荐",
+      "inputText": "类似Pliny the Elder的推荐",
+      "conversationId": "regression-gen-reg_315",
+      "passed": true,
+      "durationMs": 89,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_316",
+      "name": "像Heady Topper的风格推荐",
+      "inputText": "像Heady Topper的风格推荐",
+      "conversationId": "regression-gen-reg_316",
+      "passed": true,
+      "durationMs": 70,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_317",
+      "name": "King Sue同款风格推荐",
+      "inputText": "King Sue同款风格推荐",
+      "conversationId": "regression-gen-reg_317",
+      "passed": true,
+      "durationMs": 51,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_318",
+      "name": "Parabola级别世涛推荐",
+      "inputText": "Parabola级别世涛推荐",
+      "conversationId": "regression-gen-reg_318",
+      "passed": true,
+      "durationMs": 8,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_319",
+      "name": "BCBS级别桶陈推荐",
+      "inputText": "BCBS级别桶陈推荐",
+      "conversationId": "regression-gen-reg_319",
+      "passed": true,
+      "durationMs": 83,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. BCBS级别桶陈推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. BCBS级别桶陈推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. BCBS级别桶陈推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：BCBS级别桶陈推荐\n最值得尝新：BCBS级别桶陈推荐\n我会先跳过：BCBS级别桶陈推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 BCBS级别桶陈推荐。\n\n⚠️ BCBS级别桶陈推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "keywordsPresent": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_320",
+      "name": "Founders Breakfast Stout类似酒",
+      "inputText": "Founders Breakfast Stout类似酒",
+      "conversationId": "regression-gen-reg_320",
+      "passed": true,
+      "durationMs": 49,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "high_abv_candidate: Founders Breakfast Stout (8.3%)"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_321",
+      "name": "Rodenbach酸啤风格推荐",
+      "inputText": "Rodenbach酸啤风格推荐",
+      "conversationId": "regression-gen-reg_321",
+      "passed": true,
+      "durationMs": 73,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_322",
+      "name": "Westvleteren12水平修道院推荐",
+      "inputText": "Westvleteren12水平修道院推荐",
+      "conversationId": "regression-gen-reg_322",
+      "passed": true,
+      "durationMs": 75,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_323",
+      "name": "Rochefort10后推荐下一款",
+      "inputText": "Rochefort10后推荐下一款",
+      "conversationId": "regression-gen-reg_323",
+      "passed": true,
+      "durationMs": 84,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_324",
+      "name": "京A有什么好酒推荐",
+      "inputText": "京A有什么好酒推荐",
+      "conversationId": "regression-gen-reg_324",
+      "passed": true,
+      "durationMs": 77,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 京A有什么好酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 京A有什么好酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 京A有什么好酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：京A有什么好酒推荐\n最值得尝新：京A有什么好酒推荐\n我会先跳过：京A有什么好酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 京A有什么好酒推荐。\n\n⚠️ 京A有什么好酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_325",
+      "name": "拳击猫哪款值得喝",
+      "inputText": "拳击猫哪款值得喝",
+      "conversationId": "regression-gen-reg_325",
+      "passed": true,
+      "durationMs": 78,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 拳击猫哪款值得喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 拳击猫哪款值得喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 拳击猫哪款值得喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：拳击猫哪款值得喝\n最值得尝新：拳击猫哪款值得喝\n我会先跳过：拳击猫哪款值得喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 拳击猫哪款值得喝。\n\n⚠️ 拳击猫哪款值得喝 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_326",
+      "name": "高大师推荐什么酒",
+      "inputText": "高大师推荐什么酒",
+      "conversationId": "regression-gen-reg_326",
+      "passed": true,
+      "durationMs": 81,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：高大师推荐什么酒\n最值得尝新：高大师推荐什么酒\n我会先跳过：高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 高大师推荐什么酒。\n\n⚠️ 高大师推荐什么酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_327",
+      "name": "夏天清爽啤酒推荐",
+      "inputText": "夏天清爽啤酒推荐",
+      "conversationId": "regression-gen-reg_327",
+      "passed": true,
+      "durationMs": 80,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 夏天清爽啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 夏天清爽啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 夏天清爽啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：夏天清爽啤酒推荐\n最值得尝新：夏天清爽啤酒推荐\n我会先跳过：夏天清爽啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 夏天清爽啤酒推荐。\n\n⚠️ 夏天清爽啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_328",
+      "name": "冬天暖身啤酒推荐",
+      "inputText": "冬天暖身啤酒推荐",
+      "conversationId": "regression-gen-reg_328",
+      "passed": true,
+      "durationMs": 77,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：冬天暖身啤酒推荐\n最值得尝新：冬天暖身啤酒推荐\n我会先跳过：冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 冬天暖身啤酒推荐。\n\n⚠️ 冬天暖身啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_329",
+      "name": "聚会啤酒推荐",
+      "inputText": "聚会啤酒推荐",
+      "conversationId": "regression-gen-reg_329",
+      "passed": true,
+      "durationMs": 79,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 聚会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 聚会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 聚会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：聚会啤酒推荐\n最值得尝新：聚会啤酒推荐\n我会先跳过：聚会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 聚会啤酒推荐。\n\n⚠️ 聚会啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_330",
+      "name": "独饮啤酒推荐",
+      "inputText": "独饮啤酒推荐",
+      "conversationId": "regression-gen-reg_330",
+      "passed": true,
+      "durationMs": 78,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 独饮啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 独饮啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 独饮啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：独饮啤酒推荐\n最值得尝新：独饮啤酒推荐\n我会先跳过：独饮啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 独饮啤酒推荐。\n\n⚠️ 独饮啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_331",
+      "name": "火锅配精酿推荐",
+      "inputText": "火锅配精酿推荐",
+      "conversationId": "regression-gen-reg_331",
+      "passed": true,
+      "durationMs": 77,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 火锅配精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 火锅配精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 火锅配精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：火锅配精酿推荐\n最值得尝新：火锅配精酿推荐\n我会先跳过：火锅配精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 火锅配精酿推荐。\n\n⚠️ 火锅配精酿推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_332",
+      "name": "烧烤啤酒推荐",
+      "inputText": "烧烤啤酒推荐",
+      "conversationId": "regression-gen-reg_332",
+      "passed": true,
+      "durationMs": 80,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 烧烤啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 烧烤啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 烧烤啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：烧烤啤酒推荐\n最值得尝新：烧烤啤酒推荐\n我会先跳过：烧烤啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 烧烤啤酒推荐。\n\n⚠️ 烧烤啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_333",
+      "name": "约会啤酒推荐",
+      "inputText": "约会啤酒推荐",
+      "conversationId": "regression-gen-reg_333",
       "passed": true,
       "durationMs": 72,
       "actualIntent": "menu_recommend",
-      "actualReply": "我会这样点：\n\n1. 有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么好喝的啤酒\n最值得尝新：有什么好喝的啤酒\n我会先跳过：有什么好喝的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么好喝的啤酒。\n\n⚠️ 有什么好喝的啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "actualReply": "我会这样点：\n\n1. 约会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 约会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 约会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：约会啤酒推荐\n最值得尝新：约会啤酒推荐\n我会先跳过：约会啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 约会啤酒推荐。\n\n⚠️ 约会啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
       "candidateCount": 1,
       "warnings": [
-        "unverified_rating_mentioned",
-        "missing_data_rating_mentioned"
+        "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
@@ -217,139 +793,22 @@
       }
     },
     {
-      "caseId": "reg_010",
-      "name": "有IPA吗（无上下文→unclear）",
-      "inputText": "有IPA吗",
-      "conversationId": "cc5-ext-filter-ipa",
+      "caseId": "reg_334",
+      "name": "看球赛啤酒推荐",
+      "inputText": "看球赛啤酒推荐",
+      "conversationId": "regression-gen-reg_334",
       "passed": true,
-      "durationMs": 1778,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_011",
-      "name": "第3个怎么样",
-      "inputText": "第3个怎么样",
-      "conversationId": "cc5-ext-filter-nth",
-      "passed": true,
-      "durationMs": 19,
-      "actualIntent": "follow_up_filter",
-      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_012",
-      "name": "有没有世涛",
-      "inputText": "有没有世涛",
-      "conversationId": "cc5-ext-filter-stout",
-      "passed": true,
-      "durationMs": 19,
-      "actualIntent": "follow_up_filter",
-      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_013",
-      "name": "哪个不苦",
-      "inputText": "哪个不苦",
-      "conversationId": "cc5-ext-filter-not-bitter",
-      "passed": true,
-      "durationMs": 20,
-      "actualIntent": "follow_up_filter",
-      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_014",
-      "name": "第一个怎么样（无上下文→unclear）",
-      "inputText": "第一个怎么样",
-      "conversationId": "cc5-ext-filter-1st",
-      "passed": true,
-      "durationMs": 982,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_015",
-      "name": "有没有酸啤（无上下文→unclear）",
-      "inputText": "有没有酸啤",
-      "conversationId": "cc5-ext-filter-sour",
-      "passed": true,
-      "durationMs": 835,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_016",
-      "name": "我给4.5分会再喝热带水果",
-      "inputText": "我给4.5分，会再喝，热带水果",
-      "conversationId": "cc5-ext-tasting-full",
-      "passed": true,
-      "durationMs": 25,
-      "actualIntent": "tasting_feedback",
-      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
+      "durationMs": 80,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 看球赛啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 看球赛啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 看球赛啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：看球赛啤酒推荐\n最值得尝新：看球赛啤酒推荐\n我会先跳过：看球赛啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 看球赛啤酒推荐。\n\n⚠️ 看球赛啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -357,22 +816,22 @@
       }
     },
     {
-      "caseId": "reg_017",
-      "name": "3.5分，不会再喝",
-      "inputText": "3.5分，不会再喝",
-      "conversationId": "cc5-ext-tasting-low",
+      "caseId": "reg_335",
+      "name": "芝士配啤酒推荐",
+      "inputText": "芝士配啤酒推荐",
+      "conversationId": "regression-gen-reg_335",
       "passed": true,
-      "durationMs": 23,
-      "actualIntent": "tasting_feedback",
-      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n你不会再喝这杯酒。\n备注：3.5分，不会再喝\n你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
+      "durationMs": 79,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 芝士配啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 芝士配啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 芝士配啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：芝士配啤酒推荐\n最值得尝新：芝士配啤酒推荐\n我会先跳过：芝士配啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 芝士配啤酒推荐。\n\n⚠️ 芝士配啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -380,22 +839,22 @@
       }
     },
     {
-      "caseId": "reg_018",
-      "name": "4分",
-      "inputText": "4分",
-      "conversationId": "cc5-ext-tasting-score-only",
+      "caseId": "reg_336",
+      "name": "本周新品啤酒推荐",
+      "inputText": "本周新品啤酒推荐",
+      "conversationId": "regression-gen-reg_336",
       "passed": true,
-      "durationMs": 21,
-      "actualIntent": "tasting_feedback",
-      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分\n你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
+      "durationMs": 78,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 本周新品啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 本周新品啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 本周新品啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：本周新品啤酒推荐\n最值得尝新：本周新品啤酒推荐\n我会先跳过：本周新品啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 本周新品啤酒推荐。\n\n⚠️ 本周新品啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -403,22 +862,22 @@
       }
     },
     {
-      "caseId": "reg_019",
-      "name": "这杯不错，给4.5分",
-      "inputText": "这杯不错，给4.5分",
-      "conversationId": "cc5-ext-tasting-good",
+      "caseId": "reg_337",
+      "name": "推荐高酒精度啤酒",
+      "inputText": "推荐高酒精度啤酒",
+      "conversationId": "regression-gen-reg_337",
       "passed": true,
-      "durationMs": 21,
-      "actualIntent": "tasting_feedback",
-      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n是否再喝：未明确。\n备注：这杯不错，给4.5分\n你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
+      "durationMs": 71,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐高酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐高酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐高酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐高酒精度啤酒\n最值得尝新：推荐高酒精度啤酒\n我会先跳过：推荐高酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐高酒精度啤酒。\n\n⚠️ 推荐高酒精度啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -426,22 +885,22 @@
       }
     },
     {
-      "caseId": "reg_020",
-      "name": "2分，不会再喝，偏酸",
-      "inputText": "2分，不会再喝，偏酸",
-      "conversationId": "cc5-ext-tasting-bad",
+      "caseId": "reg_338",
+      "name": "推荐低酒精度啤酒",
+      "inputText": "推荐低酒精度啤酒",
+      "conversationId": "regression-gen-reg_338",
       "passed": true,
-      "durationMs": 21,
-      "actualIntent": "tasting_feedback",
-      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分，不会再喝，偏酸\n你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
+      "durationMs": 80,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐低酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐低酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐低酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐低酒精度啤酒\n最值得尝新：推荐低酒精度啤酒\n我会先跳过：推荐低酒精度啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐低酒精度啤酒。\n\n⚠️ 推荐低酒精度啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -449,20 +908,114 @@
       }
     },
     {
-      "caseId": "reg_021",
-      "name": "会再喝，苦度刚好",
-      "inputText": "会再喝，苦度刚好",
-      "conversationId": "cc5-ext-tasting-would-drink",
+      "caseId": "reg_339",
+      "name": "推荐苦味爆炸啤酒",
+      "inputText": "推荐苦味爆炸啤酒",
+      "conversationId": "regression-gen-reg_339",
       "passed": true,
-      "durationMs": 22,
-      "actualIntent": "tasting_feedback",
-      "actualReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你会再喝这杯酒。\n备注：会再喝，苦度刚好\n你的口味画像：喜欢热带水果和苦风味",
+      "durationMs": 79,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦（有风险，见下方）\n2. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦\n3. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦\n\n最稳：推荐苦味爆炸啤酒\n最值得尝新：推荐苦味爆炸啤酒\n我会先跳过：推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦\n\n如果只能喝一杯，选 推荐苦味爆炸啤酒。\n\n⚠️ 推荐苦味爆炸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_340",
+      "name": "推荐果味浓郁啤酒",
+      "inputText": "推荐果味浓郁啤酒",
+      "conversationId": "regression-gen-reg_340",
+      "passed": true,
+      "durationMs": 64,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐果味浓郁啤酒\n最值得尝新：推荐果味浓郁啤酒\n我会先跳过：推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐果味浓郁啤酒。\n\n⚠️ 推荐果味浓郁啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_341",
+      "name": "推荐性价比高的精酿",
+      "inputText": "推荐性价比高的精酿",
+      "conversationId": "regression-gen-reg_341",
+      "passed": true,
+      "durationMs": 79,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐性价比高的精酿\n最值得尝新：推荐性价比高的精酿\n我会先跳过：推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐性价比高的精酿。\n\n⚠️ 推荐性价比高的精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_342",
+      "name": "推荐入门级精酿",
+      "inputText": "推荐入门级精酿",
+      "conversationId": "regression-gen-reg_342",
+      "passed": true,
+      "durationMs": 76,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐入门级精酿\n最值得尝新：推荐入门级精酿\n我会先跳过：推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐入门级精酿。\n\n⚠️ 推荐入门级精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_343",
+      "name": "推荐女士适合的啤酒",
+      "inputText": "推荐女士适合的啤酒",
+      "conversationId": "regression-gen-reg_343",
+      "passed": false,
+      "durationMs": 14,
+      "actualIntent": "menu_recommend",
+      "actualReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
       "candidateCount": 0,
       "warnings": [],
-      "failures": [],
+      "failures": [
+        "candidates too few: expected>=1 actual=0"
+      ],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
+        "candidateCount": false,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -470,22 +1023,22 @@
       }
     },
     {
-      "caseId": "reg_022",
-      "name": "我的口味画像是什么",
-      "inputText": "我的口味画像是什么",
-      "conversationId": "cc5-ext-profile-what",
+      "caseId": "reg_344",
+      "name": "推荐精酿老手酒款",
+      "inputText": "推荐精酿老手酒款",
+      "conversationId": "regression-gen-reg_344",
       "passed": true,
-      "durationMs": 18,
-      "actualIntent": "profile_query",
-      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 23 条品饮记录）\n\n偏好风味标签：热带水果（8）、苦（3）\nABV 舒适区：暂无足够记录\n记录数：23 条\n\n📈 最近趋势：\n2026月07：23款 · 近三月均分 3.9 · 偏好风味：热带水果、苦\n\n证据数：23 · 画像置信度：100% · 实验组：开启",
-      "candidateCount": 0,
+      "durationMs": 76,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐精酿老手酒款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐精酿老手酒款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐精酿老手酒款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐精酿老手酒款\n最值得尝新：推荐精酿老手酒款\n我会先跳过：推荐精酿老手酒款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐精酿老手酒款。\n\n⚠️ 推荐精酿老手酒款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -493,21 +1046,22 @@
       }
     },
     {
-      "caseId": "reg_023",
-      "name": "看看我的口味偏好",
-      "inputText": "看看我的口味偏好",
-      "conversationId": "cc5-ext-profile-prefs",
+      "caseId": "reg_345",
+      "name": "推荐便宜好喝的精酿",
+      "inputText": "推荐便宜好喝的精酿",
+      "conversationId": "regression-gen-reg_345",
       "passed": true,
-      "durationMs": 22,
-      "actualIntent": "profile_query",
-      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 23 条品饮记录）\n\n偏好风味标签：热带水果（8）、苦（3）\nABV 舒适区：暂无足够记录\n记录数：23 条\n\n📈 最近趋势：\n2026月07：23款 · 近三月均分 3.9 · 偏好风味：热带水果、苦\n\n证据数：23 · 画像置信度：100% · 实验组：开启",
-      "candidateCount": 0,
+      "durationMs": 75,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐便宜好喝的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐便宜好喝的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐便宜好喝的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐便宜好喝的精酿\n最值得尝新：推荐便宜好喝的精酿\n我会先跳过：推荐便宜好喝的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐便宜好喝的精酿。\n\n⚠️ 推荐便宜好喝的精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -515,21 +1069,91 @@
       }
     },
     {
-      "caseId": "reg_024",
-      "name": "我喝过哪些酒",
-      "inputText": "我喝过哪些酒",
-      "conversationId": "cc5-ext-profile-history",
+      "caseId": "reg_346",
+      "name": "今晚想整点啤酒喝",
+      "inputText": "今晚想整点啤酒喝",
+      "conversationId": "regression-gen-reg_346",
+      "passed": true,
+      "durationMs": 81,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 今晚想整点啤酒喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 今晚想整点啤酒喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 今晚想整点啤酒喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：今晚想整点啤酒喝\n最值得尝新：今晚想整点啤酒喝\n我会先跳过：今晚想整点啤酒喝 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 今晚想整点啤酒喝。\n\n⚠️ 今晚想整点啤酒喝 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_347",
+      "name": "搞一杯好精酿",
+      "inputText": "搞一杯好精酿",
+      "conversationId": "regression-gen-reg_347",
+      "passed": true,
+      "durationMs": 2264,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 搞一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 搞一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 搞一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：搞一杯好精酿\n最值得尝新：搞一杯好精酿\n我会先跳过：搞一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 搞一杯好精酿。\n\n⚠️ 搞一杯好精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_348",
+      "name": "来点精酿啤酒",
+      "inputText": "来点精酿啤酒",
+      "conversationId": "regression-gen-reg_348",
+      "passed": true,
+      "durationMs": 1393,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 来点精酿啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 来点精酿啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 来点精酿啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：来点精酿啤酒\n最值得尝新：来点精酿啤酒\n我会先跳过：来点精酿啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 来点精酿啤酒。\n\n⚠️ 来点精酿啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_349",
+      "name": "有好喝精酿推荐吗",
+      "inputText": "有好喝精酿推荐吗",
+      "conversationId": "regression-gen-reg_349",
       "passed": true,
       "durationMs": 16,
-      "actualIntent": "profile_query",
-      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 23 条品饮记录）\n\n偏好风味标签：热带水果（8）、苦（3）\nABV 舒适区：暂无足够记录\n记录数：23 条\n\n📈 最近趋势：\n2026月07：23款 · 近三月均分 3.9 · 偏好风味：热带水果、苦\n\n证据数：23 · 画像置信度：100% · 实验组：开启",
-      "candidateCount": 0,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有好喝精酿推荐吗\n最值得尝新：有好喝精酿推荐吗\n我会先跳过：有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有好喝精酿推荐吗。\n\n⚠️ 有好喝精酿推荐吗 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
       "warnings": [
         "unverified_rating_mentioned"
       ],
       "failures": [],
       "checks": {
         "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -537,176 +1161,797 @@
       }
     },
     {
-      "caseId": "reg_025",
-      "name": "帮我看看口味画像",
-      "inputText": "帮我看看口味画像",
-      "conversationId": "cc5-ext-profile-check",
-      "passed": true,
-      "durationMs": 18,
-      "actualIntent": "profile_query",
-      "actualReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n喜欢热带水果和苦风味\n\n画像置信度：100%（基于 23 条品饮记录）\n\n偏好风味标签：热带水果（8）、苦（3）\nABV 舒适区：暂无足够记录\n记录数：23 条\n\n📈 最近趋势：\n2026月07：23款 · 近三月均分 3.9 · 偏好风味：热带水果、苦\n\n证据数：23 · 画像置信度：100% · 实验组：开启",
-      "candidateCount": 0,
-      "warnings": [
-        "unverified_rating_mentioned"
-      ],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "keywordsPresent": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": true
-      }
-    },
-    {
-      "caseId": "reg_026",
-      "name": "我不喜欢太苦的（无上下文→unclear）",
-      "inputText": "我不喜欢太苦的",
-      "conversationId": "cc5-ext-correction-bitter",
-      "passed": true,
-      "durationMs": 1484,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_027",
-      "name": "我不喜欢IPA（无上下文→unclear）",
-      "inputText": "我不喜欢IPA",
-      "conversationId": "cc5-ext-correction-ipa",
-      "passed": true,
-      "durationMs": 757,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_028",
-      "name": "重置我的记录",
-      "inputText": "重置我的记录",
-      "conversationId": "cc5-ext-correction-reset",
+      "caseId": "reg_350",
+      "name": "想喝点特别精酿",
+      "inputText": "想喝点特别精酿",
+      "conversationId": "regression-gen-reg_350",
       "passed": true,
       "durationMs": 14,
-      "actualIntent": "profile_query",
-      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
-      "warnings": [],
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 想喝点特别精酿 - 探索新风格；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 想喝点特别精酿 - 探索新风格；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 想喝点特别精酿 - 探索新风格；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：想喝点特别精酿\n最值得尝新：想喝点特别精酿\n我会先跳过：想喝点特别精酿 - 探索新风格；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 想喝点特别精酿。\n\n⚠️ 想喝点特别精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
       "failures": [],
       "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
-        "hasWarnings": false
+        "hasWarnings": true
       }
     },
     {
-      "caseId": "reg_029",
-      "name": "清空我的偏好",
-      "inputText": "清空我的偏好",
-      "conversationId": "cc5-ext-correction-clear-prefs",
+      "caseId": "reg_351",
+      "name": "给我挑个好精酿",
+      "inputText": "给我挑个好精酿",
+      "conversationId": "regression-gen-reg_351",
+      "passed": true,
+      "durationMs": 79,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 给我挑个好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 给我挑个好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 给我挑个好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：给我挑个好精酿\n最值得尝新：给我挑个好精酿\n我会先跳过：给我挑个好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 给我挑个好精酿。\n\n⚠️ 给我挑个好精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_352",
+      "name": "随便推荐个啤酒",
+      "inputText": "随便推荐个啤酒",
+      "conversationId": "regression-gen-reg_352",
+      "passed": true,
+      "durationMs": 72,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 随便推荐个啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 随便推荐个啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 随便推荐个啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：随便推荐个啤酒\n最值得尝新：随便推荐个啤酒\n我会先跳过：随便推荐个啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 随便推荐个啤酒。\n\n⚠️ 随便推荐个啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_353",
+      "name": "看你推荐什么啤酒",
+      "inputText": "看你推荐什么啤酒",
+      "conversationId": "regression-gen-reg_353",
+      "passed": true,
+      "durationMs": 76,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：看你推荐什么啤酒\n最值得尝新：看你推荐什么啤酒\n我会先跳过：看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 看你推荐什么啤酒。\n\n⚠️ 看你推荐什么啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_354",
+      "name": "你推荐哪个精酿",
+      "inputText": "你推荐哪个精酿",
+      "conversationId": "regression-gen-reg_354",
+      "passed": true,
+      "durationMs": 73,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 你推荐哪个精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 你推荐哪个精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 你推荐哪个精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：你推荐哪个精酿\n最值得尝新：你推荐哪个精酿\n我会先跳过：你推荐哪个精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 你推荐哪个精酿。\n\n⚠️ 你推荐哪个精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_355",
+      "name": "有什么新鲜精酿",
+      "inputText": "有什么新鲜精酿",
+      "conversationId": "regression-gen-reg_355",
+      "passed": true,
+      "durationMs": 78,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 有什么新鲜精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么新鲜精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么新鲜精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么新鲜精酿\n最值得尝新：有什么新鲜精酿\n我会先跳过：有什么新鲜精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么新鲜精酿。\n\n⚠️ 有什么新鲜精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_356",
+      "name": "推荐IPA西海岸风格",
+      "inputText": "推荐IPA西海岸风格",
+      "conversationId": "regression-gen-reg_356",
       "passed": true,
       "durationMs": 13,
-      "actualIntent": "profile_query",
-      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
-      "warnings": [],
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Othe",
+      "candidateCount": 1,
+      "warnings": [
+        "high_abv_candidate: 110K+OT Batch #3 - The Other West Coast IPA (10%)"
+      ],
       "failures": [],
       "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
-        "hasWarnings": false
+        "hasWarnings": true
       }
     },
     {
-      "caseId": "reg_030",
-      "name": "酒标检查（无图片→unclear）",
-      "inputText": "这瓶酒过期了吗",
-      "conversationId": "cc5-ext-label-expiry",
+      "caseId": "reg_357",
+      "name": "帝国世涛要波本桶陈",
+      "inputText": "帝国世涛要波本桶陈",
+      "conversationId": "regression-gen-reg_357",
       "passed": true,
-      "durationMs": 568,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
+      "durationMs": 2310,
+      "actualIntent": "menu_recommend",
+      "actualReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "high_abv_candidate: Third Anniversary Imperial IPA (10%)"
+      ],
       "failures": [],
       "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
-        "hasWarnings": false
+        "hasWarnings": true
       }
     },
     {
-      "caseId": "reg_031",
-      "name": "生产日期检查（无图片→unclear）",
-      "inputText": "帮我看看这瓶酒的生产日期",
-      "conversationId": "cc5-ext-label-date",
+      "caseId": "reg_358",
+      "name": "法兰德斯红酸啤推荐",
+      "inputText": "法兰德斯红酸啤推荐",
+      "conversationId": "regression-gen-reg_358",
       "passed": true,
-      "durationMs": 648,
-      "actualIntent": "label_check",
-      "actualReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
-      "candidateCount": 0,
-      "warnings": [],
+      "durationMs": 77,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 法兰德斯红酸啤推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. 法兰德斯红酸啤推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. 法兰德斯红酸啤推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：法兰德斯红酸啤推荐\n最值得尝新：法兰德斯红酸啤推荐\n我会先跳过：法兰德斯红酸啤推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 法兰德斯红酸啤推荐。\n\n⚠️ 法兰德斯红酸啤推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
       "failures": [],
       "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
-        "hasWarnings": false
+        "hasWarnings": true
       }
     },
     {
-      "caseId": "reg_032",
-      "name": "罐装啤酒检查（无图片→unclear）",
-      "inputText": "看看这罐啤酒",
-      "conversationId": "cc5-ext-label-can",
+      "caseId": "reg_359",
+      "name": "新英格兰IPA推荐",
+      "inputText": "新英格兰IPA推荐",
+      "conversationId": "regression-gen-reg_359",
       "passed": true,
-      "durationMs": 690,
-      "actualIntent": "unclear",
-      "actualReply": "根据你的口味画像：喜欢热带水果和苦风味",
-      "candidateCount": 0,
-      "warnings": [],
+      "durationMs": 5,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 新英格兰IPA推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 新英格兰IPA推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 新英格兰IPA推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：新英格兰IPA推荐\n最值得尝新：新英格兰IPA推荐\n我会先跳过：新英格兰IPA推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 新英格兰IPA推荐。\n\n⚠️ 新英格兰IPA推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
       "failures": [],
       "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
-        "hasWarnings": false
+        "hasWarnings": true
       }
     },
     {
-      "caseId": "reg_033",
-      "name": "什么是West Coast IPA",
-      "inputText": "什么是West Coast IPA",
-      "conversationId": "cc5-ext-knowledge-wcipa",
+      "caseId": "reg_360",
+      "name": "淡色艾尔推荐一款",
+      "inputText": "淡色艾尔推荐一款",
+      "conversationId": "regression-gen-reg_360",
       "passed": true,
-      "durationMs": 758,
+      "durationMs": 65,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 淡色艾尔推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 淡色艾尔推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 淡色艾尔推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：淡色艾尔推荐一款\n最值得尝新：淡色艾尔推荐一款\n我会先跳过：淡色艾尔推荐一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 淡色艾尔推荐一款。\n\n⚠️ 淡色艾尔推荐一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_361",
+      "name": "过桶世涛推荐",
+      "inputText": "过桶世涛推荐",
+      "conversationId": "regression-gen-reg_361",
+      "passed": true,
+      "durationMs": 10,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 过桶世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 过桶世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 过桶世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：过桶世涛推荐\n最值得尝新：过桶世涛推荐\n我会先跳过：过桶世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 过桶世涛推荐。\n\n⚠️ 过桶世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_362",
+      "name": "日本精酿推荐",
+      "inputText": "日本精酿推荐",
+      "conversationId": "regression-gen-reg_362",
+      "passed": true,
+      "durationMs": 61,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 日本精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 日本精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 日本精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：日本精酿推荐\n最值得尝新：日本精酿推荐\n我会先跳过：日本精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 日本精酿推荐。\n\n⚠️ 日本精酿推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_363",
+      "name": "英国风格啤酒推荐",
+      "inputText": "英国风格啤酒推荐",
+      "conversationId": "regression-gen-reg_363",
+      "passed": true,
+      "durationMs": 82,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 英国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 英国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 英国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：英国风格啤酒推荐\n最值得尝新：英国风格啤酒推荐\n我会先跳过：英国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 英国风格啤酒推荐。\n\n⚠️ 英国风格啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_364",
+      "name": "德国风格啤酒推荐",
+      "inputText": "德国风格啤酒推荐",
+      "conversationId": "regression-gen-reg_364",
+      "passed": true,
+      "durationMs": 90,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 德国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 德国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 德国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：德国风格啤酒推荐\n最值得尝新：德国风格啤酒推荐\n我会先跳过：德国风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 德国风格啤酒推荐。\n\n⚠️ 德国风格啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_365",
+      "name": "比利时风格啤酒推荐",
+      "inputText": "比利时风格啤酒推荐",
+      "conversationId": "regression-gen-reg_365",
+      "passed": true,
+      "durationMs": 132,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 比利时风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 比利时风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 比利时风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：比利时风格啤酒推荐\n最值得尝新：比利时风格啤酒推荐\n我会先跳过：比利时风格啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 比利时风格啤酒推荐。\n\n⚠️ 比利时风格啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_366",
+      "name": "我想喝什么啤酒好",
+      "inputText": "我想喝什么啤酒好",
+      "conversationId": "regression-gen-reg_366",
+      "passed": true,
+      "durationMs": 80,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 我想喝什么啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 我想喝什么啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 我想喝什么啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：我想喝什么啤酒好\n最值得尝新：我想喝什么啤酒好\n我会先跳过：我想喝什么啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 我想喝什么啤酒好。\n\n⚠️ 我想喝什么啤酒好 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_367",
+      "name": "推荐推荐哪个啤酒好",
+      "inputText": "推荐推荐哪个啤酒好",
+      "conversationId": "regression-gen-reg_367",
+      "passed": true,
+      "durationMs": 17,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 推荐推荐哪个啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐推荐哪个啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐推荐哪个啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐推荐哪个啤酒好\n最值得尝新：推荐推荐哪个啤酒好\n我会先跳过：推荐推荐哪个啤酒好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐推荐哪个啤酒好。\n\n⚠️ 推荐推荐哪个啤酒好 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_368",
+      "name": "有什么精酿啤酒推荐",
+      "inputText": "有什么精酿啤酒推荐",
+      "conversationId": "regression-gen-reg_368",
+      "passed": true,
+      "durationMs": 81,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么精酿啤酒推荐\n最值得尝新：有什么精酿啤酒推荐\n我会先跳过：有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么精酿啤酒推荐。\n\n⚠️ 有什么精酿啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_369",
+      "name": "想喝一杯好精酿",
+      "inputText": "想喝一杯好精酿",
+      "conversationId": "regression-gen-reg_369",
+      "passed": true,
+      "durationMs": 80,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 想喝一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 想喝一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 想喝一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：想喝一杯好精酿\n最值得尝新：想喝一杯好精酿\n我会先跳过：想喝一杯好精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 想喝一杯好精酿。\n\n⚠️ 想喝一杯好精酿 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_370",
+      "name": "波本桶陈啤酒推荐",
+      "inputText": "波本桶陈啤酒推荐",
+      "conversationId": "regression-gen-reg_370",
+      "passed": true,
+      "durationMs": 82,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 波本桶陈啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 波本桶陈啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 波本桶陈啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：波本桶陈啤酒推荐\n最值得尝新：波本桶陈啤酒推荐\n我会先跳过：波本桶陈啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 波本桶陈啤酒推荐。\n\n⚠️ 波本桶陈啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_371",
+      "name": "本地精酿推荐",
+      "inputText": "本地精酿推荐",
+      "conversationId": "regression-gen-reg_371",
+      "passed": true,
+      "durationMs": 74,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 本地精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 本地精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 本地精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：本地精酿推荐\n最值得尝新：本地精酿推荐\n我会先跳过：本地精酿推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 本地精酿推荐。\n\n⚠️ 本地精酿推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_372",
+      "name": "小麦啤酒推荐",
+      "inputText": "小麦啤酒推荐",
+      "conversationId": "regression-gen-reg_372",
+      "passed": true,
+      "durationMs": 11,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 小麦啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 小麦啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 小麦啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：小麦啤酒推荐\n最值得尝新：小麦啤酒推荐\n我会先跳过：小麦啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 小麦啤酒推荐。\n\n⚠️ 小麦啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_373",
+      "name": "水果风味啤酒推荐",
+      "inputText": "水果风味啤酒推荐",
+      "conversationId": "regression-gen-reg_373",
+      "passed": true,
+      "durationMs": 65,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 水果风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 水果风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 水果风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：水果风味啤酒推荐\n最值得尝新：水果风味啤酒推荐\n我会先跳过：水果风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 水果风味啤酒推荐。\n\n⚠️ 水果风味啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_374",
+      "name": "巧克力风味啤酒推荐",
+      "inputText": "巧克力风味啤酒推荐",
+      "conversationId": "regression-gen-reg_374",
+      "passed": true,
+      "durationMs": 92,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 巧克力风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 巧克力风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 巧克力风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：巧克力风味啤酒推荐\n最值得尝新：巧克力风味啤酒推荐\n我会先跳过：巧克力风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 巧克力风味啤酒推荐。\n\n⚠️ 巧克力风味啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_375",
+      "name": "咖啡世涛啤酒推荐",
+      "inputText": "咖啡世涛啤酒推荐",
+      "conversationId": "regression-gen-reg_375",
+      "passed": true,
+      "durationMs": 19,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 咖啡世涛啤酒推荐 - 你喜欢咖啡风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 咖啡世涛啤酒推荐 - 你喜欢咖啡风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 咖啡世涛啤酒推荐 - 你喜欢咖啡风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：咖啡世涛啤酒推荐\n最值得尝新：咖啡世涛啤酒推荐\n我会先跳过：咖啡世涛啤酒推荐 - 你喜欢咖啡风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 咖啡世涛啤酒推荐。\n\n⚠️ 咖啡世涛啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_376",
+      "name": "香料风味啤酒推荐",
+      "inputText": "香料风味啤酒推荐",
+      "conversationId": "regression-gen-reg_376",
+      "passed": true,
+      "durationMs": 83,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 香料风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 香料风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 香料风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：香料风味啤酒推荐\n最值得尝新：香料风味啤酒推荐\n我会先跳过：香料风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 香料风味啤酒推荐。\n\n⚠️ 香料风味啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_377",
+      "name": "焦糖风味啤酒推荐",
+      "inputText": "焦糖风味啤酒推荐",
+      "conversationId": "regression-gen-reg_377",
+      "passed": true,
+      "durationMs": 88,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 焦糖风味啤酒推荐 - 你喜欢焦糖风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 焦糖风味啤酒推荐 - 你喜欢焦糖风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 焦糖风味啤酒推荐 - 你喜欢焦糖风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：焦糖风味啤酒推荐\n最值得尝新：焦糖风味啤酒推荐\n我会先跳过：焦糖风味啤酒推荐 - 你喜欢焦糖风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 焦糖风味啤酒推荐。\n\n⚠️ 焦糖风味啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_378",
+      "name": "陈年啤酒推荐",
+      "inputText": "陈年啤酒推荐",
+      "conversationId": "regression-gen-reg_378",
+      "passed": true,
+      "durationMs": 84,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：陈年啤酒推荐\n最值得尝新：陈年啤酒推荐\n我会先跳过：陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 陈年啤酒推荐。\n\n⚠️ 陈年啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_379",
+      "name": "新鲜啤酒推荐",
+      "inputText": "新鲜啤酒推荐",
+      "conversationId": "regression-gen-reg_379",
+      "passed": true,
+      "durationMs": 82,
+      "actualIntent": "menu_recommend",
+      "actualReply": "我会这样点：\n\n1. 新鲜啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 新鲜啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 新鲜啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：新鲜啤酒推荐\n最值得尝新：新鲜啤酒推荐\n我会先跳过：新鲜啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 新鲜啤酒推荐。\n\n⚠️ 新鲜啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "candidateCount": 1,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "candidateCount": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_380",
+      "name": "赛森啤酒风格定义",
+      "inputText": "赛森啤酒风格定义",
+      "conversationId": "regression-gen-reg_388",
+      "passed": true,
+      "durationMs": 5546,
       "actualIntent": "beer_knowledge",
-      "actualReply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+      "actualReply": "赛森啤酒，也叫 Saison，是一种起源于比利时的啤酒风格。传统上，这种啤酒是在农闲季节由农场酿造，以供夏季农忙时的工人饮用。因此，赛森啤酒也被称为“农民啤酒”。\n\n赛森啤酒的特点是酒精度通常在5%到8%之间，口感比较干，酸度适中，带有明显的香料和水果香气，比如柑橘、热带水果等。它的颜色可以从浅黄色到深琥珀色不等，泡沫丰富且持久。酿造时常常使用特殊的酵母，这些酵母能够产生复杂的风味和香气。\n\n现代的赛森啤酒在保持传统特色的同时，也有了很多创新，比如添加不同的香料或水果进行酿造，以创造出更多样化的风味。如果你喜欢清爽、带有复杂香气的啤酒，赛森绝对值得一试。",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_381",
+      "name": "比利时三料和四料区别",
+      "inputText": "比利时三料和四料区别",
+      "conversationId": "regression-gen-reg_389",
+      "passed": true,
+      "durationMs": 7749,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "比利时三料（Tripel）和四料（Quadrupel）都是比利时修道院啤酒中的经典风格，它们之间有几个主要的区别：\n\n1. **酒精度**：三料通常酒精度在7.5%到10%之间，而四料的酒精度更高，通常在9%到12%甚至更高。\n\n2. **颜色**：三料通常是金黄色或淡金色，而四料则更偏向深琥珀色或棕色。\n\n3. **风味**：三料通常有明显的麦芽甜味和一些水果香，口感较为清爽。四料则更复杂，通常有更浓郁的麦芽甜味、焦糖、坚果和果干的风味，有时还带有一些酒精的温暖感。\n\n4. **酿造工艺**：三料和四料都使用了多次糖化或添加额外的糖分来提高酒精度，但四料的糖分和麦芽比例更高，发酵时间也更长。\n\n总的来说，三料更偏向于清爽和果香，而四料则更加浓郁和复杂。希望这能帮助你更好地了解这两种风格！",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_382",
+      "name": "淡色艾尔和IPA区别",
+      "inputText": "淡色艾尔和IPA区别",
+      "conversationId": "regression-gen-reg_390",
+      "passed": true,
+      "durationMs": 24024,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "淡色艾尔（Pale Ale）和印度淡色艾尔（India Pale Ale，简称IPA）都是艾尔啤酒的风格，但它们之间有几个主要的区别：\n\n1. **苦度**：IPA 通常比普通的淡色艾尔更苦，因为 IPA 在酿造过程中会使用更多的啤酒花来增加苦味和香气。这种高苦度是为了在长途海运过程中保持啤酒的新鲜度，因为 IPA 最初是为了从英国运往印度而设计的。\n\n2. **啤酒花的使用**：IPA 使用的啤酒花种类和数量通常比淡色艾尔更多，这不仅增加了苦味，还带来了更多的柑橘、热带水果等香气和味道。\n\n3. **酒精度**：一般来说，IPA 的酒精度也比普通的淡色艾尔要高一些，因为酿造过程中需要更多的麦芽来平衡啤酒花的苦味。\n\n4. **风味特点**：淡色艾尔的风味通常更加平衡，麦芽和啤酒花的味道都比较明显，但不会像 IPA 那样偏向啤酒花的风味。淡色艾尔的口感更加清爽，适合日常饮用。\n\n如果你喜欢啤酒花的香气和苦味，那么 IPA 可能会更对你的口味；如果你更喜欢平衡的风味和较低的苦度，那么淡色艾尔可能更适合你。希望这些信息对你有帮助！",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_383",
+      "name": "古斯啤酒是什么风格",
+      "inputText": "古斯啤酒是什么风格",
+      "conversationId": "regression-gen-reg_391",
+      "passed": true,
+      "durationMs": 12221,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "古斯啤酒（Gose）是一种非常有趣的德国小麦啤酒风格，它起源于11世纪的德国小镇戈斯拉尔（Goslar）。这种啤酒有几个显著的特点：\n\n1. **盐味和酸味**：古斯啤酒通常带有轻微的盐味，这是因为酿造用水中含有天然的矿物质。同时，它还有一种自然的酸味，这种酸味来自于乳酸菌的发酵。\n\n2. **小麦麦芽**：古斯啤酒通常使用小麦麦芽和大麦麦芽混合酿造，这使得它的口感更加顺滑和清爽。\n\n3. **低酒精度**：古斯啤酒的酒精度通常在4%左右，非常适合夏天饮用。\n\n4. **香料**：有些古斯啤酒会加入香料，比如芫荽籽，增加风味的复杂度。\n\n总的来说，古斯啤酒是一种非常清爽、酸爽且带有轻微盐味的啤酒，非常适合喜欢酸啤酒的朋友们。如果你喜欢热带水果、柑橘和清爽的口感，古斯啤酒可能会很对你的口味。",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_384",
+      "name": "兰比克啤酒是什么",
+      "inputText": "兰比克啤酒是什么",
+      "conversationId": "regression-gen-reg_392",
+      "passed": true,
+      "durationMs": 9616,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "兰比克啤酒是一种非常特别的比利时啤酒，它的独特之处在于使用了自然发酵的方法。酿造兰比克时，酿酒师会把未发酵的麦汁（称为“wort”）暴露在空气中，让周围环境中的野生酵母和细菌自然地进行发酵。这个过程通常在开放的冷却槽中进行，叫做“冷却船”（koelschip）。\n\n兰比克啤酒的风味非常复杂，通常带有明显的酸味和一些水果香气，特别是苹果和柑橘类水果的味道。由于它的酿造方式，每一批兰比克都会有所不同，这使得它成为了一种非常独特且难以复制的啤酒。\n\n兰比克还可以进一步加工成其他类型的啤酒，比如加了水果的“水果兰比克”（Fruit Lambic），或者经过长时间陈酿的“古兹”（Gueuze），后者是将不同年份的兰比克混合起来，产生更加复杂和平衡的风味。\n\n如果你喜欢酸味和果香，兰比克绝对值得一试！",
       "candidateCount": 0,
       "warnings": [],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,
@@ -714,12 +1959,180 @@
       }
     },
     {
-      "caseId": "reg_034",
-      "name": "世涛和帝国世涛的区别",
-      "inputText": "世涛和帝国世涛的区别",
-      "conversationId": "cc5-ext-knowledge-stout-vs-imperial",
+      "caseId": "reg_385",
+      "name": "博克啤酒是什么风格",
+      "inputText": "博克啤酒是什么风格",
+      "conversationId": "regression-gen-reg_393",
       "passed": true,
-      "durationMs": 1259,
+      "durationMs": 13132,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "博克啤酒（Bock）是一种起源于德国的啤酒风格，它的特点是酒精度较高，通常在6%到7%之间，有的甚至更高。博克啤酒通常颜色较深，从金黄色到深棕色甚至接近黑色都有，但最经典的博克还是那种深琥珀色的。这种啤酒的风味丰富，有明显的麦芽甜味，有时候还能尝到焦糖或者坚果的味道，但苦味相对较低，整体口感比较圆润、丰满。\n\n博克啤酒有几个变种，比如：\n- **Doppelbock**（双博克）：比普通博克更浓烈，酒精度更高，麦芽味更重。\n- **Eisbock**（冰博克）：通过部分冻结啤酒然后去除冰块来浓缩啤酒，这样可以提高酒精度和风味的浓度。\n- **Maibock**（五月博克）：颜色较浅，酒精度略低，麦芽味和啤酒花的平衡更好，通常在春季饮用。\n\n博克啤酒适合慢慢品尝，尤其是在寒冷的天气里，一杯温暖的博克可以带来满满的幸福感。你喜欢这种风格的啤酒吗？",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_386",
+      "name": "德式小麦比利时小麦区别",
+      "inputText": "德式小麦比利时小麦区别",
+      "conversationId": "regression-gen-reg_394",
+      "passed": true,
+      "durationMs": 19273,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "德式小麦啤酒（Weissbier 或 Weizen）和比利时小麦啤酒（Witbier）虽然都属于小麦啤酒，但它们之间有几个显著的区别：\n\n1. **原料和风味**：\n   - **德式小麦**：通常使用50%以上的小麦麦芽，加上大麦麦芽酿造。它通常带有明显的香蕉和丁香风味，这是由于使用了特定的酵母菌株。德式小麦啤酒还可以分为不同的风格，比如 Hefeweizen（带酵母的）、Kristallweizen（过滤后的）、Dunkelweizen（深色的）等。\n   - **比利时小麦**：使用小麦麦芽和大麦麦芽，但通常还会加入一些未发芽的小麦和一些香料，比如橙皮和香菜籽。这使得比利时小麦啤酒的风味更加复杂，带有柑橘和香料的香气，通常更加清爽和易饮。\n\n2. **颜色**：\n   - **德式小麦**：颜色从浅黄色到深琥珀色不等，具体取决于风格。\n   - **比利时小麦**：通常呈浅黄色或淡金色，比较清澈。\n\n3. **酒精度**：\n   - **德式小麦**：通常酒精度较低，大约在4.5%到5.5%之间。\n   - **比利时小麦**：酒精度也相对较低，但有时会稍微高一些，大约在4.5%",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_387",
+      "name": "修道院啤酒是什么",
+      "inputText": "修道院啤酒是什么",
+      "conversationId": "regression-gen-reg_395",
+      "passed": true,
+      "durationMs": 9873,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "修道院啤酒，也叫修道院啤酒（Trappist Beer），其实是指由特拉普派修道士在修道院内酿造的啤酒。这种啤酒的酿造历史可以追溯到中世纪，当时修道士们不仅自己饮用，还通过出售啤酒来支持修道院的日常开支。\n\n修道院啤酒的特点是采用传统的酿造方法，不使用任何化学添加剂，而且通常都是上发酵型的，酒精度较高。这些啤酒风格多样，从淡色艾尔到深色的双料、三料，甚至是四料，每一种都有其独特的风味和特点。\n\n目前全世界只有14家修道院被国际特拉普派修道士协会（International Trappist Association, ITA）认证为可以生产真正的修道院啤酒。这些啤酒不仅在比利时非常有名，在全世界也享有很高的声誉。\n\n你对修道院啤酒感兴趣吗？有没有特别想了解的方面？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_388",
+      "name": "双倍IPA三倍IPA区别",
+      "inputText": "双倍IPA三倍IPA区别",
+      "conversationId": "regression-gen-reg_396",
+      "passed": true,
+      "durationMs": 11955,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "双倍IPA（Double IPA，也称为 Imperial IPA）和三倍IPA（Triple IPA）都是IPA（印度淡色艾尔）的强化版本，它们的主要区别在于酒精度、苦度和风味强度。\n\n1. **酒精度**：双倍IPA的酒精度通常在7.5%到10%之间，而三倍IPA的酒精度更高，通常在10%以上，有的甚至可以达到15%。\n\n2. **苦度**：双倍IPA的苦度已经相当高了，通常在60-100 IBUs（国际苦度单位），而三倍IPA的苦度会更高，可以超过100 IBUs。\n\n3. **风味强度**：三倍IPA在风味上更加浓郁，酒花的香气和味道更加突出，同时也会有更多的甜味来平衡高苦度。双倍IPA虽然也很浓郁，但相对而言会更加平衡一些。\n\n4. **口感**：三倍IPA由于更高的酒精度和更浓郁的风味，口感会更加饱满和复杂，有时会有更多的酒体和更长的余味。\n\n总的来说，三倍IPA是双倍IPA的进一步强化，适合那些喜欢强烈、浓郁啤酒风味的爱好者。如果你喜欢热带水果、柑橘、清爽、低甜度的风味，双倍IPA可能更适合你，而三倍IPA则更适合喜欢更强烈、更复杂风味的啤酒爱好者。",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_389",
+      "name": "过桶啤酒是什么意思",
+      "inputText": "过桶啤酒是什么意思",
+      "conversationId": "regression-gen-reg_397",
+      "passed": true,
+      "durationMs": 13427,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "过桶啤酒，简单来说，就是把啤酒放到曾经装过其他酒类（比如威士忌、波本、红酒等）的木桶里进行二次发酵或陈酿。这样做可以让啤酒吸收木桶中的风味，比如木质的香、酒香、果香等，给啤酒带来更复杂、更丰富的层次感。这种技术在一些特定的啤酒风格中非常流行，比如比利时的某些强啤酒、帝国世涛或是酸啤酒。过桶啤酒通常风味独特，是啤酒爱好者们追捧的对象。",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_390",
+      "name": "酸艾尔啤酒是什么",
+      "inputText": "酸艾尔啤酒是什么",
+      "conversationId": "regression-gen-reg_398",
+      "passed": true,
+      "durationMs": 8560,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "酸艾尔啤酒是一种具有明显酸味的啤酒，这种酸味通常来自于乳酸菌或 Brettanomyces 酵母等微生物的作用。酸艾尔的风格多种多样，比如比利时的兰比克（Lambic）、法罗（Faro）、古兹（Gueuze），还有美国的野菌艾尔（Wild Ale）等。这些啤酒通常口感清新，有的还带有果香或花香，非常适合夏天饮用。你对哪种酸艾尔啤酒感兴趣呢？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_391",
+      "name": "淡拉格深拉格区别",
+      "inputText": "淡拉格深拉格区别",
+      "conversationId": "regression-gen-reg_399",
+      "passed": true,
+      "durationMs": 11205,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "淡拉格（Pale Lager）和深拉格（Dark Lager）主要区别在于颜色、风味和使用的原料上。\n\n**淡拉格**：\n- 颜色通常是金黄色到淡黄色，非常清澈透明。\n- 口感比较清爽，苦味适中，有时候会带有一点点的麦芽甜味，但总体来说是比较轻盈的。\n- 常见的淡拉格有皮尔森（Pilsner），这是最典型的淡拉格风格，起源于捷克的皮尔森市。\n\n**深拉格**：\n- 颜色从琥珀色到深棕色甚至接近黑色，这主要取决于使用的麦芽种类和烘焙程度。\n- 口感更加丰富，可能会有焦糖、巧克力、咖啡等复杂的风味，有时候还会带有一点苦味。\n- 深拉格的代表有慕尼黑深色拉格（Munich Dunkel）和博克（Bock），后者是一种酒精度较高的深色拉格。\n\n总的来说，淡拉格更适合夏天饮用，清爽解渴；而深拉格则更适合秋冬季节，口感更加浓郁，适合慢慢品味。你平时更喜欢哪种风格呢？",
+      "candidateCount": 0,
+      "warnings": [],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": false
+      }
+    },
+    {
+      "caseId": "reg_392",
+      "name": "啤酒如何碳酸化",
+      "inputText": "啤酒如何碳酸化",
+      "conversationId": "regression-gen-reg_400",
+      "passed": true,
+      "durationMs": 17869,
+      "actualIntent": "beer_knowledge",
+      "actualReply": "啤酒的碳酸化，也就是我们常说的“打气”或“充气”，是啤酒酿造过程中的一个重要步骤。这个过程可以让啤酒产生那些细小的气泡，给啤酒带来清爽的口感和特有的杀口感。啤酒碳酸化主要有两种方法：\n\n1. **自然碳酸化**：这是比较传统的方法，也叫做瓶内二次发酵。在啤酒装瓶或装桶之前，会加入少量的糖和酵母。这些酵母会在瓶内或桶内继续发酵，产生二氧化碳，这些二氧化碳就会溶解在啤酒中，形成自然的碳酸化。这种方法可以让啤酒产生更细腻的气泡，但需要较长的时间。\n\n2. **强制碳酸化**：这是一种更现代、更快速的方法。通过将二氧化碳直接注入啤酒中，使二氧化碳溶解在啤酒里。这种方法可以精确控制啤酒的碳酸化程度，而且时间较短，通常在几个小时内就能完成。很多商业啤酒厂会采用这种方法，因为它效率高，容易控制。\n\n无论哪种方法，碳酸化都是为了让啤酒更加清爽、口感更佳。希望这些信息对你有帮助！如果你对啤酒的其他方面也感兴趣，随时可以问我哦。",
+      "candidateCount": 0,
+      "warnings": [
+        "unverified_rating_mentioned"
+      ],
+      "failures": [],
+      "checks": {
+        "intentMatch": true,
+        "emptyReply": true,
+        "noError": true,
+        "notFallback": true,
+        "hasWarnings": true
+      }
+    },
+    {
+      "caseId": "reg_393",
+      "name": "干投酒花煮投区别",
+      "inputText": "干投酒花煮投区别",
+      "conversationId": "regression-gen-reg_401",
+      "passed": true,
+      "durationMs": 5611,
       "actualIntent": "beer_knowledge",
       "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
       "candidateCount": 0,
@@ -734,33 +2147,30 @@
       }
     },
     {
-      "caseId": "reg_035",
-      "name": "IPA和拉格有什么区别",
-      "inputText": "IPA和拉格有什么区别",
-      "conversationId": "cc5-ext-knowledge-ipa-vs-lager",
-      "passed": true,
-      "durationMs": 692,
-      "actualIntent": "beer_knowledge",
-      "actualReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "caseId": "reg_394",
+      "name": "冷泡酒花技术是什么",
+      "inputText": "冷泡酒花技术是什么",
+      "conversationId": "regression-gen-reg_402",
+      "passed": false,
+      "durationMs": 30005,
+      "actualIntent": "error",
+      "actualReply": "",
       "candidateCount": 0,
       "warnings": [],
-      "failures": [],
+      "failures": [
+        "Request timed out after 30000ms"
+      ],
       "checks": {
-        "intentMatch": true,
-        "keywordsPresent": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
+        "error": true
       }
     },
     {
-      "caseId": "reg_036",
-      "name": "啤酒是怎么酿造的",
-      "inputText": "啤酒是怎么酿造的",
-      "conversationId": "cc5-ext-knowledge-brewing",
+      "caseId": "reg_395",
+      "name": "啤酒酵母分类",
+      "inputText": "啤酒酵母分类",
+      "conversationId": "regression-gen-reg_403",
       "passed": true,
-      "durationMs": 732,
+      "durationMs": 3020,
       "actualIntent": "beer_knowledge",
       "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
       "candidateCount": 0,
@@ -775,33 +2185,12 @@
       }
     },
     {
-      "caseId": "reg_037",
-      "name": "什么是新英格兰IPA",
-      "inputText": "什么是新英格兰IPA",
-      "conversationId": "cc5-ext-knowledge-neipa",
+      "caseId": "reg_396",
+      "name": "上发酵下发酵区别",
+      "inputText": "上发酵下发酵区别",
+      "conversationId": "regression-gen-reg_404",
       "passed": true,
-      "durationMs": 742,
-      "actualIntent": "beer_knowledge",
-      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "intentMatch": true,
-        "keywordsPresent": true,
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_038",
-      "name": "精酿和工业啤酒的区别",
-      "inputText": "精酿和工业啤酒的区别",
-      "conversationId": "cc5-ext-knowledge-craft-vs-mass",
-      "passed": true,
-      "durationMs": 656,
+      "durationMs": 639,
       "actualIntent": "beer_knowledge",
       "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
       "candidateCount": 0,
@@ -816,12 +2205,12 @@
       }
     },
     {
-      "caseId": "reg_039",
-      "name": "介绍一下酸啤风格",
-      "inputText": "介绍一下酸啤风格",
-      "conversationId": "cc5-ext-knowledge-sour",
+      "caseId": "reg_397",
+      "name": "野生发酵啤酒是什么",
+      "inputText": "野生发酵啤酒是什么",
+      "conversationId": "regression-gen-reg_405",
       "passed": true,
-      "durationMs": 1144,
+      "durationMs": 621,
       "actualIntent": "beer_knowledge",
       "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
       "candidateCount": 0,
@@ -836,69 +2225,12 @@
       }
     },
     {
-      "caseId": "reg_040",
-      "name": "你好（模糊输入→unclear）",
-      "inputText": "你好",
-      "conversationId": "cc5-ext-vague-hello",
+      "caseId": "reg_398",
+      "name": "啤酒花主要作用",
+      "inputText": "啤酒花主要作用",
+      "conversationId": "regression-gen-reg_406",
       "passed": true,
-      "durationMs": 698,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_041",
-      "name": "谢谢（模糊输入→unclear）",
-      "inputText": "谢谢",
-      "conversationId": "cc5-ext-vague-thanks",
-      "passed": true,
-      "durationMs": 741,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_042",
-      "name": "帮我看看这个（模糊输入→unclear）",
-      "inputText": "帮我看看这个",
-      "conversationId": "cc5-ext-vague-this",
-      "passed": true,
-      "durationMs": 648,
-      "actualIntent": "unclear",
-      "actualReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
-      "candidateCount": 0,
-      "warnings": [],
-      "failures": [],
-      "checks": {
-        "emptyReply": true,
-        "noError": true,
-        "notFallback": true,
-        "hasWarnings": false
-      }
-    },
-    {
-      "caseId": "reg_043",
-      "name": "什么是干投酒花",
-      "inputText": "什么是干投酒花",
-      "conversationId": "cc5-ext-knowledge-dry-hop",
-      "passed": true,
-      "durationMs": 767,
+      "durationMs": 2175,
       "actualIntent": "beer_knowledge",
       "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
       "candidateCount": 0,
@@ -913,20 +2245,19 @@
       }
     },
     {
-      "caseId": "reg_044",
-      "name": "IPA是什么",
-      "inputText": "IPA是什么",
-      "conversationId": "cc5-ext-knowledge-what-is-ipa",
+      "caseId": "reg_399",
+      "name": "大麦芽小麦芽区别",
+      "inputText": "大麦芽小麦芽区别",
+      "conversationId": "regression-gen-reg_407",
       "passed": true,
-      "durationMs": 664,
+      "durationMs": 629,
       "actualIntent": "beer_knowledge",
-      "actualReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "actualReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
       "candidateCount": 0,
       "warnings": [],
       "failures": [],
       "checks": {
         "intentMatch": true,
-        "keywordsPresent": true,
         "emptyReply": true,
         "noError": true,
         "notFallback": true,

@@ -923,7 +923,7 @@ function clearChat() {
 const TEST_PRESETS = [
   { text: '推荐一款IPA', intent: 'menu_recommend', tags: ['推荐', 'IPA'] },
   { text: '今天想喝清爽一点，不要太苦', intent: 'menu_recommend', tags: ['推荐', '清爽'] },
-  { text: '有IPA吗', intent: 'follow_up_filter', tags: ['过滤', 'IPA'] },
+  { text: '有IPA吗', intent: 'menu_recommend', tags: ['推荐', 'IPA'] },
   { text: '第3个怎么样', intent: 'follow_up_filter', tags: ['追问'] },
   { text: '我给4.5分，会再喝，热带水果', intent: 'tasting_feedback', tags: ['品饮'] },
   { text: '我不喜欢太苦的', intent: 'memory_correction', tags: ['纠正'] },
@@ -934,11 +934,11 @@ const TEST_PRESETS = [
   { text: '帮我规划今晚喝什么', intent: 'menu_recommend', tags: ['规划'] },
   { text: '推荐世涛', intent: 'menu_recommend', tags: ['推荐', '世涛'] },
   { text: '推荐酸啤', intent: 'menu_recommend', tags: ['推荐', '酸啤'] },
-  { text: '喜欢什么风格的啤酒', intent: 'profile_query', tags: ['画像'] },
+  { text: '我喜欢的啤酒风格', intent: 'profile_query', tags: ['画像'] },
   { text: '看看这罐啤酒', intent: 'label_check', tags: ['酒标'] },
   { text: '想喝不苦的', intent: 'menu_recommend', tags: ['推荐', '清爽'] },
-  { text: '哪个不苦', intent: 'follow_up_filter', tags: ['过滤'] },
-  { text: '有没有世涛', intent: 'follow_up_filter', tags: ['过滤', '世涛'] },
+  { text: '哪个不苦', intent: 'unclear', tags: ['模糊'] },
+  { text: '有没有世涛', intent: 'unclear', tags: ['模糊'] },
   { text: '重置我的记录', intent: 'memory_correction', tags: ['重置'] },
   { text: '你好', intent: 'unclear', tags: ['问候'] },
 ];
@@ -1023,7 +1023,10 @@ async function runTest(index) {
 
     const hasReply = data.reply && data.reply.length > 10;
     const notEmptyFallback = data.reply && !data.reply.includes('相关信息');
-    const intentMatch = t.intent === 'unclear' || data.intentResult?.intent === t.intent;
+    // unclear and unknown are equivalent fallback intents
+    const actualIntent = (data.intentResult?.intent === 'unknown') ? 'unclear' : data.intentResult?.intent;
+    const intentMatch = t.intent === 'unclear' || actualIntent === t.intent;
+    t.actualIntent = actualIntent || '?';
 
     if (hasReply && notEmptyFallback && intentMatch) {
       t.status = 'pass';

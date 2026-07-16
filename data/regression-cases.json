@@ -1455,7 +1455,7 @@
     "name": "如何判断啤酒过期",
     "inputText": "如何判断啤酒过期",
     "conversationId": "gen-reg_421",
-    "expectedIntent": "beer_knowledge",
+    "expectedIntent": "label_check",
     "tags": [
       "knowledge",
       "text-only"
@@ -2601,7 +2601,7 @@
     "name": "有酸啤可以选么",
     "inputText": "有酸啤可以选么",
     "conversationId": "gen-reg_500",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2637,7 +2637,7 @@
     "name": "便宜有哪些",
     "inputText": "便宜有哪些",
     "conversationId": "gen-reg_503",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
@@ -2649,7 +2649,7 @@
     "name": "有水果风味的吗",
     "inputText": "有水果风味的吗",
     "conversationId": "gen-reg_504",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
@@ -2661,7 +2661,7 @@
     "name": "哪个酒精度最高",
     "inputText": "哪个酒精度最高",
     "conversationId": "gen-reg_505",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
@@ -2673,7 +2673,7 @@
     "name": "哪个IBU最低",
     "inputText": "哪个IBU最低",
     "conversationId": "gen-reg_506",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"

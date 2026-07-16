@@ -122,9 +122,9 @@
       "note": "Chinese beer name → menu_recommend"
     },
     {
-      "regex": "开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|品饮|品鉴|喝了一口|回味|评分",
+      "regex": "开了一瓶|开了一罐|喝了|尝了|这瓶.*不错|给.*分.*会再喝|喝了一口|回味|评分",
       "intent": "tasting_feedback",
-      "note": "Tasting description → tasting_feedback"
+      "note": "Tasting description → tasting_feedback (removed 品饮/品鉴 to avoid knowledge matches)"
     },
     {
       "regex": "上次我说|之前我说|纠正|更正|我其实|但不是|清空|清除|重置|清空.*记忆",
@@ -159,7 +159,7 @@
     "intent_classify": {
       "id": "intent_classify",
       "name": "意图分类提示词",
-      "content": "你是 Beer Lens 意图识别器。只输出 JSON。\n\n用户输入：{text}\n有图片：{hasImage}\n有上一轮酒单：{hasLastMenuCandidates}\n\n意图类型：menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | follow_up_filter | unclear\n\n选择规则（严格按优先级判断）：\n1. label_check：用户问日期/过期/酒标信息，或上传单瓶照片\n2. menu_recommend：用户请求推荐啤酒、选酒、描述想喝什么风格\n3. tasting_feedback：用户给评分(1-5分)、说是否再喝、描述风味\n4. follow_up_filter：有酒单时追问筛选（哪个好喝、有没有IPA），没有酒单时不要选\n5. profile_query：用户问自己的口味、偏好、品饮记录\n6. memory_correction：用户纠正之前的记忆或推荐\n7. beer_knowledge：用户问啤酒专业知识（风格定义、酿造工艺、历史），且不是推荐/反馈/纠正/偏好/画像\n8. unclear：非常短的输入、问候、感谢、单字/语气词，或以上都不匹配\n\n注意：\n- 不要混淆 profile_query 和 beer_knowledge。带"适合""我喜欢""偏好""口味""画像"的 → profile_query\n- 不要混淆 follow_up_filter 和 beer_knowledge。带"有没有""可以选""哪款好"且无酒单时 → unclear\n- 不要把推荐、评分反馈、记忆纠正、意图不明误判为 beer_knowledge\n- 如果不确定，优先选 unclear，不要强行匹配\n\n返回：\n{\"intents\":[{\"intent\":\"unclear\",\"confidence\":0.5}],\"primary\":\"unclear\",\"slots\":{},\"missingInfo\":[],\"routeReason\":\"LLM classification\",\"source\":\"llm\",\"isMultiIntent\":false}",
+      "content": "你是 Beer Lens 意图识别器。只输出 JSON。\\n\\n用户输入：{text}\\n有图片：{hasImage}\\n有上一轮酒单：{hasLastMenuCandidates}\\n\\n意图类型：menu_recommend | tasting_feedback | profile_query | beer_knowledge | label_check | memory_correction | follow_up_filter | unclear\\n\\n选择规则（严格按优先级判断）：\\n1. label_check：用户问日期/过期/酒标信息\\n2. menu_recommend：推荐啤酒。重要：输入含推荐二字的一律是 menu_recommend，绝不要 beer_knowledge。包括：推荐X、X推荐、类似X的推荐、给我推荐\\n3. tasting_feedback：评分(1-5分)、是否再喝\\n4. follow_up_filter：有酒单时追问筛选\\n5. profile_query：口味偏好画像查询\\n6. memory_correction：纠正记忆\\n7. beer_knowledge：啤酒专业知识。含推荐二字时绝不能选\\n8. unclear：以上都不匹配\\n\\n注意：不确定就选unclear\\n\\n返回：\\n{\\\"intents\\\":[{\\\"intent\\\":\\\"unclear\\\",\\\"confidence\\\":0.5}],\\\"primary\\\":\\\"unclear\\\",\\\"slots\\\":{},\\\"missingInfo\\\":[],\\\"routeReason\\\":\\\"LLM classification\\\",\\\"source\\\":\\\"llm\\\",\\\"isMultiIntent\\\":false}",
       "version": 1,
       "updatedAt": "2026-07-06T00:00:00.000Z",
       "note": "初始版本 - LLM intent fallback prompt"

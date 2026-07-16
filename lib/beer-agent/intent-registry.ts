@@ -183,7 +183,7 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
       },
       {
         id: "menu_text_recommend",
-        pattern: "推荐.*啤酒|推荐.*IPA|推荐.*拉格|推荐.*世涛|推荐.*酸啤|推荐.*小麦|推荐.*波特|推荐.*皮尔森|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款",
+        pattern: "推荐.*啤酒|推荐.*IPA|推荐.*拉格|推荐.*世涛|推荐.*酸啤|推荐.*小麦|推荐.*波特|推荐.*皮尔森|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款|推荐.*什么|什么.*推荐|值得.*喝|值得.*推荐",
         type: "positive",
         confidence: 0.90,
         requiresImage: false,
@@ -237,6 +237,87 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         confidence: 0,
         requiresImage: false,
       },
+      // ── 通用推荐匹配 — 以"推荐"开头的都是推荐意图 ──
+      {
+        id: "menu_recommend_start",
+        pattern: "^推荐",
+        type: "positive",
+        confidence: 0.85,
+        requiresImage: false,
+      },
+      // ── "类似X的推荐" / "像X的风格推荐" / "X同款推荐" / "X类似酒" ──
+      {
+        id: "menu_recommend_similar",
+        pattern: "类似.*推荐|像.*推荐|同款.*推荐|类似酒",
+        type: "positive",
+        confidence: 0.82,
+        requiresImage: false,
+      },
+      // ── "X推荐" 后缀模式（如"夏天清爽啤酒推荐""火锅配精酿推荐"）──
+      {
+        id: "menu_recommend_suffix",
+        pattern: ".{2,}推荐$",
+        type: "positive",
+        confidence: 0.82,
+        requiresImage: false,
+      },
+      // ── "X级别Y推荐" 模式 ──
+      {
+        id: "menu_recommend_level",
+        pattern: "级别.*推荐",
+        type: "positive",
+        confidence: 0.80,
+        requiresImage: false,
+      },
+      // ── 可用性追问："有X可以选吗" / "可以选X吗" ──
+      {
+        id: "menu_availability_question",
+        pattern: "有.*可以选|可以选.{1,6}吗",
+        type: "positive",
+        confidence: 0.80,
+        requiresImage: false,
+      },
+      // ── "帮我看酒单" / "帮我看看酒单" ──
+      {
+        id: "menu_help_menu",
+        pattern: "帮我看.*酒单|帮我.*看酒单|看看.*酒单|看下.*酒单",
+        type: "positive",
+        confidence: 0.88,
+        requiresImage: false,
+      },
+      // ── "给我推荐X" "给我挑X" "给我选X" ──
+      {
+        id: "menu_give_me",
+        pattern: "给我推荐|给我挑|给我选|给我来",
+        type: "positive",
+        confidence: 0.85,
+        requiresImage: false,
+      },
+      // ── "X酒厂推荐Y" / "X酒厂喝什么" / "X酒厂有什么好酒" ──
+      // Only match when there's a recommendation signal alongside the brewery name
+      {
+        id: "menu_brewery_recommend",
+        pattern: "(高大师|拳击猫|酿酒狗|京A|牛啤堂|拾捌|18号|大跃|悠航).{0,6}(推荐|喝什么|有什么|选哪|哪款|什么酒|怎么样|值得)",
+        type: "positive",
+        confidence: 0.89,
+        requiresImage: false,
+      },
+      // ── "推荐X酒厂" pattern ──
+      {
+        id: "menu_brewery_recommend_reverse",
+        pattern: "(推荐|帮我.*选|帮我.*挑).{0,4}(高大师|拳击猫|酿酒狗|京A|牛啤堂|拾捌|18号|大跃|悠航)",
+        type: "positive",
+        confidence: 0.85,
+        requiresImage: false,
+      },
+      // ── "有没有X推荐Y吗" 模式（如"有好喝精酿推荐吗"）──
+      {
+        id: "menu_has_recommend",
+        pattern: "有没有.*推荐|有好.*推荐|有.*推荐.*吗|你推荐",
+        type: "positive",
+        confidence: 0.82,
+        requiresImage: false,
+      },
     ],
     samples: [
       { text: "推荐一款IPA", weight: 0.85, expectedIntent: "menu_recommend", note: "纯文字推荐" },
@@ -278,6 +359,14 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
       {
         id: "label_not_pure_menu",
         pattern: "^(酒单|推荐|帮我.*选|帮我.*挑|喝什么).{0,15}$",
+        type: "negative",
+        confidence: 0,
+        requiresImage: false,
+      },
+      // Negative: when "推荐" is present alongside "什么酒" — this is a recommendation, not a label check
+      {
+        id: "label_not_recommend_context",
+        pattern: "推荐.*什么酒|推荐.*哪款|推荐.*哪个|推荐.*啤酒|什么酒.*推荐",
         type: "negative",
         confidence: 0,
         requiresImage: false,

@@ -166,6 +166,30 @@ export async function classifyIntent(
     const llmResult = await llmClassify(text, context);
     // Merge diagnosis from registry into LLM result
     llmResult.diagnosis = result.diagnosis;
+
+    // ── Guard: don't let LLM overrule rules-phase exclusions ──
+    // When rules explicitly excluded an intent (negative rules, context conditions),
+    // the LLM may still pick it because it doesn't see the rules engine's reasoning.
+    // The rules engine knows better which intents should NOT match.
+    const excludedIntents = new Set<string>();
+    if (result.diagnosis) {
+      for (const nrh of result.diagnosis.negativeRulesHit) {
+        excludedIntents.add(nrh.intentId);
+      }
+      for (const cs of result.diagnosis.candidateScores) {
+        if (cs.source === "excluded") excludedIntents.add(cs.intentId);
+      }
+    }
+
+    if (excludedIntents.has(llmResult.intent)) {
+      // LLM chose an intent that rules said shouldn't match — override to unclear
+      llmResult.intent = "unclear";
+      llmResult.confidence = 0.3;
+      llmResult.intents = [{ intent: "unclear", confidence: 0.3, slots: {} }];
+      llmResult.routeReason = `LLM chose excluded intent, forcing unclear. Excluded: ${[...excludedIntents].join(", ")}`;
+      llmResult.source = "fallback";
+    }
+
     return llmResult;
   }
 

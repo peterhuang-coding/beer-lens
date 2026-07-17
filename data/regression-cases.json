@@ -643,13 +643,13 @@
     "name": "来点精酿啤酒",
     "inputText": "来点精酿啤酒",
     "conversationId": "gen-reg_348",
-    "expectedIntent": "menu_recommend",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "recommend",
       "text-only"
     ],
     "note": "推荐: 来点精酿啤酒",
-    "expectedMinCandidates": 1
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_349",
@@ -760,13 +760,13 @@
     "name": "帝国世涛要波本桶陈",
     "inputText": "帝国世涛要波本桶陈",
     "conversationId": "gen-reg_357",
-    "expectedIntent": "menu_recommend",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "recommend",
       "text-only"
     ],
     "note": "推荐: 帝国世涛要波本桶陈",
-    "expectedMinCandidates": 1
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_358",

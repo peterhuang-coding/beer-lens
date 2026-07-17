@@ -33,7 +33,8 @@ if (args.help) {
 const BASE_URL = args.url ?? "http://localhost:3000/api/agent";
 const CASES_FILE = args.cases ?? path.join(root, "data", "regression-cases.json");
 const WRITE_BADCASES = args.writeBadcases !== false; // default true
-const CONV_PREFIX = args.conversationPrefix ?? "regression";
+const RUN_ID = Date.now().toString(36);
+const CONV_PREFIX = args.conversationPrefix ?? `reg-${RUN_ID}`;
 const USER_ID = args.userId ?? "regression-user";
 const TIMEOUT_MS = args.timeoutMs ?? 30000;
 const TAG_FILTER = args.tag ?? null;

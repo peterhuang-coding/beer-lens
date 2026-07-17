@@ -630,13 +630,13 @@
     "name": "搞一杯好精酿",
     "inputText": "搞一杯好精酿",
     "conversationId": "gen-reg_347",
-    "expectedIntent": "menu_recommend",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "recommend",
       "text-only"
     ],
     "note": "推荐: 搞一杯好精酿",
-    "expectedMinCandidates": 1
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_348",

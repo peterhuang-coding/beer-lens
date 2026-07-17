@@ -414,5 +414,1668 @@
       "contextTags": [],
       "note": "会再喝，苦度刚好"
     }
+  },
+  {
+    "id": "ep_1784129725651_7c5g1r",
+    "userId": "regression-user",
+    "createdAt": "2026-07-15T15:35:25.651Z",
+    "sourceTraceId": "trace_1784129725643_9urjzs",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "IPA品鉴方法"
+    }
+  },
+  {
+    "id": "ep_1784218671794_5diiu3",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:17:51.794Z",
+    "sourceTraceId": "trace_1784218671790_0qs9cb",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "IPA品鉴方法"
+    }
+  },
+  {
+    "id": "ep_1784218917045_k71e80",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:21:57.045Z",
+    "sourceTraceId": "trace_1784218917041_h90d93",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4.5分会再喝热带水果味"
+    }
+  },
+  {
+    "id": "ep_1784218917564_ianeci",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:21:57.564Z",
+    "sourceTraceId": "trace_1784218917561_l0t321",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "no",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "3分不会再喝太苦了"
+    }
+  },
+  {
+    "id": "ep_1784218918082_z8ebzi",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:21:58.082Z",
+    "sourceTraceId": "trace_1784218918078_ntxspl",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "柑橘",
+        "焦糖"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "5分满分再喝柑橘焦糖"
+    }
+  },
+  {
+    "id": "ep_1784218918596_oed9qx",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:21:58.596Z",
+    "sourceTraceId": "trace_1784218918592_k1gn31",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 1,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "1分太难喝不碰了"
+    }
+  },
+  {
+    "id": "ep_1784218919111_ggl7ji",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:21:59.111Z",
+    "sourceTraceId": "trace_1784218919108_fpuht9",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "2.5分一般般看情况吧"
+    }
+  },
+  {
+    "id": "ep_1784218919625_hoknea",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:21:59.625Z",
+    "sourceTraceId": "trace_1784218919622_4kwzo9",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "咖啡"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分会再喝咖啡巧克力"
+    }
+  },
+  {
+    "id": "ep_1784218920140_sigt4o",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:00.140Z",
+    "sourceTraceId": "trace_1784218920136_8f97i9",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "花香"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "3.5分会再喝花香突出"
+    }
+  },
+  {
+    "id": "ep_1784218920657_64zf1t",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:00.657Z",
+    "sourceTraceId": "trace_1784218920654_8ef565",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "酸"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分看情况偏酸了点"
+    }
+  },
+  {
+    "id": "ep_1784218921179_v6cgql",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:01.179Z",
+    "sourceTraceId": "trace_1784218921175_j576fw",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "no",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "2分不会再喝味道怪"
+    }
+  },
+  {
+    "id": "ep_1784218921697_qiho5l",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:01.697Z",
+    "sourceTraceId": "trace_1784218921693_xxqxlt",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.8,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4.8分会再喝完美一杯"
+    }
+  },
+  {
+    "id": "ep_1784218922217_kpbt5v",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:02.217Z",
+    "sourceTraceId": "trace_1784218922213_hpoxf3",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Pliny给4.5分再喝"
+    }
+  },
+  {
+    "id": "ep_1784218922736_9ffu2m",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:02.736Z",
+    "sourceTraceId": "trace_1784218922732_1fix58",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Heady Topper给4分花棒"
+    }
+  },
+  {
+    "id": "ep_1784218923252_ovnf15",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:03.252Z",
+    "sourceTraceId": "trace_1784218923249_3gd2cm",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Parabola14.1给4.5分"
+    }
+  },
+  {
+    "id": "ep_1784218923765_e9dtz0",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:03.765Z",
+    "sourceTraceId": "trace_1784218923763_wdmjbj",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "King Sue3分还行"
+    }
+  },
+  {
+    "id": "ep_1784218924283_ats407",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:04.283Z",
+    "sourceTraceId": "trace_1784218924280_n18lve",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "BCBS2023版5分完美"
+    }
+  },
+  {
+    "id": "ep_1784218927350_f5n16b",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:07.350Z",
+    "sourceTraceId": "trace_1784218927346_cqj7eo",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Rodenbach不错4分樱桃"
+    }
+  },
+  {
+    "id": "ep_1784218927867_oi1bj8",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:07.867Z",
+    "sourceTraceId": "trace_1784218927864_hxf75c",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Tripel Karmeliet4分再喝"
+    }
+  },
+  {
+    "id": "ep_1784218928384_oq9j9d",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:08.384Z",
+    "sourceTraceId": "trace_1784218928381_21qnw5",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Westvleteren125分名不虚传"
+    }
+  },
+  {
+    "id": "ep_1784218930960_pdz0ce",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:10.960Z",
+    "sourceTraceId": "trace_1784218930957_6rnbt8",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "10分太好喝了这瓶"
+    }
+  },
+  {
+    "id": "ep_1784218931473_7ztvf6",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:11.473Z",
+    "sourceTraceId": "trace_1784218931470_osbmit",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "5分满分好评"
+    }
+  },
+  {
+    "id": "ep_1784218931992_ad1kz5",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:11.992Z",
+    "sourceTraceId": "trace_1784218931988_iyzc5h",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "会再喝这杯酒不错"
+    }
+  },
+  {
+    "id": "ep_1784218932507_rkj6j0",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:12.507Z",
+    "sourceTraceId": "trace_1784218932503_s58ox2",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "no",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "不会再喝太水了"
+    }
+  },
+  {
+    "id": "ep_1784218933029_6bgced",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:13.029Z",
+    "sourceTraceId": "trace_1784218933026_wvzgk3",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "评个分4分吧"
+    }
+  },
+  {
+    "id": "ep_1784218933548_dje7qk",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:13.548Z",
+    "sourceTraceId": "trace_1784218933545_ar447g",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "这杯必须5分满分"
+    }
+  },
+  {
+    "id": "ep_1784218935591_sc1xmz",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:15.591Z",
+    "sourceTraceId": "trace_1784218934061_3efff4",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "打分3.5总体不错"
+    }
+  },
+  {
+    "id": "ep_1784218936105_eaniek",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:16.105Z",
+    "sourceTraceId": "trace_1784218936102_tfuwl1",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "太难喝给2分"
+    }
+  },
+  {
+    "id": "ep_1784218936623_xcb2x8",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:16.623Z",
+    "sourceTraceId": "trace_1784218936620_6hhx4i",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "这杯好喝给4分"
+    }
+  },
+  {
+    "id": "ep_1784218937143_m41oss",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:17.143Z",
+    "sourceTraceId": "trace_1784218937139_v4au4m",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "上次那瓶4.5还会再喝"
+    }
+  },
+  {
+    "id": "ep_1784218937660_macche",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:17.660Z",
+    "sourceTraceId": "trace_1784218937656_u9tyfs",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "刚喝完给评价4分"
+    }
+  },
+  {
+    "id": "ep_1784218938177_lm34pd",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:18.177Z",
+    "sourceTraceId": "trace_1784218938174_r9r0hv",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天新酒3分一般"
+    }
+  },
+  {
+    "id": "ep_1784218938693_0m01bb",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:18.693Z",
+    "sourceTraceId": "trace_1784218938690_yyimnh",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "记录一下4分再喝"
+    }
+  },
+  {
+    "id": "ep_1784218939210_h55fw3",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:19.210Z",
+    "sourceTraceId": "trace_1784218939208_weuq47",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "柑橘"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "品鉴柑橘浓郁4分"
+    }
+  },
+  {
+    "id": "ep_1784218941347_q865q3",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:21.347Z",
+    "sourceTraceId": "trace_1784218939723_gtzius",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Rochefort104.5太好喝"
+    }
+  },
+  {
+    "id": "ep_1784218941862_g84mij",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:21.862Z",
+    "sourceTraceId": "trace_1784218941859_px3rrg",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Corona喝了2分太淡"
+    }
+  },
+  {
+    "id": "ep_1784218942378_26do14",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:22.378Z",
+    "sourceTraceId": "trace_1784218942372_6v68f5",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 1,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Snow啤酒1分水啤"
+    }
+  },
+  {
+    "id": "ep_1784218942897_zzth0i",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:22.897Z",
+    "sourceTraceId": "trace_1784218942893_w2ufpj",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Tsingtao2分一般"
+    }
+  },
+  {
+    "id": "ep_1784218943415_vvmy95",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:23.415Z",
+    "sourceTraceId": "trace_1784218943412_ga180j",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "柑橘"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "柑橘不错给3.5分"
+    }
+  },
+  {
+    "id": "ep_1784218943934_1w2dj7",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:23.934Z",
+    "sourceTraceId": "trace_1784218943930_axeq2g",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酸"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "酸得舒服4分再喝"
+    }
+  },
+  {
+    "id": "ep_1784218945923_ddt6zo",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:25.923Z",
+    "sourceTraceId": "trace_1784218944444_74grxu",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "苦味太强2.5不来了"
+    }
+  },
+  {
+    "id": "ep_1784218946959_kdfdez",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:26.959Z",
+    "sourceTraceId": "trace_1784218946956_spxoaq",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天IPA4分不错"
+    }
+  },
+  {
+    "id": "ep_1784218947473_zdm14h",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:27.473Z",
+    "sourceTraceId": "trace_1784218947469_56cjuc",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "浓郁巧克力3.5分"
+    }
+  },
+  {
+    "id": "ep_1784218949951_2jst3x",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:29.951Z",
+    "sourceTraceId": "trace_1784218947990_gpj1q3",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "打分4.2略苦好喝"
+    }
+  },
+  {
+    "id": "ep_1784218950465_9ku3g3",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:30.465Z",
+    "sourceTraceId": "trace_1784218950463_k8fub7",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "苦得恰到好处4分"
+    }
+  },
+  {
+    "id": "ep_1784218950978_xxv32j",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:30.978Z",
+    "sourceTraceId": "trace_1784218950975_g563ja",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "第一次精酿3分吧"
+    }
+  },
+  {
+    "id": "ep_1784218951490_9gwvln",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:31.490Z",
+    "sourceTraceId": "trace_1784218951487_43bw1t",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Budweiser2分工业水"
+    }
+  },
+  {
+    "id": "ep_1784218952005_itbr4m",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:22:32.005Z",
+    "sourceTraceId": "trace_1784218952002_b7lv43",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Corona3分沙滩酒"
+    }
+  },
+  {
+    "id": "ep_1784219387147_xot54j",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:29:47.147Z",
+    "sourceTraceId": "trace_1784219387141_0zt8x3",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "IPA品鉴方法"
+    }
+  },
+  {
+    "id": "ep_1784219724487_v1zc1n",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:24.487Z",
+    "sourceTraceId": "trace_1784219724480_z8smrr",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4.5分会再喝热带水果味"
+    }
+  },
+  {
+    "id": "ep_1784219725007_0ktye4",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:25.007Z",
+    "sourceTraceId": "trace_1784219725002_lak34n",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "no",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "3分不会再喝太苦了"
+    }
+  },
+  {
+    "id": "ep_1784219725525_k4iz30",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:25.525Z",
+    "sourceTraceId": "trace_1784219725521_ed4gqk",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "柑橘",
+        "焦糖"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "5分满分再喝柑橘焦糖"
+    }
+  },
+  {
+    "id": "ep_1784219726041_iwlmrb",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:26.041Z",
+    "sourceTraceId": "trace_1784219726038_ue1g7f",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 1,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "1分太难喝不碰了"
+    }
+  },
+  {
+    "id": "ep_1784219726555_54bmq8",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:26.555Z",
+    "sourceTraceId": "trace_1784219726552_6sgf14",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "2.5分一般般看情况吧"
+    }
+  },
+  {
+    "id": "ep_1784219727066_cfxrdl",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:27.066Z",
+    "sourceTraceId": "trace_1784219727064_kp0c1b",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "咖啡"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分会再喝咖啡巧克力"
+    }
+  },
+  {
+    "id": "ep_1784219727580_qxsr6y",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:27.580Z",
+    "sourceTraceId": "trace_1784219727577_s8w95u",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "花香"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "3.5分会再喝花香突出"
+    }
+  },
+  {
+    "id": "ep_1784219728099_j0bnlq",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:28.099Z",
+    "sourceTraceId": "trace_1784219728096_cxv6s8",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "酸"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分看情况偏酸了点"
+    }
+  },
+  {
+    "id": "ep_1784219728617_8zjup8",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:28.618Z",
+    "sourceTraceId": "trace_1784219728614_pshprf",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "no",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "2分不会再喝味道怪"
+    }
+  },
+  {
+    "id": "ep_1784219729132_qv13z8",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:29.132Z",
+    "sourceTraceId": "trace_1784219729129_wp8xwg",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.8,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4.8分会再喝完美一杯"
+    }
+  },
+  {
+    "id": "ep_1784219729650_9aozar",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:29.650Z",
+    "sourceTraceId": "trace_1784219729645_kmjuds",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Pliny给4.5分再喝"
+    }
+  },
+  {
+    "id": "ep_1784219730167_l0fexb",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:30.167Z",
+    "sourceTraceId": "trace_1784219730163_13aqx5",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Heady Topper给4分花棒"
+    }
+  },
+  {
+    "id": "ep_1784219730685_lwwi9m",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:30.685Z",
+    "sourceTraceId": "trace_1784219730681_wzqsz3",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Parabola14.1给4.5分"
+    }
+  },
+  {
+    "id": "ep_1784219731202_5mfpgw",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:31.202Z",
+    "sourceTraceId": "trace_1784219731199_oakbdd",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "King Sue3分还行"
+    }
+  },
+  {
+    "id": "ep_1784219731717_bmzzbw",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:31.717Z",
+    "sourceTraceId": "trace_1784219731714_9sxzf8",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "BCBS2023版5分完美"
+    }
+  },
+  {
+    "id": "ep_1784219734749_wz0ihd",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:34.749Z",
+    "sourceTraceId": "trace_1784219734744_iqbgur",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Rodenbach不错4分樱桃"
+    }
+  },
+  {
+    "id": "ep_1784219735268_azq2qu",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:35.268Z",
+    "sourceTraceId": "trace_1784219735265_5ym7rk",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Tripel Karmeliet4分再喝"
+    }
+  },
+  {
+    "id": "ep_1784219735784_860m7j",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:35.784Z",
+    "sourceTraceId": "trace_1784219735781_plm5tt",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Westvleteren125分名不虚传"
+    }
+  },
+  {
+    "id": "ep_1784219736300_x0m267",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:36.300Z",
+    "sourceTraceId": "trace_1784219736297_736359",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "京A飞拳3分中规中矩"
+    }
+  },
+  {
+    "id": "ep_1784219738430_v8us29",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:38.430Z",
+    "sourceTraceId": "trace_1784219738426_r8baqm",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "10分太好喝了这瓶"
+    }
+  },
+  {
+    "id": "ep_1784219738948_wdh03i",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:38.948Z",
+    "sourceTraceId": "trace_1784219738945_dyvc0d",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "5分满分好评"
+    }
+  },
+  {
+    "id": "ep_1784219739462_h75f9h",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:39.462Z",
+    "sourceTraceId": "trace_1784219739458_fmvfh2",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "会再喝这杯酒不错"
+    }
+  },
+  {
+    "id": "ep_1784219739985_r50jiz",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:39.985Z",
+    "sourceTraceId": "trace_1784219739979_h39yyh",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "no",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "不会再喝太水了"
+    }
+  },
+  {
+    "id": "ep_1784219740503_5hju1y",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:40.503Z",
+    "sourceTraceId": "trace_1784219740500_hi6slf",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "评个分4分吧"
+    }
+  },
+  {
+    "id": "ep_1784219741018_stkp3m",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:41.018Z",
+    "sourceTraceId": "trace_1784219741015_iy7h2d",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "这杯必须5分满分"
+    }
+  },
+  {
+    "id": "ep_1784219743153_ox1f1j",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:43.153Z",
+    "sourceTraceId": "trace_1784219741530_2v1akb",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "打分3.5总体不错"
+    }
+  },
+  {
+    "id": "ep_1784219743669_2rni4v",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:43.669Z",
+    "sourceTraceId": "trace_1784219743666_wlz33o",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "太难喝给2分"
+    }
+  },
+  {
+    "id": "ep_1784219744184_e54jmp",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:44.184Z",
+    "sourceTraceId": "trace_1784219744181_axopdz",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "这杯好喝给4分"
+    }
+  },
+  {
+    "id": "ep_1784219744699_kyy53j",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:44.699Z",
+    "sourceTraceId": "trace_1784219744696_ai6he2",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "上次那瓶4.5还会再喝"
+    }
+  },
+  {
+    "id": "ep_1784219745216_2vl7dx",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:45.216Z",
+    "sourceTraceId": "trace_1784219745211_f8wkgg",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "刚喝完给评价4分"
+    }
+  },
+  {
+    "id": "ep_1784219745732_vxb2ce",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:45.732Z",
+    "sourceTraceId": "trace_1784219745729_u6qmrb",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天新酒3分一般"
+    }
+  },
+  {
+    "id": "ep_1784219746249_mo66ha",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:46.249Z",
+    "sourceTraceId": "trace_1784219746245_cy5miw",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "记录一下4分再喝"
+    }
+  },
+  {
+    "id": "ep_1784219746765_lk34f0",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:46.765Z",
+    "sourceTraceId": "trace_1784219746762_ngmv7n",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "柑橘"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "品鉴柑橘浓郁4分"
+    }
+  },
+  {
+    "id": "ep_1784219748705_7hgczj",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:48.705Z",
+    "sourceTraceId": "trace_1784219747276_srli7r",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Rochefort104.5太好喝"
+    }
+  },
+  {
+    "id": "ep_1784219749225_uw2s84",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:49.225Z",
+    "sourceTraceId": "trace_1784219749221_8udfc4",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Corona喝了2分太淡"
+    }
+  },
+  {
+    "id": "ep_1784219749743_oomiwn",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:49.743Z",
+    "sourceTraceId": "trace_1784219749740_bovgmx",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 1,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Snow啤酒1分水啤"
+    }
+  },
+  {
+    "id": "ep_1784219750263_58bwhc",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:50.263Z",
+    "sourceTraceId": "trace_1784219750258_vd18eb",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Tsingtao2分一般"
+    }
+  },
+  {
+    "id": "ep_1784219750774_3260n3",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:50.774Z",
+    "sourceTraceId": "trace_1784219750772_idbnbo",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [
+        "柑橘"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "柑橘不错给3.5分"
+    }
+  },
+  {
+    "id": "ep_1784219751289_z4dgwt",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:51.289Z",
+    "sourceTraceId": "trace_1784219751286_19hh0t",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "酸"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "酸得舒服4分再喝"
+    }
+  },
+  {
+    "id": "ep_1784219752973_qm2i2w",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:52.973Z",
+    "sourceTraceId": "trace_1784219751806_jg0a78",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "苦味太强2.5不来了"
+    }
+  },
+  {
+    "id": "ep_1784219754008_ph7z4u",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:54.008Z",
+    "sourceTraceId": "trace_1784219754005_qyfgto",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "今天IPA4分不错"
+    }
+  },
+  {
+    "id": "ep_1784219754525_4en1wd",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:54.525Z",
+    "sourceTraceId": "trace_1784219754521_25zfj3",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3.5,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "浓郁巧克力3.5分"
+    }
+  },
+  {
+    "id": "ep_1784219756210_hvo5b7",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:56.210Z",
+    "sourceTraceId": "trace_1784219755039_5q1pgt",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "打分4.2略苦好喝"
+    }
+  },
+  {
+    "id": "ep_1784219756730_nm7ouy",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:56.730Z",
+    "sourceTraceId": "trace_1784219756726_klt6xy",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "苦得恰到好处4分"
+    }
+  },
+  {
+    "id": "ep_1784219757246_6np0f1",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:57.246Z",
+    "sourceTraceId": "trace_1784219757241_q0soh4",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "第一次精酿3分吧"
+    }
+  },
+  {
+    "id": "ep_1784219757761_lyg5li",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:57.761Z",
+    "sourceTraceId": "trace_1784219757759_pz7lvi",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 2,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Budweiser2分工业水"
+    }
+  },
+  {
+    "id": "ep_1784219758272_dpx9nn",
+    "userId": "regression-user",
+    "createdAt": "2026-07-16T16:35:58.272Z",
+    "sourceTraceId": "trace_1784219758268_lwlp3h",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 3,
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "Corona3分沙滩酒"
+    }
   }
 ]

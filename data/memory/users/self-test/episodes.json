@@ -168,5 +168,98 @@
       "contextTags": [],
       "note": "我给4.5分，会再喝，热带水果"
     }
+  },
+  {
+    "id": "ep_1784129322051_ify8df",
+    "userId": "self-test",
+    "createdAt": "2026-07-15T15:28:42.051Z",
+    "sourceTraceId": "trace_1784129322050_9l1lff",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "我给4.5分，会再喝，热带水果"
+    }
+  },
+  {
+    "id": "ep_1784129323471_5uroi9",
+    "userId": "self-test",
+    "createdAt": "2026-07-15T15:28:43.471Z",
+    "sourceTraceId": "trace_1784129322061_rh76h4",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "我不喜欢太苦的"
+    }
+  },
+  {
+    "id": "ep_1784131241060_pbxtbc",
+    "userId": "self-test",
+    "createdAt": "2026-07-15T16:00:41.060Z",
+    "sourceTraceId": "trace_1784131241054_peyij7",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "我给4.5分，会再喝，热带水果"
+    }
+  },
+  {
+    "id": "ep_1784131242225_1rg6lb",
+    "userId": "self-test",
+    "createdAt": "2026-07-15T16:00:42.225Z",
+    "sourceTraceId": "trace_1784131241080_3xfp09",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [
+        "苦"
+      ],
+      "contextTags": [],
+      "note": "我不喜欢太苦的"
+    }
+  },
+  {
+    "id": "ep_1784222581783_q3qps7",
+    "userId": "self-test",
+    "createdAt": "2026-07-16T17:23:01.783Z",
+    "sourceTraceId": "trace_1784222581774_8l55ox",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4.5,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "热带水果"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "我给4.5分，会再喝，热带水果"
+    }
   }
 ]

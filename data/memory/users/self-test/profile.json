@@ -1,14 +1,14 @@
 {
   "userId": "self-test",
-  "updatedAt": "2026-07-10T08:20:50.371Z",
+  "updatedAt": "2026-07-16T17:23:01.813Z",
   "summary": "喜欢热带水果风味",
   "preferredStyles": [],
   "dislikedStyles": [],
   "preferredTags": [
     {
       "value": "热带水果",
-      "weight": 8,
-      "evidenceCount": 8
+      "weight": 11,
+      "evidenceCount": 11
     }
   ],
   "dislikedTags": [],
@@ -21,10 +21,15 @@
     "我给4.5分，会再喝，热带水果",
     "我给4.5分，会再喝，热带水果",
     "我给4.5分，会再喝，热带水果",
+    "我给4.5分，会再喝，热带水果",
+    "我给4.5分，会再喝，热带水果",
+    "我不喜欢太苦的",
+    "我给4.5分，会再喝，热带水果",
+    "我不喜欢太苦的",
     "我给4.5分，会再喝，热带水果"
   ],
-  "confidence": 0.8,
-  "evidenceCount": 8,
+  "confidence": 1,
+  "evidenceCount": 11,
   "correctionsCount": 0,
   "correctionsApplied": false
 }

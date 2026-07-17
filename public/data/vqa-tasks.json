@@ -1,0 +1,1907 @@
+[
+  {
+    "id": "vqa_menu_recommend_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "酒吧菜单推荐 — IPA爱好者",
+    "candidateBeerName": "Pliny the Elder",
+    "description": "用户要求推荐IPA，agent 应返回候选啤酒（含评分和酒厂信息）",
+    "query": "[{\"role\":\"user\",\"content\":\"帮我推荐一款IPA，要苦味明显的，西海岸风格最好\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      },
+      {
+        "id": "has_candidates",
+        "type": "yesno",
+        "prompt": "是否返回了至少 1 个候选啤酒？"
+      },
+      {
+        "id": "has_rating",
+        "type": "yesno",
+        "prompt": "候选啤酒是否包含评分？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      },
+      "autoTestResult": {
+        "pass": false,
+        "intent": "menu_recommend",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+        "testedAt": "2026-07-10T09:12:54.034Z",
+        "error": "候选数不足: 期望>=1, 实际=0",
+        "passCriteria": {
+          "intent": "menu_recommend",
+          "minCandidates": 1,
+          "replyMinLen": 50
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:31.494Z",
+    "updatedAt": "2026-07-10T08:57:31.494Z"
+  },
+  {
+    "id": "vqa_menu_recommend_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "酒吧菜单推荐 — 世涛爱好者",
+    "candidateBeerName": "Parabola",
+    "description": "用户要求推荐高酒精度世涛，agent 应返回候选啤酒",
+    "query": "[{\"role\":\"user\",\"content\":\"推荐世涛，要酒精度高的，帝国世涛那种\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      },
+      {
+        "id": "has_candidates",
+        "type": "yesno",
+        "prompt": "是否返回了候选啤酒？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "menu_recommend",
+        "candidates": 1,
+        "candidateNames": [
+          "要酒精度高的"
+        ],
+        "replyPreview": "酒单上没有符合「stout」的酒。现有：要酒精度高的。要不要换个方向？\n\n💡 你很喜欢Pale Ale - American，要不要试试Ipa？",
+        "testedAt": "2026-07-10T09:12:54.043Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "menu_recommend",
+          "minCandidates": 1,
+          "replyMinLen": 50
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:32.494Z",
+    "updatedAt": "2026-07-10T08:57:32.494Z"
+  },
+  {
+    "id": "vqa_menu_recommend_3",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "酸啤酒推荐 — 入门者",
+    "candidateBeerName": "Rodenbach Caractère Rouge",
+    "description": "第一次喝酸啤的用户请求推荐",
+    "query": "[{\"role\":\"user\",\"content\":\"酸啤酒有什么推荐的？我第一次喝酸啤，不知道哪种好\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      },
+      {
+        "id": "has_candidates",
+        "type": "yesno",
+        "prompt": "是否返回了候选啤酒？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "menu_recommend",
+        "candidates": 2,
+        "candidateNames": [
+          "酸啤酒有什么推荐的？我第一次喝酸啤",
+          "不知道哪种好"
+        ],
+        "replyPreview": "我会这样点：\n\n1. 酸啤酒有什么推荐的？我第一次喝酸啤 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 酸啤酒有什么推荐的？我第一次喝酸啤 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 酸啤酒有什么推荐的？我第一次喝酸啤 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知",
+        "testedAt": "2026-07-10T09:12:54.145Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "menu_recommend",
+          "minCandidates": 1,
+          "replyMinLen": 50
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:33.494Z",
+    "updatedAt": "2026-07-10T08:57:33.494Z"
+  },
+  {
+    "id": "vqa_menu_recommend_4",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "多轮追问 — 比利时啤酒选择",
+    "candidateBeerName": "Tripel Karmeliet",
+    "description": "多轮对话：先问推荐，再追问具体酒款区别",
+    "query": "[{\"role\":\"user\",\"content\":\"推荐几款比利时啤酒吧\"},{\"role\":\"assistant\",\"content\":\"好的，比利时啤酒推荐：Tripel Karmeliet（评分3.98，8.4%ABV）、Curieux（评分4.04，10.2%ABV）、De Garre（评分4.09，11%ABV）。\"},{\"role\":\"user\",\"content\":\"Tripel Karmeliet和Curieux有什么区别？哪个更甜？\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "第一轮意图是否正确？"
+      },
+      {
+        "id": "follow_up_match",
+        "type": "yesno",
+        "prompt": "第二轮追问是否正确识别为 follow_up_filter？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "beer_knowledge",
+        "replyMinLen": 80
+      },
+      "autoTestResult": {
+        "pass": false,
+        "intent": "beer_knowledge",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "Tripel Karmeliet 和 Curieux 都是比利时风格的啤酒，但它们之间还是有一些区别的。\n\n**Tripel Karmeliet** 是一款经典的比利时 Tripel，这种风格的啤酒通常颜色较浅，酒精度较高，大约在8%左右。Tripel Karmeliet 以其复杂的香料味和麦芽甜味著称，口感相对较为平衡，既有明显的麦芽甜味，也有一定的酒精温暖感，但不会过于甜腻。\n\n**Curie",
+        "testedAt": "2026-07-10T09:13:04.386Z",
+        "error": "意图不匹配: 期望=menu_recommend, 实际=beer_knowledge",
+        "passCriteria": {
+          "intent": "menu_recommend",
+          "minCandidates": 1,
+          "replyMinLen": 50
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:34.494Z",
+    "updatedAt": "2026-07-10T08:57:34.494Z"
+  },
+  {
+    "id": "vqa_label_check_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "酒标检查 — 生产日期",
+    "candidateBeerName": "",
+    "description": "用户询问酒标上的生产日期/保质期",
+    "query": "[{\"role\":\"user\",\"content\":\"帮我看看这瓶酒的生产日期，我不确定还能不能喝\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 label_check？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "label_check"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "label_check",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "请提供酒标照片，以便查看生产日期和保质期信息。",
+        "testedAt": "2026-07-10T09:13:05.703Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "label_check"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:35.494Z",
+    "updatedAt": "2026-07-10T08:57:35.494Z"
+  },
+  {
+    "id": "vqa_label_check_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "酒标检查 — 过期判断",
+    "candidateBeerName": "",
+    "description": "询问啤酒是否过期",
+    "query": "[{\"role\":\"user\",\"content\":\"这瓶啤酒过期了吗？怎么看日期？\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 label_check？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "label_check"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "label_check",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "请提供酒标照片，以便查看生产日期或保质期信息。",
+        "testedAt": "2026-07-10T09:13:07.106Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "label_check"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:36.494Z",
+    "updatedAt": "2026-07-10T08:57:36.494Z"
+  },
+  {
+    "id": "vqa_tasting_feedback_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "品饮反馈 — IPA评分",
+    "candidateBeerName": "Pliny the Elder",
+    "description": "用户喝完一款IPA后给出评分和品饮感受",
+    "query": "[{\"role\":\"user\",\"content\":\"今天喝了Pliny the Elder，非常棒！8%的酒精度完全喝不出来，柑橘味爆炸，给4.5分，绝对会再喝\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 tasting_feedback？"
+      },
+      {
+        "id": "score_parsed",
+        "type": "yesno",
+        "prompt": "评分是否被正确解析？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "tasting_feedback"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "tasting_feedback",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "收到！已记录你对「Pseudo Sue」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：今天喝了Pliny the Elder，非常棒！8%的酒精度完全喝不出来，柑橘味爆炸，给4.5分，绝对会再喝\n你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+        "testedAt": "2026-07-10T09:13:07.119Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "tasting_feedback"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:37.494Z",
+    "updatedAt": "2026-07-10T08:57:37.494Z"
+  },
+  {
+    "id": "vqa_tasting_feedback_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "品饮反馈 — 世涛品鉴",
+    "candidateBeerName": "Parabola",
+    "description": "用户品鉴帝国世涛，描述风味并评分",
+    "query": "[{\"role\":\"user\",\"content\":\"开了一瓶Parabola，14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，给4分，会再喝\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 tasting_feedback？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "tasting_feedback"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "tasting_feedback",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：开了一瓶Parabola，14.1%的酒精度完全不像，入口是浓烈的波本桶味、黑巧克力、焦糖，给4分，会再喝\n你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+        "testedAt": "2026-07-10T09:13:07.128Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "tasting_feedback"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:38.494Z",
+    "updatedAt": "2026-07-10T08:57:38.494Z"
+  },
+  {
+    "id": "vqa_tasting_feedback_3",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "品饮反馈 — 酸啤初体验",
+    "candidateBeerName": "Rodenbach Caractère Rouge",
+    "description": "用户第一次喝酸啤的描述",
+    "query": "[{\"role\":\"user\",\"content\":\"第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 tasting_feedback？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "tasting_feedback"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "tasting_feedback",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n你会再喝这杯酒。\n备注：第一次喝酸啤，Rodenbach Caractère Rouge，好酸！但很特别，樱桃味明显，给3.5分，看情况再喝\n你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+        "testedAt": "2026-07-10T09:13:07.137Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "tasting_feedback"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:39.494Z",
+    "updatedAt": "2026-07-10T08:57:39.494Z"
+  },
+  {
+    "id": "vqa_beer_knowledge_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "啤酒知识 — IPA vs Lager",
+    "candidateBeerName": "",
+    "description": "用户询问IPA和拉格的区别",
+    "query": "[{\"role\":\"user\",\"content\":\"IPA和拉格（Lager）到底有什么区别？不只是苦不苦的问题\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 beer_knowledge？"
+      },
+      {
+        "id": "has_detail",
+        "type": "yesno",
+        "prompt": "回复是否包含酿造工艺等细节信息？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "beer_knowledge",
+        "replyMinLen": 100
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "beer_knowledge",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "嗨，这个问题问得好！IPA（印度淡色艾尔）和拉格（Lager）确实是两种很不同的啤酒风格，它们之间的区别不仅仅在于苦味，还包括酿造方法、发酵温度、使用的酵母类型，以及最终的风味特征。\n\n1. **酿造方法和发酵**：\n   - **IPA**：是一种艾尔（Ale）啤酒，使用上发酵酵母，在较高的温度下发酵。这种方法通常会产生更多的酯类化合物，给啤酒带来更丰富的果味和香料味。\n   - **拉格**：",
+        "testedAt": "2026-07-10T09:13:17.560Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "beer_knowledge",
+          "replyMinLen": 100
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:40.494Z",
+    "updatedAt": "2026-07-10T08:57:40.494Z"
+  },
+  {
+    "id": "vqa_beer_knowledge_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "啤酒知识 — 风格分支",
+    "candidateBeerName": "",
+    "description": "用户询问West Coast IPA和NEIPA的区别",
+    "query": "[{\"role\":\"user\",\"content\":\"West Coast IPA和New England IPA有什么区别？\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 beer_knowledge？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "beer_knowledge",
+        "replyMinLen": 100
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "beer_knowledge",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "West Coast IPA 和 New England IPA（也常被称为 Hazy IPA）是两种非常受欢迎的 IPA 风格，它们在风味、外观和酿造方法上有一些显著的区别。\n\n**West Coast IPA**：\n- **风味**：这种风格的 IPA 通常以强烈的苦味和明显的酒花香气为特点，酒花的风味往往偏向于松木、柑橘和热带水果。\n- **外观**：颜色从金黄色到琥珀色不等，通常比较清澈。",
+        "testedAt": "2026-07-10T09:13:25.721Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "beer_knowledge",
+          "replyMinLen": 100
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:41.494Z",
+    "updatedAt": "2026-07-10T08:57:41.494Z"
+  },
+  {
+    "id": "vqa_beer_knowledge_3",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "啤酒知识 — 桶陈工艺",
+    "candidateBeerName": "",
+    "description": "用户询问桶陈世涛为什么受欢迎",
+    "query": "[{\"role\":\"user\",\"content\":\"为什么桶陈世涛这么受欢迎？BCBS每年发售都排长队\"},{\"role\":\"assistant\",\"content\":\"桶陈世涛（Barrel Aged Stout）因为波本桶带来的香草、椰子、橡木风味，加上高酒精度陈年后更顺滑，所以很受欢迎。BCBS（Bourbon County Brand Stout）是 Goose Island 的旗舰产品。\"},{\"role\":\"user\",\"content\":\"那除了BCBS还有什么好的桶陈世涛推荐？\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 beer_knowledge？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "beer_knowledge",
+        "replyMinLen": 80
+      },
+      "autoTestResult": {
+        "pass": false,
+        "intent": "menu_recommend",
+        "candidates": 1,
+        "candidateNames": [
+          "Grozet Gooseberry & Wheat Ale"
+        ],
+        "replyPreview": "酒单上没有符合「stout」的酒。现有：Grozet Gooseberry & Wheat Ale。要不要换个方向？\n\n💡 你很喜欢Pale Ale - American，要不要试试Ipa？",
+        "testedAt": "2026-07-10T09:13:25.731Z",
+        "error": "意图不匹配: 期望=beer_knowledge, 实际=menu_recommend",
+        "passCriteria": {
+          "intent": "beer_knowledge",
+          "replyMinLen": 80
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:42.494Z",
+    "updatedAt": "2026-07-10T08:57:42.494Z"
+  },
+  {
+    "id": "vqa_profile_query_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "画像查询 — 口味偏好",
+    "candidateBeerName": "",
+    "description": "用户询问自己的口味画像",
+    "query": "[{\"role\":\"user\",\"content\":\"我的口味偏好是什么？帮我看看我的画像\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 profile_query？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "profile_query"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "profile_query",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味\n\n画像置信度：100%（基于 15 条品饮记录）\n\n偏好风格：Pale Ale - American（权重 9，3次）\n偏好风味标签：酒精（9）、柑橘（3.5）、焦糖（3）、酸（1.5）\nABV 舒适区：5.8% - 5.8%（",
+        "testedAt": "2026-07-10T09:13:25.737Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "profile_query"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:43.494Z",
+    "updatedAt": "2026-07-10T08:57:43.494Z"
+  },
+  {
+    "id": "vqa_profile_query_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "画像查询 — 喝过什么",
+    "candidateBeerName": "",
+    "description": "用户询问自己喝过哪些酒",
+    "query": "[{\"role\":\"user\",\"content\":\"我之前喝过哪些啤酒？帮我看看历史记录\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 profile_query？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "profile_query"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "profile_query",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味\n\n画像置信度：100%（基于 15 条品饮记录）\n\n偏好风格：Pale Ale - American（权重 9，3次）\n偏好风味标签：酒精（9）、柑橘（3.5）、焦糖（3）、酸（1.5）\nABV 舒适区：5.8% - 5.8%（",
+        "testedAt": "2026-07-10T09:13:25.745Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "profile_query"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:44.494Z",
+    "updatedAt": "2026-07-10T08:57:44.494Z"
+  },
+  {
+    "id": "vqa_memory_correction_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "记忆纠正 — 口味偏好纠正",
+    "candidateBeerName": "",
+    "description": "用户纠正之前说过的口味偏好",
+    "query": "[{\"role\":\"user\",\"content\":\"上次我说喜欢IPA，但其实我更喜欢西海岸IPA那种清亮苦味明显的，NEIPA太浑浊了不太喜欢\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 memory_correction？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "memory_correction"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "memory_correction",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+        "testedAt": "2026-07-10T09:13:25.751Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "memory_correction"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:45.494Z",
+    "updatedAt": "2026-07-10T08:57:45.494Z"
+  },
+  {
+    "id": "vqa_memory_correction_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "记忆纠正 — 重置",
+    "candidateBeerName": "",
+    "description": "用户要求清空所有记忆",
+    "query": "[{\"role\":\"user\",\"content\":\"清空我的所有记忆，重置\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 memory_correction？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "memory_correction"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "memory_correction",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+        "testedAt": "2026-07-10T09:13:25.761Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "memory_correction"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:46.494Z",
+    "updatedAt": "2026-07-10T08:57:46.494Z"
+  },
+  {
+    "id": "vqa_follow_up_filter_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "追问过滤 — 风格细化",
+    "candidateBeerName": "",
+    "description": "在上轮推荐后追问特定风格",
+    "query": "[{\"role\":\"user\",\"content\":\"推荐几款IPA\"},{\"role\":\"assistant\",\"content\":\"推荐：Pliny the Elder（评分4.49，8%ABV）、Heady Topper（评分4.52，8%ABV）、King Sue（评分4.3，7.8%ABV）。\"},{\"role\":\"user\",\"content\":\"这里面哪款苦味最轻？\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "第一轮意图是否正确？"
+      },
+      {
+        "id": "follow_up_match",
+        "type": "yesno",
+        "prompt": "追问是否正确识别为 follow_up_filter？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "follow_up_filter",
+        "replyMinLen": 30
+      },
+      "autoTestResult": {
+        "pass": false,
+        "intent": "beer_knowledge",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "通常来说，这三款IPA都属于苦味比较明显的类型，因为它们都是美国IPA的经典代表，以使用大量酒花而闻名。不过，如果要在这三款中选择苦味最轻的，**King Sue** 可能会是相对柔和的选择。不过，这并不意味着它的苦味就很轻，只是相对于另外两款来说，可能会稍微温和一些。\n\n如果你对苦味非常敏感，可能需要寻找一些专门标注为“低苦”或者“session”（会话型）的IPA，这些类型的IPA通常苦味会更",
+        "testedAt": "2026-07-10T09:13:32.976Z",
+        "error": "意图不匹配: 期望=menu_recommend, 实际=beer_knowledge",
+        "passCriteria": {
+          "intent": "menu_recommend",
+          "minCandidates": 1,
+          "replyMinLen": 50
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:47.494Z",
+    "updatedAt": "2026-07-10T08:57:47.494Z"
+  },
+  {
+    "id": "vqa_follow_up_filter_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "追问过滤 — 推荐再细化",
+    "candidateBeerName": "",
+    "description": "用户要求在第一轮推荐基础上进一步筛选",
+    "query": "[{\"role\":\"user\",\"content\":\"推荐世涛\"},{\"role\":\"assistant\",\"content\":\"推荐：Parabola（评分4.42，13%ABV）、Bourbon County Brand Stout（评分4.73，14%ABV）、Founders Breakfast Stout（评分4.18，8.3%ABV）。\"},{\"role\":\"user\",\"content\":\"这几款里哪个酒精度最高？我想要最烈的\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "第一轮意图是否正确？"
+      },
+      {
+        "id": "follow_up_match",
+        "type": "yesno",
+        "prompt": "追问是否正确识别？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "follow_up_filter",
+        "replyMinLen": 30
+      },
+      "autoTestResult": {
+        "pass": false,
+        "intent": "beer_knowledge",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
+        "testedAt": "2026-07-10T09:13:34.796Z",
+        "error": "意图不匹配: 期望=menu_recommend, 实际=beer_knowledge",
+        "passCriteria": {
+          "intent": "menu_recommend",
+          "minCandidates": 1,
+          "replyMinLen": 50
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:48.494Z",
+    "updatedAt": "2026-07-10T08:57:48.494Z"
+  },
+  {
+    "id": "vqa_unclear_1",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "意图不明 — 单字输入",
+    "candidateBeerName": "",
+    "description": "用户只输入一个字的模糊请求",
+    "query": "[{\"role\":\"user\",\"content\":\"酒\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 unclear？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "unclear"
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "unclear",
+        "candidates": 0,
+        "candidateNames": [],
+        "replyPreview": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+        "testedAt": "2026-07-10T09:13:34.804Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "unclear"
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:49.494Z",
+    "updatedAt": "2026-07-10T08:57:49.494Z"
+  },
+  {
+    "id": "vqa_unclear_2",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "意图不明 — 模棱两可",
+    "candidateBeerName": "",
+    "description": "用户输入模棱两可的请求",
+    "query": "[{\"role\":\"user\",\"content\":\"帮我推荐一个啤酒吧。\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否合理路由？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      },
+      "autoTestResult": {
+        "pass": true,
+        "intent": "menu_recommend",
+        "candidates": 1,
+        "candidateNames": [
+          "帮我推荐一个啤酒吧"
+        ],
+        "replyPreview": "我会这样点：\n\n1. 帮我推荐一个啤酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 帮我推荐一个啤酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 帮我推荐一个啤酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：帮我推荐一个啤酒吧\n最值得尝新：帮我推荐一个啤",
+        "testedAt": "2026-07-10T09:13:34.886Z",
+        "error": null,
+        "passCriteria": {
+          "intent": "menu_recommend",
+          "minCandidates": 1,
+          "replyMinLen": 50
+        }
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-10T08:57:50.494Z",
+    "updatedAt": "2026-07-10T08:57:50.494Z"
+  },
+  {
+    "id": "vqa_gen_001",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐一款浑浊IPA",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐一款浑浊IPA",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u4e00\\u6b3e\\u6d51\\u6d4aIPA\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_002",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "求推荐西海岸IPA",
+    "candidateBeerName": "",
+    "description": "推荐: 求推荐西海岸IPA",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u6c42\\u63a8\\u8350\\u897f\\u6d77\\u5cb8IPA\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_003",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐双倍IPA啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐双倍IPA啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u53cc\\u500dIPA\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_004",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐牛奶世涛",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐牛奶世涛",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u725b\\u5976\\u4e16\\u6d9b\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_005",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐帝国世涛",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐帝国世涛",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u5e1d\\u56fd\\u4e16\\u6d9b\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_006",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐法兰德斯红艾尔",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐法兰德斯红艾尔",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u6cd5\\u5170\\u5fb7\\u65af\\u7ea2\\u827e\\u5c14\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_007",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐比利时三料",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐比利时三料",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u6bd4\\u5229\\u65f6\\u4e09\\u6599\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_008",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐德式小麦",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐德式小麦",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u5fb7\\u5f0f\\u5c0f\\u9ea6\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_009",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐比利时小麦",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐比利时小麦",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u6bd4\\u5229\\u65f6\\u5c0f\\u9ea6\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_010",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐赛森啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐赛森啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u8d5b\\u68ee\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_011",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐博克烈性啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐博克烈性啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u535a\\u514b\\u70c8\\u6027\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_012",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐修道院啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐修道院啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u4fee\\u9053\\u9662\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_013",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐兰比克酸啤",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐兰比克酸啤",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u5170\\u6bd4\\u514b\\u9178\\u5564\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_014",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐古斯酸啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐古斯酸啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u53e4\\u65af\\u9178\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_015",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐波特啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐波特啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u6ce2\\u7279\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_016",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "类似Pliny the Elder的推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 类似Pliny the Elder的推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u7c7b\\u4f3cPliny the Elder\\u7684\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_017",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "像Heady Topper的风格推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 像Heady Topper的风格推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u50cfHeady Topper\\u7684\\u98ce\\u683c\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_018",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "King Sue同款风格推荐",
+    "candidateBeerName": "",
+    "description": "推荐: King Sue同款风格推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"King Sue\\u540c\\u6b3e\\u98ce\\u683c\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_019",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "Parabola级别世涛推荐",
+    "candidateBeerName": "",
+    "description": "推荐: Parabola级别世涛推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"Parabola\\u7ea7\\u522b\\u4e16\\u6d9b\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_020",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "BCBS级别桶陈推荐",
+    "candidateBeerName": "",
+    "description": "推荐: BCBS级别桶陈推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"BCBS\\u7ea7\\u522b\\u6876\\u9648\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_021",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "Founders Breakfast Stout类似酒",
+    "candidateBeerName": "",
+    "description": "推荐: Founders Breakfast Stout类似酒",
+    "query": "[{\"role\": \"user\", \"content\": \"Founders Breakfast Stout\\u7c7b\\u4f3c\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_022",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "Rodenbach酸啤风格推荐",
+    "candidateBeerName": "",
+    "description": "推荐: Rodenbach酸啤风格推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"Rodenbach\\u9178\\u5564\\u98ce\\u683c\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_023",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "Westvleteren12水平修道院推荐",
+    "candidateBeerName": "",
+    "description": "推荐: Westvleteren12水平修道院推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"Westvleteren12\\u6c34\\u5e73\\u4fee\\u9053\\u9662\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_024",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "Rochefort10后推荐下一款",
+    "candidateBeerName": "",
+    "description": "推荐: Rochefort10后推荐下一款",
+    "query": "[{\"role\": \"user\", \"content\": \"Rochefort10\\u540e\\u63a8\\u8350\\u4e0b\\u4e00\\u6b3e\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_025",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "京A有什么好酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 京A有什么好酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u4eacA\\u6709\\u4ec0\\u4e48\\u597d\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_026",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "拳击猫哪款值得喝",
+    "candidateBeerName": "",
+    "description": "推荐: 拳击猫哪款值得喝",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u62f3\\u51fb\\u732b\\u54ea\\u6b3e\\u503c\\u5f97\\u559d\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_027",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "高大师推荐什么酒",
+    "candidateBeerName": "",
+    "description": "推荐: 高大师推荐什么酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u9ad8\\u5927\\u5e08\\u63a8\\u8350\\u4ec0\\u4e48\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_028",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "夏天清爽啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 夏天清爽啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u590f\\u5929\\u6e05\\u723d\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_029",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "冬天暖身啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 冬天暖身啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u51ac\\u5929\\u6696\\u8eab\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_030",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "聚会啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 聚会啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u805a\\u4f1a\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_031",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "独饮啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 独饮啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u72ec\\u996e\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_032",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "火锅配精酿推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 火锅配精酿推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u706b\\u9505\\u914d\\u7cbe\\u917f\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_033",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "烧烤啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 烧烤啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u70e7\\u70e4\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_034",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "约会啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 约会啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u7ea6\\u4f1a\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_035",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "看球赛啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 看球赛啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u770b\\u7403\\u8d5b\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_036",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "芝士配啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 芝士配啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u829d\\u58eb\\u914d\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_037",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "本周新品啤酒推荐",
+    "candidateBeerName": "",
+    "description": "推荐: 本周新品啤酒推荐",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u672c\\u5468\\u65b0\\u54c1\\u5564\\u9152\\u63a8\\u8350\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_038",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐高酒精度啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐高酒精度啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u9ad8\\u9152\\u7cbe\\u5ea6\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_039",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐低酒精度啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐低酒精度啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u4f4e\\u9152\\u7cbe\\u5ea6\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "vqa_gen_040",
+    "source": "synthetic",
+    "sourceUrl": "",
+    "imageUrl": "",
+    "title": "推荐苦味爆炸啤酒",
+    "candidateBeerName": "",
+    "description": "推荐: 推荐苦味爆炸啤酒",
+    "query": "[{\"role\": \"user\", \"content\": \"\\u63a8\\u8350\\u82e6\\u5473\\u7206\\u70b8\\u5564\\u9152\"}]",
+    "questions": [
+      {
+        "id": "intent_match",
+        "type": "yesno",
+        "prompt": "意图是否正确识别为 menu_recommend？"
+      }
+    ],
+    "labels": {
+      "passCriteria": {
+        "intent": "menu_recommend",
+        "minCandidates": 1,
+        "replyMinLen": 50
+      }
+    },
+    "status": "pending",
+    "createdAt": "2026-07-11T00:00:00.000Z",
+    "updatedAt": "2026-07-11T00:00:00.000Z"
+  }
+]

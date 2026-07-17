@@ -1,6 +1,6 @@
 {
   "userId": "regression-user",
-  "updatedAt": "2026-07-08T02:31:35.047Z",
+  "updatedAt": "2026-07-16T16:35:58.277Z",
   "favorites": {
     "topBreweries": [],
     "topCountries": [],
@@ -9,19 +9,39 @@
   "abvEvolution": [],
   "flavorCloud": [
     {
+      "tag": "苦",
+      "count": 11,
+      "category": "taste"
+    },
+    {
       "tag": "热带水果",
-      "count": 8,
+      "count": 10,
       "category": "aroma"
     },
     {
       "tag": "酸",
-      "count": 3,
+      "count": 7,
       "category": "aroma"
     },
     {
-      "tag": "苦",
-      "count": 3,
-      "category": "taste"
+      "tag": "柑橘",
+      "count": 6,
+      "category": "aroma"
+    },
+    {
+      "tag": "焦糖",
+      "count": 2,
+      "category": "aroma"
+    },
+    {
+      "tag": "咖啡",
+      "count": 2,
+      "category": "aroma"
+    },
+    {
+      "tag": "花香",
+      "count": 2,
+      "category": "aroma"
     }
   ],
   "pendingFeedback": [
@@ -39,11 +59,46 @@
       "beerName": "未知啤酒",
       "brewery": "",
       "recommendedAt": "2026-07-08T02:31:35.041Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-15T15:35:25.651Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:17:51.794Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:22:10.960Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:22:11.992Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:22:12.507Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:22:15.591Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:22:17.143Z"
     }
   ],
-  "totalEpisodes": 23,
+  "totalEpisodes": 119,
   "totalSessions": 1,
   "frequentIntents": {
-    "tasting_feedback": 20
+    "tasting_feedback": 97
   }
 }

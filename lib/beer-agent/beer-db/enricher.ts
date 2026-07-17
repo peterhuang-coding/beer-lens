@@ -22,8 +22,8 @@ export type EnrichedBeer = {
   volumeMl: number | null;
   pricePerMl: number | null;
   valueScore: number | null;
-  usBenchmark: number | null;
-  savingsVsUS: number | null;
+  originBenchmark: number | null;
+  savingsVsOrigin: number | null;
   pricingBasis: string | null;
   // meta
   source: "untappd" | "cache" | "none";
@@ -119,8 +119,8 @@ function makeBase(input: EnricherInput): EnrichedBeer {
     volumeMl: input.volumeMl ?? null,
     pricePerMl: null,
     valueScore: null,
-    usBenchmark: null,
-    savingsVsUS: null,
+    originBenchmark: null,
+    savingsVsOrigin: null,
     pricingBasis: null,
     source: "none",
     verified: false,
@@ -153,11 +153,12 @@ function applyUntappdResult(
       ratingScore: enriched.untappdScore,
       style: enriched.style,
       abv: enriched.abv,
+      breweryCountry: enriched.breweryCountry,
     });
     enriched.pricePerMl = priceInfo.pricePerMl;
     enriched.valueScore = priceInfo.valueScore;
-    enriched.usBenchmark = priceInfo.usBenchmark;
-    enriched.savingsVsUS = priceInfo.savingsVsUS;
+    enriched.originBenchmark = priceInfo.originBenchmark;
+    enriched.savingsVsOrigin = priceInfo.savingsVsOrigin;
     enriched.pricingBasis = priceInfo.pricingBasis;
   }
 
@@ -187,11 +188,12 @@ function applyHit(base: EnrichedBeer, entry: BeerCacheEntry, source: "untappd" |
       ratingScore: enriched.untappdScore,
       style: enriched.style,
       abv: enriched.abv,
+      breweryCountry: enriched.breweryCountry,
     });
     enriched.pricePerMl = priceInfo.pricePerMl;
     enriched.valueScore = priceInfo.valueScore;
-    enriched.usBenchmark = priceInfo.usBenchmark;
-    enriched.savingsVsUS = priceInfo.savingsVsUS;
+    enriched.originBenchmark = priceInfo.originBenchmark;
+    enriched.savingsVsOrigin = priceInfo.savingsVsOrigin;
     enriched.pricingBasis = priceInfo.pricingBasis;
   }
   return enriched;

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f0e8f0" rx="8"/>
+  <rect x="60" y="30" width="280" height="240" rx="12" fill="#8a2060"/>
+  <rect x="80" y="50" width="240" height="200" rx="8" fill="#b04080"/>
+  <text x="200" y="120" text-anchor="middle" font-size="22" font-weight="bold" fill="#fff" font-family="Arial">Fou Foune</text>
+  <text x="200" y="150" text-anchor="middle" font-size="16" fill="#f0d0e0" font-family="Arial">Lambic / Sour</text>
+  <text x="200" y="180" text-anchor="middle" font-size="14" fill="#e0c0d0" font-family="Arial">Cantillon</text>
+  <text x="200" y="210" text-anchor="middle" font-size="12" fill="#d0b0c0" font-family="Arial">ABV 5.0%</text>
+</svg>

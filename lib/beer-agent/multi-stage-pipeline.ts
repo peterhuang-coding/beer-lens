@@ -1,4 +1,35 @@
 import { openrouterFetch } from "./openrouter-client";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
+// ── Config helpers (inlined to avoid circular imports) ──
+
+const CONFIG_PATH = path.join(process.cwd(), "data", "pipeline-config.json");
+
+type ModelConfig = { provider: string; model: string; temperature: number; maxTokens: number; timeoutMs: number };
+
+async function loadConfig(): Promise<any> {
+  try {
+    const raw = await readFile(CONFIG_PATH, "utf8");
+    return JSON.parse(raw);
+  } catch { return {}; }
+}
+
+async function getModelConfig(kind: string): Promise<ModelConfig> {
+  const cfg = await loadConfig();
+  const fromConfig = cfg.models?.[kind];
+  const defaults: Record<string, ModelConfig> = {
+    vision:    { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 30000 },
+    analysis:  { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+  };
+  if (fromConfig && typeof fromConfig === "object" && fromConfig.model) {
+    return fromConfig as ModelConfig;
+  }
+  if (typeof fromConfig === "string" && fromConfig) {
+    return { ...defaults[kind], model: fromConfig };
+  }
+  return defaults[kind];
+}
 
 // ── Progress callback ──
 
@@ -107,6 +138,25 @@ function textOnlyVisualQuality(): VisualQuality {
   };
 }
 
+function noBeerReply(ctx: ImageContext): string {
+  const type = ctx?.imageType ?? "unknown";
+  switch (type) {
+    case "tap_list":
+      return "这张照片我识别为酒头/黑板菜单，但没能从上面读出任何啤酒。可能是文字太小、反光、或者角度太偏。试试正面拍一张清楚点的？";
+    case "menu":
+      return "这张照片看起来是酒单，但我没能从上面识别出任何啤酒。可能是分辨率不够或者光线不好，换个角度近一点再拍试试？";
+    case "bottle":
+    case "can":
+      return "我看到瓶子/罐子了，但没能从酒标上读出酒名和酒厂。试试拍清楚酒标正面？";
+    case "glass":
+      return "这杯酒看起来不错，但从酒液本身我没法知道它具体是哪款。如果想知道，可以拍酒单或者直接告诉我酒名。";
+    case "venue":
+      return "这是酒吧环境/货架照片，我没法直接从中提取酒单。试试对准菜单或者 tap list 拍一张？";
+    default:
+      return "这张图里我没能识别出任何啤酒。如果你有酒单照片，试试拍清楚一点发给我，或者直接把酒名打字发过来也行。";
+  }
+}
+
 // ── Main pipeline ──
 
 export async function runMultiStagePipeline(params: {
@@ -117,34 +167,53 @@ export async function runMultiStagePipeline(params: {
   onProgress?: ProgressCallback;
 }): Promise<PipelineResult> {
   const { apiKey, imageDataUrl, userText, profile, onProgress } = params;
-  const visionModel = process.env.OPENROUTER_VISION_MODEL ?? "google/gemini-2.5-flash";
-  const analysisModel = process.env.OPENROUTER_ANALYSIS_MODEL ?? process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini";
+  const visionCfg = await getModelConfig("vision");
+  const analysisCfg = await getModelConfig("analysis");
+  const visionModel = visionCfg.model;
+  const analysisModel = analysisCfg.model;
 
   const emit = onProgress ?? (() => {});
 
-  // Stage 1: classify image (image only)
-  const imageContext = imageDataUrl
-    ? await withProgress(emit, "image_classification", "🔍 图片分类", visionModel,
-        () => classifyImage(apiKey, visionModel, imageDataUrl, userText))
-    : textOnlyImageContext();
+  if (!imageDataUrl) {
+    // Text-only path
+    const imageContext = textOnlyImageContext();
+    const extracted = await withProgress(emit, "ocr", "📝 文本实体抽取", analysisModel,
+      () => extractBeerFromText(apiKey, analysisModel, userText));
+    const visualQuality = textOnlyVisualQuality();
+    const recommendation = await withProgress(emit, "recommendation", "🧠 智能推荐分析", analysisModel,
+      () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext, visualQuality, profile, userText));
+    return { imageContext, extracted, visualQuality, recommendation };
+  }
 
-  // Stage 2: extract beer signals (OCR)
-  const extracted = imageDataUrl
-    ? await withProgress(emit, "ocr", "📝 OCR 候选酒提取", visionModel,
-        () => extractBeerSignal(apiKey, visionModel, imageDataUrl, imageContext!, userText))
-    : await withProgress(emit, "ocr", "📝 文本实体抽取", analysisModel,
-        () => extractBeerFromText(apiKey, analysisModel, userText));
+  // Stage 1: Combined vision analysis (classify + OCR + quality) — single API call
+  const combined = await withProgress(emit, "vision", "🔍📝🔬 视觉分析 (分类+OCR+质量)", visionModel,
+    () => combinedVisionAnalysis(apiKey, visionModel, imageDataUrl, userText));
 
-  // Stage 3: visual quality (image only)
-  const visualQuality = imageDataUrl
-    ? await withProgress(emit, "visual_quality", "🔬 视觉质量检查", visionModel,
-        () => assessVisualQuality(apiKey, visionModel, imageDataUrl, imageContext!, extracted, userText))
-    : textOnlyVisualQuality();
+  const imageContext = combined.imageContext;
+  const extracted = combined.extracted;
+  const visualQuality = combined.visualQuality;
 
-  // Stage 4: recommendation
+  // Short-circuit: no beers found
+  if ((extracted.items ?? []).length === 0) {
+    return {
+      imageContext,
+      extracted,
+      visualQuality: {
+        canAssess: false, visualRiskFlags: [],
+        oxidationRisk: "unknown", freshnessRisk: "unknown", lightstrikeRisk: "unknown",
+        evidence: [], caveat: "未识别到酒款，跳过视觉质量检查。",
+      },
+      recommendation: {
+        reply: noBeerReply(imageContext),
+        topPickId: "", safePickId: "", explorePickId: "", avoidPickId: "",
+        topReason: "", safeReason: "", exploreReason: "", avoidReason: "",
+      },
+    };
+  }
+
+  // Stage 2: Recommendation (text model)
   const recommendation = await withProgress(emit, "recommendation", "🧠 智能推荐分析", analysisModel,
-    () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext!, visualQuality!, profile, userText)
-  );
+    () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext, visualQuality, profile, userText));
 
   return { imageContext, extracted, visualQuality, recommendation };
 }
@@ -169,63 +238,63 @@ async function withProgress<T>(
   }
 }
 
-// ── Stage 1: Image classification ──
+// ── Combined vision analysis: classify + OCR + quality (single call) ──
 
-async function classifyImage(
+type CombinedVisionOutput = {
+  imageContext: ImageContext;
+  extracted: BeerSignal;
+  visualQuality: VisualQuality;
+};
+
+function combinedVisionSchema() {
+  return {
+    type: "object",
+    additionalProperties: false,
+    required: ["imageContext", "extracted", "visualQuality"],
+    properties: {
+      imageContext: imageContextSchema(),
+      extracted: beerSignalExtractSchema(),
+      visualQuality: visualQualitySchema(),
+    },
+  };
+}
+
+async function combinedVisionAnalysis(
   apiKey: string, model: string, imageDataUrl: string, userText: string
-): Promise<ImageContext> {
-  const schema = imageContextSchema();
+): Promise<CombinedVisionOutput> {
+  const schema = combinedVisionSchema();
   const result = await callOpenRouterJson(apiKey, model, [
     { role: "user", content: [
-      { type: "text", text: `你是啤酒图片路由器。先判断这张图是什么类型。
+      { type: "text", text: `你是啤酒图像分析器。一次完成以下三项任务，返回完整 JSON。
 
-图片类型只能选：
-- menu: 普通酒单、纸质/屏幕菜单
-- tap_list: 酒吧 tap list、酒头列表、黑板生啤列表
-- bottle: 单个瓶子/瓶标
-- can: 单个罐子/罐标
-- glass: 杯中酒液
-- venue: 酒吧环境/冰柜/货架
-- unknown: 无法判断
+## 任务1: imageContext — 图片分类
+判断图片类型：menu(酒单) / tap_list(酒头列表) / bottle(瓶) / can(罐) / glass(杯中酒) / venue(环境) / unknown
 
-还要判断是否需要 OCR、是否需要酒标识别、是否能做视觉质量风险观察。
+## 任务2: extracted — 提取所有啤酒
+从图中抽取每款酒：beerName(酒名)、brewery(酒厂)、style(风格)、abv、ibu、price(元, 数字)、serving(容量, 如330ml)
+- 不确定就降低 confidence，不要编造
+- rawText 保留 OCR 原文
+
+## 任务3: visualQuality — 视觉质量风险
+- 杯中酒：氧化/老化迹象、泡沫、浑浊度
+- 瓶/罐：是否能看到日期、包装受损
+- 酒单/tap list：日期可见性、IPA 新鲜度风险
+- 只能说是"疑似风险"，不能下结论
 
 用户补充需求：${userText}` },
       { type: "image_url", image_url: { url: imageDataUrl } }
     ]}
-  ], schema, "beer_image_context", 600);
-  return result as ImageContext;
+  ], schema, "beer_combined_vision", 12000);
+
+  const data = result as any;
+  return {
+    imageContext: data.imageContext ?? textOnlyImageContext(),
+    extracted: data.extracted ?? { sourceType: "unknown", rawText: "", items: [], visualBeerDescription: { color: "", clarity: "", foam: "", visiblePackagingDate: "", notes: [] }, uncertainties: [] },
+    visualQuality: data.visualQuality ?? textOnlyVisualQuality(),
+  };
 }
 
-// ── Stage 2: Beer signal extraction ──
-
-async function extractBeerSignal(
-  apiKey: string, model: string, imageDataUrl: string,
-  imageContext: ImageContext, userText: string
-): Promise<BeerSignal> {
-  const schema = beerSignalExtractSchema();
-  const result = await callOpenRouterJson(apiKey, model, [
-    { role: "user", content: [
-      { type: "text", text: `你是啤酒 OCR / 酒标识别 / 候选酒抽取器。
-
-上游图片分类：
-${JSON.stringify(imageContext, null, 2)}
-
-任务：
-1. 如果是 menu/tap_list，从图中识别所有啤酒候选项。
-2. 如果是 bottle/can，从酒标中识别单个酒款，尽量抽取酒名、酒厂、风格、ABV。
-3. 如果是 glass，只描述可见酒液，不要编造酒名；items 可以为空或低置信度。
-4. 保留原文（OCR 原文，一行一款酒）。
-5. 尽量抽取酒名、酒厂、风格、ABV、IBU、价格（元）、容量（ml）。
-6. 不确定就把 confidence 降低，不要编造酒名。
-7. price 字段只填数字（元），serving 字段填容量信息如"330ml"、"一品脱"等。
-
-用户补充需求：${userText}` },
-      { type: "image_url", image_url: { url: imageDataUrl } }
-    ]}
-  ], schema, "beer_signal_extract", 4000);
-  return result as BeerSignal;
-}
+// ── Text-only extraction ──
 
 async function extractBeerFromText(
   apiKey: string, model: string, userText: string
@@ -241,45 +310,13 @@ ${userText}
   return result as BeerSignal;
 }
 
-// ── Stage 3: Visual quality ──
-
-async function assessVisualQuality(
-  apiKey: string, model: string, imageDataUrl: string,
-  imageContext: ImageContext, extracted: BeerSignal, userText: string
-): Promise<VisualQuality> {
-  const schema = visualQualitySchema();
-  const result = await callOpenRouterJson(apiKey, model, [
-    { role: "user", content: [
-      { type: "text", text: `你是啤酒视觉质量观察器。请只基于图片可见信息判断风险，不要做绝对结论。
-
-重点看：
-- 如果是杯中酒：颜色是否异常发暗/棕化、泡沫是否快速消散、浑浊是否符合风格、是否像氧化/老化/受光照影响。
-- 如果是瓶/罐：是否能看到日期、是否过期、瓶型是否透明/绿瓶导致光照风险、包装是否受损。
-- 如果是酒单/tap list：能否看到日期、是否有 IPA 新鲜度风险。
-
-上游图片分类：
-${JSON.stringify(imageContext, null, 2)}
-
-候选酒抽取：
-${JSON.stringify(extracted, null, 2)}
-
-用户补充需求：${userText}
-
-注意：氧化只能说"视觉风险/疑似"，不能说一定氧化。` },
-      { type: "image_url", image_url: { url: imageDataUrl } }
-    ]}
-  ], schema, "beer_visual_quality", 900);
-  return result as VisualQuality;
-}
-
-// ── Stage 4: Recommendation ──
+// ── Recommendation ──
 
 async function analyzeRecommendation(
   apiKey: string, model: string,
   extracted: BeerSignal, imageContext: ImageContext,
   visualQuality: VisualQuality, profile: string, userText: string
 ): Promise<PipelineRecommendation> {
-  // Build a flat list of beer names from OCR for the LLM to reference
   const beerList = (extracted.items ?? []).map((item, i) =>
     `#${item.menuIndex || i + 1} ${item.beerName} | ${item.brewery || "?"} | ${item.style || "?"} | ${item.abv}% ABV` +
     (item.price ? ` | ¥${item.price}` : "") +
@@ -320,7 +357,6 @@ async function callOpenRouterJson(
 ): Promise<object> {
   const schemaJson = JSON.stringify(schema);
 
-  // Build request body — skip response_format for models that don't support it well
   const supportsJsonSchema = !model.includes("gemini");
 
   const body: any = {
@@ -361,7 +397,6 @@ async function callOpenRouterJson(
   try {
     content = await openrouterFetch(body);
   } catch (err) {
-    // Fallback: strip response_format entirely, rely on prompt
     const fallbackBody = {
       ...body,
       response_format: undefined,
@@ -373,34 +408,28 @@ async function callOpenRouterJson(
     }
   }
 
-  // Parse JSON with repair
   return parseAndRepairJson(content, schemaName);
 }
 
 function parseAndRepairJson(content: string, label: string): object {
-  // Try direct parse first
-  try {
-    return JSON.parse(content.trim());
-  } catch {}
+  try { return JSON.parse(content.trim()); } catch {}
 
-  // Strip markdown fences
   let cleaned = content
     .replace(/^```(?:json)?\s*\n?/i, "")
     .replace(/\n?```\s*$/, "")
     .trim();
 
-  // Try again
-  try {
-    return JSON.parse(cleaned);
-  } catch {}
+  try { return JSON.parse(cleaned); } catch {}
 
-  // Extract first { ... } pair
+  cleaned = escapeControlCharsInJsonStrings(cleaned);
+
+  try { return JSON.parse(cleaned); } catch {}
+
   const firstBrace = cleaned.indexOf("{");
   if (firstBrace === -1) {
     throw new Error(`[${label}] No JSON object found in: ${content.slice(0, 300)}`);
   }
 
-  // Find matching closing brace
   let depth = 0;
   let end = -1;
   for (let i = firstBrace; i < cleaned.length; i++) {
@@ -412,23 +441,15 @@ function parseAndRepairJson(content: string, label: string): object {
     }
   }
 
-  if (end === -1) {
-    // Truncated JSON — try to salvage by closing open structures
-    end = cleaned.length;
-  }
+  if (end === -1) end = cleaned.length;
 
   let json = cleaned.slice(firstBrace, end).trim();
 
-  // If still unbalanced, try to close any open strings/objects/arrays
   if (!isBalanced(json)) {
     json = salvageTruncated(json);
   }
 
-  // Try parsing
-  try {
-    return JSON.parse(json);
-  } catch (e: any) {
-    // Try common repairs
+  try { return JSON.parse(json); } catch (e: any) {
     const repaired = json
       .replace(/,\s*}/g, "}")
       .replace(/,\s*\]/g, "]")
@@ -436,13 +457,45 @@ function parseAndRepairJson(content: string, label: string): object {
       .replace(/\r/g, "\\r")
       .replace(/\t/g, "\\t");
 
+    try { return JSON.parse(repaired); } catch {}
+
     try {
-      return JSON.parse(repaired);
+      const salvaged = salvageTruncated(repaired);
+      return JSON.parse(salvaged);
     } catch {}
 
     const preview = json.slice(0, 500);
     throw new Error(`[${label}] JSON parse error: ${e.message}. JSON excerpt: ${preview}...`);
   }
+}
+
+function escapeControlCharsInJsonStrings(json: string): string {
+  let result = "";
+  let inString = false;
+  for (let i = 0; i < json.length; i++) {
+    const ch = json[i];
+    if (inString) {
+      if (ch === "\\") {
+        result += ch;
+        if (i + 1 < json.length) result += json[++i];
+      } else if (ch === '"') {
+        inString = false;
+        result += ch;
+      } else if (ch === "\n") {
+        result += "\\n";
+      } else if (ch === "\r") {
+        result += "\\r";
+      } else if (ch === "\t") {
+        result += "\\t";
+      } else {
+        result += ch;
+      }
+    } else {
+      if (ch === '"') inString = true;
+      result += ch;
+    }
+  }
+  return result;
 }
 
 function isBalanced(s: string): boolean {
@@ -465,18 +518,43 @@ function isBalanced(s: string): boolean {
 }
 
 function salvageTruncated(json: string): string {
-  // Close any open string, then close open arrays/objects
   let result = json;
 
-  // If we're in the middle of a string, close it
   let inString = false;
+  let stringStart = -1;
   for (let i = 0; i < result.length; i++) {
     if (result[i] === "\\") { i++; continue; }
-    if (result[i] === '"') inString = !inString;
+    if (result[i] === '"') {
+      if (inString) { inString = false; stringStart = -1; }
+      else { inString = true; stringStart = i; }
+    }
   }
-  if (inString) result += '"';
 
-  // Count and close open brackets
+  if (inString && stringStart >= 0) {
+    const before = result.slice(0, stringStart);
+    const afterColon = /:\s*$/.test(before);
+    const afterCommaOrBrace = /[{,]\s*$/.test(before);
+
+    if (afterCommaOrBrace || afterColon) {
+      if (afterColon) {
+        result = before.replace(/:\s*$/, "");
+        result = result.replace(/,\s*$/, "");
+      } else {
+        const lastComma = before.lastIndexOf(",");
+        if (lastComma >= 0) {
+          result = before.slice(0, lastComma);
+        } else {
+          const openBrace = before.lastIndexOf("{");
+          result = before.slice(0, openBrace + 1);
+        }
+      }
+    } else {
+      result += '"';
+    }
+  }
+
+  result = result.replace(/,\s*$/, "");
+
   let objDepth = 0;
   let arrDepth = 0;
   inString = false;
@@ -491,10 +569,6 @@ function salvageTruncated(json: string): string {
     if (ch === "]") arrDepth--;
   }
 
-  // If we were in the middle of an array element, remove trailing comma first
-  result = result.replace(/,\s*$/, "");
-
-  // Close open arrays, then objects
   result += "]".repeat(Math.max(0, arrDepth));
   result += "}".repeat(Math.max(0, objDepth));
 

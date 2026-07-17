@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#0d1f2d" rx="8"/>
+  <rect x="40" y="20" width="320" height="260" rx="10" fill="#1a3045"/>
+  <text x="200" y="60" text-anchor="middle" font-size="18" font-weight="bold" fill="#e8c840" font-family="Arial">2026 Craft Beer Guide</text>
+  <line x1="60" y1="75" x2="340" y2="75" stroke="#e8c84033" stroke-width="1"/>
+  <text x="200" y="110" text-anchor="middle" font-size="14" fill="#c8d8e8" font-family="Arial">🥇 Double IPA — Russian River</text>
+  <text x="200" y="140" text-anchor="middle" font-size="14" fill="#c8d8e8" font-family="Arial">🥇 Hazy IPA — Tree House</text>
+  <text x="200" y="170" text-anchor="middle" font-size="14" fill="#c8d8e8" font-family="Arial">🥇 DIPA — The Alchemist</text>
+  <text x="200" y="200" text-anchor="middle" font-size="14" fill="#c8d8e8" font-family="Arial">🥇 Stout — Founders</text>
+  <text x="200" y="230" text-anchor="middle" font-size="14" fill="#c8d8e8" font-family="Arial">🥇 Lambic — Cantillon</text>
+  <text x="200" y="265" text-anchor="middle" font-size="11" fill="#8aa8c8" font-family="Arial">Top Picks for 2026</text>
+</svg>

@@ -55,8 +55,12 @@ export type BeerCandidate = {
   volumeMl?: number | null;
   pricePerMl?: number | null;
   valueScore?: number | null;
-  usBenchmark?: number | null;    // estimated US taproom price (RMB, with tax)
-  savingsVsUS?: number | null;    // % cheaper than US (>0 = cheaper here)
+  originBenchmark?: number | null;    // estimated ORIGIN country price (RMB)
+  savingsVsOrigin?: number | null;    // % cheaper than origin country (>0 = cheaper here)
+  // Structured recommendation reasons for debug/review UI.
+  objectiveReasons?: string[];
+  personalReasons?: string[];
+  riskReasons?: string[];
 };
 
 export type Pick = {
@@ -65,6 +69,41 @@ export type Pick = {
   reason: string;
   worthScore: number;
   fitScore: number;
+};
+
+/** Structured diagnosis of the recommendation pipeline. */
+export type RecommendationDiagnosis = {
+  ocrCandidateCount: number;
+  dbLookupCount: number;
+  dbHitCount: number;
+  dataMissingCount: number;
+  scoringInputs: Array<{
+    candidateId: string;
+    displayName: string;
+    rating: number | null;
+    ratingsCount: number | null;
+    worthScore: number;
+    fitScore: number;
+    scoringWeights: {
+      base: number;
+      ratingBonus: number;
+      priceBonus: number;
+      abvPenalty: number;
+      missingDataPenalty: number;
+      profileFitBonus: number;
+      constraintBonus: number;
+    };
+  }>;
+  topPickReason: string;
+  riskFlags: string[];
+  memoryUsed: boolean;
+  constraintsUsed: string[];
+  pipelineStages?: {
+    imageContext?: unknown;
+    extractedCount?: number;
+    visualQuality?: unknown;
+    enrichmentLog?: unknown[];
+  };
 };
 
 export type AgentResponse = {
@@ -81,6 +120,10 @@ export type AgentResponse = {
   profileSummary: string;
   /** Multi-stage pipeline intermediate results for UI visualization */
   stages?: Record<string, unknown>;
+  /** Route diagnosis — injected by dispatcher after routing. */
+  routeDiagnosis?: import("./route-registry").RouteDiagnosis;
+  /** Recommendation pipeline diagnosis for debugging badcases. */
+  diagnosis?: RecommendationDiagnosis;
 };
 
 export type BenchmarkQuestion = {
@@ -107,4 +150,3 @@ export type JournalEntry = {
     note?: string;
   };
 };
-

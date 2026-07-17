@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-07-06T09:27:50.663Z",
+  "visionModel": "qwen/qwen3-vl-8b-instruct",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 45513,
+  "passed": 1,
+  "failed": 0,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "pass",
+      "durationMs": 45513,
+      "assertions": [
+        {
+          "name": "imageType",
+          "pass": true,
+          "expected": "tap_list",
+          "actual": "tap_list"
+        },
+        {
+          "name": "minCandidates",
+          "pass": true,
+          "expected": ">= 2",
+          "actual": 17
+        },
+        {
+          "name": "maxCandidates",
+          "pass": true,
+          "expected": "<= 20",
+          "actual": 17
+        },
+        {
+          "name": "hasReply",
+          "pass": true,
+          "expected": "non-empty reply",
+          "actual": "根据酒单中的啤酒类型和酒精度，我为您推荐了以下几款："
+        },
+        {
+          "name": "hasTopPick",
+          "pass": true,
+          "expected": "non-empty topPickId",
+          "actual": "#3"
+        },
+        {
+          "name": "noRiskFlag:hallucination",
+          "pass": true,
+          "expected": "no \"hallucination\"",
+          "actual": "none"
+        },
+        {
+          "name": "intentShouldBe",
+          "pass": true,
+          "expected": "menu_recommend",
+          "actual": "menu_recommend"
+        }
+      ],
+      "summary": {
+        "imageType": "tap_list",
+        "candidateCount": 17,
+        "ocrConfidence": 0.98,
+        "replyPreview": "根据酒单中的啤酒类型和酒精度，我为您推荐了以下几款："
+      }
+    }
+  ]
+}

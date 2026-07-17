@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#e0d8d0" rx="8"/>
+  <rect x="60" y="30" width="280" height="240" rx="12" fill="#3a2010"/>
+  <rect x="80" y="50" width="240" height="200" rx="8" fill="#5a3820"/>
+  <text x="200" y="120" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8d8c8" font-family="Arial">KBS</text>
+  <text x="200" y="150" text-anchor="middle" font-size="16" fill="#d0c0a8" font-family="Arial">Imperial Stout</text>
+  <text x="200" y="180" text-anchor="middle" font-size="14" fill="#c0b098" font-family="Arial">Founders Brewing</text>
+  <text x="200" y="210" text-anchor="middle" font-size="12" fill="#b0a088" font-family="Arial">ABV 12.0%</text>
+</svg>

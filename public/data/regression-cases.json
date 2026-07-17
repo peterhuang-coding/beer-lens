@@ -1,0 +1,4589 @@
+[
+  {
+    "id": "reg_300",
+    "name": "推荐一款浑浊IPA",
+    "inputText": "推荐一款浑浊IPA",
+    "conversationId": "gen-reg_300",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐一款浑浊IPA",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_301",
+    "name": "求推荐西海岸IPA",
+    "inputText": "求推荐西海岸IPA",
+    "conversationId": "gen-reg_301",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 求推荐西海岸IPA",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_302",
+    "name": "推荐双倍IPA啤酒",
+    "inputText": "推荐双倍IPA啤酒",
+    "conversationId": "gen-reg_302",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐双倍IPA啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_303",
+    "name": "推荐牛奶世涛",
+    "inputText": "推荐牛奶世涛",
+    "conversationId": "gen-reg_303",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐牛奶世涛",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_304",
+    "name": "推荐帝国世涛",
+    "inputText": "推荐帝国世涛",
+    "conversationId": "gen-reg_304",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐帝国世涛",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_305",
+    "name": "推荐法兰德斯红艾尔",
+    "inputText": "推荐法兰德斯红艾尔",
+    "conversationId": "gen-reg_305",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐法兰德斯红艾尔",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_306",
+    "name": "推荐比利时三料",
+    "inputText": "推荐比利时三料",
+    "conversationId": "gen-reg_306",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐比利时三料",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_307",
+    "name": "推荐德式小麦",
+    "inputText": "推荐德式小麦",
+    "conversationId": "gen-reg_307",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐德式小麦",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_308",
+    "name": "推荐比利时小麦",
+    "inputText": "推荐比利时小麦",
+    "conversationId": "gen-reg_308",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐比利时小麦",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_309",
+    "name": "推荐赛森啤酒",
+    "inputText": "推荐赛森啤酒",
+    "conversationId": "gen-reg_309",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐赛森啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_310",
+    "name": "推荐博克烈性啤酒",
+    "inputText": "推荐博克烈性啤酒",
+    "conversationId": "gen-reg_310",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐博克烈性啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_311",
+    "name": "推荐修道院啤酒",
+    "inputText": "推荐修道院啤酒",
+    "conversationId": "gen-reg_311",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐修道院啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_312",
+    "name": "推荐兰比克酸啤",
+    "inputText": "推荐兰比克酸啤",
+    "conversationId": "gen-reg_312",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐兰比克酸啤",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_313",
+    "name": "推荐古斯酸啤酒",
+    "inputText": "推荐古斯酸啤酒",
+    "conversationId": "gen-reg_313",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐古斯酸啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_314",
+    "name": "推荐波特啤酒",
+    "inputText": "推荐波特啤酒",
+    "conversationId": "gen-reg_314",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐波特啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_315",
+    "name": "类似Pliny the Elder的推荐",
+    "inputText": "类似Pliny the Elder的推荐",
+    "conversationId": "gen-reg_315",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 类似Pliny the Elder的推荐",
+    "expectedMinCandidates": 1,
+    "expectedKeywords": [
+      "Pliny the Elder"
+    ]
+  },
+  {
+    "id": "reg_316",
+    "name": "像Heady Topper的风格推荐",
+    "inputText": "像Heady Topper的风格推荐",
+    "conversationId": "gen-reg_316",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 像Heady Topper的风格推荐",
+    "expectedMinCandidates": 1,
+    "expectedKeywords": [
+      "Heady Topper"
+    ]
+  },
+  {
+    "id": "reg_317",
+    "name": "King Sue同款风格推荐",
+    "inputText": "King Sue同款风格推荐",
+    "conversationId": "gen-reg_317",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: King Sue同款风格推荐",
+    "expectedMinCandidates": 1,
+    "expectedKeywords": [
+      "King Sue"
+    ]
+  },
+  {
+    "id": "reg_318",
+    "name": "Parabola级别世涛推荐",
+    "inputText": "Parabola级别世涛推荐",
+    "conversationId": "gen-reg_318",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: Parabola级别世涛推荐",
+    "expectedMinCandidates": 1,
+    "expectedKeywords": [
+      "Parabola"
+    ]
+  },
+  {
+    "id": "reg_319",
+    "name": "BCBS级别桶陈推荐",
+    "inputText": "BCBS级别桶陈推荐",
+    "conversationId": "gen-reg_319",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: BCBS级别桶陈推荐",
+    "expectedMinCandidates": 1,
+    "expectedKeywords": [
+      "BCBS"
+    ]
+  },
+  {
+    "id": "reg_320",
+    "name": "Founders Breakfast Stout类似酒",
+    "inputText": "Founders Breakfast Stout类似酒",
+    "conversationId": "gen-reg_320",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: Founders Breakfast Stout类似酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_321",
+    "name": "Rodenbach酸啤风格推荐",
+    "inputText": "Rodenbach酸啤风格推荐",
+    "conversationId": "gen-reg_321",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: Rodenbach酸啤风格推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_322",
+    "name": "Westvleteren12水平修道院推荐",
+    "inputText": "Westvleteren12水平修道院推荐",
+    "conversationId": "gen-reg_322",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: Westvleteren12水平修道院推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_323",
+    "name": "Rochefort10后推荐下一款",
+    "inputText": "Rochefort10后推荐下一款",
+    "conversationId": "gen-reg_323",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: Rochefort10后推荐下一款",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_324",
+    "name": "京A有什么好酒推荐",
+    "inputText": "京A有什么好酒推荐",
+    "conversationId": "gen-reg_324",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 京A有什么好酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_325",
+    "name": "拳击猫哪款值得喝",
+    "inputText": "拳击猫哪款值得喝",
+    "conversationId": "gen-reg_325",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 拳击猫哪款值得喝",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_326",
+    "name": "高大师推荐什么酒",
+    "inputText": "高大师推荐什么酒",
+    "conversationId": "gen-reg_326",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 高大师推荐什么酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_327",
+    "name": "夏天清爽啤酒推荐",
+    "inputText": "夏天清爽啤酒推荐",
+    "conversationId": "gen-reg_327",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 夏天清爽啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_328",
+    "name": "冬天暖身啤酒推荐",
+    "inputText": "冬天暖身啤酒推荐",
+    "conversationId": "gen-reg_328",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 冬天暖身啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_329",
+    "name": "聚会啤酒推荐",
+    "inputText": "聚会啤酒推荐",
+    "conversationId": "gen-reg_329",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 聚会啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_330",
+    "name": "独饮啤酒推荐",
+    "inputText": "独饮啤酒推荐",
+    "conversationId": "gen-reg_330",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 独饮啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_331",
+    "name": "火锅配精酿推荐",
+    "inputText": "火锅配精酿推荐",
+    "conversationId": "gen-reg_331",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 火锅配精酿推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_332",
+    "name": "烧烤啤酒推荐",
+    "inputText": "烧烤啤酒推荐",
+    "conversationId": "gen-reg_332",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 烧烤啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_333",
+    "name": "约会啤酒推荐",
+    "inputText": "约会啤酒推荐",
+    "conversationId": "gen-reg_333",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 约会啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_334",
+    "name": "看球赛啤酒推荐",
+    "inputText": "看球赛啤酒推荐",
+    "conversationId": "gen-reg_334",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 看球赛啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_335",
+    "name": "芝士配啤酒推荐",
+    "inputText": "芝士配啤酒推荐",
+    "conversationId": "gen-reg_335",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 芝士配啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_336",
+    "name": "本周新品啤酒推荐",
+    "inputText": "本周新品啤酒推荐",
+    "conversationId": "gen-reg_336",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 本周新品啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_337",
+    "name": "推荐高酒精度啤酒",
+    "inputText": "推荐高酒精度啤酒",
+    "conversationId": "gen-reg_337",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐高酒精度啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_338",
+    "name": "推荐低酒精度啤酒",
+    "inputText": "推荐低酒精度啤酒",
+    "conversationId": "gen-reg_338",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐低酒精度啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_339",
+    "name": "推荐苦味爆炸啤酒",
+    "inputText": "推荐苦味爆炸啤酒",
+    "conversationId": "gen-reg_339",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐苦味爆炸啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_340",
+    "name": "推荐果味浓郁啤酒",
+    "inputText": "推荐果味浓郁啤酒",
+    "conversationId": "gen-reg_340",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐果味浓郁啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_341",
+    "name": "推荐性价比高的精酿",
+    "inputText": "推荐性价比高的精酿",
+    "conversationId": "gen-reg_341",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐性价比高的精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_342",
+    "name": "推荐入门级精酿",
+    "inputText": "推荐入门级精酿",
+    "conversationId": "gen-reg_342",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐入门级精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_343",
+    "name": "推荐女士适合的啤酒",
+    "inputText": "推荐女士适合的啤酒",
+    "conversationId": "gen-reg_343",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐女士适合的啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_344",
+    "name": "推荐精酿老手酒款",
+    "inputText": "推荐精酿老手酒款",
+    "conversationId": "gen-reg_344",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐精酿老手酒款",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_345",
+    "name": "推荐便宜好喝的精酿",
+    "inputText": "推荐便宜好喝的精酿",
+    "conversationId": "gen-reg_345",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐便宜好喝的精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_346",
+    "name": "今晚想整点啤酒喝",
+    "inputText": "今晚想整点啤酒喝",
+    "conversationId": "gen-reg_346",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 今晚想整点啤酒喝",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_347",
+    "name": "搞一杯好精酿",
+    "inputText": "搞一杯好精酿",
+    "conversationId": "gen-reg_347",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 搞一杯好精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_348",
+    "name": "来点精酿啤酒",
+    "inputText": "来点精酿啤酒",
+    "conversationId": "gen-reg_348",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 来点精酿啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_349",
+    "name": "有好喝精酿推荐吗",
+    "inputText": "有好喝精酿推荐吗",
+    "conversationId": "gen-reg_349",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 有好喝精酿推荐吗",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_350",
+    "name": "想喝点特别精酿",
+    "inputText": "想喝点特别精酿",
+    "conversationId": "gen-reg_350",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 想喝点特别精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_351",
+    "name": "给我挑个好精酿",
+    "inputText": "给我挑个好精酿",
+    "conversationId": "gen-reg_351",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 给我挑个好精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_352",
+    "name": "随便推荐个啤酒",
+    "inputText": "随便推荐个啤酒",
+    "conversationId": "gen-reg_352",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 随便推荐个啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_353",
+    "name": "看你推荐什么啤酒",
+    "inputText": "看你推荐什么啤酒",
+    "conversationId": "gen-reg_353",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 看你推荐什么啤酒",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_354",
+    "name": "你推荐哪个精酿",
+    "inputText": "你推荐哪个精酿",
+    "conversationId": "gen-reg_354",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 你推荐哪个精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_355",
+    "name": "有什么新鲜精酿",
+    "inputText": "有什么新鲜精酿",
+    "conversationId": "gen-reg_355",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 有什么新鲜精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_356",
+    "name": "推荐IPA西海岸风格",
+    "inputText": "推荐IPA西海岸风格",
+    "conversationId": "gen-reg_356",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐IPA西海岸风格",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_357",
+    "name": "帝国世涛要波本桶陈",
+    "inputText": "帝国世涛要波本桶陈",
+    "conversationId": "gen-reg_357",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 帝国世涛要波本桶陈",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_358",
+    "name": "法兰德斯红酸啤推荐",
+    "inputText": "法兰德斯红酸啤推荐",
+    "conversationId": "gen-reg_358",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 法兰德斯红酸啤推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_359",
+    "name": "新英格兰IPA推荐",
+    "inputText": "新英格兰IPA推荐",
+    "conversationId": "gen-reg_359",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 新英格兰IPA推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_360",
+    "name": "淡色艾尔推荐一款",
+    "inputText": "淡色艾尔推荐一款",
+    "conversationId": "gen-reg_360",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 淡色艾尔推荐一款",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_361",
+    "name": "过桶世涛推荐",
+    "inputText": "过桶世涛推荐",
+    "conversationId": "gen-reg_361",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 过桶世涛推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_362",
+    "name": "日本精酿推荐",
+    "inputText": "日本精酿推荐",
+    "conversationId": "gen-reg_362",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 日本精酿推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_363",
+    "name": "英国风格啤酒推荐",
+    "inputText": "英国风格啤酒推荐",
+    "conversationId": "gen-reg_363",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 英国风格啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_364",
+    "name": "德国风格啤酒推荐",
+    "inputText": "德国风格啤酒推荐",
+    "conversationId": "gen-reg_364",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 德国风格啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_365",
+    "name": "比利时风格啤酒推荐",
+    "inputText": "比利时风格啤酒推荐",
+    "conversationId": "gen-reg_365",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 比利时风格啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_366",
+    "name": "我想喝什么啤酒好",
+    "inputText": "我想喝什么啤酒好",
+    "conversationId": "gen-reg_366",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 我想喝什么啤酒好",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_367",
+    "name": "推荐推荐哪个啤酒好",
+    "inputText": "推荐推荐哪个啤酒好",
+    "conversationId": "gen-reg_367",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 推荐推荐哪个啤酒好",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_368",
+    "name": "有什么精酿啤酒推荐",
+    "inputText": "有什么精酿啤酒推荐",
+    "conversationId": "gen-reg_368",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 有什么精酿啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_369",
+    "name": "想喝一杯好精酿",
+    "inputText": "想喝一杯好精酿",
+    "conversationId": "gen-reg_369",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 想喝一杯好精酿",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_370",
+    "name": "波本桶陈啤酒推荐",
+    "inputText": "波本桶陈啤酒推荐",
+    "conversationId": "gen-reg_370",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 波本桶陈啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_371",
+    "name": "本地精酿推荐",
+    "inputText": "本地精酿推荐",
+    "conversationId": "gen-reg_371",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 本地精酿推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_372",
+    "name": "小麦啤酒推荐",
+    "inputText": "小麦啤酒推荐",
+    "conversationId": "gen-reg_372",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 小麦啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_373",
+    "name": "水果风味啤酒推荐",
+    "inputText": "水果风味啤酒推荐",
+    "conversationId": "gen-reg_373",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 水果风味啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_374",
+    "name": "巧克力风味啤酒推荐",
+    "inputText": "巧克力风味啤酒推荐",
+    "conversationId": "gen-reg_374",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 巧克力风味啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_375",
+    "name": "咖啡世涛啤酒推荐",
+    "inputText": "咖啡世涛啤酒推荐",
+    "conversationId": "gen-reg_375",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 咖啡世涛啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_376",
+    "name": "香料风味啤酒推荐",
+    "inputText": "香料风味啤酒推荐",
+    "conversationId": "gen-reg_376",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 香料风味啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_377",
+    "name": "焦糖风味啤酒推荐",
+    "inputText": "焦糖风味啤酒推荐",
+    "conversationId": "gen-reg_377",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 焦糖风味啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_378",
+    "name": "陈年啤酒推荐",
+    "inputText": "陈年啤酒推荐",
+    "conversationId": "gen-reg_378",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 陈年啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_379",
+    "name": "新鲜啤酒推荐",
+    "inputText": "新鲜啤酒推荐",
+    "conversationId": "gen-reg_379",
+    "expectedIntent": "menu_recommend",
+    "tags": [
+      "recommend",
+      "text-only"
+    ],
+    "note": "推荐: 新鲜啤酒推荐",
+    "expectedMinCandidates": 1
+  },
+  {
+    "id": "reg_380",
+    "name": "赛森啤酒风格定义",
+    "inputText": "赛森啤酒风格定义",
+    "conversationId": "gen-reg_388",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 赛森啤酒风格定义"
+  },
+  {
+    "id": "reg_381",
+    "name": "比利时三料和四料区别",
+    "inputText": "比利时三料和四料区别",
+    "conversationId": "gen-reg_389",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 比利时三料和四料区别"
+  },
+  {
+    "id": "reg_382",
+    "name": "淡色艾尔和IPA区别",
+    "inputText": "淡色艾尔和IPA区别",
+    "conversationId": "gen-reg_390",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 淡色艾尔和IPA区别"
+  },
+  {
+    "id": "reg_383",
+    "name": "古斯啤酒是什么风格",
+    "inputText": "古斯啤酒是什么风格",
+    "conversationId": "gen-reg_391",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 古斯啤酒是什么风格"
+  },
+  {
+    "id": "reg_384",
+    "name": "兰比克啤酒是什么",
+    "inputText": "兰比克啤酒是什么",
+    "conversationId": "gen-reg_392",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 兰比克啤酒是什么"
+  },
+  {
+    "id": "reg_385",
+    "name": "博克啤酒是什么风格",
+    "inputText": "博克啤酒是什么风格",
+    "conversationId": "gen-reg_393",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 博克啤酒是什么风格"
+  },
+  {
+    "id": "reg_386",
+    "name": "德式小麦比利时小麦区别",
+    "inputText": "德式小麦比利时小麦区别",
+    "conversationId": "gen-reg_394",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 德式小麦比利时小麦区别"
+  },
+  {
+    "id": "reg_387",
+    "name": "修道院啤酒是什么",
+    "inputText": "修道院啤酒是什么",
+    "conversationId": "gen-reg_395",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 修道院啤酒是什么"
+  },
+  {
+    "id": "reg_388",
+    "name": "双倍IPA三倍IPA区别",
+    "inputText": "双倍IPA三倍IPA区别",
+    "conversationId": "gen-reg_396",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 双倍IPA三倍IPA区别"
+  },
+  {
+    "id": "reg_389",
+    "name": "过桶啤酒是什么意思",
+    "inputText": "过桶啤酒是什么意思",
+    "conversationId": "gen-reg_397",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 过桶啤酒是什么意思"
+  },
+  {
+    "id": "reg_390",
+    "name": "酸艾尔啤酒是什么",
+    "inputText": "酸艾尔啤酒是什么",
+    "conversationId": "gen-reg_398",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 酸艾尔啤酒是什么"
+  },
+  {
+    "id": "reg_391",
+    "name": "淡拉格深拉格区别",
+    "inputText": "淡拉格深拉格区别",
+    "conversationId": "gen-reg_399",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 淡拉格深拉格区别"
+  },
+  {
+    "id": "reg_392",
+    "name": "啤酒如何碳酸化",
+    "inputText": "啤酒如何碳酸化",
+    "conversationId": "gen-reg_400",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒如何碳酸化"
+  },
+  {
+    "id": "reg_393",
+    "name": "干投酒花煮投区别",
+    "inputText": "干投酒花煮投区别",
+    "conversationId": "gen-reg_401",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 干投酒花煮投区别"
+  },
+  {
+    "id": "reg_394",
+    "name": "冷泡酒花技术是什么",
+    "inputText": "冷泡酒花技术是什么",
+    "conversationId": "gen-reg_402",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 冷泡酒花技术是什么"
+  },
+  {
+    "id": "reg_395",
+    "name": "啤酒酵母分类",
+    "inputText": "啤酒酵母分类",
+    "conversationId": "gen-reg_403",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒酵母分类"
+  },
+  {
+    "id": "reg_396",
+    "name": "上发酵下发酵区别",
+    "inputText": "上发酵下发酵区别",
+    "conversationId": "gen-reg_404",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 上发酵下发酵区别"
+  },
+  {
+    "id": "reg_397",
+    "name": "野生发酵啤酒是什么",
+    "inputText": "野生发酵啤酒是什么",
+    "conversationId": "gen-reg_405",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 野生发酵啤酒是什么"
+  },
+  {
+    "id": "reg_398",
+    "name": "啤酒花主要作用",
+    "inputText": "啤酒花主要作用",
+    "conversationId": "gen-reg_406",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒花主要作用"
+  },
+  {
+    "id": "reg_399",
+    "name": "大麦芽小麦芽区别",
+    "inputText": "大麦芽小麦芽区别",
+    "conversationId": "gen-reg_407",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 大麦芽小麦芽区别"
+  },
+  {
+    "id": "reg_400",
+    "name": "糖化工艺是什么",
+    "inputText": "糖化工艺是什么",
+    "conversationId": "gen-reg_408",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 糖化工艺是什么"
+  },
+  {
+    "id": "reg_401",
+    "name": "酒精度如何计算",
+    "inputText": "酒精度如何计算",
+    "conversationId": "gen-reg_409",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 酒精度如何计算"
+  },
+  {
+    "id": "reg_402",
+    "name": "Pliny the Elder哪家酒厂",
+    "inputText": "Pliny the Elder哪家酒厂",
+    "conversationId": "gen-reg_410",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: Pliny the Elder哪家酒厂"
+  },
+  {
+    "id": "reg_403",
+    "name": "Heady Topper历史",
+    "inputText": "Heady Topper历史",
+    "conversationId": "gen-reg_411",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: Heady Topper历史"
+  },
+  {
+    "id": "reg_404",
+    "name": "京A酒厂发展故事",
+    "inputText": "京A酒厂发展故事",
+    "conversationId": "gen-reg_412",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 京A酒厂发展故事"
+  },
+  {
+    "id": "reg_405",
+    "name": "拳击猫酒厂风格",
+    "inputText": "拳击猫酒厂风格",
+    "conversationId": "gen-reg_413",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 拳击猫酒厂风格"
+  },
+  {
+    "id": "reg_406",
+    "name": "高大师为什么有名",
+    "inputText": "高大师为什么有名",
+    "conversationId": "gen-reg_414",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 高大师为什么有名"
+  },
+  {
+    "id": "reg_407",
+    "name": "BCBS为什么受欢迎",
+    "inputText": "BCBS为什么受欢迎",
+    "conversationId": "gen-reg_415",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: BCBS为什么受欢迎"
+  },
+  {
+    "id": "reg_408",
+    "name": "Stone酒厂特点",
+    "inputText": "Stone酒厂特点",
+    "conversationId": "gen-reg_416",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: Stone酒厂特点"
+  },
+  {
+    "id": "reg_409",
+    "name": "比利时修道院酒厂",
+    "inputText": "比利时修道院酒厂",
+    "conversationId": "gen-reg_417",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 比利时修道院酒厂"
+  },
+  {
+    "id": "reg_410",
+    "name": "酿酒狗名字由来",
+    "inputText": "酿酒狗名字由来",
+    "conversationId": "gen-reg_418",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 酿酒狗名字由来"
+  },
+  {
+    "id": "reg_411",
+    "name": "Trappist认证是什么",
+    "inputText": "Trappist认证是什么",
+    "conversationId": "gen-reg_419",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: Trappist认证是什么"
+  },
+  {
+    "id": "reg_412",
+    "name": "IPA品鉴方法",
+    "inputText": "IPA品鉴方法",
+    "conversationId": "gen-reg_420",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: IPA品鉴方法"
+  },
+  {
+    "id": "reg_413",
+    "name": "如何判断啤酒过期",
+    "inputText": "如何判断啤酒过期",
+    "conversationId": "gen-reg_421",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 如何判断啤酒过期"
+  },
+  {
+    "id": "reg_414",
+    "name": "啤酒最佳饮用温度",
+    "inputText": "啤酒最佳饮用温度",
+    "conversationId": "gen-reg_422",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒最佳饮用温度"
+  },
+  {
+    "id": "reg_415",
+    "name": "为什么用不同啤酒杯",
+    "inputText": "为什么用不同啤酒杯",
+    "conversationId": "gen-reg_423",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 为什么用不同啤酒杯"
+  },
+  {
+    "id": "reg_416",
+    "name": "IPA最佳饮用时机",
+    "inputText": "IPA最佳饮用时机",
+    "conversationId": "gen-reg_424",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: IPA最佳饮用时机"
+  },
+  {
+    "id": "reg_417",
+    "name": "精酿啤酒能否陈年",
+    "inputText": "精酿啤酒能否陈年",
+    "conversationId": "gen-reg_425",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 精酿啤酒能否陈年"
+  },
+  {
+    "id": "reg_418",
+    "name": "IBU的含义",
+    "inputText": "IBU的含义",
+    "conversationId": "gen-reg_426",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: IBU的含义"
+  },
+  {
+    "id": "reg_419",
+    "name": "国际苦度单位",
+    "inputText": "国际苦度单位",
+    "conversationId": "gen-reg_427",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 国际苦度单位"
+  },
+  {
+    "id": "reg_420",
+    "name": "啤酒热量对比",
+    "inputText": "啤酒热量对比",
+    "conversationId": "gen-reg_428",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒热量对比"
+  },
+  {
+    "id": "reg_421",
+    "name": "精酿工业啤酒哪个好",
+    "inputText": "精酿工业啤酒哪个好",
+    "conversationId": "gen-reg_429",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 精酿工业啤酒哪个好"
+  },
+  {
+    "id": "reg_422",
+    "name": "啤酒风格分类",
+    "inputText": "啤酒风格分类",
+    "conversationId": "gen-reg_430",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒风格分类"
+  },
+  {
+    "id": "reg_423",
+    "name": "精酿比工业贵原因",
+    "inputText": "精酿比工业贵原因",
+    "conversationId": "gen-reg_431",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 精酿比工业贵原因"
+  },
+  {
+    "id": "reg_424",
+    "name": "IPA历史起源",
+    "inputText": "IPA历史起源",
+    "conversationId": "gen-reg_432",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: IPA历史起源"
+  },
+  {
+    "id": "reg_425",
+    "name": "世涛名字由来",
+    "inputText": "世涛名字由来",
+    "conversationId": "gen-reg_433",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 世涛名字由来"
+  },
+  {
+    "id": "reg_426",
+    "name": "Session IPA是什么",
+    "inputText": "Session IPA是什么",
+    "conversationId": "gen-reg_434",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: Session IPA是什么"
+  },
+  {
+    "id": "reg_427",
+    "name": "无醇啤酒是什么",
+    "inputText": "无醇啤酒是什么",
+    "conversationId": "gen-reg_435",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 无醇啤酒是什么"
+  },
+  {
+    "id": "reg_428",
+    "name": "浑浊IPA浑浊原因",
+    "inputText": "浑浊IPA浑浊原因",
+    "conversationId": "gen-reg_436",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 浑浊IPA浑浊原因"
+  },
+  {
+    "id": "reg_429",
+    "name": "啤酒颜色来源",
+    "inputText": "啤酒颜色来源",
+    "conversationId": "gen-reg_437",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒颜色来源"
+  },
+  {
+    "id": "reg_430",
+    "name": "啤酒花过敏症状",
+    "inputText": "啤酒花过敏症状",
+    "conversationId": "gen-reg_438",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒花过敏症状"
+  },
+  {
+    "id": "reg_431",
+    "name": "啤酒果香来源",
+    "inputText": "啤酒果香来源",
+    "conversationId": "gen-reg_439",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒果香来源"
+  },
+  {
+    "id": "reg_432",
+    "name": "酒花添加方式",
+    "inputText": "酒花添加方式",
+    "conversationId": "gen-reg_440",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 酒花添加方式"
+  },
+  {
+    "id": "reg_433",
+    "name": "啤酒花品种介绍",
+    "inputText": "啤酒花品种介绍",
+    "conversationId": "gen-reg_441",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒花品种介绍"
+  },
+  {
+    "id": "reg_434",
+    "name": "Cascade酒花特点",
+    "inputText": "Cascade酒花特点",
+    "conversationId": "gen-reg_442",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: Cascade酒花特点"
+  },
+  {
+    "id": "reg_435",
+    "name": "Centennial Citra区别",
+    "inputText": "Centennial Citra区别",
+    "conversationId": "gen-reg_443",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: Centennial Citra区别"
+  },
+  {
+    "id": "reg_436",
+    "name": "啤酒苦度标准",
+    "inputText": "啤酒苦度标准",
+    "conversationId": "gen-reg_444",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 啤酒苦度标准"
+  },
+  {
+    "id": "reg_437",
+    "name": "全麦芽啤酒意思",
+    "inputText": "全麦芽啤酒意思",
+    "conversationId": "gen-reg_445",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 全麦芽啤酒意思"
+  },
+  {
+    "id": "reg_438",
+    "name": "自酿啤酒难度",
+    "inputText": "自酿啤酒难度",
+    "conversationId": "gen-reg_446",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 自酿啤酒难度"
+  },
+  {
+    "id": "reg_439",
+    "name": "家庭自酿啤酒步骤",
+    "inputText": "家庭自酿啤酒步骤",
+    "conversationId": "gen-reg_447",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "text-only"
+    ],
+    "note": "知识: 家庭自酿啤酒步骤"
+  },
+  {
+    "id": "reg_440",
+    "name": "4.5分会再喝热带水果味",
+    "inputText": "4.5分会再喝热带水果味",
+    "conversationId": "gen-reg_448",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 4.5分会再喝热带水果味",
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_441",
+    "name": "3分不会再喝太苦了",
+    "inputText": "3分不会再喝太苦了",
+    "conversationId": "gen-reg_449",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 3分不会再喝太苦了",
+    "expectedKeywords": [
+      "3",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_442",
+    "name": "5分满分再喝柑橘焦糖",
+    "inputText": "5分满分再喝柑橘焦糖",
+    "conversationId": "gen-reg_450",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 5分满分再喝柑橘焦糖",
+    "expectedKeywords": [
+      "5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_443",
+    "name": "1分太难喝不碰了",
+    "inputText": "1分太难喝不碰了",
+    "conversationId": "gen-reg_451",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 1分太难喝不碰了",
+    "expectedKeywords": [
+      "1",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_444",
+    "name": "2.5分一般般看情况吧",
+    "inputText": "2.5分一般般看情况吧",
+    "conversationId": "gen-reg_452",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 2.5分一般般看情况吧",
+    "expectedKeywords": [
+      "2.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_445",
+    "name": "4分会再喝咖啡巧克力",
+    "inputText": "4分会再喝咖啡巧克力",
+    "conversationId": "gen-reg_453",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 4分会再喝咖啡巧克力",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_446",
+    "name": "3.5分会再喝花香突出",
+    "inputText": "3.5分会再喝花香突出",
+    "conversationId": "gen-reg_454",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 3.5分会再喝花香突出",
+    "expectedKeywords": [
+      "3.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_447",
+    "name": "4分看情况偏酸了点",
+    "inputText": "4分看情况偏酸了点",
+    "conversationId": "gen-reg_455",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 4分看情况偏酸了点",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_448",
+    "name": "2分不会再喝味道怪",
+    "inputText": "2分不会再喝味道怪",
+    "conversationId": "gen-reg_456",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 2分不会再喝味道怪",
+    "expectedKeywords": [
+      "2",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_449",
+    "name": "4.8分会再喝完美一杯",
+    "inputText": "4.8分会再喝完美一杯",
+    "conversationId": "gen-reg_457",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 4.8分会再喝完美一杯",
+    "expectedKeywords": [
+      "4.8",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_450",
+    "name": "Pliny给4.5分再喝",
+    "inputText": "Pliny给4.5分再喝",
+    "conversationId": "gen-reg_458",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Pliny给4.5分再喝",
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_451",
+    "name": "Heady Topper给4分花棒",
+    "inputText": "Heady Topper给4分花棒",
+    "conversationId": "gen-reg_459",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Heady Topper给4分花棒",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_452",
+    "name": "Parabola14.1给4.5分",
+    "inputText": "Parabola14.1给4.5分",
+    "conversationId": "gen-reg_460",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Parabola14.1给4.5分",
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_453",
+    "name": "King Sue3分还行",
+    "inputText": "King Sue3分还行",
+    "conversationId": "gen-reg_461",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: King Sue3分还行",
+    "expectedKeywords": [
+      "3",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_454",
+    "name": "BCBS2023版5分完美",
+    "inputText": "BCBS2023版5分完美",
+    "conversationId": "gen-reg_462",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: BCBS2023版5分完美",
+    "expectedKeywords": [
+      "5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_455",
+    "name": "Founders Breakfast3.5咖啡",
+    "inputText": "Founders Breakfast3.5咖啡",
+    "conversationId": "gen-reg_463",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Founders Breakfast3.5咖啡",
+    "expectedKeywords": [
+      "3.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_456",
+    "name": "Rodenbach不错4分樱桃",
+    "inputText": "Rodenbach不错4分樱桃",
+    "conversationId": "gen-reg_464",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Rodenbach不错4分樱桃",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_457",
+    "name": "Tripel Karmeliet4分再喝",
+    "inputText": "Tripel Karmeliet4分再喝",
+    "conversationId": "gen-reg_465",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Tripel Karmeliet4分再喝",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_458",
+    "name": "Westvleteren125分名不虚传",
+    "inputText": "Westvleteren125分名不虚传",
+    "conversationId": "gen-reg_466",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Westvleteren125分名不虚传",
+    "expectedKeywords": [
+      "5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_459",
+    "name": "京A飞拳3分中规中矩",
+    "inputText": "京A飞拳3分中规中矩",
+    "conversationId": "gen-reg_467",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 京A飞拳3分中规中矩",
+    "expectedKeywords": [
+      "3",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_460",
+    "name": "0分没法喝这瓶酒",
+    "inputText": "0分没法喝这瓶酒",
+    "conversationId": "gen-reg_468",
+    "expectedIntent": "unclear",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 0分没法喝这瓶酒",
+    "expectedKeywords": [
+      "0",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_461",
+    "name": "10分太好喝了这瓶",
+    "inputText": "10分太好喝了这瓶",
+    "conversationId": "gen-reg_469",
+    "expectedIntent": "unclear",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 10分太好喝了这瓶",
+    "expectedKeywords": [
+      "10",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_462",
+    "name": "5分满分好评",
+    "inputText": "5分满分好评",
+    "conversationId": "gen-reg_470",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 5分满分好评",
+    "expectedKeywords": [
+      "5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_463",
+    "name": "会再喝这杯酒不错",
+    "inputText": "会再喝这杯酒不错",
+    "conversationId": "gen-reg_471",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 会再喝这杯酒不错",
+    "expectedKeywords": [
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_464",
+    "name": "不会再喝太水了",
+    "inputText": "不会再喝太水了",
+    "conversationId": "gen-reg_472",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 不会再喝太水了",
+    "expectedKeywords": [
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_465",
+    "name": "评个分4分吧",
+    "inputText": "评个分4分吧",
+    "conversationId": "gen-reg_473",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 评个分4分吧",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_466",
+    "name": "这杯必须5分满分",
+    "inputText": "这杯必须5分满分",
+    "conversationId": "gen-reg_474",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 这杯必须5分满分",
+    "expectedKeywords": [
+      "5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_467",
+    "name": "打分3.5总体不错",
+    "inputText": "打分3.5总体不错",
+    "conversationId": "gen-reg_475",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 打分3.5总体不错",
+    "expectedKeywords": [
+      "3.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_468",
+    "name": "太难喝给2分",
+    "inputText": "太难喝给2分",
+    "conversationId": "gen-reg_476",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 太难喝给2分",
+    "expectedKeywords": [
+      "2",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_469",
+    "name": "这杯好喝给4分",
+    "inputText": "这杯好喝给4分",
+    "conversationId": "gen-reg_477",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 这杯好喝给4分",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_470",
+    "name": "上次那瓶4.5还会再喝",
+    "inputText": "上次那瓶4.5还会再喝",
+    "conversationId": "gen-reg_478",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 上次那瓶4.5还会再喝",
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_471",
+    "name": "刚喝完给评价4分",
+    "inputText": "刚喝完给评价4分",
+    "conversationId": "gen-reg_479",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 刚喝完给评价4分",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_472",
+    "name": "今天新酒3分一般",
+    "inputText": "今天新酒3分一般",
+    "conversationId": "gen-reg_480",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 今天新酒3分一般",
+    "expectedKeywords": [
+      "3",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_473",
+    "name": "记录一下4分再喝",
+    "inputText": "记录一下4分再喝",
+    "conversationId": "gen-reg_481",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 记录一下4分再喝",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_474",
+    "name": "品鉴柑橘浓郁4分",
+    "inputText": "品鉴柑橘浓郁4分",
+    "conversationId": "gen-reg_482",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 品鉴柑橘浓郁4分",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_475",
+    "name": "Rochefort104.5太好喝",
+    "inputText": "Rochefort104.5太好喝",
+    "conversationId": "gen-reg_483",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Rochefort104.5太好喝",
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_476",
+    "name": "Corona喝了2分太淡",
+    "inputText": "Corona喝了2分太淡",
+    "conversationId": "gen-reg_484",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Corona喝了2分太淡",
+    "expectedKeywords": [
+      "2",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_477",
+    "name": "Snow啤酒1分水啤",
+    "inputText": "Snow啤酒1分水啤",
+    "conversationId": "gen-reg_485",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Snow啤酒1分水啤",
+    "expectedKeywords": [
+      "1",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_478",
+    "name": "Tsingtao2分一般",
+    "inputText": "Tsingtao2分一般",
+    "conversationId": "gen-reg_486",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Tsingtao2分一般",
+    "expectedKeywords": [
+      "2",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_479",
+    "name": "柑橘不错给3.5分",
+    "inputText": "柑橘不错给3.5分",
+    "conversationId": "gen-reg_487",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 柑橘不错给3.5分",
+    "expectedKeywords": [
+      "3.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_480",
+    "name": "酸得舒服4分再喝",
+    "inputText": "酸得舒服4分再喝",
+    "conversationId": "gen-reg_488",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 酸得舒服4分再喝",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_481",
+    "name": "苦味太强2.5不来了",
+    "inputText": "苦味太强2.5不来了",
+    "conversationId": "gen-reg_489",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 苦味太强2.5不来了",
+    "expectedKeywords": [
+      "2.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_482",
+    "name": "口感滑顺4分推荐",
+    "inputText": "口感滑顺4分推荐",
+    "conversationId": "gen-reg_490",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 口感滑顺4分推荐",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_483",
+    "name": "今天IPA4分不错",
+    "inputText": "今天IPA4分不错",
+    "conversationId": "gen-reg_491",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 今天IPA4分不错",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_484",
+    "name": "浓郁巧克力3.5分",
+    "inputText": "浓郁巧克力3.5分",
+    "conversationId": "gen-reg_492",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 浓郁巧克力3.5分",
+    "expectedKeywords": [
+      "3.5",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_485",
+    "name": "打分4.2略苦好喝",
+    "inputText": "打分4.2略苦好喝",
+    "conversationId": "gen-reg_493",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 打分4.2略苦好喝",
+    "expectedKeywords": [
+      "4.2",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_486",
+    "name": "苦得恰到好处4分",
+    "inputText": "苦得恰到好处4分",
+    "conversationId": "gen-reg_494",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 苦得恰到好处4分",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_487",
+    "name": "第一次精酿3分吧",
+    "inputText": "第一次精酿3分吧",
+    "conversationId": "gen-reg_495",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: 第一次精酿3分吧",
+    "expectedKeywords": [
+      "3",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_488",
+    "name": "Budweiser2分工业水",
+    "inputText": "Budweiser2分工业水",
+    "conversationId": "gen-reg_496",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Budweiser2分工业水",
+    "expectedKeywords": [
+      "2",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_489",
+    "name": "Corona3分沙滩酒",
+    "inputText": "Corona3分沙滩酒",
+    "conversationId": "gen-reg_497",
+    "expectedIntent": "tasting_feedback",
+    "tags": [
+      "tasting",
+      "text-only"
+    ],
+    "note": "品饮: Corona3分沙滩酒",
+    "expectedKeywords": [
+      "3",
+      "记录"
+    ]
+  },
+  {
+    "id": "reg_490",
+    "name": "有IPA可以选吗",
+    "inputText": "有IPA可以选吗",
+    "conversationId": "gen-reg_498",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有IPA可以选吗"
+  },
+  {
+    "id": "reg_491",
+    "name": "有没有世涛可选",
+    "inputText": "有没有世涛可选",
+    "conversationId": "gen-reg_499",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有没有世涛可选"
+  },
+  {
+    "id": "reg_492",
+    "name": "有酸啤可以选么",
+    "inputText": "有酸啤可以选么",
+    "conversationId": "gen-reg_500",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有酸啤可以选么"
+  },
+  {
+    "id": "reg_493",
+    "name": "有没有小麦啤酒选",
+    "inputText": "有没有小麦啤酒选",
+    "conversationId": "gen-reg_501",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有没有小麦啤酒选"
+  },
+  {
+    "id": "reg_494",
+    "name": "贵的有哪些选择",
+    "inputText": "贵的有哪些选择",
+    "conversationId": "gen-reg_502",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 贵的有哪些选择"
+  },
+  {
+    "id": "reg_495",
+    "name": "便宜有哪些",
+    "inputText": "便宜有哪些",
+    "conversationId": "gen-reg_503",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 便宜有哪些"
+  },
+  {
+    "id": "reg_496",
+    "name": "有水果风味的吗",
+    "inputText": "有水果风味的吗",
+    "conversationId": "gen-reg_504",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有水果风味的吗"
+  },
+  {
+    "id": "reg_497",
+    "name": "哪个酒精度最高",
+    "inputText": "哪个酒精度最高",
+    "conversationId": "gen-reg_505",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪个酒精度最高"
+  },
+  {
+    "id": "reg_498",
+    "name": "哪个IBU最低",
+    "inputText": "哪个IBU最低",
+    "conversationId": "gen-reg_506",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪个IBU最低"
+  },
+  {
+    "id": "reg_499",
+    "name": "有清淡的选择吗",
+    "inputText": "有清淡的选择吗",
+    "conversationId": "gen-reg_507",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有清淡的选择吗"
+  },
+  {
+    "id": "reg_500",
+    "name": "第1个怎么样呢",
+    "inputText": "第1个怎么样呢",
+    "conversationId": "gen-reg_508",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第1个怎么样呢"
+  },
+  {
+    "id": "reg_501",
+    "name": "第2款口味如何",
+    "inputText": "第2款口味如何",
+    "conversationId": "gen-reg_509",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第2款口味如何"
+  },
+  {
+    "id": "reg_502",
+    "name": "第4杯酒如何",
+    "inputText": "第4杯酒如何",
+    "conversationId": "gen-reg_510",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第4杯酒如何"
+  },
+  {
+    "id": "reg_503",
+    "name": "第5号啤酒信息",
+    "inputText": "第5号啤酒信息",
+    "conversationId": "gen-reg_511",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第5号啤酒信息"
+  },
+  {
+    "id": "reg_504",
+    "name": "第二个选项如何",
+    "inputText": "第二个选项如何",
+    "conversationId": "gen-reg_512",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第二个选项如何"
+  },
+  {
+    "id": "reg_505",
+    "name": "第三个呢",
+    "inputText": "第三个呢",
+    "conversationId": "gen-reg_513",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第三个呢"
+  },
+  {
+    "id": "reg_506",
+    "name": "选3号那款酒吧",
+    "inputText": "选3号那款酒吧",
+    "conversationId": "gen-reg_514",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 选3号那款酒吧"
+  },
+  {
+    "id": "reg_507",
+    "name": "4号那款啤酒",
+    "inputText": "4号那款啤酒",
+    "conversationId": "gen-reg_515",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 4号那款啤酒"
+  },
+  {
+    "id": "reg_508",
+    "name": "第1个有评分吗",
+    "inputText": "第1个有评分吗",
+    "conversationId": "gen-reg_516",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第1个有评分吗"
+  },
+  {
+    "id": "reg_509",
+    "name": "我喜欢第3款酒",
+    "inputText": "我喜欢第3款酒",
+    "conversationId": "gen-reg_517",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 我喜欢第3款酒"
+  },
+  {
+    "id": "reg_510",
+    "name": "第1个第3个哪个好",
+    "inputText": "第1个第3个哪个好",
+    "conversationId": "gen-reg_518",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 第1个第3个哪个好"
+  },
+  {
+    "id": "reg_511",
+    "name": "哪款评分最高",
+    "inputText": "哪款评分最高",
+    "conversationId": "gen-reg_519",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪款评分最高"
+  },
+  {
+    "id": "reg_512",
+    "name": "哪个性价比高",
+    "inputText": "哪个性价比高",
+    "conversationId": "gen-reg_520",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪个性价比高"
+  },
+  {
+    "id": "reg_513",
+    "name": "哪个最受欢迎",
+    "inputText": "哪个最受欢迎",
+    "conversationId": "gen-reg_521",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪个最受欢迎"
+  },
+  {
+    "id": "reg_514",
+    "name": "这几款哪个最苦",
+    "inputText": "这几款哪个最苦",
+    "conversationId": "gen-reg_522",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 这几款哪个最苦"
+  },
+  {
+    "id": "reg_515",
+    "name": "哪个适合新手",
+    "inputText": "哪个适合新手",
+    "conversationId": "gen-reg_523",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪个适合新手"
+  },
+  {
+    "id": "reg_516",
+    "name": "最烈的是哪一款",
+    "inputText": "最烈的是哪一款",
+    "conversationId": "gen-reg_524",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 最烈的是哪一款"
+  },
+  {
+    "id": "reg_517",
+    "name": "最便宜的是哪个",
+    "inputText": "最便宜的是哪个",
+    "conversationId": "gen-reg_525",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 最便宜的是哪个"
+  },
+  {
+    "id": "reg_518",
+    "name": "哪款评分超4分",
+    "inputText": "哪款评分超4分",
+    "conversationId": "gen-reg_526",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪款评分超4分"
+  },
+  {
+    "id": "reg_519",
+    "name": "有国产精酿选吗",
+    "inputText": "有国产精酿选吗",
+    "conversationId": "gen-reg_527",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有国产精酿选吗"
+  },
+  {
+    "id": "reg_520",
+    "name": "这款酒苦不苦",
+    "inputText": "这款酒苦不苦",
+    "conversationId": "gen-reg_528",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 这款酒苦不苦"
+  },
+  {
+    "id": "reg_521",
+    "name": "酒精度高不高",
+    "inputText": "酒精度高不高",
+    "conversationId": "gen-reg_529",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 酒精度高不高"
+  },
+  {
+    "id": "reg_522",
+    "name": "有果味的选吗",
+    "inputText": "有果味的选吗",
+    "conversationId": "gen-reg_530",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有果味的选吗"
+  },
+  {
+    "id": "reg_523",
+    "name": "这些酒好喝不",
+    "inputText": "这些酒好喝不",
+    "conversationId": "gen-reg_531",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 这些酒好喝不"
+  },
+  {
+    "id": "reg_524",
+    "name": "哪个颜色更深",
+    "inputText": "哪个颜色更深",
+    "conversationId": "gen-reg_532",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪个颜色更深"
+  },
+  {
+    "id": "reg_525",
+    "name": "有瓶装选择吗",
+    "inputText": "有瓶装选择吗",
+    "conversationId": "gen-reg_533",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有瓶装选择吗"
+  },
+  {
+    "id": "reg_526",
+    "name": "有罐装的吗",
+    "inputText": "有罐装的吗",
+    "conversationId": "gen-reg_534",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 有罐装的吗"
+  },
+  {
+    "id": "reg_527",
+    "name": "多少钱一瓶",
+    "inputText": "多少钱一瓶",
+    "conversationId": "gen-reg_535",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 多少钱一瓶"
+  },
+  {
+    "id": "reg_528",
+    "name": "能点半杯吗",
+    "inputText": "能点半杯吗",
+    "conversationId": "gen-reg_536",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 能点半杯吗"
+  },
+  {
+    "id": "reg_529",
+    "name": "哪款是新品到货",
+    "inputText": "哪款是新品到货",
+    "conversationId": "gen-reg_537",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "text-only"
+    ],
+    "note": "追问: 哪款是新品到货"
+  },
+  {
+    "id": "reg_530",
+    "name": "我的口味数据什么样",
+    "inputText": "我的口味数据什么样",
+    "conversationId": "gen-reg_538",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我的口味数据什么样",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_531",
+    "name": "看看我的啤酒偏好",
+    "inputText": "看看我的啤酒偏好",
+    "conversationId": "gen-reg_539",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 看看我的啤酒偏好"
+  },
+  {
+    "id": "reg_532",
+    "name": "我喝过哪些精酿啤酒",
+    "inputText": "我喝过哪些精酿啤酒",
+    "conversationId": "gen-reg_540",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我喝过哪些精酿啤酒"
+  },
+  {
+    "id": "reg_533",
+    "name": "帮我查查口味画像",
+    "inputText": "帮我查查口味画像",
+    "conversationId": "gen-reg_541",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 帮我查查口味画像",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_534",
+    "name": "我的品饮记录情况",
+    "inputText": "我的品饮记录情况",
+    "conversationId": "gen-reg_542",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我的品饮记录情况"
+  },
+  {
+    "id": "reg_535",
+    "name": "看看历史品酒记录",
+    "inputText": "看看历史品酒记录",
+    "conversationId": "gen-reg_543",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 看看历史品酒记录"
+  },
+  {
+    "id": "reg_536",
+    "name": "我之前给过什么评分",
+    "inputText": "我之前给过什么评分",
+    "conversationId": "gen-reg_544",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我之前给过什么评分"
+  },
+  {
+    "id": "reg_537",
+    "name": "我喜欢的啤酒风格",
+    "inputText": "我喜欢的啤酒风格",
+    "conversationId": "gen-reg_545",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我喜欢的啤酒风格"
+  },
+  {
+    "id": "reg_538",
+    "name": "查我的口味偏好数据",
+    "inputText": "查我的口味偏好数据",
+    "conversationId": "gen-reg_546",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 查我的口味偏好数据",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_539",
+    "name": "我偏好哪类啤酒",
+    "inputText": "我偏好哪类啤酒",
+    "conversationId": "gen-reg_547",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我偏好哪类啤酒"
+  },
+  {
+    "id": "reg_540",
+    "name": "查一下口味数据",
+    "inputText": "查一下口味数据",
+    "conversationId": "gen-reg_548",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 查一下口味数据",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_541",
+    "name": "显示啤酒偏好",
+    "inputText": "显示啤酒偏好",
+    "conversationId": "gen-reg_549",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 显示啤酒偏好"
+  },
+  {
+    "id": "reg_542",
+    "name": "我的画像数据",
+    "inputText": "我的画像数据",
+    "conversationId": "gen-reg_550",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我的画像数据"
+  },
+  {
+    "id": "reg_543",
+    "name": "以前品饮历史",
+    "inputText": "以前品饮历史",
+    "conversationId": "gen-reg_551",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 以前品饮历史"
+  },
+  {
+    "id": "reg_544",
+    "name": "告诉我喜欢什么口味",
+    "inputText": "告诉我喜欢什么口味",
+    "conversationId": "gen-reg_552",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 告诉我喜欢什么口味",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_545",
+    "name": "啤酒口味总结",
+    "inputText": "啤酒口味总结",
+    "conversationId": "gen-reg_553",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 啤酒口味总结",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_546",
+    "name": "适合什么风格啤酒",
+    "inputText": "适合什么风格啤酒",
+    "conversationId": "gen-reg_554",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 适合什么风格啤酒"
+  },
+  {
+    "id": "reg_547",
+    "name": "评分历史查看",
+    "inputText": "评分历史查看",
+    "conversationId": "gen-reg_555",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 评分历史查看"
+  },
+  {
+    "id": "reg_548",
+    "name": "品酒记录汇总",
+    "inputText": "品酒记录汇总",
+    "conversationId": "gen-reg_556",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 品酒记录汇总"
+  },
+  {
+    "id": "reg_549",
+    "name": "喝过精酿列表",
+    "inputText": "喝过精酿列表",
+    "conversationId": "gen-reg_557",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 喝过精酿列表"
+  },
+  {
+    "id": "reg_550",
+    "name": "查看我的profile",
+    "inputText": "查看我的profile",
+    "conversationId": "gen-reg_558",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 查看我的profile"
+  },
+  {
+    "id": "reg_551",
+    "name": "画像内容是什么",
+    "inputText": "画像内容是什么",
+    "conversationId": "gen-reg_559",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 画像内容是什么",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_552",
+    "name": "看看我口味评价",
+    "inputText": "看看我口味评价",
+    "conversationId": "gen-reg_560",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 看看我口味评价",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_553",
+    "name": "查看啤酒品饮档案",
+    "inputText": "查看啤酒品饮档案",
+    "conversationId": "gen-reg_561",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 查看啤酒品饮档案"
+  },
+  {
+    "id": "reg_554",
+    "name": "我的品酒量记录",
+    "inputText": "我的品酒量记录",
+    "conversationId": "gen-reg_562",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我的品酒量记录"
+  },
+  {
+    "id": "reg_555",
+    "name": "我说过喜欢什么啤酒",
+    "inputText": "我说过喜欢什么啤酒",
+    "conversationId": "gen-reg_563",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 我说过喜欢什么啤酒"
+  },
+  {
+    "id": "reg_556",
+    "name": "口味变化趋势",
+    "inputText": "口味变化趋势",
+    "conversationId": "gen-reg_564",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 口味变化趋势"
+  },
+  {
+    "id": "reg_557",
+    "name": "最近喝了什么查看",
+    "inputText": "最近喝了什么查看",
+    "conversationId": "gen-reg_565",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 最近喝了什么查看"
+  },
+  {
+    "id": "reg_558",
+    "name": "画像记录数量",
+    "inputText": "画像记录数量",
+    "conversationId": "gen-reg_566",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 画像记录数量",
+    "expectedKeywords": [
+      "口味"
+    ]
+  },
+  {
+    "id": "reg_559",
+    "name": "品过的啤酒品牌",
+    "inputText": "品过的啤酒品牌",
+    "conversationId": "gen-reg_567",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "text-only"
+    ],
+    "note": "画像: 品过的啤酒品牌"
+  },
+  {
+    "id": "reg_560",
+    "name": "上次记错了不是这款酒",
+    "inputText": "上次记错了不是这款酒",
+    "conversationId": "gen-reg_568",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 上次记错了不是这款酒"
+  },
+  {
+    "id": "reg_561",
+    "name": "不对我更爱世涛不是IPA",
+    "inputText": "不对我更爱世涛不是IPA",
+    "conversationId": "gen-reg_569",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 不对我更爱世涛不是IPA"
+  },
+  {
+    "id": "reg_562",
+    "name": "纠正一下我喜欢酸啤",
+    "inputText": "纠正一下我喜欢酸啤",
+    "conversationId": "gen-reg_570",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 纠正一下我喜欢酸啤"
+  },
+  {
+    "id": "reg_563",
+    "name": "不是这个口味是拉格",
+    "inputText": "不是这个口味是拉格",
+    "conversationId": "gen-reg_571",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 不是这个口味是拉格"
+  },
+  {
+    "id": "reg_564",
+    "name": "说错了不喜欢苦啤",
+    "inputText": "说错了不喜欢苦啤",
+    "conversationId": "gen-reg_572",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 说错了不喜欢苦啤"
+  },
+  {
+    "id": "reg_565",
+    "name": "改成喜欢浑浊IPA",
+    "inputText": "改成喜欢浑浊IPA",
+    "conversationId": "gen-reg_573",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 改成喜欢浑浊IPA"
+  },
+  {
+    "id": "reg_566",
+    "name": "其实是King Sue那款",
+    "inputText": "其实是King Sue那款",
+    "conversationId": "gen-reg_574",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 其实是King Sue那款"
+  },
+  {
+    "id": "reg_567",
+    "name": "重置所有偏好数据",
+    "inputText": "重置所有偏好数据",
+    "conversationId": "gen-reg_575",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 重置所有偏好数据"
+  },
+  {
+    "id": "reg_568",
+    "name": "清空品饮记录数据",
+    "inputText": "清空品饮记录数据",
+    "conversationId": "gen-reg_576",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 清空品饮记录数据"
+  },
+  {
+    "id": "reg_569",
+    "name": "删除所有品酒记录",
+    "inputText": "删除所有品酒记录",
+    "conversationId": "gen-reg_577",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 删除所有品酒记录"
+  },
+  {
+    "id": "reg_570",
+    "name": "清理喝过的记录",
+    "inputText": "清理喝过的记录",
+    "conversationId": "gen-reg_578",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 清理喝过的记录"
+  },
+  {
+    "id": "reg_571",
+    "name": "上次推荐错了我有这款",
+    "inputText": "上次推荐错了我有这款",
+    "conversationId": "gen-reg_579",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 上次推荐错了我有这款"
+  },
+  {
+    "id": "reg_572",
+    "name": "印象错了喜欢清淡",
+    "inputText": "印象错了喜欢清淡",
+    "conversationId": "gen-reg_580",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 印象错了喜欢清淡"
+  },
+  {
+    "id": "reg_573",
+    "name": "更正给过4分不是3分",
+    "inputText": "更正给过4分不是3分",
+    "conversationId": "gen-reg_581",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 更正给过4分不是3分"
+  },
+  {
+    "id": "reg_574",
+    "name": "改成不喜欢IPA风格",
+    "inputText": "改成不喜欢IPA风格",
+    "conversationId": "gen-reg_582",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 改成不喜欢IPA风格"
+  },
+  {
+    "id": "reg_575",
+    "name": "口味需要矫正一下",
+    "inputText": "口味需要矫正一下",
+    "conversationId": "gen-reg_583",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 口味需要矫正一下"
+  },
+  {
+    "id": "reg_576",
+    "name": "偏好改动改口味",
+    "inputText": "偏好改动改口味",
+    "conversationId": "gen-reg_584",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 偏好改动改口味"
+  },
+  {
+    "id": "reg_577",
+    "name": "前面说得不对更正",
+    "inputText": "前面说得不对更正",
+    "conversationId": "gen-reg_585",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 前面说得不对更正"
+  },
+  {
+    "id": "reg_578",
+    "name": "改一下口味记忆",
+    "inputText": "改一下口味记忆",
+    "conversationId": "gen-reg_586",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 改一下口味记忆"
+  },
+  {
+    "id": "reg_579",
+    "name": "记错了更爱世涛风格",
+    "inputText": "记错了更爱世涛风格",
+    "conversationId": "gen-reg_587",
+    "expectedIntent": "memory_correction",
+    "tags": [
+      "correction",
+      "text-only"
+    ],
+    "note": "纠正: 记错了更爱世涛风格"
+  },
+  {
+    "id": "reg_580",
+    "name": "这瓶酒保质期怎么看",
+    "inputText": "这瓶酒保质期怎么看",
+    "conversationId": "gen-reg_588",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 这瓶酒保质期怎么看"
+  },
+  {
+    "id": "reg_581",
+    "name": "帮我检查啤酒日期信息",
+    "inputText": "帮我检查啤酒日期信息",
+    "conversationId": "gen-reg_589",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 帮我检查啤酒日期信息"
+  },
+  {
+    "id": "reg_582",
+    "name": "这罐啤酒哪个酒厂产",
+    "inputText": "这罐啤酒哪个酒厂产",
+    "conversationId": "gen-reg_590",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 这罐啤酒哪个酒厂产"
+  },
+  {
+    "id": "reg_583",
+    "name": "帮我识别这是什么啤酒",
+    "inputText": "帮我识别这是什么啤酒",
+    "conversationId": "gen-reg_591",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 帮我识别这是什么啤酒"
+  },
+  {
+    "id": "reg_584",
+    "name": "看看是不是过期了",
+    "inputText": "看看是不是过期了",
+    "conversationId": "gen-reg_592",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 看看是不是过期了"
+  },
+  {
+    "id": "reg_585",
+    "name": "酒标看不懂翻译下",
+    "inputText": "酒标看不懂翻译下",
+    "conversationId": "gen-reg_593",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 酒标看不懂翻译下"
+  },
+  {
+    "id": "reg_586",
+    "name": "这是哪款风格啤酒",
+    "inputText": "这是哪款风格啤酒",
+    "conversationId": "gen-reg_594",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 这是哪款风格啤酒"
+  },
+  {
+    "id": "reg_587",
+    "name": "检查啤酒新鲜度",
+    "inputText": "检查啤酒新鲜度",
+    "conversationId": "gen-reg_595",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 检查啤酒新鲜度"
+  },
+  {
+    "id": "reg_588",
+    "name": "这瓶啤酒产地哪里",
+    "inputText": "这瓶啤酒产地哪里",
+    "conversationId": "gen-reg_596",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 这瓶啤酒产地哪里"
+  },
+  {
+    "id": "reg_589",
+    "name": "看看酒标日期信息",
+    "inputText": "看看酒标日期信息",
+    "conversationId": "gen-reg_597",
+    "expectedIntent": "unclear",
+    "tags": [
+      "label",
+      "text-only"
+    ],
+    "note": "酒标: 看看酒标日期信息"
+  },
+  {
+    "id": "reg_590",
+    "name": "酒水",
+    "inputText": "酒水",
+    "conversationId": "gen-reg_608",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 酒水"
+  },
+  {
+    "id": "reg_591",
+    "name": "嗯嗯",
+    "inputText": "嗯嗯",
+    "conversationId": "gen-reg_609",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 嗯嗯"
+  },
+  {
+    "id": "reg_592",
+    "name": "哦哦",
+    "inputText": "哦哦",
+    "conversationId": "gen-reg_610",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 哦哦"
+  },
+  {
+    "id": "reg_593",
+    "name": "hi there",
+    "inputText": "hi there",
+    "conversationId": "gen-reg_611",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: hi there"
+  },
+  {
+    "id": "reg_594",
+    "name": "help me",
+    "inputText": "help me",
+    "conversationId": "gen-reg_612",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: help me"
+  },
+  {
+    "id": "reg_595",
+    "name": "什么呢",
+    "inputText": "什么呢",
+    "conversationId": "gen-reg_613",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 什么呢"
+  },
+  {
+    "id": "reg_596",
+    "name": "随便吧",
+    "inputText": "随便吧",
+    "conversationId": "gen-reg_614",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 随便吧"
+  },
+  {
+    "id": "reg_597",
+    "name": "都可以吧",
+    "inputText": "都可以吧",
+    "conversationId": "gen-reg_615",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 都可以吧"
+  },
+  {
+    "id": "reg_598",
+    "name": "你猜猜看",
+    "inputText": "你猜猜看",
+    "conversationId": "gen-reg_616",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 你猜猜看"
+  },
+  {
+    "id": "reg_599",
+    "name": "说说看吧",
+    "inputText": "说说看吧",
+    "conversationId": "gen-reg_617",
+    "expectedIntent": "unclear",
+    "tags": [
+      "unclear",
+      "text-only"
+    ],
+    "note": "不明: 说说看吧"
+  },
+  {
+    "id": "reg_001",
+    "name": "推荐一款IPA",
+    "inputText": "推荐一款IPA",
+    "conversationId": "recommend-ipa",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "ipa",
+      "text-only"
+    ],
+    "note": "Basic recommendation request for IPA style"
+  },
+  {
+    "id": "reg_002",
+    "name": "想喝清爽不苦的（follow_up_filter）",
+    "inputText": "想喝清爽不苦的",
+    "conversationId": "recommend-crisp",
+    "userId": "regression-user",
+    "tags": [
+      "recommend",
+      "preference",
+      "text-only",
+      "filter"
+    ],
+    "note": "\"不苦\" triggers follow_up_filter, not recommend — actual behavior",
+    "expectedIntent": "menu_recommend"
+  },
+  {
+    "id": "reg_003",
+    "name": "推荐一款世涛",
+    "inputText": "推荐一款世涛",
+    "conversationId": "recommend-stout",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "stout",
+      "text-only"
+    ],
+    "note": "Recommend stout style"
+  },
+  {
+    "id": "reg_004",
+    "name": "帮我推荐拉格",
+    "inputText": "帮我推荐拉格",
+    "conversationId": "recommend-lager",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "lager",
+      "text-only"
+    ],
+    "note": "Recommend lager style"
+  },
+  {
+    "id": "reg_005",
+    "name": "推荐酸啤",
+    "inputText": "帮我推荐一款酸啤",
+    "conversationId": "recommend-sour",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "sour",
+      "text-only"
+    ],
+    "note": "Recommend sour beer"
+  },
+  {
+    "id": "reg_006",
+    "name": "帮我推荐一款",
+    "inputText": "帮我推荐一款",
+    "conversationId": "recommend-generic",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "generic",
+      "text-only"
+    ],
+    "note": "Generic recommendation without style"
+  },
+  {
+    "id": "reg_007",
+    "name": "今天喝什么好",
+    "inputText": "今天喝什么好",
+    "conversationId": "recommend-daily",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "daily",
+      "text-only"
+    ],
+    "note": "Colloquial everyday recommendation ask"
+  },
+  {
+    "id": "reg_008",
+    "name": "想喝点烈的",
+    "inputText": "想喝点烈的",
+    "conversationId": "recommend-strong",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "strong",
+      "text-only"
+    ],
+    "note": "Wants strong beer, triggers recommend via 想喝"
+  },
+  {
+    "id": "reg_009",
+    "name": "有什么好喝的啤酒",
+    "inputText": "有什么好喝的啤酒",
+    "conversationId": "recommend-whatsgood",
+    "userId": "regression-user",
+    "expectedIntent": "menu_recommend",
+    "expectedMinCandidates": 1,
+    "tags": [
+      "recommend",
+      "generic",
+      "text-only"
+    ],
+    "note": "Generic what's good to drink"
+  },
+  {
+    "id": "reg_010",
+    "name": "有IPA吗（无上下文→unclear）",
+    "inputText": "有IPA吗",
+    "conversationId": "filter-ipa",
+    "userId": "regression-user",
+    "tags": [
+      "filter",
+      "ipa",
+      "text-only",
+      "needs-context"
+    ],
+    "note": "Follow-up filter without active menu context returns unclear — this is expected",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_011",
+    "name": "第3个怎么样",
+    "inputText": "第3个怎么样",
+    "conversationId": "filter-nth",
+    "userId": "regression-user",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "pick",
+      "text-only"
+    ],
+    "note": "Follow-up: ask about 3rd menu item (needs active menu context)"
+  },
+  {
+    "id": "reg_012",
+    "name": "有没有世涛",
+    "inputText": "有没有世涛",
+    "conversationId": "filter-stout",
+    "userId": "regression-user",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "stout",
+      "text-only"
+    ],
+    "note": "Follow-up filter: any stout available (needs active menu context)"
+  },
+  {
+    "id": "reg_013",
+    "name": "哪个不苦",
+    "inputText": "哪个不苦",
+    "conversationId": "filter-not-bitter",
+    "userId": "regression-user",
+    "expectedIntent": "follow_up_filter",
+    "tags": [
+      "filter",
+      "bitter",
+      "text-only"
+    ],
+    "note": "Follow-up filter: which ones are not bitter (needs active menu context)"
+  },
+  {
+    "id": "reg_014",
+    "name": "第一个怎么样（无上下文→unclear）",
+    "inputText": "第一个怎么样",
+    "conversationId": "filter-1st",
+    "userId": "regression-user",
+    "tags": [
+      "filter",
+      "pick",
+      "text-only"
+    ],
+    "note": "Follow-up: ask about 1st item without menu context returns unclear",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_015",
+    "name": "有没有酸啤（无上下文→unclear）",
+    "inputText": "有没有酸啤",
+    "conversationId": "filter-sour",
+    "userId": "regression-user",
+    "tags": [
+      "filter",
+      "sour",
+      "text-only"
+    ],
+    "note": "Follow-up without active menu context returns unclear",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_016",
+    "name": "我给4.5分会再喝热带水果",
+    "inputText": "我给4.5分，会再喝，热带水果",
+    "conversationId": "tasting-full",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "feedback",
+      "text-only"
+    ],
+    "note": "Tasting feedback with score, would-drink-again, and flavor tags"
+  },
+  {
+    "id": "reg_017",
+    "name": "3.5分，不会再喝",
+    "inputText": "3.5分，不会再喝",
+    "conversationId": "tasting-low",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": [
+      "3.5",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "low-score",
+      "text-only"
+    ],
+    "note": "Tasting feedback: low score, won't drink again"
+  },
+  {
+    "id": "reg_018",
+    "name": "4分",
+    "inputText": "4分",
+    "conversationId": "tasting-score-only",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": [
+      "4",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "score-only",
+      "text-only"
+    ],
+    "note": "Tasting feedback: score only, no additional tags"
+  },
+  {
+    "id": "reg_019",
+    "name": "这杯不错，给4.5分",
+    "inputText": "这杯不错，给4.5分",
+    "conversationId": "tasting-good",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": [
+      "4.5",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "good",
+      "text-only"
+    ],
+    "note": "Tasting feedback: positive rating"
+  },
+  {
+    "id": "reg_020",
+    "name": "2分，不会再喝，偏酸",
+    "inputText": "2分，不会再喝，偏酸",
+    "conversationId": "tasting-bad",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": [
+      "2",
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "bad",
+      "text-only"
+    ],
+    "note": "Tasting feedback: bad rating with reason"
+  },
+  {
+    "id": "reg_021",
+    "name": "会再喝，苦度刚好",
+    "inputText": "会再喝，苦度刚好",
+    "conversationId": "tasting-would-drink",
+    "userId": "regression-user",
+    "expectedIntent": "tasting_feedback",
+    "expectedKeywords": [
+      "记录"
+    ],
+    "tags": [
+      "tasting",
+      "would-drink",
+      "text-only"
+    ],
+    "note": "Tasting feedback: would drink again without explicit score"
+  },
+  {
+    "id": "reg_022",
+    "name": "我的口味画像是什么",
+    "inputText": "我的口味画像是什么",
+    "conversationId": "profile-what",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "expectedKeywords": [
+      "口味"
+    ],
+    "tags": [
+      "profile",
+      "query",
+      "text-only"
+    ],
+    "note": "Profile query: asks about taste profile"
+  },
+  {
+    "id": "reg_023",
+    "name": "看看我的口味偏好",
+    "inputText": "看看我的口味偏好",
+    "conversationId": "profile-prefs",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "preference",
+      "text-only"
+    ],
+    "note": "Profile query: checks user preferences"
+  },
+  {
+    "id": "reg_024",
+    "name": "我喝过哪些酒",
+    "inputText": "我喝过哪些酒",
+    "conversationId": "profile-history",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "tags": [
+      "profile",
+      "history",
+      "text-only"
+    ],
+    "note": "Profile query: asks about drinking history"
+  },
+  {
+    "id": "reg_025",
+    "name": "帮我看看口味画像",
+    "inputText": "帮我看看口味画像",
+    "conversationId": "profile-check",
+    "userId": "regression-user",
+    "expectedIntent": "profile_query",
+    "expectedKeywords": [
+      "口味"
+    ],
+    "tags": [
+      "profile",
+      "query",
+      "text-only"
+    ],
+    "note": "Profile query: polite request to see profile"
+  },
+  {
+    "id": "reg_026",
+    "name": "我不喜欢太苦的（无上下文→unclear）",
+    "inputText": "我不喜欢太苦的",
+    "conversationId": "correction-bitter",
+    "userId": "regression-user",
+    "tags": [
+      "correction",
+      "bitter",
+      "text-only"
+    ],
+    "note": "Memory correction without active context — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_027",
+    "name": "我不喜欢IPA（无上下文→unclear）",
+    "inputText": "我不喜欢IPA",
+    "conversationId": "correction-ipa",
+    "userId": "regression-user",
+    "tags": [
+      "correction",
+      "ipa",
+      "text-only"
+    ],
+    "note": "Memory correction: user states dislike of IPA without context — returns unclear",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_028",
+    "name": "重置我的记录",
+    "inputText": "重置我的记录",
+    "conversationId": "correction-reset",
+    "userId": "regression-user",
+    "tags": [
+      "correction",
+      "reset",
+      "text-only"
+    ],
+    "note": "Memory correction: reset request — returns profile_query currently",
+    "expectedIntent": "memory_correction"
+  },
+  {
+    "id": "reg_029",
+    "name": "清空我的偏好",
+    "inputText": "清空我的偏好",
+    "conversationId": "correction-clear-prefs",
+    "userId": "regression-user",
+    "tags": [
+      "correction",
+      "clear",
+      "text-only"
+    ],
+    "note": "Memory correction: clear preferences — returns profile_query currently",
+    "expectedIntent": "memory_correction"
+  },
+  {
+    "id": "reg_030",
+    "name": "酒标检查（无图片→unclear）",
+    "inputText": "这瓶酒过期了吗",
+    "conversationId": "label-expiry",
+    "userId": "regression-user",
+    "tags": [
+      "label",
+      "expiry",
+      "text-only"
+    ],
+    "note": "Label check without image returns unclear — expected, needs 图片输入",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_031",
+    "name": "生产日期检查（无图片→unclear）",
+    "inputText": "帮我看看这瓶酒的生产日期",
+    "conversationId": "label-date",
+    "userId": "regression-user",
+    "tags": [
+      "label",
+      "date",
+      "text-only"
+    ],
+    "note": "Label check for date without image returns unclear — expected",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_032",
+    "name": "罐装啤酒检查（无图片→unclear）",
+    "inputText": "看看这罐啤酒",
+    "conversationId": "label-can",
+    "userId": "regression-user",
+    "tags": [
+      "label",
+      "can",
+      "text-only"
+    ],
+    "note": "Label check for can without image returns unclear — expected",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_033",
+    "name": "什么是West Coast IPA",
+    "inputText": "什么是West Coast IPA",
+    "conversationId": "knowledge-wcipa",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "ipa",
+      "text-only"
+    ],
+    "note": "Beer knowledge: what is West Coast IPA"
+  },
+  {
+    "id": "reg_034",
+    "name": "世涛和帝国世涛的区别",
+    "inputText": "世涛和帝国世涛的区别",
+    "conversationId": "knowledge-stout-vs-imperial",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "stout",
+      "text-only"
+    ],
+    "note": "Beer knowledge: stout vs imperial stout"
+  },
+  {
+    "id": "reg_035",
+    "name": "IPA和拉格有什么区别",
+    "inputText": "IPA和拉格有什么区别",
+    "conversationId": "knowledge-ipa-vs-lager",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "comparison",
+      "text-only"
+    ],
+    "note": "Beer knowledge: compare IPA and lager"
+  },
+  {
+    "id": "reg_036",
+    "name": "啤酒是怎么酿造的",
+    "inputText": "啤酒是怎么酿造的",
+    "conversationId": "knowledge-brewing",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "brewing",
+      "text-only"
+    ],
+    "note": "Beer knowledge: how beer is brewed"
+  },
+  {
+    "id": "reg_037",
+    "name": "什么是新英格兰IPA",
+    "inputText": "什么是新英格兰IPA",
+    "conversationId": "knowledge-neipa",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "neipa",
+      "text-only"
+    ],
+    "note": "Beer knowledge: what is New England IPA"
+  },
+  {
+    "id": "reg_038",
+    "name": "精酿和工业啤酒的区别",
+    "inputText": "精酿和工业啤酒的区别",
+    "conversationId": "knowledge-craft-vs-mass",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "craft",
+      "text-only"
+    ],
+    "note": "Beer knowledge: craft vs mass-produced beer"
+  },
+  {
+    "id": "reg_039",
+    "name": "介绍一下酸啤风格",
+    "inputText": "介绍一下酸啤风格",
+    "conversationId": "knowledge-sour",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "sour",
+      "text-only"
+    ],
+    "note": "Beer knowledge: intro to sour beer styles"
+  },
+  {
+    "id": "reg_040",
+    "name": "你好（模糊输入→unclear）",
+    "inputText": "你好",
+    "conversationId": "vague-hello",
+    "userId": "regression-user",
+    "tags": [
+      "vague",
+      "greeting",
+      "text-only"
+    ],
+    "note": "Vague greeting — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_041",
+    "name": "谢谢（模糊输入→unclear）",
+    "inputText": "谢谢",
+    "conversationId": "vague-thanks",
+    "userId": "regression-user",
+    "tags": [
+      "vague",
+      "thanks",
+      "text-only"
+    ],
+    "note": "Vague thanks — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_042",
+    "name": "帮我看看这个（模糊输入→unclear）",
+    "inputText": "帮我看看这个",
+    "conversationId": "vague-this",
+    "userId": "regression-user",
+    "tags": [
+      "vague",
+      "ambiguous",
+      "text-only"
+    ],
+    "note": "Vague reference without image — returns unclear, handled gracefully",
+    "expectedIntent": "unclear"
+  },
+  {
+    "id": "reg_043",
+    "name": "什么是干投酒花",
+    "inputText": "什么是干投酒花",
+    "conversationId": "knowledge-dry-hop",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "tags": [
+      "knowledge",
+      "dry-hop",
+      "text-only"
+    ],
+    "note": "Beer knowledge: what is dry hopping"
+  },
+  {
+    "id": "reg_044",
+    "name": "IPA是什么",
+    "inputText": "IPA是什么",
+    "conversationId": "knowledge-what-is-ipa",
+    "userId": "regression-user",
+    "expectedIntent": "beer_knowledge",
+    "expectedKeywords": [
+      "IPA"
+    ],
+    "tags": [
+      "knowledge",
+      "ipa",
+      "text-only"
+    ],
+    "note": "Beer knowledge: what does IPA mean"
+  }
+]

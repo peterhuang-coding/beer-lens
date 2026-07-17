@@ -27,6 +27,7 @@ type FeishuEventPayload = {
   header?: {
     event_type?: string;
     event_id?: string;
+    token?: string;
   };
   event?: {
     sender?: {
@@ -53,7 +54,10 @@ export function isFeishuVerificationTokenValid(payload: FeishuEventPayload) {
     return true;
   }
 
-  return payload.token === configuredToken;
+  // Feishu v1: token is at payload.token
+  // Feishu v2: token is at payload.header.token
+  const requestToken = payload.token ?? payload.header?.token;
+  return requestToken === configuredToken;
 }
 
 export function hasEncryptedFeishuPayload(payload: FeishuEventPayload) {
@@ -67,18 +71,38 @@ export function extractFeishuMessage(payload: FeishuEventPayload) {
   }
 
   try {
-    const parsed = JSON.parse(message.content) as {
-      text?: string;
-      image_key?: string;
-      file_key?: string;
-    };
+    const parsed = JSON.parse(message.content);
+
+    // Post type: {"title":"","content":[[{"tag":"img","image_key":"..."}],[{"tag":"text","text":"..."}]]}
+    if (message.message_type === "post") {
+      const blocks = (parsed.content as any[][]) ?? [];
+      let text = "";
+      let imageKey = "";
+      for (const row of blocks) {
+        for (const block of (row as any[])) {
+          if (block.tag === "text" && block.text) text += block.text;
+          if (block.tag === "img" && block.image_key) imageKey = block.image_key;
+        }
+      }
+      return {
+        text: text.trim(),
+        imageKey,
+        fileKey: "",
+        messageId: message.message_id ?? "",
+        chatId: message.chat_id ?? "",
+        messageType: message.message_type,
+      };
+    }
+
+    // Text type: {"text":"hello"}
+    // Image type: {"image_key":"img_xxx"}
     return {
-      text: parsed.text?.trim() ?? "",
-      imageKey: parsed.image_key ?? "",
-      fileKey: parsed.file_key ?? "",
+      text: (parsed as any).text?.trim() ?? "",
+      imageKey: (parsed as any).image_key ?? "",
+      fileKey: (parsed as any).file_key ?? "",
       messageId: message.message_id ?? "",
       chatId: message.chat_id ?? "",
-      messageType: message.message_type
+      messageType: message.message_type,
     };
   } catch {
     return null;
@@ -111,16 +135,15 @@ export async function replyFeishuMessage(messageId: string, text: string) {
   }
 }
 
-export async function downloadFeishuImage(imageKey: string) {
+export async function downloadFeishuImage(imageKey: string, messageId?: string) {
   const token = await getTenantAccessToken();
-  const response = await fetch(
-    `https://open.feishu.cn/open-apis/im/v1/images/${imageKey}?image_type=message`,
-    {
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    }
-  );
+  // Use the "获取消息中的资源文件" endpoint for user-sent images
+  const url = messageId
+    ? `https://open.feishu.cn/open-apis/im/v1/messages/${messageId}/resources/${imageKey}?type=image`
+    : `https://open.feishu.cn/open-apis/im/v1/images/${imageKey}`;
+  const response = await fetch(url, {
+    headers: { authorization: `Bearer ${token}` }
+  });
 
   if (!response.ok) {
     throw new Error(`Feishu image download failed ${response.status}: ${await response.text()}`);

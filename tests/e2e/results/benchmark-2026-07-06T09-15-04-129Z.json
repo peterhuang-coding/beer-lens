@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-06T09:15:04.132Z",
+  "visionModel": "qwen/qwen3-vl-8b-instruct",
+  "analysisModel": "deepseek/deepseek-chat",
+  "totalMs": 26795,
+  "passed": 0,
+  "failed": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "tap_list_01",
+      "status": "error",
+      "error": "[beer_signal] Could not parse JSON: {\n  \"items\": [\n    {\n      \"abv\": 4.7,\n      \"beerName\": \"年轻领主\",\n      \"brewery\": \"Stamm | RUS\",\n      \"confidence\": 0.98,\n      \"ibu\": 0,\n      \"menuIndex\": 1,\n      \"packagingDate\": \"\",\n      \"price",
+      "durationMs": 26795
+    }
+  ]
+}

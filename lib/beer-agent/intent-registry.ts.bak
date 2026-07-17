@@ -1,0 +1,274 @@
+/**
+ * Intent Registry — centralized intent definition, registration, and testing.
+ *
+ * Replaces the hardcoded RULES array in intent-classifier.ts with a
+ * configurable registry. Supports:
+ *   - Intent definition with rules (regex patterns)
+ *   - Registration / unregistration
+ *   - Intent testing (dry-run classification)
+ *   - Import/export for debug UI
+ */
+
+import type { BeerIntent } from "./dialog-types";
+
+// ── Types ──
+
+export type IntentRule = {
+  /** JavaScript regex pattern (as string for JSON serialization) */
+  pattern: string;
+  /** Compiled regex (not serialized) */
+  _regex?: RegExp;
+  /** Whether this rule requires an image to match */
+  requiresImage: boolean;
+  /** Confidence when this rule matches */
+  confidence: number;
+};
+
+export type IntentDefinition = {
+  id: BeerIntent;
+  label: string;
+  description: string;
+  /** Rules ordered by priority (first match wins) */
+  rules: IntentRule[];
+  /** Handler function name (for documentation, not runtime binding) */
+  handler: string;
+  /** Whether this intent can be triggered by image input */
+  supportsImage: boolean;
+  /** Whether this intent requires an active menu in short-term memory */
+  requiresActiveMenu?: boolean;
+};
+
+export type IntentTestResult = {
+  input: { text: string; hasImage: boolean };
+  matched: Array<{
+    intent: BeerIntent;
+    label: string;
+    confidence: number;
+    ruleIndex: number;
+  }>;
+  primary: BeerIntent;
+  isMultiIntent: boolean;
+  source: "rule" | "no_match";
+};
+
+// ── Registry ──
+
+export const INTENT_REGISTRY: IntentDefinition[] = [
+  {
+    id: "menu_recommend",
+    label: "酒单推荐",
+    description: "拍照酒单 → OCR 识别 → 啤酒数据库查评分 → 推荐引擎打分",
+    rules: [
+      { pattern: "酒单|推荐|喝什么|帮我看酒单|有什么.*酒|帮我.*选|帮我.*挑|推荐.*IPA|推荐.*拉格|推荐.*啤酒", requiresImage: false, confidence: 0.88 },
+      { pattern: "酒单|推荐|喝什么|帮我看酒单", requiresImage: true, confidence: 0.95 },
+      { pattern: ".*", requiresImage: true, confidence: 0.85 },
+    ],
+    handler: "handleMenuRecommend",
+    supportsImage: true,
+  },
+  {
+    id: "label_check",
+    label: "酒标检查",
+    description: "拍照单瓶/单罐 → 识别酒名、日期、新鲜度",
+    rules: [
+      { pattern: "酒标|日期|这瓶|这罐|生产日期|过期", requiresImage: true, confidence: 0.95 },
+    ],
+    handler: "handleLabelCheck",
+    supportsImage: true,
+  },
+  {
+    id: "tasting_feedback",
+    label: "品饮反馈",
+    description: "解析评分(1-5分)、是否再喝、风味标签 → 写入品饮记录 → 重建口味画像",
+    rules: [
+      { pattern: "[1-5](?:.d+)?s*分|会再喝|不会再喝|看情况", requiresImage: false, confidence: 0.9 },
+    ],
+    handler: "handleTastingFeedback",
+    supportsImage: false,
+  },
+  {
+    id: "profile_query",
+    label: "画像查询",
+    description: "查询用户口味画像：偏好风格、风味标签、ABV 舒适区间",
+    rules: [
+      { pattern: "我的口味|我喜欢什么|画像|喝过什么|profile|口味偏好|口味画像|偏好", requiresImage: false, confidence: 0.9 },
+    ],
+    handler: "handleProfileQuery",
+    supportsImage: false,
+  },
+  {
+    id: "follow_up_filter",
+    label: "追问过滤",
+    description: "基于上一轮酒单候选做过滤/重排。需要活跃菜单上下文",
+    rules: [
+      { pattern: "哪个|第几个|不苦|清爽|预算|拉格|IPA|皮尔森|推荐|有没有|我要|想喝|选|挑|哪款|哪一|帮我|介绍|说说|怎么样|如何|多少钱|贵|便宜|值不值|尝新|特别|烈|浓|淡|酸", requiresImage: false, confidence: 0.92 },
+      { pattern: ".{1,20}", requiresImage: false, confidence: 0.82 },
+    ],
+    handler: "handleFollowUpFilter",
+    supportsImage: false,
+    requiresActiveMenu: true,
+  },
+  {
+    id: "beer_knowledge",
+    label: "啤酒知识",
+    description: "纯 LLM 回答啤酒风格、酿造工艺、酒厂知识等",
+    rules: [
+      { pattern: "什么是|区别|为什么|怎么酿|风格|定义|解释|酿造", requiresImage: false, confidence: 0.85 },
+    ],
+    handler: "handleBeerKnowledge",
+    supportsImage: false,
+  },
+  {
+    id: "memory_correction",
+    label: "记忆纠正",
+    description: "用户纠正 AI 的错误记忆（占位，后续实现）",
+    rules: [
+      { pattern: "不是|纠正|记错|应该是|改成", requiresImage: false, confidence: 0.85 },
+    ],
+    handler: "handleMemoryCorrection",
+    supportsImage: false,
+  },
+  {
+    id: "unclear",
+    label: "意图不明",
+    description: "无法识别意图时的兜底处理，引导用户说明需求",
+    rules: [],
+    handler: "handleUnclear",
+    supportsImage: true,
+  },
+];
+
+// ── Registration functions ──
+
+/**
+ * Register a new intent or replace an existing one.
+ */
+export function registerIntent(def: IntentDefinition): void {
+  const idx = INTENT_REGISTRY.findIndex((d) => d.id === def.id);
+  if (idx >= 0) {
+    INTENT_REGISTRY[idx] = def;
+  } else {
+    INTENT_REGISTRY.push(def);
+  }
+}
+
+/**
+ * Remove an intent from the registry.
+ */
+export function unregisterIntent(id: BeerIntent): boolean {
+  const idx = INTENT_REGISTRY.findIndex((d) => d.id === id);
+  if (idx >= 0) {
+    INTENT_REGISTRY.splice(idx, 1);
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Get an intent definition by ID.
+ */
+export function getIntent(id: BeerIntent): IntentDefinition | undefined {
+  return INTENT_REGISTRY.find((d) => d.id === id);
+}
+
+/**
+ * Get all registered intents (sorted by priority).
+ */
+export function getAllIntents(): IntentDefinition[] {
+  return [...INTENT_REGISTRY];
+}
+
+// ── Compile regex helpers ──
+
+function compileRegex(pattern: string): RegExp {
+  try {
+    return new RegExp(pattern, "i");
+  } catch {
+    return /(?!)/; // never matches
+  }
+}
+
+// ── Intent testing (dry-run) ──
+
+/**
+ * Test intent classification without calling the full pipeline.
+ * Used by the Debug Intent Test panel and /api/intent-test.
+ */
+export function testIntent(
+  text: string,
+  hasImage: boolean,
+  options?: {
+    hasActiveMenu?: boolean;
+    turnsSinceMenu?: number;
+    activeMenuCandidateCount?: number;
+    threshold?: number;
+    multiIntentGap?: number;
+  },
+): IntentTestResult {
+  const threshold = options?.threshold ?? 0.7;
+  const multiIntentGap = options?.multiIntentGap ?? 0.15;
+  const hasActiveMenu = options?.hasActiveMenu ?? false;
+  const turnsSinceMenu = options?.turnsSinceMenu ?? 999;
+  const activeMenuCandidateCount = options?.activeMenuCandidateCount ?? 0;
+
+  // Collect all matching rules across all intents
+  const matches: Array<{
+    intent: BeerIntent;
+    label: string;
+    confidence: number;
+    ruleIndex: number;
+  }> = [];
+
+  for (const def of INTENT_REGISTRY) {
+    // Skip intents that require an active menu if none exists
+    if (def.requiresActiveMenu && (!hasActiveMenu || turnsSinceMenu >= 30 || activeMenuCandidateCount === 0)) {
+      continue;
+    }
+
+    for (let ri = 0; ri < def.rules.length; ri++) {
+      const rule = def.rules[ri];
+      // Check image requirement
+      if (rule.requiresImage && !hasImage) continue;
+
+      // Compile and test regex
+      const regex = compileRegex(rule.pattern);
+      if (regex.test(text) && rule.confidence >= threshold) {
+        matches.push({
+          intent: def.id,
+          label: def.label,
+          confidence: rule.confidence,
+          ruleIndex: ri,
+        });
+        break; // Only first matching rule per intent
+      }
+    }
+  }
+
+  // Sort by confidence descending
+  matches.sort((a, b) => b.confidence - a.confidence);
+
+  if (matches.length === 0) {
+    return {
+      input: { text, hasImage },
+      matched: [],
+      primary: "unclear",
+      isMultiIntent: false,
+      source: "no_match",
+    };
+  }
+
+  const primary = matches[0].intent;
+
+  // Multi-intent: if 2+ intents with confidence gap < multiIntentGap
+  const isMulti =
+    matches.length >= 2 &&
+    (matches[0].confidence - matches[1].confidence) <= multiIntentGap;
+
+  return {
+    input: { text, hasImage },
+    matched: matches,
+    primary,
+    isMultiIntent: isMulti,
+    source: "rule",
+  };
+}

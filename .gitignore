@@ -10,3 +10,14 @@ data/beer_profile.md
 data/feishu_conversations.json
 *.tsbuildinfo
 
+# Test artifacts
+data/memory/short-term/*.json
+data/memory/users/*/
+data/metrics/*.json
+data/metrics/latest.json
+data/regression-runs/*.json
+data/regression-runs/latest.json
+data/traces/
+data/cases.json
+
+.claude/settings.local.json

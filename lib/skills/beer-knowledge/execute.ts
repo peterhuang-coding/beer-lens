@@ -1,21 +1,20 @@
-import type { BeerDialogRequest } from "@/lib/beer-agent/dialog-types";
-import type { HandlerContext } from "@/lib/beer-agent/handler-types";
-import type { AgentResponse } from "@/lib/beer-agent/types";
-import { emptyPicks } from "@/lib/beer-agent/handler-types";
-import { openrouterFetch } from "@/lib/beer-agent/openrouter-client";
-import { getProfileMemory } from "@/lib/beer-agent/memory/profile";
+import type { AgentContext, SkillResult } from "@/lib/agent/types";
+
+function emptyPicks(): SkillResult["picks"] {
+  const e = { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 };
+  return { topPick: e, safePick: e, explorePick: e, avoidOrCaution: e };
+}
 
 const KNOWLEDGE_MODEL = process.env.OPENROUTER_ANALYSIS_MODEL ?? "openai/gpt-4o-mini";
 
-export async function handleBeerKnowledge(
-  request: BeerDialogRequest,
-  context: HandlerContext
-): Promise<AgentResponse> {
-  const lastUserText = request.messages.at(-1)?.content ?? "";
-  const profileSummary = context.memorySnapshot?.profileSummary ?? "";
-  const userId = request.userId;
+export async function execute(
+  ctx: AgentContext,
+  _params: Record<string, unknown>,
+): Promise<SkillResult> {
+  const { openrouterFetch } = await import("@/lib/beer-agent/openrouter-client");
+  const profileSummary = ctx.profileSummary ?? "";
 
-  const history = request.messages
+  const history = ctx.messages
     .slice(-6)
     .map((m) => `${m.role === "user" ? "用户" : "助手"}: ${m.content.slice(0, 200)}`)
     .join("\n");
@@ -41,27 +40,28 @@ ${profileSummary || "暂无品饮记录"}
       model: KNOWLEDGE_MODEL,
       messages: [
         { role: "system", content: systemPrompt },
-        { role: "user", content: `对话记录:\n${history}\n\n用户最新消息: ${lastUserText}` },
+        { role: "user", content: `对话记录:\n${history}\n\n用户最新消息: ${ctx.lastUserText}` },
       ],
       temperature: 0.3,
       max_tokens: 1500,
     });
 
     return {
-      mode: "recommend",
+      skillId: "beer-knowledge",
       reply: raw.trim() || "嗯，让我想想...",
       candidates: [],
       picks: emptyPicks(),
       profileSummary,
+      errors: [],
     };
   } catch (err) {
-    console.warn("[beer-knowledge] LLM call failed:", err);
     return {
-      mode: "recommend",
+      skillId: "beer-knowledge",
       reply: "抱歉，回答这个问题时出错了。请再试一次。",
       candidates: [],
       picks: emptyPicks(),
       profileSummary: "",
+      errors: [err instanceof Error ? err.message : String(err)],
     };
   }
 }

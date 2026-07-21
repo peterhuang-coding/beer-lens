@@ -207,11 +207,143 @@ def _row_to_dict(row, table: str = 'beers') -> dict:
     return result
 
 
+def ensure_untappd_cache_schema(con):
+    """Ensure untappd_cache table has the right schema (country, untappd_url, label_image)."""
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS untappd_cache (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            brewery TEXT,
+            style TEXT,
+            abv REAL,
+            rating REAL,
+            ratings_count INTEGER,
+            country TEXT,
+            untappd_url TEXT,
+            label_image TEXT,
+            source TEXT DEFAULT 'untappd',
+            updated_at TEXT DEFAULT (datetime('now'))
+        )
+    """)
+
+
+def insert_cn_beers(json_file: str) -> dict:
+    """Insert Chinese craft beers from a JSON file into untappd_cache."""
+    with open(json_file, 'r', encoding='utf-8') as f:
+        beers = json.load(f)
+
+    con = _connect()
+    if not con:
+        return {'error': 'Database not found'}
+
+    ensure_untappd_cache_schema(con)
+    inserted = 0
+    skipped = 0
+    errors = []
+
+    for beer in beers:
+        name = beer.get('name', '').strip()
+        brewery = beer.get('brewery', '').strip()
+        if not name:
+            continue
+
+        # Check if already exists (by name + brewery)
+        existing = con.execute(
+            "SELECT id FROM untappd_cache WHERE LOWER(name) = ? AND LOWER(brewery) = ?",
+            (name.lower(), brewery.lower())
+        ).fetchone()
+
+        if existing:
+            skipped += 1
+            continue
+
+        try:
+            con.execute(
+                """INSERT INTO untappd_cache
+                   (name, brewery, style, abv, rating, ratings_count, country, source)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    name,
+                    brewery,
+                    beer.get('style', ''),
+                    beer.get('abv'),
+                    beer.get('rating'),
+                    beer.get('ratings_count', 0),
+                    beer.get('country', 'China'),
+                    'cn_seed'
+                )
+            )
+            inserted += 1
+        except Exception as e:
+            errors.append(f"{name}: {str(e)}")
+
+    con.commit()
+    total = con.execute("SELECT COUNT(*) FROM untappd_cache WHERE source = 'cn_seed'").fetchone()[0]
+    con.close()
+
+    return {
+        'inserted': inserted,
+        'skipped': skipped,
+        'errors': errors,
+        'total_cn_beers': total
+    }
+
+
+def insert_beers(json_file: str) -> dict:
+    """Insert beers from a JSON file into the beers table (for RateBeer crawler)."""
+    with open(json_file, 'r', encoding='utf-8') as f:
+        beers = json.load(f)
+
+    con = _connect()
+    if not con:
+        return {'error': 'Database not found'}
+
+    inserted = 0
+    updated = 0
+    skipped = 0
+
+    for beer in beers:
+        name = beer.get('name', '').strip()
+        brewery = beer.get('brewery', '').strip()
+        if not name:
+            continue
+
+        existing = con.execute(
+            "SELECT id, rating FROM beers WHERE LOWER(name) = ? AND LOWER(brewery) = ?",
+            (name.lower(), brewery.lower())
+        ).fetchone()
+
+        if existing:
+            old_rating = existing['rating']
+            new_rating = beer.get('rating', 0)
+            if abs(old_rating - new_rating) > 0.05:
+                con.execute(
+                    "UPDATE beers SET rating = ?, ratings_count = ?, style = ?, abv = ? WHERE id = ?",
+                    (new_rating, beer.get('ratings_count', 0), beer.get('style', ''),
+                     beer.get('abv'), existing['id'])
+                )
+                updated += 1
+            else:
+                skipped += 1
+        else:
+            con.execute(
+                """INSERT INTO beers (name, brewery, style, abv, rating, ratings_count)
+                   VALUES (?, ?, ?, ?, ?, ?)""",
+                (name, brewery, beer.get('style', ''), beer.get('abv'),
+                 beer.get('rating', 0), beer.get('ratings_count', 0))
+            )
+            inserted += 1
+
+    con.commit()
+    con.close()
+    return {'inserted': inserted, 'updated': updated, 'skipped': skipped}
+
+
 def main():
     args = sys.argv[1:]
 
     if not args:
-        print(json.dumps({"error": "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats"}))
+        print(json.dumps({"error": "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats | --insert-cn-beers <json> | --insert-beers <json>"}))
         sys.exit(1)
 
     if args[0] == '--stats':
@@ -222,6 +354,16 @@ def main():
             sys.exit(1)
         queries = [q.strip() for q in args[1].split('|') if q.strip()]
         result = search_batch(queries)
+    elif args[0] == '--insert-cn-beers':
+        if len(args) < 2:
+            print(json.dumps({"error": "--insert-cn-beers requires JSON file path"}))
+            sys.exit(1)
+        result = insert_cn_beers(args[1])
+    elif args[0] == '--insert-beers':
+        if len(args) < 2:
+            print(json.dumps({"error": "--insert-beers requires JSON file path"}))
+            sys.exit(1)
+        result = insert_beers(args[1])
     else:
         query = ' '.join(args)
         matches = search_beer(query)

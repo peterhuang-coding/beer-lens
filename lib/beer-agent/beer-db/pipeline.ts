@@ -127,6 +127,100 @@ const CN_TO_EN_BEER_MAP: Record<string, string[]> = {
   "帝国水果古斯": ["Imperial Fruited Gose"],
   "捷克皮尔森": ["Czech Pilsner"],
   "德式黑啤": ["Schwarzbiier", "German Black"],
+
+  // ── Chinese Craft Breweries (高大师) ──
+  "婴儿肥": ["Baby IPA"],
+  "婴儿肥IPA": ["Baby IPA"],
+  "茉莉花茶拉格": ["Jasmine Tea Lager"],
+  "烤地瓜艾尔": ["Roasted Sweet Potato Ale"],
+  "熊猫王": ["Panda King IPA"],
+  "高大师": ["Baby IPA", "Jasmine Tea Lager"],
+
+  // ── Chinese Craft Breweries (京A) ──
+  "工人淡色艾尔": ["Workers Pale Ale"],
+  "飞拳": ["Flying Fist IPA"],
+  "飞拳IPA": ["Flying Fist IPA"],
+  "空气大爆表": ["Airpocalypse"],
+  "陈皮小麦": ["Mandarin Wheat"],
+  "帝都浑浊": ["Beijing Haze"],
+  "京A": ["Flying Fist IPA", "Workers Pale Ale"],
+
+  // ── Chinese Craft Breweries (牛啤堂) ──
+  "帝都海盐": ["Imperial Sea Salt Gose"],
+  "树莓酸小麦": ["Raspberry Sour Wheat"],
+  "芒果酸小麦": ["Mango Sour Wheat"],
+  "牛啤堂": ["Imperial Sea Salt Gose"],
+
+  // ── Chinese Craft Breweries (18号酒馆) ──
+  "跳东湖": ["Jump East Lake IPA"],
+  "跳东湖IPA": ["Jump East Lake IPA"],
+  "胶片机": ["Film Camera"],
+  "不在湖": ["Not Here Lake"],
+  "胶片机奶昔": ["Cinema Milk IPA"],
+  "18号": ["Jump East Lake IPA"],
+
+  // ── Chinese Craft Breweries (大跃) ──
+  "蜂蜜艾尔": ["Honey Ale"],
+  "帝都艾尔": ["Imperial City Ale"],
+  "香蕉小麦": ["Banana Wheat"],
+  "大跃": ["Honey Ale", "Imperial City Ale"],
+
+  // ── Chinese Craft Breweries (悠航) ──
+  "猴拳": ["Monkey Fist IPA"],
+  "猴拳IPA": ["Monkey Fist IPA"],
+  "京华烟云": ["Hazy Dream"],
+  "悠航": ["Monkey Fist IPA"],
+
+  // ── Chinese Craft Breweries (拾捌) ──
+  "不接受批评": ["No Criticism"],
+  "血滴子": ["Blood Dropper"],
+  "拾捌": ["No Criticism"],
+
+  // ── Chinese Craft Breweries (拳击猫) ──
+  "琥珀拉格": ["Amber Lager"],
+  "TKO IPA": ["TKO IPA"],
+  "荔枝猫": ["Lychee Cat"],
+  "拳击猫": ["Amber Lager", "TKO IPA"],
+
+  // ── Chinese Craft Breweries (道酿) ──
+  "伏魔": ["Demon Tamer IPA"],
+  "伏魔IPA": ["Demon Tamer IPA"],
+  "马赛克": ["Mosaic IPA"],
+  "春分": ["Spring Equinox"],
+  "道酿": ["Demon Tamer IPA"],
+
+  // ── Chinese Craft Breweries (或不凡) ──
+  "黄河水": ["Yellow River Water"],
+  "君不见": ["Cannot See"],
+  "将进酒": ["Will Drink"],
+  "或不凡": ["Yellow River Water"],
+
+  // ── More Chinese Craft Breweries ──
+  "远山": ["Cloudy Mountain"],
+  "气泡IPA": ["Bubble Lab IPA"],
+  "当歌": ["Song of the Moment"],
+  "野鹅IPA": ["Wild Goose IPA"],
+  "北平IPA": ["Beijing Machine"],
+  "楚门小麦": ["Truman Wheat"],
+  "美西西海岸": ["West Coast IPA"],
+  "忒斯特IPA": ["Taste Test IPA"],
+  "功夫IPA": ["Kung Fu IPA"],
+  "红灯笼": ["Red Lantern"],
+  "熊猫蜂蜜": ["Panda Honey Ale"],
+  "藏式青稞": ["Tibet Barley"],
+  "绿城拉格": ["Green City Lager"],
+
+  // ── Chinese Macro Breweries ──
+  "青岛黑啤": ["Tsingtao Stout"],
+  "青岛IPA": ["Tsingtao IPA"],
+  "青岛啤酒": ["Tsingtao Stout", "Tsingtao IPA"],
+  "燕京原浆": ["Yanjing Original"],
+  "燕京": ["Yanjing Original"],
+  "雪花": ["Snow Beer"],
+  "哈尔滨啤酒": ["Harbin Beer"],
+  "珠江纯生": ["Pearl River Draft"],
+  "乌苏": ["Wusu Beer"],
+  "千岛湖": ["West Lake Lager"],
 };
 
 function lookupChineseBeerName(chineseName: string): string | null {

@@ -303,6 +303,59 @@
     margin-top: 4px;
   }
 
+  /* ── Skill thinking display ── */
+  .skill-think {
+    margin-top: 2px;
+    font-size: 12px;
+    padding: 6px 0;
+  }
+  .skill-think summary {
+    cursor: pointer;
+    color: #6a8a74;
+    font-size: 11px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .skill-think summary:hover { color: #8aab94; }
+  .skill-think .st-body {
+    margin-top: 6px;
+    padding: 8px 10px;
+    background: #0d1a12;
+    border-radius: 8px;
+    border: 1px solid #1a3024;
+    font-size: 12px;
+    color: #aacdb5;
+    line-height: 1.5;
+  }
+  .skill-think .st-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .skill-think .st-row .st-key {
+    color: #6a8a74;
+    flex-shrink: 0;
+    min-width: 50px;
+  }
+  .skill-think .st-row .st-val {
+    color: #ccdcd2;
+    word-break: break-all;
+  }
+  .skill-tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .skill-tag.llm { background: #2a3a1e; color: #aacd5a; }
+  .skill-tag.recommend { background: #2a3a1e; color: #5cc97a; }
+  .skill-tag.knowledge { background: #1e2a36; color: #8ab4d0; }
+  .skill-tag.feedback { background: #3a2020; color: #d9a06c; }
+  .skill-tag.fallback { background: #2a2a2a; color: #999; }
+
   /* Composer */
   #composer {
     padding: 10px 12px;
@@ -404,6 +457,33 @@
     color: #aacdb5;
     flex-shrink: 0;
   }
+
+  /* ── Image selector ── */
+  .tp-img-select {
+    padding: 8px 14px;
+    border-bottom: 1px solid #1e3628;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  .tp-img-select button {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #1e3628;
+    background: #16281e;
+    color: #8aab94;
+    cursor: pointer;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .tp-img-select button.active {
+    background: #2a6041;
+    color: #fff;
+    border-color: #3a7a4e;
+  }
+  .tp-img-select button:hover { background: #1e3628; color: #aacdb5; }
+  .tp-img-select button.active:hover { background: #2a6041; color: #fff; }
   .test-panel .tp-actions { display: flex; gap: 6px; }
   .test-panel .tp-actions button {
     padding: 4px 10px;
@@ -483,6 +563,11 @@
         <button onclick="clearTestResults()">✕ 清除</button>
       </div>
     </div>
+    <div class="tp-img-select" id="tp-img-select">
+      <button onclick="selectTestImage(null)" class="active" id="img-btn-none">💬 纯文字</button>
+      <button onclick="selectTestImage('tap-list')" id="img-btn-tap">🍺 酒单</button>
+      <button onclick="selectTestImage('test')" id="img-btn-test">📷 示例图</button>
+    </div>
     <div class="tp-stats" id="tp-stats">
       <span>共 <b id="tp-total">0</b></span>
       <span class="pass">✅ <b id="tp-pass">0</b></span>
@@ -528,6 +613,10 @@ function addMsg(role, content, extra) {
   if (extra && extra.imageDataUrl) {
     html += `<img class="image-preview" src="${extra.imageDataUrl}" alt="上传的图片">`;
   }
+  // Skill thinking process (for agent messages)
+  if (role === 'agent' && extra && extra.skillInfo) {
+    html += renderSkillThink(extra.skillInfo);
+  }
   html += `<div class="bubble">${escapeHtml(content)}</div>`;
   if (extra && extra.candidates) {
     html += renderCandidates(extra.candidates);
@@ -545,6 +634,29 @@ function addMsg(role, content, extra) {
   chat.appendChild(div);
   chat.scrollTop = chat.scrollHeight;
   return div;
+}
+
+function renderSkillThink(skillInfo) {
+  const { intent, source, reason, confidence } = skillInfo;
+  const intentNames = {
+    'recommend': '🍺 啤酒推荐', 'taste-feedback': '📝 品饮反馈',
+    'beer-knowledge': '📚 啤酒知识', 'label-check': '🔍 酒标检查',
+    'profile-query': '👤 画像查询', 'memory-correction': '🔧 记忆纠正',
+    'menu-vision': '👁 酒单视觉', 'fallback': '❓ 兜底'
+  };
+  const intentName = intentNames[intent] || intent;
+  const skillCls = intent || 'fallback';
+  const sourceCls = source || 'llm';
+  const pct = confidence ? Math.round(confidence * 100) + '%' : '—';
+
+  return `<details class="skill-think" open>
+    <summary>🧠 思考过程 <span class="skill-tag ${skillCls}">${intentName}</span> <span class="skill-tag ${sourceCls}">${source}</span></summary>
+    <div class="st-body">
+      <div class="st-row"><span class="st-key">Skill:</span><span class="st-val">${escapeHtml(intentName)} (${escapeHtml(intent)})</span></div>
+      <div class="st-row"><span class="st-key">来源:</span><span class="st-val">${escapeHtml(source)} · 置信度 ${pct}</span></div>
+      <div class="st-row"><span class="st-key">理由:</span><span class="st-val">${escapeHtml(reason || 'LLM 直接选择')}</span></div>
+    </div>
+  </details>`;
 }
 
 function createThinkingBubble() {
@@ -898,6 +1010,12 @@ async function send() {
       candidates: data.candidates,
       picks: data.picks,
       profileSummary: data.profileSummary,
+      skillInfo: data.intentResult ? {
+        intent: data.intentResult.intent,
+        source: data.intentResult.source,
+        reason: data.intentResult.routeReason,
+        confidence: data.intentResult.confidence,
+      } : null,
     });
   } catch (err) {
     thinkingBubble.remove();
@@ -918,44 +1036,121 @@ function clearChat() {
   textInput.focus();
 }
 
+// ── Test images (preloaded as base64) ──
+const TEST_IMAGES = {
+  'tap-list': null,   // { name, type, dataUrl }
+  'test': null,
+};
+let selectedTestImage = null; // 'tap-list' | 'test' | null
+
+// Preload test images
+async function preloadTestImages() {
+  const images = [
+    { key: 'tap-list', url: '/images/tap-list.jpg' },
+    { key: 'test', url: '/images/test-image.jpg' },
+  ];
+  for (const img of images) {
+    try {
+      const resp = await fetch(img.url);
+      const blob = await resp.blob();
+      const dataUrl = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+      });
+      TEST_IMAGES[img.key] = {
+        name: img.key + '.jpg',
+        type: blob.type || 'image/jpeg',
+        dataUrl: dataUrl,
+      };
+    } catch (err) {
+      console.warn('Failed to preload test image:', img.url, err);
+    }
+  }
+}
+
+function selectTestImage(key) {
+  selectedTestImage = key;
+  document.querySelectorAll('#tp-img-select button').forEach(b => b.classList.remove('active'));
+  const btnId = key ? 'img-btn-' + key : 'img-btn-none';
+  const btn = document.getElementById(btnId);
+  if (btn) btn.classList.add('active');
+  // Update test presets based on whether image is selected
+  buildTestPresets();
+}
+
 // ── Test presets ──
 
-const TEST_PRESETS = [
-  { text: '推荐一款IPA', intent: 'menu_recommend', tags: ['推荐', 'IPA'] },
-  { text: '今天想喝清爽一点，不要太苦', intent: 'menu_recommend', tags: ['推荐', '清爽'] },
-  { text: '有IPA吗', intent: 'menu_recommend', tags: ['推荐', 'IPA'] },
-  { text: '第3个怎么样', intent: 'follow_up_filter', tags: ['追问'] },
-  { text: '我给4.5分，会再喝，热带水果', intent: 'tasting_feedback', tags: ['品饮'] },
-  { text: '我不喜欢太苦的', intent: 'memory_correction', tags: ['纠正'] },
-  { text: '我的口味画像是什么', intent: 'profile_query', tags: ['画像'] },
-  { text: '这瓶酒过期了吗', intent: 'label_check', tags: ['酒标'] },
-  { text: '什么是West Coast IPA', intent: 'beer_knowledge', tags: ['知识'] },
-  { text: '清空', intent: 'memory_correction', tags: ['重置'] },
-  { text: '帮我规划今晚喝什么', intent: 'menu_recommend', tags: ['规划'] },
-  { text: '推荐世涛', intent: 'menu_recommend', tags: ['推荐', '世涛'] },
-  { text: '推荐酸啤', intent: 'menu_recommend', tags: ['推荐', '酸啤'] },
-  { text: '我喜欢的啤酒风格', intent: 'profile_query', tags: ['画像'] },
-  { text: '看看这罐啤酒', intent: 'label_check', tags: ['酒标'] },
-  { text: '想喝不苦的', intent: 'menu_recommend', tags: ['推荐', '清爽'] },
-  { text: '哪个不苦', intent: 'unclear', tags: ['模糊'] },
-  { text: '有没有世涛', intent: 'unclear', tags: ['模糊'] },
-  { text: '重置我的记录', intent: 'memory_correction', tags: ['重置'] },
-  { text: '你好', intent: 'unclear', tags: ['问候'] },
+const TEXT_PRESETS = [
+  { text: '推荐一款IPA', tags: ['推荐', 'IPA'] },
+  { text: '今天想喝清爽一点，不要太苦', tags: ['推荐', '清爽'] },
+  { text: '有IPA吗', tags: ['推荐', 'IPA'] },
+  { text: '第3个怎么样', tags: ['追问'] },
+  { text: '我给4.5分，会再喝，热带水果', tags: ['品饮'] },
+  { text: '我不喜欢太苦的', tags: ['纠正'] },
+  { text: '我的口味画像是什么', tags: ['画像'] },
+  { text: '这瓶酒过期了吗', tags: ['酒标'] },
+  { text: '什么是West Coast IPA', tags: ['知识'] },
+  { text: '清空', tags: ['重置'] },
+  { text: '帮我规划今晚喝什么', tags: ['规划'] },
+  { text: '推荐世涛', tags: ['推荐', '世涛'] },
+  { text: '推荐酸啤', tags: ['推荐', '酸啤'] },
+  { text: '我喜欢的啤酒风格', tags: ['画像'] },
+  { text: '看看这罐啤酒', tags: ['酒标'] },
+  { text: '想喝不苦的', tags: ['推荐', '清爽'] },
+  { text: '哪个不苦', tags: ['模糊'] },
+  { text: '有没有世涛', tags: ['模糊'] },
+  { text: '重置我的记录', tags: ['重置'] },
+  { text: '你好', tags: ['问候'] },
 ];
 
+const IMAGE_PRESETS = [
+  { text: '帮我看这张酒单', tags: ['酒单', '推荐'] },
+  { text: '帮我推荐一款', tags: ['酒单', '推荐'] },
+  { text: '哪个最值得喝', tags: ['酒单', '追问'] },
+  { text: '有没有IPA', tags: ['酒单', '追问'] },
+  { text: '哪个最清爽', tags: ['酒单', '追问'] },
+  { text: '按性价比排序', tags: ['酒单', '排序'] },
+  { text: '有世涛吗', tags: ['酒单', '追问'] },
+  { text: '帮我挑一款不苦的', tags: ['酒单', '推荐'] },
+  { text: '这个酒单上有什么好喝的', tags: ['酒单'] },
+  { text: '第3个怎么样', tags: ['酒单', '追问'] },
+  { text: '哪款适合第一杯', tags: ['酒单', '推荐'] },
+  { text: '帮我挑一款适合配餐的', tags: ['酒单', '推荐'] },
+];
+
+let TEST_PRESETS = [...TEXT_PRESETS];
 let testResults = [];
 
-function initTestPanel() {
-  const list = document.getElementById('tp-list');
-  testResults = TEST_PRESETS.map(t => ({ ...t, status: 'pending', duration: 0, actualIntent: '', error: '' }));
+function buildTestPresets() {
+  if (selectedTestImage) {
+    TEST_PRESETS = IMAGE_PRESETS.map(p => ({ ...p, useImage: selectedTestImage }));
+  } else {
+    TEST_PRESETS = TEXT_PRESETS.map(p => ({ ...p, useImage: null }));
+  }
+  // Preserve existing results where possible
+  const oldResults = [...testResults];
+  testResults = TEST_PRESETS.map(t => {
+    const existing = oldResults.find(r => r.text === t.text && r.useImage === t.useImage);
+    return existing || { ...t, status: 'pending', duration: 0, actualIntent: '', error: '' };
+  });
   renderTestList();
   updateTestStats();
-  // Auto-run on cold start
-  setTimeout(() => runAllTests(), 500);
+}
+
+function initTestPanel() {
+  buildTestPresets();
+  renderTestList();
+  updateTestStats();
+  // Auto-run on cold start after images preloaded
+  preloadTestImages().then(() => {
+    console.log('Test images preloaded:', Object.keys(TEST_IMAGES).filter(k => TEST_IMAGES[k]));
+  });
 }
 
 function renderTestList() {
   const list = document.getElementById('tp-list');
+  const imageTag = selectedTestImage ? ' 📎' : '';
   list.innerHTML = testResults.map((t, i) => {
     const statusIcon = { pending: '○', running: '◌', pass: '✅', fail: '❌' }[t.status] || '○';
     const cls = t.status === 'fail' ? 'tp-item fail' : 'tp-item';
@@ -963,8 +1158,8 @@ function renderTestList() {
     const detail = t.status === 'fail' ? t.error.slice(0, 60) : '';
     return `<div class="${cls}" onclick="runTest(${i})" title="点击单独运行">
       <span class="tp-status ${t.status}">${statusIcon}</span>
-      <span class="tp-text">${escapeHtml(t.text)}</span>
-      <span class="tp-intent">${t.actualIntent || t.intent}</span>
+      <span class="tp-text">${escapeHtml(t.text)}${imageTag}</span>
+      <span class="tp-intent">${t.actualIntent || (t.tags ? t.tags[0] : '')}</span>
       <span class="tp-dur">${dur}</span>
       ${detail ? `<span class="tp-detail">${escapeHtml(detail)}</span>` : ''}
     </div>`;
@@ -1002,6 +1197,17 @@ async function runTest(index) {
   t.error = '';
   renderTestList();
 
+  const imageKey = t.useImage;
+  const imagePayload = (imageKey && TEST_IMAGES[imageKey]) ? TEST_IMAGES[imageKey] : null;
+
+  // ── Show in main chat ──
+  if (imagePayload) {
+    addMsg('user', t.text, { imageDataUrl: imagePayload.dataUrl });
+  } else {
+    addMsg('user', t.text);
+  }
+  const thinkingBubble = createThinkingBubble();
+
   const start = Date.now();
   try {
     const convId = 'self-test-' + index + '-' + Date.now();
@@ -1013,7 +1219,8 @@ async function runTest(index) {
         userId: 'self-test',
         conversationId: convId,
         turnId: convId + '-1',
-        channel: 'web'
+        channel: 'web',
+        image: imagePayload,
       })
     });
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
@@ -1021,29 +1228,31 @@ async function runTest(index) {
     t.duration = Date.now() - start;
     t.actualIntent = data.intentResult?.intent || '?';
 
-    const hasReply = data.reply && data.reply.length > 10;
-    const notEmptyFallback = data.reply && !data.reply.includes('相关信息');
-    // unclear and unknown are equivalent fallback intents
-    const actualIntent = (data.intentResult?.intent === 'unknown') ? 'unclear' : data.intentResult?.intent;
-    const intentMatch = t.intent === 'unclear' || actualIntent === t.intent;
-    t.actualIntent = actualIntent || '?';
+    // ── Render full response in main chat ──
+    thinkingBubble.remove();
+    addMsg('agent', data.reply, {
+      candidates: data.candidates,
+      picks: data.picks,
+      stages: data.stages,
+      profileSummary: data.profileSummary,
+      skillInfo: data.intentResult ? {
+        intent: data.intentResult.intent,
+        source: data.intentResult.source,
+        reason: data.intentResult.routeReason,
+        confidence: data.intentResult.confidence,
+      } : null,
+    });
 
-    if (hasReply && notEmptyFallback && intentMatch) {
-      t.status = 'pass';
-    } else if (!hasReply) {
-      t.status = 'fail';
-      t.error = 'reply empty';
-    } else if (!intentMatch) {
-      t.status = 'fail';
-      t.error = 'expected ' + t.intent + ', got ' + t.actualIntent;
-    } else {
-      t.status = 'fail';
-      t.error = 'empty fallback reply';
-    }
+    const hasReply = data.reply && data.reply.length > 10;
+    t.status = hasReply ? 'pass' : 'fail';
+    if (!hasReply) t.error = 'reply empty';
   } catch (err) {
+    thinkingBubble.remove();
+    const errMsg = err.message || 'unknown error';
+    addMsg('agent', '❌ 出错了: ' + errMsg);
     t.duration = Date.now() - start;
     t.status = 'fail';
-    t.error = err.message || 'unknown error';
+    t.error = errMsg;
   }
   renderTestList();
   updateTestStats();

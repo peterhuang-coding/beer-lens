@@ -65,6 +65,8 @@ function isGenericRecommendRequest(text: string): boolean {
     /^有什么.*推荐/,
     /^帮我看看.*酒单/,
     /^给我推荐/,
+    // ── Broad fallback: catch "推荐X的啤酒" patterns (reg_343 fix) ──
+    /^推荐.{1,12}啤酒$/,
   ];
   return genericPatterns.some(p => p.test(text));
 }
@@ -853,5 +855,199 @@ describe("follow_up_filter context guard regression", () => {
   it("我想喝酒 should NOT be beer_knowledge", () => {
     const r = testIntentBySamples("我想喝酒", allIntents);
     assert.notStrictEqual(r.matched, "beer_knowledge", "我想喝酒 should not be beer_knowledge");
+  });
+
+  // ── Greeting / short text regression ──
+  const greetingQueries = ["hello", "你好", "hi", "在吗", "谢谢", "嗯", "哦", "好的", "哈喽", "嗨", "早", "晚安"];
+  for (const q of greetingQueries) {
+    it(`"${q}" should NOT be menu_recommend`, () => {
+      const r = testIntentBySamples(q, allIntents);
+      assert.notStrictEqual(r.matched, "menu_recommend", `"${q}" should not be menu_recommend`);
+    });
+    it(`"${q}" should NOT be beer_knowledge`, () => {
+      const r = testIntentBySamples(q, allIntents);
+      assert.notStrictEqual(r.matched, "beer_knowledge", `"${q}" should not be beer_knowledge`);
+    });
+  }
+});
+
+// ═══════════════════════════════════════════════════════
+// Tests: deduplicateCandidates
+// ═══════════════════════════════════════════════════════
+
+type ScoredLike = {
+  candidateId: string;
+  menuIndex?: number;
+  displayName: string;
+  brewery: string;
+  style: string;
+  abv: number;
+  rating: number | null;
+  ratingsCount: number | null;
+  source?: string;
+  worthScore: number;
+  fitScore: number;
+};
+
+function deduplicateCandidates(candidates: ScoredLike[]): ScoredLike[] {
+  if (candidates.length <= 1) return candidates;
+
+  const seen = new Map<string, ScoredLike>();
+
+  for (const c of candidates) {
+    const key = normalizeBeerName(c.displayName);
+    const existing = seen.get(key);
+
+    if (!existing) {
+      seen.set(key, c);
+      continue;
+    }
+
+    // Keep the candidate with more data (prefer rating > style > brewery > source priority)
+    const existingScore = dataScore(existing);
+    const currentScore = dataScore(c);
+    if (currentScore > existingScore) {
+      seen.set(key, c);
+    } else if (currentScore === existingScore) {
+      // Tiebreaker: prefer untappd source over sqlite over generic
+      const sourceRank = (s?: string) => s === "untappd" ? 3 : s === "sqlite" || s === "ratebeer" ? 2 : 1;
+      if (sourceRank(c.source) > sourceRank(existing.source)) {
+        seen.set(key, c);
+      }
+    }
+  }
+
+  // Reassign unique candidateIds
+  return [...seen.values()].map((c, i) => ({
+    ...c,
+    candidateId: String(i + 1),
+    menuIndex: i + 1,
+  }));
+}
+
+function normalizeBeerName(name: string): string {
+  return name.toLowerCase().trim().replace(/\s+/g, " ");
+}
+
+function dataScore(c: ScoredLike): number {
+  let score = 0;
+  if (c.rating != null && c.rating > 0) score += 3;
+  if (c.ratingsCount != null && c.ratingsCount > 0) score += 2;
+  if (c.style && c.style.trim().length > 0) score += 1;
+  if (c.brewery && c.brewery.trim().length > 0) score += 1;
+  return score;
+}
+
+describe("deduplicateCandidates", () => {
+  const baseCandidate = (overrides: Partial<ScoredLike> = {}): ScoredLike => ({
+    candidateId: "1",
+    displayName: "Green City IPA",
+    brewery: "Green City Brewing",
+    style: "IPA",
+    abv: 6.5,
+    rating: 4.0,
+    ratingsCount: 150,
+    source: "untappd",
+    worthScore: 80,
+    fitScore: 70,
+    ...overrides,
+  });
+
+  it("returns same list when no duplicates", () => {
+    const input = [
+      baseCandidate({ candidateId: "1", displayName: "Green City IPA" }),
+      baseCandidate({ candidateId: "2", displayName: "Punk IPA" }),
+      baseCandidate({ candidateId: "3", displayName: "Rochefort 10" }),
+    ];
+    const result = deduplicateCandidates(input);
+    assert.strictEqual(result.length, 3);
+  });
+
+  it("deduplicates exact name matches", () => {
+    const input = [
+      baseCandidate({ candidateId: "1", displayName: "Punk IPA" }),
+      baseCandidate({ candidateId: "2", displayName: "Punk IPA" }),
+      baseCandidate({ candidateId: "3", displayName: "Punk IPA" }),
+    ];
+    const result = deduplicateCandidates(input);
+    assert.strictEqual(result.length, 1);
+    assert.strictEqual(result[0].displayName, "Punk IPA");
+  });
+
+  it("deduplicates case-insensitive name matches", () => {
+    const input = [
+      baseCandidate({ candidateId: "1", displayName: "Punk IPA" }),
+      baseCandidate({ candidateId: "2", displayName: "punk ipa" }),
+      baseCandidate({ candidateId: "3", displayName: "PUNK IPA" }),
+    ];
+    const result = deduplicateCandidates(input);
+    assert.strictEqual(result.length, 1);
+  });
+
+  it("deduplicates whitespace-variant name matches", () => {
+    const input = [
+      baseCandidate({ candidateId: "1", displayName: "Punk  IPA" }),
+      baseCandidate({ candidateId: "2", displayName: "Punk IPA" }),
+    ];
+    const result = deduplicateCandidates(input);
+    assert.strictEqual(result.length, 1);
+  });
+
+  it("keeps candidate with more data when duplicates found", () => {
+    const input = [
+      baseCandidate({ candidateId: "1", displayName: "Punk IPA", rating: null, style: "", brewery: "" }),
+      baseCandidate({ candidateId: "2", displayName: "Punk IPA", rating: 4.2, ratingsCount: 500, style: "IPA", brewery: "BrewDog" }),
+    ];
+    const result = deduplicateCandidates(input);
+    assert.strictEqual(result.length, 1);
+    assert.strictEqual(result[0].rating, 4.2);
+    assert.strictEqual(result[0].brewery, "BrewDog");
+  });
+
+  it("reassigns candidateIds sequentially after dedup", () => {
+    const input = [
+      baseCandidate({ candidateId: "42", displayName: "A" }),
+      baseCandidate({ candidateId: "99", displayName: "B" }),
+    ];
+    const result = deduplicateCandidates(input);
+    assert.strictEqual(result.length, 2);
+    assert.strictEqual(result[0].candidateId, "1");
+    assert.strictEqual(result[1].candidateId, "2");
+    assert.strictEqual(result[0].menuIndex, 1);
+    assert.strictEqual(result[1].menuIndex, 2);
+  });
+
+  it("handles empty array", () => {
+    const result = deduplicateCandidates([]);
+    assert.strictEqual(result.length, 0);
+  });
+
+  it("handles single candidate", () => {
+    const input = [baseCandidate()];
+    const result = deduplicateCandidates(input);
+    assert.strictEqual(result.length, 1);
+    assert.strictEqual(result[0].candidateId, "1");
+  });
+});
+
+// ═══════════════════════════════════════════════════════
+// Tests: isGenericRecommendRequest — reg_343 fallback
+// ═══════════════════════════════════════════════════════
+
+describe("isGenericRecommendRequest — broad fallback for reg_343", () => {
+  it("推荐女士适合的啤酒 => true (reg_343)", () => {
+    assert.strictEqual(isGenericRecommendRequest("推荐女士适合的啤酒"), true);
+  });
+
+  it("推荐新手友好的啤酒 => true", () => {
+    assert.strictEqual(isGenericRecommendRequest("推荐新手友好的啤酒"), true);
+  });
+
+  it("推荐聚会喝的啤酒 => true", () => {
+    assert.strictEqual(isGenericRecommendRequest("推荐聚会喝的啤酒"), true);
+  });
+
+  it("推荐夏天喝的啤酒 => true", () => {
+    assert.strictEqual(isGenericRecommendRequest("推荐夏天喝的啤酒"), true);
   });
 });

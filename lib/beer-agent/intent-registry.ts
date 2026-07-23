@@ -708,7 +708,18 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
     label: "意图不明",
     description: "无法识别意图时的兜底处理，引导用户说明需求",
     priority: 99,
-    rules: [],
+    rules: [
+      // ── Greeting / acknowledgment patterns → explicitly route to unclear ──
+      // These are friendly but non-actionable inputs. Matching here prevents
+      // the LLM fallback from misclassifying them (e.g., as beer_knowledge).
+      {
+        id: "unclear_greeting",
+        pattern: "^(你好|hello|hi|hey|嗨|哈喽|在吗|在不在|早|晚安|谢谢|thanks|thank|ok|好的|嗯|哦|啊|哈哈|呵呵)$",
+        type: "positive",
+        confidence: 0.90,
+        requiresImage: false,
+      },
+    ],
     samples: [],
     slots: [],
     handler: "handleUnclear",

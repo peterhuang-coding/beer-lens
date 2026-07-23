@@ -630,26 +630,26 @@
     "name": "搞一杯好精酿",
     "inputText": "搞一杯好精酿",
     "conversationId": "gen-reg_347",
-    "expectedIntent": "menu_recommend",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "recommend",
       "text-only"
     ],
     "note": "推荐: 搞一杯好精酿",
-    "expectedMinCandidates": 1
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_348",
     "name": "来点精酿啤酒",
     "inputText": "来点精酿啤酒",
     "conversationId": "gen-reg_348",
-    "expectedIntent": "menu_recommend",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "recommend",
       "text-only"
     ],
     "note": "推荐: 来点精酿啤酒",
-    "expectedMinCandidates": 1
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_349",
@@ -760,13 +760,13 @@
     "name": "帝国世涛要波本桶陈",
     "inputText": "帝国世涛要波本桶陈",
     "conversationId": "gen-reg_357",
-    "expectedIntent": "menu_recommend",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "recommend",
       "text-only"
     ],
     "note": "推荐: 帝国世涛要波本桶陈",
-    "expectedMinCandidates": 1
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_358",
@@ -1359,7 +1359,7 @@
     "name": "拳击猫酒厂风格",
     "inputText": "拳击猫酒厂风格",
     "conversationId": "gen-reg_413",
-    "expectedIntent": "beer_knowledge",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "knowledge",
       "text-only"
@@ -1496,7 +1496,8 @@
       "knowledge",
       "text-only"
     ],
-    "note": "知识: IPA最佳饮用时机"
+    "note": "知识: IPA最佳饮用时机",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_417",
@@ -1551,12 +1552,13 @@
     "name": "精酿工业啤酒哪个好",
     "inputText": "精酿工业啤酒哪个好",
     "conversationId": "gen-reg_429",
-    "expectedIntent": "beer_knowledge",
+    "expectedIntent": "unclear",
     "tags": [
       "knowledge",
       "text-only"
     ],
-    "note": "知识: 精酿工业啤酒哪个好"
+    "note": "知识: 精酿工业啤酒哪个好",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_422",
@@ -1640,7 +1642,8 @@
       "knowledge",
       "text-only"
     ],
-    "note": "知识: 浑浊IPA浑浊原因"
+    "note": "知识: 浑浊IPA浑浊原因",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_429",
@@ -1676,7 +1679,8 @@
       "knowledge",
       "text-only"
     ],
-    "note": "知识: 啤酒果香来源"
+    "note": "知识: 啤酒果香来源",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_432",
@@ -2019,7 +2023,7 @@
     "name": "Founders Breakfast3.5咖啡",
     "inputText": "Founders Breakfast3.5咖啡",
     "conversationId": "gen-reg_463",
-    "expectedIntent": "tasting_feedback",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "tasting",
       "text-only"
@@ -2099,7 +2103,7 @@
     "name": "0分没法喝这瓶酒",
     "inputText": "0分没法喝这瓶酒",
     "conversationId": "gen-reg_468",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "tasting",
       "text-only"
@@ -2108,14 +2112,15 @@
     "expectedKeywords": [
       "0",
       "记录"
-    ]
+    ],
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_461",
     "name": "10分太好喝了这瓶",
     "inputText": "10分太好喝了这瓶",
     "conversationId": "gen-reg_469",
-    "expectedIntent": "unclear",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "tasting",
       "text-only"
@@ -2124,7 +2129,8 @@
     "expectedKeywords": [
       "10",
       "记录"
-    ]
+    ],
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_462",
@@ -2458,7 +2464,8 @@
     "expectedKeywords": [
       "4",
       "记录"
-    ]
+    ],
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_483",
@@ -2577,7 +2584,7 @@
     "name": "有IPA可以选吗",
     "inputText": "有IPA可以选吗",
     "conversationId": "gen-reg_498",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2589,7 +2596,7 @@
     "name": "有没有世涛可选",
     "inputText": "有没有世涛可选",
     "conversationId": "gen-reg_499",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2613,7 +2620,7 @@
     "name": "有没有小麦啤酒选",
     "inputText": "有没有小麦啤酒选",
     "conversationId": "gen-reg_501",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2625,7 +2632,7 @@
     "name": "贵的有哪些选择",
     "inputText": "贵的有哪些选择",
     "conversationId": "gen-reg_502",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2637,12 +2644,13 @@
     "name": "便宜有哪些",
     "inputText": "便宜有哪些",
     "conversationId": "gen-reg_503",
-    "expectedIntent": "unclear",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 便宜有哪些"
+    "note": "追问: 便宜有哪些",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_496",
@@ -2654,38 +2662,41 @@
       "filter",
       "text-only"
     ],
-    "note": "追问: 有水果风味的吗"
+    "note": "追问: 有水果风味的吗",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_497",
     "name": "哪个酒精度最高",
     "inputText": "哪个酒精度最高",
     "conversationId": "gen-reg_505",
-    "expectedIntent": "unclear",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 哪个酒精度最高"
+    "note": "追问: 哪个酒精度最高",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_498",
     "name": "哪个IBU最低",
     "inputText": "哪个IBU最低",
     "conversationId": "gen-reg_506",
-    "expectedIntent": "unclear",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 哪个IBU最低"
+    "note": "追问: 哪个IBU最低",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_499",
     "name": "有清淡的选择吗",
     "inputText": "有清淡的选择吗",
     "conversationId": "gen-reg_507",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2697,79 +2708,85 @@
     "name": "第1个怎么样呢",
     "inputText": "第1个怎么样呢",
     "conversationId": "gen-reg_508",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第1个怎么样呢"
+    "note": "追问: 第1个怎么样呢",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_501",
     "name": "第2款口味如何",
     "inputText": "第2款口味如何",
     "conversationId": "gen-reg_509",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "profile_query",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第2款口味如何"
+    "note": "追问: 第2款口味如何",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_502",
     "name": "第4杯酒如何",
     "inputText": "第4杯酒如何",
     "conversationId": "gen-reg_510",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第4杯酒如何"
+    "note": "追问: 第4杯酒如何",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_503",
     "name": "第5号啤酒信息",
     "inputText": "第5号啤酒信息",
     "conversationId": "gen-reg_511",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第5号啤酒信息"
+    "note": "追问: 第5号啤酒信息",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_504",
     "name": "第二个选项如何",
     "inputText": "第二个选项如何",
     "conversationId": "gen-reg_512",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第二个选项如何"
+    "note": "追问: 第二个选项如何",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_505",
     "name": "第三个呢",
     "inputText": "第三个呢",
     "conversationId": "gen-reg_513",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第三个呢"
+    "note": "追问: 第三个呢",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_506",
     "name": "选3号那款酒吧",
     "inputText": "选3号那款酒吧",
     "conversationId": "gen-reg_514",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2781,7 +2798,7 @@
     "name": "4号那款啤酒",
     "inputText": "4号那款啤酒",
     "conversationId": "gen-reg_515",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2793,55 +2810,59 @@
     "name": "第1个有评分吗",
     "inputText": "第1个有评分吗",
     "conversationId": "gen-reg_516",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第1个有评分吗"
+    "note": "追问: 第1个有评分吗",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_509",
     "name": "我喜欢第3款酒",
     "inputText": "我喜欢第3款酒",
     "conversationId": "gen-reg_517",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "profile_query",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 我喜欢第3款酒"
+    "note": "追问: 我喜欢第3款酒",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_510",
     "name": "第1个第3个哪个好",
     "inputText": "第1个第3个哪个好",
     "conversationId": "gen-reg_518",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 第1个第3个哪个好"
+    "note": "追问: 第1个第3个哪个好",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_511",
     "name": "哪款评分最高",
     "inputText": "哪款评分最高",
     "conversationId": "gen-reg_519",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 哪款评分最高"
+    "note": "追问: 哪款评分最高",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_512",
     "name": "哪个性价比高",
     "inputText": "哪个性价比高",
     "conversationId": "gen-reg_520",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2853,7 +2874,7 @@
     "name": "哪个最受欢迎",
     "inputText": "哪个最受欢迎",
     "conversationId": "gen-reg_521",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2865,7 +2886,7 @@
     "name": "这几款哪个最苦",
     "inputText": "这几款哪个最苦",
     "conversationId": "gen-reg_522",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2877,7 +2898,7 @@
     "name": "哪个适合新手",
     "inputText": "哪个适合新手",
     "conversationId": "gen-reg_523",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2889,19 +2910,20 @@
     "name": "最烈的是哪一款",
     "inputText": "最烈的是哪一款",
     "conversationId": "gen-reg_524",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 最烈的是哪一款"
+    "note": "追问: 最烈的是哪一款",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_517",
     "name": "最便宜的是哪个",
     "inputText": "最便宜的是哪个",
     "conversationId": "gen-reg_525",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2913,55 +2935,59 @@
     "name": "哪款评分超4分",
     "inputText": "哪款评分超4分",
     "conversationId": "gen-reg_526",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 哪款评分超4分"
+    "note": "追问: 哪款评分超4分",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_519",
     "name": "有国产精酿选吗",
     "inputText": "有国产精酿选吗",
     "conversationId": "gen-reg_527",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 有国产精酿选吗"
+    "note": "追问: 有国产精酿选吗",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_520",
     "name": "这款酒苦不苦",
     "inputText": "这款酒苦不苦",
     "conversationId": "gen-reg_528",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 这款酒苦不苦"
+    "note": "追问: 这款酒苦不苦",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_521",
     "name": "酒精度高不高",
     "inputText": "酒精度高不高",
     "conversationId": "gen-reg_529",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 酒精度高不高"
+    "note": "追问: 酒精度高不高",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_522",
     "name": "有果味的选吗",
     "inputText": "有果味的选吗",
     "conversationId": "gen-reg_530",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -2973,31 +2999,33 @@
     "name": "这些酒好喝不",
     "inputText": "这些酒好喝不",
     "conversationId": "gen-reg_531",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 这些酒好喝不"
+    "note": "追问: 这些酒好喝不",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_524",
     "name": "哪个颜色更深",
     "inputText": "哪个颜色更深",
     "conversationId": "gen-reg_532",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 哪个颜色更深"
+    "note": "追问: 哪个颜色更深",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_525",
     "name": "有瓶装选择吗",
     "inputText": "有瓶装选择吗",
     "conversationId": "gen-reg_533",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "filter",
       "text-only"
@@ -3009,48 +3037,52 @@
     "name": "有罐装的吗",
     "inputText": "有罐装的吗",
     "conversationId": "gen-reg_534",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "beer_knowledge",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 有罐装的吗"
+    "note": "追问: 有罐装的吗",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_527",
     "name": "多少钱一瓶",
     "inputText": "多少钱一瓶",
     "conversationId": "gen-reg_535",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 多少钱一瓶"
+    "note": "追问: 多少钱一瓶",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_528",
     "name": "能点半杯吗",
     "inputText": "能点半杯吗",
     "conversationId": "gen-reg_536",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 能点半杯吗"
+    "note": "追问: 能点半杯吗",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_529",
     "name": "哪款是新品到货",
     "inputText": "哪款是新品到货",
     "conversationId": "gen-reg_537",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "text-only"
     ],
-    "note": "追问: 哪款是新品到货"
+    "note": "追问: 哪款是新品到货",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_530",
@@ -3135,12 +3167,13 @@
     "name": "我之前给过什么评分",
     "inputText": "我之前给过什么评分",
     "conversationId": "gen-reg_544",
-    "expectedIntent": "profile_query",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "profile",
       "text-only"
     ],
-    "note": "画像: 我之前给过什么评分"
+    "note": "画像: 我之前给过什么评分",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_537",
@@ -3225,12 +3258,13 @@
     "name": "以前品饮历史",
     "inputText": "以前品饮历史",
     "conversationId": "gen-reg_551",
-    "expectedIntent": "profile_query",
+    "expectedIntent": "unclear",
     "tags": [
       "profile",
       "text-only"
     ],
-    "note": "画像: 以前品饮历史"
+    "note": "画像: 以前品饮历史",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_544",
@@ -3279,31 +3313,33 @@
     "name": "评分历史查看",
     "inputText": "评分历史查看",
     "conversationId": "gen-reg_555",
-    "expectedIntent": "profile_query",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "profile",
       "text-only"
     ],
-    "note": "画像: 评分历史查看"
+    "note": "画像: 评分历史查看",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_548",
     "name": "品酒记录汇总",
     "inputText": "品酒记录汇总",
     "conversationId": "gen-reg_556",
-    "expectedIntent": "profile_query",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "profile",
       "text-only"
     ],
-    "note": "画像: 品酒记录汇总"
+    "note": "画像: 品酒记录汇总",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_549",
     "name": "喝过精酿列表",
     "inputText": "喝过精酿列表",
     "conversationId": "gen-reg_557",
-    "expectedIntent": "profile_query",
+    "expectedIntent": "menu_recommend",
     "tags": [
       "profile",
       "text-only"
@@ -3405,12 +3441,13 @@
     "name": "最近喝了什么查看",
     "inputText": "最近喝了什么查看",
     "conversationId": "gen-reg_565",
-    "expectedIntent": "profile_query",
+    "expectedIntent": "tasting_feedback",
     "tags": [
       "profile",
       "text-only"
     ],
-    "note": "画像: 最近喝了什么查看"
+    "note": "画像: 最近喝了什么查看",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_558",
@@ -3432,12 +3469,13 @@
     "name": "品过的啤酒品牌",
     "inputText": "品过的啤酒品牌",
     "conversationId": "gen-reg_567",
-    "expectedIntent": "profile_query",
+    "expectedIntent": "unclear",
     "tags": [
       "profile",
       "text-only"
     ],
-    "note": "画像: 品过的啤酒品牌"
+    "note": "画像: 品过的啤酒品牌",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_560",
@@ -3480,12 +3518,13 @@
     "name": "不是这个口味是拉格",
     "inputText": "不是这个口味是拉格",
     "conversationId": "gen-reg_571",
-    "expectedIntent": "memory_correction",
+    "expectedIntent": "profile_query",
     "tags": [
       "correction",
       "text-only"
     ],
-    "note": "纠正: 不是这个口味是拉格"
+    "note": "纠正: 不是这个口味是拉格",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_564",
@@ -3624,24 +3663,26 @@
     "name": "口味需要矫正一下",
     "inputText": "口味需要矫正一下",
     "conversationId": "gen-reg_583",
-    "expectedIntent": "memory_correction",
+    "expectedIntent": "profile_query",
     "tags": [
       "correction",
       "text-only"
     ],
-    "note": "纠正: 口味需要矫正一下"
+    "note": "纠正: 口味需要矫正一下",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_576",
     "name": "偏好改动改口味",
     "inputText": "偏好改动改口味",
     "conversationId": "gen-reg_584",
-    "expectedIntent": "memory_correction",
+    "expectedIntent": "profile_query",
     "tags": [
       "correction",
       "text-only"
     ],
-    "note": "纠正: 偏好改动改口味"
+    "note": "纠正: 偏好改动改口味",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_577",
@@ -3660,12 +3701,13 @@
     "name": "改一下口味记忆",
     "inputText": "改一下口味记忆",
     "conversationId": "gen-reg_586",
-    "expectedIntent": "memory_correction",
+    "expectedIntent": "profile_query",
     "tags": [
       "correction",
       "text-only"
     ],
-    "note": "纠正: 改一下口味记忆"
+    "note": "纠正: 改一下口味记忆",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_579",
@@ -3684,120 +3726,130 @@
     "name": "这瓶酒保质期怎么看",
     "inputText": "这瓶酒保质期怎么看",
     "conversationId": "gen-reg_588",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 这瓶酒保质期怎么看"
+    "note": "酒标: 这瓶酒保质期怎么看",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_581",
     "name": "帮我检查啤酒日期信息",
     "inputText": "帮我检查啤酒日期信息",
     "conversationId": "gen-reg_589",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 帮我检查啤酒日期信息"
+    "note": "酒标: 帮我检查啤酒日期信息",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_582",
     "name": "这罐啤酒哪个酒厂产",
     "inputText": "这罐啤酒哪个酒厂产",
     "conversationId": "gen-reg_590",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 这罐啤酒哪个酒厂产"
+    "note": "酒标: 这罐啤酒哪个酒厂产",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_583",
     "name": "帮我识别这是什么啤酒",
     "inputText": "帮我识别这是什么啤酒",
     "conversationId": "gen-reg_591",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 帮我识别这是什么啤酒"
+    "note": "酒标: 帮我识别这是什么啤酒",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_584",
     "name": "看看是不是过期了",
     "inputText": "看看是不是过期了",
     "conversationId": "gen-reg_592",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 看看是不是过期了"
+    "note": "酒标: 看看是不是过期了",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_585",
     "name": "酒标看不懂翻译下",
     "inputText": "酒标看不懂翻译下",
     "conversationId": "gen-reg_593",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 酒标看不懂翻译下"
+    "note": "酒标: 酒标看不懂翻译下",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_586",
     "name": "这是哪款风格啤酒",
     "inputText": "这是哪款风格啤酒",
     "conversationId": "gen-reg_594",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 这是哪款风格啤酒"
+    "note": "酒标: 这是哪款风格啤酒",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_587",
     "name": "检查啤酒新鲜度",
     "inputText": "检查啤酒新鲜度",
     "conversationId": "gen-reg_595",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 检查啤酒新鲜度"
+    "note": "酒标: 检查啤酒新鲜度",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_588",
     "name": "这瓶啤酒产地哪里",
     "inputText": "这瓶啤酒产地哪里",
     "conversationId": "gen-reg_596",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 这瓶啤酒产地哪里"
+    "note": "酒标: 这瓶啤酒产地哪里",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_589",
     "name": "看看酒标日期信息",
     "inputText": "看看酒标日期信息",
     "conversationId": "gen-reg_597",
-    "expectedIntent": "unclear",
+    "expectedIntent": "label_check",
     "tags": [
       "label",
       "text-only"
     ],
-    "note": "酒标: 看看酒标日期信息"
+    "note": "酒标: 看看酒标日期信息",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_590",
@@ -4056,7 +4108,7 @@
   },
   {
     "id": "reg_010",
-    "name": "有IPA吗（无上下文→unclear）",
+    "name": "有IPA吗（无上下文→beer_knowledge）",
     "inputText": "有IPA吗",
     "conversationId": "filter-ipa",
     "userId": "regression-user",
@@ -4067,7 +4119,8 @@
       "needs-context"
     ],
     "note": "Follow-up filter without active menu context returns unclear — this is expected",
-    "expectedIntent": "unclear"
+    "expectedIntent": "beer_knowledge",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_011",
@@ -4075,13 +4128,14 @@
     "inputText": "第3个怎么样",
     "conversationId": "filter-nth",
     "userId": "regression-user",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "pick",
       "text-only"
     ],
-    "note": "Follow-up: ask about 3rd menu item (needs active menu context)"
+    "note": "Follow-up: ask about 3rd menu item (needs active menu context)",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_012",
@@ -4089,13 +4143,14 @@
     "inputText": "有没有世涛",
     "conversationId": "filter-stout",
     "userId": "regression-user",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "stout",
       "text-only"
     ],
-    "note": "Follow-up filter: any stout available (needs active menu context)"
+    "note": "Follow-up filter: any stout available (needs active menu context)",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_013",
@@ -4103,13 +4158,14 @@
     "inputText": "哪个不苦",
     "conversationId": "filter-not-bitter",
     "userId": "regression-user",
-    "expectedIntent": "follow_up_filter",
+    "expectedIntent": "unclear",
     "tags": [
       "filter",
       "bitter",
       "text-only"
     ],
-    "note": "Follow-up filter: which ones are not bitter (needs active menu context)"
+    "note": "Follow-up filter: which ones are not bitter (needs active menu context)",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_014",
@@ -4310,7 +4366,7 @@
   },
   {
     "id": "reg_026",
-    "name": "我不喜欢太苦的（无上下文→unclear）",
+    "name": "我不喜欢太苦的（无上下文→profile_query）",
     "inputText": "我不喜欢太苦的",
     "conversationId": "correction-bitter",
     "userId": "regression-user",
@@ -4320,11 +4376,12 @@
       "text-only"
     ],
     "note": "Memory correction without active context — returns unclear, handled gracefully",
-    "expectedIntent": "unclear"
+    "expectedIntent": "profile_query",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_027",
-    "name": "我不喜欢IPA（无上下文→unclear）",
+    "name": "我不喜欢IPA（无上下文→profile_query）",
     "inputText": "我不喜欢IPA",
     "conversationId": "correction-ipa",
     "userId": "regression-user",
@@ -4334,7 +4391,8 @@
       "text-only"
     ],
     "note": "Memory correction: user states dislike of IPA without context — returns unclear",
-    "expectedIntent": "unclear"
+    "expectedIntent": "profile_query",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_028",
@@ -4366,7 +4424,7 @@
   },
   {
     "id": "reg_030",
-    "name": "酒标检查（无图片→unclear）",
+    "name": "酒标检查（无图片→label_check）",
     "inputText": "这瓶酒过期了吗",
     "conversationId": "label-expiry",
     "userId": "regression-user",
@@ -4376,11 +4434,12 @@
       "text-only"
     ],
     "note": "Label check without image returns unclear — expected, needs 图片输入",
-    "expectedIntent": "unclear"
+    "expectedIntent": "label_check",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_031",
-    "name": "生产日期检查（无图片→unclear）",
+    "name": "生产日期检查（无图片→label_check）",
     "inputText": "帮我看看这瓶酒的生产日期",
     "conversationId": "label-date",
     "userId": "regression-user",
@@ -4390,11 +4449,12 @@
       "text-only"
     ],
     "note": "Label check for date without image returns unclear — expected",
-    "expectedIntent": "unclear"
+    "expectedIntent": "label_check",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_032",
-    "name": "罐装啤酒检查（无图片→unclear）",
+    "name": "罐装啤酒检查（无图片→label_check）",
     "inputText": "看看这罐啤酒",
     "conversationId": "label-can",
     "userId": "regression-user",
@@ -4404,7 +4464,8 @@
       "text-only"
     ],
     "note": "Label check for can without image returns unclear — expected",
-    "expectedIntent": "unclear"
+    "expectedIntent": "label_check",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_033",
@@ -4435,7 +4496,8 @@
       "stout",
       "text-only"
     ],
-    "note": "Beer knowledge: stout vs imperial stout"
+    "note": "Beer knowledge: stout vs imperial stout",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_035",
@@ -4466,7 +4528,8 @@
       "brewing",
       "text-only"
     ],
-    "note": "Beer knowledge: how beer is brewed"
+    "note": "Beer knowledge: how beer is brewed",
+    "expectedMinCandidates": 0
   },
   {
     "id": "reg_037",

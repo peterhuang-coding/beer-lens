@@ -16,7 +16,10 @@
     "raw:export": "node scripts/export-raw-dataset.mjs",
     "raw:collect": "node scripts/collect-queries.mjs",
     "raw:cron": "node scripts/raw-cron.mjs",
-    "benchmark:images": "node scripts/run-image-benchmark.mjs"
+    "benchmark:images": "node scripts/run-image-benchmark.mjs",
+    "crawl": "node scripts/crawl-all.mjs",
+    "crawl:cn": "node scripts/crawl-all.mjs --cn-only",
+    "crawl:untappd": "node scripts/crawl-all.mjs --source untappd --country CN"
   },
   "dependencies": {
     "next": "^16.0.0",

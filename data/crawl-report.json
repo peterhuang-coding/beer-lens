@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-07-21T14:53:55.302Z",
+  "source": "all",
+  "country": null,
+  "cnOnly": true,
+  "results": {
+    "cnBeers": {
+      "ok": true,
+      "result": {
+        "inserted": 0,
+        "skipped": 64,
+        "errors": [],
+        "total_cn_beers": 64
+      },
+      "elapsed": "0.0"
+    },
+    "stats": {
+      "ok": true,
+      "result": {
+        "total_beers": 14228,
+        "total_breweries": 2088,
+        "total_styles": 104,
+        "avg_rating": 3.71,
+        "top_styles": [
+          {
+            "style": "American IPA",
+            "count": 906,
+            "avg_rating": 3.84
+          },
+          {
+            "style": "American Pale Ale (APA)",
+            "count": 690,
+            "avg_rating": 3.74
+          },
+          {
+            "style": "American Double / Imperial IPA",
+            "count": 510,
+            "avg_rating": 3.89
+          },
+          {
+            "style": "American Amber / Red Ale",
+            "count": 509,
+            "avg_rating": 3.64
+          },
+          {
+            "style": "American Porter",
+            "count": 484,
+            "avg_rating": 3.83
+          },
+          {
+            "style": "American Adjunct Lager",
+            "count": 326,
+            "avg_rating": 2.94
+          },
+          {
+            "style": "Saison / Farmhouse Ale",
+            "count": 318,
+            "avg_rating": 3.9
+          },
+          {
+            "style": "Fruit / Vegetable Beer",
+            "count": 311,
+            "avg_rating": 3.38
+          },
+          {
+            "style": "American Double / Imperial Stout",
+            "count": 302,
+            "avg_rating": 3.95
+          },
+          {
+            "style": "Hefeweizen",
+            "count": 301,
+            "avg_rating": 3.75
+          }
+        ],
+        "source": "RateBeer Kaggle Dataset (1.58M reviews)"
+      },
+      "elapsed": "0.0"
+    }
+  }
+}

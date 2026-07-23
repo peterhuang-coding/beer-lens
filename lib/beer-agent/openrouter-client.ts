@@ -47,7 +47,7 @@ function isProxyDead(): boolean {
 
 export async function openrouterFetch(
   body: object,
-  options?: { model?: string; maxTokens?: number; temperature?: number }
+  options?: { model?: string; maxTokens?: number; temperature?: number; timeoutMs?: number; signal?: AbortSignal }
 ): Promise<string> {
   initProxyOnce();
 
@@ -57,6 +57,16 @@ export async function openrouterFetch(
   // Extract model name from body for error diagnostics
   const bodyModel = (body as Record<string, unknown>).model as string | undefined;
   const modelName = options?.model ?? bodyModel ?? "unknown";
+
+  // Wire up timeout via AbortController (caller-supplied signal takes precedence)
+  const timeoutMs = options?.timeoutMs ?? 20000;
+  let abortController: AbortController | null = null;
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+  if (!options?.signal) {
+    abortController = new AbortController();
+    timeoutId = setTimeout(() => abortController!.abort(), timeoutMs);
+  }
 
   const makeRequest = async () => {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -68,6 +78,7 @@ export async function openrouterFetch(
         "X-Title": process.env.OPENROUTER_APP_TITLE ?? "Beer Lens",
       },
       body: JSON.stringify(body),
+      signal: options?.signal ?? abortController?.signal,
     });
 
     if (!response.ok) {
@@ -92,6 +103,15 @@ export async function openrouterFetch(
   try {
     return await makeRequest();
   } catch (err) {
+    // Distinguish timeout from other failures
+    if (err instanceof Error && err.name === "AbortError") {
+      throw new OpenRouterError(
+        `OpenRouter request timed out after ${timeoutMs}ms`,
+        "openrouter",
+        modelName,
+        "TIMEOUT",
+      );
+    }
     if (err instanceof OpenRouterError) throw err;
     const msg = err instanceof Error ? (err.message || "") : "";
     // If proxy connection refused, reset to direct and retry
@@ -104,5 +124,7 @@ export async function openrouterFetch(
       return await makeRequest();
     }
     throw err;
+  } finally {
+    if (timeoutId) clearTimeout(timeoutId);
   }
 }

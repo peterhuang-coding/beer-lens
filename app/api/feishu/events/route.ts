@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { runBeerDialogTurn } from '@/lib/beer-agent/orchestrator';
+import { runAgentTurn } from '@/lib/agent/controller';
 import {
   downloadFeishuImage,
   extractFeishuMessage,
@@ -93,7 +93,7 @@ export async function POST(request: Request) {
     ? { name: (incomingMessage.imageKey || 'img') + '.jpg', type: image.type, dataUrl: image.dataUrl }
     : undefined;
 
-  runBeerDialogTurn({
+  runAgentTurn({
     userId: incomingMessage.chatId,
     channel: 'feishu',
     conversationId: incomingMessage.chatId,

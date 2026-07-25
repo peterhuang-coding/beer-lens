@@ -38,66 +38,69 @@ Claude:  WebSearch("Flying Fist IPA 京A ABV Untappd rating")
 - 风格/酒厂信息："什么是浑浊IPA""18号酒馆有哪些代表作品"
 - 对比："飞拳和跳东湖哪个评分高"
 
-## 数据采集工作流
-
-### Step 1: Search（搜索）
-
-根据用户意图构造搜索词：
+## 双通道数据 Harness
 
 ```
-查具体啤酒:  WebSearch("\"{啤酒名}\" \"{酒厂}\" ABV Untappd rating")
-查风格排行:  WebSearch("best {风格} beers Untappd top rated 2024 2025")
-查酒厂作品:  WebSearch("\"{酒厂}\" beers list Untappd ratings")
-查中国精酿:  WebSearch("中国精酿 {风格/酒厂} Untappd 评分")
+┌─ 通道 1: 实时检索 (on-demand) ──────────────────────────┐
+│                                                         │
+│  用户查询 → harness.py query → cache hit?               │
+│    ✅ hit  → 直接返回 (<10ms)                            │
+│    ❌ miss → WebSearch → Extract → Verify → cache → 返回 │
+│                                                         │
+├─ 通道 2: 定时预热 (scheduled) ──────────────────────────┤
+│                                                         │
+│  每天 03:17 → harness.py warm-list → WebSearch × N     │
+│              → Extract → Verify → cache → 报告 stats    │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
 ```
 
-### Step 2: Extract（提取）
+### 通道 1: 实时检索（用户查询时触发）
 
-从搜索结果中提取以下字段（按优先级）：
-
-| 字段 | 提取来源 | 验证规则 |
-|------|----------|----------|
-| name | 搜索结果标题/snippet | 非空字符串 |
-| brewery | snippet 中的 brewery/酒厂 信息 | 非空字符串 |
-| style | 搜索结果中的风格描述 | 常见风格名 |
-| abv | "%" 前的数字 | 0 < ABV ≤ 20 |
-| rating | "评分"/"rating" 后的数字 | 0 ≤ rating ≤ 5 |
-| ratings_count | "评分"/"ratings" 后的数字 | > 0 |
-| ibu | "IBU" 后的数字 | 0 ≤ IBU ≤ 120 |
-| source | 数据来源 URL | 必须是真实链接 |
-
-### Step 3: Verify（验证）
-
-**每条数据必须通过以下验证，否则标记为 unverified：**
-
-1. **ABV 合理性**：必须在 0-20% 之间，否则标记
-2. **评分范围**：Untappd 0-5，BeerAdvocate 0-100，RateBeer 0-100
-3. **跨源交叉验证**：同一啤酒至少在 2 个搜索结果中确认才标记为 verified
-4. **真实来源**：每条数据必须附带来源 URL，不得编造
-
-### Step 4: Cache（缓存）
-
-验证通过的数据写入本地 SQLite：
+**Step 1 — 先查缓存：**
+```bash
+cd /Volumes/SanDisk2TB/beer-lens && python3 .beer-data/harness.py query "<啤酒名>" "<酒厂名>"
 ```
-.beer-data/beer.db → table: beer_cache
-  name, brewery, style, abv, rating, ratings_count, ibu,
-  source_url, verified_at, created_at
+- `hit: true` → 直接使用缓存数据，跳过后续步骤
+- `hit: false` → 进入 WebSearch
+
+**Step 2 — WebSearch 拉数据：**
+```
+查具体啤酒:  WebSearch("\"{啤酒名}\" \"{酒厂}\" ABV rating Untappd")
+查中国精酿:  WebSearch("{中文名} {酒厂} Untappd 评分 ABV")
 ```
 
-下次查询时先查缓存，命中且未过期（< 30天）直接返回，跳过 WebSearch。
+**Step 3 — Extract + Verify：**
 
-### Step 5: Present（呈现）
+| 字段 | 验证规则 |
+|------|----------|
+| abv | 0 < ABV ≤ 20 |
+| rating | 0 ≤ rating ≤ 5 (Untappd) 或 0-100 (BeerAdvocate) |
+| ratings_count | > 0 |
+| source | 至少 2 个独立来源交叉确认 |
 
-回复格式：
+**Step 4 — 写入缓存：**
+```bash
+cd /Volumes/SanDisk2TB/beer-lens && python3 .beer-data/harness.py cache '{"name":"...","brewery":"...","style":"...","abv":...,"rating":...,"ratings_count":...,"source_platform":"...","verified":true}'
+```
+
+**Step 5 — 呈现：**
 ```
 🍺 {啤酒名} ({中文名})
 🏭 {酒厂} ({中文酒厂名})
 📋 {风格} | ABV: {x}% | IBU: {y}
-⭐ Untappd: {rating}/5 ({ratings_count} 评分)
-🔗 来源: {source_url}
+⭐ 评分: {rating}/5 ({ratings_count} 评分)
+🔗 来源: {source_platform}
 ```
 
-数据不足时如实说明，不编造。
+### 通道 2: 定时预热（每日 03:17 自动执行）
+
+Cron 任务 `1184064b` 每天自动运行，流程：
+1. `harness.py stats` — 检查 warm_list_coverage
+2. `harness.py warm-list --limit 10` — 拿到待预热啤酒
+3. 逐个 WebSearch → Extract → Verify → cache
+4. `harness.py stale --days 30` — 检查过期缓存并刷新
+5. `harness.py stats` — 报告新增数量和覆盖率
 
 ## 数据源优先级
 

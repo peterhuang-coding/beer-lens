@@ -17,10 +17,12 @@
 import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DATA_PATH = join(ROOT, "data", "chinese-craft-beers.json");
+const LOOKUP_PY = join(ROOT, ".beer-data", "lookup.py");
 
 // ── Help ────────────────────────────────────────────────────────────────
 
@@ -39,6 +41,7 @@ function printHelp() {
 输出选项:
   --json                    以 JSON 格式输出（对 | jq 友好）
   --limit, -l <数量>        限制返回数量（默认 20）
+  --source <json|db|auto>   数据源: json=中国精酿种子, db=SQLite全局, auto=智能选择（默认）
 
 辅助命令:
   --help, -h                显示本帮助
@@ -51,6 +54,7 @@ function printHelp() {
   npx beer-lens --style IPA --json
   npx beer-lens --brewery 京A
   npx beer-lens --style IPA --brewery "Master Gao" --json
+  npx beer-lens --name "Pliny" --source db     # 查国际啤酒
   npx beer-lens --stats
 `);
 }
@@ -276,7 +280,7 @@ function showStats(beers) {
   const avgABV = (beers.reduce((s, b) => s + (b.abv || 0), 0) / total).toFixed(1);
 
   console.log(`
-📊 Beer Lens — 中文精酿数据概览
+📊 Beer Lens — 数据概览
 ${"─".repeat(40)}
   啤酒总数:    ${total}
   酒厂数量:    ${brewKeys.size}
@@ -284,8 +288,45 @@ ${"─".repeat(40)}
   平均评分:    ${avgRating}
   平均 ABV:    ${avgABV}%
   数据来源:    data/chinese-craft-beers.json
-  数据国家:    China
 `);
+
+  // Also show DB stats if available
+  try {
+    const raw = execFileSync("python3", [LOOKUP_PY, "--stats"], { timeout: 5_000, encoding: "utf8" });
+    const dbStats = JSON.parse(raw);
+    console.log(`  SQLite DB:   ${dbStats.total_beers?.toLocaleString() || "?"} 款 (RateBeer Kaggle)
+  来源国家:    ${dbStats.source || "?"}
+`);
+  } catch { /* ignore */ }
+}
+
+// ── DB-backed search ──────────────────────────────────────────────────────
+
+function searchDB(query, limit = 20) {
+  try {
+    const raw = execFileSync("python3", [LOOKUP_PY, query], {
+      timeout: 10_000,
+      encoding: "utf8",
+      maxBuffer: 1024 * 1024,
+    });
+    const data = JSON.parse(raw);
+    const allResults = data.results || [];
+    return allResults.slice(0, limit).map((r) => ({
+      name: r.name,
+      chinese_name: r.chinese_name || null,
+      brewery: r.brewery,
+      chinese_brewery: r.chinese_brewery || null,
+      style: r.style || "Unknown",
+      abv: r.abv || 0,
+      rating: r.rating || 0,
+      ratings_count: r.ratings_count || 0,
+      country: r.country || "",
+      source: r.source || "db",
+    }));
+  } catch (err) {
+    if (process.env.DEBUG) console.error("[cli] DB search failed:", err.message);
+    return [];
+  }
 }
 
 // ── CLI parser ──────────────────────────────────────────────────────────
@@ -329,6 +370,9 @@ function parseArgs(argv) {
         break;
       case "--stats":
         opts.stats = true;
+        break;
+      case "--source":
+        opts.source = args[++i] || "auto";  // json | db | auto
         break;
       default:
         if (!a.startsWith("-")) {
@@ -378,8 +422,28 @@ function main() {
   if (opts.brewery) filters.push(`酒厂: ${opts.brewery}`);
   const queryDesc = filters.join(", ") || "全部";
 
-  // Search
-  const results = searchBeers(beers, opts);
+  // Search — source: json (default), db, or auto (json first, fallback to db)
+  const source = opts.source || "auto";
+  let results = [];
+
+  if (source === "db") {
+    // DB-only: search SQLite via Python
+    const query = [opts.name, opts.style, opts.brewery].filter(Boolean).join(" ");
+    results = searchDB(query, opts.limit);
+  } else {
+    // JSON search
+    results = searchBeers(beers, opts);
+
+    // Auto-fallback: if no results in JSON, try DB
+    if (results.length === 0 && source === "auto" && (opts.name || opts.style || opts.brewery)) {
+      const query = [opts.name, opts.style, opts.brewery].filter(Boolean).join(" ");
+      const dbResults = searchDB(query, opts.limit);
+      if (dbResults.length > 0) {
+        if (!opts.json) console.log("(在 SQLite 数据库中找到以下结果)");
+        results = dbResults;
+      }
+    }
+  }
 
   // Output
   if (opts.json) {

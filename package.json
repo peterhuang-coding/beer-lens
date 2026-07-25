@@ -19,7 +19,11 @@
     "benchmark:images": "node scripts/run-image-benchmark.mjs",
     "crawl": "node scripts/crawl-all.mjs",
     "crawl:cn": "node scripts/crawl-all.mjs --cn-only",
-    "crawl:untappd": "node scripts/crawl-all.mjs --source untappd --country CN"
+    "crawl:untappd": "node scripts/crawl-all.mjs --source untappd --country CN",
+    "cli": "node scripts/cli.mjs"
+  },
+  "bin": {
+    "beer-lens": "scripts/cli.mjs"
   },
   "dependencies": {
     "next": "^16.0.0",

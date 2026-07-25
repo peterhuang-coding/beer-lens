@@ -27,18 +27,50 @@ def _connect():
     return con
 
 
+def _ensure_beer_cache(con):
+    """Ensure beer_cache table exists."""
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS beer_cache (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            brewery TEXT NOT NULL,
+            style TEXT,
+            abv REAL,
+            rating REAL,
+            ratings_count INTEGER,
+            ibu REAL,
+            source_url TEXT,
+            source_platform TEXT,
+            verified INTEGER DEFAULT 0,
+            verified_at TEXT,
+            created_at TEXT DEFAULT (datetime('now')),
+            UNIQUE(name, brewery)
+        )
+    """)
+
+
 def search_beer(query: str, limit: int = 5) -> list[dict]:
-    """Search both Untappd cache (priority) and RateBeer database.
-    Handles combined queries like 'BeerName Brewery'. """
+    """Search beer_cache (verified, priority), untappd_cache, then RateBeer."""
     con = _connect()
     if not con:
         return []
+
+    _ensure_beer_cache(con)
 
     q = re.sub(r'\s+', ' ', query.strip().lower())
     results = []
 
     # Try progressively shorter queries: "beer name brewery" → "beer name" → "beer"
     for attempt_q in _expand_queries(q):
+        # Priority 0: Verified beer_cache (hand-curated, cross-referenced)
+        results = _search_table(con, 'beer_cache', attempt_q, limit)
+        if results:
+            for r in results:
+                r['source'] = 'beer_cache'
+                r['verified'] = True
+            con.close()
+            return results
+
         # Priority 1: Untappd cache
         results = _search_table(con, 'untappd_cache', attempt_q, limit)
         if results:
@@ -157,6 +189,8 @@ def get_stats() -> dict:
     if not con:
         return {'error': 'Database not found'}
 
+    _ensure_beer_cache(con)
+
     total = con.execute("SELECT COUNT(*) FROM beers").fetchone()[0]
     breweries = con.execute("SELECT COUNT(DISTINCT brewery) FROM beers").fetchone()[0]
     styles = con.execute("SELECT COUNT(DISTINCT style) FROM beers").fetchone()[0]
@@ -165,14 +199,23 @@ def get_stats() -> dict:
         "SELECT style, COUNT(*) as count, ROUND(AVG(rating),2) as avg_rating FROM beers GROUP BY style HAVING count >= 50 ORDER BY count DESC LIMIT 10"
     ).fetchall()]
 
+    # beer_cache stats
+    cache_total = con.execute("SELECT COUNT(*) FROM beer_cache").fetchone()[0]
+    cache_verified = con.execute("SELECT COUNT(*) FROM beer_cache WHERE verified = 1").fetchone()[0]
+
     con.close()
     return {
         'total_beers': total,
         'total_breweries': breweries,
         'total_styles': styles,
-        'avg_rating': round(avg_rating, 2),
+        'avg_rating': round(avg_rating, 2) if avg_rating else 0,
         'top_styles': top_styles,
-        'source': 'RateBeer Kaggle Dataset (1.58M reviews)'
+        'source': 'RateBeer Kaggle Dataset (1.58M reviews)',
+        'beer_cache': {
+            'total': cache_total,
+            'verified': cache_verified,
+            'description': 'Hand-verified entries from WebSearch cross-reference'
+        }
     }
 
 

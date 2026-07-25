@@ -1,165 +1,143 @@
 ---
 name: beer-lens
 description: >-
-  Chinese craft beer database & recommendation. Query beers by name, style, or brewery.
-  For menu photos and personalized taste recommendations, use the full agent pipeline.
+  Live beer data harness. Uses WebSearch to find real-time beer ratings,
+  ABV, style, brewery info from Untappd/BeerAdvocate/RateBeer and caches
+  verified results locally. No API keys required — data is pulled from
+  public web pages via search.
 metadata:
   type: project
-  tags: [beer, craft-beer, china, recommendation, database, cli]
+  tags: [beer, craft-beer, data-harness, websearch, real-time]
   author: Peter
-  version: "3.0"
+  version: "4.0"
 ---
 
-# Beer Lens — 中国精酿啤酒查询与推荐
+# Beer Lens — Live Beer Data Harness
+
+## 核心设计
+
+本 Skill 是一个**实时数据采集层**，不依赖预建的离线数据库。
+Claude 通过 WebSearch 实时拉取啤酒数据 → 提取结构化字段 → 验证 → 缓存 → 回复。
+
+```
+用户: "飞拳 IPA 多少度？评分多少？"
+        │
+Claude:  WebSearch("Flying Fist IPA 京A ABV Untappd rating")
+        │
+        搜索结果已包含: 6.5% ABV | BeerAdvocate 90 | 风格 American IPA
+        │
+        提取 → 验证 abv∈[0,20] rating∈[0,5] → 缓存 SQLite → 回复
+```
 
 ## Trigger（触发条件）
 
-当用户提到以下任意内容时，优先使用本 Skill：
+当用户提到以下内容时，自动使用本 Skill：
 
-- 啤酒推荐、精酿啤酒、中国精酿
-- "推荐一款 IPA"、"有什么好喝的啤酒"、"京A 有什么"
-- 查啤酒评分、啤酒风格、酒厂信息
-- 酒单照片识别与推荐（需完整 Agent）
-- "beer lens"、"啤酒镜头"
+- 啤酒查询："XX啤酒多少度""XX IPA评分""京A有什么酒"
+- 啤酒推荐："推荐一款IPA""最好喝的精酿""有什么好的世涛"
+- 风格/酒厂信息："什么是浑浊IPA""18号酒馆有哪些代表作品"
+- 对比："飞拳和跳东湖哪个评分高"
 
-## Architecture（两层架构）
+## 数据采集工作流
+
+### Step 1: Search（搜索）
+
+根据用户意图构造搜索词：
 
 ```
-用户请求
-   │
-   ├── 简单查询（查酒/查风格/查酒厂）
-   │     → CLI: npx beer-lens → 毫秒级，无服务器依赖
-   │
-   └── 复杂任务（酒单OCR/个性化推荐/口味反馈）
-         → POST /api/agent → 需 Next.js 服务器运行中
+查具体啤酒:  WebSearch("\"{啤酒名}\" \"{酒厂}\" ABV Untappd rating")
+查风格排行:  WebSearch("best {风格} beers Untappd top rated 2024 2025")
+查酒厂作品:  WebSearch("\"{酒厂}\" beers list Untappd ratings")
+查中国精酿:  WebSearch("中国精酿 {风格/酒厂} Untappd 评分")
 ```
 
-## Tier 1: CLI 快速查询（首选，无需服务器）
+### Step 2: Extract（提取）
 
-所有 CLI 命令从 `data/chinese-craft-beers.json` 读取（64 款中国精酿种子数据）。
+从搜索结果中提取以下字段（按优先级）：
+
+| 字段 | 提取来源 | 验证规则 |
+|------|----------|----------|
+| name | 搜索结果标题/snippet | 非空字符串 |
+| brewery | snippet 中的 brewery/酒厂 信息 | 非空字符串 |
+| style | 搜索结果中的风格描述 | 常见风格名 |
+| abv | "%" 前的数字 | 0 < ABV ≤ 20 |
+| rating | "评分"/"rating" 后的数字 | 0 ≤ rating ≤ 5 |
+| ratings_count | "评分"/"ratings" 后的数字 | > 0 |
+| ibu | "IBU" 后的数字 | 0 ≤ IBU ≤ 120 |
+| source | 数据来源 URL | 必须是真实链接 |
+
+### Step 3: Verify（验证）
+
+**每条数据必须通过以下验证，否则标记为 unverified：**
+
+1. **ABV 合理性**：必须在 0-20% 之间，否则标记
+2. **评分范围**：Untappd 0-5，BeerAdvocate 0-100，RateBeer 0-100
+3. **跨源交叉验证**：同一啤酒至少在 2 个搜索结果中确认才标记为 verified
+4. **真实来源**：每条数据必须附带来源 URL，不得编造
+
+### Step 4: Cache（缓存）
+
+验证通过的数据写入本地 SQLite：
+```
+.beer-data/beer.db → table: beer_cache
+  name, brewery, style, abv, rating, ratings_count, ibu,
+  source_url, verified_at, created_at
+```
+
+下次查询时先查缓存，命中且未过期（< 30天）直接返回，跳过 WebSearch。
+
+### Step 5: Present（呈现）
+
+回复格式：
+```
+🍺 {啤酒名} ({中文名})
+🏭 {酒厂} ({中文酒厂名})
+📋 {风格} | ABV: {x}% | IBU: {y}
+⭐ Untappd: {rating}/5 ({ratings_count} 评分)
+🔗 来源: {source_url}
+```
+
+数据不足时如实说明，不编造。
+
+## 数据源优先级
+
+1. **WebSearch** — 主要数据源，实时获取
+2. **本地 SQLite 缓存** — 30 天内有记录的啤酒直接返回，无需搜索
+3. **本地 JSON 种子数据** — `data/chinese-craft-beers.json`（298 条，作为 fallback）
+4. **RateBeer Kaggle** — `.beer-data/beer.db` 14K 条（仅用于全球啤酒的补充查询）
+
+## 本地缓存操作
 
 ```bash
-# 按名称搜索（支持中英文模糊匹配）
-npx beer-lens --name "IPA"
-npx beer-lens --name "飞拳"
+# 查询缓存
+cd /Volumes/SanDisk2TB/beer-lens && python3 .beer-data/lookup.py "Pliny the Elder"
 
-# 按风格搜索
-npx beer-lens --style "IPA"
-npx beer-lens --style "Stout" --json
+# 查看缓存统计
+cd /Volumes/SanDisk2TB/beer-lens && python3 .beer-data/lookup.py --stats
 
-# 按酒厂搜索
-npx beer-lens --brewery "京A"
-npx beer-lens --brewery "Master Gao"
-
-# 组合查询
-npx beer-lens --style "IPA" --brewery "18号酒馆" --json
-
-# 浏览全部数据
-npx beer-lens --list-styles       # 列出所有风格
-npx beer-lens --list-breweries    # 列出所有酒厂
-npx beer-lens --stats             # 数据概览
+# 手动写入验证过的数据（用 SQLite）
+cd /Volumes/SanDisk2TB/beer-lens && python3 -c "
+import sqlite3
+con = sqlite3.connect('.beer-data/beer.db')
+con.execute('''CREATE TABLE IF NOT EXISTS beer_cache (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT, brewery TEXT, style TEXT, abv REAL,
+  rating REAL, ratings_count INTEGER, ibu REAL,
+  source_url TEXT, verified_at TEXT, created_at TEXT DEFAULT CURRENT_TIMESTAMP
+)''')
+con.commit()
+con.close()
+"
 ```
 
-**CLI 输出可直接管道给其他工具**: `npx beer-lens --style IPA --json | jq '.[].name'`
+## 已知限制与诚实声明
 
-## Tier 2: 完整 Agent（需服务器运行）
-
-当用户需求超出简单查询时（如酒单照片分析、个性化口味推荐、品饮记录），启动服务器后调用：
-
-```bash
-cd /Volumes/SanDisk2TB/beer-lens
-npm run dev                    # → http://localhost:3000
-```
-
-### API 端点
-
-| 端点 | 用途 |
-|------|------|
-| `POST /api/agent` | 对话主入口（OCR + 推荐 + 反馈） |
-| `POST /api/feishu/events` | 飞书 Bot 回调 |
-| `GET /api/cases` | 对话质量追踪 |
-| `GET /api/traces/:id` | 单轮链路追踪 |
-| `GET /api/debug-config` | Pipeline 配置 |
-
-### 8 个意图 Handler
-
-| 意图 | Handler | 说明 |
-|------|---------|------|
-| `menu_recommend` | menu-recommend.ts | 拍照酒单 → OCR → 查评分 → 推荐 |
-| `follow_up_filter` | follow-up-filter.ts | 在已有菜单里过滤（"有 IPA 吗"） |
-| `tasting_feedback` | tasting-feedback.ts | 品饮反馈 → 写记录 → 更新口味画像 |
-| `profile_query` | profile-query.ts | 查询个人口味画像 |
-| `beer_knowledge` | beer-knowledge.ts | 啤酒知识问答（纯 LLM） |
-| `label_check` | label-check.ts | 酒标识别 |
-| `memory_correction` | memory-correction.ts | 记忆纠正 |
-| `unclear` | unclear.ts | 意图不明时追问 |
-
-### 意图识别
-
-意图分类器 (`intent-classifier.ts` + `intent-registry.ts`) 采用三层策略：
-1. **规则优先** — 正则匹配（中文关键词、反馈格式）→ 0ms
-2. **样本匹配** — few-shot keyword scoring → 0ms
-3. **LLM fallback** — OpenRouter 小模型分类 → ~500ms
-
-## 数据层
-
-```
-data/chinese-craft-beers.json  ← 64 款中国精酿种子数据（CLI 读这个）
-.beer-data/beer.db             ← SQLite 14,228 款（RateBeer Kaggle + Untappd 缓存）
-.beer-data/lookup.py           ← Python 查询脚本（Node 通过 child_process 调用）
-```
-
-查询优先级: Untappd 缓存 → RateBeer SQLite → Web 搜索 → "数据暂缺"
-
-## 环境变量
-
-```bash
-# .env.local（仅 Tier 2 需要）
-OPENROUTER_API_KEY=sk-or-v1-...
-OPENROUTER_VISION_MODEL=google/gemini-2.5-flash
-OPENROUTER_ANALYSIS_MODEL=openai/gpt-4o-mini
-OPENROUTER_PROXY=http://127.0.0.1:7890    # 可选代理
-```
-
-## 工作流程（Claude 使用本 Skill 时）
-
-1. **判断复杂度**：
-   - 简单查询（"有什么 IPA"、"京A 评分最高的是什么"）→ CLI
-   - 复杂需求（酒单照片、个性化推荐、口味分析）→ 建议启动服务器
-
-2. **执行查询**：
-   ```bash
-   cd /Volumes/SanDisk2TB/beer-lens && npx beer-lens <参数>
-   ```
-
-3. **解读结果**：将 CLI 输出转化为用户友好的中文回复，包括：
-   - 啤酒名称（中英文）、酒厂、风格
-   - ABV、评分、评分数
-   - 风格说明和适饮场景
-
-4. **数据不足时**：当前 64 款种子数据覆盖有限，如实告知用户数据范围。未来可通过 `npm run crawl` 扩充。
-
-## 数据扩充
-
-```bash
-npm run crawl              # 全量爬取（Untappd + 种子导入）
-npm run crawl:cn           # 仅中国精酿种子
-npm run crawl:untappd      # 仅 Untappd（注意：目前被 Cloudflare 403 封堵）
-```
-
-Untappd 直接爬取目前不可用（Cloudflare 反爬）。替代方案：
-- 通过 WebSearch 搜集中国精酿数据
-- 使用 `untappd-node` SDK（需要 API client_id/secret）
-- 手动扩充 `data/chinese-craft-beers.json`
-
-## 已知限制
-
-1. **数据量**：仅 64 款中国精酿种子数据，覆盖率有限
-2. **Untappd 爬虫**：被 Cloudflare 403 封堵，需要 API 凭证或替代方案
-3. **OCR 依赖**：酒单识别需要 PaddleOCR（Python）或 OpenRouter Vision 模型
-4. **无增量更新**：没有定时爬取任务，数据不会自动更新
+- 无法直接爬取 Untappd.com（Cloudflare 403），但 WebSearch 可从其他页面获取 Untappd 评分
+- 小众/新出的啤酒搜索结果可能不完整
+- 评分是快照数据（搜索时的值），不是实时更新的
+- BeerAdvocate 页面可直接 WebFetch（已验证可访问）
 
 ## 相关项目
 
-- `amsterdam-brewery-unity` — Unity 酿酒经营游戏（Beer Competition 系统）
+- `amsterdam-brewery-unity` — Unity 酿酒经营游戏
 - `tastegraph-ai` — 小红书自动发布管道

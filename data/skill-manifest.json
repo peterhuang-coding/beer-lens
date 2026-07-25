@@ -1,0 +1,56 @@
+{
+  "skill": "beer-lens",
+  "version": "3.0",
+  "description": "中国精酿啤酒查询与推荐",
+  "domains": ["beer", "craft-beer", "brewery", "tasting", "recommendation"],
+  "interfaces": {
+    "cli": {
+      "command": "npx beer-lens",
+      "workingDir": "/Volumes/SanDisk2TB/beer-lens",
+      "format": "json",
+      "description": "无需服务器，直接查询啤酒数据库"
+    },
+    "api": {
+      "baseUrl": "http://localhost:3000",
+      "requiresServer": true,
+      "endpoints": {
+        "agent": "POST /api/agent",
+        "intents": "GET /api/intents",
+        "classify": "POST /api/intent-test"
+      }
+    }
+  },
+  "triggers": [
+    "啤酒",
+    "精酿",
+    "IPA",
+    "Stout",
+    "Lager",
+    "craft beer",
+    "beer recommendation",
+    "酒单",
+    "品饮",
+    "评分",
+    "brewery",
+    "酒厂",
+    "ABV"
+  ],
+  "intents": {
+    "recognizes": [
+      "menu_recommend",
+      "follow_up_filter",
+      "tasting_feedback",
+      "profile_query",
+      "beer_knowledge",
+      "label_check",
+      "memory_correction",
+      "unclear"
+    ],
+    "classifier": "intent-registry.ts → rule → sample → LLM fallback"
+  },
+  "data": {
+    "chinese_beers": 64,
+    "global_beers_sqlite": 14228,
+    "sources": ["chinese-craft-beers.json", "RateBeer Kaggle", "Untappd cache"]
+  }
+}

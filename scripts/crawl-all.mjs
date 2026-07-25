@@ -52,7 +52,7 @@ async function importCNBeers() {
 // ── Step 2: Run Untappd crawler ──
 async function runUntappdCrawl() {
   // Dynamic import of the crawler
-  const { crawlUntappd } = await import("../lib/beer-agent/beer-db/crawlers/untappd.js");
+  const { crawlUntappd } = await import("../lib/beer-agent/beer-db/crawlers/untappd.ts");
 
   const options = { limit: 100 };
   if (countryArg) {

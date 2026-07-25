@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-07-21T14:53:55.302Z",
-  "source": "all",
-  "country": null,
-  "cnOnly": true,
+  "timestamp": "2026-07-25T15:17:04.704Z",
+  "source": "untappd",
+  "country": "CN",
+  "cnOnly": false,
   "results": {
     "cnBeers": {
       "ok": true,
@@ -13,6 +13,27 @@
         "total_cn_beers": 64
       },
       "elapsed": "0.0"
+    },
+    "untappd": {
+      "ok": true,
+      "result": {
+        "beersFound": 0,
+        "pagesCrawled": 0,
+        "errors": [
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=ipa&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=hazy-ipa&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=stout&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=sour&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=lager&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=pilsner&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=pale-ale&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=wheat&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=porter&country=CN",
+          "Anti-bot block (403) at https://untappd.com/beer/top_rated?type=belgian&country=CN"
+        ]
+      },
+      "elapsed": "60.9"
     },
     "stats": {
       "ok": true,
@@ -75,7 +96,7 @@
         ],
         "source": "RateBeer Kaggle Dataset (1.58M reviews)"
       },
-      "elapsed": "0.0"
+      "elapsed": "0.1"
     }
   }
 }

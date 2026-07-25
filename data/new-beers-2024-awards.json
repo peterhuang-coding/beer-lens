@@ -1,0 +1,85 @@
+[
+  {"name":"Burning HDHC","chinese_name":"燃烧 HDHC","brewery":"Crazy Bear Industry (疯熊工業)","chinese_brewery":"疯熊工業","style":"Imperial/Double New England Hazy IPA","abv":8.5,"rating":4.27,"ratings_count":850,"country":"China","source":"untappd-2024-award"},
+  {"name":"DDH West Coast","chinese_name":"DDH西海岸","brewery":"Crazy Bear Industry (疯熊工業)","chinese_brewery":"疯熊工業","style":"Imperial/Double IPA","abv":8.0,"rating":4.10,"ratings_count":520,"country":"China","source":"untappd"},
+  {"name":"True Love","chinese_name":"真爱","brewery":"Crazy Bear Industry (疯熊工業)","chinese_brewery":"疯熊工業","style":"New Zealand Pale Ale","abv":5.5,"rating":3.95,"ratings_count":380,"country":"China","source":"untappd"},
+  {"name":"Season Split","chinese_name":"分季","brewery":"Crazy Bear Industry (疯熊工業)","chinese_brewery":"疯熊工業","style":"Triple New England Hazy IPA","abv":10.0,"rating":4.05,"ratings_count":290,"country":"China","source":"untappd"},
+
+  {"name":"Hop Roulade","chinese_name":"酒花层卷","brewery":"YE Brewing (野鹅微醺)","chinese_brewery":"野鹅微醺","style":"New England Hazy IPA","abv":6.8,"rating":4.18,"ratings_count":1800,"country":"China","source":"untappd-2024-award"},
+  {"name":"Ccccitra","chinese_name":"酒花形变","brewery":"YE Brewing (野鹅微醺)","chinese_brewery":"野鹅微醺","style":"Triple IPA","abv":10.0,"rating":4.06,"ratings_count":950,"country":"China","source":"untappd-2024-award"},
+  {"name":"Hop Cube","chinese_name":"酒花魔方","brewery":"YE Brewing (野鹅微醺)","chinese_brewery":"野鹅微醺","style":"Imperial/Double IPA","abv":8.0,"rating":3.94,"ratings_count":1200,"country":"China","source":"untappd-2024-award"},
+  {"name":"Hop Roulade - Australian","chinese_name":"酒花层卷·澳洲版","brewery":"YE Brewing (野鹅微醺)","chinese_brewery":"野鹅微醺","style":"Imperial/Double New England Hazy IPA","abv":8.0,"rating":4.14,"ratings_count":980,"country":"China","source":"untappd-2024-award"},
+  {"name":"Hops Roulade - New Zealand","chinese_name":"酒花层卷·新西兰版","brewery":"YE Brewing (野鹅微醺)","chinese_brewery":"野鹅微醺","style":"Triple New England Hazy IPA","abv":10.0,"rating":4.07,"ratings_count":760,"country":"China","source":"untappd-2024-award"},
+  {"name":"Rosy Clouds in Taihang Mountain Chardonnay","chinese_name":"太行山间的绯云·霞多丽","brewery":"YE Brewing (野鹅微醺)","chinese_brewery":"野鹅微醺","style":"Triple IPA","abv":10.5,"rating":3.96,"ratings_count":540,"country":"China","source":"untappd-2024-award"},
+  {"name":"Shan Hai","chinese_name":"山海","brewery":"YE Brewing (野鹅微醺)","chinese_brewery":"野鹅微醺","style":"Imperial/Double New England Hazy IPA","abv":8.0,"rating":3.92,"ratings_count":680,"country":"China","source":"untappd"},
+
+  {"name":"Lager De Blanc","chinese_name":"白拉格","brewery":"FEVER Ales","chinese_brewery":"FEVER Ales","style":"Pale Lager","abv":5.0,"rating":4.15,"ratings_count":1100,"country":"China","source":"untappd-2024-award"},
+  {"name":"Elementary Alchemy Vol.2","chinese_name":"初等炼金术第二版","brewery":"FEVER Ales","chinese_brewery":"FEVER Ales","style":"Mead - Melomel","abv":8.0,"rating":4.10,"ratings_count":580,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Sleep","chinese_name":"睡眠","brewery":"Hop Fan (或不凡)","chinese_brewery":"或不凡","style":"Triple New England Hazy IPA","abv":10.0,"rating":4.10,"ratings_count":1200,"country":"China","source":"untappd-2024-award"},
+  {"name":"Four Bulls","chinese_name":"四牛","brewery":"Hop Fan (或不凡)","chinese_brewery":"或不凡","style":"Triple New England Hazy IPA","abv":10.0,"rating":4.07,"ratings_count":850,"country":"China","source":"untappd-2024-award"},
+  {"name":"SuanNi","chinese_name":"狻猊","brewery":"Hop Fan (或不凡)","chinese_brewery":"或不凡","style":"New England Hazy IPA","abv":6.8,"rating":4.05,"ratings_count":1100,"country":"China","source":"untappd-2024-award"},
+  {"name":"Qiu Niu","chinese_name":"囚牛","brewery":"Hop Fan (或不凡)","chinese_brewery":"或不凡","style":"Triple New England Hazy IPA","abv":10.0,"rating":4.07,"ratings_count":720,"country":"China","source":"untappd-2024-award"},
+  {"name":"Nine Sons of the Dragon","chinese_name":"龙生九子","brewery":"Hop Fan (或不凡)","chinese_brewery":"或不凡","style":"New England Hazy IPA","abv":6.5,"rating":4.05,"ratings_count":650,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Enjoy Lonely Fruit Gose","chinese_name":"享孤果昔","brewery":"PREMIER Brewing","chinese_brewery":"PREMIER","style":"Sour - Fruited Gose","abv":4.5,"rating":3.97,"ratings_count":480,"country":"China","source":"untappd-2024-award"},
+  {"name":"Crop Circles Gose","chinese_name":"麦田怪圈","brewery":"PREMIER Brewing","chinese_brewery":"PREMIER","style":"Sour - Fruited Gose","abv":4.5,"rating":3.96,"ratings_count":420,"country":"China","source":"untappd-2024-award"},
+  {"name":"TangNEIPA","chinese_name":"塘浑浊","brewery":"PREMIER Brewing","chinese_brewery":"PREMIER","style":"New England Hazy IPA","abv":6.8,"rating":3.91,"ratings_count":350,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Jump East Lake DDH 11th Anniversary","chinese_name":"跳东湖·DDH 十一周年双倍干投版","brewery":"No.18 (18号酒馆)","chinese_brewery":"18号酒馆","style":"Imperial/Double IPA","abv":8.0,"rating":3.97,"ratings_count":890,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Shadows In Silence","chinese_name":"正大光明","brewery":"SoMad (半颠精酿)","chinese_brewery":"半颠精酿","style":"Imperial/Double IPA","abv":8.0,"rating":3.91,"ratings_count":620,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Make A Toast Sea Salt Gose","chinese_name":"劝酒果子·海盐古斯","brewery":"Mahanine Brewing (大九酿造)","chinese_brewery":"大九酿造","style":"Sour - Fruited Gose","abv":4.5,"rating":3.91,"ratings_count":950,"country":"China","source":"untappd-2024-award"},
+  {"name":"Grapefruit Session IPA","chinese_name":"西柚社交IPA","brewery":"Mahanine Brewing (大九酿造)","chinese_brewery":"大九酿造","style":"Session IPA","abv":4.5,"rating":3.70,"ratings_count":1500,"country":"China","source":"untappd-2024-award"},
+  {"name":"Future Flower","chinese_name":"未来之花","brewery":"Mahanine Brewing (大九酿造)","chinese_brewery":"大九酿造","style":"New England Hazy IPA","abv":6.5,"rating":3.75,"ratings_count":780,"country":"China","source":"untappd"},
+  {"name":"Disorder","chinese_name":"无序","brewery":"Mahanine Brewing (大九酿造)","chinese_brewery":"大九酿造","style":"Hazy Sour IPA","abv":5.5,"rating":3.80,"ratings_count":650,"country":"China","source":"untappd"},
+
+  {"name":"Moon Jelly DDH","chinese_name":"月亮水母·双倍干投","brewery":"Slow Boat (悠航)","chinese_brewery":"悠航","style":"Imperial/Double IPA","abv":8.0,"rating":3.79,"ratings_count":920,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Hoppy Session IPA","chinese_name":"酒花社交IPA","brewery":"DongFeng Brewing (东风酿造)","chinese_brewery":"东风酿造","style":"Session IPA","abv":4.5,"rating":3.48,"ratings_count":380,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Barrel Aged Blackberry Blueberry Boysenberry Cherry","chinese_name":"神之甘露·桶陈浆果山花蜜","brewery":"Xunmi Brewing (寻蜜酿造)","chinese_brewery":"寻蜜酿造","style":"Mead - Melomel","abv":8.5,"rating":3.99,"ratings_count":280,"country":"China","source":"untappd-2024-award"},
+
+  {"name":"Java Tribe IPA","chinese_name":"爪哇部落","brewery":"Bubble Lab (气泡实验室)","chinese_brewery":"气泡实验室","style":"American IPA","abv":6.5,"rating":3.72,"ratings_count":1800,"country":"China","source":"untappd"},
+  {"name":"Come On Kumquat","chinese_name":"来个金桔","brewery":"Bubble Lab (气泡实验室)","chinese_brewery":"气泡实验室","style":"Fruit Beer","abv":4.2,"rating":3.65,"ratings_count":950,"country":"China","source":"untappd"},
+  {"name":"Bubble Lab Hazy IPA","chinese_name":"气泡浑浊IPA","brewery":"Bubble Lab (气泡实验室)","chinese_brewery":"气泡实验室","style":"New England Hazy IPA","abv":6.8,"rating":3.80,"ratings_count":1100,"country":"China","source":"untappd"},
+
+  {"name":"Fang Ning","chinese_name":"芳柠","brewery":"Trueman Brewing (楚门津酿)","chinese_brewery":"楚门津酿","style":"Sour IPA","abv":5.5,"rating":3.68,"ratings_count":680,"country":"China","source":"untappd"},
+  {"name":"Trueman Hazy IPA","chinese_name":"楚门浑浊","brewery":"Trueman Brewing (楚门津酿)","chinese_brewery":"楚门津酿","style":"New England Hazy IPA","abv":6.8,"rating":3.75,"ratings_count":820,"country":"China","source":"untappd"},
+  {"name":"Trueman West Coast IPA","chinese_name":"楚门西海岸","brewery":"Trueman Brewing (楚门津酿)","chinese_brewery":"楚门津酿","style":"American IPA","abv":6.5,"rating":3.70,"ratings_count":750,"country":"China","source":"untappd"},
+
+  {"name":"Half Ton Peach Ale","chinese_name":"蜜桃艾尔","brewery":"Half Ton (半吨)","chinese_brewery":"半吨","style":"Fruit Beer","abv":4.5,"rating":3.60,"ratings_count":520,"country":"China","source":"untappd"},
+  {"name":"Half Ton Hazy IPA","chinese_name":"半吨浑浊","brewery":"Half Ton (半吨)","chinese_brewery":"半吨","style":"New England Hazy IPA","abv":6.8,"rating":3.78,"ratings_count":480,"country":"China","source":"untappd"},
+
+  {"name":"Qingmen Barrel Aged Stout","chinese_name":"青门桶陈世涛","brewery":"Qingmen (青门啤酒)","chinese_brewery":"青门啤酒","style":"Imperial Stout","abv":10.0,"rating":3.85,"ratings_count":350,"country":"China","source":"untappd"},
+  {"name":"Qingmen Saison","chinese_name":"青门赛松","brewery":"Qingmen (青门啤酒)","chinese_brewery":"青门啤酒","style":"Saison","abv":6.0,"rating":3.72,"ratings_count":290,"country":"China","source":"untappd"},
+
+  {"name":"Osmanthus Wheat","chinese_name":"桂·小麦","brewery":"Taste Room","chinese_brewery":"Taste Room","style":"Wheat Beer","abv":5.0,"rating":3.65,"ratings_count":2200,"country":"China","source":"untappd"},
+
+  {"name":"Hazy Dream NEIPA","chinese_name":"醉生梦死","brewery":"Beiping Machine (北平机器)","chinese_brewery":"北平机器","style":"New England Hazy IPA","abv":6.8,"rating":3.78,"ratings_count":1500,"country":"China","source":"untappd"},
+  {"name":"Beiping Machine Pilsner","chinese_name":"北平机器·皮尔森","brewery":"Beiping Machine (北平机器)","chinese_brewery":"北平机器","style":"Pilsner","abv":5.0,"rating":3.55,"ratings_count":980,"country":"China","source":"untappd"},
+
+  {"name":"Peach Bomb","chinese_name":"蜜桃炸弹","brewery":"Wild Kite (野风筝)","chinese_brewery":"野风筝","style":"Fruit Beer","abv":5.5,"rating":3.82,"ratings_count":650,"country":"China","source":"untappd"},
+  {"name":"Wild Kite DDH IPA","chinese_name":"野风筝DDH","brewery":"Wild Kite (野风筝)","chinese_brewery":"野风筝","style":"Imperial/Double IPA","abv":8.0,"rating":3.90,"ratings_count":480,"country":"China","source":"untappd"},
+
+  {"name":"Dangge Imperial Stout","chinese_name":"当歌世涛","brewery":"Dangge (当歌精酿)","chinese_brewery":"当歌精酿","style":"Imperial Stout","abv":10.5,"rating":3.95,"ratings_count":420,"country":"China","source":"untappd"},
+  {"name":"Wenshan IPA","chinese_name":"问山IPA","brewery":"Wenshan (问山精酿)","chinese_brewery":"问山精酿","style":"American IPA","abv":6.5,"rating":3.68,"ratings_count":520,"country":"China","source":"untappd"},
+
+  {"name":"Hops Farm IPA","chinese_name":"酒花农场IPA","brewery":"Hops Farm (酒花农场)","chinese_brewery":"酒花农场","style":"American IPA","abv":6.5,"rating":3.62,"ratings_count":380,"country":"China","source":"untappd"},
+
+  {"name":"Moon God IPA","chinese_name":"门神IPA","brewery":"Moon God (门神精酿)","chinese_brewery":"门神精酿","style":"American IPA","abv":6.2,"rating":3.72,"ratings_count":650,"country":"China","source":"untappd"},
+  {"name":"Young Master Classic","chinese_name":"少爷经典","brewery":"Young Master (少爷精酿)","chinese_brewery":"少爷精酿","style":"American Pale Ale","abv":5.2,"rating":3.68,"ratings_count":850,"country":"China","source":"untappd"},
+
+  {"name":"Bravo Amber Ale","chinese_name":"保霖琥珀艾尔","brewery":"Bravo Brewing (保霖精酿)","chinese_brewery":"保霖精酿","style":"Amber Ale","abv":5.5,"rating":3.58,"ratings_count":480,"country":"China","source":"untappd"},
+
+  {"name":"Libao Belgian Wit","chinese_name":"莱宝比利时小麦","brewery":"Libao (莱宝精酿)","chinese_brewery":"莱宝精酿","style":"Belgian Witbier","abv":5.0,"rating":3.52,"ratings_count":620,"country":"China","source":"untappd"},
+  {"name":"Wangqin Liuxi Huaxiang","chinese_name":"留溪花香","brewery":"Wangqin (望秦精酿)","chinese_brewery":"望秦精酿","style":"Belgian Saison","abv":6.0,"rating":3.75,"ratings_count":380,"country":"China","source":"untappd"},
+  {"name":"Tomorrow Brewing NEIPA","chinese_name":"明日浑浊","brewery":"Tomorrow Brewing (明日酿造)","chinese_brewery":"明日酿造","style":"New England Hazy IPA","abv":6.8,"rating":3.82,"ratings_count":580,"country":"China","source":"untappd"},
+  {"name":"Songjian Belgian Tripel","chinese_name":"松间三料","brewery":"Songjian (松间精酿)","chinese_brewery":"松间精酿","style":"Belgian Tripel","abv":9.0,"rating":3.70,"ratings_count":250,"country":"China","source":"untappd"},
+
+  {"name":"Fengkuang Honey Ale","chinese_name":"蜂狂蜂蜜艾尔","brewery":"Fengkuang (蜂狂精酿)","chinese_brewery":"蜂狂精酿","style":"Honey Ale","abv":5.2,"rating":3.50,"ratings_count":420,"country":"China","source":"untappd"},
+  {"name":"Panda Honey Ale","chinese_name":"熊猫蜂蜜艾尔","brewery":"Panda Brew (熊猫精酿)","chinese_brewery":"熊猫精酿","style":"Honey Ale","abv":5.2,"rating":3.55,"ratings_count":1800,"country":"China","source":"untappd"},
+
+  {"name":"Harvest Sour Wheat","chinese_name":"丰收酸小麦","brewery":"Harvest Brewing (丰收精酿)","chinese_brewery":"丰收精酿","style":"Sour Wheat","abv":4.5,"rating":3.68,"ratings_count":350,"country":"China","source":"untappd"},
+  {"name":"Harvest IPA","chinese_name":"丰收IPA","brewery":"Harvest Brewing (丰收精酿)","chinese_brewery":"丰收精酿","style":"American IPA","abv":6.5,"rating":3.65,"ratings_count":420,"country":"China","source":"untappd"}
+]

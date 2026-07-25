@@ -276,13 +276,19 @@ function showStats(beers) {
   const total = beers.length;
   const styles = new Set(beers.map((b) => b.style));
   const brewKeys = new Set(beers.map((b) => b.brewery));
-  const avgRating = (beers.reduce((s, b) => s + (b.rating || 0), 0) / total).toFixed(2);
-  const avgABV = (beers.reduce((s, b) => s + (b.abv || 0), 0) / total).toFixed(1);
+  const ratedBeers = beers.filter(b => (b.rating || 0) > 0);
+  const avgRating = ratedBeers.length > 0
+    ? (ratedBeers.reduce((s, b) => s + (b.rating || 0), 0) / ratedBeers.length).toFixed(2)
+    : "N/A";
+  const withABV = beers.filter(b => (b.abv || 0) > 0);
+  const avgABV = withABV.length > 0
+    ? (withABV.reduce((s, b) => s + (b.abv || 0), 0) / withABV.length).toFixed(1)
+    : "N/A";
 
   console.log(`
 📊 Beer Lens — 数据概览
 ${"─".repeat(40)}
-  啤酒总数:    ${total}
+  啤酒总数:    ${total}  (${ratedBeers.length} 有评分, ${withABV.length} 有ABV)
   酒厂数量:    ${brewKeys.size}
   风格种类:    ${styles.size}
   平均评分:    ${avgRating}

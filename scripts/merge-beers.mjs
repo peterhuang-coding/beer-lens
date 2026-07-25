@@ -9,11 +9,23 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const EXISTING = join(ROOT, "data", "chinese-craft-beers.json");
-const NEW_DATA = join(ROOT, "data", "new-beers-2024-awards.json");
+const NEW_FILES = [
+  join(ROOT, "data", "new-beers-2024-awards.json"),
+  join(ROOT, "data", "chinese-craft-beers-expanded.json"),
+];
 const OUTPUT = join(ROOT, "data", "chinese-craft-beers.json"); // overwrite
 
 const existing = JSON.parse(readFileSync(EXISTING, "utf8"));
-const incoming = JSON.parse(readFileSync(NEW_DATA, "utf8"));
+const incoming = [];
+for (const f of NEW_FILES) {
+  try {
+    const data = JSON.parse(readFileSync(f, "utf8"));
+    console.log(`  Reading ${f.split('/').pop()}: ${data.length} entries`);
+    incoming.push(...data);
+  } catch (err) {
+    console.log(`  Skip ${f.split('/').pop()}: ${err.message}`);
+  }
+}
 
 const seen = new Set();
 const merged = [];

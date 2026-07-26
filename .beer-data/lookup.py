@@ -7,6 +7,27 @@ Usage:
   python3 lookup.py "Pseudo Sue"
   python3 lookup.py --batch "Pseudo Sue|King Sue|Green City"
   python3 lookup.py --stats
+  python3 lookup.py --init
+  python3 lookup.py --upsert-untappd <json-file-or-stdin>
+  python3 lookup.py --report-untappd-nulls
+
+Subcommands:
+  --init                  Ensure unique indexes are present, log duplicate groups
+                          and any NULL untappd_cache ids to
+                          data/beer-db-update.json (does NOT auto-delete
+                          duplicate rows — leaves that for the user).
+  --upsert-untappd <JSON> Transactional upsert of Untappd results. Input is
+                          a JSON array of records:
+                            [{ "name", "brewery", "style", "abv",
+                               "rating", "ratings_count", "untappd_url",
+                               "untappd_id", "country", "label_image" }, …]
+                          Writes data/raw-crawl/update-log.json on commit.
+                          Returns { "inserted", "updated", "skipped",
+                          "errors" }.
+  --report-untappd-nulls  Apply one-shot SQL fixup:
+                          UPDATE untappd_cache SET id = lower(hex(randomblob(8)))
+                          WHERE id IS NULL
+                          Returns count fixed.
 """
 
 import sqlite3
@@ -14,9 +35,14 @@ import json
 import sys
 import os
 import re
+import hashlib
+from datetime import datetime, timezone
 from pathlib import Path
 
 DB_PATH = Path(__file__).parent / "beer.db"
+UPDATE_LOG_DIR = Path(__file__).resolve().parent.parent / "data"
+UPDATE_LOG_PATH = UPDATE_LOG_DIR / "beer-db-update.json"
+UPDATE_HISTORY_PATH = UPDATE_LOG_DIR / "raw-crawl" / "update-log.json"
 
 
 def _connect():
@@ -47,6 +73,353 @@ def _ensure_beer_cache(con):
             UNIQUE(name, brewery)
         )
     """)
+
+
+def ensure_untappd_cache_schema(con):
+    """Ensure untappd_cache table has the right schema (country, untappd_url, label_image)."""
+    con.execute("""
+        CREATE TABLE IF NOT EXISTS untappd_cache (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            brewery TEXT,
+            style TEXT,
+            abv REAL,
+            rating REAL,
+            ratings_count INTEGER,
+            country TEXT,
+            untappd_url TEXT,
+            label_image TEXT,
+            source TEXT DEFAULT 'untappd',
+            updated_at TEXT DEFAULT (datetime('now'))
+        )
+    """)
+
+
+def ensure_indexes(con, exclude_ids: list[int] | None = None):
+    """Create the unique composite indexes (#9 hardening).
+
+    Strategy:
+      - Add a `legacy_dup` boolean column on `beers` (default 0).
+      - Mark the 18 grandfathered duplicate groups with legacy_dup=1.
+      - Build the unique index over rows WHERE legacy_dup = 0
+        (SQLite allows bound params in expression predicates but not in
+        WHERE literals — using a column reference keeps it portable).
+
+    New rows are not allowed to collide with each other or with any
+    legacy-dup row. Legacy rows are exempt until the user resolves
+    them via the audit log entry in data/beer-db-update.json.
+    """
+    exclude_ids = exclude_ids or []
+
+    # Add + backfill the legacy_dup column (idempotent).
+    cols = {row[1] for row in con.execute("PRAGMA table_info(beers)").fetchall()}
+    if "legacy_dup" not in cols:
+        try:
+            con.execute("ALTER TABLE beers ADD COLUMN legacy_dup INTEGER DEFAULT 0")
+            con.commit()
+        except Exception:
+            pass  # already exists (e.g., race)
+
+    if exclude_ids:
+        placeholders = ",".join("?" * len(exclude_ids))
+        con.execute(
+            f"UPDATE beers SET legacy_dup = 1 WHERE id IN ({placeholders})",
+            exclude_ids,
+        )
+
+    # Case-insensitive secondary indexes that align with the lookup path.
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS ix_beers_name_lower ON beers(LOWER(name))"
+    )
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS ix_beers_brewery_lower ON beers(LOWER(brewery))"
+    )
+
+    # Drop any old non-partial version, then re-create as partial over
+    # the legacy_dup column predicate.
+    con.execute("DROP INDEX IF EXISTS ux_beers_name_brewery")
+    con.execute("""
+        CREATE UNIQUE INDEX ux_beers_name_brewery
+            ON beers(LOWER(name), LOWER(brewery))
+            WHERE legacy_dup = 0
+    """)
+
+
+
+def report_duplicate_groups(con, limit: int = 100):
+    """Report (but do not delete) duplicate (name, brewery) groups in beers."""
+    rows = con.execute(
+        """
+        SELECT LOWER(name) AS key_name, LOWER(brewery) AS key_brewery,
+               COUNT(*) AS dup_count,
+               GROUP_CONCAT(id) AS ids
+        FROM beers
+        GROUP BY LOWER(name), LOWER(brewery)
+        HAVING COUNT(*) > 1
+        ORDER BY dup_count DESC
+        LIMIT ?
+        """,
+        (limit,),
+    ).fetchall()
+    return [
+        {
+            "name": r["key_name"],
+            "brewery": r["key_brewery"],
+            "count": r["dup_count"],
+            "ids": r["ids"].split(",") if r["ids"] else [],
+        }
+        for r in rows
+    ]
+
+
+def fixup_untappd_nulls(con) -> int:
+    """One-shot SQL fallback for NULL untappd_cache.id rows."""
+    cur = con.execute("SELECT COUNT(*) FROM untappd_cache WHERE id IS NULL")
+    nulls = cur.fetchone()[0]
+    if nulls == 0:
+        return 0
+    con.execute(
+        "UPDATE untappd_cache SET id = lower(hex(randomblob(8))) WHERE id IS NULL"
+    )
+    con.commit()
+    return nulls
+
+
+def init_db() -> dict:
+    """Idempotent schema/index/null fixup + write audit log entry."""
+    con = _connect()
+    if not con:
+        return {"error": "Database not found"}
+    _ensure_beer_cache(con)
+    ensure_untappd_cache_schema(con)
+    duplicate_groups = report_duplicate_groups(con)
+    # For each duplicate group, keep the lowest id as the "keeper" (legacy_dup=0)
+    # and mark the rest as legacy_dup=1 so they don't break the unique index.
+    # All dup ids are still recorded in data/beer-db-update.json for arbitration.
+    legacy_ids: list[int] = []
+    for g in duplicate_groups:
+        ids: list[int] = []
+        for raw_id in g["ids"]:
+            try:
+                ids.append(int(raw_id))
+            except (TypeError, ValueError):
+                pass
+        ids.sort()
+        legacy_ids.extend(ids[1:])  # skip keeper
+    ensure_indexes(con, exclude_ids=legacy_ids)
+    con.commit()
+
+    duplicate_groups = report_duplicate_groups(con)
+    null_count = fixup_untappd_nulls(con)
+
+    audit = {
+        "initializedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "indexes": ["ux_beers_name_brewery"],
+        "duplicate_groups_count": len(duplicate_groups),
+        "duplicate_groups": duplicate_groups[:20],
+        "untappd_null_ids_fixed": null_count,
+    }
+
+    # Append to data/beer-db-update.json (do not delete duplicates automatically)
+    UPDATE_LOG_DIR.mkdir(parents=True, exist_ok=True)
+    existing: dict = {}
+    if UPDATE_LOG_PATH.exists():
+        try:
+            existing = json.loads(UPDATE_LOG_PATH.read_text())
+        except Exception:
+            existing = {}
+    existing["lastInit"] = audit["initializedAt"]
+    existing["initialization"] = audit
+    if duplicate_groups:
+        existing.setdefault("warnings", []).append(
+            f"{len(duplicate_groups)} duplicate (name, brewery) groups in beers "
+            f"— left in place for manual resolution"
+        )
+    if null_count > 0:
+        existing.setdefault("warnings", []).append(
+            f"Backfilled {null_count} NULL untappd_cache.id rows"
+        )
+    UPDATE_LOG_PATH.write_text(json.dumps(existing, indent=2, ensure_ascii=False) + "\n")
+
+    con.close()
+    return audit
+
+
+# ── Untappd upsert (transactional) ──
+
+
+def upsert_untappd(payload) -> dict:
+    """Transactional upsert of Untappd results into untappd_cache.
+
+    payload: a JSON array (or single record object) shaped like:
+        { "name": str, "brewery": str, "style": str, "abv": num,
+          "rating": num, "ratings_count": int, "untappd_url": str,
+          "untappd_id": str, "country": str, "label_image": str }
+
+    Returns a structured JSON envelope:
+
+        { "inserted": int, "updated": int, "skipped": int,
+          "errors": [{ "name": str, "reason": str }],
+          "total": int, "startedAt": str, "completedAt": str }
+
+    On commit, appends an entry to data/raw-crawl/update-log.json.
+    """
+    if isinstance(payload, dict):
+        records = [payload]
+    elif isinstance(payload, list):
+        records = payload
+    else:
+        return {"error": "Payload must be a JSON object or array"}
+
+    started_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    con = _connect()
+    if not con:
+        return {"error": "Database not found"}
+
+    ensure_untappd_cache_schema(con)
+    inserted = 0
+    updated = 0
+    skipped = 0
+    errors: list[dict] = []
+    payload_checksum = hashlib.sha256(
+        json.dumps(records, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    ).hexdigest()[:16]
+
+    try:
+        # Single transaction across the whole batch
+        for rec in records:
+            try:
+                name = (rec.get("name") or "").strip()
+                brewery = (rec.get("brewery") or "").strip()
+                if not name:
+                    errors.append({"name": "", "reason": "missing name"})
+                    continue
+
+                style = (rec.get("style") or "").strip() or "Unknown"
+                abv = rec.get("abv") or 0
+                rating = rec.get("rating") or 0
+                ratings_count = rec.get("ratings_count") or 0
+                country = rec.get("country") or ""
+                untappd_url = rec.get("untappd_url") or ""
+                label_image = rec.get("label_image") or ""
+                untappd_id = rec.get("untappd_id") or ""
+
+                # Look up existing by (name, brewery) case-insensitively
+                row = con.execute(
+                    "SELECT id, rating, ratings_count FROM untappd_cache "
+                    "WHERE LOWER(name) = ? AND LOWER(brewery) = ?",
+                    (name.lower(), brewery.lower()),
+                ).fetchone()
+
+                if row is None:
+                    # INSERT
+                    if not untappd_id:
+                        # Generate a stable id if upstream didn't provide one
+                        untappd_id = hashlib.sha256(
+                            f"{name.lower()}|{brewery.lower()}".encode()
+                        ).hexdigest()[:16]
+                    con.execute(
+                        """INSERT INTO untappd_cache
+                           (id, name, brewery, style, abv, rating, ratings_count,
+                            country, untappd_url, label_image, source, updated_at)
+                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))""",
+                        (
+                            untappd_id,
+                            name,
+                            brewery,
+                            style,
+                            abv,
+                            rating,
+                            ratings_count,
+                            country,
+                            untappd_url,
+                            label_image,
+                            rec.get("source") or "untappd",
+                        ),
+                    )
+                    inserted += 1
+                else:
+                    existing_id = row["id"]
+                    old_rating = row["rating"] or 0
+                    # Update if rating or count changed meaningfully
+                    if (
+                        abs((rating or 0) - old_rating) > 0.005
+                        or ratings_count != (row["ratings_count"] or 0)
+                    ):
+                        con.execute(
+                            """UPDATE untappd_cache SET
+                               style = ?, abv = ?, rating = ?, ratings_count = ?,
+                               country = ?, untappd_url = ?, label_image = ?,
+                               updated_at = datetime('now')
+                               WHERE id = ?""",
+                            (
+                                style,
+                                abv,
+                                rating,
+                                ratings_count,
+                                country,
+                                untappd_url,
+                                label_image,
+                                existing_id,
+                            ),
+                        )
+                        updated += 1
+                    else:
+                        skipped += 1
+            except Exception as e:  # noqa: BLE001
+                errors.append({"name": rec.get("name", ""), "reason": str(e)})
+
+        con.commit()
+    except Exception as e:  # noqa: BLE001
+        con.rollback()
+        return {"error": f"transaction failed: {e}"}
+    finally:
+        con.close()
+
+    completed_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    log_entry = {
+        "timestamp": completed_at,
+        "source": "untappd",
+        "kind": "upsert",
+        "payloadChecksum": payload_checksum,
+        "inserted": inserted,
+        "updated": updated,
+        "skipped": skipped,
+        "errorCount": len(errors),
+        "total": len(records),
+        "startedAt": started_at,
+        "completedAt": completed_at,
+    }
+
+    UPDATE_HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
+    history: list = []
+    if UPDATE_HISTORY_PATH.exists():
+        try:
+            history = json.loads(UPDATE_HISTORY_PATH.read_text())
+        except Exception:
+            history = []
+    if not isinstance(history, list):
+        history = []
+    history.append(log_entry)
+    # Keep last 100 entries
+    history = history[-100:]
+    UPDATE_HISTORY_PATH.write_text(
+        json.dumps(history, indent=2, ensure_ascii=False) + "\n"
+    )
+
+    return {
+        "inserted": inserted,
+        "updated": updated,
+        "skipped": skipped,
+        "errors": errors,
+        "total": len(records),
+        "startedAt": started_at,
+        "completedAt": completed_at,
+        "logEntry": log_entry,
+    }
+
+
+# ── Search ──
 
 
 def search_beer(query: str, limit: int = 5) -> list[dict]:
@@ -203,6 +576,18 @@ def get_stats() -> dict:
     cache_total = con.execute("SELECT COUNT(*) FROM beer_cache").fetchone()[0]
     cache_verified = con.execute("SELECT COUNT(*) FROM beer_cache WHERE verified = 1").fetchone()[0]
 
+    # Untappd cache stats
+    untappd_total = con.execute("SELECT COUNT(*) FROM untappd_cache").fetchone()[0]
+    untappd_null_ids = con.execute(
+        "SELECT COUNT(*) FROM untappd_cache WHERE id IS NULL"
+    ).fetchone()[0]
+
+    # Index presence (cheap query)
+    indexes = [r['name'] for r in con.execute(
+        "SELECT name FROM sqlite_master WHERE type='index' AND tbl_name='beers'"
+    ).fetchall()]
+    has_unique_index = 'ux_beers_name_brewery' in indexes
+
     con.close()
     return {
         'total_beers': total,
@@ -215,7 +600,13 @@ def get_stats() -> dict:
             'total': cache_total,
             'verified': cache_verified,
             'description': 'Hand-verified entries from WebSearch cross-reference'
-        }
+        },
+        'untappd_cache': {
+            'total': untappd_total,
+            'null_ids': untappd_null_ids,
+        },
+        'db_indexes': indexes,
+        'ux_beers_name_brewery_present': has_unique_index,
     }
 
 
@@ -248,26 +639,6 @@ def _row_to_dict(row, table: str = 'beers') -> dict:
     except (IndexError, KeyError):
         pass
     return result
-
-
-def ensure_untappd_cache_schema(con):
-    """Ensure untappd_cache table has the right schema (country, untappd_url, label_image)."""
-    con.execute("""
-        CREATE TABLE IF NOT EXISTS untappd_cache (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            brewery TEXT,
-            style TEXT,
-            abv REAL,
-            rating REAL,
-            ratings_count INTEGER,
-            country TEXT,
-            untappd_url TEXT,
-            label_image TEXT,
-            source TEXT DEFAULT 'untappd',
-            updated_at TEXT DEFAULT (datetime('now'))
-        )
-    """)
 
 
 def insert_cn_beers(json_file: str) -> dict:
@@ -382,27 +753,62 @@ def insert_beers(json_file: str) -> dict:
     return {'inserted': inserted, 'updated': updated, 'skipped': skipped}
 
 
+def _read_payload(arg: str) -> object:
+    """Resolve a `--upsert-untappd` argument: either a JSON file path or '-' for stdin."""
+    if arg == '-':
+        return json.loads(sys.stdin.read())
+    path = Path(arg)
+    if path.exists():
+        return json.loads(path.read_text())
+    # Treat the argument itself as inline JSON
+    try:
+        return json.loads(arg)
+    except Exception:
+        return {"error": f"Could not read payload from {arg}"}
+
+
 def main():
     args = sys.argv[1:]
 
     if not args:
-        print(json.dumps({"error": "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats | --insert-cn-beers <json> | --insert-beers <json>"}))
+        print(json.dumps({"error": (
+            "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats | "
+            "--init | --upsert-untappd <json-file-or-stdin> | "
+            "--report-untappd-nulls | --insert-cn-beers <json> | --insert-beers <json>"
+        )}))
         sys.exit(1)
 
-    if args[0] == '--stats':
+    cmd = args[0]
+    if cmd == '--stats':
         result = get_stats()
-    elif args[0] == '--batch':
+    elif cmd == '--batch':
         if len(args) < 2:
             print(json.dumps({"error": "--batch requires pipe-separated beer names"}))
             sys.exit(1)
         queries = [q.strip() for q in args[1].split('|') if q.strip()]
         result = search_batch(queries)
-    elif args[0] == '--insert-cn-beers':
+    elif cmd == '--init':
+        result = init_db()
+    elif cmd == '--report-untappd-nulls':
+        con = _connect()
+        if not con:
+            result = {"error": "Database not found"}
+        else:
+            fixed = fixup_untappd_nulls(con)
+            con.close()
+            result = {"untappd_null_ids_fixed": fixed}
+    elif cmd == '--upsert-untappd':
+        if len(args) < 2:
+            print(json.dumps({"error": "--upsert-untappd requires a JSON file path or '-' for stdin"}))
+            sys.exit(1)
+        payload = _read_payload(args[1])
+        result = upsert_untappd(payload)
+    elif cmd == '--insert-cn-beers':
         if len(args) < 2:
             print(json.dumps({"error": "--insert-cn-beers requires JSON file path"}))
             sys.exit(1)
         result = insert_cn_beers(args[1])
-    elif args[0] == '--insert-beers':
+    elif cmd == '--insert-beers':
         if len(args) < 2:
             print(json.dumps({"error": "--insert-beers requires JSON file path"}))
             sys.exit(1)

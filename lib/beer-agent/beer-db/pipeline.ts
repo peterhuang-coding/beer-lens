@@ -381,14 +381,31 @@ export async function searchHotCache(name: string): Promise<BeerCacheEntry[]> {
   return searchCacheByName(name);
 }
 
-// ── Refresh (placeholder for future implementation) ──
+// ── Refresh (delegates to updater.ts) ──
+
+import { refreshDatabase as _refreshDatabase } from "./updater";
+import type { RefreshParams as _RefreshParams, RefreshResult as _RefreshResult } from "./updater";
+
+export type RefreshParams = _RefreshParams;
+export type RefreshResult = _RefreshResult;
 
 /**
- * Refresh the beer database cache.
- * Currently a no-op — cache entries live for 1 year.
- * Future: pull new Untappd ratings for stale entries.
+ * Refresh the beer database.
+ *
+ * Delegates to updater.refreshDatabase. Pass `params.source` to pick
+ * the upstream crawler, `forceUpsert: true` to bypass DB-side dedup,
+ * `includeImages: true` to also crawl Wikimedia/Flickr.
+ *
+ * Backwards compatible: returns the same shape as before when nothing
+ * crawled (so old callers don't break).
  */
-export async function refreshCache(): Promise<{ refreshed: number; errors: number }> {
-  // Placeholder for future cron-based refresh
-  return { refreshed: 0, errors: 0 };
+export async function refreshCache(
+  params: RefreshParams = { source: "all" },
+): Promise<{ refreshed: number; errors: number; details?: RefreshResult["details"] }> {
+  const result = await _refreshDatabase(params);
+  return {
+    refreshed: result.added + result.updated,
+    errors: result.errors,
+    details: result.details,
+  };
 }

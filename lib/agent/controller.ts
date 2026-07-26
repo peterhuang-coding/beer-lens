@@ -210,10 +210,12 @@ export async function runAgentTurn(
     console.warn("[controller] trace write failed:", err);
   });
 
-  // 8. Update short-term memory (fire-and-forget)
-  updateShortTermMemory(request, turnResult as unknown as BeerDialogResponse).catch((err) => {
+  // 8. Update short-term memory before returning; its per-conversation lock serializes RMW.
+  try {
+    await updateShortTermMemory(request, turnResult as unknown as BeerDialogResponse);
+  } catch (err) {
     console.warn("[controller] short-term memory update failed:", err);
-  });
+  }
 
   // 9. Return as BeerDialogResponse
   return {

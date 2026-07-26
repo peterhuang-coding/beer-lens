@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { after, NextResponse } from 'next/server';
 import { runAgentTurn } from '@/lib/agent/controller';
 import {
   downloadFeishuImage,
@@ -10,8 +10,9 @@ import {
   shouldSkipFeishuEvent
 } from '@/lib/feishu/client';
 import {
-  appendConversationTurn,
+  beginConversationTurn,
   clearConversation,
+  completeConversationTurn,
   getConversationMessages
 } from '@/lib/feishu/conversations';
 
@@ -93,28 +94,71 @@ export async function POST(request: Request) {
     ? { name: (incomingMessage.imageKey || 'img') + '.jpg', type: image.type, dataUrl: image.dataUrl }
     : undefined;
 
-  runAgentTurn({
-    userId: incomingMessage.chatId,
-    channel: 'feishu',
-    conversationId: incomingMessage.chatId,
-    turnId: incomingMessage.messageId,
-    messages: [...history, userMessage],
-    image: imagePayload,
-  }).then(async (result) => {
-    if (incomingMessage.chatId) {
-      await appendConversationTurn(incomingMessage.chatId, userMessage, {
-        role: 'assistant',
-        content: result.reply
+  const started = incomingMessage.chatId
+    ? await beginConversationTurn(
+        incomingMessage.chatId,
+        incomingMessage.messageId,
+        userMessage
+      )
+    : true;
+
+  if (!started) {
+    return NextResponse.json({ ok: true, skipped: true, messageId: incomingMessage.messageId });
+  }
+
+  after(async () => {
+    let reply: string;
+
+    try {
+      const result = await runAgentTurn({
+        userId: incomingMessage.chatId,
+        channel: 'feishu',
+        conversationId: incomingMessage.chatId,
+        turnId: incomingMessage.messageId,
+        messages: [...history, userMessage],
+        image: imagePayload,
       });
+      reply = result.reply;
+
+      if (incomingMessage.chatId) {
+        await completeConversationTurn(
+          incomingMessage.chatId,
+          incomingMessage.messageId,
+          { role: 'assistant', content: reply },
+          'done'
+        );
+      }
+    } catch (err) {
+      console.error('[feishu] agent error:', err);
+      const errMsg = err instanceof Error ? err.message : String(err);
+      reply = `处理出错了，请稍后再试。（${errMsg.slice(0, 50)}）`;
+
+      if (incomingMessage.chatId) {
+        try {
+          await completeConversationTurn(
+            incomingMessage.chatId,
+            incomingMessage.messageId,
+            { role: 'assistant', content: reply },
+            'failed'
+          );
+        } catch (memoryError) {
+          console.error('[feishu] failed to finalize conversation state:', memoryError);
+        }
+      }
     }
-    await replyFeishuMessage(incomingMessage.messageId, result.reply);
-  }).catch(async (err) => {
-    console.error('[feishu] agent error:', err);
-    const errMsg = err instanceof Error ? err.message : String(err);
-    await replyFeishuMessage(incomingMessage.messageId, `处理出错了，请稍后再试。（${errMsg.slice(0, 50)}）`);
+
+    try {
+      await replyFeishuMessage(incomingMessage.messageId, reply);
+    } catch (replyError) {
+      console.error('[feishu] reply error:', replyError);
+    }
   });
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({
+    ok: true,
+    status: 'processing',
+    messageId: incomingMessage.messageId
+  });
 }
 
 function isResetCommand(text: string) {

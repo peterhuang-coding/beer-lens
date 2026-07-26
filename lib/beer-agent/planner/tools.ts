@@ -441,20 +441,67 @@ export function createComposeAnswerTool(): ToolDef {
 }
 
 /**
- * analyze_image — placeholder for future vision pipeline integration.
- * Not enabled in v1. Exists as a documented extension point.
+ * analyze_image — vision pipeline wrapper (L1: wired but still disabled by default).
+ * Calls runImagePipeline(apiKey, dataUrl, userText, profileSummary) and returns
+ * { candidates, stages }. Errors caught and returned in the same shape as
+ * handlers/menu-recommend.ts (candidates:[], stages:{}).
  */
 export function createAnalyzeImageTool(): ToolDef {
   return {
     id: "analyze_image",
-    description: "TODO: Analyze beer label/menu image using vision pipeline (OCR + classification + quality check)",
+    description: "Analyze beer label/menu image using vision pipeline (OCR + classification + quality check)",
     enabled: false,
     timeoutMs: 30000,
     validate: (input) => typeof input.imageData === "string",
-    execute: async (_input, _context) => {
-      // TODO: Integrate with vision pipeline when available
-      // const { analyzeImage } = await import("@/lib/beer-agent/...");
-      return { notImplemented: true, note: "analyze_image tool is not yet implemented (v2)" };
+    execute: async (_input, context) => {
+      const imageDataUrl = context.request.image?.dataUrl;
+      if (!imageDataUrl) {
+        return {
+          error: "analyze_image requires request.image.dataUrl",
+          candidates: [],
+          stages: {},
+        };
+      }
+
+      const apiKey = process.env.OPENROUTER_API_KEY;
+      if (!apiKey) {
+        // Surface as a hard failure so the runner records the step as failed.
+        throw new Error("请在 .env.local 中配置 OPENROUTER_API_KEY");
+      }
+
+      const lastUserMessage = context.request.messages.at(-1);
+      const userText =
+        lastUserMessage?.role === "user" ? lastUserMessage.content : "";
+
+      try {
+        // Dynamic imports keep circular dependency risk low and let the planner
+        // load the vision pipeline only when this tool is actually invoked.
+        const { runImagePipeline } = await import("@/lib/beer-agent/provider");
+        const { getProfileSummary } = await import("@/lib/beer-agent/profile");
+
+        const profileSummary = await getProfileSummary();
+
+        const pipeline = await runImagePipeline(
+          apiKey,
+          imageDataUrl,
+          userText,
+          profileSummary,
+        );
+
+        return {
+          candidates: pipeline.candidates,
+          stages: pipeline.stages,
+        };
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        // Mirror handlers/menu-recommend.ts error contract: empty candidates,
+        // empty stages, but surface the error message for the runner/trace.
+        return {
+          error: message,
+          candidates: [],
+          stages: {},
+        };
+      }
     },
   };
 }

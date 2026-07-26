@@ -3,15 +3,18 @@
  *
  * Responsibilities:
  *   1. Trigger Untappd/RateBeer crawls
- *   2. Incrementally upsert results into SQLite
- *   3. Clean stale cache entries
- *   4. Expose refresh API for manual triggers
+ *   2. Hand Untappd payload to lookup.py `--upsert-untappd` (transactional)
+ *   3. Hand RateBeer result to upsertBeers (Python child-process)
+ *   4. Track last-update timestamp + run history
+ *   5. Expose refresh API for manual triggers
  *
- * Crawler implementations are in ./crawlers/untappd.ts and ./crawlers/ratebeer.ts.
- * This module handles scheduling, dedup, and the SQLite write path.
+ * Crawler implementations are in ./crawlers/{untappd,ratebeer,flickr}.ts.
+ * This module is now THE scheduler + dispatcher only — write-side concerns
+ * belong in the Python helpers.
  */
 
 import { execFile } from "node:child_process";
+import { spawn } from "node:child_process";
 import { promisify } from "node:util";
 import path from "node:path";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -28,6 +31,11 @@ export type RefreshParams = {
   source: RefreshSource;
   styles?: string[];
   limit?: number;
+  /** When true, forces re-evaluation of every crawled record (lookup.py writes
+   *  to DB regardless of whether it already exists). */
+  forceUpsert?: boolean;
+  /** Image-only crawl — Wikimedia Commons primary, Flickr API fallback. */
+  includeImages?: boolean;
 };
 
 export type RefreshResult = {
@@ -40,6 +48,26 @@ export type RefreshResult = {
   errorMessages: string[];
   startedAt: string;
   completedAt: string;
+  /** Source-tagged result details from each upstream crawler. */
+  details?: {
+    untappd?: {
+      beersFound: number;
+      upsertResult?: Record<string, unknown>;
+    };
+    ratebeer?: {
+      source: string;
+      total: number;
+      added: number;
+      updated: number;
+      skipped: number;
+      checksum: string;
+    };
+    images?: {
+      mode: string;
+      imageCount: number;
+      rawPath: string;
+    };
+  };
 };
 
 export type DbStats = {
@@ -54,7 +82,11 @@ export type DbStats = {
 
 /**
  * Trigger a beer database refresh.
- * This is a placeholder — actual crawler implementations go in ./crawlers/.
+ *
+ * Routes:
+ *   - "untappd" → crawlUntappd (with option.forceUpsert) → lookup.py --upsert-untappd
+ *   - "ratebeer" → updateRateBeer (writes its own DB path)
+ *   - "all" → both
  */
 export async function refreshDatabase(params: RefreshParams): Promise<RefreshResult> {
   const startedAt = new Date().toISOString();
@@ -68,32 +100,108 @@ export async function refreshDatabase(params: RefreshParams): Promise<RefreshRes
     errorMessages: [],
     startedAt,
     completedAt: "",
+    details: {},
   };
 
-  try {
-    if (params.source === "untappd" || params.source === "all") {
-      // Placeholder: call Untappd crawler
-      // const untappdResult = await crawlUntappd({ styles: params.styles, limit: params.limit });
-      // result.added += untappdResult.added;
-      // result.errors += untappdResult.errors;
-      console.log("[updater] Untappd refresh: not yet implemented — see docs/beer-db-update-spec.md");
-    }
+  if (params.source === "untappd" || params.source === "all") {
+    try {
+      const { crawlUntappd } = await import("./crawlers/untappd");
+      const untappdResult = await crawlUntappd({
+        styles: params.styles,
+        limit: params.limit,
+        forceUpsert: params.forceUpsert === true,
+      });
+      result.details!.untappd = {
+        beersFound: untappdResult.beers.length,
+        upsertResult: undefined,
+      };
 
-    if (params.source === "ratebeer" || params.source === "all") {
-      // Placeholder: call RateBeer updater
-      console.log("[updater] RateBeer refresh: not yet implemented — see docs/beer-db-update-spec.md");
+      // Hand the payload to Python for transactional upsert
+      if (untappdResult.beers.length > 0) {
+        const upsert = await callLookupUpsert(untappdResult.beers);
+        result.details!.untappd.upsertResult = upsert;
+        result.added += (upsert.inserted as number) ?? 0;
+        result.updated += (upsert.updated as number) ?? 0;
+        result.skipped += (upsert.skipped as number) ?? 0;
+        if (Array.isArray(upsert.errors) && upsert.errors.length > 0) {
+          result.errors += upsert.errors.length;
+          for (const e of upsert.errors) {
+            result.errorMessages.push(
+              `untappd: ${typeof e === 'string' ? e : JSON.stringify(e)}`,
+            );
+          }
+        }
+      }
+    } catch (err) {
+      result.ok = false;
+      result.errors++;
+      result.errorMessages.push(
+        `untappd: ${err instanceof Error ? err.message : String(err)}`,
+      );
     }
-  } catch (err) {
-    result.ok = false;
-    result.errors++;
-    result.errorMessages.push(err instanceof Error ? err.message : String(err));
+  }
+
+  if (params.source === "ratebeer" || params.source === "all") {
+    try {
+      const { updateRateBeer } = await import("./crawlers/ratebeer");
+      const ratebeerResult = await updateRateBeer({
+        styles: params.styles,
+        // Don't force re-applies on schedule runs
+        skipIfUnchanged: true,
+      });
+      result.details!.ratebeer = {
+        source: ratebeerResult.source,
+        total: ratebeerResult.totalInSource,
+        added: ratebeerResult.added,
+        updated: ratebeerResult.updated,
+        skipped: ratebeerResult.skipped,
+        checksum: ratebeerResult.checksum,
+      };
+      result.added += ratebeerResult.added;
+      result.updated += ratebeerResult.updated;
+      result.skipped += ratebeerResult.skipped;
+      if (ratebeerResult.errors.length > 0) {
+        result.errors += ratebeerResult.errors.length;
+        for (const e of ratebeerResult.errors) {
+          result.errorMessages.push(`ratebeer: ${e}`);
+        }
+      }
+    } catch (err) {
+      result.ok = false;
+      result.errors++;
+      result.errorMessages.push(
+        `ratebeer: ${err instanceof Error ? err.message : String(err)}`,
+      );
+    }
+  }
+
+  if (params.includeImages) {
+    try {
+      const { searchBeerLabels } = await import("./crawlers/flickr");
+      const imageResult = await searchBeerLabels({
+        mode: "auto",
+        query: "beer label",
+        limit: 50,
+      });
+      result.details!.images = {
+        mode: imageResult.mode,
+        imageCount: imageResult.images.length,
+        rawPath: imageResult.rawPath,
+      };
+      if (imageResult.errors.length > 0) {
+        for (const e of imageResult.errors) result.errorMessages.push(`images: ${e}`);
+      }
+    } catch (err) {
+      result.ok = false;
+      result.errors++;
+      result.errorMessages.push(
+        `images: ${err instanceof Error ? err.message : String(err)}`,
+      );
+    }
   }
 
   result.completedAt = new Date().toISOString();
-
-  // Update last-update timestamp
   await touchLastUpdate();
-
   return result;
 }
 
@@ -103,40 +211,107 @@ export async function refreshDatabase(params: RefreshParams): Promise<RefreshRes
  * Get comprehensive database statistics.
  */
 export async function getDatabaseStats(): Promise<DbStats> {
-  let dbStats: any = { total_beers: 0, total_breweries: 0, total_styles: 0, avg_rating: 0, top_styles: [] };
+  const dbStatsRaw: any = {
+    total_beers: 0,
+    total_breweries: 0,
+    total_styles: 0,
+    avg_rating: 0,
+    top_styles: [],
+  };
 
   try {
     const { stdout } = await execFileAsync(PYTHON, [LOOKUP_SCRIPT, "--stats"], {
-      timeout: 10000,
+      timeout: 10_000,
       maxBuffer: 1024 * 1024,
     });
-    dbStats = JSON.parse(stdout.trim());
+    Object.assign(dbStatsRaw, JSON.parse(stdout.trim()));
   } catch (err) {
     console.warn("[updater] stats lookup failed:", err);
   }
 
   // Count untappd_cache separately
-  let untappdCached = 0;
-  try {
-    const { stdout } = await execFileAsync(PYTHON, [
-      "-c",
-      `import sqlite3; con=sqlite3.connect('.beer-data/beer.db'); print(con.execute('SELECT COUNT(*) FROM untappd_cache').fetchone()[0])`,
-    ], { timeout: 5000 });
-    untappdCached = parseInt(stdout.trim(), 10) || 0;
-  } catch {}
+  let untappdCached = dbStatsRaw?.untappd_cache?.total ?? 0;
+  if (!untappdCached) {
+    try {
+      const { stdout } = await execFileAsync(PYTHON, [
+        "-c",
+        `import sqlite3; con=sqlite3.connect('.beer-data/beer.db'); print(con.execute('SELECT COUNT(*) FROM untappd_cache').fetchone()[0])`,
+      ], { timeout: 5_000 });
+      untappdCached = parseInt(stdout.trim(), 10) || 0;
+    } catch {
+      // ignore
+    }
+  }
 
   const lastUpdate = await readLastUpdate();
 
   return {
-    totalBeers: dbStats.total_beers ?? 0,
+    totalBeers: dbStatsRaw.total_beers ?? 0,
     untappdCached,
-    ratebeerBeers: (dbStats.total_beers ?? 0) - untappdCached,
+    ratebeerBeers: (dbStatsRaw.total_beers ?? 0) - untappdCached,
     lastUpdate,
-    topStyles: (dbStats.top_styles ?? []).slice(0, 10).map((s: any) => ({
+    topStyles: (dbStatsRaw.top_styles ?? []).slice(0, 10).map((s: any) => ({
       style: s.style || "Unknown",
       count: s.count || 0,
     })),
   };
+}
+
+// ── Lookup.py bridge ──
+
+/**
+ * Hand a parsed Untappd payload to `lookup.py --upsert-untappd` for the
+ * transactional write. Returns the parsed JSON envelope.
+ *
+ * Uses spawn (not execFile) because we need to pipe the JSON payload
+ * through stdin and the promisified execFile wrapper does not expose the
+ * `input` option.
+ */
+async function callLookupUpsert(beers: unknown[]): Promise<any> {
+  return new Promise((resolve) => {
+    const child = spawn(PYTHON, [LOOKUP_SCRIPT, "--upsert-untappd", "-"], {
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+    let stdout = "";
+    let stderr = "";
+    child.stdout.on("data", (chunk: Buffer) => (stdout += chunk.toString("utf8")));
+    child.stderr.on("data", (chunk: Buffer) => (stderr += chunk.toString("utf8")));
+    child.on("error", (err) => {
+      console.warn("[updater] upsert-untappd spawn error:", err.message);
+      resolve({
+        inserted: 0,
+        updated: 0,
+        skipped: 0,
+        errors: [err.message],
+      });
+    });
+    child.on("close", (code) => {
+      if (code !== 0) {
+        console.warn(
+          `[updater] upsert-untappd exit=${code}: ${stderr.slice(0, 200)}`,
+        );
+        resolve({
+          inserted: 0,
+          updated: 0,
+          skipped: 0,
+          errors: [stderr || `exit code ${code}`],
+        });
+        return;
+      }
+      try {
+        resolve(JSON.parse(stdout.trim() || "{}"));
+      } catch {
+        resolve({
+          inserted: 0,
+          updated: 0,
+          skipped: 0,
+          errors: ["non-JSON output from lookup.py"],
+        });
+      }
+    });
+    child.stdin.write(JSON.stringify(beers));
+    child.stdin.end();
+  });
 }
 
 // ── Last-update tracking ──
@@ -154,12 +329,18 @@ async function readLastUpdate(): Promise<string | null> {
 
 async function touchLastUpdate(): Promise<void> {
   await mkdir(path.dirname(UPDATE_LOG_PATH), { recursive: true });
-  await writeFile(UPDATE_LOG_PATH, JSON.stringify({
-    lastUpdate: new Date().toISOString(),
-  }, null, 2) + "\n", "utf8");
+  let prev: any = {};
+  try {
+    prev = JSON.parse(await readFile(UPDATE_LOG_PATH, "utf8"));
+  } catch {
+    // fresh
+  }
+  prev.lastUpdate = new Date().toISOString();
+  prev.lastRefreshSource = prev.lastRefreshSource ?? "scheduler";
+  await writeFile(UPDATE_LOG_PATH, JSON.stringify(prev, null, 2) + "\n", "utf8");
 }
 
-// ── Cron-like scheduler (placeholder) ──
+// ── Cron-like scheduler ──
 
 let _schedulerInterval: ReturnType<typeof setInterval> | null = null;
 
@@ -170,7 +351,6 @@ let _schedulerInterval: ReturnType<typeof setInterval> | null = null;
 export function startScheduler(): void {
   if (_schedulerInterval) return;
 
-  // Run on startup
   console.log("[updater] scheduler started (weekly: Untappd, monthly: RateBeer)");
 
   _schedulerInterval = setInterval(async () => {
@@ -178,18 +358,16 @@ export function startScheduler(): void {
     const dayOfWeek = now.getDay();
     const dayOfMonth = now.getDate();
 
-    // Weekly: every Monday at 3am for Untappd
     if (dayOfWeek === 1 && now.getHours() === 3 && now.getMinutes() < 5) {
       console.log("[updater] running weekly Untappd refresh...");
       await refreshDatabase({ source: "untappd" });
     }
 
-    // Monthly: 1st of month at 4am for RateBeer
     if (dayOfMonth === 1 && now.getHours() === 4 && now.getMinutes() < 5) {
       console.log("[updater] running monthly RateBeer refresh...");
       await refreshDatabase({ source: "ratebeer" });
     }
-  }, 300_000); // Check every 5 minutes
+  }, 300_000);
 }
 
 export function stopScheduler(): void {

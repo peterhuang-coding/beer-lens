@@ -1,0 +1,41 @@
+[
+  {
+    "timestamp": "2026-07-26T02:42:08.363108Z",
+    "source": "untappd",
+    "kind": "upsert",
+    "payloadChecksum": "a1f1f748da03a06c",
+    "inserted": 2,
+    "updated": 0,
+    "skipped": 0,
+    "errorCount": 0,
+    "total": 2,
+    "startedAt": "2026-07-26T02:42:08.361214Z",
+    "completedAt": "2026-07-26T02:42:08.363108Z"
+  },
+  {
+    "timestamp": "2026-07-26T02:42:29.544254Z",
+    "source": "untappd",
+    "kind": "upsert",
+    "payloadChecksum": "f192f2c5a20e851b",
+    "inserted": 0,
+    "updated": 1,
+    "skipped": 0,
+    "errorCount": 0,
+    "total": 1,
+    "startedAt": "2026-07-26T02:42:29.542259Z",
+    "completedAt": "2026-07-26T02:42:29.544254Z"
+  },
+  {
+    "timestamp": "2026-07-26T02:42:29.570150Z",
+    "source": "untappd",
+    "kind": "upsert",
+    "payloadChecksum": "f192f2c5a20e851b",
+    "inserted": 0,
+    "updated": 0,
+    "skipped": 1,
+    "errorCount": 0,
+    "total": 1,
+    "startedAt": "2026-07-26T02:42:29.569667Z",
+    "completedAt": "2026-07-26T02:42:29.570150Z"
+  }
+]

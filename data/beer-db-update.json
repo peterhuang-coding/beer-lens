@@ -1,0 +1,183 @@
+{
+  "lastInit": "2026-07-26T02:44:15.900117Z",
+  "initialization": {
+    "initializedAt": "2026-07-26T02:44:15.900117Z",
+    "indexes": [
+      "ux_beers_name_brewery"
+    ],
+    "duplicate_groups_count": 18,
+    "duplicate_groups": [
+      {
+        "name": "bengal gold india pale ale",
+        "brewery": "triumph brewing company",
+        "count": 3,
+        "ids": [
+          "6563",
+          "6564",
+          "6565"
+        ]
+      },
+      {
+        "name": "amber ale",
+        "brewery": "triumph brewing company",
+        "count": 2,
+        "ids": [
+          "2495",
+          "2497"
+        ]
+      },
+      {
+        "name": "black raspberry reserve",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "8342",
+          "8343"
+        ]
+      },
+      {
+        "name": "chester county bitter",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "13957",
+          "13958"
+        ]
+      },
+      {
+        "name": "dunkel lager",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "19304",
+          "19305"
+        ]
+      },
+      {
+        "name": "gang aft agley",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "23591",
+          "23592"
+        ]
+      },
+      {
+        "name": "helles golden lager",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "27299",
+          "27300"
+        ]
+      },
+      {
+        "name": "ichor",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "30099",
+          "30100"
+        ]
+      },
+      {
+        "name": "incubus",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "30627",
+          "30628"
+        ]
+      },
+      {
+        "name": "o'reilly's irish stout",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "41626",
+          "41627"
+        ]
+      },
+      {
+        "name": "odyssey imperial ipa",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "42315",
+          "42316"
+        ]
+      },
+      {
+        "name": "phoenix pale ale",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "45667",
+          "45668"
+        ]
+      },
+      {
+        "name": "pikeland pils",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "45829",
+          "45830"
+        ]
+      },
+      {
+        "name": "rauchbier",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "48610",
+          "48611"
+        ]
+      },
+      {
+        "name": "royal weisse",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "50574",
+          "50575"
+        ]
+      },
+      {
+        "name": "saison vos",
+        "brewery": "sly fox brewing company",
+        "count": 2,
+        "ids": [
+          "51532",
+          "51533"
+        ]
+      },
+      {
+        "name": "slick nick winter ale",
+        "brewery": "sebago brewing company",
+        "count": 2,
+        "ids": [
+          "54293",
+          "54294"
+        ]
+      },
+      {
+        "name": "victory pale ale",
+        "brewery": "emmett's brewing company",
+        "count": 2,
+        "ids": [
+          "62130",
+          "62131"
+        ]
+      }
+    ],
+    "untappd_null_ids_fixed": 0
+  },
+  "warnings": [
+    "18 duplicate (name, brewery) groups in beers — left in place for manual resolution",
+    "Backfilled 64 NULL untappd_cache.id rows",
+    "18 duplicate (name, brewery) groups in beers — left in place for manual resolution",
+    "18 duplicate (name, brewery) groups in beers — left in place for manual resolution",
+    "18 duplicate (name, brewery) groups in beers — left in place for manual resolution"
+  ]
+}

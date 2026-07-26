@@ -27,20 +27,22 @@
  *
  * ## 反爬策略
  *
- * - User-Agent: 模拟 Chrome macOS
+ * - User-Agent: 模拟 Chrome macOS（可 sticky）
  * - 请求间隔: 2-5 秒随机
  * - 失败重试: 3 次，指数退避 (2s, 4s, 8s)
- * - 支持 HTTP 代理
+ * - 支持 HTTP 代理 + Cookie session
+ * - 20 秒请求超时（undici headersTimeout/bodyTimeout）
+ * - Retry-After 解析（429 用服务器秒数退避）
  *
  * ## 去重策略
  *
  * - 按 name + brewery 组合去重
- * - 已存在于 untappd_cache 表的条目跳过
+ * - 已存在于 untappd_cache 表的条目跳过（forceUpsert=true 时强制返回）
  * - 评分有变化的条目更新
  *
  * ## 输出
  *
- * 返回 CrawlResult，由 updater.ts 写入 SQLite。
+ * 返回 CrawlResult，由 updater.ts 写入 SQLite。output 含 untappd_id 供 writer 使用。
  */
 
 import { execFile } from "node:child_process";
@@ -56,6 +58,8 @@ export type CrawlBeer = {
   rating: number;
   ratings_count: number;
   untappd_url: string;
+  /** Untappd numeric beer id extracted from URL slug (e.g. 4499 from /b/.../4499) */
+  untappd_id: string;
   country: string;
   label_image: string;
 };
@@ -65,6 +69,15 @@ export type CrawlResult = {
   totalPages: number;
   pagesCrawled: number;
   errors: string[];
+  /** Audit info: resolved options + session metadata. */
+  session?: {
+    startedAt: string;
+    completedAt: string;
+    forceUpsert: boolean;
+    userAgent: string;
+    proxyEnabled: boolean;
+    proxyHost?: string;
+  };
 };
 
 export type CrawlOptions = {
@@ -76,7 +89,21 @@ export type CrawlOptions = {
   limit?: number;
   /** HTTP 代理 */
   proxy?: string;
+  /** 强制返回所有记录（跳过 dedup-vs-DB 判断，由 writer 决定 update/insert） */
+  forceUpsert?: boolean;
+  /** Custom user agent (overrides random rotation; sticky for the whole crawl) */
+  userAgent?: string;
+  /** Cookie string (sent verbatim in `Cookie:` header; useful for logged-in sessions) */
+  cookie?: string;
+  /** Request timeout in milliseconds (default 20_000) */
+  timeoutMs?: number;
 };
+
+/** Default env-derived credentials. Read once at module load. */
+const ENV_PROXY = process.env.UNTAPPD_PROXY_URL ?? "";
+const ENV_USER_AGENT = process.env.UNTAPPD_USER_AGENT ?? "";
+const ENV_COOKIE = process.env.UNTAPPD_COOKIE ?? "";
+const ENV_TIMEOUT = parseInt(process.env.UNTAPPD_TIMEOUT_MS ?? "20000", 10);
 
 // ── Constants ──
 
@@ -96,8 +123,12 @@ const DEFAULT_STYLES = [
   "pilsner", "pale-ale", "wheat", "porter", "belgian",
 ];
 
-// fetch options with undici dispatcher support (for proxy)
-type FetchInit = RequestInit & { dispatcher?: unknown };
+// fetch options with undici dispatcher / timeouts (for proxy)
+type FetchInit = RequestInit & {
+  dispatcher?: unknown;
+  headersTimeout?: number;
+  bodyTimeout?: number;
+};
 
 // ── Helpers ──
 
@@ -111,6 +142,28 @@ function randomDelay(min = 2000, max = 5000): Promise<void> {
 
 function randomUserAgent(): string {
   return USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+}
+
+/**
+ * Mask proxy URI for safe logging: keep scheme://host:port but strip
+ * any embedded user/password and query string.
+ *
+ * Examples:
+ *   http://user:pass@proxy.example.com:8080  → http://proxy.example.com:8080
+ *   socks5://1.2.3.4:1080?token=xxx          → socks5://1.2.3.4:1080
+ *   malformed URI                             → "***" (no leak even on parse failure)
+ */
+function sanitizeProxyForLog(proxy: string | undefined): string {
+  if (!proxy) return "";
+  try {
+    const u = new URL(proxy);
+    // Rebuild without userinfo or query
+    const safe = `${u.protocol}//${u.host}`;
+    return safe;
+  } catch {
+    // Never leak a raw un-parseable URI
+    return "***";
+  }
 }
 
 /** Normalise a style name for Untappd URL params (e.g. "Hazy IPA" → "hazy-ipa") */
@@ -128,12 +181,56 @@ function buildUrl(page: number, style?: string, country?: string): string {
 }
 
 /**
- * Fetch a URL with retry, exponential backoff, and anti-bot detection.
+ * Parse the numeric Untappd beer id from a URL slug like:
+ *   /b/russian-river-brewing-company/pliny-the-elder/4499
+ * Returns empty string when not parseable.
+ */
+function extractUntappdId(url: string): string {
+  if (!url) return "";
+  const m = url.match(/\/b\/[^/]+\/[^/]+\/(\d+)/);
+  return m ? m[1] : "";
+}
+
+/**
+ * Parse the Retry-After header value.
+ *   - Integer (seconds): "60" → 60_000
+ *   - HTTP-date: → future ms - now
+ *   - missing/invalid: 0
+ */
+function parseRetryAfter(value: string | null | undefined): number {
+  if (!value) return 0;
+  const trimmed = value.trim();
+  // Plain seconds
+  if (/^\d+$/.test(trimmed)) {
+    return parseInt(trimmed, 10) * 1000;
+  }
+  // HTTP-date
+  const dateMs = Date.parse(trimmed);
+  if (!isNaN(dateMs)) {
+    const diff = dateMs - Date.now();
+    return diff > 0 ? diff : 0;
+  }
+  return 0;
+}
+
+/**
+ * Fetch a URL with retry, exponential backoff, anti-bot detection, and
+ * 20s per-request timeout (configurable).
+ *
+ * Honors Retry-After from 429 responses. Sticky UA/cookie via the
+ * resolved SessionConfig (one stable UA + cookie for the entire caller's crawl).
+ *
  * Returns HTML string on success, null on unrecoverable failure.
  */
 async function fetchWithRetry(
   url: string,
-  options: { proxy?: string; maxRetries?: number },
+  options: {
+    proxy?: string;
+    maxRetries?: number;
+    userAgent: string;
+    cookie?: string;
+    timeoutMs: number;
+  },
   errors: string[],
 ): Promise<string | null> {
   const maxRetries = options.maxRetries ?? 3;
@@ -141,25 +238,31 @@ async function fetchWithRetry(
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     try {
       const headers: Record<string, string> = {
-        "User-Agent": randomUserAgent(),
+        "User-Agent": options.userAgent,
         Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
         "Cache-Control": "no-cache",
         Pragma: "no-cache",
         Referer: UNTAPPD_BASE,
       };
+      if (options.cookie) headers["Cookie"] = options.cookie;
 
       const init: FetchInit = {
         headers,
         redirect: "follow" as const,
+        headersTimeout: options.timeoutMs,
+        bodyTimeout: options.timeoutMs,
       };
 
-      // Proxy support via undici ProxyAgent
+      // Proxy support via undici ProxyAgent, with configured timeouts
       if (options.proxy) {
         try {
-          const { ProxyAgent } = await import("undici");
-          init.dispatcher = new ProxyAgent(options.proxy);
-          console.log("[crawler:untappd] using proxy:", options.proxy);
+          const undici = await import("undici");
+          init.dispatcher = new undici.ProxyAgent({
+            uri: options.proxy,
+            headersTimeout: options.timeoutMs,
+            bodyTimeout: options.timeoutMs,
+          });
         } catch {
           console.warn("[crawler:untappd] undici ProxyAgent unavailable, proxy ignored");
         }
@@ -167,13 +270,15 @@ async function fetchWithRetry(
 
       const response = await fetch(url, init);
 
-      // 429 — rate limited, pause 60s then retry
+      // 429 — rate limited. Honor Retry-After if present, else fallback 60s.
       if (response.status === 429) {
+        const retryMs = parseRetryAfter(response.headers.get("Retry-After"));
+        const waitMs = retryMs > 0 ? retryMs : 60_000;
         console.warn(
-          `[crawler:untappd] 429 rate-limited at ${url} — pausing 60s (attempt ${attempt + 1}/${maxRetries})`,
+          `[crawler:untappd] 429 rate-limited at ${url} — pausing ${Math.round(waitMs / 1000)}s (attempt ${attempt + 1}/${maxRetries})`,
         );
-        errors.push(`429 at ${url} (attempt ${attempt + 1})`);
-        await sleep(60_000);
+        errors.push(`429 at ${url} (waited ${Math.round(waitMs / 1000)}s)`);
+        await sleep(waitMs);
         continue;
       }
 
@@ -363,6 +468,7 @@ function parseBeerList(html: string, fallbackCountry?: string): CrawlBeer[] {
 
     // Full URL
     const untappd_url = url.startsWith("http") ? url : `${UNTAPPD_BASE}${url}`;
+    const untappd_id = extractUntappdId(untappd_url);
 
     // Deduplicate within this page
     const key = `${name.toLowerCase()}|${brewery.toLowerCase()}`;
@@ -377,6 +483,7 @@ function parseBeerList(html: string, fallbackCountry?: string): CrawlBeer[] {
       rating,
       ratings_count,
       untappd_url,
+      untappd_id,
       country,
       label_image,
     });
@@ -414,16 +521,45 @@ print(json.dumps([[r[0] or '', r[1] or ''] for r in rows]))`,
 // ── Main functions ──
 
 /**
+ * Resolve session-level config: stickiness for UA/cookie, timeouts, and a
+ * sanitized proxy descriptor suitable for logging.
+ */
+function resolveSession(options: CrawlOptions) {
+  const proxy = options.proxy ?? (ENV_PROXY || undefined);
+  const userAgent = options.userAgent ?? (ENV_USER_AGENT || randomUserAgent());
+  const cookie = options.cookie ?? (ENV_COOKIE || undefined);
+  const timeoutMs = options.timeoutMs ?? ENV_TIMEOUT;
+  return {
+    proxy,
+    userAgent,
+    cookie,
+    timeoutMs,
+    proxyHost: proxy ? sanitizeProxyForLog(proxy) : undefined,
+  };
+}
+
+/**
  * 执行 Untappd 抓取。
  *
  * 爬取 top_rated 页面，按风格/国家筛选，解析啤酒数据并去重。
  * 返回 CrawlResult 供 updater.ts 写入 SQLite。
+ *
+ * Sticky session: one UA + cookie for the entire crawl (avoids
+ * per-request fingerprint jitter that triggers anti-bot).
+ *
+ * When `options.forceUpsert === true`, the dedup-against-DB step is
+ * skipped — every parsed beer is returned and the writer decides
+ * whether to insert or update.
  */
 export async function crawlUntappd(options: CrawlOptions = {}): Promise<CrawlResult> {
+  const startedAt = new Date().toISOString();
   const styles = (options.styles?.length ? options.styles : DEFAULT_STYLES).map(normalizeStyle);
   const countries = options.countries ?? [];
   const limit = options.limit ?? DEFAULT_LIMIT;
   const maxPages = Math.ceil(limit / BEERS_PER_PAGE);
+  const forceUpsert = options.forceUpsert === true;
+
+  const session = resolveSession(options);
 
   const errors: string[] = [];
   const allBeers: CrawlBeer[] = [];
@@ -432,12 +568,12 @@ export async function crawlUntappd(options: CrawlOptions = {}): Promise<CrawlRes
   let pagesCrawled = 0;
 
   console.log(
-    `[crawler:untappd] start: styles=[${styles.join(",")}] countries=[${countries.join(",")}] limit=${limit}`,
+    `[crawler:untappd] start: styles=[${styles.join(",")}] countries=[${countries.join(",")}] limit=${limit} forceUpsert=${forceUpsert} proxy=${session.proxyHost ?? "off"} timeoutMs=${session.timeoutMs}`,
   );
 
-  // Get existing cache keys for dedup
-  const existingKeys = await getExistingUntappdKeys();
-  if (existingKeys.size > 0) {
+  // Get existing cache keys for dedup (skipped if forceUpsert)
+  const existingKeys = forceUpsert ? new Set<string>() : await getExistingUntappdKeys();
+  if (!forceUpsert && existingKeys.size > 0) {
     console.log(`[crawler:untappd] ${existingKeys.size} existing entries in untappd_cache — will skip`);
   }
 
@@ -475,7 +611,16 @@ export async function crawlUntappd(options: CrawlOptions = {}): Promise<CrawlRes
         await randomDelay();
       }
 
-      const html = await fetchWithRetry(url, { proxy: options.proxy }, errors);
+      const html = await fetchWithRetry(
+        url,
+        {
+          proxy: session.proxy,
+          userAgent: session.userAgent,
+          cookie: session.cookie,
+          timeoutMs: session.timeoutMs,
+        },
+        errors,
+      );
       if (!html) {
         console.warn(`[crawler:untappd] no HTML for ${target.label} p${page}, skipping target`);
         break;
@@ -492,7 +637,7 @@ export async function crawlUntappd(options: CrawlOptions = {}): Promise<CrawlRes
         break;
       }
 
-      // Add beers with dedup
+      // Add beers with dedup (DB-dedup skipped when forceUpsert)
       let addedThisPage = 0;
       for (const beer of pageBeers) {
         if (allBeers.length >= limit) break;
@@ -518,6 +663,8 @@ export async function crawlUntappd(options: CrawlOptions = {}): Promise<CrawlRes
     }
   }
 
+  const completedAt = new Date().toISOString();
+
   console.log(
     `[crawler:untappd] done: ${allBeers.length} beers, ${pagesCrawled} pages, ${errors.length} errors`,
   );
@@ -527,6 +674,14 @@ export async function crawlUntappd(options: CrawlOptions = {}): Promise<CrawlRes
     totalPages,
     pagesCrawled,
     errors,
+    session: {
+      startedAt,
+      completedAt,
+      forceUpsert,
+      userAgent: session.userAgent,
+      proxyEnabled: Boolean(session.proxy),
+      proxyHost: session.proxyHost,
+    },
   };
 }
 
@@ -535,12 +690,25 @@ export async function crawlUntappd(options: CrawlOptions = {}): Promise<CrawlRes
  *
  * URL 格式: https://untappd.com/b/{brewery-slug}/{beer-slug}/{beer-id}
  */
-export async function crawlBeerDetail(untappdUrl: string): Promise<CrawlBeer | null> {
+export async function crawlBeerDetail(
+  untappdUrl: string,
+  options: CrawlOptions = {},
+): Promise<CrawlBeer | null> {
   const url = untappdUrl.startsWith("http") ? untappdUrl : `${UNTAPPD_BASE}${untappdUrl}`;
   const errors: string[] = [];
+  const session = resolveSession(options);
 
   console.log(`[crawler:untappd] detail: ${url}`);
-  const html = await fetchWithRetry(url, {}, errors);
+  const html = await fetchWithRetry(
+    url,
+    {
+      proxy: session.proxy,
+      userAgent: session.userAgent,
+      cookie: session.cookie,
+      timeoutMs: session.timeoutMs,
+    },
+    errors,
+  );
   if (!html) {
     console.warn(`[crawler:untappd] detail fetch failed: ${url}`);
     return null;
@@ -616,6 +784,7 @@ export async function crawlBeerDetail(untappdUrl: string): Promise<CrawlBeer | n
     rating,
     ratings_count,
     untappd_url: url,
+    untappd_id: extractUntappdId(url),
     country,
     label_image,
   };

@@ -285,11 +285,20 @@ export async function handleTastingFeedback(
       console.warn("[tasting-feedback] trends rebuild failed:", err),
     );
   } else {
-    // Memory write disabled — return a minimal profile stub
+    // AB off: still persist the raw episode + record the metric so user feedback
+    // isn't lost — only the expensive O(N) aggregation (profile rebuild + trends)
+    // is skipped. UI will surface "完整画像重建待恢复" instead of a hard-off stub.
+    try {
+      await appendTastingEpisode(userId, episode);
+      recordTastingEpisode();
+    } catch (err) {
+      console.warn("[tasting-feedback] episode append failed in AB off branch:", err);
+    }
+
     profile = {
       userId,
       updatedAt: new Date().toISOString(),
-      summary: "记忆写入已关闭，未生成口味画像。",
+      summary: "完整画像重建待恢复（已保存原始 episode）。",
       preferredStyles: [],
       dislikedStyles: [],
       preferredTags: [],
@@ -317,7 +326,7 @@ export async function handleTastingFeedback(
 
   const memoryNote = memoryWriteEnabled
     ? ""
-    : "\n（记忆写入已关闭，本次反馈未保存到长期记忆）";
+    : "\n（本次反馈已写入 episode 记录，完整画像重建待恢复）";
 
   return {
     mode: "recommend",

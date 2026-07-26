@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-5-1783736059293",
+  "userId": "self-test",
+  "updatedAt": "2026-07-11T02:14:25.705Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783736059300_prlb6t",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "了解了，不喜欢太苦的啤酒，那我们可以考虑一些苦味较低、口感更加清爽或者带有果香的啤酒。比如比利时小麦啤酒（Witbier），这种风格的啤酒通常会加入橙皮和香料，口感清新，苦味较轻。还有新英格兰IPA（NEIPA），虽然它是IPA的一种，但它的苦味通常被浓郁的果味和柔和的口感所平衡。你觉得这些风格怎么样？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-11T02:14:25.705Z"
+    }
+  ]
+}

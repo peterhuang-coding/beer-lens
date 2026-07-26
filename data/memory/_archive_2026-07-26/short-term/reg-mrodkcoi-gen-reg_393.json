@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_393",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:27:36.101Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258845140_btfx3j",
+      "userText": "博克啤酒是什么风格",
+      "assistantReply": "啊，博克(Bock)是德国传统拉格啤酒的一个经典风格！让我给你详细说说：\n\n1. 基本特点：\n- 酒体中等至饱满\n- 麦芽风味主导（面包、焦糖、坚果香）\n- 酒精度一般在6-7%左右\n- 颜色从琥珀色到深棕色都有\n\n2. 常见子分类：\n- 传统博克：最基础的版本，麦芽香甜明显\n- 双料博克(Doppelbock)：更浓烈(7-12%)，常带有深色水果风味\n- 冰馏博克(Eisbock)：冷冻浓缩版，酒精度可达9-14%\n- 五月博克(Maibock)：淡色版本，带些酒花香气\n\n3. 冷知识：\n名字其实来自德国Einbeck市，后来被巴伐利亚人念成了\"Ein Bock\"(一只山羊)，所以你会看到很多博克酒标上山羊图案\n\n这种风格特别适合喜欢醇厚麦芽风味的酒友，你觉得这样的口味描述符合你的喜好吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:27:36.101Z"
+    }
+  ]
+}

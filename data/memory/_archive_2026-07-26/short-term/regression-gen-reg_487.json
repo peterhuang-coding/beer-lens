@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_487",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:00.820Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163253037_iomzuy",
+      "userText": "柑橘不错给3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:13.044Z"
+    },
+    {
+      "turnId": "trace_1784218943412_17q6ev",
+      "userText": "柑橘不错给3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：柑橘不错给3.5分\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:23.426Z"
+    },
+    {
+      "turnId": "trace_1784219750772_mgwi46",
+      "userText": "柑橘不错给3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：柑橘不错给3.5分\n你的口味画像：喜欢热带水果和柑橘和苦和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:50.782Z"
+    },
+    {
+      "turnId": "trace_1784255217121_8st0xp",
+      "userText": "柑橘不错给3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：柑橘不错给3.5分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:57.136Z"
+    },
+    {
+      "turnId": "trace_1784255909582_2xd2ym",
+      "userText": "柑橘不错给3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：柑橘不错给3.5分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:29.600Z"
+    },
+    {
+      "turnId": "trace_1784256840802_yzlh96",
+      "userText": "柑橘不错给3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：柑橘不错给3.5分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:54:00.820Z"
+    }
+  ]
+}

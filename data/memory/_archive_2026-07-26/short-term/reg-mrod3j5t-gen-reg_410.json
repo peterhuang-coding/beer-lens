@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_410",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:16:54.046Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258208979_9dh86j",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "Pliny the Elder 是由美国加州的俄罗斯河酒厂（Russian River Brewing Company）酿造的。这家酒厂位于加州圣罗莎（Santa Rosa），以其精酿啤酒闻名，尤其是这款双倍 IPA（Double IPA）。Pliny the Elder 是精酿啤酒界的经典之作，深受啤酒爱好者的喜爱。如果你喜欢热带水果和柑橘风味，这款酒可能会很对你的胃口！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:16:54.046Z"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_398",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:05:15.831Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257505909_dh8yu7",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒是一种以酸味为主要特征的啤酒风格，通常带有明显的果香和复杂的风味。它的酸味主要来自于特殊的发酵过程，比如使用野生酵母（如布雷特酵母）或乳酸菌进行发酵。酸艾尔的口感可以从轻微的酸爽到非常尖锐的酸味不等，有时还会带有一些木质或泥土的风味，尤其是那些在木桶中陈酿的版本。\n\n酸艾尔的风格很多样，比如比利时兰比克（Lambic）、法兰德斯红艾尔（Flanders Red Ale）和柏林小麦啤酒（Berliner Weisse）等。如果你喜欢清爽、酸味突出的啤酒，酸艾尔会是一个不错的选择！你对哪种酸艾尔感兴趣呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:05:15.831Z"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_469",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:48.532Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163239557_o9ylrt",
+      "userText": "10分太好喝了这瓶",
+      "assistantReply": "请发一张酒标照片，我可以帮你查看日期和新鲜度等信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T00:54:00.951Z"
+    },
+    {
+      "turnId": "trace_1784218930957_c5pdri",
+      "userText": "10分太好喝了这瓶",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：10分太好喝了这瓶\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:10.970Z"
+    },
+    {
+      "turnId": "trace_1784219738426_7z0pwy",
+      "userText": "10分太好喝了这瓶",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：10分太好喝了这瓶\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:38.445Z"
+    },
+    {
+      "turnId": "trace_1784255202574_1lr48y",
+      "userText": "10分太好喝了这瓶",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：10分太好喝了这瓶\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:42.588Z"
+    },
+    {
+      "turnId": "trace_1784255897343_0rgc42",
+      "userText": "10分太好喝了这瓶",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：10分太好喝了这瓶\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:17.362Z"
+    },
+    {
+      "turnId": "trace_1784256828518_jlnq2l",
+      "userText": "10分太好喝了这瓶",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：10分太好喝了这瓶\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:48.532Z"
+    }
+  ]
+}

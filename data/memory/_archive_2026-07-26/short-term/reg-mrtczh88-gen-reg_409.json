@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_409",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:15:41.458Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560535244_djhw6q",
+      "userText": "酒精度如何计算",
+      "assistantReply": "啊，这是个好问题！啤酒的酒精度(ABV)计算其实有个基础公式：\n\nABV = (初始比重 - 最终比重) × 131.25\n\n简单来说：\n1. 酿造前测麦汁糖度（初始比重）\n2. 发酵后再测一次（最终比重）\n3. 把两个数值代入公式就行\n\n比如初始1.050，发酵后1.010：\n(1.050-1.010)×131.25 ≈ 5.25% ABV\n\n专业酿酒师会用比重计或折光仪来测量。你想了解更详细的操作方法吗？还是对这个计算原理感兴趣？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:15:41.458Z"
+    }
+  ]
+}

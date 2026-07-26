@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_443",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:52:39.781Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129797927_rwqkd5",
+      "userText": "Centennial Citra区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:36:38.563Z"
+    },
+    {
+      "turnId": "trace_1784163193454_4ghx8l",
+      "userText": "Centennial Citra区别",
+      "assistantReply": "Centennial 和 Citra 是两种常见的啤酒花，它们在香气和风味上有一些明显的区别。\n\n1. **Centennial**：这种啤酒花通常被称为“超级 Cascade”，因为它的风味和香气与 Cascade 有些相似，但更为浓郁。Centennial 的特点是带有柑橘、花香和一些草本的香气，通常用于美式IPA和其他风格的啤酒中。\n\n2. **Citra**：Citra 是一种非常受欢迎的啤酒花，以其强烈的热带水果香气而闻名，尤其是柑橘、芒果和菠萝的香气。它的风味更加鲜明，适合用在各种啤酒中，尤其是现代的IPA和果味啤酒。\n\n总的来说，Centennial 更加偏向于柑橘和花香，而 Citra 则是热带水果的代表。如果你喜欢清爽、低甜度的啤酒，Citra 可能会更符合你的口味！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:53:17.349Z"
+    },
+    {
+      "turnId": "trace_1784218904311_2po0l0",
+      "userText": "Centennial Citra区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:21:45.529Z"
+    },
+    {
+      "turnId": "trace_1784219651368_wt9v8p",
+      "userText": "Centennial Citra区别",
+      "assistantReply": "Centennial 和 Citra 都是非常受欢迎的啤酒花品种，它们各自有着独特的风味和香气特点，所以在啤酒中使用时会带来不同的风味体验。\n\n**Centennial**：\n- **风味和香气**：Centennial 啤酒花通常带有明显的柑橘和花香，还有一些松木的香气。它的味道比较平衡，既有柑橘的清新，也有一定的苦味。\n- **常见用途**：常用于美式 IPA 和 Pale Ale 中，能够提供丰富的柑橘和花香，同时增加啤酒的苦度。\n\n**Citra**：\n- **风味和香气**：Citra 啤酒花则更加突出热带水果和柑橘的香气，比如芒果、百香果和葡萄柚。它的香气更加浓郁和复杂，同时也有一定的松木和草本香气。\n- **常见用途**：Citra 也是美式 IPA 和 Pale Ale 的常用啤酒花，尤其是那些追求浓郁果香的啤酒风格。它能够给啤酒带来非常鲜明的热带水果风味。\n\n**区别**：\n- **香气**：Centennial 更偏向于柑橘和花香，而 Citra 则更突出热带水果和柑橘的香气。\n- **风味**：Centennial 的风味比较平衡，苦味和柑橘味都很明显；Citra 的风味则更加浓郁和复杂，热带水果的味道更为突出。\n- **使用场景**：两者都可以用于 IPA 和 Pale Ale，但 Citra 更适合那些追求浓郁果香的啤酒，而 Centennial 则适合那些喜欢柑橘和花香的啤酒。\n\n希望这些信息对你有帮助！如果你对某个特定的啤酒风格或品牌有更多兴趣，也可以告诉我，我们可以进一步讨论。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:34:26.658Z"
+    },
+    {
+      "turnId": "trace_1784255127981_84gi9j",
+      "userText": "Centennial Citra区别",
+      "assistantReply": "Centennial 和 Citra 是两种非常受欢迎的啤酒花，它们各自有着独特的风味和香气特点，经常被用来酿造各种风格的啤酒，尤其是IPA（印度淡色艾尔）。\n\n- **Centennial 啤酒花**：这种啤酒花通常被描述为有柑橘、松树和花香的特点。它能给啤酒带来一种清新的柑橘香气，同时也有一定的苦味，适合用来增加啤酒的苦度和香气。\n\n- **Citra 啤酒花**：Citra 啤酒花则更加以热带水果和柑橘香气著称，比如芒果、百香果和葡萄柚的味道。它还能带来一些微妙的松树和花香，但总体上，它的风味更加偏向于热带水果和柑橘类的清新感。\n\n两者的主要区别在于，Citra 更加突出热带水果的香气，而 Centennial 则更偏向于柑橘和花香。不过，这两种啤酒花都非常适合用来酿造那些需要丰富香气和风味的啤酒，特别是那些追求果香和清新口感的IPA。\n\n如果你喜欢热带水果和更加浓郁的果香，可能会更喜欢 Citra；如果你偏好更加清新的柑橘和花香，Centennial 可能会更适合你。不过，最好的方式还是亲自尝试一下用这两种啤酒花酿造的啤酒，看看哪一种更合你的口味。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:25:37.998Z"
+    },
+    {
+      "turnId": "trace_1784255838900_0dbmdm",
+      "userText": "Centennial Citra区别",
+      "assistantReply": "Centennial 和 Citra 都是非常受欢迎的啤酒花品种，它们各自有着独特的风味和香气特点，经常被用来酿造不同风格的啤酒。Centennial 通常会带来一些柑橘和松木的香气，有时候还会有一点点的花香。而 Citra 则更加以热带水果和柑橘的香气著称，比如芒果、百香果和柚子等，同时也会有一些草本和松脂的味道。\n\n所以，如果你喜欢的是更偏向柑橘和松木风味的啤酒，Centennial 会是个不错的选择。而如果你更喜欢热带水果和更丰富的香气层次，Citra 会更适合你。这两种啤酒花都非常适合用来酿造 IPA（印度淡色艾尔）和其他一些需要突出啤酒花风味的啤酒风格。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:37:25.506Z"
+    },
+    {
+      "turnId": "trace_1784256729700_f5fpoy",
+      "userText": "Centennial Citra区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:52:39.781Z"
+    }
+  ]
+}

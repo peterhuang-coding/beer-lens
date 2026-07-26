@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-tasting-score-only",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:41:30.212Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255535481_auejix",
+      "userText": "4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:32:15.487Z"
+    },
+    {
+      "turnId": "trace_1784256090195_bfijzc",
+      "userText": "4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：4分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:41:30.212Z"
+    }
+  ]
+}

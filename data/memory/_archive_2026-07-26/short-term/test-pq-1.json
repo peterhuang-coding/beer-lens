@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-pq-1",
+  "userId": "test-pq",
+  "updatedAt": "2026-07-15T16:13:09.276Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784131987764_y1ivom",
+      "userText": "我喜欢的啤酒风格",
+      "assistantReply": "我会这样点：\n\n1. 我喜欢的啤酒风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 我喜欢的啤酒风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 我喜欢的啤酒风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：我喜欢的啤酒风格\n最值得尝新：我喜欢的啤酒风格\n我会先跳过：我喜欢的啤酒风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 我喜欢的啤酒风格。\n\n⚠️ 我喜欢的啤酒风格 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T16:13:09.276Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784131987764_j7igdb",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "我喜欢的啤酒风格",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-15T16:13:09.276Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "我喜欢的啤酒风格",
+    "brewery": ""
+  }
+}

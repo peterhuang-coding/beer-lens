@@ -1,0 +1,14 @@
+{
+  "userId": "self-test",
+  "updatedAt": "2026-07-20T16:42:40.477Z",
+  "corrections": [
+    {
+      "id": "corr_1784565760477_ux3b3x",
+      "userId": "self-test",
+      "createdAt": "2026-07-20T16:42:40.477Z",
+      "action": "add_disliked_tag",
+      "targetValue": "太苦",
+      "sourceText": "我不喜欢太苦的"
+    }
+  ]
+}

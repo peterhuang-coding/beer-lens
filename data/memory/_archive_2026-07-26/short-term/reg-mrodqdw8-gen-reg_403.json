@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodqdw8-gen-reg_403",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:34:14.971Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784259246051_et0jvl",
+      "userText": "啤酒酵母分类",
+      "assistantReply": "啤酒酵母主要分为两大类，咱们简单聊聊：\n\n1. **艾尔酵母（Ale Yeast）**\n- 发酵温度：15-24°C（顶部发酵）\n- 特点：产生更多酯类物质，带来果香（香蕉、苹果等）\n- 典型风格：IPA、世涛、小麦啤\n\n2. **拉格酵母（Lager Yeast）**\n- 发酵温度：7-13°C（底部发酵）\n- 特点：发酵更干净，突出麦芽和酒花特性\n- 典型风格：皮尔森、博克、工业拉格\n\n小知识：现在还有\"混血酵母\"（Hybrid），比如科隆啤酒用的那种，能在中间温度发酵~\n\n你是在研究家酿还是单纯好奇呀？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:34:14.971Z"
+    }
+  ]
+}

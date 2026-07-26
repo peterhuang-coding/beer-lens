@@ -1,0 +1,24 @@
+{
+  "conversationId": "regression-filter-not-bitter",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:41:24.708Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255529017_e2hi5g",
+      "userText": "哪个不苦",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:32:10.002Z"
+    },
+    {
+      "turnId": "trace_1784256083686_3grgq5",
+      "userText": "哪个不苦",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:41:24.708Z"
+    }
+  ],
+  "currentConstraints": [
+    "不苦"
+  ]
+}

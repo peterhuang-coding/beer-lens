@@ -1,0 +1,62 @@
+{
+  "conversationId": "test-leader-fix-6",
+  "userId": "test-leader",
+  "updatedAt": "2026-07-11T02:21:34.238Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783736494136_5uvrrk",
+      "userText": "推荐世涛，要酒精度高的，帝国世涛那种",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. 要酒精度高的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：要酒精度高的\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：要酒精度高的 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ 要酒精度高的 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-11T02:21:34.238Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783736494136_7dcin3",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "要酒精度高的",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-11T02:21:34.238Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "2",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "2",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "2",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "2",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  }
+}

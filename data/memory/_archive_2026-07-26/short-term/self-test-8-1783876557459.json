@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-8-1783876557459",
+  "userId": "self-test",
+  "updatedAt": "2026-07-12T17:16:02.688Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783876557465_50wolz",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "West Coast IPA，也就是西海岸印度淡色艾尔，起源于美国西海岸，特别是加州地区。这种风格的IPA以其强烈的苦味和鲜明的酒花香气著称。典型的West Coast IPA会有明显的松树、柑橘和热带水果的香气，同时苦度较高，酒精度通常在6-7.5%之间。它的颜色从金黄色到深琥珀色不等，口感上比较干，收尾时苦味持久。如果你喜欢那种强烈、直接的啤酒风味，West Coast IPA绝对值得一试。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-12T17:16:02.688Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

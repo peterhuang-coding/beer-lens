@@ -1,0 +1,67 @@
+{
+  "conversationId": "regression-gen-reg_514",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:56.950Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255303412_mh2h4m",
+      "userText": "选3号那款酒吧",
+      "assistantReply": "我会这样点：\n\n1. 选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：选3号那款酒吧\n最值得尝新：选3号那款酒吧\n我会先跳过：选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 选3号那款酒吧。\n\n⚠️ 选3号那款酒吧 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:28:24.639Z"
+    },
+    {
+      "turnId": "trace_1784255944054_533l1e",
+      "userText": "选3号那款酒吧",
+      "assistantReply": "我会这样点：\n\n1. 选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：选3号那款酒吧\n最值得尝新：选3号那款酒吧\n我会先跳过：选3号那款酒吧 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 选3号那款酒吧。\n\n⚠️ 选3号那款酒吧 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:39:06.056Z"
+    },
+    {
+      "turnId": "trace_1784256895860_3b8sal",
+      "userText": "选3号那款酒吧",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:54:56.950Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784255944054_b9j1ev",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "选3号那款酒吧",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:39:06.056Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "选3号那款酒吧",
+    "brewery": ""
+  }
+}

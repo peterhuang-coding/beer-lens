@@ -1,0 +1,23 @@
+{
+  "userId": "test-leader",
+  "updatedAt": "2026-07-11T02:31:59.948Z",
+  "favorites": {
+    "topBreweries": [],
+    "topCountries": [],
+    "topStyles": []
+  },
+  "abvEvolution": [],
+  "flavorCloud": [
+    {
+      "tag": "柑橘",
+      "count": 1,
+      "category": "aroma"
+    }
+  ],
+  "pendingFeedback": [],
+  "totalEpisodes": 1,
+  "totalSessions": 1,
+  "frequentIntents": {
+    "tasting_feedback": 1
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_448",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:34.731Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163223845_tz1hgx",
+      "userText": "4.5分会再喝热带水果味",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:43.852Z"
+    },
+    {
+      "turnId": "trace_1784218917041_j10mkc",
+      "userText": "4.5分会再喝热带水果味",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：4.5分会再喝热带水果味\n你的口味画像：喜欢热带水果和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:21:57.056Z"
+    },
+    {
+      "turnId": "trace_1784219724480_eotdwe",
+      "userText": "4.5分会再喝热带水果味",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：4.5分会再喝热带水果味\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:24.497Z"
+    },
+    {
+      "turnId": "trace_1784255186979_zw3td4",
+      "userText": "4.5分会再喝热带水果味",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：4.5分会再喝热带水果味\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:26.997Z"
+    },
+    {
+      "turnId": "trace_1784255883823_zcnpja",
+      "userText": "4.5分会再喝热带水果味",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：4.5分会再喝热带水果味\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:03.843Z"
+    },
+    {
+      "turnId": "trace_1784256814710_y8izp7",
+      "userText": "4.5分会再喝热带水果味",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：4.5分会再喝热带水果味\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:34.731Z"
+    }
+  ]
+}

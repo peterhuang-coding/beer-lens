@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mroddtn8-gen-reg_307",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:20:05.757Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258405725_hepbfl",
+      "userText": "推荐德式小麦",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Wheat Beer - 评分2.7\n2. Wheat Beer - 评分2.7\n3. Wheat Beer - 评分2.7\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7\n\n如果只能喝一杯，选 Wheat Beer。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:20:05.757Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784258405725_mk98mw",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Wheat Beer",
+        "brewery": "Napa Smith Brewery",
+        "style": "American Pale Wheat Ale",
+        "abv": 4.8,
+        "price": null,
+        "rating": 2.71
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:20:05.757Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Wheat Beer",
+    "brewery": "Napa Smith Brewery"
+  }
+}

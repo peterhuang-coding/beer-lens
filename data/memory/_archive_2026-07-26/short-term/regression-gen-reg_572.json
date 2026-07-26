@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-gen-reg_572",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:56:11.805Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255460533_42yhpx",
+      "userText": "说错了不喜欢苦啤",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:31:03.408Z"
+    },
+    {
+      "turnId": "trace_1784256026360_pgums0",
+      "userText": "说错了不喜欢苦啤",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:40:27.775Z"
+    },
+    {
+      "turnId": "trace_1784256970649_009hzx",
+      "userText": "说错了不喜欢苦啤",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:56:11.805Z"
+    }
+  ]
+}

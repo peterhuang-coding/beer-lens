@@ -1,0 +1,28 @@
+{
+  "userId": "debug",
+  "updatedAt": "2026-07-16T16:38:41.421Z",
+  "favorites": {
+    "topBreweries": [],
+    "topCountries": [],
+    "topStyles": []
+  },
+  "abvEvolution": [],
+  "flavorCloud": [],
+  "pendingFeedback": [
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:38:30.691Z"
+    },
+    {
+      "beerName": "未知啤酒",
+      "brewery": "",
+      "recommendedAt": "2026-07-16T16:38:41.417Z"
+    }
+  ],
+  "totalEpisodes": 2,
+  "totalSessions": 1,
+  "frequentIntents": {
+    "tasting_feedback": 0
+  }
+}

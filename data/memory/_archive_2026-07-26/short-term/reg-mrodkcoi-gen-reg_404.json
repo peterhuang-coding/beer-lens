@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_404",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:29:18.527Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258953111_la2pzv",
+      "userText": "上发酵下发酵区别",
+      "assistantReply": "啊，这个问题问得好！啤酒发酵方式主要就是这两种，区别挺有意思的：\n\n上发酵（艾尔酵母）：\n- 酵母在发酵罐顶部工作\n- 发酵温度较高（15-24°C）\n- 产生更多酯类物质（花果香）\n- 典型风格：IPA、世涛、小麦啤\n\n下发酵（拉格酵母）：\n- 酵母沉在罐底发酵\n- 低温发酵（7-13°C）\n- 口感更干净清爽\n- 典型风格：皮尔森、德式拉格\n\n简单说就是：上发酵的啤酒通常风味更丰富，下发酵的更清爽干净。你平时更喜欢喝哪种类型的？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:29:18.527Z"
+    }
+  ]
+}

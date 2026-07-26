@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ep_1784255314592_ni3jc6",
+    "userId": "e2e-user",
+    "createdAt": "2026-07-17T02:28:34.592Z",
+    "sourceTraceId": "trace_1784255314577_29ew79",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分，还会再喝"
+    }
+  }
+]

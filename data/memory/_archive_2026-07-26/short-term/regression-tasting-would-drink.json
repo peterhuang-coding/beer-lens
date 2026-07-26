@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-tasting-would-drink",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:41:31.762Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255537022_ylf9gz",
+      "userText": "会再喝，苦度刚好",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你会再喝这杯酒。\n备注：会再喝，苦度刚好\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:32:17.037Z"
+    },
+    {
+      "turnId": "trace_1784256091744_vjoi66",
+      "userText": "会再喝，苦度刚好",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你会再喝这杯酒。\n备注：会再喝，苦度刚好\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:41:31.762Z"
+    }
+  ]
+}

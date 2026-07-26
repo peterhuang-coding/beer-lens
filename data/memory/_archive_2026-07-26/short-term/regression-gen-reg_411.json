@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_411",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:49:24.302Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129704634_av450r",
+      "userText": "Heady Topper历史",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:35:06.683Z"
+    },
+    {
+      "turnId": "trace_1784163031157_uwxo8h",
+      "userText": "Heady Topper历史",
+      "assistantReply": "Heady Topper 是一款非常著名的美国双料 IPA（India Pale Ale），由 Vermont 的 The Alchemist 酒厂酿造。它首次推出于 2011 年，迅速在啤酒爱好者中获得了极高的评价和人气。\n\n这款啤酒以其浓郁的热带水果和柑橘风味而闻名，口感丰富且清爽，酒精度通常在 8% 左右。Heady Topper 的独特之处在于它的浑浊外观和强烈的香气，酿造过程中使用了大量的啤酒花，给人一种非常新鲜的感觉。\n\n此外，Heady Topper 还被认为是“饮用时不需要倒入杯中”的啤酒，酒厂建议直接从罐中饮用，以保持其最佳风味和香气。它的成功也推动了 Vermont 成为美国 craft beer 的重要地区之一。\n\n如果你对这款啤酒有更多的兴趣或者想了解其他相关的内容，随时问我哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:50:36.066Z"
+    },
+    {
+      "turnId": "trace_1784218657628_0mph37",
+      "userText": "Heady Topper历史",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:17:40.328Z"
+    },
+    {
+      "turnId": "trace_1784219311670_une32m",
+      "userText": "Heady Topper历史",
+      "assistantReply": "Heady Topper 是一款非常有名的双倍印度淡色艾尔（Double IPA），由美国佛蒙特州的 The Alchemist 酿酒厂酿造。这款啤酒是由酿酒师 John Kimmich 在 2003 年左右创造的，最初是作为一款实验性的啤酒，但很快就因其独特的风味和高酒精度而受到广泛赞誉。\n\nHeady Topper 的特点在于其浓郁的热带水果和柑橘香气，同时保持了较高的易饮性。它的 IBU（苦度单位）相对较高，但苦味和麦芽的甜味之间达到了很好的平衡。这款啤酒的 ABV（酒精度）通常在 8% 左右，是一款非常有特色的双倍 IPA。\n\nHeady Topper 的成功不仅在于它的味道，还在于它的限量供应。The Alchemist 酿酒厂最初是一家小型的精酿啤酒厂，Heady Topper 通常只在酿酒厂的现场销售，这使得它成为了很多啤酒爱好者的“圣杯”之一。随着时间的推移，The Alchemist 逐渐扩大了生产规模，但 Heady Topper 依然保持了一定的稀缺性，这进一步增加了它的吸引力。\n\n如果你有机会尝试 Heady Topper，一定要好好享受它的复杂风味和独特的口感！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:28:53.684Z"
+    },
+    {
+      "turnId": "trace_1784254827026_vfy0bk",
+      "userText": "Heady Topper历史",
+      "assistantReply": "Heady Topper 是一款非常有名的双倍印度淡色艾尔（Double IPA），由美国佛蒙特州的 The Alchemist 酿酒厂酿造。这款啤酒是由酿酒师 John Kimmich 在 2003 年左右创造的，最初是作为一款实验性的啤酒。Heady Topper 以其极高的酒精度（通常在 8% ABV 左右）、浓郁的热带水果和柑橘香气以及平衡的苦味而闻名。\n\nHeady Topper 的独特之处不仅在于它的味道，还在于它的包装和分销方式。这款啤酒最初只在 The Alchemist 的酿酒厂内销售，而且数量非常有限。由于其极高的口碑和需求量，Heady Topper 很快成为了一款“朝圣啤酒”，许多啤酒爱好者会特意前往佛蒙特州品尝这款啤酒。\n\n随着时间的推移，The Alchemist 逐渐扩大了 Heady Topper 的生产规模，但仍然保持了其限量供应的特点，以确保啤酒的新鲜度和品质。如今，Heady Topper 仍然是许多啤酒爱好者心中的顶级啤酒之一，其独特的风味和酿造工艺也影响了无数其他酿酒师和啤酒品牌。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:20:39.928Z"
+    },
+    {
+      "turnId": "trace_1784255594359_vf0szo",
+      "userText": "Heady Topper历史",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:33:16.276Z"
+    },
+    {
+      "turnId": "trace_1784256557306_pi8ul2",
+      "userText": "Heady Topper历史",
+      "assistantReply": "Heady Topper 是一款非常有名的双倍印度淡色艾尔（Double IPA），由美国佛蒙特州的 The Alchemist 酿酒厂酿造。这款啤酒是由酿酒师 John Kimmich 在 2003 年左右创造的，最初是作为一款实验性的啤酒。Heady Topper 的特点是酒精度较高，通常在 8% ABV 左右，带有强烈的热带水果和柑橘香气，同时口感非常顺滑，苦度适中。\n\nHeady Topper 之所以出名，不仅因为它的味道，还因为它在啤酒爱好者中的口碑和稀有性。The Alchemist 酿酒厂规模较小，Heady Topper 产量有限，因此在市面上很难找到。很多啤酒爱好者会特意前往佛蒙特州，只为一尝这款传奇啤酒的风味。\n\nHeady Topper 也经常在各种啤酒评比中获得高分，是许多啤酒爱好者心中的经典之作。如果你有机会尝试，绝对值得一试！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:49:24.302Z"
+    }
+  ]
+}

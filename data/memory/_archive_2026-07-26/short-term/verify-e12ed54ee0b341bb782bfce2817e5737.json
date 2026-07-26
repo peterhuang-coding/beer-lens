@@ -1,0 +1,53 @@
+{
+  "conversationId": "verify-e12ed54ee0b341bb782bfce2817e5737",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T16:14:14.296Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784218454242_8s88jw",
+      "userText": "推荐性价比高的精酿",
+      "assistantReply": "我会这样点：\n\n1. 推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐性价比高的精酿\n最值得尝新：推荐性价比高的精酿\n我会先跳过：推荐性价比高的精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐性价比高的精酿。\n\n⚠️ 推荐性价比高的精酿 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:14.296Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784218454242_s3bqgl",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "推荐性价比高的精酿",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-16T16:14:14.296Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "推荐性价比高的精酿",
+    "brewery": ""
+  }
+}

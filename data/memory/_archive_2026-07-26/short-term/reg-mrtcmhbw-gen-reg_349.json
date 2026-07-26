@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_349",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T14:58:35.779Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559515444_ix771h",
+      "userText": "有好喝精酿推荐吗",
+      "assistantReply": "我会这样点：\n\n1. 有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有好喝精酿推荐吗\n最值得尝新：有好喝精酿推荐吗\n我会先跳过：有好喝精酿推荐吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有好喝精酿推荐吗。\n\n⚠️ 有好喝精酿推荐吗 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T14:58:35.779Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784559515444_7mccpy",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "有好喝精酿推荐吗",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-20T14:58:35.779Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "有好喝精酿推荐吗",
+    "brewery": ""
+  }
+}

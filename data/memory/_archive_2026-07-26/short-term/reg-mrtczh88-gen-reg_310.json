@@ -1,0 +1,62 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_310",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:07:48.752Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560068719_k3uqtj",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Double IPA - 评分4.0，119人评分；酒精度10%，略高（有风险，见下方）\n2. Double IPA - 评分4.0，119人评分；酒精度10%，略高\n3. Double IPA - 评分4.0，119人评分；酒精度10%，略高\n\n最稳：Double IPA\n最值得尝新：Double IPA\n我会先跳过：Imperial Stout - 评分3.9，833人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Double IPA。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T15:07:48.752Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784560068719_u0s89c",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Imperial Stout",
+        "brewery": "Rogue Ales",
+        "style": "Russian Imperial Stout",
+        "abv": 11,
+        "price": null,
+        "rating": 3.88
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Double IPA",
+        "brewery": "Ithaca Beer Company",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.97
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-20T15:07:48.752Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "2",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "2",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "2",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "2",
+    "displayName": "Double IPA",
+    "brewery": "Ithaca Beer Company"
+  }
+}

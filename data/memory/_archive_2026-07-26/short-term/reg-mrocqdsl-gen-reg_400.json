@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_400",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:05:37.909Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257531323_p28cf7",
+      "userText": "啤酒如何碳酸化",
+      "assistantReply": "啊，啤酒碳酸化是个很有意思的工艺！主要有两种常见方法：\n\n1. 自然碳酸化（瓶内发酵）：\n- 装瓶时加入少量糖和活性酵母\n- 酵母吃掉糖分产生二氧化碳\n- 需要1-2周时间完成\n- 传统精酿啤酒常用，会产生细腻气泡\n\n2. 强制碳酸化：\n- 在发酵罐中直接注入CO2\n- 通过碳化石(碳酸化器)快速完成\n- 商业啤酒厂普遍采用\n- 可以精确控制碳酸化程度\n\n你想了解某种具体工艺的细节吗？比如家酿常用的自然碳酸化技巧？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:05:37.909Z"
+    }
+  ]
+}

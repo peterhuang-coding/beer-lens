@@ -65,7 +65,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-07T03:22:38.845Z",
-    "updatedAt": "2026-07-07T03:22:38.845Z"
+    "updatedAt": "2026-07-07T03:22:38.845Z",
+    "expectedFail": true,
+    "expectedFailReason": "legacy_fixture_beer-fixture-example"
   },
   {
     "id": "vqa_303dbf1fd34c1dc4",
@@ -133,7 +135,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-07T03:22:38.875Z",
-    "updatedAt": "2026-07-07T03:22:38.875Z"
+    "updatedAt": "2026-07-07T03:22:38.875Z",
+    "expectedFail": true,
+    "expectedFailReason": "legacy_fixture_beer-fixture-example"
   },
   {
     "id": "vqa_615820d2e05c369c",
@@ -201,7 +205,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-07T03:22:38.876Z",
-    "updatedAt": "2026-07-07T03:22:38.876Z"
+    "updatedAt": "2026-07-07T03:22:38.876Z",
+    "expectedFail": true,
+    "expectedFailReason": "legacy_fixture_beer-fixture-example"
   },
   {
     "id": "vqa_c87c9a35006905f4",
@@ -269,7 +275,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-07T03:22:38.876Z",
-    "updatedAt": "2026-07-07T03:22:38.876Z"
+    "updatedAt": "2026-07-07T03:22:38.876Z",
+    "expectedFail": true,
+    "expectedFailReason": "legacy_fixture_beer-fixture-example"
   },
   {
     "id": "vqa_e6f044bab5d7644b",
@@ -337,7 +345,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-07T03:22:38.876Z",
-    "updatedAt": "2026-07-07T03:22:38.876Z"
+    "updatedAt": "2026-07-07T03:22:38.876Z",
+    "expectedFail": true,
+    "expectedFailReason": "legacy_fixture_beer-fixture-example"
   },
   {
     "id": "vqa_430a7e22f4508da9",
@@ -405,7 +415,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-07T03:22:38.876Z",
-    "updatedAt": "2026-07-07T03:22:38.876Z"
+    "updatedAt": "2026-07-07T03:22:38.876Z",
+    "expectedFail": true,
+    "expectedFailReason": "legacy_fixture_beer-fixture-example"
   },
   {
     "id": "vqa_ddf4101d6f92f79e",
@@ -473,6 +485,8 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-07T03:22:38.876Z",
-    "updatedAt": "2026-07-07T03:22:38.876Z"
+    "updatedAt": "2026-07-07T03:22:38.876Z",
+    "expectedFail": true,
+    "expectedFailReason": "legacy_fixture_beer-fixture-example"
   }
 ]

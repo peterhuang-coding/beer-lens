@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-gen-reg_532",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:55:28.275Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255393965_9scgsh",
+      "userText": "哪个颜色更深",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:29:55.875Z"
+    },
+    {
+      "turnId": "trace_1784255984465_un81cf",
+      "userText": "哪个颜色更深",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:39:46.297Z"
+    },
+    {
+      "turnId": "trace_1784256925661_a9q0s4",
+      "userText": "哪个颜色更深",
+      "assistantReply": "请提供两款酒的酒标照片，以便我进行比较。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:55:28.275Z"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_313",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:01:54.993Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257314955_dr5z2h",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n2. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n3. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n最稳：Monk's Café Flemish Sour Ale\n最值得尝新：Monk's Café Flemish Sour Ale\n我会先跳过：Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n如果只能喝一杯，选 Monk's Café Flemish Sour Ale。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:01:54.993Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257314955_amgq05",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:01:54.993Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Monk's Café Flemish Sour Ale",
+    "brewery": "Brouwerij Van Steenberge N.V."
+  }
+}

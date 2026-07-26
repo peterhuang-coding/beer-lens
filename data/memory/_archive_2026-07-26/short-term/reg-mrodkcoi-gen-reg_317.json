@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_317",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:25:22.121Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258722084_g9srvy",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:25:22.121Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784258722084_z5bd8k",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "King Sue",
+        "brewery": "Toppling Goliath Brewing Co.",
+        "style": "IPA - Imperial / Double New England / Hazy",
+        "abv": 7.8,
+        "price": null,
+        "rating": 4.3
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:25:22.121Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "King Sue",
+    "brewery": "Toppling Goliath Brewing Co."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-9-1783961401401",
+  "userId": "self-test",
+  "updatedAt": "2026-07-13T16:50:04.186Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783961401406_3n946g",
+      "userText": "帮我规划今晚喝什么",
+      "assistantReply": "根据你的口味画像：喜欢热带水果风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-13T16:50:04.186Z"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-gen-reg_588",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:40:43.818Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255478383_a9pvie",
+      "userText": "这瓶酒保质期怎么看",
+      "assistantReply": "请提供酒标照片，以便查看具体信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:31:30.540Z"
+    },
+    {
+      "turnId": "trace_1784256042734_i7cxt8",
+      "userText": "这瓶酒保质期怎么看",
+      "assistantReply": "请提供酒标照片，以便查看具体信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:40:43.818Z"
+    }
+  ]
+}

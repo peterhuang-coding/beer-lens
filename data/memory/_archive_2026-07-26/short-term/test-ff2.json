@@ -1,0 +1,53 @@
+{
+  "conversationId": "test-ff2",
+  "userId": "test-ff2",
+  "updatedAt": "2026-07-15T16:13:13.125Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784131991946_ueoclr",
+      "userText": "推荐哪一款",
+      "assistantReply": "我会这样点：\n\n1. 推荐哪一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐哪一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐哪一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐哪一款\n最值得尝新：推荐哪一款\n我会先跳过：推荐哪一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐哪一款。\n\n⚠️ 推荐哪一款 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T16:13:13.125Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784131991946_8faj0c",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "推荐哪一款",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-15T16:13:13.125Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "推荐哪一款",
+    "brewery": ""
+  }
+}

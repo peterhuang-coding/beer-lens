@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_411",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:16:00.702Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560550989_awbuhc",
+      "userText": "Heady Topper历史",
+      "assistantReply": "啊，Heady Topper！这可是精酿啤酒界的传奇之一啊。这款双倍IPA来自美国佛蒙特州的The Alchemist酒厂，它的历史特别有意思：\n\n1. 起源：最早是2003年由John Kimmich在小酒馆里酿造的实验性啤酒，当时酒厂都还没成立呢\n2. 成名：2004年正式推出后就火得一塌糊涂，很多人专门开车去佛蒙特就为买它\n3. 特色：浑浊的橙汁外观+爆炸式的热带水果香气，算是定义了\"新英格兰IPA\"风格的先驱\n4. 有趣的是：直到2011年之前都只能在酒厂附近买到，因为创始人坚持不扩大分销\n\n最绝的是它的罐装建议——直接写着\"不要倒进杯子！从罐子喝！\"（这其实是为了保留香气）现在虽然模仿者众多，但原版的地位还是不可撼动。你喝过这款吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:16:00.702Z"
+    }
+  ]
+}

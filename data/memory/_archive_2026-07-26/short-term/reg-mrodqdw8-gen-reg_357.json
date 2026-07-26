@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodqdw8-gen-reg_357",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:31:08.356Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784259061685_te2bxt",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "帝国世涛确实很适合用波本桶陈酿！波本桶能赋予啤酒丰富的香草、焦糖和橡木风味，这些都能和帝国世涛本身的巧克力、咖啡和焦糖味完美融合。陈酿过程中，啤酒还会吸收一些波本威士忌的香气，让整体风味更加复杂和有层次感。一般来说，陈酿时间可以从几个月到一年不等，具体取决于你想要的风味强度。你有没有尝试过波本桶陈酿的帝国世涛？感觉如何？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:31:08.356Z"
+    }
+  ]
+}

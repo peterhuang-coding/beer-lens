@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-2-1783736004004",
+  "userId": "self-test",
+  "updatedAt": "2026-07-11T02:13:36.291Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783736004008_c09e1o",
+      "userText": "有IPA吗",
+      "assistantReply": "当然有！IPA，也就是印度淡色艾尔，是一种非常受欢迎的啤酒风格。它的特点是苦味较重，酒精度通常也比较高，而且有很多不同的变种，比如美式IPA、英式IPA、双倍/帝国IPA等等。你对IPA有什么特别的偏好吗？比如喜欢哪种香气或者口感？这样我可以给你更具体的建议。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-11T02:13:36.291Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_488",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:01.339Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163253550_qi88cd",
+      "userText": "酸得舒服4分再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:13.557Z"
+    },
+    {
+      "turnId": "trace_1784218943930_g48rhf",
+      "userText": "酸得舒服4分再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：酸得舒服4分再喝\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:23.942Z"
+    },
+    {
+      "turnId": "trace_1784219751286_mqjsf3",
+      "userText": "酸得舒服4分再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：酸得舒服4分再喝\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:51.299Z"
+    },
+    {
+      "turnId": "trace_1784255217640_gzddz1",
+      "userText": "酸得舒服4分再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：酸得舒服4分再喝\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:57.657Z"
+    },
+    {
+      "turnId": "trace_1784255910102_41wehj",
+      "userText": "酸得舒服4分再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：酸得舒服4分再喝\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:30.119Z"
+    },
+    {
+      "turnId": "trace_1784256841323_dipswf",
+      "userText": "酸得舒服4分再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：酸得舒服4分再喝\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:54:01.339Z"
+    }
+  ]
+}

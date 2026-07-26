@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_449",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:35.253Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163224356_yprpyx",
+      "userText": "3分不会再喝太苦了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n你不会再喝这杯酒。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:44.361Z"
+    },
+    {
+      "turnId": "trace_1784218917561_xsiru5",
+      "userText": "3分不会再喝太苦了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n你不会再喝这杯酒。\n备注：3分不会再喝太苦了\n你的口味画像：喜欢热带水果和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:21:57.573Z"
+    },
+    {
+      "turnId": "trace_1784219725002_5ko8td",
+      "userText": "3分不会再喝太苦了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n你不会再喝这杯酒。\n备注：3分不会再喝太苦了\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:25.017Z"
+    },
+    {
+      "turnId": "trace_1784255187504_qsooit",
+      "userText": "3分不会再喝太苦了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n你不会再喝这杯酒。\n备注：3分不会再喝太苦了\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:27.519Z"
+    },
+    {
+      "turnId": "trace_1784255884344_9visxu",
+      "userText": "3分不会再喝太苦了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n你不会再喝这杯酒。\n备注：3分不会再喝太苦了\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:04.362Z"
+    },
+    {
+      "turnId": "trace_1784256815235_e8rxqi",
+      "userText": "3分不会再喝太苦了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n你不会再喝这杯酒。\n备注：3分不会再喝太苦了\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:35.253Z"
+    }
+  ]
+}

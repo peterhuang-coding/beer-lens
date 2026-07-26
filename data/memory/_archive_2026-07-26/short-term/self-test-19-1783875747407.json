@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-19-1783875747407",
+  "userId": "self-test",
+  "updatedAt": "2026-07-12T17:02:30.869Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783875747416_h063ux",
+      "userText": "你好",
+      "assistantReply": "你好！很高兴见到你。你对啤酒感兴趣吗？有没有什么特别喜欢的风格或者品牌？我们可以从你提到的热带水果、柑橘、清爽、低甜度的口味偏好开始聊。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-12T17:02:30.869Z"
+    }
+  ]
+}

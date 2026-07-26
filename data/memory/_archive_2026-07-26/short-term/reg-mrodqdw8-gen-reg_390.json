@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrodqdw8-gen-reg_390",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:32:01.262Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784259112111_82hr9g",
+      "userText": "淡色艾尔和IPA区别",
+      "assistantReply": "啊，这是个经典问题！让我用最简单的方式解释这两个风格的区别：\n\n1. **苦度**：IPA(印度淡色艾尔)比普通淡色艾尔(PA)明显更苦。IPA的IBU(苦度单位)通常在40-70，而PA一般在20-40。\n\n2. **酒精度**：IPA通常更强劲，酒精度多在5.5-7.5%，而PA则在4.5-6%左右。\n\n3. **啤酒花**：IPA会投放更多啤酒花，尤其是后期干投(dry hopping)，所以香气更爆炸，柑橘、松木等风味更突出。PA的啤酒花特征相对含蓄。\n\n有趣的是，IPA其实是从PA演变来的——当年英国往印度运啤酒时，发现多加啤酒花可以防腐，结果意外创造出了这个更重口的版本。\n\n你平时更喜欢哪种？IPA的强烈啤酒花冲击，还是PA的平衡感？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:32:01.263Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

@@ -132,5 +132,9 @@
     "llm": 3,
     "fallback": 1
   },
-  "handlerErrors": {}
+  "handlerErrors": {},
+  "pass_rate": 0.7928,
+  "intent_accuracy": 0.7928,
+  "last_crawl": "2026-07-08T02:30:02.935Z",
+  "cn_seed_coverage": 0.2148
 }

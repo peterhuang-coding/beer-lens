@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-17-1784222594450",
+  "userId": "self-test",
+  "updatedAt": "2026-07-16T17:23:16.508Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784222594454_wgk3do",
+      "userText": "有没有世涛",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-16T17:23:16.508Z"
+    }
+  ]
+}

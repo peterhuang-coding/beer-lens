@@ -1,0 +1,14 @@
+{
+  "conversationId": "e2e-fb",
+  "userId": "e2e-user",
+  "updatedAt": "2026-07-17T02:28:34.595Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255314577_f39q73",
+      "userText": "4分，还会再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：4分，还会再喝\n你的口味画像：暂无足够的品饮记录来生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:28:34.595Z"
+    }
+  ]
+}

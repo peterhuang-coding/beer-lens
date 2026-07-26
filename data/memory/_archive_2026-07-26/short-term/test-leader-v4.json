@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-leader-v4",
+  "userId": "test-leader",
+  "updatedAt": "2026-07-11T02:31:59.947Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783737119941_6wk2bo",
+      "userText": "4分，会再喝，柑橘味",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：4分，会再喝，柑橘味\n你的口味画像：喜欢柑橘风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-11T02:31:59.947Z"
+    }
+  ]
+}

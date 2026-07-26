@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_395",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:27:56.818Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258866249_x0ejgr",
+      "userText": "修道院啤酒是什么",
+      "assistantReply": "啊，修道院啤酒可是啤酒界的\"奢侈品\"啊！简单来说就是由真正修道院里的僧侣酿造（或监督酿造）的啤酒，有着几百年的历史传统。\n\n主要分两类：\n1. **正统修道院啤酒**（Trappist）：\n- 目前全球只有12家认证酒厂（比利时6家、荷兰2家、奥地利/美国/意大利/英国各1家）\n- 必须由Trappist修道士全程参与酿造\n- 利润必须用于修道院运营和慈善\n\n2. **修道院风格啤酒**（Abbey Beer）：\n- 商业酒厂模仿Trappist风格的啤酒\n- 可能获得修道院授权使用名称\n- 品质参差不齐\n\n经典风格包括：\n- 双料（Dubbel）：深色，焦糖麦芽香\n- 三料（Tripel）：金色，高酒精度带果香\n- 四料（Quadrupel）：深色超浓烈款\n\n你喝过哪种？我个人超爱三料那种金黄的色泽和隐藏的9%酒精度～ 想了解具体风格还是想听推荐？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:27:56.819Z"
+    }
+  ]
+}

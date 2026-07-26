@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_347",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T14:58:10.497Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559483657_wequnm",
+      "userText": "搞一杯好精酿",
+      "assistantReply": "(眼睛一亮) 哈！看来今天想整点有意思的？来来来，咱们先聊聊你最近喝到什么让你惊艳的酒没？(搓手手) \n\n根据你之前提的偏好(热带水果/柑橘调/清爽挂)，我盲猜你现在可能想来杯：\n- 爆炸香气的浑浊IPA\n- 或者酸爽多汁的酸IPA\n- 要不就是带点海盐咸感的古斯？\n\n(突然压低声音) 悄悄说...最近有家酒厂做了款用芒果+百香果干投的社交IPA，酒精度才4.5%，简直是你偏好清单本单！要不要听听细节？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T14:58:10.497Z"
+    }
+  ]
+}

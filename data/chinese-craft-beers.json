@@ -1107,7 +1107,11 @@
     "ratings_count": 4500,
     "country": "China",
     "chinese_name": "京华烟云",
-    "chinese_brewery": "悠航"
+    "chinese_brewery": "悠航",
+    "flags": {
+      "duplicateInvestigation": "pending",
+      "notes": "跨 Mingri/Slow Boat，需外部源仲裁"
+    }
   },
   {
     "name": "Disorder",
@@ -2801,7 +2805,11 @@
     "rating": null,
     "ratings_count": null,
     "country": "China",
-    "untappd_url": null
+    "untappd_url": null,
+    "flags": {
+      "duplicateInvestigation": "pending",
+      "notes": "跨 Mingri/Slow Boat，需外部源仲裁"
+    }
   },
   {
     "name": "Punk City Wuhan",

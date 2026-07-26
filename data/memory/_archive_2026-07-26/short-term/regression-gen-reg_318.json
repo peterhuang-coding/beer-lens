@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_318",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:02.152Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129533387_e3xsrt",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:15.241Z"
+    },
+    {
+      "turnId": "trace_1784162434021_oqmivf",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "Parabola 是一款非常受欢迎的帝国世涛，通常具有浓郁的巧克力、咖啡和干果风味。如果你在寻找类似风格的世涛，可以考虑以下几种：\n\n1. **Bourbon County Brand Stout** - 这款世涛同样以波本桶熟成而闻名，带有丰富的焦糖和香草风味。\n2. **Founders KBS (Kentucky Breakfast Stout)** - 这款帝国世涛融合了咖啡和巧克力的风味，口感非常顺滑。\n3. **Goose Island Bourbon County Stout** - 经典的波本桶熟成世涛，风味复杂，适合喜欢 Parabola 的人。\n\n这些酒款在风味上都与 Parabola 有相似之处，值得一试！你有没有尝过其中的哪一款呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:40:39.368Z"
+    },
+    {
+      "turnId": "trace_1784162783468_f3i0uj",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "Parabola 是一款非常受欢迎的世涛，通常以其浓郁的口感和复杂的风味著称。如果你喜欢这种风格，可以尝试一些其他的高品质世涛，比如：\n\n1. **Goose Island Bourbon County Stout**：这款世涛经过波本威士忌桶陈酿，带有浓郁的巧克力和咖啡风味，酒体厚重。\n   \n2. **Founders KBS (Kentucky Breakfast Stout)**：这款酒同样是波本桶陈酿，结合了咖啡和巧克力的风味，口感丰富。\n\n3. **Bell's Expedition Stout**：这款世涛酒体饱满，带有深色水果和巧克力的风味，适合喜欢浓烈口感的人。\n\n这些酒都在风味和酒体上与 Parabola 有相似之处，希望你能找到喜欢的选择！如果你有其他偏好或者想了解更多，随时告诉我哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:46:27.881Z"
+    },
+    {
+      "turnId": "trace_1784218471972_45kjc0",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:31.982Z"
+    },
+    {
+      "turnId": "trace_1784218993968_3ah403",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:13.979Z"
+    },
+    {
+      "turnId": "trace_1784220513685_dfj5rb",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:33.692Z"
+    },
+    {
+      "turnId": "trace_1784254105757_4k5zqd",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:25.767Z"
+    },
+    {
+      "turnId": "trace_1784254695025_w9wbta",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:15.033Z"
+    },
+    {
+      "turnId": "trace_1784255351625_pflp2k",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:11.636Z"
+    },
+    {
+      "turnId": "trace_1784256238186_27k1p6",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:58.200Z"
+    },
+    {
+      "turnId": "trace_1784256282537_ren4o0",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:42.549Z"
+    },
+    {
+      "turnId": "trace_1784257202140_omy9wv",
+      "userText": "Parabola级别世涛推荐",
+      "assistantReply": "我会这样点：\n\n1. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Parabola级别世涛推荐\n最值得尝新：Parabola级别世涛推荐\n我会先跳过：Parabola级别世涛推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Parabola级别世涛推荐。\n\n⚠️ Parabola级别世涛推荐 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:02.152Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257202140_okhwqf",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Parabola级别世涛推荐",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:02.152Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Parabola级别世涛推荐",
+    "brewery": ""
+  }
+}

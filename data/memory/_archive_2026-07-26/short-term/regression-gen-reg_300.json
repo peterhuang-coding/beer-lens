@@ -1,0 +1,158 @@
+{
+  "conversationId": "regression-gen-reg_300",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:52.435Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129511962_69krjd",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:31:52.069Z"
+    },
+    {
+      "turnId": "trace_1784162379026_45a0pd",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:39:39.036Z"
+    },
+    {
+      "turnId": "trace_1784162402691_ontun8",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:02.696Z"
+    },
+    {
+      "turnId": "trace_1784162753503_03oelt",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:45:53.512Z"
+    },
+    {
+      "turnId": "trace_1784218462031_ew323h",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:22.039Z"
+    },
+    {
+      "turnId": "trace_1784218983979_0cyvt9",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:03.987Z"
+    },
+    {
+      "turnId": "trace_1784220503773_t2iz4o",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:23.782Z"
+    },
+    {
+      "turnId": "trace_1784254095945_m6wktu",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:15.955Z"
+    },
+    {
+      "turnId": "trace_1784254685159_zf71hl",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:05.171Z"
+    },
+    {
+      "turnId": "trace_1784255341801_5dow34",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:01.808Z"
+    },
+    {
+      "turnId": "trace_1784256228303_wfm0kz",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:48.322Z"
+    },
+    {
+      "turnId": "trace_1784256272729_bkw5c5",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:32.738Z"
+    },
+    {
+      "turnId": "trace_1784257192422_qztzyn",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:52.435Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257192422_gb8i1n",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Hazy IPA",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "2",
+        "displayName": "110K+OT Batch #3 - The Other West Coast IPA",
+        "brewery": "Cigar City Brewing",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.1
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:52.435Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "3",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "3",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "3",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "3",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

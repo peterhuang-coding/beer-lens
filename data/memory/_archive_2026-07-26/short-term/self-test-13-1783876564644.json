@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-13-1783876564644",
+  "userId": "self-test",
+  "updatedAt": "2026-07-12T17:16:08.522Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783876564654_zetn62",
+      "userText": "喜欢什么风格的啤酒",
+      "assistantReply": "嘿！根据你之前给我的提示，你似乎喜欢带有热带水果和柑橘风味的啤酒，同时偏好清爽的口感和较低的甜度。这样的描述听起来很像一些IPA（印度淡色艾尔）或者新英格兰IPA（NEIPA）的风格，这些啤酒通常果香浓郁，口感顺滑，苦味适中，非常解渴。你觉得这样的风格合适吗？或者你还有其他特别的偏好？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-12T17:16:08.522Z"
+    }
+  ]
+}

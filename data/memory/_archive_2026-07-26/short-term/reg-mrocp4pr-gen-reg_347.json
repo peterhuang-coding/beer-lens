@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocp4pr-gen-reg_347",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:01:23.972Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257275540_kii3ie",
+      "userText": "搞一杯好精酿",
+      "assistantReply": "哈！来聊聊你想要什么样的精酿？根据你之前提到的偏好（热带水果、柑橘、清爽、低甜度），我猜你会喜欢这些风格：\n\n1. **新英格兰IPA（NEIPA）** - 满口芒果/百香果香气，浑浊酒体但苦度低\n2. **西海岸IPA** - 更突出的柑橘松木味，干净利落的收口\n3. **赛松（Saison）** - 带点胡椒辛香，干爽易饮的农场艾尔\n\n最近有喝到什么让你惊艳的酒款吗？或者我们可以聊聊你现在的场景——是想配餐、独酌还是朋友聚会？🍻",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:01:23.972Z"
+    }
+  ]
+}

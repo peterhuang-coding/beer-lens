@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_428",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:51:08.490Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129761872_upgcc5",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:36:02.905Z"
+    },
+    {
+      "turnId": "trace_1784163110969_m1u24i",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:51:52.560Z"
+    },
+    {
+      "turnId": "trace_1784218733418_ouoiyz",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:18:55.055Z"
+    },
+    {
+      "turnId": "trace_1784219469407_j97eve",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:31:10.978Z"
+    },
+    {
+      "turnId": "trace_1784254983503_75egpg",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:23:06.119Z"
+    },
+    {
+      "turnId": "trace_1784255723091_z8ax2t",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:35:24.866Z"
+    },
+    {
+      "turnId": "trace_1784256667163_tsj740",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:51:08.490Z"
+    }
+  ]
+}

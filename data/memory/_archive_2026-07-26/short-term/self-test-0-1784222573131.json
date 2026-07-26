@@ -1,0 +1,65 @@
+{
+  "conversationId": "self-test-0-1784222573131",
+  "userId": "self-test",
+  "updatedAt": "2026-07-16T17:22:53.246Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784222573166_5vhlzq",
+      "userText": "推荐一款IPA",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1，114人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T17:22:53.246Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784222573166_1v8qqx",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "110K+OT Batch #3 - The Other West Coast IPA",
+        "brewery": "Cigar City Brewing",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.1
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-16T17:22:53.246Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "2",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "2",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "2",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "2",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

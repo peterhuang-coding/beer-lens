@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_322",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:04.389Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129542642_g6lhjb",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:24.674Z"
+    },
+    {
+      "turnId": "trace_1784162453553_5osfxq",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "Westvleteren 12 是比利时的一款非常著名的修道院啤酒，属于四重啤酒（Quadrupel）风格。它以其丰富的口感和复杂的风味而闻名，通常有干果、巧克力、焦糖和香料的味道。酒精度较高，通常在10.2%左右。\n\n如果你喜欢热带水果和柑橘的风味，Westvleteren 12 可能不是最直接的选择，因为它的风味更偏向于深沉和浓郁。不过，如果你想尝试一些不同的风格，这款啤酒绝对值得一试！你有没有尝过类似的修道院啤酒呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:40:59.381Z"
+    },
+    {
+      "turnId": "trace_1784162802150_w4r7ve",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "Westvleteren 12 是比利时的一款非常著名的修道院啤酒，属于四重啤酒（Quadrupel）风格。它以其复杂的风味和丰富的口感而闻名，通常有干果、焦糖、巧克力和一些香料的味道。\n\n如果你喜欢热带水果和柑橘的风味，Westvleteren 12 可能不是最直接的选择，因为它的风味更偏向于深沉和浓郁。不过，作为一款经典的修道院啤酒，它绝对值得一试，尤其是在你想要体验不同风格的时候。\n\n你对这种风格的啤酒感兴趣吗？或者想了解其他更适合你口味的啤酒？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:46:46.475Z"
+    },
+    {
+      "turnId": "trace_1784218474203_se2cad",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:34.277Z"
+    },
+    {
+      "turnId": "trace_1784218996198_nnss66",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:16.271Z"
+    },
+    {
+      "turnId": "trace_1784220515901_nct8j3",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:35.973Z"
+    },
+    {
+      "turnId": "trace_1784254107974_kpxvnu",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:28.044Z"
+    },
+    {
+      "turnId": "trace_1784254697264_3zn6d9",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:17.341Z"
+    },
+    {
+      "turnId": "trace_1784255353829_za0zx1",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:13.903Z"
+    },
+    {
+      "turnId": "trace_1784256240406_95n21b",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:00.480Z"
+    },
+    {
+      "turnId": "trace_1784256284775_09fznl",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:44.852Z"
+    },
+    {
+      "turnId": "trace_1784257204327_3q50ez",
+      "userText": "Westvleteren12水平修道院推荐",
+      "assistantReply": "我会这样点：\n\n1. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Westvleteren12水平修道院推荐\n最值得尝新：Westvleteren12水平修道院推荐\n我会先跳过：Westvleteren12水平修道院推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Westvleteren12水平修道院推荐。\n\n⚠️ Westvleteren12水平修道院推荐 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:04.389Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257204327_y45p4m",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Westvleteren12水平修道院推荐",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:04.389Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Westvleteren12水平修道院推荐",
+    "brewery": ""
+  }
+}

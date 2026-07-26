@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_506",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:40.539Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163300823_6tem5d",
+      "userText": "哪个IBU最低",
+      "assistantReply": "IBU（国际苦度单位）是用来衡量啤酒苦味的一个指标。一般来说，低于10 IBU的啤酒就算是比较低苦度的了。比如一些淡色拉格（Pale Lager）和小麦啤酒（Wheat Beer）通常会有较低的IBU，甚至有些可以低于5 IBU。\n\n如果你对某种特定风格的啤酒感兴趣，或者想了解更多关于某款啤酒的IBU信息，可以告诉我！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:55:05.925Z"
+    },
+    {
+      "turnId": "trace_1784218972439_n0eys4",
+      "userText": "哪个IBU最低",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:22:54.164Z"
+    },
+    {
+      "turnId": "trace_1784219786028_dxsa9o",
+      "userText": "哪个IBU最低",
+      "assistantReply": "IBU 是 International Bitterness Units（国际苦度单位）的缩写，用来衡量啤酒中的苦味程度。一般来说，IBU 值越低，啤酒的苦味就越轻。IBU 值最低的啤酒通常是那些非常轻盈、清爽的风格，比如：\n\n1. **小麦啤酒（Wheat Beer）**：尤其是德国的小麦啤酒（Weissbier），通常 IBU 值在 10 以下。\n2. **比利时白啤酒（Belgian Witbier）**：这种啤酒通常带有柑橘和香料的味道，IBU 值也很低，一般在 10-15 之间。\n3. **淡色艾尔（Pale Ale）**：某些非常轻盈的淡色艾尔，IBU 值可能在 10 以下。\n4. **拉格啤酒（Lager）**：特别是像皮尔森（Pilsner）这样的风格，IBU 值通常在 20 以下，但也有更低的版本。\n\n如果你喜欢非常低苦度的啤酒，可以尝试这些风格。不过，具体的 IBU 值还会因酒厂和酿造工艺的不同而有所变化。希望这些信息对你有帮助！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:36:39.643Z"
+    },
+    {
+      "turnId": "trace_1784255278490_a6x5jz",
+      "userText": "哪个IBU最低",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:28:01.144Z"
+    },
+    {
+      "turnId": "trace_1784255931394_d8zpmo",
+      "userText": "哪个IBU最低",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:38:53.409Z"
+    },
+    {
+      "turnId": "trace_1784256874874_cz6l2l",
+      "userText": "哪个IBU最低",
+      "assistantReply": "IBU 是指国际苦度单位（International Bitterness Units），用来衡量啤酒中的苦味程度。一般来说，IBU 值越低，啤酒的苦味就越轻。如果你在寻找 IBU 值最低的啤酒，通常一些轻盈的拉格（Lager）或者小麦啤酒（Wheat Beer）会是不错的选择，它们的 IBU 值往往在 5 到 15 之间。\n\n比如，比利时的小麦啤酒（Belgian Witbier）通常 IBU 值很低，苦味非常轻，口感清爽，带有柑橘和香料的风味，非常适合喜欢低苦度啤酒的朋友。如果你有具体的啤酒风格或者品牌偏好，可以告诉我，我可以给你更具体的建议！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:54:40.539Z"
+    }
+  ]
+}

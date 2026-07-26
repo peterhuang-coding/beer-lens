@@ -173,20 +173,7 @@
         "intent": "beer_knowledge",
         "replyMinLen": 80
       },
-      "autoTestResult": {
-        "pass": false,
-        "intent": "beer_knowledge",
-        "candidates": 0,
-        "candidateNames": [],
-        "replyPreview": "Tripel Karmeliet 和 Curieux 都是比利时风格的啤酒，但它们之间还是有一些区别的。\n\n**Tripel Karmeliet** 是一款经典的比利时 Tripel，这种风格的啤酒通常颜色较浅，酒精度较高，大约在8%左右。Tripel Karmeliet 以其复杂的香料味和麦芽甜味著称，口感相对较为平衡，既有明显的麦芽甜味，也有一定的酒精温暖感，但不会过于甜腻。\n\n**Curie",
-        "testedAt": "2026-07-10T09:13:04.386Z",
-        "error": "意图不匹配: 期望=menu_recommend, 实际=beer_knowledge",
-        "passCriteria": {
-          "intent": "menu_recommend",
-          "minCandidates": 1,
-          "replyMinLen": 50
-        }
-      }
+      "autoTestResult": null
     },
     "status": "pending",
     "createdAt": "2026-07-10T08:57:34.494Z",
@@ -486,21 +473,7 @@
         "intent": "beer_knowledge",
         "replyMinLen": 80
       },
-      "autoTestResult": {
-        "pass": false,
-        "intent": "menu_recommend",
-        "candidates": 1,
-        "candidateNames": [
-          "Grozet Gooseberry & Wheat Ale"
-        ],
-        "replyPreview": "酒单上没有符合「stout」的酒。现有：Grozet Gooseberry & Wheat Ale。要不要换个方向？\n\n💡 你很喜欢Pale Ale - American，要不要试试Ipa？",
-        "testedAt": "2026-07-10T09:13:25.731Z",
-        "error": "意图不匹配: 期望=beer_knowledge, 实际=menu_recommend",
-        "passCriteria": {
-          "intent": "beer_knowledge",
-          "replyMinLen": 80
-        }
-      }
+      "autoTestResult": null
     },
     "status": "pending",
     "createdAt": "2026-07-10T08:57:42.494Z",
@@ -680,20 +653,7 @@
         "intent": "follow_up_filter",
         "replyMinLen": 30
       },
-      "autoTestResult": {
-        "pass": false,
-        "intent": "beer_knowledge",
-        "candidates": 0,
-        "candidateNames": [],
-        "replyPreview": "通常来说，这三款IPA都属于苦味比较明显的类型，因为它们都是美国IPA的经典代表，以使用大量酒花而闻名。不过，如果要在这三款中选择苦味最轻的，**King Sue** 可能会是相对柔和的选择。不过，这并不意味着它的苦味就很轻，只是相对于另外两款来说，可能会稍微温和一些。\n\n如果你对苦味非常敏感，可能需要寻找一些专门标注为“低苦”或者“session”（会话型）的IPA，这些类型的IPA通常苦味会更",
-        "testedAt": "2026-07-10T09:13:32.976Z",
-        "error": "意图不匹配: 期望=menu_recommend, 实际=beer_knowledge",
-        "passCriteria": {
-          "intent": "menu_recommend",
-          "minCandidates": 1,
-          "replyMinLen": 50
-        }
-      }
+      "autoTestResult": null
     },
     "status": "pending",
     "createdAt": "2026-07-10T08:57:47.494Z",
@@ -725,20 +685,7 @@
         "intent": "follow_up_filter",
         "replyMinLen": 30
       },
-      "autoTestResult": {
-        "pass": false,
-        "intent": "beer_knowledge",
-        "candidates": 0,
-        "candidateNames": [],
-        "replyPreview": "根据你的口味画像：偏好 Pale Ale - American，ABV 5.8-5.8%，喜欢酒精和柑橘和焦糖和酸风味",
-        "testedAt": "2026-07-10T09:13:34.796Z",
-        "error": "意图不匹配: 期望=menu_recommend, 实际=beer_knowledge",
-        "passCriteria": {
-          "intent": "menu_recommend",
-          "minCandidates": 1,
-          "replyMinLen": 50
-        }
-      }
+      "autoTestResult": null
     },
     "status": "pending",
     "createdAt": "2026-07-10T08:57:48.494Z",
@@ -845,7 +792,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -872,7 +821,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -899,7 +850,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -926,7 +879,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -953,7 +908,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -980,7 +937,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1007,7 +966,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1034,7 +995,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1061,7 +1024,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1088,7 +1053,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1115,7 +1082,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1142,7 +1111,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1169,7 +1140,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1196,7 +1169,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1223,7 +1198,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1250,7 +1227,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1277,7 +1256,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1304,7 +1285,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1331,7 +1314,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1358,7 +1343,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1385,7 +1372,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1412,7 +1401,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1439,7 +1430,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1466,7 +1459,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1493,7 +1488,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1520,7 +1517,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1547,7 +1546,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1574,7 +1575,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1601,7 +1604,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1628,7 +1633,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1655,7 +1662,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1682,7 +1691,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1709,7 +1720,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1736,7 +1749,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1763,7 +1778,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1790,7 +1807,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1817,7 +1836,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1844,7 +1865,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1871,7 +1894,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",
@@ -1898,7 +1923,9 @@
         "intent": "menu_recommend",
         "minCandidates": 1,
         "replyMinLen": 50
-      }
+      },
+      "expectedFail": true,
+      "expectedFailReason": "no_imageUrl_synthetic_smoke"
     },
     "status": "pending",
     "createdAt": "2026-07-11T00:00:00.000Z",

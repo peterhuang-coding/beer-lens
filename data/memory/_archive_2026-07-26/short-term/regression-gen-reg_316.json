@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_316",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:01.106Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129528759_5avj37",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:10.603Z"
+    },
+    {
+      "turnId": "trace_1784162426052_z5393y",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "Heady Topper是一款非常经典的东北IPA（New England IPA），以其浓郁的热带水果和柑橘香气而闻名，同时口感清爽，酒体相对柔和。如果你喜欢这种风格，可以尝试以下几种类似的啤酒：\n\n1. **Julius** - 这款啤酒同样具有浓郁的热带水果香气，口感顺滑，非常适合喜欢Heady Topper的人。\n2. **Focal Banger** - 这款啤酒在香气和口感上都很接近Heady Topper，带有柑橘和热带水果的风味。\n3. **Hazy Little Thing** - 这是一款非常受欢迎的Hazy IPA，清爽且富有果香，适合夏天饮用。\n\n如果你还想了解更多类似的啤酒，或者有其他口味偏好，随时告诉我！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:40:31.818Z"
+    },
+    {
+      "turnId": "trace_1784162775438_xtlulz",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "Heady Topper 是一款非常经典的美国双IPA，特色在于浓郁的热带水果和柑橘香气，同时口感非常顺滑，苦味适中。如果你喜欢这种风格，可以尝试以下几种类似的啤酒：\n\n1. **Double IPA（双IPA）**：这种风格通常会有类似的水果香气和较高的酒精度，像是一些西海岸风格的双IPA。\n   \n2. **New England IPA（NEIPA）**：这种风格的啤酒通常更为浑浊，口感更加柔和，热带水果和柑橘的风味非常突出，适合喜欢Heady Topper的人。\n\n3. **Hazy IPA（雾霾IPA）**：与NEIPA类似，通常会有丰富的水果香气，口感清爽，低苦味，适合喜欢清爽口感的饮者。\n\n如果你能找到当地的酿酒厂，看看他们是否有类似风格的啤酒，通常会有不错的发现！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:46:20.720Z"
+    },
+    {
+      "turnId": "trace_1784218470855_mjw6lu",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:30.915Z"
+    },
+    {
+      "turnId": "trace_1784218992840_de2uez",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:12.912Z"
+    },
+    {
+      "turnId": "trace_1784220512565_ghltwl",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:32.634Z"
+    },
+    {
+      "turnId": "trace_1784254104645_yohup6",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:24.717Z"
+    },
+    {
+      "turnId": "trace_1784254693906_2tp1me",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:13.969Z"
+    },
+    {
+      "turnId": "trace_1784255350489_g4w8bt",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:10.563Z"
+    },
+    {
+      "turnId": "trace_1784256237057_9mc0ax",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:57.126Z"
+    },
+    {
+      "turnId": "trace_1784256281402_9buqns",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:41.475Z"
+    },
+    {
+      "turnId": "trace_1784257201037_v5nvic",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.6，469人评分\n2. Heady Topper - 评分4.6，469人评分\n3. Heady Topper - 评分4.6，469人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.6，469人评分\n\n如果只能喝一杯，选 Heady Topper。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:01.106Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257201037_tcy733",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Heady Topper",
+        "brewery": "The Alchemist",
+        "style": "American Double / Imperial IPA",
+        "abv": 8,
+        "price": null,
+        "rating": 4.63
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:01.106Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Heady Topper",
+    "brewery": "The Alchemist"
+  }
+}

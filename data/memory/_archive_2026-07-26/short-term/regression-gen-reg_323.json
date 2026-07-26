@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_323",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:04.955Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129545189_jrod1b",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:25.266Z"
+    },
+    {
+      "turnId": "trace_1784162459882_qys2g7",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:59.961Z"
+    },
+    {
+      "turnId": "trace_1784162806981_pm4k4t",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:46:47.064Z"
+    },
+    {
+      "turnId": "trace_1784218474784_6e7vmo",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:34.864Z"
+    },
+    {
+      "turnId": "trace_1784218996776_3vg1i3",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:16.853Z"
+    },
+    {
+      "turnId": "trace_1784220516477_3fapfc",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:36.559Z"
+    },
+    {
+      "turnId": "trace_1784254108548_tdwse7",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:28.621Z"
+    },
+    {
+      "turnId": "trace_1784254697847_bua3dv",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:17.923Z"
+    },
+    {
+      "turnId": "trace_1784255354410_odyjtb",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:14.488Z"
+    },
+    {
+      "turnId": "trace_1784256240989_i8imlr",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:01.068Z"
+    },
+    {
+      "turnId": "trace_1784256285360_43vrqu",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:45.441Z"
+    },
+    {
+      "turnId": "trace_1784257204889_jyga2b",
+      "userText": "Rochefort10后推荐下一款",
+      "assistantReply": "我会这样点：\n\n1. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rochefort10后推荐下一款\n最值得尝新：Rochefort10后推荐下一款\n我会先跳过：Rochefort10后推荐下一款 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rochefort10后推荐下一款。\n\n⚠️ Rochefort10后推荐下一款 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:04.955Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257204889_ueb08b",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Rochefort10后推荐下一款",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:04.955Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Rochefort10后推荐下一款",
+    "brewery": ""
+  }
+}

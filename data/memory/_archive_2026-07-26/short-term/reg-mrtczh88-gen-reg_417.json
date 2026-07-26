@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_417",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:17:08.927Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560616885_5h3wxx",
+      "userText": "比利时修道院酒厂",
+      "assistantReply": "啊，比利时修道院啤酒！这可是啤酒界的\"奢侈品\"级别啊。让我来给你好好聊聊这个传奇的啤酒流派。\n\n首先得知道，真正的修道院啤酒分为两种：\n1. Trappist（特拉普ist） - 目前全球只有12家认证酒厂，比利时就占了6家\n2. Abbey（修道院风格） - 商业酒厂模仿修道院风格的啤酒\n\n比利时最著名的6家Trappist酒厂：\n• Westvleteren - 传说中的\"啤酒之王\"，最难买\n• Westmalle - 发明了Tripel风格\n• Chimay - 最商业化也最容易买到\n• Rochefort - 深色啤酒特别出色\n• Orval - 唯一使用布雷特酵母的，风味独特\n• Achel - 规模最小的\n\n这些酒厂的共同特点：\n- 由修士亲自参与酿造\n- 利润必须用于修道院运营或慈善\n- 使用传统配方（很多都有上百年历史）\n- 瓶内二次发酵\n\n你更喜欢哪种风格的修道院啤酒？是厚重的Quadrupel，还是清爽的Blonde？或者想了解某个特定酒厂的故事？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:17:08.927Z"
+    }
+  ]
+}

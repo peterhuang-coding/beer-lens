@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_421",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:50:52.513Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129726178_as33io",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-15T15:35:27.271Z"
+    },
+    {
+      "turnId": "trace_1784163080673_2jed7p",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "判断啤酒是否过期，可以查看酒标上的生产日期或最佳饮用日期。通常，啤酒在最佳饮用日期之前保持新鲜，过期后可能会影响口感和风味。如果没有酒标照片，建议您发一张酒标照片，我可以帮您分析。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T00:51:22.020Z"
+    },
+    {
+      "turnId": "trace_1784218672308_4no553",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T16:17:52.862Z"
+    },
+    {
+      "turnId": "trace_1784219387663_mapr2v",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "啤酒过期可以通过查看酒标上的生产日期或最佳饮用日期来判断。通常，啤酒在生产日期后的6-12个月内品质最佳。如果超过这个时间，啤酒可能会失去新鲜度，口感变差。如果没有酒标信息，请发一张酒标照片，我可以帮助你查看。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T16:29:50.723Z"
+    },
+    {
+      "turnId": "trace_1784254920225_n2a5j0",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "啤酒过期主要看酒标上的生产日期或保质期。通常，啤酒的保质期为6-12个月。如果超过这个时间，啤酒可能会影响口感和风味。请提供酒标的照片，我可以帮助你查看具体日期。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:22:02.269Z"
+    },
+    {
+      "turnId": "trace_1784255682475_40xdjz",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "请提供酒标的图片，以便查看生产日期和保质期信息。通常，啤酒的保质期会在酒标上标明。如果没有明确的日期，可以参考购买日期和啤酒类型来大致判断。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:34:44.130Z"
+    },
+    {
+      "turnId": "trace_1784256632493_5gspaj",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:50:52.514Z"
+    }
+  ]
+}

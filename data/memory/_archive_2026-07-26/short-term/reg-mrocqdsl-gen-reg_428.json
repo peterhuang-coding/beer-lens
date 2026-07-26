@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_428",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:09:57.908Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257796332_0t2j6c",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:09:57.908Z"
+    }
+  ]
+}

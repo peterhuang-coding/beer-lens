@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-16-1784131246117",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T16:00:47.190Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784131246123_ddruo3",
+      "userText": "哪个不苦",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-15T16:00:47.190Z"
+    }
+  ],
+  "currentConstraints": [
+    "不苦"
+  ]
+}

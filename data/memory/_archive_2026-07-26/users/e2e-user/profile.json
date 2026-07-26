@@ -1,0 +1,16 @@
+{
+  "userId": "e2e-user",
+  "updatedAt": "2026-07-17T02:28:34.593Z",
+  "summary": "暂无足够的品饮记录来生成口味画像。",
+  "preferredStyles": [],
+  "dislikedStyles": [],
+  "preferredTags": [],
+  "dislikedTags": [],
+  "notes": [
+    "4分，还会再喝"
+  ],
+  "confidence": 0.1,
+  "evidenceCount": 1,
+  "correctionsCount": 0,
+  "correctionsApplied": false
+}

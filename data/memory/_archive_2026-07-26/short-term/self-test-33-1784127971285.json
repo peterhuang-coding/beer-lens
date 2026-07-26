@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-33-1784127971285",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T15:06:17.198Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784127971295_i5aj2j",
+      "userText": "帮我看看这瓶酒的生产日期",
+      "assistantReply": "请提供酒标照片，以便查看生产日期。",
+      "intent": "label_check",
+      "createdAt": "2026-07-15T15:06:17.198Z"
+    }
+  ]
+}

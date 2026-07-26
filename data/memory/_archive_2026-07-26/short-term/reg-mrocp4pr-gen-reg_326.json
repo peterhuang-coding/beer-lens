@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrocp4pr-gen-reg_326",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:01:03.809Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257263740_8rgm3r",
+      "userText": "高大师推荐什么酒",
+      "assistantReply": "我会这样点：\n\n1. 高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：高大师推荐什么酒\n最值得尝新：高大师推荐什么酒\n我会先跳过：高大师推荐什么酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 高大师推荐什么酒。\n\n⚠️ 高大师推荐什么酒 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:01:03.809Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257263740_6ztpc1",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "高大师推荐什么酒",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:01:03.809Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "高大师推荐什么酒",
+    "brewery": ""
+  }
+}

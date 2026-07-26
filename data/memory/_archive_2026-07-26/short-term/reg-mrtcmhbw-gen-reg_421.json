@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_421",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:05:51.691Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559950307_mfdvwv",
+      "userText": "如何判断啤酒过期",
+      "assistantReply": "判断啤酒是否过期可以查看酒标上的生产日期或最佳饮用日期。一般来说，啤酒在保质期内口感最佳，过期后可能会出现风味变化。如果没有酒标照片，建议您发一张酒标的照片，我可以帮您分析。",
+      "intent": "label_check",
+      "createdAt": "2026-07-20T15:05:51.691Z"
+    }
+  ]
+}

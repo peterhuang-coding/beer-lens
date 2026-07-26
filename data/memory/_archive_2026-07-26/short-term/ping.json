@@ -1,0 +1,28 @@
+{
+  "conversationId": "ping",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T16:38:10.956Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784162254928_udvaf9",
+      "userText": "ping",
+      "assistantReply": "嘿，怎么了？有什么想聊的关于啤酒的事吗？🍻",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:37:37.392Z"
+    },
+    {
+      "turnId": "trace_1784218422637_z9xgmt",
+      "userText": "ping",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-16T16:13:45.416Z"
+    },
+    {
+      "turnId": "trace_1784219889269_a05vgy",
+      "userText": "ping",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-16T16:38:10.956Z"
+    }
+  ]
+}

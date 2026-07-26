@@ -1,0 +1,53 @@
+{
+  "conversationId": "debug-405",
+  "userId": "debug",
+  "updatedAt": "2026-07-16T16:34:35.878Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784219675805_h4300u",
+      "userText": "拳击猫酒厂风格",
+      "assistantReply": "我会这样点：\n\n1. 拳击猫酒厂风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 拳击猫酒厂风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 拳击猫酒厂风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：拳击猫酒厂风格\n最值得尝新：拳击猫酒厂风格\n我会先跳过：拳击猫酒厂风格 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 拳击猫酒厂风格。\n\n⚠️ 拳击猫酒厂风格 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:34:35.878Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784219675805_cl3iht",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "拳击猫酒厂风格",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-16T16:34:35.878Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "拳击猫酒厂风格",
+    "brewery": ""
+  }
+}

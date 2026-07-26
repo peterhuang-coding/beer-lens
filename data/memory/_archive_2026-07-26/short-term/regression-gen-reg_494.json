@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_494",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:07.462Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163260101_3n7u82",
+      "userText": "苦得恰到好处4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:20.107Z"
+    },
+    {
+      "turnId": "trace_1784218950463_7xp82a",
+      "userText": "苦得恰到好处4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：苦得恰到好处4分\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:30.474Z"
+    },
+    {
+      "turnId": "trace_1784219756726_be6krp",
+      "userText": "苦得恰到好处4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：苦得恰到好处4分\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:56.742Z"
+    },
+    {
+      "turnId": "trace_1784255223475_534n90",
+      "userText": "苦得恰到好处4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：苦得恰到好处4分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:27:03.491Z"
+    },
+    {
+      "turnId": "trace_1784255918617_5eo76i",
+      "userText": "苦得恰到好处4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：苦得恰到好处4分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:38.632Z"
+    },
+    {
+      "turnId": "trace_1784256847446_1m0vb8",
+      "userText": "苦得恰到好处4分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：苦得恰到好处4分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:54:07.462Z"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodqdw8-gen-reg_398",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:33:24.817Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784259196146_scdk1t",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒（Sour Ale）是一种带有明显酸味的啤酒风格，它的酸味通常来自于特殊的发酵过程，比如使用野生酵母（如布雷特酵母）或乳酸菌进行发酵。这种啤酒的酸味可以非常鲜明，有时甚至会让人联想到柠檬或醋的味道。\n\n酸艾尔有很多不同的子风格，比如柏林白啤（Berliner Weisse）、法兰德斯红艾尔（Flanders Red Ale）和兰比克（Lambic）等。每种风格都有其独特的风味特点，但共同点就是那股让人耳目一新的酸味。\n\n如果你喜欢清爽、低甜度、带有水果风味的啤酒，酸艾尔可能会很对你的胃口。尤其是像柏林白啤这种风格，通常会加入水果（如覆盆子或木槿花）来平衡酸味，喝起来非常清爽解渴。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:33:24.817Z"
+    }
+  ]
+}

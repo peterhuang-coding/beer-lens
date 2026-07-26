@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-label-expiry",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:57:20.921Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255544220_dee58l",
+      "userText": "这瓶酒过期了吗",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:32:29.646Z"
+    },
+    {
+      "turnId": "trace_1784256099143_0cs7us",
+      "userText": "这瓶酒过期了吗",
+      "assistantReply": "请提供酒标上的生产日期或最佳饮用日期，或者发一张酒标照片。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:41:40.414Z"
+    },
+    {
+      "turnId": "trace_1784257039262_ra91xa",
+      "userText": "这瓶酒过期了吗",
+      "assistantReply": "请您发一张酒标照片，我才能帮您查看过期信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:57:20.921Z"
+    }
+  ]
+}

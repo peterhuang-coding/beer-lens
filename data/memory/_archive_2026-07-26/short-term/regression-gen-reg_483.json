@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_483",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:58.737Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163249495_ybclj1",
+      "userText": "Rochefort104.5太好喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:10.996Z"
+    },
+    {
+      "turnId": "trace_1784218939723_sbcb9q",
+      "userText": "Rochefort104.5太好喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：Rochefort104.5太好喝\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:21.359Z"
+    },
+    {
+      "turnId": "trace_1784219747276_fjrvg9",
+      "userText": "Rochefort104.5太好喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：Rochefort104.5太好喝\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:48.721Z"
+    },
+    {
+      "turnId": "trace_1784255212629_4l0mt3",
+      "userText": "Rochefort104.5太好喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：Rochefort104.5太好喝\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:55.070Z"
+    },
+    {
+      "turnId": "trace_1784255905774_1fwygm",
+      "userText": "Rochefort104.5太好喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：Rochefort104.5太好喝\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:27.525Z"
+    },
+    {
+      "turnId": "trace_1784256837297_d8iiks",
+      "userText": "Rochefort104.5太好喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：Rochefort104.5太好喝\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:58.737Z"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-gen-reg_594",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:40:53.974Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255498789_j73r3k",
+      "userText": "这是哪款风格啤酒",
+      "assistantReply": "请提供酒标照片，以便我准确判断啤酒的风格。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:31:40.154Z"
+    },
+    {
+      "turnId": "trace_1784256053143_e63jlk",
+      "userText": "这是哪款风格啤酒",
+      "assistantReply": "请提供酒标照片，以便我准确判断啤酒的风格。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:40:53.974Z"
+    }
+  ]
+}

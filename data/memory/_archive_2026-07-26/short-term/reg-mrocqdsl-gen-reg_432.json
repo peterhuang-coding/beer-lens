@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_432",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:10:36.802Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257825724_ufkobg",
+      "userText": "IPA历史起源",
+      "assistantReply": "啊，IPA的历史可有意思了！让我给你讲讲这个啤酒界\"网红\"的起源故事~\n\nIPA全称India Pale Ale，虽然名字里有\"印度\"，但其实诞生在英国。18世纪末到19世纪，英国殖民印度时期，普通啤酒在长途海运中容易变质。当时伦敦的Bow Brewery(后来被收购成为现在的Fuller's)想出了个妙招：提高酒精度(6-8%)、大量投放啤酒花(天然防腐剂)，创造出了这种能经受6个月海运的啤酒。\n\n有趣的是，现代IPA和原始版本差别很大：\n1. 原始IPA其实颜色更深(琥珀色)\n2. 苦度可能比现在很多IPA低\n3. 现代美式IPA的水果炸弹风味是后来才发展的\n\n要我说最讽刺的是，这种为印度殖民地开发的啤酒，现在在印度本土反而没英国/美国流行😂 你想了解哪个具体时期的IPA演变？比如现代精酿运动对IPA的影响？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:10:36.802Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "conversationId": "regression-gen-reg_303",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:53.973Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129513750_ou6lpa",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Stout - 评分3.8，1475+人评分\n2. Stout - 评分3.8，1475+人评分\n3. Stout - 评分3.8，1475+人评分\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8，1475+人评分\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:31:53.791Z"
+    },
+    {
+      "turnId": "trace_1784162380574_6cnmo3",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:39:40.584Z"
+    },
+    {
+      "turnId": "trace_1784162404244_08veje",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:04.257Z"
+    },
+    {
+      "turnId": "trace_1784162755050_fgzzuw",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:45:55.059Z"
+    },
+    {
+      "turnId": "trace_1784218463580_y5oog2",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:23.591Z"
+    },
+    {
+      "turnId": "trace_1784218985542_vnfjh2",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:05.553Z"
+    },
+    {
+      "turnId": "trace_1784220505317_fk2m1t",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:25.325Z"
+    },
+    {
+      "turnId": "trace_1784254097502_nd9bhn",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:17.511Z"
+    },
+    {
+      "turnId": "trace_1784254686733_6uyb27",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:06.745Z"
+    },
+    {
+      "turnId": "trace_1784255343354_abljx9",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:03.363Z"
+    },
+    {
+      "turnId": "trace_1784256229884_x1lvfe",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:49.898Z"
+    },
+    {
+      "turnId": "trace_1784256274283_49fkbv",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:34.288Z"
+    },
+    {
+      "turnId": "trace_1784257193964_uinl6z",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:53.973Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257193964_qd383x",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Stout",
+        "brewery": "Three Tuns Brewery",
+        "style": "Stout - English",
+        "abv": 4.4,
+        "price": null,
+        "rating": 3.797
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:53.973Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Stout",
+    "brewery": "Three Tuns Brewery"
+  }
+}

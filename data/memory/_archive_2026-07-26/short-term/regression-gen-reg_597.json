@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-gen-reg_597",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:40:58.771Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255503565_wgj0a0",
+      "userText": "看看酒标日期信息",
+      "assistantReply": "请提供酒标的图片，以便我查看日期等信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:31:44.588Z"
+    },
+    {
+      "turnId": "trace_1784256057939_n2ic3b",
+      "userText": "看看酒标日期信息",
+      "assistantReply": "请提供酒标的图片，以便我查看日期等信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:40:58.771Z"
+    }
+  ]
+}

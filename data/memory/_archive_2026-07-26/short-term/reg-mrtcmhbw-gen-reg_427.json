@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_427",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:06:51.747Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560003406_9ugchs",
+      "userText": "国际苦度单位",
+      "assistantReply": "啊，IBU（International Bitterness Unit）啊！这是衡量啤酒苦度的专业指标，简单来说就是每升啤酒中含有的苦味物质（主要是异α-酸）的毫克数。\n\n几个关键点帮你理解：\n1. 常见范围：普通拉格可能在5-15 IBU，IPA通常在40-100+ IBU\n2. 感知误区：高IBU≠更苦，因为麦芽甜度会平衡苦味（比如帝国世涛IBU高但喝起来可能很顺滑）\n3. 测量方法：实验室用分光光度计检测，我们喝的时候其实是在感受\"苦甜比\"\n\n你最近是喝到特别苦的啤酒所以好奇这个吗？还是想了解某种风格的典型IBU范围？可以具体聊聊～",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:06:51.747Z"
+    }
+  ]
+}

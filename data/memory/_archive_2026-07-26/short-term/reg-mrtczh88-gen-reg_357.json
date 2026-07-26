@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_357",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:09:04.978Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560136918_o8tzc4",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "帝国世涛（Imperial Stout）确实很适合用波本桶陈酿！波本桶能为这款酒带来丰富的香草、焦糖、椰子等风味，与帝国世涛本身的巧克力、咖啡、焦糖等味道完美融合。陈酿过程中，酒体还会吸收一些木质气息，让整体口感更加复杂和圆润。如果你喜欢这种风格，可以留意一些波本桶陈酿的帝国世涛，它们通常会有更深的层次感和独特的香气。你有尝试过这种风格的啤酒吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:09:04.979Z"
+    }
+  ]
+}

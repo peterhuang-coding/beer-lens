@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-label-date",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:57:22.916Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255550154_6cz1hr",
+      "userText": "帮我看看这瓶酒的生产日期",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:32:35.567Z"
+    },
+    {
+      "turnId": "trace_1784256100917_t7z13v",
+      "userText": "帮我看看这瓶酒的生产日期",
+      "assistantReply": "请提供酒标照片，以便我查看生产日期。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:41:42.223Z"
+    },
+    {
+      "turnId": "trace_1784257041420_i0oave",
+      "userText": "帮我看看这瓶酒的生产日期",
+      "assistantReply": "请您发一张酒标的照片，我才能帮您查看生产日期。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:57:22.916Z"
+    }
+  ]
+}

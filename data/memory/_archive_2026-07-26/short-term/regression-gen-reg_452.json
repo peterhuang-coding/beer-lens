@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_452",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:36.798Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163225889_e51uas",
+      "userText": "2.5分一般般看情况吧",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2.5/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:45.895Z"
+    },
+    {
+      "turnId": "trace_1784218919108_pikau9",
+      "userText": "2.5分一般般看情况吧",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2.5/5\n是否再喝：未明确。\n备注：2.5分一般般看情况吧\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:21:59.121Z"
+    },
+    {
+      "turnId": "trace_1784219726552_eucv4k",
+      "userText": "2.5分一般般看情况吧",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2.5/5\n是否再喝：未明确。\n备注：2.5分一般般看情况吧\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:26.564Z"
+    },
+    {
+      "turnId": "trace_1784255189060_5t8e4r",
+      "userText": "2.5分一般般看情况吧",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2.5/5\n是否再喝：未明确。\n备注：2.5分一般般看情况吧\n你的口味画像：喜欢热带水果和柑橘和苦和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:29.074Z"
+    },
+    {
+      "turnId": "trace_1784255885904_ymagrg",
+      "userText": "2.5分一般般看情况吧",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2.5/5\n是否再喝：未明确。\n备注：2.5分一般般看情况吧\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:05.918Z"
+    },
+    {
+      "turnId": "trace_1784256816781_a3oss0",
+      "userText": "2.5分一般般看情况吧",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2.5/5\n是否再喝：未明确。\n备注：2.5分一般般看情况吧\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:36.798Z"
+    }
+  ]
+}

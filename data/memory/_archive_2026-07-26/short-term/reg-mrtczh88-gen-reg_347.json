@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_347",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:08:36.672Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560094415_rp7juz",
+      "userText": "搞一杯好精酿",
+      "assistantReply": "抱歉，回答这个问题时出错了。请再试一次。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:08:36.672Z"
+    }
+  ]
+}

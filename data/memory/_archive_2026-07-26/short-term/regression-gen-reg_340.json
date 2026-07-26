@@ -1,0 +1,157 @@
+{
+  "conversationId": "regression-gen-reg_340",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:14.885Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129572872_3vny0h",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐果味浓郁啤酒\n最值得尝新：推荐果味浓郁啤酒\n我会先跳过：推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐果味浓郁啤酒。\n\n⚠️ 推荐果味浓郁啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:52.958Z"
+    },
+    {
+      "turnId": "trace_1784162500049_cjt7w0",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐果味浓郁啤酒\n最值得尝新：推荐果味浓郁啤酒\n我会先跳过：推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐果味浓郁啤酒。\n\n⚠️ 推荐果味浓郁啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:41:40.109Z"
+    },
+    {
+      "turnId": "trace_1784162839592_ozzmsh",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐果味浓郁啤酒\n最值得尝新：推荐果味浓郁啤酒\n我会先跳过：推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐果味浓郁啤酒。\n\n⚠️ 推荐果味浓郁啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:47:19.668Z"
+    },
+    {
+      "turnId": "trace_1784218493569_0fgmse",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐果味浓郁啤酒\n最值得尝新：推荐果味浓郁啤酒\n我会先跳过：推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐果味浓郁啤酒。\n\n⚠️ 推荐果味浓郁啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:53.648Z"
+    },
+    {
+      "turnId": "trace_1784219007139_vxoxfj",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐果味浓郁啤酒\n最值得尝新：推荐果味浓郁啤酒\n我会先跳过：推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐果味浓郁啤酒。\n\n⚠️ 推荐果味浓郁啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:27.212Z"
+    },
+    {
+      "turnId": "trace_1784220526308_xku31g",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐果味浓郁啤酒\n最值得尝新：推荐果味浓郁啤酒\n我会先跳过：推荐果味浓郁啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐果味浓郁啤酒。\n\n⚠️ 推荐果味浓郁啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:46.371Z"
+    },
+    {
+      "turnId": "trace_1784254118269_xfzhk3",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:38.307Z"
+    },
+    {
+      "turnId": "trace_1784254707598_ifam5t",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:27.641Z"
+    },
+    {
+      "turnId": "trace_1784255364187_c9zkm0",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:24.226Z"
+    },
+    {
+      "turnId": "trace_1784256250766_5dbhs7",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:10.808Z"
+    },
+    {
+      "turnId": "trace_1784256295153_hqd4g6",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:55.198Z"
+    },
+    {
+      "turnId": "trace_1784257214847_f024xx",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n2. IPA - 评分3.8，363人评分\n3. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n最稳：IPA\n最值得尝新：Monk's Café Flemish Sour Ale\n我会先跳过：IPA - 评分3.8，363人评分\n\n如果只能喝一杯，选 Monk's Café Flemish Sour Ale。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:14.885Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257214847_uk3gl8",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "IPA",
+        "brewery": "Long Trail Brewing Co.",
+        "style": "English India Pale Ale (IPA)",
+        "abv": 5.9,
+        "price": null,
+        "rating": 3.81
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Stout",
+        "brewery": "August Schell Brewing Company",
+        "style": "English Stout",
+        "abv": 5,
+        "price": null,
+        "rating": 3.93
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Lager",
+        "brewery": "Upper Canada Brewing Company",
+        "style": "American Pale Lager",
+        "abv": 5,
+        "price": null,
+        "rating": 3.62
+      },
+      {
+        "candidateId": "4",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:14.885Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "4",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "4",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "4",
+    "displayName": "Monk's Café Flemish Sour Ale",
+    "brewery": "Brouwerij Van Steenberge N.V."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "conversationId": "regression-gen-reg_537",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:55:42.011Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255410541_ublmwh",
+      "userText": "哪款是新品到货",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:30:16.812Z"
+    },
+    {
+      "turnId": "trace_1784255997216_5zwcks",
+      "userText": "哪款是新品到货",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:39:58.411Z"
+    },
+    {
+      "turnId": "trace_1784256940683_ejqwbh",
+      "userText": "哪款是新品到货",
+      "assistantReply": "我会这样点：\n\n1. 哪款是新品到货 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 哪款是新品到货 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 哪款是新品到货 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：哪款是新品到货\n最值得尝新：哪款是新品到货\n我会先跳过：哪款是新品到货 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 哪款是新品到货。\n\n⚠️ 哪款是新品到货 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:55:42.011Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784256940683_8dyklz",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "哪款是新品到货",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:55:42.011Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "哪款是新品到货",
+    "brewery": ""
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_426",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:51:04.393Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129757230_aiatlg",
+      "userText": "IBU的含义",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:35:59.039Z"
+    },
+    {
+      "turnId": "trace_1784163101355_erxo62",
+      "userText": "IBU的含义",
+      "assistantReply": "IBU 是“国际苦味单位”（International Bitterness Units）的缩写，用来衡量啤酒的苦味程度。数值越高，表示啤酒的苦味越强。一般来说，淡色啤酒的 IBU 值可能在 10 到 20 之间，而一些IPA（印度淡色艾尔）和帝国IPA的 IBU 值可以达到 60 甚至更高。你对苦味的接受程度如何？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:51:46.047Z"
+    },
+    {
+      "turnId": "trace_1784218712021_ba76g5",
+      "userText": "IBU的含义",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:18:39.649Z"
+    },
+    {
+      "turnId": "trace_1784219445186_cnuntq",
+      "userText": "IBU的含义",
+      "assistantReply": "IBU 是 \"International Bitterness Units\"（国际苦度单位）的缩写，用来衡量啤酒中的苦味强度。这个数值表示的是啤酒中α酸的含量，α酸是从啤酒花中提取出来的，是造成啤酒苦味的主要成分。IBU 的数值范围通常从 0 到 100+，数值越高，表示啤酒的苦味越强。不过，啤酒的总体风味还受到其他因素的影响，比如麦芽的甜度，这可以中和一部分苦味，所以 IBU 并不能完全决定一款啤酒的苦味感受。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:30:54.395Z"
+    },
+    {
+      "turnId": "trace_1784254974526_1j9vr4",
+      "userText": "IBU的含义",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:22:57.993Z"
+    },
+    {
+      "turnId": "trace_1784255709883_lyzw9t",
+      "userText": "IBU的含义",
+      "assistantReply": "IBU 是 \"International Bitterness Units\"（国际苦味单位）的缩写，用来衡量啤酒中的苦味程度。这个数值越高，表示啤酒的苦味越强。一般来说，IBU 的范围可以从 0 到 100 多，不过大多数啤酒的 IBU 都在 5 到 100 之间。不同风格的啤酒，它们的 IBU 也会有所不同，比如 IPAs 通常会有较高的 IBU 值，而小麦啤酒或拉格啤酒的 IBU 值则相对较低。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:35:14.699Z"
+    },
+    {
+      "turnId": "trace_1784256662457_t0prth",
+      "userText": "IBU的含义",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:51:04.393Z"
+    }
+  ]
+}

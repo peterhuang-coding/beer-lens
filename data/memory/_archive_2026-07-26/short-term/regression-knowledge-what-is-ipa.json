@@ -1,0 +1,24 @@
+{
+  "conversationId": "regression-knowledge-what-is-ipa",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:21.514Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255678723_weynbd",
+      "userText": "IPA是什么",
+      "assistantReply": "IPA，全称 India Pale Ale，是一种起源于英国的啤酒风格。传统上，IPA 是为了长途海运到印度而特别酿造的，为了防止啤酒在长途旅行中变质，酿造时会加入更多的酒花，这样不仅能够提高啤酒的防腐能力，还能给啤酒带来更丰富的香气和苦味。\n\n现在的 IPA 通常具有较高的酒精度和明显的酒花特征，比如热带水果、柑橘、松树等香气，同时也会有一定的苦味。不过，随着时间的发展，IPA 也衍生出了很多不同的子类型，比如美式 IPA、双倍/帝国 IPA、新英格兰（浑浊）IPA 等等，每种都有自己独特的风味特点。你喜欢尝试不同风格的 IPA 吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:34:44.442Z"
+    },
+    {
+      "turnId": "trace_1784257145325_cpe46g",
+      "userText": "IPA是什么",
+      "assistantReply": "IPA 是 India Pale Ale（印度淡色艾尔）的缩写，现在精酿圈最火的啤酒风格之一！  \n\n简单来说，它是一种苦度明显、酒花香突出的啤酒。不过它的故事挺有意思——  \n\n**历史冷知识**：  \n19世纪英国殖民印度时，为了能让啤酒在长途海运中不变质，酿酒师往传统淡色艾尔里狂加啤酒花（天然防腐剂），意外造就了这种香气爆炸、苦味浓烈的风格。  \n\n**现代IPA特点**：  \n- **香气**：热带水果（芒果/百香果）、柑橘（西柚/橙子）、松木味  \n- **苦度**：IBU通常在40-70（普通啤酒约20）  \n- **酒精度**：5.5%-7.5%  \n- **变种**：现在还有更清爽的Session IPA、浑浊多汁的NEIPA等等  \n\n你最近喝过IPA吗？如果喜欢热带水果香气，可以试试看NEIPA（新英格兰IPA），简直就是液体水果沙拉~ 🍊🍍",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:59:21.514Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

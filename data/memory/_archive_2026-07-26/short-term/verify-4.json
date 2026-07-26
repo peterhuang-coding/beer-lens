@@ -1,0 +1,14 @@
+{
+  "conversationId": "verify-4",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T00:39:05.306Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784162341240_koagju",
+      "userText": "有酸啤可以选么",
+      "assistantReply": "当然有酸啤可以选择！酸啤酒通常有几种风格，比如比利时酸啤、德国酸小麦啤酒（Gose）和美国的酸啤酒等。这些啤酒通常带有清新的酸味，适合喜欢清爽口感的人。\n\n如果你喜欢热带水果和柑橘的味道，可以尝试一些带有水果风味的酸啤酒，它们通常会有很好的平衡感。你有没有特别想尝试的酸啤酒风格呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:39:05.306Z"
+    }
+  ]
+}

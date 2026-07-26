@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_396",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:04:56.052Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257487015_cqus2c",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA）和三倍IPA（Triple IPA）主要区别在于酒精度、苦度和麦芽浓度。\n\n1. **酒精度**：双倍IPA通常在7.5%-10%左右，而三倍IPA则更高，一般在10%-12.5%甚至更高。\n\n2. **苦度**：双倍IPA的苦度（IBU）一般在60-100，三倍IPA则更高，通常在100以上。\n\n3. **麦芽浓度**：双倍IPA的麦芽浓度（OG）一般在1.065-1.085，三倍IPA则在1.085以上。\n\n简单来说，三倍IPA比双倍IPA更浓烈，酒精度更高，苦度更大，麦芽浓度也更丰富。如果你喜欢更强烈的啤酒体验，三倍IPA可能更适合你。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:04:56.052Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

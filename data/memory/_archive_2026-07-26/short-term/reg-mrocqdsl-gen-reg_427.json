@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_427",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:09:55.827Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257787860_vdy079",
+      "userText": "国际苦度单位",
+      "assistantReply": "哦，IBU（International Bitterness Unit）啊！这是衡量啤酒苦度的国际标准单位，简单来说就是检测啤酒中异α酸的含量。数值越高，苦味越明显。\n\n几个常见的参考范围：\n- 淡拉格：5-15 IBU（几乎感觉不到苦）\n- 小麦啤酒：10-20 IBU\n- IPA：40-70 IBU（你喜欢的柑橘/热带风通常在这个区间）\n- 帝国IPA：70-100+ IBU（苦到舌头发麻）\n\n不过有趣的是，麦芽甜度会中和苦味感知。比如同样60 IBU的：\n- 淡色艾尔会显得很苦\n- 烈性世涛反而觉得平衡\n\n需要我具体解释某个风格的IBU特点吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:09:55.827Z"
+    }
+  ]
+}

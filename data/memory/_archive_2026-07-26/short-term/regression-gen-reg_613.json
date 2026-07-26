@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-gen-reg_613",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:41:02.893Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255508852_vvhy9l",
+      "userText": "什么呢",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:31:48.856Z"
+    },
+    {
+      "turnId": "trace_1784256062884_19mdxv",
+      "userText": "什么呢",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:41:02.893Z"
+    }
+  ]
+}

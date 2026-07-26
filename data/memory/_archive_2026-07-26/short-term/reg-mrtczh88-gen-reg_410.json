@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_410",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:15:50.485Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560541958_h79bba",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "Pliny the Elder 是由美国加州的 Russian River Brewing Company 酿造的。这是一款非常经典的双倍 IPA，以其浓郁的啤酒花香气和平衡的口感而闻名。Russian River Brewing Company 由 Vinnie Cilurzo 创立，他在精酿啤酒界有着很高的声誉。Pliny the Elder 可以说是他们的招牌酒款之一，深受啤酒爱好者的喜爱。你有机会品尝过这款酒吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:15:50.485Z"
+    }
+  ]
+}

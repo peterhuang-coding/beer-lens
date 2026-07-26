@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_419",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:08:32.317Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257704115_nax5do",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "啊，Trappist（特拉普）认证是个蛮有意思的话题！简单来说，这是给真正由修道院修道士亲自酿造啤酒的认证标志。\n\n几个关键点：\n1. 必须是在修道院围墙内酿造\n2. 酿造过程必须由修道士主导\n3. 收益只能用于修道院运营和慈善事业\n\n目前全球只有12家认证酒厂：\n- 比利时6家（比如Westvleteren、Chimay）\n- 荷兰2家\n- 奥地利1家\n- 美国1家\n- 意大利1家\n- 英国1家\n\n有个常见误区：很多人会把\"Abbey Beer\"（修道院风格啤酒）和真正的Trappist搞混。其实前者只是商业酒厂模仿的风格，并没有修道士参与哦。\n\n你喝过哪些Trappist啤酒呀？我个人最爱Rochefort 10，那种深色水果和太妃糖风味太迷人了~",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:08:32.317Z"
+    }
+  ]
+}

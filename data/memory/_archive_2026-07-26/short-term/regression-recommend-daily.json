@@ -1,0 +1,87 @@
+{
+  "conversationId": "regression-recommend-daily",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:41:13.768Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255518819_t4obj0",
+      "userText": "今天喝什么好",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:31:58.858Z"
+    },
+    {
+      "turnId": "trace_1784256073728_h8all4",
+      "userText": "今天喝什么好",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:41:13.768Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784256073728_ymcrrg",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Stout",
+        "brewery": "Three Tuns Brewery",
+        "style": "Stout - English",
+        "abv": 4.4,
+        "price": null,
+        "rating": 3.797
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Original Lager",
+        "brewery": "Goldfinger Brewing Company",
+        "style": "Lager - Helles",
+        "abv": 5.2,
+        "price": null,
+        "rating": 3.97
+      },
+      {
+        "candidateId": "4",
+        "displayName": "Soursmith Black Raspberry",
+        "brewery": "Arclight Brewing Company",
+        "style": "Sour - Fruited",
+        "abv": 5.2,
+        "price": null,
+        "rating": 4.44
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:41:13.768Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "4",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "3",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "4",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "4",
+    "displayName": "Soursmith Black Raspberry",
+    "brewery": "Arclight Brewing Company"
+  }
+}

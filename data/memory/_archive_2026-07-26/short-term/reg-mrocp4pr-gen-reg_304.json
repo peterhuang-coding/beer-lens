@@ -1,0 +1,71 @@
+{
+  "conversationId": "reg-mrocp4pr-gen-reg_304",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:51.597Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257251566_jhqk3h",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Stout - 评分3.9，151人评分\n2. Stout - 评分3.9，151人评分\n3. Stout - 评分3.9，151人评分\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.9，151人评分\n\n如果只能喝一杯，选 Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:51.597Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257251566_z6d8c3",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Stout",
+        "brewery": "August Schell Brewing Company",
+        "style": "English Stout",
+        "abv": 5,
+        "price": null,
+        "rating": 3.93
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Imperial Stout",
+        "brewery": "Rogue Ales",
+        "style": "Russian Imperial Stout",
+        "abv": 11,
+        "price": null,
+        "rating": 3.88
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Double IPA",
+        "brewery": "Ithaca Beer Company",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.97
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:51.597Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Stout",
+    "brewery": "August Schell Brewing Company"
+  }
+}

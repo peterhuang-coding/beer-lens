@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_317",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:01.640Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129531120_4ls5fe",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:12.871Z"
+    },
+    {
+      "turnId": "trace_1784162432324_ts1nba",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3；评分样本少，置信度降低（有风险，见下方）\n2. King Sue - 评分4.3；评分样本少，置信度降低\n3. King Sue - 评分4.3；评分样本少，置信度降低\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3；评分样本少，置信度降低\n\n如果只能喝一杯，选 King Sue。\n",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-16T00:40:33.514Z"
+    },
+    {
+      "turnId": "trace_1784162781221_gyvtri",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3；评分样本少，置信度降低（有风险，见下方）\n2. King Sue - 评分4.3；评分样本少，置信度降低\n3. King Sue - 评分4.3；评分样本少，置信度降低\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3；评分样本少，置信度降低\n\n如果只能喝一杯，选 King Sue。\n",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-16T00:46:22.970Z"
+    },
+    {
+      "turnId": "trace_1784218471417_kf8431",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:31.468Z"
+    },
+    {
+      "turnId": "trace_1784218993417_y31tfy",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:13.463Z"
+    },
+    {
+      "turnId": "trace_1784220513137_7m0bnc",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:33.185Z"
+    },
+    {
+      "turnId": "trace_1784254105219_0ydthn",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:25.252Z"
+    },
+    {
+      "turnId": "trace_1784254694476_8s8huy",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:14.522Z"
+    },
+    {
+      "turnId": "trace_1784255351071_tznw8c",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:11.119Z"
+    },
+    {
+      "turnId": "trace_1784256237632_yjh7uj",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:57.677Z"
+    },
+    {
+      "turnId": "trace_1784256281983_zapaj7",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:42.031Z"
+    },
+    {
+      "turnId": "trace_1784257201605_17f7g2",
+      "userText": "King Sue同款风格推荐",
+      "assistantReply": "我会这样点：\n\n1. King Sue - 评分4.3，173852+人评分\n2. King Sue - 评分4.3，173852+人评分\n3. King Sue - 评分4.3，173852+人评分\n\n最稳：King Sue\n最值得尝新：King Sue\n我会先跳过：King Sue - 评分4.3，173852+人评分\n\n如果只能喝一杯，选 King Sue。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:01.640Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257201605_q4gx1y",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "King Sue",
+        "brewery": "Toppling Goliath Brewing Co.",
+        "style": "IPA - Imperial / Double New England / Hazy",
+        "abv": 7.8,
+        "price": null,
+        "rating": 4.3
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:01.640Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "King Sue",
+    "brewery": "Toppling Goliath Brewing Co."
+  }
+}

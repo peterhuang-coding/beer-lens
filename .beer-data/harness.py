@@ -29,26 +29,28 @@ DB_PATH = Path(__file__).parent / "beer.db"
 # The warm-list is used by the daily cron to know what to search for.
 WARM_LIST = [
     # Top-rated Chinese craft beers (by Untappd/B-A score)
+    # Names must EXACTLY match beer_cache (name, brewery) for coverage stats
     ("Burning HDHC", "Crazy Bear Industry"),
     ("Hop Roulade", "YE Brewing"),
     ("Lager De Blanc", "FEVER Ales"),
-    ("Sleep", "HopFan"),
-    ("Flying Fist IPA", "Jing-A Brewing Co."),
+    ("Sleep", "HopFan"),                         # ABV unconfirmed — keep in list for retry
+    ("Flying Fist IPA", "Jing-A (京A) Brewing Co."),
     ("Workers Pale Ale", "Jing-A Brewing Co."),
     ("Airpocalypse", "Jing-A Brewing Co."),
-    ("Jump East Lake IPA", "NO.18 BREWING"),
-    ("Film Camera", "NO.18 BREWING"),
-    ("Monkey Fist IPA", "Slow Boat Brewery"),
-    ("Hazy Dream", "Slow Boat Brewery"),
+    ("Jump East Lake IPA", "NO.18 BREWING & CO."),
+    ("Monkey's Fist IPA", "Slow Boat Brewery"),
     ("Baby IPA", "Master Gao"),
-    ("Jasmine Tea Lager", "Master Gao"),
-    ("Panda King IPA", "Master Gao"),
-    ("Imperial Sea Salt Gose", "NBeer"),
-    ("No Criticism", "Shi Ba Brewing"),
-    ("Demon Tamer IPA", "Dao Brew"),
+    ("Baby Jasmine Tea Lager", "Master Gao Brewing Co. of Nanjing"),
+    ("Bird Land NE IPA", "Master Gao Brewing Co. of Nanjing"),
+    ("Beijing Gose Modern", "NBeer Craft Brewing Co."),
+    ("No To Criticism", "NO.18 BREWING & CO."),
+    ("Daobrew FuMo IPA", "DaoBrew"),
     ("TKO IPA", "Boxing Cat Brewery"),
-    ("Honey Ale", "Great Leap Brewing"),
+    ("Honey Ma Gold", "Great Leap Brewing"),
     ("Make A Toast Sea Salt Gose", "Mahanine Brewing"),
+    ("Captain's Pale Ale", "Slow Boat Brewery"),
+    ("Mandarin Wheat", "Jing-A Brewing Co."),
+    ("Sucker Punch Pale Ale", "Boxing Cat Brewery"),
     # International benchmarks
     ("Pliny The Elder", "Russian River Brewing Company"),
     ("Pliny The Younger", "Russian River Brewing Company"),
@@ -59,7 +61,6 @@ WARM_LIST = [
     ("Zombie Dust", "3 Floyds Brewing Co."),
     ("Julius", "Tree House Brewing Company"),
     ("Dinner", "Maine Beer Company"),
-    ("Heady Topper", "The Alchemist"),
 ]
 
 def _connect():

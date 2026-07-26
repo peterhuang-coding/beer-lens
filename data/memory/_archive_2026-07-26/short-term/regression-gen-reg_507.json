@@ -1,0 +1,88 @@
+{
+  "conversationId": "regression-gen-reg_507",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:41.049Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163306434_aloyvn",
+      "userText": "有清淡的选择吗",
+      "assistantReply": "当然有！如果你喜欢清淡的啤酒，可以考虑一些像是拉格（Lager）或者小麦啤酒（Wheat Beer）。这些风格通常口感清爽，适合夏天饮用。拉格的麦芽味比较轻，适合喜欢清淡口感的人，而小麦啤酒则带有一些水果和香料的风味，喝起来也很清新。你有没有特别想尝试的风格呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:55:09.751Z"
+    },
+    {
+      "turnId": "trace_1784218974674_pjwoic",
+      "userText": "有清淡的选择吗",
+      "assistantReply": "我会这样点：\n\n1. 有清淡的选择吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有清淡的选择吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有清淡的选择吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有清淡的选择吗\n最值得尝新：有清淡的选择吗\n我会先跳过：有清淡的选择吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有清淡的选择吗。\n\n⚠️ 有清淡的选择吗 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:22:56.033Z"
+    },
+    {
+      "turnId": "trace_1784219800143_weuzuv",
+      "userText": "有清淡的选择吗",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：有清淡的选择吗。要不要换个方向？",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-16T16:36:40.158Z"
+    },
+    {
+      "turnId": "trace_1784255281653_0j3ctg",
+      "userText": "有清淡的选择吗",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：有清淡的选择吗。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:28:04.702Z"
+    },
+    {
+      "turnId": "trace_1784255933914_65f17y",
+      "userText": "有清淡的选择吗",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：有清淡的选择吗。要不要换个方向？",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-17T02:38:53.921Z"
+    },
+    {
+      "turnId": "trace_1784256881040_cglpve",
+      "userText": "有清淡的选择吗",
+      "assistantReply": "酒单上没有符合「crisp」的酒。现有：有清淡的选择吗。要不要换个方向？",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-17T02:54:41.049Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784256881040_iigj3m",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "有清淡的选择吗",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:54:41.049Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "safePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "explorePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "avoidOrCaution": {
+      "candidateId": "",
+      "label": ""
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "有清淡的选择吗",
+    "brewery": ""
+  }
+}

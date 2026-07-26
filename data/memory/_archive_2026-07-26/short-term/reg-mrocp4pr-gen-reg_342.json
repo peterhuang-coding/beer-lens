@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrocp4pr-gen-reg_342",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:01:12.796Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257272726_x2rnys",
+      "userText": "推荐入门级精酿",
+      "assistantReply": "我会这样点：\n\n1. 推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐入门级精酿\n最值得尝新：推荐入门级精酿\n我会先跳过：推荐入门级精酿 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐入门级精酿。\n\n⚠️ 推荐入门级精酿 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:01:12.796Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257272726_xn0ma4",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "推荐入门级精酿",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:01:12.796Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "推荐入门级精酿",
+    "brewery": ""
+  }
+}

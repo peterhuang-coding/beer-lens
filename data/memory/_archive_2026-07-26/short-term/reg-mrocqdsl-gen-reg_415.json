@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_415",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:07:57.291Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257669804_qmg8he",
+      "userText": "BCBS为什么受欢迎",
+      "assistantReply": "啊，BCBS（Bourbon County Brand Stout）这款啤酒之所以这么火，有几个很硬核的原因：\n\n1. **传奇血统** - 来自鹅岛（Goose Island）的年度限量款，算是波本桶陈世涛的\"祖师爷\"之一，1995年就开始玩了\n\n2. **过桶魔法** - 用上等波本威士忌桶陈酿，带来香草/椰子/焦糖的复杂层次，酒精度14%左右但隐藏得极好\n\n3. **年度狂欢** - 黑色星期五首发变成啤酒圈节日，很多人通宵排队就为抢到不同年份的垂直品鉴\n\n4. **陈年潜力** - 像红酒一样能放5-10年，每年风味变化都让酒鬼们疯狂讨论\n\n不过要注意现在分基础款和变异款（比如咖啡/樱桃版本），建议新手从原版开始喝。你喝过这款吗？还是被它的什么特点吸引？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:07:57.291Z"
+    }
+  ]
+}

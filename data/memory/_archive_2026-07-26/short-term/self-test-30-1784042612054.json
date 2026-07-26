@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-30-1784042612054",
+  "userId": "self-test",
+  "updatedAt": "2026-07-14T15:23:32.064Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784042612062_z7llp8",
+      "userText": "上次我说喜欢IPA，但其实我更喜欢西海岸",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-14T15:23:32.064Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

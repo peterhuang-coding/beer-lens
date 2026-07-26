@@ -1,0 +1,15 @@
+{
+  "userId": "test",
+  "updatedAt": "2026-07-12T17:02:11.365Z",
+  "months": [
+    {
+      "month": "2026-07",
+      "episodeCount": 5,
+      "topStyles": [],
+      "topTags": [],
+      "dislikedTags": [],
+      "avgScore": 4.2,
+      "abvRange": null
+    }
+  ]
+}

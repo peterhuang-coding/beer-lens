@@ -1,0 +1,80 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_340",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T14:57:59.534Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559479495_m3wouf",
+      "userText": "推荐果味浓郁啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n2. IPA - 评分3.8，363人评分\n3. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n最稳：IPA\n最值得尝新：Monk's Café Flemish Sour Ale\n我会先跳过：IPA - 评分3.8，363人评分\n\n如果只能喝一杯，选 Monk's Café Flemish Sour Ale。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T14:57:59.534Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784559479495_jc9u95",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "IPA",
+        "brewery": "Long Trail Brewing Co.",
+        "style": "English India Pale Ale (IPA)",
+        "abv": 5.9,
+        "price": null,
+        "rating": 3.81
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Stout",
+        "brewery": "August Schell Brewing Company",
+        "style": "English Stout",
+        "abv": 5,
+        "price": null,
+        "rating": 3.93
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Lager",
+        "brewery": "Upper Canada Brewing Company",
+        "style": "American Pale Lager",
+        "abv": 5,
+        "price": null,
+        "rating": 3.62
+      },
+      {
+        "candidateId": "4",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-20T14:57:59.534Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "4",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "4",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "4",
+    "displayName": "Monk's Café Flemish Sour Ale",
+    "brewery": "Brouwerij Van Steenberge N.V."
+  }
+}

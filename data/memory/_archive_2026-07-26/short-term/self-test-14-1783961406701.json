@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-14-1783961406701",
+  "userId": "self-test",
+  "updatedAt": "2026-07-13T16:50:07.315Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783961406708_rzu8qk",
+      "userText": "什么是干投酒花",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-13T16:50:07.315Z"
+    }
+  ]
+}

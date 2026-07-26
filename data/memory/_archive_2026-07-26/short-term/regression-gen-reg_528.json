@@ -1,0 +1,31 @@
+{
+  "conversationId": "regression-gen-reg_528",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:55:14.577Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255374744_znm9z4",
+      "userText": "这款酒苦不苦",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：这款酒苦不苦\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:29:38.692Z"
+    },
+    {
+      "turnId": "trace_1784255974430_7a103c",
+      "userText": "这款酒苦不苦",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：这款酒苦不苦\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:39:35.497Z"
+    },
+    {
+      "turnId": "trace_1784256912591_y27d4q",
+      "userText": "这款酒苦不苦",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：这款酒苦不苦\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:55:14.577Z"
+    }
+  ],
+  "currentConstraints": [
+    "不苦"
+  ]
+}

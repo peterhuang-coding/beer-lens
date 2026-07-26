@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_480",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:55.756Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163247959_hzz2oo",
+      "userText": "今天新酒3分一般",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:07.964Z"
+    },
+    {
+      "turnId": "trace_1784218938174_lviytw",
+      "userText": "今天新酒3分一般",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：今天新酒3分一般\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:18.187Z"
+    },
+    {
+      "turnId": "trace_1784219745729_xdvzfd",
+      "userText": "今天新酒3分一般",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：今天新酒3分一般\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:45.746Z"
+    },
+    {
+      "turnId": "trace_1784255211072_trm9rh",
+      "userText": "今天新酒3分一般",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：今天新酒3分一般\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:51.085Z"
+    },
+    {
+      "turnId": "trace_1784255904232_2ulolt",
+      "userText": "今天新酒3分一般",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：今天新酒3分一般\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:24.244Z"
+    },
+    {
+      "turnId": "trace_1784256835740_gbuoip",
+      "userText": "今天新酒3分一般",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：今天新酒3分一般\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:55.756Z"
+    }
+  ]
+}

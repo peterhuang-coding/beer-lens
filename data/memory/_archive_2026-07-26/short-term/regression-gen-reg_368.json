@@ -1,0 +1,143 @@
+{
+  "conversationId": "regression-gen-reg_368",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:45:15.480Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129623300_8w0gmt",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么精酿啤酒推荐\n最值得尝新：有什么精酿啤酒推荐\n我会先跳过：有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么精酿啤酒推荐。\n\n⚠️ 有什么精酿啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:33:43.384Z"
+    },
+    {
+      "turnId": "trace_1784162564807_302kpn",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么精酿啤酒推荐\n最值得尝新：有什么精酿啤酒推荐\n我会先跳过：有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么精酿啤酒推荐。\n\n⚠️ 有什么精酿啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:42:44.882Z"
+    },
+    {
+      "turnId": "trace_1784162885429_y03ftc",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么精酿啤酒推荐\n最值得尝新：有什么精酿啤酒推荐\n我会先跳过：有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么精酿啤酒推荐。\n\n⚠️ 有什么精酿啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:48:05.503Z"
+    },
+    {
+      "turnId": "trace_1784218514119_lvjvcd",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么精酿啤酒推荐\n最值得尝新：有什么精酿啤酒推荐\n我会先跳过：有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么精酿啤酒推荐。\n\n⚠️ 有什么精酿啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:15:14.198Z"
+    },
+    {
+      "turnId": "trace_1784219028207_o8i10d",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么精酿啤酒推荐\n最值得尝新：有什么精酿啤酒推荐\n我会先跳过：有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么精酿啤酒推荐。\n\n⚠️ 有什么精酿啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:48.271Z"
+    },
+    {
+      "turnId": "trace_1784220547791_l13edi",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有什么精酿啤酒推荐\n最值得尝新：有什么精酿啤酒推荐\n我会先跳过：有什么精酿啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有什么精酿啤酒推荐。\n\n⚠️ 有什么精酿啤酒推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:49:07.868Z"
+    },
+    {
+      "turnId": "trace_1784254143892_bj0p1f",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:09:03.924Z"
+    },
+    {
+      "turnId": "trace_1784254740435_4gv33d",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:19:00.479Z"
+    },
+    {
+      "turnId": "trace_1784255391436_zsfpsk",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:51.481Z"
+    },
+    {
+      "turnId": "trace_1784256315436_wxnxvo",
+      "userText": "有什么精酿啤酒推荐",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:45:15.480Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784256315436_mm3op2",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Stout",
+        "brewery": "Three Tuns Brewery",
+        "style": "Stout - English",
+        "abv": 4.4,
+        "price": null,
+        "rating": 3.797
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Original Lager",
+        "brewery": "Goldfinger Brewing Company",
+        "style": "Lager - Helles",
+        "abv": 5.2,
+        "price": null,
+        "rating": 3.97
+      },
+      {
+        "candidateId": "4",
+        "displayName": "Soursmith Black Raspberry",
+        "brewery": "Arclight Brewing Company",
+        "style": "Sour - Fruited",
+        "abv": 5.2,
+        "price": null,
+        "rating": 4.44
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:45:15.480Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "4",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "3",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "4",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "4",
+    "displayName": "Soursmith Black Raspberry",
+    "brewery": "Arclight Brewing Company"
+  }
+}

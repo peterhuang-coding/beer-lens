@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_504",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:27.236Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163291998_nfj4sl",
+      "userText": "有水果风味的吗",
+      "assistantReply": "当然有啊！很多啤酒都有水果风味，尤其是一些特定的风格，比如美式IPA、果味小麦啤酒和酸啤酒。它们通常会有热带水果、柑橘等风味，喝起来非常清爽。如果你喜欢低甜度的啤酒，这些风格都很适合你。你有没有特别想尝试的风味或者风格呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:54:55.254Z"
+    },
+    {
+      "turnId": "trace_1784218966363_fj9td6",
+      "userText": "有水果风味的吗",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:22:48.305Z"
+    },
+    {
+      "turnId": "trace_1784219769214_snz52p",
+      "userText": "有水果风味的吗",
+      "assistantReply": "当然有啦！根据你之前提到的热带水果和柑橘风味，我会推荐你尝试一些使用了这些风味的啤酒。比如，你可以试试水果IPA，这种风格的啤酒通常会加入热带水果或柑橘类水果的提取物或果汁，带来清新的果香和酸甜口感，同时保持了IPA特有的苦味和酒花香气。另外，还有水果酸啤酒，比如使用了百香果、芒果或者橙子等水果的柏林白啤酒或兰比克，这些啤酒酸度适中，果香浓郁，非常适合喜欢清爽口感的你。想不想了解更多呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:36:17.657Z"
+    },
+    {
+      "turnId": "trace_1784255244040_fgl57s",
+      "userText": "有水果风味的吗",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:27:57.338Z"
+    },
+    {
+      "turnId": "trace_1784255926581_qla7lh",
+      "userText": "有水果风味的吗",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:38:48.421Z"
+    },
+    {
+      "turnId": "trace_1784256857491_fjumsd",
+      "userText": "有水果风味的吗",
+      "assistantReply": "当然有啦！根据你之前提到的热带水果和柑橘风味，我觉得你可能会喜欢一些使用了这些风味的啤酒。比如，新英格兰IPA（NEIPA）通常会有浓郁的热带水果和柑橘香气，因为它们使用了大量的香型啤酒花。还有，一些比利时风格的白啤酒（Witbier）也会加入橙皮和香料，带来清新的柑橘味和一些香料的复杂度。这些都是比较清爽、低甜度的选择，应该很合你的口味。想试试看吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:54:27.236Z"
+    }
+  ]
+}

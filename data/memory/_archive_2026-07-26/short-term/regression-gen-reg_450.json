@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_450",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:35.763Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163224863_wnexak",
+      "userText": "5分满分再喝柑橘焦糖",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n你会再喝这杯酒。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:44.866Z"
+    },
+    {
+      "turnId": "trace_1784218918078_z6xjwx",
+      "userText": "5分满分再喝柑橘焦糖",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n你会再喝这杯酒。\n备注：5分满分再喝柑橘焦糖\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:21:58.091Z"
+    },
+    {
+      "turnId": "trace_1784219725521_yi2wng",
+      "userText": "5分满分再喝柑橘焦糖",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n你会再喝这杯酒。\n备注：5分满分再喝柑橘焦糖\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:25.535Z"
+    },
+    {
+      "turnId": "trace_1784255188022_x36y9y",
+      "userText": "5分满分再喝柑橘焦糖",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n你会再喝这杯酒。\n备注：5分满分再喝柑橘焦糖\n你的口味画像：喜欢热带水果和柑橘和苦和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:28.035Z"
+    },
+    {
+      "turnId": "trace_1784255884865_6kevc5",
+      "userText": "5分满分再喝柑橘焦糖",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n你会再喝这杯酒。\n备注：5分满分再喝柑橘焦糖\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:04.882Z"
+    },
+    {
+      "turnId": "trace_1784256815749_xdtoh6",
+      "userText": "5分满分再喝柑橘焦糖",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n你会再喝这杯酒。\n备注：5分满分再喝柑橘焦糖\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:35.763Z"
+    }
+  ]
+}

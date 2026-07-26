@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-2-1784562155094",
+  "userId": "self-test",
+  "updatedAt": "2026-07-20T15:42:49.094Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784562155098_cv91n8",
+      "userText": "有IPA吗",
+      "assistantReply": "当然有啦！IPA可是精酿啤酒界的明星选手呢 🍻\n\nIPA(印度淡色艾尔)主要分几种类型：\n1. 美式IPA - 主打柑橘/松木香，苦度明显\n2. 英式IPA - 更平衡，带有焦糖和草本风味\n3. 新英格兰IPA(NEIPA) - 浑浊多汁，热带水果炸弹\n4. 西海岸IPA - 干净清爽，突出酒花苦香\n\n根据你之前提到的偏好(喜欢热带水果/清爽/低甜度)，特别推荐试试NEIPA或者西海岸IPA。前者会有芒果/百香果风味，后者则是干净利落的柑橘松木调。\n\n想了解具体某个类型吗？或者你最近喝到过什么印象深刻的IPA？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:42:49.094Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

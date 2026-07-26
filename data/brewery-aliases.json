@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "lastReviewed": "2026-07-26",
+  "notes": "字符串归一化映射表。数据文件中仍保留原 brewery 字符串，本表供后续查询/聚合时使用。canonical 选取规则：1) 选最常出现的形式；2) 含中文括号注音的优先保留作为 canonical 的 chinese_brewery；3) 大小写按出现频次确定。",
+  "aliases": [
+    {
+      "canonical": "Bubble Lab (气泡实验室)",
+      "variants": ["Bubble Lab"]
+    },
+    {
+      "canonical": "Crazy Bear Industry (疯熊工業)",
+      "variants": ["Crazy Bear Industry"]
+    },
+    {
+      "canonical": "Dangge (当歌精酿)",
+      "variants": ["Dangge (当歌)"]
+    },
+    {
+      "canonical": "Dao Brew (道酿)",
+      "variants": ["Dao Brew"]
+    },
+    {
+      "canonical": "Fever Ales",
+      "variants": ["FEVER Ales"]
+    },
+    {
+      "canonical": "Mahanine Brewing (大九酿造)",
+      "variants": ["MAHANINE BREWING"]
+    },
+    {
+      "canonical": "Panda Brew (熊猫精酿)",
+      "variants": ["Panda Brew"]
+    },
+    {
+      "canonical": "SoMad (半颠精酿)",
+      "variants": ["SoMad"]
+    },
+    {
+      "canonical": "Wild Kite (野风筝)",
+      "variants": ["Wild Kite"]
+    },
+    {
+      "canonical": "YE Brewing (野鹅微醺)",
+      "variants": ["YE Brewing"]
+    }
+  ]
+}

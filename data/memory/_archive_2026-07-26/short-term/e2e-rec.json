@@ -1,0 +1,81 @@
+{
+  "conversationId": "e2e-rec",
+  "userId": "e2e-user",
+  "updatedAt": "2026-07-17T02:28:34.572Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255314482_utwqoc",
+      "userText": "推荐一款浑浊IPA",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:28:34.548Z"
+    },
+    {
+      "turnId": "trace_1784255314554_cfzc76",
+      "userText": "有更苦的吗",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4；评分样本少，置信度降低，酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Hazy IPA - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n⚠️ Hazy IPA 数据不足，谨慎尝试。",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-17T02:28:34.572Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784255314554_j065fx",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Hazy IPA",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      },
+      {
+        "candidateId": "2",
+        "displayName": "110K+OT Batch #3 - The Other West Coast IPA",
+        "brewery": "Cigar City Brewing",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.1
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:28:34.572Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "3",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "3",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "3",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "3",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

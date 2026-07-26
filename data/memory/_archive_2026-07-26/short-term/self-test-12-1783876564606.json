@@ -1,0 +1,53 @@
+{
+  "conversationId": "self-test-12-1783876564606",
+  "userId": "self-test",
+  "updatedAt": "2026-07-12T17:16:04.643Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783876564617_d6782b",
+      "userText": "推荐酸啤",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Soursmith Black Raspberry - 评分4.4，4779+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Soursmith Black Raspberry\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-12T17:16:04.643Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1783876564617_xm1xr3",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Soursmith Black Raspberry",
+        "brewery": "Arclight Brewing Company",
+        "style": "Sour - Fruited",
+        "abv": 5.2,
+        "price": null,
+        "rating": 4.44
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-12T17:16:04.643Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Soursmith Black Raspberry",
+    "brewery": "Arclight Brewing Company"
+  }
+}

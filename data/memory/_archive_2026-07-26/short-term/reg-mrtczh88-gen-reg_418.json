@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_418",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:17:17.446Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560629433_ujkhht",
+      "userText": "酿酒狗名字由来",
+      "assistantReply": "哈哈，BrewDog（酿酒狗）这个名字的由来可有意思了！这个苏格兰精酿品牌的创始人James Watt和Martin Dickie在创业初期，他们的酿酒设备经常被自家狗狗\"风笛手\"（Pip the dog）霸占睡觉。后来他们干脆把这只\"监工狗\"的形象画进了logo，连品牌名也直接叫\"酿酒狗\"了。\n\n有趣的是，他们早期酒厂真的允许员工带狗上班，这种叛逆又随性的态度特别符合他们\"朋克精酿\"的定位。现在你还能在他们很多酒标上看到这只梗犬的剪影，比如经典的Punk IPA。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:17:17.446Z"
+    }
+  ]
+}

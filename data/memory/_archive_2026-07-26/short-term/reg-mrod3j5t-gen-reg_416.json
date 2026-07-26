@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_416",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:18:09.387Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258278074_wa6lrd",
+      "userText": "Stone酒厂特点",
+      "assistantReply": "Stone酒厂是美国精酿啤酒界的标志性品牌之一，以其大胆、创新的啤酒风格和强烈的品牌个性著称。以下是Stone酒厂的一些主要特点：\n\n1. **大胆的啤酒风格**：Stone以其IPA（印度淡色艾尔）闻名，尤其是它们的Stone IPA和Ruination IPA。这些啤酒通常具有强烈的苦味和浓郁的啤酒花香气，适合喜欢重口味啤酒的爱好者。\n\n2. **创新精神**：Stone不断尝试新的酿造技术和配方，推出各种限量版和实验性啤酒，满足精酿啤酒爱好者的好奇心。\n\n3. **环保意识**：Stone在酿造过程中注重环保，采用可持续的酿造方法，减少对环境的影响。\n\n4. **独特的品牌形象**：Stone的品牌形象非常鲜明，其标志性的石雕Logo和直白的品牌口号“You’re Not Worthy”都体现了其不妥协的品牌精神。\n\n5. **全球影响力**：Stone不仅在美国本土有很高的知名度，还在全球范围内拥有大量粉丝，是精酿啤酒文化的重要推动者。\n\n总的来说，Stone酒厂以其大胆的啤酒风格、创新精神和强烈的品牌个性，在精酿啤酒界占据了重要地位。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:18:09.387Z"
+    }
+  ]
+}

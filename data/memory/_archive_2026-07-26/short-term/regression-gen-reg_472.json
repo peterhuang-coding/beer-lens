@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_472",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:50.094Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163242483_6visb9",
+      "userText": "不会再喝太水了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你不会再喝这杯酒。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:02.488Z"
+    },
+    {
+      "turnId": "trace_1784218932503_mcupet",
+      "userText": "不会再喝太水了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你不会再喝这杯酒。\n备注：不会再喝太水了\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:12.517Z"
+    },
+    {
+      "turnId": "trace_1784219739979_r0jqzk",
+      "userText": "不会再喝太水了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你不会再喝这杯酒。\n备注：不会再喝太水了\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:39.993Z"
+    },
+    {
+      "turnId": "trace_1784255204130_ps70qi",
+      "userText": "不会再喝太水了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你不会再喝这杯酒。\n备注：不会再喝太水了\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:44.147Z"
+    },
+    {
+      "turnId": "trace_1784255898901_i9atbc",
+      "userText": "不会再喝太水了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你不会再喝这杯酒。\n备注：不会再喝太水了\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:18.915Z"
+    },
+    {
+      "turnId": "trace_1784256830074_vy8xox",
+      "userText": "不会再喝太水了",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n你不会再喝这杯酒。\n备注：不会再喝太水了\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:50.094Z"
+    }
+  ]
+}

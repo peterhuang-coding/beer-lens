@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_315",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T14:57:45.271Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559465205_idvmmc",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny The Elder - 评分4.6，2527+人评分\n2. Pliny The Elder - 评分4.6，2527+人评分\n3. Pliny The Elder - 评分4.6，2527+人评分\n\n最稳：Pliny The Elder\n最值得尝新：Pliny The Elder\n我会先跳过：Pliny The Elder - 评分4.6，2527+人评分\n\n如果只能喝一杯，选 Pliny The Elder。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T14:57:45.271Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784559465205_vz1xml",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Pliny The Elder",
+        "brewery": "Russian River Brewing Company",
+        "style": "American Double / Imperial IPA",
+        "abv": 8,
+        "price": null,
+        "rating": 4.59
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-20T14:57:45.271Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Pliny The Elder",
+    "brewery": "Russian River Brewing Company"
+  }
+}

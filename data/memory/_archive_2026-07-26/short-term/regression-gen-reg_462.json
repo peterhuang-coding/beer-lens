@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_462",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:41.998Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163231006_ez8jj1",
+      "userText": "BCBS2023版5分完美",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:51.012Z"
+    },
+    {
+      "turnId": "trace_1784218924280_ofpmzt",
+      "userText": "BCBS2023版5分完美",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n是否再喝：未明确。\n备注：BCBS2023版5分完美\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:04.293Z"
+    },
+    {
+      "turnId": "trace_1784219731714_9e8qen",
+      "userText": "BCBS2023版5分完美",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n是否再喝：未明确。\n备注：BCBS2023版5分完美\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:31.729Z"
+    },
+    {
+      "turnId": "trace_1784255194237_kstpno",
+      "userText": "BCBS2023版5分完美",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n是否再喝：未明确。\n备注：BCBS2023版5分完美\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:34.250Z"
+    },
+    {
+      "turnId": "trace_1784255891082_hgezxt",
+      "userText": "BCBS2023版5分完美",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n是否再喝：未明确。\n备注：BCBS2023版5分完美\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:11.100Z"
+    },
+    {
+      "turnId": "trace_1784256821981_l9ydg3",
+      "userText": "BCBS2023版5分完美",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：5/5\n是否再喝：未明确。\n备注：BCBS2023版5分完美\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:41.998Z"
+    }
+  ]
+}

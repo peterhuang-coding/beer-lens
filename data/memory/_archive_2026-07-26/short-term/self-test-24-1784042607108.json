@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-24-1784042607108",
+  "userId": "self-test",
+  "updatedAt": "2026-07-14T15:23:30.175Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784042607117_5bisrh",
+      "userText": "哪个好喝",
+      "assistantReply": "嘿，你问的是哪款啤酒好喝吗？能给我多一点线索吗？比如你喜欢的风格、品牌或者是特定的口味，像是热带水果、柑橘、清爽、低甜度这些？这样我才能给你更好的建议哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-14T15:23:30.175Z"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-23-1784127936762",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T15:05:47.654Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784127936772_y9xys6",
+      "userText": "有没有世涛",
+      "assistantReply": "当然有啦！世涛（Stout）是一种深色的啤酒，通常口感比较浓郁，带有一些咖啡或巧克力的味道。这种啤酒风格起源于英国，最著名的类型有干世涛（Dry Stout）、牛奶世涛（Milk Stout）和燕麦世涛（Oatmeal Stout）等。你对哪种世涛感兴趣呢？或者你想要了解更多关于世涛的信息？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:05:47.654Z"
+    }
+  ]
+}

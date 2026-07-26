@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-gen-reg_590",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:40:47.912Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255492330_fiar0h",
+      "userText": "这罐啤酒哪个酒厂产",
+      "assistantReply": "请提供酒标的图片，以便我查看并告知您酒厂信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:31:33.809Z"
+    },
+    {
+      "turnId": "trace_1784256046525_kdaxv6",
+      "userText": "这罐啤酒哪个酒厂产",
+      "assistantReply": "请提供酒标照片，以便我查看并告知您酒厂信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:40:47.912Z"
+    }
+  ]
+}

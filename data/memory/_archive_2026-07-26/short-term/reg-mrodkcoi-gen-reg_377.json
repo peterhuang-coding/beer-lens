@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_377",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:26:37.526Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258797466_ftf9xs",
+      "userText": "焦糖风味啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 焦糖风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 焦糖风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 焦糖风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：焦糖风味啤酒推荐\n最值得尝新：焦糖风味啤酒推荐\n我会先跳过：焦糖风味啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 焦糖风味啤酒推荐。\n\n⚠️ 焦糖风味啤酒推荐 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:26:37.526Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784258797466_2ydin6",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "焦糖风味啤酒推荐",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:26:37.526Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "焦糖风味啤酒推荐",
+    "brewery": ""
+  }
+}

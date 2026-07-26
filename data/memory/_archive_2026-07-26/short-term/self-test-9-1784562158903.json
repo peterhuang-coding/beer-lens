@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-9-1784562158903",
+  "userId": "self-test",
+  "updatedAt": "2026-07-20T15:42:38.914Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784562158907_q6monr",
+      "userText": "清空",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-20T15:42:38.914Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_442",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:52:09.191Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129795322_b0wfm9",
+      "userText": "Cascade酒花特点",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:36:37.419Z"
+    },
+    {
+      "turnId": "trace_1784163186693_gaugac",
+      "userText": "Cascade酒花特点",
+      "assistantReply": "Cascade酒花是一种非常受欢迎的啤酒酒花，主要用于美国的啤酒酿造。它的特点包括：\n\n1. **香气**：Cascade酒花以其独特的柑橘和花香闻名，常常带有葡萄柚、橙子和一些热带水果的香气。\n\n2. **苦味**：它的苦味相对适中，通常用于平衡啤酒的甜度，适合多种风格，尤其是美式IPA。\n\n3. **多用途**：除了用于主酿造阶段，Cascade酒花在干投（dry hopping）时也能释放出更丰富的香气和风味。\n\n4. **历史**：Cascade酒花在20世纪60年代首次被引入，之后迅速成为美国手工啤酒的标志性酒花之一。\n\n如果你喜欢热带水果和柑橘的风味，Cascade酒花的啤酒可能会很合你的口味！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:53:12.952Z"
+    },
+    {
+      "turnId": "trace_1784218875796_vagv4p",
+      "userText": "Cascade酒花特点",
+      "assistantReply": "Cascade 酒花是美国非常经典的一种酒花，它的特点是非常鲜明的。Cascade 酒花通常会带来一种非常明显的柑橘类水果香气，特别是葡萄柚的香气，有时候还会带有一点点松木和花香。这种酒花的苦味适中，但它的香气和风味让它在很多啤酒中都非常突出，尤其是在美国的 Pale Ale 和 IPA 中，Cascade 酒花几乎是标配。如果你喜欢带有热带水果或者柑橘风味的啤酒，Cascade 酒花的啤酒绝对值得一试。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:21:43.806Z"
+    },
+    {
+      "turnId": "trace_1784219643458_9x3s0m",
+      "userText": "Cascade酒花特点",
+      "assistantReply": "Cascade 酒花是一种非常受欢迎的美国酒花，它的特点主要是带有明显的柑橘和花香，有时候还能感受到一些松木的气息。这种酒花在很多美国IPA（印度淡色艾尔）中都能找到，因为它能给啤酒带来清新的果香和适度的苦味，同时又不会过于刺激。如果你喜欢那种带有热带水果和柑橘风味的啤酒，Cascade 酒花的啤酒应该会很对你的口味。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:34:10.861Z"
+    },
+    {
+      "turnId": "trace_1784255112062_nknxyx",
+      "userText": "Cascade酒花特点",
+      "assistantReply": "Cascade 是一种非常经典的美国酒花，它的特点是非常鲜明的。Cascade 酒花带来的香气通常被描述为带有明显的柑橘香，特别是葡萄柚的香气，还有一些花香和松树的清新感。在味道上，它能给啤酒带来一种清新的苦味，同时伴随着柑橘和花香的风味。这种酒花非常适合用来酿造美国风格的淡色艾尔（American Pale Ale）和印度淡色艾尔（IPA）。如果你喜欢带有热带水果和柑橘风味的啤酒，Cascade 酒花的啤酒可能会很对你的口味。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:25:27.471Z"
+    },
+    {
+      "turnId": "trace_1784255831934_grm2u5",
+      "userText": "Cascade酒花特点",
+      "assistantReply": "Cascade 是一种非常受欢迎的美国酒花，它的特点主要是带有明显的柑橘和花香气息，有时候还能感受到一些松木的味道。这种酒花在很多美国IPA和淡色艾尔中都能找到，因为它能给啤酒带来清新、明亮的风味，同时又不会过于刺激。Cascade 酒花的苦度适中，所以它既适合用来提供香气，也适合用来增加啤酒的苦味。如果你喜欢热带水果和柑橘风味的啤酒，Cascade 酒花的啤酒应该会很对你的口味。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:37:18.396Z"
+    },
+    {
+      "turnId": "trace_1784256727423_1sxi6g",
+      "userText": "Cascade酒花特点",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:52:09.191Z"
+    }
+  ]
+}

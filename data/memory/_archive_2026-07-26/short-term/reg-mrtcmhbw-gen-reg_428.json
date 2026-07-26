@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_428",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:06:54.714Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560012251_60ackj",
+      "userText": "啤酒热量对比",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:06:54.714Z"
+    }
+  ]
+}

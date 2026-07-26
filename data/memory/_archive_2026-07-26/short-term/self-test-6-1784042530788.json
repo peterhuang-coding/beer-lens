@@ -1,0 +1,53 @@
+{
+  "conversationId": "self-test-6-1784042530788",
+  "userId": "self-test",
+  "updatedAt": "2026-07-14T15:22:10.860Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784042530796_qkfb1a",
+      "userText": "今天喝什么好",
+      "assistantReply": "我会这样点：\n\n1. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：今天喝什么好\n最值得尝新：今天喝什么好\n我会先跳过：今天喝什么好 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 今天喝什么好。\n\n⚠️ 今天喝什么好 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-14T15:22:10.860Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784042530796_iqrc2x",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "今天喝什么好",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-14T15:22:10.860Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "今天喝什么好",
+    "brewery": ""
+  }
+}

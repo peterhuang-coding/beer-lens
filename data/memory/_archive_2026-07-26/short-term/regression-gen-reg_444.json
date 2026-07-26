@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_444",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:52:57.770Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129799068_njb3zs",
+      "userText": "啤酒苦度标准",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:36:40.985Z"
+    },
+    {
+      "turnId": "trace_1784163197852_o469wu",
+      "userText": "啤酒苦度标准",
+      "assistantReply": "啤酒的苦度通常用国际苦度单位（IBU）来衡量。IBU值越高，啤酒的苦味就越强。一般来说：\n\n- 0-20 IBU：低苦度，适合喜欢清爽口感的人，比如一些淡色拉格和小麦啤酒。\n- 20-40 IBU：中等苦度，常见于一些美式IPA和琥珀色啤酒。\n- 40-60 IBU：较高苦度，适合喜欢浓烈口感的饮用者，比如一些强烈的IPA和帝国世涛。\n- 60+ IBU：非常高的苦度，通常是极具挑战性的风格，适合苦味爱好者。\n\n如果你喜欢热带水果和柑橘的风味，可能会更倾向于中等苦度的啤酒，像是一些美式IPA，它们通常会有丰富的果香和适中的苦味。你对苦度有什么具体的偏好呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:53:23.380Z"
+    },
+    {
+      "turnId": "trace_1784218906033_acdd12",
+      "userText": "啤酒苦度标准",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:21:47.904Z"
+    },
+    {
+      "turnId": "trace_1784219667166_qu78ie",
+      "userText": "啤酒苦度标准",
+      "assistantReply": "啤酒的苦度通常用国际苦度单位（IBU，International Bitterness Units）来衡量。IBU 是一个量化啤酒中苦味程度的单位，它表示每升啤酒中含有多少毫克的α酸。α酸是啤酒花中的一种化合物，是造成啤酒苦味的主要原因。\n\n不同风格的啤酒，其 IBU 值也会有所不同。一般来说：\n\n- 轻度啤酒和小麦啤酒等比较清爽的啤酒，IBU 值通常在 5 到 20 之间。\n- 淡色艾尔（Pale Ale）和印度淡色艾尔（IPA）等中等苦度的啤酒，IBU 值可能在 20 到 50 之间。\n- 双倍 IPA（DIPA）和一些深色啤酒如波特（Porter）和世涛（Stout），IBU 值可以达到 50 以上，有些甚至超过 100。\n\n不过，苦度只是啤酒风味的一个方面，不同的啤酒风格还会结合其他因素如麦芽的甜度、酒体的饱满度等来平衡苦味。所以，即使 IBU 值相同，不同啤酒的苦味感受也可能不同。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:34:38.739Z"
+    },
+    {
+      "turnId": "trace_1784255138505_ticgfm",
+      "userText": "啤酒苦度标准",
+      "assistantReply": "啤酒的苦度通常用国际苦度单位（IBU，International Bitterness Units）来衡量。这个单位表示每升啤酒中含有的异α酸（iso-alpha acids）的毫克数。异α酸是啤酒花中的一种化合物，是啤酒苦味的主要来源。\n\n一般来说，啤酒的IBU范围可以从非常低的5-10（比如某些小麦啤酒或淡色艾尔），到非常高的60-100甚至更高（比如一些IPA或双倍IPA）。不过，值得注意的是，人的味觉对苦味的感知不仅取决于IBU值，还受到啤酒的其他成分如麦芽甜度、酒精度和酸度等因素的影响。所以，有时候即使IBU值不高，如果啤酒的甜味很重，你可能也会觉得它不那么苦。\n\n你对苦度有什么特别的偏好吗？比如喜欢苦一点的还是甜一点的啤酒？这样我可以给你推荐一些符合你口味的啤酒类型。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:25:49.282Z"
+    },
+    {
+      "turnId": "trace_1784255846013_ss2ovf",
+      "userText": "啤酒苦度标准",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:37:57.921Z"
+    },
+    {
+      "turnId": "trace_1784256760200_bra2ot",
+      "userText": "啤酒苦度标准",
+      "assistantReply": "啤酒的苦度通常用国际苦度单位（IBU, International Bitterness Units）来衡量。IBU 表示啤酒中苦味物质（主要是来自啤酒花的α酸）的浓度。一般来说：\n\n- **低苦度**：0-20 IBU，适合那些不喜欢苦味的啤酒爱好者，比如小麦啤酒、比利时白啤等。\n- **中等苦度**：20-40 IBU，适合大多数啤酒爱好者，比如淡色艾尔、皮尔森等。\n- **高苦度**：40-80 IBU，适合喜欢苦味的啤酒爱好者，比如印度淡色艾尔（IPA）、双倍 IPA 等。\n- **极高苦度**：80+ IBU，适合极少数喜欢极度苦味的啤酒爱好者，比如三倍 IPA 或一些实验性啤酒。\n\n苦度只是衡量啤酒的一个方面，不同的啤酒风格在苦度上有很大的差异。你通常喜欢哪种苦度的啤酒呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:52:57.770Z"
+    }
+  ]
+}

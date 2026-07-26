@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-20-1783961407388",
+  "userId": "self-test",
+  "updatedAt": "2026-07-13T16:50:09.010Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783961407395_p6tzuy",
+      "userText": "有IPA吗",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-13T16:50:09.010Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

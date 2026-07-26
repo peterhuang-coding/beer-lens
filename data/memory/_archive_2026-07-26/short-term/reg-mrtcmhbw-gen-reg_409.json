@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_409",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:03:27.700Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559798536_td6bti",
+      "userText": "酒精度如何计算",
+      "assistantReply": "啤酒的酒精度（ABV，Alcohol By Volume）通常是通过测量发酵前后的比重来计算的。具体步骤如下：\n\n1. **测量初始比重（OG，Original Gravity）**：在发酵开始前，测量麦汁的比重。这个值反映了麦汁中糖分的含量。\n\n2. **测量最终比重（FG，Final Gravity）**：发酵结束后，再次测量啤酒的比重。这个值反映了发酵后剩余的糖分。\n\n3. **计算酒精度**：使用以下公式计算酒精度：\n   \\[\n   ABV = (OG - FG) \\times 131.25\n   \\]\n   例如，如果初始比重是1.050，最终比重是1.010，那么酒精度就是：\n   \\[\n   ABV = (1.050 - 1.010) \\times 131.25 = 5.25\\%\n   \\]\n\n这个方法适用于家庭酿造和商业酿造，简单且有效。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:03:27.700Z"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-gen-reg_511",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:51.519Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255293529_gcovnp",
+      "userText": "第5号啤酒信息",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:28:16.307Z"
+    },
+    {
+      "turnId": "trace_1784255938209_usl9mh",
+      "userText": "第5号啤酒信息",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:39:00.142Z"
+    },
+    {
+      "turnId": "trace_1784256886186_9pctce",
+      "userText": "第5号啤酒信息",
+      "assistantReply": "嘿，你说的“第5号啤酒”是指某个特定的啤酒品牌或类型吗？我需要一点更多的信息才能给你准确的回答。比如，它是某个酒厂的特定产品，还是你指的是一种特定的风格？如果你能提供更多信息，我就能更好地帮你了。😊",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:54:51.519Z"
+    }
+  ]
+}

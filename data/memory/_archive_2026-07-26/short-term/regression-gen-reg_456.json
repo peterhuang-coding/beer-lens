@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_456",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:38.878Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163227938_twtdse",
+      "userText": "2分不会再喝味道怪",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:47.944Z"
+    },
+    {
+      "turnId": "trace_1784218921175_j6zgku",
+      "userText": "2分不会再喝味道怪",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分不会再喝味道怪\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:01.188Z"
+    },
+    {
+      "turnId": "trace_1784219728614_93hv30",
+      "userText": "2分不会再喝味道怪",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分不会再喝味道怪\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:28.627Z"
+    },
+    {
+      "turnId": "trace_1784255191132_m05c0r",
+      "userText": "2分不会再喝味道怪",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分不会再喝味道怪\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:31.149Z"
+    },
+    {
+      "turnId": "trace_1784255887976_o7rxuj",
+      "userText": "2分不会再喝味道怪",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分不会再喝味道怪\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:07.992Z"
+    },
+    {
+      "turnId": "trace_1784256818860_kp4vz5",
+      "userText": "2分不会再喝味道怪",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n你不会再喝这杯酒。\n备注：2分不会再喝味道怪\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:38.878Z"
+    }
+  ]
+}

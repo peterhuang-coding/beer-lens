@@ -1,0 +1,53 @@
+{
+  "conversationId": "verify-fbe31f55d83c482230b42f37bf728d1c",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T16:14:13.542Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784218453487_3n0yr9",
+      "userText": "像Heady Topper的风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Heady Topper - 评分4.5，290490+人评分\n2. Heady Topper - 评分4.5，290490+人评分\n3. Heady Topper - 评分4.5，290490+人评分\n\n最稳：Heady Topper\n最值得尝新：Heady Topper\n我会先跳过：Heady Topper - 评分4.5，290490+人评分\n\n如果只能喝一杯，选 Heady Topper。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:13.542Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784218453487_9tb3hq",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Heady Topper",
+        "brewery": "The Alchemist",
+        "style": "IPA - Imperial / Double",
+        "abv": 8,
+        "price": null,
+        "rating": 4.517
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-16T16:14:13.542Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Heady Topper",
+    "brewery": "The Alchemist"
+  }
+}

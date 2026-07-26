@@ -1,0 +1,14 @@
+{
+  "conversationId": "debug-405v2",
+  "userId": "debug",
+  "updatedAt": "2026-07-16T16:38:22.835Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784219901236_qv500t",
+      "userText": "拳击猫酒厂风格",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-16T16:38:22.835Z"
+    }
+  ]
+}

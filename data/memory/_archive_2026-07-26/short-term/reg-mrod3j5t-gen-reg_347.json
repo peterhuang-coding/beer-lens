@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_347",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:12:36.811Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257948825_9bgcj6",
+      "userText": "搞一杯好精酿",
+      "assistantReply": "来啦！根据你之前提到的口味偏好（热带水果、柑橘调、清爽低甜），我推荐试试这些风格：\n\n1. **新英格兰IPA** - 浑浊酒体，爆炸的热带水果香气，苦度适中\n2. **西海岸IPA** - 更干净的柑橘/松木风味，收口干爽\n3. **赛松** - 带点野菌的复杂感，但依然清新易饮\n\n最近有喝到什么特别喜欢的酒款吗？可以帮你分析下口味走向~ 或者想了解某个风格的详细特点？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:12:36.811Z"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "conversationId": "regression-gen-reg_569",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:56:08.803Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255458993_b6lu4t",
+      "userText": "不对我更爱世涛不是IPA",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:30:58.999Z"
+    },
+    {
+      "turnId": "trace_1784256024824_2xd8ca",
+      "userText": "不对我更爱世涛不是IPA",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:40:24.833Z"
+    },
+    {
+      "turnId": "trace_1784256968787_a9ip2a",
+      "userText": "不对我更爱世涛不是IPA",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:56:08.803Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

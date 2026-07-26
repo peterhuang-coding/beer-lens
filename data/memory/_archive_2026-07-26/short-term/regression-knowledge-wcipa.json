@@ -1,0 +1,31 @@
+{
+  "conversationId": "regression-knowledge-wcipa",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:57:42.153Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255562374_xumxt3",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "West Coast IPA 是 IPA 里偏干、偏清爽、酒花香气更锋利的一支。它通常突出松针、柑橘皮、葡萄柚这类香气，苦味更直接，收口比较干净；和 Hazy IPA 相比，它没那么浑浊甜润，果汁感更少，酒花的苦和香会更清晰。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:32:47.950Z"
+    },
+    {
+      "turnId": "trace_1784256104522_c15cnp",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "West Coast IPA，也就是西海岸IPA，是一种起源于美国西海岸的印度淡色艾尔（India Pale Ale）风格。这种风格的IPA以其强烈的苦味和浓郁的酒花香气而闻名，通常会使用大量的美国酒花，比如西楚（Citra）、卡斯卡特（Cascade）、辛恩（Simcoe）和阿马里洛（Amarillo）等，这些酒花会给啤酒带来明显的松木、柑橘、热带水果和树脂的香气和味道。\n\n西海岸IPA的苦度通常较高，酒精度中等到高，颜色从金黄色到琥珀色不等。与后来出现的一些更注重果味和香气的IPA风格（如新英格兰IPA）相比，西海岸IPA更强调苦味和酒花的复杂性。如果你喜欢强烈、鲜明的酒花风味，西海岸IPA绝对值得一试。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:41:50.746Z"
+    },
+    {
+      "turnId": "trace_1784257054388_ksqhno",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "啊，West Coast IPA（西海岸IPA）可是精酿啤酒里的经典风格！让我用几个关键词帮你快速抓住它的精髓：\n\n1. **柑橘炸弹**：主打葡萄柚、柠檬皮那种明亮的柑橘香，有些还会有松木树脂的香气（来自大量干投的美式酒花，比如卡斯卡特、世纪、西楚这些）\n\n2. **干脆利落**：和现在流行的浑浊IPA不同，酒体通常是清澈的金黄色，收口非常干爽，几乎不带甜味\n\n3. **苦度担当**：IBU（苦度值）经常在50-70之间，入口时能明显感受到那种尖锐的苦味，但和柑橘香形成完美平衡\n\n举个栗子🌰：想象你咬了一口沾着松脂的西柚，同时有人在你喉咙里轻轻掐了一下——就是这种又香又痛快的体验！\n\n最近几年虽然被新英格兰IPA抢了风头，但很多老饕还是最爱这种棱角分明的风格。你平时喝苦度高的啤酒会感觉接受无能吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:57:42.153Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

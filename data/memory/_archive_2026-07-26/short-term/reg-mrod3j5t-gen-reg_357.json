@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_357",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:12:56.586Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257969863_iregj2",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "帝国世涛（Imperial Stout）确实很适合用波本桶陈酿！这种啤酒本身就有着浓郁的黑巧克力、咖啡和焦糖风味，酒体厚重，酒精度也比较高。经过波本桶陈酿后，它会吸收橡木桶中的香草、椰子和焦糖香气，同时还会增添一些波本威士忌的烟熏和木质调性，让整体风味更加复杂和层次分明。\n\n波本桶陈酿的帝国世涛通常会有一种温暖的感觉，酒精度也会稍微提升，喝起来更加醇厚。如果你喜欢这种风格，可以留意一下酒标上是否标注了“Bourbon Barrel Aged”或者“BBA”的字样，这些都是波本桶陈酿的标志。\n\n你平时喜欢喝帝国世涛吗？有没有特别喜欢的品牌或者风味？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:12:56.586Z"
+    }
+  ]
+}

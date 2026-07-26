@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_411",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:07:14.116Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257625016_6ihjbm",
+      "userText": "Heady Topper历史",
+      "assistantReply": "啊，Heady Topper！这可是精酿啤酒界的传奇之一啊。这款双倍IPA来自美国佛蒙特州的The Alchemist酒厂，2003年首次酿造，真正让它爆红是2011年在酒厂自营酒吧推出罐装版本之后。\n\n几个有趣的点：\n1. 它是最早一批不做过滤的浑浊IPA（现在叫NEIPA的雏形），当时这种云雾状外观还很罕见\n2. 酒标上直接写着\"直接从罐子喝\"，因为创始人John Kimmich认为这样能保留最完整的风味\n3. 2011年飓风艾琳冲毁了他们的酒吧，却意外让这款罐装啤酒获得更多关注\n\n现在虽然浑浊IPA遍地都是，但Heady Topper依然保持着8%ABV和120+IBU的经典配方，你能喝到明显的柑橘、松木和热带水果香气。要试试吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:07:14.116Z"
+    }
+  ]
+}

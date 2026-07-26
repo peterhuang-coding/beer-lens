@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_396",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:14:35.105Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258067312_p51zj7",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA）和三倍IPA（Triple IPA）的主要区别在于酒精含量、苦味强度和麦芽甜度。\n\n1. **酒精含量**：双倍IPA通常在7.5-10% ABV之间，而三倍IPA则更高，一般在10-12.5% ABV甚至更高。\n\n2. **苦味强度**：双倍IPA的苦味已经很强烈，IBU（国际苦度单位）通常在60-100之间。三倍IPA的苦味更强，IBU通常在100以上。\n\n3. **麦芽甜度**：为了平衡高酒精和苦味，三倍IPA通常会使用更多的麦芽，使得酒体更厚重，麦芽甜度也更明显。双倍IPA的麦芽甜度相对较低，更注重啤酒花的香气和苦味。\n\n简单来说，三倍IPA是双倍IPA的“加强版”，各方面都更强烈。如果你喜欢清爽一点的，双倍IPA可能更适合你；如果你追求极致体验，可以试试三倍IPA。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:14:35.105Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

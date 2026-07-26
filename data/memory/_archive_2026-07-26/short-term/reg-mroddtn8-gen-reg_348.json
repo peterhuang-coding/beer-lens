@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mroddtn8-gen-reg_348",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:20:44.540Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258438119_tmeyex",
+      "userText": "来点精酿啤酒",
+      "assistantReply": "嘿，来聊聊精酿啤酒啊！根据你之前提到的口味偏好（热带水果、柑橘、清爽、低甜度），我猜你可能会喜欢这几类：\n\n1. 新英格兰IPA(NEIPA) - 浑浊酒体，爆炸的热带水果香气，苦度低\n2. 西海岸IPA - 更清爽的柑橘松木风味，比NEIPA干爽\n3. 赛松(Saison) - 干爽的比利时农场风格，常有柑橘和香料调\n\n最近有特别想尝试的风格吗？或者我们可以聊聊这些风格的酿造特点？😄",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:20:44.540Z"
+    }
+  ]
+}

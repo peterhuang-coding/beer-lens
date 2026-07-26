@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_403",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:29:12.608Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258943497_iyz8s1",
+      "userText": "啤酒酵母分类",
+      "assistantReply": "哈！啤酒酵母可是精酿的灵魂啊～简单来说主要分为两大类：\n\n1. 艾尔酵母（顶层发酵）\n温度：15-24℃\n特点：发酵时浮在酒液顶部，能产生丰富酯类香气（水果/香料风味）\n典型风格：IPA、世涛、比利时啤酒\n\n2. 拉格酵母（底层发酵） \n温度：7-13℃ \n特点：沉在发酵罐底部，发酵更干净清爽\n典型风格：皮尔森、德式黑啤、美式淡拉格\n\n小知识：还有野生酵母比如布雷特菌（Brettanomyces），能带来马厩/皮革等特殊风味，常见于兰比克这类自然发酵啤酒～ \n\n想了解更具体的某类酵母特性可以随时问我！ 🍻",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:29:12.608Z"
+    }
+  ]
+}

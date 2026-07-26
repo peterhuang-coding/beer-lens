@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ep_1783737119943_gvuhyx",
+    "userId": "test-leader",
+    "createdAt": "2026-07-11T02:31:59.943Z",
+    "sourceTraceId": "trace_1783737119941_3iwdcl",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "overallScore": 4,
+      "wouldDrinkAgain": "yes",
+      "aromaTags": [
+        "柑橘"
+      ],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "4分，会再喝，柑橘味"
+    }
+  }
+]

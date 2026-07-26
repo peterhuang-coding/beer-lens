@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_320",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:03.259Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129537856_h1re1i",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:19.963Z"
+    },
+    {
+      "turnId": "trace_1784162444907_8yt3om",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-16T00:40:46.816Z"
+    },
+    {
+      "turnId": "trace_1784162793920_wdk0bw",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3；评分样本少，置信度降低，酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-16T00:46:35.796Z"
+    },
+    {
+      "turnId": "trace_1784218473065_vdn82v",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:33.115Z"
+    },
+    {
+      "turnId": "trace_1784218995061_4vyql4",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:15.110Z"
+    },
+    {
+      "turnId": "trace_1784220514777_nwaq2h",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:34.825Z"
+    },
+    {
+      "turnId": "trace_1784254106844_hhhurg",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:26.894Z"
+    },
+    {
+      "turnId": "trace_1784254696118_8fyk3d",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:16.174Z"
+    },
+    {
+      "turnId": "trace_1784255352720_of6fi4",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:12.762Z"
+    },
+    {
+      "turnId": "trace_1784256239288_wmgjx0",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:59.339Z"
+    },
+    {
+      "turnId": "trace_1784256283638_maxgeo",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:43.685Z"
+    },
+    {
+      "turnId": "trace_1784257203219_3jw53v",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:03.259Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257203219_nh1nr1",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Founders Breakfast Stout",
+        "brewery": "Founders Brewing Company",
+        "style": "American Double / Imperial Stout",
+        "abv": 8.3,
+        "price": null,
+        "rating": 4.35
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:03.259Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Founders Breakfast Stout",
+    "brewery": "Founders Brewing Company"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "conversationId": "regression-gen-reg_498",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:09.537Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163262154_eukbw4",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "当然有！IPA（印度淡色艾尔）是一种非常受欢迎的啤酒风格，通常以其浓烈的啤酒花香气和苦味而闻名。它有很多变种，比如美式IPA、英式IPA、双倍IPA等。\n\n如果你喜欢热带水果和柑橘的风味，推荐尝试美式IPA，这种风格通常会有丰富的水果香气，口感清爽，非常适合你的口味偏好。你有没有特别想了解的IPA品牌或类型呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:54:26.214Z"
+    },
+    {
+      "turnId": "trace_1784218952517_at0q9u",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "我会这样点：\n\n1. 有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有IPA可以选吗\n最值得尝新：有IPA可以选吗\n我会先跳过：有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有IPA可以选吗。\n\n⚠️ 有IPA可以选吗 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:22:32.601Z"
+    },
+    {
+      "turnId": "trace_1784219758782_4gohrr",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-16T16:35:58.795Z"
+    },
+    {
+      "turnId": "trace_1784255225532_xkpa5c",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "我会这样点：\n\n1. 有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有IPA可以选吗\n最值得尝新：有IPA可以选吗\n我会先跳过：有IPA可以选吗 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有IPA可以选吗。\n\n⚠️ 有IPA可以选吗 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:27:05.545Z"
+    },
+    {
+      "turnId": "trace_1784255920690_id7jti",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-17T02:38:40.700Z"
+    },
+    {
+      "turnId": "trace_1784256849524_nuw3qk",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "follow_up_filter",
+      "createdAt": "2026-07-17T02:54:09.537Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784255225532_zni1zp",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "有IPA可以选吗",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:27:05.544Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "有IPA可以选吗",
+    "brewery": ""
+  }
+}

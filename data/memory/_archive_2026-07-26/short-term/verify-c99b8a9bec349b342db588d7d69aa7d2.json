@@ -1,0 +1,53 @@
+{
+  "conversationId": "verify-c99b8a9bec349b342db588d7d69aa7d2",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T16:14:13.909Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784218453853_idct22",
+      "userText": "有酸啤可以选么",
+      "assistantReply": "我会这样点：\n\n1. 有酸啤可以选么 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 有酸啤可以选么 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 有酸啤可以选么 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：有酸啤可以选么\n最值得尝新：有酸啤可以选么\n我会先跳过：有酸啤可以选么 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 有酸啤可以选么。\n\n⚠️ 有酸啤可以选么 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:13.909Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784218453853_f294ub",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "有酸啤可以选么",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-16T16:14:13.909Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "有酸啤可以选么",
+    "brewery": ""
+  }
+}

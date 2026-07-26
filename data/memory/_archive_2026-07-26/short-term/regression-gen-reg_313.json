@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_313",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:59.426Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129523868_q11t0d",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：推荐古斯酸啤酒\n最值得尝新：推荐古斯酸啤酒\n我会先跳过：推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 推荐古斯酸啤酒。\n\n⚠️ 推荐古斯酸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:03.952Z"
+    },
+    {
+      "turnId": "trace_1784162417315_2tullg",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐古斯酸啤酒\n最值得尝新：推荐古斯酸啤酒\n我会先跳过：推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐古斯酸啤酒。\n\n⚠️ 推荐古斯酸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:17.387Z"
+    },
+    {
+      "turnId": "trace_1784162767804_fjn588",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐古斯酸啤酒\n最值得尝新：推荐古斯酸啤酒\n我会先跳过：推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐古斯酸啤酒。\n\n⚠️ 推荐古斯酸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:46:07.883Z"
+    },
+    {
+      "turnId": "trace_1784218469107_9lhfpb",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. 推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：推荐古斯酸啤酒\n最值得尝新：推荐古斯酸啤酒\n我会先跳过：推荐古斯酸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 推荐古斯酸啤酒。\n\n⚠️ 推荐古斯酸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:29.182Z"
+    },
+    {
+      "turnId": "trace_1784218991100_pt231a",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：推荐古斯酸啤酒\n最值得尝新：推荐古斯酸啤酒\n我会先跳过：推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 推荐古斯酸啤酒。\n\n⚠️ 推荐古斯酸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:11.172Z"
+    },
+    {
+      "turnId": "trace_1784220510818_s6r42p",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. 推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：推荐古斯酸啤酒\n最值得尝新：推荐古斯酸啤酒\n我会先跳过：推荐古斯酸啤酒 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 推荐古斯酸啤酒。\n\n⚠️ 推荐古斯酸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:30.893Z"
+    },
+    {
+      "turnId": "trace_1784254102984_d2fgxb",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Soursmith Black Raspberry - 评分4.4，4779+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Soursmith Black Raspberry\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:23.022Z"
+    },
+    {
+      "turnId": "trace_1784254692230_n12dh3",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Soursmith Black Raspberry - 评分4.4，4779+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Soursmith Black Raspberry\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:12.269Z"
+    },
+    {
+      "turnId": "trace_1784255348801_rwbwcv",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Soursmith Black Raspberry - 评分4.4，4779+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Soursmith Black Raspberry\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:08.843Z"
+    },
+    {
+      "turnId": "trace_1784256235380_onuuc6",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Soursmith Black Raspberry - 评分4.4，4779+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Soursmith Black Raspberry\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:55.424Z"
+    },
+    {
+      "turnId": "trace_1784256279726_xd0h72",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Soursmith Black Raspberry - 评分4.4，4779+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Soursmith Black Raspberry\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:39.768Z"
+    },
+    {
+      "turnId": "trace_1784257199388_k8ma9a",
+      "userText": "推荐古斯酸啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n2. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n3. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n最稳：Monk's Café Flemish Sour Ale\n最值得尝新：Monk's Café Flemish Sour Ale\n我会先跳过：Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n如果只能喝一杯，选 Monk's Café Flemish Sour Ale。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:59.426Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257199388_ytuyb3",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:59.426Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Monk's Café Flemish Sour Ale",
+    "brewery": "Brouwerij Van Steenberge N.V."
+  }
+}

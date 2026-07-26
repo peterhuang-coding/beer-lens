@@ -1,0 +1,14 @@
+{
+  "conversationId": "debug-reg343",
+  "userId": "debug-user",
+  "updatedAt": "2026-07-17T02:15:10.085Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784254510078_mtyk56",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:15:10.085Z"
+    }
+  ]
+}

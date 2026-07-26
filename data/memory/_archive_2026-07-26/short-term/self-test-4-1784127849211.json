@@ -1,0 +1,56 @@
+{
+  "conversationId": "self-test-4-1784127849211",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T15:04:09.251Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784127849225_h6ob7e",
+      "userText": "帮我推荐拉格",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Original Lager - 评分4.0，5042+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Original Lager - 评分4.0，5042+人评分\n\n最稳：Original Lager\n最值得尝新：Original Lager\n我会先跳过：Original Lager - 评分4.0，5042+人评分\n\n如果只能喝一杯，选 Original Lager。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:04:09.251Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784127849225_d977v7",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Original Lager",
+        "brewery": "Goldfinger Brewing Company",
+        "style": "Lager - Helles",
+        "abv": 5.2,
+        "price": null,
+        "rating": 3.97
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-15T15:04:09.251Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Original Lager",
+    "brewery": "Goldfinger Brewing Company"
+  },
+  "currentConstraints": [
+    "拉格"
+  ]
+}

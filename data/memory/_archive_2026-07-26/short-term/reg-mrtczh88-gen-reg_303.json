@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_303",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:07:44.891Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560064860_apuunw",
+      "userText": "推荐牛奶世涛",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Stout - 评分3.9，151人评分\n2. Stout - 评分3.9，151人评分\n3. Stout - 评分3.9，151人评分\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.9，151人评分\n\n如果只能喝一杯，选 Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T15:07:44.891Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784560064860_ssjrrt",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Stout",
+        "brewery": "August Schell Brewing Company",
+        "style": "English Stout",
+        "abv": 5,
+        "price": null,
+        "rating": 3.93
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-20T15:07:44.891Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Stout",
+    "brewery": "August Schell Brewing Company"
+  }
+}

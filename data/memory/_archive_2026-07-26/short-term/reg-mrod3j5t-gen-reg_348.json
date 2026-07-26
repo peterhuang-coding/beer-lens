@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_348",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:12:44.872Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257957315_rs31ad",
+      "userText": "来点精酿啤酒",
+      "assistantReply": "嘿！来聊聊精酿啤酒啊~ 根据你之前提到的偏好(热带水果/柑橘/清爽/低甜度)，我猜你会喜欢这些风格：\n\n1. 美式IPA - 爆炸的柑橘和热带水果香气，干爽收口\n2. 新英格兰IPA - 果汁感更强但苦度更低\n3. 德式皮尔森 - 超级清爽的麦芽香，几乎无甜感\n4. 赛松 - 带点野菌的复杂果香，干爽易饮\n\n最近有特别想尝试的风味方向吗？或者要不要聊聊这些风格的酿造特点？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:12:44.872Z"
+    }
+  ]
+}

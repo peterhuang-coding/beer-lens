@@ -1,0 +1,14 @@
+{
+  "conversationId": "verify-2",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T00:37:45.724Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784162265720_5gaxbz",
+      "userText": "适合什么风格啤酒",
+      "assistantReply": "🔬 记忆实验组：开启（你的口味画像会影响推荐）\n\n你的口味画像：\n\n暂无足够的品饮记录来生成口味画像。\n\n画像置信度：暂无足够品饮记录\n\nABV 舒适区：暂无足够记录\n\n证据数：0 · 画像置信度：0% · 实验组：开启",
+      "intent": "profile_query",
+      "createdAt": "2026-07-16T00:37:45.724Z"
+    }
+  ]
+}

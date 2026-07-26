@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_388",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:09:24.845Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560158377_kv5pmx",
+      "userText": "赛森啤酒风格定义",
+      "assistantReply": "（专业模式启动）赛森啤酒（Saison）是比利时瓦隆地区的传统农舍啤酒，最初是给季节性工人（Saisonniers）解渴用的。几个关键特征：\n\n1. 酵母特性：\n- 使用特殊的地域性酵母\n- 产生明显的胡椒辛香+柑橘酯香\n- 常有轻微野菌带来的农场气息\n\n2. 口感表现：\n- 干爽收口（OG通常1.048-1.080但发酵度超高）\n- 中等偏高碳化（杀口感强）\n- 苦度20-45 IBU但被酵母风味平衡\n\n3. 现代变种：\n- 基础款（4-5%）：清爽版本\n- 超级赛森（6-8%）：更浓郁\n- 水果增味（近年流行加杏子/桃子）\n\n经典案例：Dupont Vieille Provision（教科书级）\n\n你具体想了解酿造工艺还是品饮要点？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:09:24.845Z"
+    }
+  ]
+}

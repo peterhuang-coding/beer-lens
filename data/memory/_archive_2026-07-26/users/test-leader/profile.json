@@ -1,0 +1,22 @@
+{
+  "userId": "test-leader",
+  "updatedAt": "2026-07-11T02:31:59.944Z",
+  "summary": "喜欢柑橘风味",
+  "preferredStyles": [],
+  "dislikedStyles": [],
+  "preferredTags": [
+    {
+      "value": "柑橘",
+      "weight": 1,
+      "evidenceCount": 1
+    }
+  ],
+  "dislikedTags": [],
+  "notes": [
+    "4分，会再喝，柑橘味"
+  ],
+  "confidence": 0.1,
+  "evidenceCount": 1,
+  "correctionsCount": 0,
+  "correctionsApplied": false
+}

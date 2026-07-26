@@ -1,0 +1,17 @@
+{
+  "userId": "e2e-user",
+  "updatedAt": "2026-07-17T02:28:34.596Z",
+  "favorites": {
+    "topBreweries": [],
+    "topCountries": [],
+    "topStyles": []
+  },
+  "abvEvolution": [],
+  "flavorCloud": [],
+  "pendingFeedback": [],
+  "totalEpisodes": 1,
+  "totalSessions": 1,
+  "frequentIntents": {
+    "tasting_feedback": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-8-1784562168401",
+  "userId": "self-test",
+  "updatedAt": "2026-07-20T15:42:56.747Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784562168971_wwyb6i",
+      "userText": "什么是West Coast IPA",
+      "assistantReply": "啊，West Coast IPA（西海岸IPA）可是精酿啤酒革命中的标志性风格！让我用最\"IPA\"的方式给你解释：\n\n简单来说，这是美式IPA的一个经典分支，特点就像加州阳光一样鲜明：\n🌊 **强烈酒花冲击** - 主打柑橘(葡萄柚/橙子)、松木和树脂香气，苦度明显但不粗暴\n🍋 **干净清爽** - 发酵度干爽，甜度低，适合大口畅饮\n🌲 **经典配方** - 常用Cascade/Centennial/Simcoe等美国酒花\n🔥 **典型数据**： \n- 苦度(IBU): 50-70\n- 酒精度(ABV): 6.3-7.5%\n- 色度：金色到浅琥珀色\n\n小知识：它和New England IPA就像性格迥异的兄弟——西海岸IPA强调透亮酒体和清晰苦度，而浑浊IPA追求果汁感。你更喜欢哪种表现方式？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:42:56.747Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

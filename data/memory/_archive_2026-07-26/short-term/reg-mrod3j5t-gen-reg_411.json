@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_411",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:17:04.665Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258214552_34n3bf",
+      "userText": "Heady Topper历史",
+      "assistantReply": "啊，Heady Topper！这可是精酿啤酒界的传奇IPA啊。让我来给你讲讲它的故事：\n\n这款双倍IPA由佛蒙特州的The Alchemist酒厂酿造，首次面世是在2003年。创始人John Kimmich原本是想做一款能展现美国啤酒花风味的标杆性IPA。\n\n有几个特别之处让它成为经典：\n1. 它是新英格兰IPA(NEIPA)风格的先驱之一，那种浑浊的酒体和爆炸式的热带水果香气在当时非常前卫\n2. 只在小范围地区发售(主要在佛蒙特州)，造就了它的稀缺性\n3. 酒厂在2011年遭遇飓风艾琳几乎被毁，重建后更添传奇色彩\n\n有趣的是，酒标上直接写着\"直接对着罐子喝\"(Drink from the can)，这是为了保持酒体浑浊度和香气。8%的酒精度在当时也算是相当大胆了。\n\n这款酒带动了整个NEIPA风格的流行，现在很多浑浊IPA都能看到它的影子。虽然现在同类产品很多，但在精酿爱好者心中它依然有着特殊地位。你喝过这款吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:17:04.665Z"
+    }
+  ]
+}

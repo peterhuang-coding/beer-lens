@@ -1,0 +1,65 @@
+{
+  "conversationId": "reg-mroddtn8-gen-reg_302",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:20:03.018Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258402982_n6dinr",
+      "userText": "推荐双倍IPA啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. IPA - 评分3.8，363人评分\n2. IPA - 评分3.8，363人评分\n3. IPA - 评分3.8，363人评分\n\n最稳：IPA\n最值得尝新：IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1，114人评分；酒精度10%，略高\n\n如果只能喝一杯，选 IPA。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:20:03.018Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784258402982_9y6bgh",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "110K+OT Batch #3 - The Other West Coast IPA",
+        "brewery": "Cigar City Brewing",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.1
+      },
+      {
+        "candidateId": "2",
+        "displayName": "IPA",
+        "brewery": "Long Trail Brewing Co.",
+        "style": "English India Pale Ale (IPA)",
+        "abv": 5.9,
+        "price": null,
+        "rating": 3.81
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:20:03.018Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "2",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "2",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "2",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "2",
+    "displayName": "IPA",
+    "brewery": "Long Trail Brewing Co."
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

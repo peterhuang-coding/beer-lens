@@ -1,0 +1,157 @@
+{
+  "conversationId": "regression-gen-reg_311",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:58.323Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129522687_6400db",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐修道院啤酒\n最值得尝新：推荐修道院啤酒\n我会先跳过：推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐修道院啤酒。\n\n⚠️ 推荐修道院啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:02.759Z"
+    },
+    {
+      "turnId": "trace_1784162416155_jv4o1y",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐修道院啤酒\n最值得尝新：推荐修道院啤酒\n我会先跳过：推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐修道院啤酒。\n\n⚠️ 推荐修道院啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:16.235Z"
+    },
+    {
+      "turnId": "trace_1784162766652_uhgkcx",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐修道院啤酒\n最值得尝新：推荐修道院啤酒\n我会先跳过：推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐修道院啤酒。\n\n⚠️ 推荐修道院啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:46:06.720Z"
+    },
+    {
+      "turnId": "trace_1784218467947_ttjqm5",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐修道院啤酒\n最值得尝新：推荐修道院啤酒\n我会先跳过：推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐修道院啤酒。\n\n⚠️ 推荐修道院啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:28.020Z"
+    },
+    {
+      "turnId": "trace_1784218989943_8n8zqy",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐修道院啤酒\n最值得尝新：推荐修道院啤酒\n我会先跳过：推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐修道院啤酒。\n\n⚠️ 推荐修道院啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:10.020Z"
+    },
+    {
+      "turnId": "trace_1784220509663_dulw7u",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐修道院啤酒\n最值得尝新：推荐修道院啤酒\n我会先跳过：推荐修道院啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐修道院啤酒。\n\n⚠️ 推荐修道院啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:29.736Z"
+    },
+    {
+      "turnId": "trace_1784254101860_zwycqk",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:21.902Z"
+    },
+    {
+      "turnId": "trace_1784254691096_dvxyi1",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:11.142Z"
+    },
+    {
+      "turnId": "trace_1784255347674_jy94yb",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:07.714Z"
+    },
+    {
+      "turnId": "trace_1784256234270_ifu6k9",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:54.298Z"
+    },
+    {
+      "turnId": "trace_1784256278599_6jpka4",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:38.637Z"
+    },
+    {
+      "turnId": "trace_1784257198280_vv0kdz",
+      "userText": "推荐修道院啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n2. IPA - 评分3.8，363人评分\n3. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n最稳：IPA\n最值得尝新：Monk's Café Flemish Sour Ale\n我会先跳过：IPA - 评分3.8，363人评分\n\n如果只能喝一杯，选 Monk's Café Flemish Sour Ale。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:58.323Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257198280_62ioyx",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "IPA",
+        "brewery": "Long Trail Brewing Co.",
+        "style": "English India Pale Ale (IPA)",
+        "abv": 5.9,
+        "price": null,
+        "rating": 3.81
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Stout",
+        "brewery": "August Schell Brewing Company",
+        "style": "English Stout",
+        "abv": 5,
+        "price": null,
+        "rating": 3.93
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Lager",
+        "brewery": "Upper Canada Brewing Company",
+        "style": "American Pale Lager",
+        "abv": 5,
+        "price": null,
+        "rating": 3.62
+      },
+      {
+        "candidateId": "4",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:58.323Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "4",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "4",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "4",
+    "displayName": "Monk's Café Flemish Sour Ale",
+    "brewery": "Brouwerij Van Steenberge N.V."
+  }
+}

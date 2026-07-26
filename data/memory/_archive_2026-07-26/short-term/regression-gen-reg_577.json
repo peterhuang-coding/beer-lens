@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-gen-reg_577",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:40:33.043Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255467488_1s7ltb",
+      "userText": "删除所有品酒记录",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:31:09.257Z"
+    },
+    {
+      "turnId": "trace_1784256031598_21stan",
+      "userText": "删除所有品酒记录",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-17T02:40:33.043Z"
+    }
+  ]
+}

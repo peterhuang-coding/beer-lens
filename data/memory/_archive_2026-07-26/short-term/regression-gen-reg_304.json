@@ -1,0 +1,146 @@
+{
+  "conversationId": "regression-gen-reg_304",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:54.482Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129514309_qt6556",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Stout - 评分3.8，1475+人评分\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:31:54.365Z"
+    },
+    {
+      "turnId": "trace_1784162381090_0mwq3h",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:39:41.104Z"
+    },
+    {
+      "turnId": "trace_1784162404758_kemeb5",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:04.766Z"
+    },
+    {
+      "turnId": "trace_1784162755565_vk3wuy",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:45:55.578Z"
+    },
+    {
+      "turnId": "trace_1784218464091_ngooqa",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:24.101Z"
+    },
+    {
+      "turnId": "trace_1784218986060_a5ygn5",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:06.070Z"
+    },
+    {
+      "turnId": "trace_1784220505830_ewmo8i",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:25.844Z"
+    },
+    {
+      "turnId": "trace_1784254098018_022tez",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:18.027Z"
+    },
+    {
+      "turnId": "trace_1784254687252_4l0mgh",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:07.264Z"
+    },
+    {
+      "turnId": "trace_1784255343870_b0qt9m",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:03.880Z"
+    },
+    {
+      "turnId": "trace_1784256230407_kdpfbu",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:50.420Z"
+    },
+    {
+      "turnId": "trace_1784256274795_4dd488",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:34.807Z"
+    },
+    {
+      "turnId": "trace_1784257194474_eneq0e",
+      "userText": "推荐帝国世涛",
+      "assistantReply": "我会这样点：\n\n1. Stout - 评分3.8；评分样本少，置信度降低（有风险，见下方）\n2. Stout - 评分3.8；评分样本少，置信度降低\n3. Stout - 评分3.8；评分样本少，置信度降低\n\n最稳：Stout\n最值得尝新：Stout\n我会先跳过：Stout - 评分3.8；评分样本少，置信度降低\n\n如果只能喝一杯，选 Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:54.482Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257194474_qa1048",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Stout",
+        "brewery": "Three Tuns Brewery",
+        "style": "Stout - English",
+        "abv": 4.4,
+        "price": null,
+        "rating": 3.797
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Barrel Aged Imperial German Chocolate Cupcake Stout",
+        "brewery": "Angry Chair Brewing",
+        "style": "Stout - Imperial / Double Pastry",
+        "abv": 11,
+        "price": null,
+        "rating": 4.66
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:54.482Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Stout",
+    "brewery": "Three Tuns Brewery"
+  }
+}

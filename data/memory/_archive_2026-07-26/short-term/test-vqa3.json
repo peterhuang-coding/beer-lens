@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-vqa3",
+  "userId": "test-vqa3",
+  "updatedAt": "2026-07-15T16:13:07.735Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784131984864_baw2z3",
+      "userText": "这几款里哪个酒精度最高？我想要最烈的",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T16:13:07.735Z"
+    }
+  ]
+}

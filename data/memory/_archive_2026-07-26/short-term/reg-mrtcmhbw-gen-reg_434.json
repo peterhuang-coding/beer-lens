@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_434",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:07:40.714Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560054065_4yqzxt",
+      "userText": "Session IPA是什么",
+      "assistantReply": "啊，Session IPA 是我个人很爱推荐给新手的风格！简单来说就是\"低度版IPA\"——保留了IPA标志性的啤酒花香气(柑橘/热带水果那些)，但酒精度更低(一般4-5% ABV左右)，喝起来更清爽不腻。\n\n它诞生挺有意思的：英国酒厂发现工人们午休想喝IPA解馋，但下午还要干活不能喝醉，就搞出了这个版本。现在特别适合：\n- 夏天撸串时连续喝好几杯\n- 想体验IPA香气又怕苦的新手\n- 喜欢清爽感胜过厚重酒体的场合\n\n你之前提到喜欢热带水果风味的话，很多Session IPA会用马赛克(Mosaic)或西楚(Citra)酒花，能喝出明显的芒果/百香果香气呢！最近有喝到什么类似的酒款吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:07:40.714Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

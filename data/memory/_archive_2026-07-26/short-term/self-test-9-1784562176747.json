@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-9-1784562176747",
+  "userId": "self-test",
+  "updatedAt": "2026-07-20T15:42:56.798Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784562176750_m0m4js",
+      "userText": "清空",
+      "assistantReply": "根据你的口味画像：喜欢热带水果风味",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-20T15:42:56.798Z"
+    }
+  ]
+}

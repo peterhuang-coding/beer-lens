@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_410",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:03:45.592Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559808189_ngneg4",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "Pliny the Elder 是俄罗斯河酒厂（Russian River Brewing Company）的招牌双倍IPA。这家位于加州Santa Rosa的酒厂在精酿圈地位很高，创始人Vinnie Cilurzi甚至被称为\"双倍IPA之父\"。\n\n这款酒的特点很鲜明：\n- 标志性的西海岸IPA风格\n- 大量使用哥伦布、世纪和西姆科酒花\n- 松木树脂香气混合柑橘风味\n- 酒精度8%但喝起来异常平衡\n\n有趣的是，酒名取自古罗马博物学家老普林尼，而他们还有款更烈的三倍IPA叫Pliny the Younger，每年只限量发售一次。\n\n你喝过这款吗？还是正在计划尝试？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:03:45.592Z"
+    }
+  ]
+}

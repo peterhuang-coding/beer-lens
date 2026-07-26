@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_434",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:10:53.321Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257846319_8px8pj",
+      "userText": "Session IPA是什么",
+      "assistantReply": "啊，Session IPA 是最近几年特别火的一种啤酒风格，简单来说就是\"低酒精版的IPA\"！我来给你详细讲讲：\n\n1. 酒精含量低：通常在3-5% ABV左右，比普通IPA(6-7%)低很多，可以多喝几杯不醉\n\n2. 保持风味：虽然酒精度低，但通过调整麦芽配方和酿造工艺，保留了IPA标志性的啤酒花香气\n\n3. 更易饮：更轻盈的酒体，苦度也相对降低(一般30-50 IBU)，特别适合长时间社交饮用\n\n这种风格其实源于英国工人阶层想要工作时也能喝啤酒的需求(\"session beer\"就是指可以连着喝好几轮的啤酒)。现在精酿圈把它和美国IPA结合，就成了超受欢迎的Session IPA！\n\n你平时喜欢喝IPA吗？如果是的话，Session IPA会是夏日炎炎时的完美选择。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:10:53.321Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

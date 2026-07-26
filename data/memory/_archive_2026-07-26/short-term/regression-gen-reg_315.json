@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_315",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:00.537Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129525059_qft50k",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:08.246Z"
+    },
+    {
+      "turnId": "trace_1784162418463_ays8fy",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "Pliny the Elder 是一款经典的美国双IPA，以其浓郁的啤酒花香气和清爽的口感而闻名。如果你喜欢这种风格，可以尝试以下几款类似的啤酒：\n\n1. **Heady Topper** - 这款来自阿尔曼特的双IPA，酒体丰富，啤酒花风味浓烈，带有热带水果和柑橘的香气。\n\n2. **Stone IPA** - 这款IPA虽然不是双IPA，但同样有着强烈的啤酒花风味，清爽且略带苦味，适合喜欢Pliny the Elder的人。\n\n3. **Dogfish Head 90 Minute IPA** - 这款酒有着丰富的麦芽和啤酒花平衡，口感顺滑，适合喜欢强烈风味的饮者。\n\n4. **Lagunitas IPA** - 这款IPA更偏向于清爽，带有柑橘和松木的香气，适合喜欢清爽口感的人。\n\n希望这些推荐能让你找到喜欢的啤酒！如果你有其他口味偏好，也可以告诉我。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:40:25.549Z"
+    },
+    {
+      "turnId": "trace_1784162768966_ngvrft",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "Pliny the Elder 是一款经典的美国双IPA，以其浓郁的啤酒花香气和适中的苦味而闻名。如果你喜欢这种风格，可以尝试以下几款：\n\n1. **Stone IPA** - 这款IPA有着强烈的啤酒花香气，带有柑橘和松树的风味，苦味适中，口感清爽。\n\n2. **Lagunitas IPA** - 这款IPA的酒体较轻，带有热带水果和柑橘的香气，苦味也比较平衡，适合喜欢清爽口感的人。\n\n3. **Dogfish Head 60 Minute IPA** - 这款IPA的苦味较为温和，酒花的香气和口感也很丰富，适合想要尝试不同风味的饮酒者。\n\n4. **Russian River Blind Pig** - 这款IPA与Pliny the Elder来自同一家酿酒厂，风味上也有相似之处，酒花香气浓郁，口感清新。\n\n这些啤酒都能带给你类似的体验，值得一试！如果你有其他的口味偏好，欢迎告诉我，我可以给你更具体的推荐。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:46:14.933Z"
+    },
+    {
+      "turnId": "trace_1784218470277_owz1ky",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:30.354Z"
+    },
+    {
+      "turnId": "trace_1784218992258_dh57b4",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:12.336Z"
+    },
+    {
+      "turnId": "trace_1784220511978_lar437",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:32.062Z"
+    },
+    {
+      "turnId": "trace_1784254104064_cj6zgo",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:24.141Z"
+    },
+    {
+      "turnId": "trace_1784254693325_d06xcq",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:13.404Z"
+    },
+    {
+      "turnId": "trace_1784255349901_msttci",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:09.980Z"
+    },
+    {
+      "turnId": "trace_1784256236475_oraszm",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:56.555Z"
+    },
+    {
+      "turnId": "trace_1784256280822_qr8c4z",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny the Elder - 评分4.5，305563+人评分\n2. Pliny the Elder - 评分4.5，305563+人评分\n3. Pliny the Elder - 评分4.5，305563+人评分\n\n最稳：Pliny the Elder\n最值得尝新：Pliny the Elder\n我会先跳过：Pliny the Elder - 评分4.5，305563+人评分\n\n如果只能喝一杯，选 Pliny the Elder。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:40.899Z"
+    },
+    {
+      "turnId": "trace_1784257200467_ubzfjs",
+      "userText": "类似Pliny the Elder的推荐",
+      "assistantReply": "我会这样点：\n\n1. Pliny The Elder - 评分4.6，2527+人评分\n2. Pliny The Elder - 评分4.6，2527+人评分\n3. Pliny The Elder - 评分4.6，2527+人评分\n\n最稳：Pliny The Elder\n最值得尝新：Pliny The Elder\n我会先跳过：Pliny The Elder - 评分4.6，2527+人评分\n\n如果只能喝一杯，选 Pliny The Elder。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:00.537Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257200467_yq0vp5",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Pliny The Elder",
+        "brewery": "Russian River Brewing Company",
+        "style": "American Double / Imperial IPA",
+        "abv": 8,
+        "price": null,
+        "rating": 4.59
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:00.537Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Pliny The Elder",
+    "brewery": "Russian River Brewing Company"
+  }
+}

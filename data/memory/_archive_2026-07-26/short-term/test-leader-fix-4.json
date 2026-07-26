@@ -1,0 +1,17 @@
+{
+  "conversationId": "test-leader-fix-4",
+  "userId": "test-leader",
+  "updatedAt": "2026-07-11T02:20:23.204Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1783736423197_pqp1qy",
+      "userText": "帮我推荐一款IPA，要苦味明显的，西海岸风格最好",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-11T02:20:23.204Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

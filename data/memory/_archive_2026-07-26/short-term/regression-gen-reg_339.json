@@ -1,0 +1,157 @@
+{
+  "conversationId": "regression-gen-reg_339",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:14.347Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129572278_jgulwf",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐苦味爆炸啤酒\n最值得尝新：推荐苦味爆炸啤酒\n我会先跳过：推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐苦味爆炸啤酒。\n\n⚠️ 推荐苦味爆炸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:52.360Z"
+    },
+    {
+      "turnId": "trace_1784162499480_wrkmjr",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐苦味爆炸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐苦味爆炸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐苦味爆炸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐苦味爆炸啤酒\n最值得尝新：推荐苦味爆炸啤酒\n我会先跳过：推荐苦味爆炸啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐苦味爆炸啤酒。\n\n⚠️ 推荐苦味爆炸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:41:39.546Z"
+    },
+    {
+      "turnId": "trace_1784162839076_230vm9",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:47:19.089Z"
+    },
+    {
+      "turnId": "trace_1784218492995_uf476d",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐苦味爆炸啤酒\n最值得尝新：推荐苦味爆炸啤酒\n我会先跳过：推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐苦味爆炸啤酒。\n\n⚠️ 推荐苦味爆炸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:53.065Z"
+    },
+    {
+      "turnId": "trace_1784219006620_bpaeem",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:26.631Z"
+    },
+    {
+      "turnId": "trace_1784220525731_hcfvtn",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦（有风险，见下方）\n2. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦\n3. 推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦\n\n最稳：推荐苦味爆炸啤酒\n最值得尝新：推荐苦味爆炸啤酒\n我会先跳过：推荐苦味爆炸啤酒 - 你喜欢苦风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢苦\n\n如果只能喝一杯，选 推荐苦味爆炸啤酒。\n\n⚠️ 推荐苦味爆炸啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:45.809Z"
+    },
+    {
+      "turnId": "trace_1784254117725_3xzv9q",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "按你想要不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:37.768Z"
+    },
+    {
+      "turnId": "trace_1784254707051_v7hiql",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "按你想要不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:27.092Z"
+    },
+    {
+      "turnId": "trace_1784255363647_yg08ht",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "按你想要不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:23.688Z"
+    },
+    {
+      "turnId": "trace_1784256250218_ikt4hx",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "按你想要不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:10.263Z"
+    },
+    {
+      "turnId": "trace_1784256294607_iipggm",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "按你想要不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:54.645Z"
+    },
+    {
+      "turnId": "trace_1784257214306_rcoig9",
+      "userText": "推荐苦味爆炸啤酒",
+      "assistantReply": "按你想要不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n2. IPA - 评分3.8，363人评分\n3. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n最稳：IPA\n最值得尝新：Monk's Café Flemish Sour Ale\n我会先跳过：IPA - 评分3.8，363人评分\n\n如果只能喝一杯，选 Monk's Café Flemish Sour Ale。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:14.347Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257214306_z0en52",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "IPA",
+        "brewery": "Long Trail Brewing Co.",
+        "style": "English India Pale Ale (IPA)",
+        "abv": 5.9,
+        "price": null,
+        "rating": 3.81
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Stout",
+        "brewery": "August Schell Brewing Company",
+        "style": "English Stout",
+        "abv": 5,
+        "price": null,
+        "rating": 3.93
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Lager",
+        "brewery": "Upper Canada Brewing Company",
+        "style": "American Pale Lager",
+        "abv": 5,
+        "price": null,
+        "rating": 3.62
+      },
+      {
+        "candidateId": "4",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:14.347Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "4",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "4",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "4",
+    "displayName": "Monk's Café Flemish Sour Ale",
+    "brewery": "Brouwerij Van Steenberge N.V."
+  }
+}

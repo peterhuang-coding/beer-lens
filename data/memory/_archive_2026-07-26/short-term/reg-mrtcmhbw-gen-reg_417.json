@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_417",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:05:11.688Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559899398_pgl5ky",
+      "userText": "比利时修道院酒厂",
+      "assistantReply": "啊，比利时修道院啤酒可是啤酒界的瑰宝啊！🍺 这些酒厂有着悠久的历史和独特的传统，我来给你详细说说：\n\n1. **Trappist认证**：只有符合严格标准的修道院啤酒才能使用\"Authentic Trappist Product\"标志。目前比利时共有6家：\n   - Westvleteren（产量最少，最难买到）\n   - Westmalle（三料风格的标杆）\n   - Chimay（最商业化，容易买到）\n   - Rochefort（以6/8/10号闻名）\n   - Orval（独特的布雷特酵母风味）\n   - Achel（规模最小的一家）\n\n2. **Abbey Beer**：还有很多非Trappist认证的修道院风格啤酒，比如：\n   - St. Bernardus\n   - Leffe\n   - Maredsous\n\n3. **典型风格**：\n   - 双料(Dubbel)：深色，麦芽甜香\n   - 三料(Tripel)：金色，酒体强劲\n   - 四料(Quadrupel)：深色，高酒精度\n\n你具体想了解哪方面呢？是想知道历史背景、酿造工艺，还是想找推荐？或者你喝过哪些喜欢的修道院啤酒？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:05:11.688Z"
+    }
+  ]
+}

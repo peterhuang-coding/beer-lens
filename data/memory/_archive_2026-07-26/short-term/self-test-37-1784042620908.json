@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-37-1784042620908",
+  "userId": "self-test",
+  "updatedAt": "2026-07-14T15:23:44.656Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784042620915_cpbdkk",
+      "userText": "嗯",
+      "assistantReply": "嘿，看起来你可能还在考虑想聊些什么，没关系，我在这儿呢。如果你对啤酒有任何好奇的地方，比如不同的风格、酿造方法，或者是想找一款符合你口味的啤酒，都可以告诉我哦。比如，你喜欢热带水果和柑橘的味道，清爽且低甜度的啤酒，这样的口味偏好，有没有什么特别想了解的呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-14T15:23:44.656Z"
+    }
+  ]
+}

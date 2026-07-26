@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-5-1784131241065",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T16:00:42.243Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784131241080_67j1c1",
+      "userText": "我不喜欢太苦的",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：我不喜欢太苦的\n你的口味画像：喜欢热带水果风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-15T16:00:42.243Z"
+    }
+  ]
+}

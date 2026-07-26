@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodqdw8-gen-reg_347",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:30:39.024Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784259030617_efkz8l",
+      "userText": "搞一杯好精酿",
+      "assistantReply": "来啦！根据你之前提到的偏好(热带水果/柑橘调、清爽低甜)，我推荐试试这些风格：\n\n1. 新英格兰IPA(NEIPA) - 浑浊酒体带来爆炸式热带水果香气，现在很多酒厂会做干投酒花版本，甜度控制得刚好\n\n2. 德式皮尔森 - 如果你今天想喝更清爽的，这种有着清脆麦芽香和细微花香，苦度干净利落\n\n3. 西海岸IPA - 比NEIPA更干爽，突出柑橘松木调，最近流行\"清爽版\"配方，酒精度也不会太高\n\n最近有特别想尝试的风味方向吗？或者要不要聊聊这些风格的品饮小技巧？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:30:39.024Z"
+    }
+  ]
+}

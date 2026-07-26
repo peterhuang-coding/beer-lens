@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mroddtn8-gen-reg_390",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:21:43.358Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258495329_52runs",
+      "userText": "淡色艾尔和IPA区别",
+      "assistantReply": "淡色艾尔（Pale Ale）和IPA（India Pale Ale）其实算是“兄弟”，但它们之间有几个关键区别：\n\n1. **酒花用量**：IPA的酒花用量通常比淡色艾尔多，所以IPA的苦味和香气更强烈，尤其是柑橘、松针、热带水果这些风味会更突出。\n\n2. **酒精度**：IPA的酒精度一般更高，通常在6%-7.5%左右，而淡色艾尔通常在4.5%-6%之间。\n\n3. **口感**：IPA的口感会更干爽，苦味更持久，而淡色艾尔则相对平衡，麦芽的甜味和酒花的苦味更和谐。\n\n简单来说，IPA是淡色艾尔的“加强版”，如果你喜欢更浓烈的酒花风味和更高的酒精度，IPA会更适合你；如果你想要更平衡、易饮的口感，淡色艾尔会是更好的选择。\n\n你平时更喜欢哪种风格呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:21:43.358Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_484",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:59.260Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163251501_tpbvlu",
+      "userText": "Corona喝了2分太淡",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:11.507Z"
+    },
+    {
+      "turnId": "trace_1784218941859_nmqjrj",
+      "userText": "Corona喝了2分太淡",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n是否再喝：未明确。\n备注：Corona喝了2分太淡\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:21.871Z"
+    },
+    {
+      "turnId": "trace_1784219749221_qy2ty0",
+      "userText": "Corona喝了2分太淡",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n是否再喝：未明确。\n备注：Corona喝了2分太淡\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:49.237Z"
+    },
+    {
+      "turnId": "trace_1784255215569_9uk486",
+      "userText": "Corona喝了2分太淡",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n是否再喝：未明确。\n备注：Corona喝了2分太淡\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:55.583Z"
+    },
+    {
+      "turnId": "trace_1784255908029_7kxrjv",
+      "userText": "Corona喝了2分太淡",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n是否再喝：未明确。\n备注：Corona喝了2分太淡\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:28.047Z"
+    },
+    {
+      "turnId": "trace_1784256839240_0c7job",
+      "userText": "Corona喝了2分太淡",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：2/5\n是否再喝：未明确。\n备注：Corona喝了2分太淡\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:59.260Z"
+    }
+  ]
+}

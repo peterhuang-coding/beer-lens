@@ -1,2934 +1,2947 @@
-[
-  {
-    "timestamp": "2026-07-01T03:47:10.480Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
+{
+  "_comment": "Auto-derived metrics appended 2026-07-26 by ai-data-fill",
+  "pass_rate": 0.7928,
+  "intent_accuracy": 0.7928,
+  "last_crawl": "2026-07-08T02:30:02.935Z",
+  "cn_seed_coverage": 0.2148,
+  "_sources": {
+    "pass_rate": "data/regression-runs/*.json summary.passed/summary.total (1944/2452)",
+    "intent_accuracy": "data/regression-runs/*.json results[].actualIntent + passed (1944/2452)",
+    "last_crawl": "data/raw-crawl/raw/*.json latest crawledAt",
+    "cn_seed_coverage": ".beer-data/beer.db untappd_cache WHERE source=cn_seed (64/298)"
   },
-  {
-    "timestamp": "2026-07-01T03:47:40.483Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:48:10.484Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:48:40.485Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:49:10.487Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:49:40.489Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:50:10.493Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:50:40.495Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:51:10.497Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:51:40.497Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:52:10.500Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:52:40.502Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:53:10.504Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:53:40.506Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:54:10.508Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:54:40.509Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:55:10.510Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:55:40.510Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:56:10.515Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:56:40.515Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:57:10.517Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:57:40.518Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:58:10.520Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:58:40.520Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:59:10.535Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T03:59:40.537Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:00:10.538Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:00:40.540Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 1,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 15,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 1,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1
-    },
-    "intentSourceDistribution": {
-      "rule": 0,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:01:10.540Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:01:40.541Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:02:10.542Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:02:40.544Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:03:10.544Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:03:40.546Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:04:10.547Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:04:40.549Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  },
-  {
-    "timestamp": "2026-07-01T04:05:10.550Z",
-    "windowSeconds": 30,
-    "counters": [
-      {
-        "name": "turn.count",
-        "value": 3,
-        "unit": "turns"
-      },
-      {
-        "name": "turn.avg_latency_ms",
-        "value": 80,
-        "unit": "ms"
-      },
-      {
-        "name": "turn.success_rate",
-        "value": 1,
-        "unit": "ratio"
-      },
-      {
-        "name": "intent.hit_rate_rule",
-        "value": 0.6666666666666666,
-        "unit": "ratio",
-        "tags": {
-          "source": "rule"
-        }
-      },
-      {
-        "name": "intent.hit_rate_llm",
-        "value": 0,
-        "unit": "ratio",
-        "tags": {
-          "source": "llm"
-        }
-      },
-      {
-        "name": "intent.hit_rate_fallback",
-        "value": 0.3333333333333333,
-        "unit": "ratio",
-        "tags": {
-          "source": "fallback"
-        }
-      },
-      {
-        "name": "intent.multi_intent_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "handler.error_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "knowledge.hit_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "guardrail.block_rate",
-        "value": 0,
-        "unit": "ratio"
-      },
-      {
-        "name": "transfer.human_suggestions",
-        "value": 0,
-        "unit": "count"
-      }
-    ],
-    "intentDistribution": {
-      "unclear": 1,
-      "menu_recommend": 2
-    },
-    "intentSourceDistribution": {
-      "rule": 2,
-      "llm": 0,
-      "fallback": 1
-    },
-    "handlerErrors": {}
-  }
-]
+  "entries": [
+    {
+      "timestamp": "2026-07-01T03:47:10.480Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:47:40.483Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:48:10.484Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:48:40.485Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:49:10.487Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:49:40.489Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:50:10.493Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:50:40.495Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:51:10.497Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:51:40.497Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:52:10.500Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:52:40.502Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:53:10.504Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:53:40.506Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:54:10.508Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:54:40.509Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:55:10.510Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:55:40.510Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:56:10.515Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:56:40.515Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:57:10.517Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:57:40.518Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:58:10.520Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:58:40.520Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:59:10.535Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T03:59:40.537Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:00:10.538Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:00:40.540Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 1,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 15,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 1,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1
+      },
+      "intentSourceDistribution": {
+        "rule": 0,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:01:10.540Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:01:40.541Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:02:10.542Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:02:40.544Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:03:10.544Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:03:40.546Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:04:10.547Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:04:40.549Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    },
+    {
+      "timestamp": "2026-07-01T04:05:10.550Z",
+      "windowSeconds": 30,
+      "counters": [
+        {
+          "name": "turn.count",
+          "value": 3,
+          "unit": "turns"
+        },
+        {
+          "name": "turn.avg_latency_ms",
+          "value": 80,
+          "unit": "ms"
+        },
+        {
+          "name": "turn.success_rate",
+          "value": 1,
+          "unit": "ratio"
+        },
+        {
+          "name": "intent.hit_rate_rule",
+          "value": 0.6666666666666666,
+          "unit": "ratio",
+          "tags": {
+            "source": "rule"
+          }
+        },
+        {
+          "name": "intent.hit_rate_llm",
+          "value": 0,
+          "unit": "ratio",
+          "tags": {
+            "source": "llm"
+          }
+        },
+        {
+          "name": "intent.hit_rate_fallback",
+          "value": 0.3333333333333333,
+          "unit": "ratio",
+          "tags": {
+            "source": "fallback"
+          }
+        },
+        {
+          "name": "intent.multi_intent_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "handler.error_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "knowledge.hit_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "guardrail.block_rate",
+          "value": 0,
+          "unit": "ratio"
+        },
+        {
+          "name": "transfer.human_suggestions",
+          "value": 0,
+          "unit": "count"
+        }
+      ],
+      "intentDistribution": {
+        "unclear": 1,
+        "menu_recommend": 2
+      },
+      "intentSourceDistribution": {
+        "rule": 2,
+        "llm": 0,
+        "fallback": 1
+      },
+      "handlerErrors": {}
+    }
+  ]
+}

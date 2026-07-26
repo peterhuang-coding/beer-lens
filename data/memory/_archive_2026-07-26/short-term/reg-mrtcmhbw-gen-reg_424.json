@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_424",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:06:25.889Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559971365_wi6bw2",
+      "userText": "IPA最佳饮用时机",
+      "assistantReply": "IPA作为一款风味鲜明的啤酒，确实有个\"黄金时段\"的概念。来聊聊几个关键点：\n\n1. **新鲜至上原则**：\n- 双倍/三倍IPA最好在出厂后4-6周内喝掉\n- 普通IPA可以放宽到2-3个月\n- 看罐装日期比保质期更靠谱\n\n2. **风味变化曲线**：\n- 前3周：酒花的新鲜柑橘/松木香最炸裂\n- 1-2个月：果香开始转为树脂/草药感\n- 3个月后：麦芽甜感突出，可能出现氧化纸板味\n\n3. **场景建议**：\n- 冰镇到8-10℃时最能展现香气\n- 适合搭配重口味食物（辣翅/汉堡）\n- 午后或傍晚饮用，苦度能提振精神\n\n你手头有特定款吗？可以帮你看看适饮期。或者你更喜欢某个阶段的IPA风味？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:06:25.889Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

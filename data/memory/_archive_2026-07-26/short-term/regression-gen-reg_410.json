@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_410",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:49:16.803Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129698812_szznfw",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:35:04.119Z"
+    },
+    {
+      "turnId": "trace_1784163026434_ug85mr",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "Pliny the Elder 是由美国加利福尼亚州的 Russian River Brewing Company 酿造的。这款啤酒是一款经典的双倍IPA，以其丰富的啤酒花香气和口感而闻名。如果你对这款啤酒或其他啤酒有更多问题，随时问我！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:50:30.655Z"
+    },
+    {
+      "turnId": "trace_1784218654704_qkbjvk",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:17:37.121Z"
+    },
+    {
+      "turnId": "trace_1784219299158_7yv7a8",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "Pliny the Elder 是俄罗斯河啤酒厂（Russian River Brewing Company）的一款非常著名的双倍印度淡色艾尔（Double IPA）。这家酒厂位于美国加利福尼亚州的圣罗莎，由 Vinnie 和 Natalie Cilurzo 夫妇创立。Pliny the Elder 因其浓郁的热带水果和柑橘香气，以及高酒精度和苦度而闻名，是许多啤酒爱好者的梦想之酒。不过，这款啤酒非常难买到，因为产量有限，而且主要在酒厂内销售。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:28:31.161Z"
+    },
+    {
+      "turnId": "trace_1784254807944_7vm73o",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "Pliny the Elder 是俄罗斯河啤酒厂（Russian River Brewing Company）的一款非常著名的双倍印度IPA（Double IPA）。这家酒厂位于美国加利福尼亚州，以酿造高品质的精酿啤酒而闻名。Pliny the Elder 是很多啤酒爱好者的梦想之酒，因为它不仅口感复杂，而且产量有限，很难买到。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:20:26.522Z"
+    },
+    {
+      "turnId": "trace_1784255591899_g6xa4j",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:33:13.853Z"
+    },
+    {
+      "turnId": "trace_1784256553316_u6xu4j",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "Pliny the Elder 是俄罗斯河啤酒厂（Russian River Brewing Company）的一款非常著名的双倍印度淡色艾尔（Double IPA）。这款啤酒以其高酒精度和浓郁的啤酒花香味而闻名，是很多啤酒爱好者的最爱。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:49:16.803Z"
+    }
+  ]
+}

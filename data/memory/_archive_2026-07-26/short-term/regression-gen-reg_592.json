@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-gen-reg_592",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:40:50.779Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255495886_jgp2w4",
+      "userText": "看看是不是过期了",
+      "assistantReply": "请提供酒标照片，以便查看生产日期或保质期信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:31:36.737Z"
+    },
+    {
+      "turnId": "trace_1784256049754_ri7a68",
+      "userText": "看看是不是过期了",
+      "assistantReply": "请提供酒标照片，以便查看生产日期和保质期信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:40:50.779Z"
+    }
+  ]
+}

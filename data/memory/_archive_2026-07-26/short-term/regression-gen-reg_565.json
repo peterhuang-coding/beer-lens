@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-gen-reg_565",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:56:04.789Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255454360_49n509",
+      "userText": "最近喝了什么查看",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：最近喝了什么查看\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:30:54.368Z"
+    },
+    {
+      "turnId": "trace_1784256021688_92smm6",
+      "userText": "最近喝了什么查看",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：最近喝了什么查看\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:40:21.700Z"
+    },
+    {
+      "turnId": "trace_1784256964774_s4zlq1",
+      "userText": "最近喝了什么查看",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：最近喝了什么查看\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:56:04.789Z"
+    }
+  ]
+}

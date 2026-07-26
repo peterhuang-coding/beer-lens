@@ -1,0 +1,17 @@
+{
+  "userId": "test-leader",
+  "updatedAt": "2026-07-11T02:31:59.947Z",
+  "months": [
+    {
+      "month": "2026-07",
+      "episodeCount": 1,
+      "topStyles": [],
+      "topTags": [
+        "柑橘"
+      ],
+      "dislikedTags": [],
+      "avgScore": 4,
+      "abvRange": null
+    }
+  ]
+}

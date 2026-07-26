@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrod3j5t-gen-reg_328",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:12:17.873Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257937813_t0zg9p",
+      "userText": "冬天暖身啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：冬天暖身啤酒推荐\n最值得尝新：冬天暖身啤酒推荐\n我会先跳过：冬天暖身啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 冬天暖身啤酒推荐。\n\n⚠️ 冬天暖身啤酒推荐 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:12:17.873Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257937813_3x4v2o",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "冬天暖身啤酒推荐",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:12:17.873Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "冬天暖身啤酒推荐",
+    "brewery": ""
+  }
+}

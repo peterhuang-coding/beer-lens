@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-label-can",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:57:33.884Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255556068_jodsmx",
+      "userText": "看看这罐啤酒",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:32:41.869Z"
+    },
+    {
+      "turnId": "trace_1784256102725_fazhpu",
+      "userText": "看看这罐啤酒",
+      "assistantReply": "请提供酒标照片，以便我查看相关信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:41:44.016Z"
+    },
+    {
+      "turnId": "trace_1784257050077_0lpg41",
+      "userText": "看看这罐啤酒",
+      "assistantReply": "请发一张酒标照片，我才能帮你查看相关信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:57:33.884Z"
+    }
+  ]
+}

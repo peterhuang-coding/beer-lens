@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_396",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:28:08.145Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258877321_shmkhv",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "啊，这个问题问得好！双倍IPA（DIPA）和三倍IPA（TIPA）的区别主要在这几个方面：\n\n1. **酒精度和麦芽浓度**：\n- 双倍IPA：酒精度通常在7.5-10% ABV，麦芽浓度（OG）1.065-1.085\n- 三倍IPA：酒精度更高，一般在10-12.5% ABV，麦芽浓度1.085-1.100+\n\n2. **啤酒花投放量**：\n- 双倍IPA已经用了大量啤酒花（通常5-8g/L）\n- 三倍IPA的啤酒花用量更疯狂，可能达到8-12g/L甚至更多\n\n3. **口感体验**：\n- 双倍IPA：苦度明显但相对平衡（IBU 60-100）\n- 三倍IPA：更浓烈的啤酒花风味，苦度可能超过100 IBU，但常通过后期干投来增加香气而非单纯苦味\n\n4. **酒体表现**：\n- 三倍IPA通常更厚重粘稠，残糖稍多来平衡极端苦度\n- 双倍IPA相对\"清爽\"一些（虽然这个词对IPA来说有点怪）\n\n有趣的是，三倍IPA这个概念比较新，没有严格标准，有些酒厂可能就是把特别猛的双倍IPA叫成三倍。你平时喝IPA喜欢偏苦还是偏香型的？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:28:08.145Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

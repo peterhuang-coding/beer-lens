@@ -1,0 +1,14 @@
+{
+  "conversationId": "test-mem-1",
+  "userId": "test-mem",
+  "updatedAt": "2026-07-15T16:12:24.942Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784131944935_s2lvlo",
+      "userText": "更正给过4分不是3分",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "memory_correction",
+      "createdAt": "2026-07-15T16:12:24.942Z"
+    }
+  ]
+}

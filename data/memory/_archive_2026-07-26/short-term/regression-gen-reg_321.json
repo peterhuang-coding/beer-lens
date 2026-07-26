@@ -1,0 +1,130 @@
+{
+  "conversationId": "regression-gen-reg_321",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:03.827Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129540479_pwhg2p",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:22.129Z"
+    },
+    {
+      "turnId": "trace_1784162447319_zmsqot",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "Rodenbach 是比利时的一家著名酒厂，以其酸啤酒而闻名，尤其是他们的 Flanders Red Ale 风格。这个风格的啤酒通常具有浓郁的果香和酸味，常常带有樱桃、梅子等热带水果的风味，同时也有木桶熟成带来的复杂性。\n\n如果你喜欢 Rodenbach 的风格，可以尝试以下几种类似的酸啤酒：\n\n1. **Duchesse De Bourgogne**：这款啤酒同样是 Flanders Red Ale，具有丰富的果香和酸味，口感非常顺滑。\n2. **Oude Bruin**：这种风格的啤酒通常会有更深的颜色和复杂的味道，适合喜欢酸味和麦芽风味的人。\n3. **Lindemans Kriek**：这是一款樱桃酸啤，酸甜平衡得很好，适合想要尝试更果味的酸啤酒。\n\n这些啤酒都能带给你类似的体验，尤其是在炎热的夏天，清爽又酸甜的口感非常适合！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:40:53.052Z"
+    },
+    {
+      "turnId": "trace_1784162796296_33y1gt",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "Rodenbach 是比利时非常著名的酸啤酒品牌，主要以其弗拉芒红啤酒（Flanders Red Ale）而闻名。这种风格的啤酒通常具有复杂的酸味和果香，常常带有樱桃、梅子和醋的风味。\n\n如果你喜欢 Rodenbach 的风格，可以尝试以下几种类似的酸啤酒：\n\n1. **Duchesse De Bourgogne**：这款啤酒同样是弗拉芒红啤酒，具有丰富的果香和酸味，口感非常顺滑。\n\n2. **Oude Bruin**：这是一种比利时的传统酸啤酒，通常带有深色麦芽的风味，酸度适中，口感复杂。\n\n3. **Cantillon Gueuze**：虽然是另一种风格（酸性麦芽啤酒），但它的酸味和复杂性也非常吸引人，适合喜欢酸啤酒的人。\n\n4. **The Bruery's Terreux系列**：这系列的啤酒通常会有一些果味和酸味，适合喜欢尝试新口味的人。\n\n希望这些推荐能让你找到喜欢的酸啤酒！如果你有其他偏好或者想了解更多，随时告诉我哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:46:41.650Z"
+    },
+    {
+      "turnId": "trace_1784218473622_i6sbop",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:33.696Z"
+    },
+    {
+      "turnId": "trace_1784218995618_e0j9zi",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:15.694Z"
+    },
+    {
+      "turnId": "trace_1784220515326_9g62dp",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:35.397Z"
+    },
+    {
+      "turnId": "trace_1784254107398_5he1ur",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:27.470Z"
+    },
+    {
+      "turnId": "trace_1784254696680_m83okw",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:16.757Z"
+    },
+    {
+      "turnId": "trace_1784255353263_r0l8bj",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:13.327Z"
+    },
+    {
+      "turnId": "trace_1784256239840_r7d0j8",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:59.898Z"
+    },
+    {
+      "turnId": "trace_1784256284189_5xds8l",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n3. Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 你喜欢酸风味；无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试，你多次反馈不喜欢酸\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:44.266Z"
+    },
+    {
+      "turnId": "trace_1784257203761_gjjapr",
+      "userText": "Rodenbach酸啤风格推荐",
+      "assistantReply": "我会这样点：\n\n1. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：Rodenbach酸啤风格推荐\n最值得尝新：Rodenbach酸啤风格推荐\n我会先跳过：Rodenbach酸啤风格推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 Rodenbach酸啤风格推荐。\n\n⚠️ Rodenbach酸啤风格推荐 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:03.827Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257203761_8wouhg",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Rodenbach酸啤风格推荐",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:03.827Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Rodenbach酸啤风格推荐",
+    "brewery": ""
+  }
+}

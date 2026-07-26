@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-16-1784042588949",
+  "userId": "self-test",
+  "updatedAt": "2026-07-14T15:23:08.963Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784042588959_2d11m8",
+      "userText": "3.5分，不会再喝",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n你不会再喝这杯酒。\n备注：3.5分，不会再喝\n你的口味画像：喜欢热带水果和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-14T15:23:08.963Z"
+    }
+  ]
+}

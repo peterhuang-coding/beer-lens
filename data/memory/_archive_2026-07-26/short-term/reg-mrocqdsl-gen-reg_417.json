@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_417",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:08:13.921Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257686864_ci3hjs",
+      "userText": "比利时修道院酒厂",
+      "assistantReply": "啊，比利时修道院啤酒可是精酿界的传奇！这些酒厂的历史可以追溯到中世纪，由修道院的修士们酿造。最著名的要数特拉普ist（Trappist）认证的11家酒厂了，其中6家就在比利时。\n\n几个经典款你可能知道：\n- Westvleteren 12（西弗莱特伦12号）：被很多老饕奉为世界第一\n- Rochefort 10（罗斯福10号）：浓郁的深色水果和焦糖风味\n- Chimay Blue（智美蓝帽）：比较容易买到的高品质选择\n\n这些啤酒通常酒精度较高（7-12%），风味复杂，带有深色水果、焦糖、香料等气息。你喜欢这种浓郁风格的啤酒吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:08:13.921Z"
+    }
+  ]
+}

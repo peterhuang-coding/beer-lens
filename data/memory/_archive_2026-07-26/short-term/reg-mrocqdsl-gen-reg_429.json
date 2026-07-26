@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_429",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:10:00.686Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257798500_zq09eh",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "根据你的需求，我分析了相关信息。",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T03:10:00.686Z"
+    }
+  ]
+}

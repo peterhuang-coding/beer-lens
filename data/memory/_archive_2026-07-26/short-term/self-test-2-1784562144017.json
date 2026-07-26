@@ -1,0 +1,17 @@
+{
+  "conversationId": "self-test-2-1784562144017",
+  "userId": "self-test",
+  "updatedAt": "2026-07-20T15:42:34.224Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784562144025_hued1u",
+      "userText": "有IPA吗",
+      "assistantReply": "当然有IPA啦！IPA（India Pale Ale）是一种非常受欢迎的啤酒风格，以其浓郁的啤酒花香气和苦味著称。根据你的口味偏好，我猜你可能会喜欢以下几种IPA：\n\n1. **西海岸IPA**：这种IPA通常有强烈的柑橘、松树和热带水果的香气，苦味明显，但口感清爽，甜度较低，非常适合你。\n\n2. **新英格兰IPA**：这种IPA以浑浊的外观和浓郁的热带水果香气闻名，苦味相对较低，口感顺滑，果香四溢，也很符合你的口味。\n\n3. **社交IPA**：如果你想要一款酒精度较低、口感轻盈的IPA，社交IPA是个不错的选择。它保留了IPA的香气和风味，但更易饮，适合轻松畅饮。\n\n你平时喜欢哪种IPA呢？或者有没有特别想尝试的？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:42:34.224Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

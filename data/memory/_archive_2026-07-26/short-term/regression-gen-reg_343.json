@@ -1,0 +1,157 @@
+{
+  "conversationId": "regression-gen-reg_343",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:00:16.559Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129578096_0d3uam",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐女士适合的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐女士适合的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐女士适合的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐女士适合的啤酒\n最值得尝新：推荐女士适合的啤酒\n我会先跳过：推荐女士适合的啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐女士适合的啤酒。\n\n⚠️ 推荐女士适合的啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:58.180Z"
+    },
+    {
+      "turnId": "trace_1784162504876_fdyods",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:41:44.888Z"
+    },
+    {
+      "turnId": "trace_1784162844334_3wtcrr",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:47:24.347Z"
+    },
+    {
+      "turnId": "trace_1784218495312_r8dk1d",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:55.325Z"
+    },
+    {
+      "turnId": "trace_1784219008875_s7ds3c",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:28.883Z"
+    },
+    {
+      "turnId": "trace_1784220528031_jqc282",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:48.043Z"
+    },
+    {
+      "turnId": "trace_1784254119962_v71kl9",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:39.974Z"
+    },
+    {
+      "turnId": "trace_1784254709316_yi9g9w",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n顺便说一下，喜欢热带水果和苦和柑橘和酸风味\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:29.359Z"
+    },
+    {
+      "turnId": "trace_1784255365887_c38rbd",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n顺便说一下，喜欢热带水果和柑橘和苦和酸风味\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:25.927Z"
+    },
+    {
+      "turnId": "trace_1784256252469_yhey9u",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n顺便说一下，喜欢热带水果和柑橘和苦和酸风味\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:12.512Z"
+    },
+    {
+      "turnId": "trace_1784256296848_w0nkhn",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Soursmith Black Raspberry - 评分4.4，4779+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Soursmith Black Raspberry - 评分4.4，4779+人评分\n\n最稳：Original Lager\n最值得尝新：Soursmith Black Raspberry\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Soursmith Black Raspberry。\n\n\n顺便说一下，喜欢热带水果和柑橘和苦和酸风味\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:56.889Z"
+    },
+    {
+      "turnId": "trace_1784257216519_mxxbcz",
+      "userText": "推荐女士适合的啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n2. IPA - 评分3.8，363人评分\n3. Monk's Café Flemish Sour Ale - 评分3.8，866人评分\n\n最稳：IPA\n最值得尝新：Monk's Café Flemish Sour Ale\n我会先跳过：IPA - 评分3.8，363人评分\n\n如果只能喝一杯，选 Monk's Café Flemish Sour Ale。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:00:16.559Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257216519_d18djy",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "IPA",
+        "brewery": "Long Trail Brewing Co.",
+        "style": "English India Pale Ale (IPA)",
+        "abv": 5.9,
+        "price": null,
+        "rating": 3.81
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Stout",
+        "brewery": "August Schell Brewing Company",
+        "style": "English Stout",
+        "abv": 5,
+        "price": null,
+        "rating": 3.93
+      },
+      {
+        "candidateId": "3",
+        "displayName": "Lager",
+        "brewery": "Upper Canada Brewing Company",
+        "style": "American Pale Lager",
+        "abv": 5,
+        "price": null,
+        "rating": 3.62
+      },
+      {
+        "candidateId": "4",
+        "displayName": "Monk's Café Flemish Sour Ale",
+        "brewery": "Brouwerij Van Steenberge N.V.",
+        "style": "Flanders Oud Bruin",
+        "abv": 5.5,
+        "price": null,
+        "rating": 3.83
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:00:16.559Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "4",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "4",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "4",
+    "displayName": "Monk's Café Flemish Sour Ale",
+    "brewery": "Brouwerij Van Steenberge N.V."
+  }
+}

@@ -64,7 +64,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-16T17:23:03.019Z",
-    "updatedAt": "2026-07-16T17:23:03.020Z"
+    "updatedAt": "2026-07-16T17:23:03.020Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650340265_zfro_mrebcypi",
@@ -131,7 +133,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:40.278Z",
-    "updatedAt": "2026-07-10T02:25:40.278Z"
+    "updatedAt": "2026-07-10T02:25:40.278Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650336825_rxrc_mrebcw1y",
@@ -198,7 +202,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:36.838Z",
-    "updatedAt": "2026-07-10T02:25:36.838Z"
+    "updatedAt": "2026-07-10T02:25:36.838Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650333453_akbm_mrebctgb",
@@ -265,7 +271,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:33.467Z",
-    "updatedAt": "2026-07-10T02:25:33.467Z"
+    "updatedAt": "2026-07-10T02:25:33.467Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650332990_7rm7_mrebct3e",
@@ -332,7 +340,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:33.002Z",
-    "updatedAt": "2026-07-10T02:25:33.002Z"
+    "updatedAt": "2026-07-10T02:25:33.002Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650332487_z2ux_mrebcspf",
@@ -399,7 +409,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:32.499Z",
-    "updatedAt": "2026-07-10T02:25:32.499Z"
+    "updatedAt": "2026-07-10T02:25:32.499Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650328368_s5md_mrebcpj1",
@@ -466,7 +478,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:28.381Z",
-    "updatedAt": "2026-07-10T02:25:28.381Z"
+    "updatedAt": "2026-07-10T02:25:28.381Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650327955_tp53_mrebcp7j",
@@ -533,7 +547,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:27.967Z",
-    "updatedAt": "2026-07-10T02:25:27.967Z"
+    "updatedAt": "2026-07-10T02:25:27.967Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650327441_452f_mrebcot9",
@@ -600,7 +616,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:27.453Z",
-    "updatedAt": "2026-07-10T02:25:27.453Z"
+    "updatedAt": "2026-07-10T02:25:27.453Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650326396_t6yu_mrebco08",
@@ -667,7 +685,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:26.408Z",
-    "updatedAt": "2026-07-10T02:25:26.408Z"
+    "updatedAt": "2026-07-10T02:25:26.408Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650325874_i1hl_mrebcnlq",
@@ -734,7 +754,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:25.886Z",
-    "updatedAt": "2026-07-10T02:25:25.886Z"
+    "updatedAt": "2026-07-10T02:25:25.886Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650325326_p8zn_mrebcn6i",
@@ -801,7 +823,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:25.338Z",
-    "updatedAt": "2026-07-10T02:25:25.338Z"
+    "updatedAt": "2026-07-10T02:25:25.338Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650324799_nlbd_mrebcmrv",
@@ -868,7 +892,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:24.811Z",
-    "updatedAt": "2026-07-10T02:25:24.811Z"
+    "updatedAt": "2026-07-10T02:25:24.811Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650322406_1ib4_mrebckxe",
@@ -935,7 +961,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:22.418Z",
-    "updatedAt": "2026-07-10T02:25:22.418Z"
+    "updatedAt": "2026-07-10T02:25:22.418Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783650321955_1tfv_mrebckky",
@@ -1002,7 +1030,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T02:25:21.970Z",
-    "updatedAt": "2026-07-10T02:25:21.970Z"
+    "updatedAt": "2026-07-10T02:25:21.970Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783646536010_fdv4_mre93fbr",
@@ -1069,7 +1099,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T01:22:16.023Z",
-    "updatedAt": "2026-07-10T01:22:16.023Z"
+    "updatedAt": "2026-07-10T01:22:16.023Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783646528830_9f08_mre939s8",
@@ -1136,7 +1168,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T01:22:08.840Z",
-    "updatedAt": "2026-07-10T01:22:08.840Z"
+    "updatedAt": "2026-07-10T01:22:08.840Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783646525601_oaml_mre937ai",
@@ -1203,7 +1237,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T01:22:05.610Z",
-    "updatedAt": "2026-07-10T01:22:05.610Z"
+    "updatedAt": "2026-07-10T01:22:05.610Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783646523978_bi7m_mre9361g",
@@ -1270,7 +1306,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T01:22:03.988Z",
-    "updatedAt": "2026-07-10T01:22:03.988Z"
+    "updatedAt": "2026-07-10T01:22:03.988Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783646522673_lviy_mre93517",
@@ -1337,7 +1375,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T01:22:02.683Z",
-    "updatedAt": "2026-07-10T01:22:02.683Z"
+    "updatedAt": "2026-07-10T01:22:02.683Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783646519020_uq7r_mre9327t",
@@ -1404,7 +1444,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-10T01:21:59.033Z",
-    "updatedAt": "2026-07-10T01:21:59.033Z"
+    "updatedAt": "2026-07-10T01:21:59.033Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783499338278_lgv9_mrbtggtm",
@@ -1471,7 +1513,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T08:28:58.282Z",
-    "updatedAt": "2026-07-08T08:28:58.282Z"
+    "updatedAt": "2026-07-08T08:28:58.282Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783495002365_5yn2_mrbqvj7r",
@@ -1538,7 +1582,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T07:16:42.375Z",
-    "updatedAt": "2026-07-08T07:16:42.375Z"
+    "updatedAt": "2026-07-08T07:16:42.375Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783491822435_nicm_mrbozdki",
@@ -1605,7 +1651,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T06:23:42.450Z",
-    "updatedAt": "2026-07-08T06:23:42.450Z"
+    "updatedAt": "2026-07-08T06:23:42.450Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783491465249_x8ju_mrborpyl",
@@ -1672,7 +1720,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T06:17:45.261Z",
-    "updatedAt": "2026-07-08T06:17:45.262Z"
+    "updatedAt": "2026-07-08T06:17:45.262Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "raw_case_1783489824343_0wn5_mrbnsjuo",
@@ -1739,7 +1789,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T05:50:24.384Z",
-    "updatedAt": "2026-07-08T05:50:24.384Z"
+    "updatedAt": "2026-07-08T05:50:24.384Z",
+    "expectedFail": true,
+    "expectedFailReason": "svg_fake_jpeg_mime_bug"
   },
   {
     "id": "vqa_batch2_pliny_ipa",
@@ -1807,7 +1859,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:00.000Z",
-    "updatedAt": "2026-07-08T10:00:00.000Z"
+    "updatedAt": "2026-07-08T10:00:00.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_guinness_stout",
@@ -1875,7 +1929,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:01.000Z",
-    "updatedAt": "2026-07-08T10:00:01.000Z"
+    "updatedAt": "2026-07-08T10:00:01.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_sierranevada_paleale",
@@ -1943,7 +1999,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:02.000Z",
-    "updatedAt": "2026-07-08T10:00:02.000Z"
+    "updatedAt": "2026-07-08T10:00:02.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_chimay_blue",
@@ -2011,7 +2069,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:03.000Z",
-    "updatedAt": "2026-07-08T10:00:03.000Z"
+    "updatedAt": "2026-07-08T10:00:03.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_hoegaarden_wit",
@@ -2079,7 +2139,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:04.000Z",
-    "updatedAt": "2026-07-08T10:00:04.000Z"
+    "updatedAt": "2026-07-08T10:00:04.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_shelf_bottles",
@@ -2147,7 +2209,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:05.000Z",
-    "updatedAt": "2026-07-08T10:00:05.000Z"
+    "updatedAt": "2026-07-08T10:00:05.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_tap_handles",
@@ -2215,7 +2279,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:06.000Z",
-    "updatedAt": "2026-07-08T10:00:06.000Z"
+    "updatedAt": "2026-07-08T10:00:06.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_rochefort10",
@@ -2283,7 +2349,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:07.000Z",
-    "updatedAt": "2026-07-08T10:00:07.000Z"
+    "updatedAt": "2026-07-08T10:00:07.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_westvleteren12",
@@ -2351,7 +2419,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:08.000Z",
-    "updatedAt": "2026-07-08T10:00:08.000Z"
+    "updatedAt": "2026-07-08T10:00:08.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_pilsner_can",
@@ -2419,7 +2489,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:09.000Z",
-    "updatedAt": "2026-07-08T10:00:09.000Z"
+    "updatedAt": "2026-07-08T10:00:09.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_bottle_glass",
@@ -2487,7 +2559,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:10.000Z",
-    "updatedAt": "2026-07-08T10:00:10.000Z"
+    "updatedAt": "2026-07-08T10:00:10.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_sour_fruit",
@@ -2555,7 +2629,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:11.000Z",
-    "updatedAt": "2026-07-08T10:00:11.000Z"
+    "updatedAt": "2026-07-08T10:00:11.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_menu_blackboard",
@@ -2623,7 +2699,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:12.000Z",
-    "updatedAt": "2026-07-08T10:00:12.000Z"
+    "updatedAt": "2026-07-08T10:00:12.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_fridge_selection",
@@ -2691,7 +2769,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:13.000Z",
-    "updatedAt": "2026-07-08T10:00:13.000Z"
+    "updatedAt": "2026-07-08T10:00:13.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_tap_list_chalk",
@@ -2759,7 +2839,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:14.000Z",
-    "updatedAt": "2026-07-08T10:00:14.000Z"
+    "updatedAt": "2026-07-08T10:00:14.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_japanese_cans",
@@ -2827,7 +2909,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:15.000Z",
-    "updatedAt": "2026-07-08T10:00:15.000Z"
+    "updatedAt": "2026-07-08T10:00:15.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_bar_interior",
@@ -2895,7 +2979,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:16.000Z",
-    "updatedAt": "2026-07-08T10:00:16.000Z"
+    "updatedAt": "2026-07-08T10:00:16.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_german_wheat",
@@ -2963,7 +3049,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:17.000Z",
-    "updatedAt": "2026-07-08T10:00:17.000Z"
+    "updatedAt": "2026-07-08T10:00:17.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_imperial_stout_can",
@@ -3031,7 +3119,9 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:18.000Z",
-    "updatedAt": "2026-07-08T10:00:18.000Z"
+    "updatedAt": "2026-07-08T10:00:18.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   },
   {
     "id": "vqa_batch2_ipa_pour_glass",
@@ -3099,6 +3189,8 @@
     "labels": {},
     "status": "pending",
     "createdAt": "2026-07-08T10:00:19.000Z",
-    "updatedAt": "2026-07-08T10:00:19.000Z"
+    "updatedAt": "2026-07-08T10:00:19.000Z",
+    "expectedFail": true,
+    "expectedFailReason": "no_ocr_pipeline_awaiting_mime_fix"
   }
 ]

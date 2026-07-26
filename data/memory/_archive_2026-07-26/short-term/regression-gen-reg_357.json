@@ -1,0 +1,116 @@
+{
+  "conversationId": "regression-gen-reg_357",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:45:09.327Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129595987_8kugpi",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "我会这样点：\n\n1. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高（有风险，见下方）\n2. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n3. Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n最稳：Third Anniversary Imperial IPA\n最值得尝新：Third Anniversary Imperial IPA\n我会先跳过：Third Anniversary Imperial IPA - 评分4.4，8410+人评分；酒精度10%，略高\n\n如果只能喝一杯，选 Third Anniversary Imperial IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:33:17.327Z"
+    },
+    {
+      "turnId": "trace_1784162526290_jsio1d",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "看起来你对帝国世涛（Imperial Stout）和波本桶陈酿（Bourbon Barrel Aged）很感兴趣！这种风格的啤酒通常会有浓郁的巧克力、咖啡和烘焙麦芽的风味，经过波本桶陈酿后，还会增加一些香草、焦糖和木质的复杂风味，口感更加丰富。你之前有尝过类似的啤酒吗？或者有什么特别想了解的？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:42:12.579Z"
+    },
+    {
+      "turnId": "trace_1784162859705_tpu740",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "帝国世涛（Imperial Stout）是一种非常浓烈的黑啤，通常有丰富的巧克力、咖啡和干果的风味。波本桶陈酿（Bourbon Barrel Aged）则是将啤酒在波本威士忌的橡木桶中陈酿，能为啤酒增添香草、焦糖和木质的风味。\n\n这种结合会让帝国世涛的风味更加复杂，酒体更为醇厚。如果你喜欢热带水果、柑橘和清爽的口感，可能会觉得这种风格比较浓重，但如果你愿意尝试不同的风味组合，波本桶陈的帝国世涛绝对是个不错的选择！你对这种风格的啤酒有什么特别期待吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:47:45.017Z"
+    },
+    {
+      "turnId": "trace_1784218506516_brk4vq",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:15:07.979Z"
+    },
+    {
+      "turnId": "trace_1784219019781_draszv",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:42.075Z"
+    },
+    {
+      "turnId": "trace_1784220539356_9ywuma",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:49:01.662Z"
+    },
+    {
+      "turnId": "trace_1784254134759_dpp3bb",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:57.777Z"
+    },
+    {
+      "turnId": "trace_1784254726359_73081q",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:54.309Z"
+    },
+    {
+      "turnId": "trace_1784255380203_di3ns6",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:45.316Z"
+    },
+    {
+      "turnId": "trace_1784256307356_8b4xms",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "酒单上没有符合「stout」的酒。现有：Third Anniversary Imperial IPA。要不要换个方向？\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:45:09.327Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784256307356_73zpb4",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Third Anniversary Imperial IPA",
+        "brewery": "Other Half Brewing Co.",
+        "style": "IPA - Imperial / Double",
+        "abv": 10,
+        "price": null,
+        "rating": 4.443
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:45:09.327Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "safePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "explorePick": {
+      "candidateId": "",
+      "label": ""
+    },
+    "avoidOrCaution": {
+      "candidateId": "",
+      "label": ""
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Third Anniversary Imperial IPA",
+    "brewery": "Other Half Brewing Co."
+  }
+}

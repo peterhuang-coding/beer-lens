@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_503",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:16.994Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163287944_zxh1ga",
+      "userText": "便宜有哪些",
+      "assistantReply": "你是想问便宜的啤酒品牌还是便宜的啤酒风格呢？如果是品牌，通常一些大型酿酒厂的啤酒会比较便宜，比如一些拉格或者淡色啤酒。如果是风格，像美式拉格、淡色艾尔等通常价格也比较亲民。你有什么特别想尝试的口味吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:54:51.493Z"
+    },
+    {
+      "turnId": "trace_1784218963709_h7w03p",
+      "userText": "便宜有哪些",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:22:45.854Z"
+    },
+    {
+      "turnId": "trace_1784219761430_yyl4zu",
+      "userText": "便宜有哪些",
+      "assistantReply": "嗨！你说的“便宜”是指价格亲民的啤酒对吧？这类啤酒其实挺多的，不同风格和品牌都有。一般来说，大众化的拉格啤酒（Lager）和淡色艾尔（Pale Ale）价格会比较亲民，因为它们的生产成本相对较低。比如，国内的青岛、雪花、燕京等品牌，都是性价比很高的选择。如果你对特定的风格或者品牌有偏好，可以告诉我，我可以给你更具体的建议哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:36:08.716Z"
+    },
+    {
+      "turnId": "trace_1784255235483_mut2ew",
+      "userText": "便宜有哪些",
+      "assistantReply": "嘿，你说的“便宜”是指价格亲民的啤酒对吧？不同的地方价格会有差异，但一般来说，像拉格（Lager）这类的啤酒通常价格会比较亲民。拉格啤酒酿造时间短，产量大，所以成本相对较低。这类啤酒口感清爽，适合大多数人，尤其是喜欢热带水果和柑橘风味的你，可以找找有没有添加了这些风味的拉格啤酒。当然，还有很多其他风格的啤酒也能找到价格合理的，比如小麦啤酒（Witbier）和皮尔森（Pilsner），这些也都是不错的选择。你有特别偏好的品牌或风格吗？我可以给你更具体的建议。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:27:23.541Z"
+    },
+    {
+      "turnId": "trace_1784255923327_z8md8w",
+      "userText": "便宜有哪些",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:38:46.076Z"
+    },
+    {
+      "turnId": "trace_1784256852169_58i7ml",
+      "userText": "便宜有哪些",
+      "assistantReply": "嘿，你说的“便宜”是想了解哪些价格亲民的啤酒品牌或类型吗？还是有其他的意思？给我多点线索，这样我才能更好地帮你找到你想要的信息。比如，你是想了解某个特定风格的啤酒，还是对某个地区的平价啤酒感兴趣？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:54:16.994Z"
+    }
+  ]
+}

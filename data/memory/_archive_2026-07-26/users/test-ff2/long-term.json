@@ -1,0 +1,15 @@
+{
+  "userId": "test-ff2",
+  "updatedAt": "2026-07-15T16:13:13.122Z",
+  "favorites": {
+    "topBreweries": [],
+    "topCountries": [],
+    "topStyles": []
+  },
+  "abvEvolution": [],
+  "flavorCloud": [],
+  "pendingFeedback": [],
+  "totalEpisodes": 0,
+  "totalSessions": 1,
+  "frequentIntents": {}
+}

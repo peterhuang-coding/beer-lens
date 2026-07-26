@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_395",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:11:14.584Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560264484_9g59w7",
+      "userText": "修道院啤酒是什么",
+      "assistantReply": "啊，修道院啤酒！这可是啤酒界的\"贵族\"啊~ \n\n简单来说，就是由修道院僧侣酿造或者在修道院监督下酿造的啤酒。它们有几个关键特征：\n\n1. **历史传统**：最早是中世纪欧洲修道院的僧侣们为了自饮和招待朝圣者开始酿造的，有些传统可以追溯到几百年前\n\n2. **严格认证**：真正的修道院啤酒会有\"Authentic Trappist Product\"标志，目前全球只有12家认证修道院酒厂\n\n3. **典型风格**：最常见的是：\n   - Dubbel (双料)：深色，麦芽香，酒精度6-8%\n   - Tripel (三料)：金色，果香浓郁，酒精度8-10%\n   - Quadrupel (四料)：深色，浓郁复杂，酒精度10%+\n\n4. **酿造理念**：不以盈利为目的，收益用于修道院维护和慈善事业\n\n最著名的比如比利时的Westvleteren、Chimay，荷兰的La Trappe这些。这类啤酒通常口感醇厚，风味复杂，适合慢慢品饮。\n\n你之前喝过这类啤酒吗？还是想了解某个具体方面？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:11:14.584Z"
+    }
+  ]
+}

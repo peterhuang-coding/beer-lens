@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_419",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:17:26.620Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560637961_me1bqn",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "啊，Trappist认证是个很有意思的话题！简单来说，这是给真正由特拉普派修道院酿造的啤酒的\"身份证\"。\n\n要获得这个认证必须满足3个硬性条件：\n1. 必须在修道院围墙内酿造\n2. 必须由修士全程参与酿造\n3. 啤酒收益只能用于修道院运营和慈善\n\n目前全球只有12家修道院啤酒获得认证，比如比利时的Westvleteren、Chimay，荷兰的La Trappe。这些酒厂都会在瓶身印上\"Authentic Trappist Product\"的六边形标志。\n\n有趣的是，这个认证1997年才设立，就是为了防止商业酒厂滥用\"修道院啤酒\"的名号。你喝过哪些Trappist啤酒呀？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:17:26.620Z"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "conversationId": "regression-gen-reg_307",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:56.191Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129520364_vg192j",
+      "userText": "推荐德式小麦",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Wheat Beer - 评分2.7\n2. Wheat Beer - 评分2.7\n3. Wheat Beer - 评分2.7\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:00.415Z"
+    },
+    {
+      "turnId": "trace_1784162390717_1atzxk",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:39:50.731Z"
+    },
+    {
+      "turnId": "trace_1784162413912_r2hut3",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:13.925Z"
+    },
+    {
+      "turnId": "trace_1784162764427_e668q1",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:46:04.440Z"
+    },
+    {
+      "turnId": "trace_1784218465763_x2vkfr",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:25.772Z"
+    },
+    {
+      "turnId": "trace_1784218987742_7lxp1k",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:07.753Z"
+    },
+    {
+      "turnId": "trace_1784220507493_6deyw0",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:27.504Z"
+    },
+    {
+      "turnId": "trace_1784254099740_vjr4ul",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:19.749Z"
+    },
+    {
+      "turnId": "trace_1784254688957_fa7mpb",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:08.972Z"
+    },
+    {
+      "turnId": "trace_1784255345543_124qzt",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:05.553Z"
+    },
+    {
+      "turnId": "trace_1784256232124_i9cr6b",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:52.137Z"
+    },
+    {
+      "turnId": "trace_1784256276468_2m47pl",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:36.481Z"
+    },
+    {
+      "turnId": "trace_1784257196181_5vvmsp",
+      "userText": "推荐德式小麦",
+      "assistantReply": "我会这样点：\n\n1. Wheat Beer - 评分2.7；评分样本少，置信度降低（有风险，见下方）\n2. Wheat Beer - 评分2.7；评分样本少，置信度降低\n3. Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n最稳：Wheat Beer\n最值得尝新：Wheat Beer\n我会先跳过：Wheat Beer - 评分2.7；评分样本少，置信度降低\n\n如果只能喝一杯，选 Wheat Beer。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:56.191Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257196181_l9nn1p",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Wheat Beer",
+        "brewery": "Napa Smith Brewery",
+        "style": "American Pale Wheat Ale",
+        "abv": 4.8,
+        "price": null,
+        "rating": 2.71
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:56.191Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Wheat Beer",
+    "brewery": "Napa Smith Brewery"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_395",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:04:46.568Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257470267_dmzl4x",
+      "userText": "修道院啤酒是什么",
+      "assistantReply": "啊，修道院啤酒啊！这可是啤酒界的\"奢侈品\"呢～简单来说就是由修道院僧侣亲自酿造或者监督酿造的啤酒，主要在比利时和荷兰一带。最正宗的会有\"Authentic Trappist Product\"认证标识(一个六边形logo)。\n\n这类啤酒有几个特点：\n1. 酿造收益必须用于修道院运营或慈善\n2. 全程由僧侣参与\n3. 酒厂必须在修道院围墙内\n\n常见的风格有：\n- 双料(Dubbel)：深色，焦糖风味\n- 三料(Tripel)：金色，酒精度较高\n- 四料(Quadrupel)：更浓烈版本\n\n像Westmalle、Chimay这些牌子都很有名。你平时喜欢喝偏重的啤酒吗？这类酒普遍酒体比较饱满哦～",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:04:46.568Z"
+    }
+  ]
+}

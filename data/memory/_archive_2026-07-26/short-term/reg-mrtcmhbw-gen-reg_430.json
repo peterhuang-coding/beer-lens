@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_430",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:07:04.198Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560017805_ie5hns",
+      "userText": "啤酒风格分类",
+      "assistantReply": "啤酒风格分类其实挺有意思的，主要可以分为两大类：艾尔（Ale）和拉格（Lager）。艾尔啤酒通常发酵温度较高，酵母在发酵过程中会浮在酒液表面，风味通常更浓郁，带有果香和香料味。常见的艾尔风格有印度淡色艾尔（IPA）、世涛（Stout）、波特（Porter）等。\n\n拉格啤酒则是低温发酵，酵母沉在底部，口感清爽干净，麦香突出。常见的拉格风格有皮尔森（Pilsner）、维也纳拉格（Vienna Lager）、博克（Bock）等。\n\n除此之外，还有一些特殊风格，比如比利时风格的啤酒，通常带有复杂的酵母风味和香料味；还有酸啤酒（Sour Beer），通过特殊的发酵工艺带来酸味，非常独特。\n\n你对哪种风格比较感兴趣呢？或者有没有特别想了解的细节？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:07:04.198Z"
+    }
+  ]
+}

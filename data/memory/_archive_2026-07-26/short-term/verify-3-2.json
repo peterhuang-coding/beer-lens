@@ -1,0 +1,17 @@
+{
+  "conversationId": "verify-3-2",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T00:39:01.214Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784162336884_cy274e",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "当然有！IPA（印度淡色艾尔）是一种非常受欢迎的啤酒风格，通常以其浓郁的啤酒花香气和苦味而闻名。你喜欢的热带水果和柑橘风味在许多IPA中都能找到，尤其是新英格兰IPA（NEIPA）和西海岸IPA（West Coast IPA）。你对哪种风格的IPA感兴趣呢？或者有什么具体的口味偏好？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:39:01.214Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

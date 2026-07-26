@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-gen-reg_534",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:55:36.753Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255399318_entvky",
+      "userText": "有罐装的吗",
+      "assistantReply": "当然有啦！现在越来越多的啤酒品牌都推出了罐装版本，方便携带又保鲜。你想要找哪种风格的罐装啤酒呢？比如IPA、皮尔森或者小麦啤酒？这样我可以给你更具体的建议。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:30:05.488Z"
+    },
+    {
+      "turnId": "trace_1784255987315_2imvq8",
+      "userText": "有罐装的吗",
+      "assistantReply": "当然有啦！现在越来越多的啤酒厂开始推出罐装啤酒，因为罐装啤酒不仅方便携带，还能更好地保持啤酒的新鲜度和风味。你想要找特定风格的罐装啤酒吗？比如IPA、皮尔森或者是小麦啤酒？告诉我你的偏好，我可以给你一些建议！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:39:53.366Z"
+    },
+    {
+      "turnId": "trace_1784256929279_a5yemh",
+      "userText": "有罐装的吗",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:55:36.753Z"
+    }
+  ]
+}

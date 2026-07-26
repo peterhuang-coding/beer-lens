@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-38-1784042624658",
+  "userId": "self-test",
+  "updatedAt": "2026-07-14T15:23:48.419Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784042624670_pxc6il",
+      "userText": "哦",
+      "assistantReply": "嘿，看起来你可能还在适应这里呢。我是 Beer Lens，一个懂啤酒的 AI 助手。如果你对啤酒有任何好奇，无论是风格、酒厂还是酿造工艺，都可以问我哦。比如，你对热带水果、柑橘、清爽、低甜度的啤酒感兴趣，有什么特别想了解的吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-14T15:23:48.419Z"
+    }
+  ]
+}

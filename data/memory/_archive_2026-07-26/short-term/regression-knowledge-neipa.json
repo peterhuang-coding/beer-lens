@@ -1,0 +1,31 @@
+{
+  "conversationId": "regression-knowledge-neipa",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:58:18.325Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255630583_qr5gmo",
+      "userText": "什么是新英格兰IPA",
+      "assistantReply": "新英格兰IPA，也叫做浑浊IPA或者NEIPA，是一种起源于美国新英格兰地区的IPA风格。这种啤酒最显著的特点就是它的浑浊外观和丰富的果味。新英格兰IPA通常使用大量的燕麦和小麦，这不仅让酒体更加丰满顺滑，还增加了酒的浑浊度。在啤酒花的选择上，它倾向于使用那些能带来热带水果、柑橘等香气的品种，比如西楚（Citra）、莫赛克（Mosaic）和西姆科（Simcoe）等。这种风格的IPA通常苦度较低，更加注重香气和口感的平衡，喝起来非常清爽，适合喜欢果味浓郁但又不想太苦的啤酒爱好者。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:34:10.060Z"
+    },
+    {
+      "turnId": "trace_1784256148980_pkfrf4",
+      "userText": "什么是新英格兰IPA",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:42:34.584Z"
+    },
+    {
+      "turnId": "trace_1784257091083_j1f7lq",
+      "userText": "什么是新英格兰IPA",
+      "assistantReply": "啊，新英格兰IPA（NEIPA）可是近几年精酿圈的大热门！简单来说，它是一种外观浑浊、口感柔顺的IPA变种，和传统IPA的金黄清澈完全不同。\n\n几个关键特点：\n1. 浑浊酒体 - 像橙汁一样的朦胧感，来自特殊的酵母和干投工艺\n2. 爆炸式果香 - 大量使用马赛克、西楚等新世界酒花，带来芒果、柑橘等热带水果风味\n3. 丝滑口感 - 燕麦/小麦的加入让口感更饱满，苦度通常只有30-50 IBU（比西海岸IPA低很多）\n\n最早是美国东北部（特别是佛蒙特州）的酒厂搞出来的，树屋、延龄草这些酒厂都是代表作。现在国内很多厂牌也做得不错，比如京A的\"工人\"、大九的\"无序\"都属于这个风格。\n\n想试试吗？这种风格特别适合喜欢果香又不爱太苦的朋友~",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:58:18.325Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

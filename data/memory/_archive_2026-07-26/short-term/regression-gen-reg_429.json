@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_429",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:51:10.386Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129763410_1m02yc",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:36:06.083Z"
+    },
+    {
+      "turnId": "trace_1784163113064_ectxkm",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "精酿工业啤酒其实是一个比较宽泛的概念，主要是指那些小规模酿造的啤酒，通常强调独特的风味和高品质。选择“哪个好”主要还是看你的口味偏好。\n\n如果你喜欢热带水果和柑橘的风味，可以尝试一些美式IPA（印度淡色艾尔），它们通常有丰富的水果香气和清爽的口感。或者你也可以考虑一些小型酿酒厂的淡色艾尔（Pale Ale），它们通常口感清新，低甜度，适合夏天饮用。\n\n你有没有具体的品牌或者风格偏好呢？这样我可以给你更具体的建议！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:51:56.928Z"
+    },
+    {
+      "turnId": "trace_1784218735562_qeif20",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦风味",
+      "intent": "unclear",
+      "createdAt": "2026-07-16T16:18:58.090Z"
+    },
+    {
+      "turnId": "trace_1784219471481_mmuei6",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "unclear",
+      "createdAt": "2026-07-16T16:31:13.202Z"
+    },
+    {
+      "turnId": "trace_1784254986613_rwdchi",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:23:10.622Z"
+    },
+    {
+      "turnId": "trace_1784255725370_k408we",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:35:26.740Z"
+    },
+    {
+      "turnId": "trace_1784256668995_sm5nwe",
+      "userText": "精酿工业啤酒哪个好",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:51:10.386Z"
+    }
+  ]
+}

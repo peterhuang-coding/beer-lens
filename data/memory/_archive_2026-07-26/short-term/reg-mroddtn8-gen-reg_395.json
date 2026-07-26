@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mroddtn8-gen-reg_395",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:22:40.996Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258551151_wdc66b",
+      "userText": "修道院啤酒是什么",
+      "assistantReply": "啊，修道院啤酒(Trappist Beer)可是啤酒界的传奇啊！简单来说就是由真正的特拉普派修道院僧侣亲手酿造的啤酒，全世界只有12家认证酒厂(截至2023年)。\n\n几个关键特征：\n1. 必须在修道院围墙内酿造\n2. 全程由僧侣监督\n3. 收益只能用于修道院运营和慈善\n\n最经典的三种类型：\n- 单料(Single)：最清淡，约4-5%酒精度\n- 双料(Dubbel)：深色，6-8%酒精度，焦糖风味\n- 三料(Tripel)：金色，8-10%酒精度，果香浓郁\n\n比利时那几家最出名，比如Westmalle、Chimay。你喝过这类啤酒吗？喜欢偏重的双料还是清爽的三料？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:22:40.996Z"
+    }
+  ]
+}

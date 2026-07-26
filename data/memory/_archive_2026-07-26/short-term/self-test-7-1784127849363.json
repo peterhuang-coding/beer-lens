@@ -1,0 +1,62 @@
+{
+  "conversationId": "self-test-7-1784127849363",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T15:04:09.409Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784127849372_x3zp4g",
+      "userText": "想喝点烈的",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:04:09.409Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784127849372_nia2ly",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Barrel Aged Imperial German Chocolate Cupcake Stout",
+        "brewery": "Angry Chair Brewing",
+        "style": "Stout - Imperial / Double Pastry",
+        "abv": 11,
+        "price": null,
+        "rating": 4.66
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Double IPA",
+        "brewery": "Ithaca Beer Company",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.97
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-15T15:04:09.409Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Barrel Aged Imperial German Chocolate Cupcake Stout",
+    "brewery": "Angry Chair Brewing"
+  }
+}

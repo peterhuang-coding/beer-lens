@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_389",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:26:56.117Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258808720_blyvs7",
+      "userText": "比利时三料和四料区别",
+      "assistantReply": "啊，这个问题问得好！比利时三料(Tripel)和四料(Quadrupel)是修道院啤酒里最让人容易混淆的两个风格，我来帮你理清楚：\n\n1. **酒精度差异**：\n- 三料一般在8-10% ABV\n- 四料通常在10-12% ABV甚至更高\n\n2. **风味特点**：\n- 三料：金色酒体，突出酵母带来的香蕉、丁香香气，口感干爽带柑橘调\n- 四料：深棕色酒体，主打深色水果(无花果、葡萄干)风味，麦芽甜感更明显\n\n3. **历史渊源**：\n三料最早由Westmalle修道院定义，而四料其实是后来商家创造的概念(最早的Quadrupel其实是Rochefort 10)\n\n4. **饮用建议**：\n夏天我会推荐三料，清爽易饮；冬天更适合四料，像液体面包一样温暖。你平时更喜欢哪种风格？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:26:56.117Z"
+    }
+  ]
+}

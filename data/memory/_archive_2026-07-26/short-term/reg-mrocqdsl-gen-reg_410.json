@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_410",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:07:04.511Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257616820_v4sqdm",
+      "userText": "Pliny the Elder哪家酒厂",
+      "assistantReply": "啊，Pliny the Elder可是精酿界的传奇之一！它来自美国加州的Russian River Brewing Company（俄罗斯河酿酒公司）。这家酒厂由Vinnie Cilurzo主理，被很多人认为是双倍IPA风格的奠基者之一。\n\nPliny the Elder作为他们的旗舰酒款，从2000年就开始酿造了，名字取自古罗马的一位自然学家。这款酒有着爆炸式的柑橘、松木和热带水果香气，酒精度8%左右但苦度平衡得特别好，是很多IPA爱好者心中的\"白月光\"。\n\n有趣的是，他们后来还出了个更猛的版本叫Pliny the Younger，每年只在2月限量发售，引得全世界的啤酒爱好者专门跑去排队呢！你喝过这款吗？还是正打算尝试？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:07:04.511Z"
+    }
+  ]
+}

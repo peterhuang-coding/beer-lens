@@ -1,0 +1,17 @@
+{
+  "conversationId": "verify-3-debug",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T00:38:00.540Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784162276925_05ta6z",
+      "userText": "有IPA可以选吗",
+      "assistantReply": "当然有！IPA（印度淡色艾尔）是一种非常受欢迎的啤酒风格，通常以其浓烈的啤酒花香气和苦味而著称。它们通常有热带水果、柑橘等风味，适合喜欢清爽口感的人。你对IPA有什么特别的偏好，比如酒花的种类或者苦味的强度吗？这样我可以给你更具体的建议！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:38:00.540Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

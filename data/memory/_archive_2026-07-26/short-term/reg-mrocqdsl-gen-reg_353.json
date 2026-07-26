@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_353",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:02:39.775Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257359702_zxdf0s",
+      "userText": "看你推荐什么啤酒",
+      "assistantReply": "我会这样点：\n\n1. 看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：看你推荐什么啤酒\n最值得尝新：看你推荐什么啤酒\n我会先跳过：看你推荐什么啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 看你推荐什么啤酒。\n\n⚠️ 看你推荐什么啤酒 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T03:02:39.775Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257359702_r1xyby",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "看你推荐什么啤酒",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T03:02:39.775Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "看你推荐什么啤酒",
+    "brewery": ""
+  }
+}

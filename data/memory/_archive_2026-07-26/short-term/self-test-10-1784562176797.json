@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-10-1784562176797",
+  "userId": "self-test",
+  "updatedAt": "2026-07-20T15:42:58.218Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784562176805_clongt",
+      "userText": "帮我规划今晚喝什么",
+      "assistantReply": "根据你的口味画像，我找到了以下推荐。不过处理过程中遇到了一些问题，结果可能不够完整。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T15:42:58.218Z"
+    }
+  ]
+}

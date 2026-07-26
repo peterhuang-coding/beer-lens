@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_348",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:02:36.893Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257348942_csbyt5",
+      "userText": "来点精酿啤酒",
+      "assistantReply": "啊哈！精酿啤酒这个话题我可太熟了！🍻\n\n根据你之前提到的偏好（喜欢热带水果/柑橘风味、清爽口感、甜度低），我建议可以试试这些风格的：\n\n1. 新英格兰IPA(NEIPA)\n- 特点：浑浊酒体，爆炸的芒果/百香果香气\n- 喝起来像果汁一样顺滑\n- 苦度通常控制在适中范围\n\n2. 酸啤酒(Gose/Sour)\n- 清爽的酸度很解腻\n- 常加入海盐或水果增味\n- 酒精度通常偏低\n\n3. 西海岸IPA\n- 更突出的柑橘/松木香气\n- 比NEIPA更干爽\n- 收口干净利落\n\n最近有特别想尝试的风格吗？或者我们可以聊聊这些风格的酿造特点～",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:02:36.893Z"
+    }
+  ]
+}

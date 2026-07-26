@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_320",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:07:59.082Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560079036_bh3d5h",
+      "userText": "Founders Breakfast Stout类似酒",
+      "assistantReply": "我会这样点：\n\n1. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高（有风险，见下方）\n2. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n3. Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n最稳：Founders Breakfast Stout\n最值得尝新：Founders Breakfast Stout\n我会先跳过：Founders Breakfast Stout - 评分4.3，2502+人评分；酒精度8.3%，略高\n\n如果只能喝一杯，选 Founders Breakfast Stout。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T15:07:59.082Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784560079036_7dl1nr",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Founders Breakfast Stout",
+        "brewery": "Founders Brewing Company",
+        "style": "American Double / Imperial Stout",
+        "abv": 8.3,
+        "price": null,
+        "rating": 4.35
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-20T15:07:59.082Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Founders Breakfast Stout",
+    "brewery": "Founders Brewing Company"
+  }
+}

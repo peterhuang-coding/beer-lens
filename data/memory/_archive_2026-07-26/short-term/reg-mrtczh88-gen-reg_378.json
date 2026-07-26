@@ -1,0 +1,53 @@
+{
+  "conversationId": "reg-mrtczh88-gen-reg_378",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:09:17.305Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560157221_qwgh26",
+      "userText": "陈年啤酒推荐",
+      "assistantReply": "我会这样点：\n\n1. 陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：陈年啤酒推荐\n最值得尝新：陈年啤酒推荐\n我会先跳过：陈年啤酒推荐 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 陈年啤酒推荐。\n\n⚠️ 陈年啤酒推荐 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-20T15:09:17.305Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784560157221_98zaf4",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "陈年啤酒推荐",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-20T15:09:17.305Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "陈年啤酒推荐",
+    "brewery": ""
+  }
+}

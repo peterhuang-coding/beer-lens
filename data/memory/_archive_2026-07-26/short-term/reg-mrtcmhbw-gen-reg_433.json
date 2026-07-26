@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_433",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:07:33.560Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784560044743_bja9q5",
+      "userText": "世涛名字由来",
+      "assistantReply": "啊，世涛（Stout）这个名字的由来其实挺有意思的！它最早是从英语\"stout\"这个词来的，原意是\"强壮\"、\"浓烈\"的意思。\n\n最早在18世纪，英国酿酒商用\"stout porter\"来指代一种特别浓烈的波特啤酒（porter）。后来随着时间推移，\"stout\"就慢慢独立出来成为一类啤酒的专有名称了。\n\n有趣的是：\n- 最早的世涛其实是指\"strong porter\"（烈性波特）\n- 健力士（Guinness）在19世纪把\"stout\"这个叫法推广开来\n- 现在世涛已经发展出很多子类，比如牛奶世涛、燕麦世涛、帝国世涛等\n\n要我说，这个名字确实很贴切 - 世涛啤酒通常酒体厚重，风味浓郁，确实配得上\"stout\"这个形容！你平时喜欢喝世涛吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:07:33.560Z"
+    }
+  ]
+}

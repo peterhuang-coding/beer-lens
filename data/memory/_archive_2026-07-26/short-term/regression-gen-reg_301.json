@@ -1,0 +1,140 @@
+{
+  "conversationId": "regression-gen-reg_301",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:52.950Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129512585_e256oq",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1，114人评分；酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1，114人评分；酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1，114人评分；酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1，114人评分；酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:31:52.658Z"
+    },
+    {
+      "turnId": "trace_1784162379541_adqt7k",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:39:39.551Z"
+    },
+    {
+      "turnId": "trace_1784162403208_3yuct6",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:03.221Z"
+    },
+    {
+      "turnId": "trace_1784162754023_9gj1gb",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:45:54.035Z"
+    },
+    {
+      "turnId": "trace_1784218462548_k8evg8",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:22.560Z"
+    },
+    {
+      "turnId": "trace_1784218984504_y03coa",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:04.516Z"
+    },
+    {
+      "turnId": "trace_1784220504288_oz3esp",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:24.302Z"
+    },
+    {
+      "turnId": "trace_1784254096468_i4629c",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:16.480Z"
+    },
+    {
+      "turnId": "trace_1784254685687_o3pxv7",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:05.700Z"
+    },
+    {
+      "turnId": "trace_1784255342323_23wayy",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:02.338Z"
+    },
+    {
+      "turnId": "trace_1784256228837_oknr92",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:48.850Z"
+    },
+    {
+      "turnId": "trace_1784256273252_elayfp",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:33.267Z"
+    },
+    {
+      "turnId": "trace_1784257192940_jbveck",
+      "userText": "求推荐西海岸IPA",
+      "assistantReply": "我会这样点：\n\n1. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高（有风险，见下方）\n2. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n3. 110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n最稳：110K+OT Batch #3 - The Other West Coast IPA\n最值得尝新：110K+OT Batch #3 - The Other West Coast IPA\n我会先跳过：110K+OT Batch #3 - The Other West Coast IPA - 评分3.1；符合你要的IPA；评分样本少，置信度降低，酒精度10%，略高\n\n如果只能喝一杯，选 110K+OT Batch #3 - The Other West Coast IPA。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:52.950Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257192940_gzjsac",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "110K+OT Batch #3 - The Other West Coast IPA",
+        "brewery": "Cigar City Brewing",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.1
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:52.950Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "110K+OT Batch #3 - The Other West Coast IPA",
+    "brewery": "Cigar City Brewing"
+  },
+  "currentConstraints": [
+    "IPA"
+  ]
+}

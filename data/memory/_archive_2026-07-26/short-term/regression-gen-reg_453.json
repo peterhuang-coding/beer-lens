@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_453",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:37.319Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163226401_34i63h",
+      "userText": "4分会再喝咖啡巧克力",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:46.407Z"
+    },
+    {
+      "turnId": "trace_1784218919622_4tqofi",
+      "userText": "4分会再喝咖啡巧克力",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：4分会再喝咖啡巧克力\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:21:59.633Z"
+    },
+    {
+      "turnId": "trace_1784219727064_uk672m",
+      "userText": "4分会再喝咖啡巧克力",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：4分会再喝咖啡巧克力\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:27.075Z"
+    },
+    {
+      "turnId": "trace_1784255189578_t7snqj",
+      "userText": "4分会再喝咖啡巧克力",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：4分会再喝咖啡巧克力\n你的口味画像：喜欢热带水果和柑橘和苦和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:29.591Z"
+    },
+    {
+      "turnId": "trace_1784255886422_setv4o",
+      "userText": "4分会再喝咖啡巧克力",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：4分会再喝咖啡巧克力\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:06.439Z"
+    },
+    {
+      "turnId": "trace_1784256817301_17pmjy",
+      "userText": "4分会再喝咖啡巧克力",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n你会再喝这杯酒。\n备注：4分会再喝咖啡巧克力\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:37.319Z"
+    }
+  ]
+}

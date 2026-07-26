@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_427",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:51:06.654Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129759548_6t1ctt",
+      "userText": "国际苦度单位",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:36:01.362Z"
+    },
+    {
+      "turnId": "trace_1784163106551_tgsful",
+      "userText": "国际苦度单位",
+      "assistantReply": "国际苦度单位（International Bitterness Units，简称 IBU）是用来衡量啤酒苦味的一种标准。它主要通过啤酒中所含的苦味物质（主要是啤酒花中的α酸）来计算。IBU 的数值越高，表示啤酒的苦味越强。通常，淡色啤酒的 IBU 值可能在 10-20 之间，而一些 IPA 或其他苦味较重的啤酒可能会达到 60 甚至更高的 IBU 值。\n\n如果你对某种风格的啤酒的 IBU 值有兴趣，或者想了解更多关于苦味的内容，随时问我哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:51:50.466Z"
+    },
+    {
+      "turnId": "trace_1784218720153_tsiubv",
+      "userText": "国际苦度单位",
+      "assistantReply": "国际苦度单位（International Bitterness Units，简称 IBU）是用来衡量啤酒中苦味程度的一个标准。IBU 的数值越高，表示啤酒的苦味越重。苦味主要来自于啤酒花中的α酸，在酿造过程中通过煮沸来释放苦味。不同风格的啤酒，其 IBU 值也会有所不同，比如淡色艾尔（Pale Ale）通常 IBU 在 30-50 之间，而印度淡色艾尔（India Pale Ale，IPA）则可以达到 60-100 甚至更高。不过，IBU 只是一个参考值，实际的苦味感受还会受到麦芽、酵母和酿造工艺等因素的影响。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:18:52.915Z"
+    },
+    {
+      "turnId": "trace_1784219454901_uskboe",
+      "userText": "国际苦度单位",
+      "assistantReply": "国际苦度单位（International Bitterness Units，简称 IBU）是用来衡量啤酒中苦味强度的一个标准。这个数值越高，表示啤酒的苦味越重。IBU 是通过测量啤酒中异α酸（iso-alpha acids）的含量来确定的，这些化合物主要来自于啤酒花。\n\n不同的啤酒风格有不同的 IBU 范围。比如，一款淡色艾尔（Pale Ale）可能有 20-30 IBU，而一款印度淡色艾尔（India Pale Ale，IPA）可能会有 40-70 IBU 甚至更高。不过，IBU 并不能完全代表你实际感受到的苦味，因为啤酒的其他成分（如麦芽的甜度）也会影响苦味的感知。\n\n你对苦味的啤酒感兴趣吗？还是更喜欢口感比较柔和的啤酒？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:31:08.908Z"
+    },
+    {
+      "turnId": "trace_1784254978498_7ho3p9",
+      "userText": "国际苦度单位",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:23:02.995Z"
+    },
+    {
+      "turnId": "trace_1784255715200_j9r6i5",
+      "userText": "国际苦度单位",
+      "assistantReply": "国际苦度单位，通常称为 IBU（International Bitterness Units），是用来衡量啤酒中苦味强度的一个标准。IBU 的数值越高，代表啤酒的苦味越重。这个数值是通过测量啤酒中异α酸（iso-alpha acids）的含量来确定的，这些物质主要来自于啤酒花，是啤酒苦味的主要来源。\n\n一般来说，轻盈的拉格啤酒（Lager）和小麦啤酒（Wheat Beer）的 IBU 值较低，大约在 5 到 20 之间；而像印度淡色艾尔（IPA）这样的啤酒，IBU 值可以高达 60 甚至更高。不过，值得注意的是，人的味觉对苦味的感知也会受到其他因素的影响，比如啤酒的甜度和酒体的饱满度，所以 IBU 值只是一个参考指标。\n\n你对苦味的接受程度怎么样？喜欢苦一点的啤酒还是更倾向于甜一些的？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:35:22.590Z"
+    },
+    {
+      "turnId": "trace_1784256664898_jj4ise",
+      "userText": "国际苦度单位",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:51:06.654Z"
+    }
+  ]
+}

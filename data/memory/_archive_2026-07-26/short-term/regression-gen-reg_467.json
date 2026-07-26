@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_467",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:46.583Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163236993_4o4sst",
+      "userText": "京A飞拳3分中规中矩",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:56.999Z"
+    },
+    {
+      "turnId": "trace_1784218928894_ww6npt",
+      "userText": "京A飞拳3分中规中矩",
+      "assistantReply": "根据你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:08.906Z"
+    },
+    {
+      "turnId": "trace_1784219736297_fnd08e",
+      "userText": "京A飞拳3分中规中矩",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：京A飞拳3分中规中矩\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:36.314Z"
+    },
+    {
+      "turnId": "trace_1784255200622_cf9di7",
+      "userText": "京A飞拳3分中规中矩",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：京A飞拳3分中规中矩\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:40.636Z"
+    },
+    {
+      "turnId": "trace_1784255895791_60w73a",
+      "userText": "京A飞拳3分中规中矩",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：京A飞拳3分中规中矩\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:15.807Z"
+    },
+    {
+      "turnId": "trace_1784256826570_u4vz96",
+      "userText": "京A飞拳3分中规中矩",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3/5\n是否再喝：未明确。\n备注：京A飞拳3分中规中矩\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:46.583Z"
+    }
+  ]
+}

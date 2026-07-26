@@ -1,0 +1,14 @@
+{
+  "conversationId": "self-test-32-1784127964766",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T15:06:11.283Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784127964775_yguki0",
+      "userText": "这瓶酒过期了吗",
+      "assistantReply": "请提供酒标照片，以便查看生产日期和保质期信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-15T15:06:11.283Z"
+    }
+  ]
+}

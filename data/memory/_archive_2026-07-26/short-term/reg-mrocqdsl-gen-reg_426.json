@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_426",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:09:47.355Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257779078_l1c3nl",
+      "userText": "IBU的含义",
+      "assistantReply": "IBU是International Bitterness Units的缩写，翻译过来就是\"国际苦度单位\"。简单来说，它是用来衡量啤酒中苦味物质(主要是啤酒花带来的异α酸)含量的指标。\n\n几个关键点帮你理解：\n1. 数值范围：普通啤酒通常在5-80 IBU之间\n2. 感受差异：实际上感知到的苦味还受麦芽甜度平衡影响\n3. 典型参考：\n   - 淡拉格：5-10 IBU\n   - IPA：40-70 IBU\n   - 帝国世涛：50-100+ IBU\n\n你最近是不是在尝试不同苦度的啤酒？可以聊聊你喝过哪些觉得苦度刚好合适的酒款~",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:09:47.355Z"
+    }
+  ]
+}

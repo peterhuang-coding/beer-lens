@@ -1,0 +1,14 @@
+{
+  "conversationId": "debug-326",
+  "userId": "debug",
+  "updatedAt": "2026-07-16T16:34:35.765Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784219672435_tnbeo6",
+      "userText": "高大师推荐什么酒",
+      "assistantReply": "高大师推荐的酒款会根据季节和特别活动变化。通常，他会推荐自己酿造的特色啤酒，如“高大师IPA”、“高大师比利时小麦”等。具体推荐请关注高大师的官方渠道或访问其酿酒工坊。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T16:34:35.765Z"
+    }
+  ]
+}

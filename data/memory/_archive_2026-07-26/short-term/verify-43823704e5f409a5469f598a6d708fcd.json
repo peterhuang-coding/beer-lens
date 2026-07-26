@@ -1,0 +1,53 @@
+{
+  "conversationId": "verify-43823704e5f409a5469f598a6d708fcd",
+  "userId": "verify",
+  "updatedAt": "2026-07-16T16:14:13.289Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784218453215_wcyhpp",
+      "userText": "推荐法兰德斯红艾尔",
+      "assistantReply": "我会这样点：\n\n1. 推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐法兰德斯红艾尔\n最值得尝新：推荐法兰德斯红艾尔\n我会先跳过：推荐法兰德斯红艾尔 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐法兰德斯红艾尔。\n\n⚠️ 推荐法兰德斯红艾尔 数据不足，谨慎尝试。",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:13.289Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784218453215_0p88tv",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "推荐法兰德斯红艾尔",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-16T16:14:13.289Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "推荐法兰德斯红艾尔",
+    "brewery": ""
+  }
+}

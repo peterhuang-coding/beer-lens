@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_468",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:48.015Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163237504_jwwrtu",
+      "userText": "0分没法喝这瓶酒",
+      "assistantReply": "请发一张酒标照片，我可以帮你查看酒标信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T00:53:59.052Z"
+    },
+    {
+      "turnId": "trace_1784218929408_dn705i",
+      "userText": "0分没法喝这瓶酒",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T16:22:10.448Z"
+    },
+    {
+      "turnId": "trace_1784219736814_1vlw29",
+      "userText": "0分没法喝这瓶酒",
+      "assistantReply": "请您提供酒标照片，以便我查看具体信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-16T16:35:37.923Z"
+    },
+    {
+      "turnId": "trace_1784255201138_ccycyx",
+      "userText": "0分没法喝这瓶酒",
+      "assistantReply": "请提供酒标照片，以便我查看具体信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:26:42.068Z"
+    },
+    {
+      "turnId": "trace_1784255896308_xu0kml",
+      "userText": "0分没法喝这瓶酒",
+      "assistantReply": "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:38:16.842Z"
+    },
+    {
+      "turnId": "trace_1784256827089_8135ms",
+      "userText": "0分没法喝这瓶酒",
+      "assistantReply": "请提供酒标照片，以便我查看具体信息。",
+      "intent": "label_check",
+      "createdAt": "2026-07-17T02:53:48.015Z"
+    }
+  ]
+}

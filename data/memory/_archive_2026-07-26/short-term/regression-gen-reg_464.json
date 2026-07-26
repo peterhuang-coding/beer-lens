@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_464",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:53:45.033Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163235454_1jseaz",
+      "userText": "Rodenbach不错4分樱桃",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:53:55.461Z"
+    },
+    {
+      "turnId": "trace_1784218927346_t47th6",
+      "userText": "Rodenbach不错4分樱桃",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：Rodenbach不错4分樱桃\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:07.360Z"
+    },
+    {
+      "turnId": "trace_1784219734744_m0o3lp",
+      "userText": "Rodenbach不错4分樱桃",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：Rodenbach不错4分樱桃\n你的口味画像：喜欢热带水果和苦和柑橘和焦糖风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:34.760Z"
+    },
+    {
+      "turnId": "trace_1784255199067_w0n1af",
+      "userText": "Rodenbach不错4分樱桃",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：Rodenbach不错4分樱桃\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:26:39.082Z"
+    },
+    {
+      "turnId": "trace_1784255894242_c7ndbb",
+      "userText": "Rodenbach不错4分樱桃",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：Rodenbach不错4分樱桃\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:14.259Z"
+    },
+    {
+      "turnId": "trace_1784256825012_5y27t7",
+      "userText": "Rodenbach不错4分樱桃",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：Rodenbach不错4分樱桃\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:53:45.033Z"
+    }
+  ]
+}

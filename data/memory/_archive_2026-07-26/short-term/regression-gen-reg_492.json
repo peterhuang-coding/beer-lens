@@ -1,0 +1,49 @@
+{
+  "conversationId": "regression-gen-reg_492",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:05.232Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163257764_11qmvf",
+      "userText": "浓郁巧克力3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:17.770Z"
+    },
+    {
+      "turnId": "trace_1784218947469_z2rztw",
+      "userText": "浓郁巧克力3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：浓郁巧克力3.5分\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:27.481Z"
+    },
+    {
+      "turnId": "trace_1784219754521_42h4pp",
+      "userText": "浓郁巧克力3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：浓郁巧克力3.5分\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:54.537Z"
+    },
+    {
+      "turnId": "trace_1784255221146_z3gjoz",
+      "userText": "浓郁巧克力3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：浓郁巧克力3.5分\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:27:01.160Z"
+    },
+    {
+      "turnId": "trace_1784255916155_iehlpr",
+      "userText": "浓郁巧克力3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：浓郁巧克力3.5分\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:36.170Z"
+    },
+    {
+      "turnId": "trace_1784256845215_4iniuc",
+      "userText": "浓郁巧克力3.5分",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：3.5/5\n是否再喝：未明确。\n备注：浓郁巧克力3.5分\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:54:05.232Z"
+    }
+  ]
+}

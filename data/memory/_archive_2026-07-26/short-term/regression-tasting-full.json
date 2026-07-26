@@ -1,0 +1,21 @@
+{
+  "conversationId": "regression-tasting-full",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:41:29.174Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255534460_8j9tbo",
+      "userText": "我给4.5分，会再喝，热带水果",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:32:14.470Z"
+    },
+    {
+      "turnId": "trace_1784256089160_hywc1a",
+      "userText": "我给4.5分，会再喝，热带水果",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4.5/5\n你会再喝这杯酒。\n备注：我给4.5分，会再喝，热带水果\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:41:29.174Z"
+    }
+  ]
+}

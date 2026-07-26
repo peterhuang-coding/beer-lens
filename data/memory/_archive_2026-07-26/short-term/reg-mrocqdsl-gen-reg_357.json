@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_357",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:02:48.345Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257361993_v7rkih",
+      "userText": "帝国世涛要波本桶陈",
+      "assistantReply": "帝国世涛确实很适合用波本桶陈酿！这种啤酒本身就带有浓郁的焦糖、咖啡和巧克力风味，波本桶的香草、椰子和橡木气息能很好地与之融合，带来更复杂的层次感。波本桶陈酿的帝国世涛通常会有更圆润的口感，酒精感也会更加柔和。你喜欢这种风格的啤酒吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:02:48.345Z"
+    }
+  ]
+}

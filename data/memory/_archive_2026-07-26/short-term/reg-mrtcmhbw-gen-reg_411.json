@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_411",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T15:03:56.623Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559826266_kqczyh",
+      "userText": "Heady Topper历史",
+      "assistantReply": "啊，Heady Topper！这可是精酿啤酒界的传奇之一啊。这款来自美国佛蒙特州The Alchemist酒厂的双倍IPA，可以说是开创了浑浊IPA（Hazy IPA）的先河。\n\n它的历史挺有意思的：\n- 2003年首次酿造，当时浑浊的IPA还被认为是\"缺陷\"\n- 创始人John Kimmich原本是想酿造一款传统IPA，但意外创造了这种浑浊多汁的风格\n- 2011年因飓风艾琳导致酒厂被淹，之后转型为只生产罐装啤酒\n- 很长一段时间只在佛蒙特州本地销售，引发全美啤酒爱好者的\"朝圣\"热潮\n\n最特别的是它的包装建议——罐子上直接写着\"Drink from the can\"（直接从罐子喝），据说是为了保持香气和口感。这在当时可是相当反传统的做法！\n\n这款酒以其爆炸性的热带水果香气和顺滑口感闻名，酒精度8%但隐藏得很好。它可以说是定义了新英格兰IPA风格的原型之一。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T15:03:56.623Z"
+    }
+  ]
+}

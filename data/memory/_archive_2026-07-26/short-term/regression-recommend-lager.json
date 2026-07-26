@@ -1,0 +1,63 @@
+{
+  "conversationId": "regression-recommend-lager",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:41:12.132Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255517182_wnjlwl",
+      "userText": "帮我推荐拉格",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Original Lager - 评分4.0，5042+人评分\n2. Original Lager - 评分4.0，5042+人评分\n3. Original Lager - 评分4.0，5042+人评分\n\n最稳：Original Lager\n最值得尝新：Original Lager\n我会先跳过：Original Lager - 评分4.0，5042+人评分\n\n如果只能喝一杯，选 Original Lager。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:31:57.220Z"
+    },
+    {
+      "turnId": "trace_1784256072121_rseuae",
+      "userText": "帮我推荐拉格",
+      "assistantReply": "我会这样点：\n\n1. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低（有风险，见下方）\n2. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n3. Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n最稳：Original Lager\n最值得尝新：Original Lager\n我会先跳过：Original Lager - 评分4.0；符合你要的拉格/皮尔森；评分样本少，置信度降低\n\n如果只能喝一杯，选 Original Lager。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:41:12.132Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784256072121_e2eyz8",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Original Lager",
+        "brewery": "Goldfinger Brewing Company",
+        "style": "Lager - Helles",
+        "abv": 5.2,
+        "price": null,
+        "rating": 3.97
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:41:12.132Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Original Lager",
+    "brewery": "Goldfinger Brewing Company"
+  },
+  "currentConstraints": [
+    "拉格"
+  ]
+}

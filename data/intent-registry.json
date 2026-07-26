@@ -1,1 +1,345 @@
-[]
+[
+  {
+    "id": "menu_recommend",
+    "label": "酒单推荐",
+    "description": "拍照酒单 → OCR 识别 → Beer DB 查评分 → 推荐引擎打分 → top/safe/explore/avoid",
+    "priority": 10,
+    "rules": [
+      {
+        "id": "menu_img_keywords",
+        "pattern": "酒单|推荐|喝什么|帮我看酒单",
+        "type": "positive",
+        "confidence": 0.95,
+        "requiresImage": true
+      },
+      {
+        "id": "menu_text_recommend",
+        "pattern": "推荐.*啤酒|推荐.*IPA|推荐.*拉格|推荐.*世涛|推荐.*酸啤|推荐.*小麦|推荐.*波特|推荐.*皮尔森|帮我.*选|帮我.*挑|帮我推荐|有什么.*推荐|推荐一款|喝什么.*好|今天.*喝.*什么|帮我.*推荐|推荐一下|推荐.*给我|推荐.*下|下一杯|下一款|再来.*杯|再来.*款|推荐.*什么|什么.*推荐|值得.*喝|值得.*推荐",
+        "type": "positive",
+        "confidence": 0.9,
+        "requiresImage": false
+      },
+      {
+        "id": "menu_style_direct",
+        "pattern": "^推荐世涛$|^推荐酸啤$|^推荐小麦$|^推荐波特$|^推荐皮尔森$|^推荐烈性$|^推荐清淡$",
+        "type": "positive",
+        "confidence": 0.88,
+        "requiresImage": false
+      },
+      {
+        "id": "menu_implicit_want",
+        "pattern": "想喝|好想喝|想试试|想尝|想试|馋了|想喝点|想.*一杯|想.*来.*杯|好渴|热.*喝|天.*热.*喝|口渴|想.*啤",
+        "type": "positive",
+        "confidence": 0.75,
+        "requiresImage": false
+      },
+      {
+        "id": "menu_recommend_start",
+        "pattern": "^推荐",
+        "type": "positive",
+        "confidence": 0.85,
+        "requiresImage": false
+      }
+    ],
+    "samples": [
+      { "text": "推荐一款IPA", "weight": 0.85, "expectedIntent": "menu_recommend", "note": "纯文字推荐" },
+      { "text": "帮我推荐一下", "weight": 0.82, "expectedIntent": "menu_recommend", "note": "请求推荐" },
+      { "text": "今天喝什么好", "weight": 0.78, "expectedIntent": "menu_recommend", "note": "日常推荐" }
+    ],
+    "slots": [
+      { "name": "style", "label": "风格偏好", "type": "string", "pattern": "IPA|拉格|lager|世涛|stout|皮尔森|pilsner|酸|sour|小麦|wheat|清爽|烈|淡" },
+      { "name": "beerName", "label": "酒名", "type": "string", "pattern": "[A-Za-z一-鿿·\\- ]{2,30}" },
+      { "name": "menuIndex", "label": "序号", "type": "number", "pattern": "(\\d+)\\s*[号#]" }
+    ],
+    "handler": "handleMenuRecommend",
+    "supportsImage": true,
+    "tags": ["recommend", "menu", "ocr"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  },
+  {
+    "id": "follow_up_filter",
+    "label": "追问过滤",
+    "description": "有活跃酒单时，用户追问筛选（\"有IPA吗\"\"第3个怎么样\"\"哪个不苦\"）。无酒单时不触发。",
+    "priority": 18,
+    "contextConditions": [
+      { "field": "hasActiveMenu", "op": "eq", "value": true },
+      { "field": "turnsSinceMenu", "op": "lt", "value": 30 }
+    ],
+    "rules": [
+      {
+        "id": "followup_index",
+        "pattern": "第[\\d一二三四五六七八九十]+[个款杯号种]",
+        "type": "positive",
+        "confidence": 0.92,
+        "requiresImage": false,
+        "requiresActiveMenu": true
+      },
+      {
+        "id": "followup_which",
+        "pattern": "哪个|哪款|哪一款|哪一种|哪一杯|哪一个|哪个好|哪.*好喝|哪.*推荐",
+        "type": "positive",
+        "confidence": 0.85,
+        "requiresImage": false,
+        "requiresActiveMenu": true
+      },
+      {
+        "id": "followup_attribute",
+        "pattern": "清爽|不苦|太苦|便宜|贵|度数|酒精|IBU|ibu|苦度|苦味|最.*苦|最.*烈|酒精度.*高|酒精度.*低|多少钱|价格|介绍.*第|说说.*第|想要",
+        "type": "positive",
+        "confidence": 0.8,
+        "requiresImage": false,
+        "requiresActiveMenu": true
+      },
+      {
+        "id": "followup_has_style",
+        "pattern": "有.*吗|有没有.*IPA|有没有.*拉格|有没有.*世涛|有没有.*小麦|有没有.*酸",
+        "type": "positive",
+        "confidence": 0.88,
+        "requiresImage": false,
+        "requiresActiveMenu": true
+      },
+      {
+        "id": "followup_order_number",
+        "pattern": "^\\d+\\s*[号个]$",
+        "type": "positive",
+        "confidence": 0.88,
+        "requiresImage": false,
+        "requiresActiveMenu": true
+      }
+    ],
+    "negativeKeywords": ["帮我选", "帮我看酒单", "酒单"],
+    "samples": [
+      { "text": "有 IPA 吗", "weight": 0.9, "expectedIntent": "follow_up_filter", "note": "有酒单时追问IPA" },
+      { "text": "第3个怎么样", "weight": 0.9, "expectedIntent": "follow_up_filter", "note": "按序号追问" },
+      { "text": "哪个不苦", "weight": 0.85, "expectedIntent": "follow_up_filter", "note": "口味过滤" }
+    ],
+    "slots": [
+      { "name": "menuIndex", "label": "序号", "type": "number", "pattern": "\\d+" },
+      { "name": "style", "label": "风格", "type": "string", "pattern": "IPA|拉格|世涛|酸|小麦|皮尔森" }
+    ],
+    "handler": "handleFollowUpFilter",
+    "supportsImage": false,
+    "tags": ["follow_up", "filter", "menu_context"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  },
+  {
+    "id": "tasting_feedback",
+    "label": "品饮反馈",
+    "description": "解析评分(1-5分)、是否再喝、风味标签 → 写入 episodic memory → 重建口味画像",
+    "priority": 20,
+    "rules": [
+      {
+        "id": "feedback_score",
+        "pattern": "[1-5](\\.\\d+)?\\s*分",
+        "type": "positive",
+        "confidence": 0.92,
+        "requiresImage": false
+      },
+      {
+        "id": "feedback_would_again",
+        "pattern": "会再喝|不会再喝|看情况",
+        "type": "positive",
+        "confidence": 0.9,
+        "requiresImage": false
+      },
+      {
+        "id": "feedback_not_correction",
+        "pattern": "不是|纠正|记错|应该是|改成|不对|更正|上次.*说|更爱|其实是|说错了|前面说得不对|改一下|重置|清空|清除|清掉",
+        "type": "negative",
+        "confidence": 0,
+        "requiresImage": false
+      }
+    ],
+    "samples": [
+      { "text": "4分，会再喝，柑橘味很重", "weight": 0.95, "expectedIntent": "tasting_feedback", "note": "标准反馈" },
+      { "text": "3.5分，不会再喝", "weight": 0.92, "expectedIntent": "tasting_feedback", "note": "低分反馈" },
+      { "text": "这杯不错，给4.5分", "weight": 0.9, "expectedIntent": "tasting_feedback", "note": "高分好评" }
+    ],
+    "slots": [
+      { "name": "score", "label": "评分", "type": "number", "pattern": "([1-5](?:\\.\\d+)?)\\s*分" },
+      { "name": "wouldDrinkAgain", "label": "是否再喝", "type": "enum", "enumValues": ["yes", "maybe", "no"] },
+      { "name": "flavorTags", "label": "风味标签", "type": "string", "pattern": "柑橘|热带水果|清爽|顺滑|苦|甜|酸|咖啡|焦糖|花香" }
+    ],
+    "handler": "handleTastingFeedback",
+    "supportsImage": false,
+    "tags": ["feedback", "memory", "rating"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  },
+  {
+    "id": "profile_query",
+    "label": "画像查询",
+    "description": "查询用户口味画像：偏好风格、风味标签、ABV 舒适区间",
+    "priority": 25,
+    "rules": [
+      {
+        "id": "profile_keywords",
+        "pattern": "我的口味|我喜欢什么|我喜欢|画像|喝过什么|profile|口味偏好|口味画像|偏好|我的记录|品饮记录|喝过.*酒|看我口味|口味|看看.*口味|我的偏好|适合.*风格|适合.*啤酒|我偏好的风格|喜好的风格|我的风格偏好|喜欢什么风格|风格偏好|啤酒风格.*喜欢",
+        "type": "positive",
+        "confidence": 0.9,
+        "requiresImage": false
+      }
+    ],
+    "samples": [
+      { "text": "我的口味是什么", "weight": 0.9, "expectedIntent": "profile_query", "note": "询问口味" },
+      { "text": "看看我的偏好", "weight": 0.88, "expectedIntent": "profile_query", "note": "查看偏好" },
+      { "text": "我喝过哪些酒", "weight": 0.85, "expectedIntent": "profile_query", "note": "历史记录" }
+    ],
+    "slots": [],
+    "handler": "handleProfileQuery",
+    "supportsImage": false,
+    "tags": ["profile", "memory"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  },
+  {
+    "id": "beer_knowledge",
+    "label": "啤酒知识",
+    "description": "纯 LLM 回答啤酒风格、酿造工艺、酒厂、品饮知识",
+    "priority": 35,
+    "rules": [
+      {
+        "id": "knowledge_keywords",
+        "pattern": "什么是|区别|为什么|怎么酿|风格.*分类|风格.*定义|风格.*特点|风格.*介绍|风格.*解释|风格知识|风格.*差异|风格.*对比|风格.*区别|风格.*意思|风格.*起源|酿造|发酵|酿酒知识|怎么.*做|如何.*酿|IPA.*什么|拉格.*什么|世涛.*什么|酒厂.*历史|酒厂.*特色|酒厂.*故事",
+        "type": "positive",
+        "confidence": 0.85,
+        "requiresImage": false
+      },
+      {
+        "id": "knowledge_not_recommend",
+        "pattern": "推荐|帮我看|帮我选|帮我挑|选.*酒|挑.*酒|喝什么",
+        "type": "negative",
+        "confidence": 0,
+        "requiresImage": false
+      },
+      {
+        "id": "knowledge_except",
+        "pattern": "除了.*还有什么|除了.*之外.*还有|还有.*推荐.*吗|除了.*以外",
+        "type": "positive",
+        "confidence": 0.82,
+        "requiresImage": false
+      }
+    ],
+    "samples": [
+      { "text": "IPA和拉格有什么区别", "weight": 0.9, "expectedIntent": "beer_knowledge", "note": "风格对比" },
+      { "text": "什么是干投酒花", "weight": 0.88, "expectedIntent": "beer_knowledge", "note": "酿造知识" },
+      { "text": "啤酒是怎么酿造的", "weight": 0.85, "expectedIntent": "beer_knowledge", "note": "酿造工艺" }
+    ],
+    "slots": [],
+    "handler": "handleBeerKnowledge",
+    "supportsImage": false,
+    "tags": ["knowledge", "qa", "llm"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  },
+  {
+    "id": "label_check",
+    "label": "酒标检查",
+    "description": "拍照单瓶/单罐 → 识别酒名、日期、新鲜度风险",
+    "priority": 15,
+    "rules": [
+      {
+        "id": "label_keywords",
+        "pattern": "酒标|生产日期|过期|这瓶|这罐|这是啥酒|这是哪款酒|这是什么酒|看看这瓶|看看这罐|看看.*生产日期|检查.*日期|日期在哪|过期.*没有|还能喝吗|放了.*多久|保质期|新鲜度|是不是.*过期|这是.*酒|什么酒|啥酒|哪款酒|这是什么|这是啥|这是.*啤酒|看看酒标|看看.*酒标|帮我.*酒标",
+        "type": "positive",
+        "confidence": 0.95,
+        "requiresImage": false
+      },
+      {
+        "id": "label_not_pure_menu",
+        "pattern": "^(酒单|推荐|帮我.*选|帮我.*挑|喝什么).{0,15}$",
+        "type": "negative",
+        "confidence": 0,
+        "requiresImage": false
+      }
+    ],
+    "samples": [
+      { "text": "帮我看看这瓶酒的生产日期", "weight": 0.9, "expectedIntent": "label_check", "note": "检查日期" },
+      { "text": "这个酒标是什么", "weight": 0.85, "expectedIntent": "label_check", "note": "酒标识别" },
+      { "text": "看看过期没", "weight": 0.82, "expectedIntent": "label_check", "note": "新鲜度检查" }
+    ],
+    "slots": [
+      { "name": "beerName", "label": "酒名", "type": "string" },
+      { "name": "packagingDate", "label": "包装日期", "type": "string", "pattern": "\\d{4}[-./]\\d{1,2}[-./]\\d{1,2}" }
+    ],
+    "handler": "handleLabelCheck",
+    "supportsImage": true,
+    "tags": ["label", "ocr", "freshness"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  },
+  {
+    "id": "memory_correction",
+    "label": "记忆纠正",
+    "description": "用户纠正 AI 的错误记忆",
+    "priority": 40,
+    "rules": [
+      {
+        "id": "correction_keywords",
+        "pattern": "不是|纠正|记错|应该是|改成|不对",
+        "type": "positive",
+        "confidence": 0.85,
+        "requiresImage": false
+      },
+      {
+        "id": "correction_reset",
+        "pattern": "清空|清除|重置|清掉|清一下|reset|clear",
+        "type": "positive",
+        "confidence": 0.85,
+        "requiresImage": false
+      },
+      {
+        "id": "correction_not_vague",
+        "pattern": "^(不是|不对|不)$",
+        "type": "negative",
+        "confidence": 0,
+        "requiresImage": false
+      }
+    ],
+    "samples": [
+      { "text": "不是这个，应该是Green City", "weight": 0.88, "expectedIntent": "memory_correction", "note": "纠正酒名" },
+      { "text": "纠正一下，我喝的是另一款", "weight": 0.85, "expectedIntent": "memory_correction", "note": "纠正记录" },
+      { "text": "记错了，改成IPA吧", "weight": 0.83, "expectedIntent": "memory_correction", "note": "修改偏好" }
+    ],
+    "slots": [
+      { "name": "beerName", "label": "正确酒名", "type": "string", "pattern": "[A-Za-z一-鿿·\\- ]{2,30}" }
+    ],
+    "handler": "handleMemoryCorrection",
+    "supportsImage": false,
+    "tags": ["memory", "correction"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  },
+  {
+    "id": "unclear",
+    "label": "意图不明",
+    "description": "无法识别意图时的兜底处理，引导用户说明需求",
+    "priority": 99,
+    "rules": [
+      {
+        "id": "unclear_greeting",
+        "pattern": "^(你好|hello|hi|hey|嗨|哈喽|在吗|在不在|早|晚安|谢谢|thanks|thank|ok|好的|嗯|哦|啊|哈哈|呵呵)$",
+        "type": "positive",
+        "confidence": 0.9,
+        "requiresImage": false
+      }
+    ],
+    "samples": [],
+    "slots": [],
+    "handler": "handleUnclear",
+    "supportsImage": true,
+    "tags": ["fallback"],
+    "enabled": true,
+    "version": 1,
+    "updatedAt": "2026-07-26T00:00:00Z"
+  }
+]

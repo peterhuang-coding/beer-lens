@@ -1,0 +1,56 @@
+{
+  "conversationId": "regression-gen-reg_419",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:50:20.136Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129721890_n8fj4g",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:35:25.132Z"
+    },
+    {
+      "turnId": "trace_1784163067916_belbve",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "Trappist认证是指由特定的修道院酿造的啤酒，这些修道院遵循严格的标准和传统。这个认证确保啤酒是在修道院内酿造的，且酿造过程是由修道士主导，目的是为了支持修道院的日常生活和慈善事业。\n\nTrappist啤酒通常具有独特的风味和高质量，常见的风格包括比利时的Dubbel、Tripel和Quadrupel等。只有少数几个修道院获得了这个认证，主要分布在比利时和荷兰。希望这个解释对你有帮助！如果你还有其他问题，随时问我哦！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:51:13.249Z"
+    },
+    {
+      "turnId": "trace_1784218669005_s0z5fh",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:17:51.285Z"
+    },
+    {
+      "turnId": "trace_1784219377000_zvjkmv",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "Trappist 认证是指由国际特拉普托会（International Trappist Association, ITA）授予的一种认证，主要用于标识那些由特拉普托会修道士在修道院内或附近生产的商品，包括啤酒。这些啤酒通常被称为“特拉普斯特啤酒”或“修道院啤酒”。\n\n要获得 Trappist 认证，啤酒必须满足以下条件：\n1. **生产地**：啤酒必须在修道院内或其附近生产。\n2. **修道士参与**：修道士必须在啤酒的生产和销售过程中起到决定性的作用。\n3. **非营利目的**：啤酒的生产必须是为了支持修道院的生活和慈善事业，而不是为了盈利。\n\n目前全球只有十几家修道院生产的啤酒获得了 Trappist 认证，这些啤酒因其独特的风味和高品质而备受推崇。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:29:46.633Z"
+    },
+    {
+      "turnId": "trace_1784254897275_739tfo",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "Trappist 认证是指由特拉普斯特修道院（Trappist Monastery）生产的啤酒所获得的一种特殊认证。这种认证非常严格，只有那些在特拉普斯特修道院内，由修士们亲自参与酿造，并且收入主要用于支持修道院和慈善事业的啤酒，才能获得 Trappist 认证。\n\n目前全球只有 11 家修道院生产的啤酒获得了 Trappist 认证，这些啤酒通常具有独特的风味和高质量，非常受到啤酒爱好者的喜爱。Trappist 啤酒的种类多样，包括单料（Single）、双料（Dubbel）、三料（Tripel）和四料（Quadrupel）等，每一种都有其独特的风格和特点。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:21:45.446Z"
+    },
+    {
+      "turnId": "trace_1784255660384_rhorcg",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "Trappist 认证是指由国际特拉普特修道院协会（International Trappist Association, 简称 ITA）授予的一种认证，专门用于标识那些由特拉普派修道士在修道院内生产的产品。这些产品包括啤酒、奶酪、巧克力等，但最著名的还是 Trappist 啤酒。\n\n要获得 Trappist 认证，啤酒必须满足以下条件：\n1. **必须在修道院内酿造**：啤酒的生产过程必须在修道院的围墙内进行。\n2. **由修道士参与管理**：修道士必须在啤酒的生产和管理过程中发挥重要作用。\n3. **利润用于慈善**：啤酒的销售收入主要用于修道院的运营和慈善事业，而不是为了商业利润。\n\n目前全球只有 11 家修道院生产的啤酒获得了 Trappist 认证，这些啤酒通常以其复杂的风味和高品质而闻名。如果你喜欢尝试一些独特且有故事的啤酒，Trappist 啤酒绝对值得一试！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:34:28.304Z"
+    },
+    {
+      "turnId": "trace_1784256615113_mwegyt",
+      "userText": "Trappist认证是什么",
+      "assistantReply": "Trappist 认证是指由特拉普斯特修道院生产的啤酒所获得的一种特殊认证。这种认证非常严格，只有那些在特拉普斯特修道院内，或在修道院直接监督下生产的啤酒才能获得。这些啤酒的生产必须是为了支持修道院的生活和慈善事业，而不是为了盈利。目前全世界只有11家修道院生产的啤酒获得了 Trappist 认证，每一种都代表了独特的传统和风味。这种认证不仅保证了啤酒的质量，还体现了其背后的文化和精神价值。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:50:20.136Z"
+    }
+  ]
+}

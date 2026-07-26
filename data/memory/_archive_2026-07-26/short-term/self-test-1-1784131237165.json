@@ -1,0 +1,65 @@
+{
+  "conversationId": "self-test-1-1784131237165",
+  "userId": "self-test",
+  "updatedAt": "2026-07-15T16:00:37.216Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784131237169_lo2zt9",
+      "userText": "今天想喝清爽一点，不要太苦",
+      "assistantReply": "按你想要清爽、不太苦，给你推荐这几款：\n\n我会这样点：\n\n1. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n2. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n3. Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n\n最稳：Pilsner Urquell Tradiční / Traditional (at brewery tour)\n最值得尝新：Pilsner Urquell Tradiční / Traditional (at brewery tour)\n我会先跳过：Pilsner Urquell Tradiční / Traditional (at brewery tour) - 评分3.9，2705+人评分\n\n如果只能喝一杯，选 Pilsner Urquell Tradiční / Traditional (at brewery tour)。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T16:00:37.216Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784131237169_b70cdw",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Pilsner Urquell Tradiční / Traditional (at brewery tour)",
+        "brewery": "Plzeňský Prazdroj",
+        "style": "Pilsner - Czech / Bohemian",
+        "abv": 0,
+        "price": null,
+        "rating": 3.94
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Ale La Reverend (wedding Session IPA A Tribute To Joe And Leah Short 2011)",
+        "brewery": "Short's Brewing Company",
+        "style": "American IPA",
+        "abv": 4,
+        "price": null,
+        "rating": 4.18
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-15T16:00:37.216Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "Pilsner Urquell Tradiční / Traditional (at brewery tour)",
+    "brewery": "Plzeňský Prazdroj"
+  },
+  "currentConstraints": [
+    "清爽"
+  ]
+}

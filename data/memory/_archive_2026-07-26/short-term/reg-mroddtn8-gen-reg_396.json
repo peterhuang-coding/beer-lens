@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mroddtn8-gen-reg_396",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:22:50.856Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258561502_vhem5z",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "哈！这个问题问得好，双倍和三倍IPA的区别确实挺有意思的。简单来说：\n\n1. **酒精度和苦度**：\n- 双倍IPA（DIPA）一般在7-10% ABV，IBU 60-100\n- 三倍IPA（TIPA）通常在10-12% ABV，IBU 80-120\n三倍更猛，但注意很多酒厂其实不会严格按这个标准来\n\n2. **口感差异**：\n双倍IPA已经够浓郁了，但三倍会更粘稠，有些甚至像糖浆质地。不过现在很多酒厂会通过调整麦芽配方让三倍喝起来没那么厚重\n\n3. **啤酒花用量**：\n三倍IPA的干投酒花量可能是双倍的1.5-2倍，但神奇的是喝起来苦味反而不一定更突出，因为更多酒花带来了复杂香气\n\n4. **隐藏细节**：\n很多三倍IPA其实是用双倍IPA的麦汁通过延长煮沸来浓缩的，所以成本也更高。最近还流行\"软三倍\"风格，酒精度高但喝起来很顺滑\n\n你平时喝哪种比较多？我个人觉得三倍IPA更适合慢慢品，双倍配餐更百搭些",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:22:50.856Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "conversationId": "reg-mrodqdw8-gen-reg_396",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:33:07.861Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784259180538_r7ui2s",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA）和三倍IPA（Triple IPA）的主要区别在于酒精含量、啤酒花用量和麦芽浓度。\n\n1. **酒精含量**：双倍IPA的酒精含量通常在7.5%到10%之间，而三倍IPA的酒精含量则更高，通常在10%到12.5%甚至更高。\n\n2. **啤酒花用量**：三倍IPA的啤酒花用量通常比双倍IPA更多，这带来了更强烈的苦味和更浓郁的香气。\n\n3. **麦芽浓度**：三倍IPA的麦芽浓度也更高，这为更高的酒精含量提供了基础，同时也可能带来更丰富的麦芽风味。\n\n总的来说，三倍IPA在各个方面都比双倍IPA更加浓郁和强烈，适合那些喜欢重口味和高酒精含量啤酒的人。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:33:07.861Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

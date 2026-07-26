@@ -1,0 +1,139 @@
+{
+  "conversationId": "regression-gen-reg_310",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:59:57.780Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129522095_lh4vfi",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐博克烈性啤酒\n最值得尝新：推荐博克烈性啤酒\n我会先跳过：推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐博克烈性啤酒。\n\n⚠️ 推荐博克烈性啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-15T15:32:02.178Z"
+    },
+    {
+      "turnId": "trace_1784162415576_upb7ok",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐博克烈性啤酒\n最值得尝新：推荐博克烈性啤酒\n我会先跳过：推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐博克烈性啤酒。\n\n⚠️ 推荐博克烈性啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:40:15.650Z"
+    },
+    {
+      "turnId": "trace_1784162766073_aty421",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐博克烈性啤酒\n最值得尝新：推荐博克烈性啤酒\n我会先跳过：推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐博克烈性啤酒。\n\n⚠️ 推荐博克烈性啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T00:46:06.149Z"
+    },
+    {
+      "turnId": "trace_1784218467369_9u1jqc",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐博克烈性啤酒\n最值得尝新：推荐博克烈性啤酒\n我会先跳过：推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐博克烈性啤酒。\n\n⚠️ 推荐博克烈性啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:14:27.443Z"
+    },
+    {
+      "turnId": "trace_1784218989358_8b4u6h",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐博克烈性啤酒\n最值得尝新：推荐博克烈性啤酒\n我会先跳过：推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐博克烈性啤酒。\n\n⚠️ 推荐博克烈性啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:23:09.436Z"
+    },
+    {
+      "turnId": "trace_1784220509085_ghjjx3",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "我会这样点：\n\n1. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：推荐博克烈性啤酒\n最值得尝新：推荐博克烈性啤酒\n我会先跳过：推荐博克烈性啤酒 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 推荐博克烈性啤酒。\n\n⚠️ 推荐博克烈性啤酒 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-16T16:48:29.162Z"
+    },
+    {
+      "turnId": "trace_1784254101317_d6adqb",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:08:21.357Z"
+    },
+    {
+      "turnId": "trace_1784254690540_gkb3iy",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:18:10.590Z"
+    },
+    {
+      "turnId": "trace_1784255347127_ilz2jl",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:29:07.172Z"
+    },
+    {
+      "turnId": "trace_1784256233722_ra9bvg",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:43:53.769Z"
+    },
+    {
+      "turnId": "trace_1784256278055_g0jlvy",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高（有风险，见下方）\n2. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n3. Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n最稳：Barrel Aged Imperial German Chocolate Cupcake Stout\n最值得尝新：Barrel Aged Imperial German Chocolate Cupcake Stout\n我会先跳过：Barrel Aged Imperial German Chocolate Cupcake Stout - 评分4.7，6550+人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Barrel Aged Imperial German Chocolate Cupcake Stout。\n\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:44:38.097Z"
+    },
+    {
+      "turnId": "trace_1784257197745_0sbv1c",
+      "userText": "推荐博克烈性啤酒",
+      "assistantReply": "按你的需求，给你推荐这几款：\n\n我会这样点：\n\n1. Double IPA - 评分4.0，119人评分；酒精度10%，略高（有风险，见下方）\n2. Double IPA - 评分4.0，119人评分；酒精度10%，略高\n3. Double IPA - 评分4.0，119人评分；酒精度10%，略高\n\n最稳：Double IPA\n最值得尝新：Double IPA\n我会先跳过：Imperial Stout - 评分3.9，833人评分；酒精度11%，偏高\n\n如果只能喝一杯，选 Double IPA。\n",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:59:57.780Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784257197745_8raeeh",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "Imperial Stout",
+        "brewery": "Rogue Ales",
+        "style": "Russian Imperial Stout",
+        "abv": 11,
+        "price": null,
+        "rating": 3.88
+      },
+      {
+        "candidateId": "2",
+        "displayName": "Double IPA",
+        "brewery": "Ithaca Beer Company",
+        "style": "American Double / Imperial IPA",
+        "abv": 10,
+        "price": null,
+        "rating": 3.97
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:59:57.780Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "2",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "2",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "2",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "2",
+    "displayName": "Double IPA",
+    "brewery": "Ithaca Beer Company"
+  }
+}

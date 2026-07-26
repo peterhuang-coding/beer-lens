@@ -1,0 +1,52 @@
+{
+  "conversationId": "regression-gen-reg_491",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:04.714Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784163257254_mwtrcq",
+      "userText": "今天IPA4分不错",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n\n（记忆写入已关闭，本次反馈未保存到长期记忆）\n你的口味画像：记忆写入已关闭，未生成口味画像。",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T00:54:17.260Z"
+    },
+    {
+      "turnId": "trace_1784218946956_wgfz7p",
+      "userText": "今天IPA4分不错",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：今天IPA4分不错\n你的口味画像：喜欢热带水果和苦和柑橘和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:22:26.968Z"
+    },
+    {
+      "turnId": "trace_1784219754005_1yldga",
+      "userText": "今天IPA4分不错",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：今天IPA4分不错\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-16T16:35:54.022Z"
+    },
+    {
+      "turnId": "trace_1784255220624_o6lmas",
+      "userText": "今天IPA4分不错",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：今天IPA4分不错\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:27:00.642Z"
+    },
+    {
+      "turnId": "trace_1784255915640_llh8u9",
+      "userText": "今天IPA4分不错",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：今天IPA4分不错\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:35.653Z"
+    },
+    {
+      "turnId": "trace_1784256844699_axpwzt",
+      "userText": "今天IPA4分不错",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：4/5\n是否再喝：未明确。\n备注：今天IPA4分不错\n你的口味画像：喜欢热带水果和柑橘和酸和苦风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:54:04.714Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

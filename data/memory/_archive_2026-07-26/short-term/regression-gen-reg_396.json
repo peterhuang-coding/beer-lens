@@ -1,0 +1,80 @@
+{
+  "conversationId": "regression-gen-reg_396",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:47:02.647Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129660600_bd1l4c",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:34:21.280Z"
+    },
+    {
+      "turnId": "trace_1784162635499_r8pyn5",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA）和三倍IPA（Triple IPA）主要的区别在于它们的酒精含量、啤酒的风味和苦味。\n\n1. **酒精含量**：双倍IPA的酒精含量通常在7.5%到10%之间，而三倍IPA的酒精含量往往超过10%，有时可以达到12%或更高。\n\n2. **风味**：双倍IPA通常会有更浓郁的麦芽风味和更强的啤酒花香气，常常带有热带水果和柑橘的风味。三倍IPA则在此基础上更加浓烈，啤酒花的香气和味道会更为突出，可能会有更复杂的层次感。\n\n3. **苦味**：双倍IPA的苦味通常较高，但三倍IPA的苦味可能会更加强烈，虽然有些酿酒师会在酿造过程中平衡苦味，使得酒体更加顺滑。\n\n总的来说，三倍IPA在风味和酒精上都比双倍IPA更为强烈。如果你喜欢清爽、低甜度的啤酒，可能会更倾向于双倍IPA。你觉得呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:43:59.561Z"
+    },
+    {
+      "turnId": "trace_1784162954763_xu16qa",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA）和三倍IPA（Triple IPA）主要的区别在于酒精含量、苦味和风味的浓郁程度。\n\n1. **酒精含量**：双倍IPA的酒精含量通常在7.5%到10%之间，而三倍IPA的酒精含量一般会超过10%，有时甚至达到12%或更高。\n\n2. **苦味**：双倍IPA的苦味较强，但三倍IPA的苦味会更加明显，因为它使用了更多的啤酒花，通常会有更高的国际苦味单位（IBU）。\n\n3. **风味**：双倍IPA通常会有丰富的热带水果和柑橘风味，而三倍IPA则可能在这些风味的基础上更加浓郁，甚至会有一些焦糖或麦芽的甜味，尽管整体上还是偏苦。\n\n总的来说，三倍IPA在风味和酒精上都更为强烈，适合喜欢浓烈口感的啤酒爱好者。你对这两种风格有什么特别的偏好或者想尝试的地方吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:49:19.102Z"
+    },
+    {
+      "turnId": "trace_1784218622450_n4is3w",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:17:03.478Z"
+    },
+    {
+      "turnId": "trace_1784219157226_mu7hna",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA，也叫 Imperial IPA）和三倍IPA（Triple IPA）都是IPA（印度淡色艾尔）的加强版本，它们的主要区别在于酒精度数、苦度和风味的强度。\n\n- **双倍IPA**：通常酒精度在7.5%到10%之间，比普通的IPA更加浓郁，苦度也更高，味道上会有更多的柑橘、热带水果和松树等香气，同时麦芽的甜味也会更明显，用来平衡较高的苦度。\n\n- **三倍IPA**：则是在双倍IPA的基础上进一步加强，酒精度可以达到10%以上，有的甚至更高。三倍IPA的味道更加复杂和浓郁，苦度和甜度都更高，有时候为了增加口感的层次，还会加入更多的特殊麦芽或啤酒花，甚至有的会进行木桶陈酿，带来更多的风味变化。\n\n总的来说，从双倍IPA到三倍IPA，是一个从“强”到“更强”的过程，适合喜欢浓郁、强烈风味的啤酒爱好者。不过，因为酒精度和苦度都很高，这类啤酒通常不适合大口饮用，更适合慢慢品尝。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:26:07.043Z"
+    },
+    {
+      "turnId": "trace_1784220660069_afq3xq",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA，也称为 Imperial IPA）和三倍IPA（Triple IPA）都是IPA（印度淡色艾尔）的强化版本，它们的主要区别在于酒精度、苦度和风味强度。\n\n1. **酒精度**：双倍IPA的酒精度通常在7.5%到10%之间，而三倍IPA的酒精度更高，通常在10%以上，有的甚至可以达到15%。\n\n2. **苦度**：双倍IPA的苦度已经相当高了，通常在60-100 IBUs（国际苦度单位），而三倍IPA的苦度会更高，可以超过100 IBUs。\n\n3. **风味强度**：三倍IPA在风味上更加浓郁，酒花的香气和味道更加突出，同时也会有更多的甜味来平衡高苦度。双倍IPA虽然也很浓郁，但相对而言会更加平衡一些。\n\n4. **口感**：三倍IPA由于更高的酒精度和更浓郁的风味，口感会更加饱满和复杂，有时会有更多的酒体和更长的余味。\n\n总的来说，三倍IPA是双倍IPA的进一步强化，适合那些喜欢强烈、浓郁啤酒风味的爱好者。如果你喜欢热带水果、柑橘、清爽、低甜度的风味，双倍IPA可能更适合你，而三倍IPA则更适合喜欢更强烈、更复杂风味的啤酒爱好者。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:51:12.020Z"
+    },
+    {
+      "turnId": "trace_1784254254218_iivjmo",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:11:24.298Z"
+    },
+    {
+      "turnId": "trace_1784254770356_wgbywu",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:19:30.962Z"
+    },
+    {
+      "turnId": "trace_1784255471159_utxki5",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "双倍IPA（Double IPA，也叫 Imperial IPA）和三倍IPA（Triple IPA）都是IPA（印度淡色艾尔）的加强版本，它们的主要区别在于酒精度和风味的强度。\n\n- **双倍IPA**：通常酒精度在7.5%到10%之间，有时甚至更高。它的味道比普通IPA更浓郁，苦度更高，麦芽的甜味也更明显，同时保留了IPA特有的柑橘、热带水果等香气。\n\n- **三倍IPA**：是一种更加极端的版本，酒精度通常在10%以上，有的甚至可以达到15%。三倍IPA在风味上更加浓烈，苦度和甜度都比双倍IPA更高，有时候还会加入更多的啤酒花来增加香气和风味的复杂性。\n\n这两种啤酒都适合喜欢强烈风味和高酒精度的啤酒爱好者。不过，因为它们的酒精度和苦度都很高，所以通常建议慢慢品尝，享受每一口的复杂风味。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:31:16.901Z"
+    },
+    {
+      "turnId": "trace_1784256392529_hvkgqb",
+      "userText": "双倍IPA三倍IPA区别",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:47:02.647Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

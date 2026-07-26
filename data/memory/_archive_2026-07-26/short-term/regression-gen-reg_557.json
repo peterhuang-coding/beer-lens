@@ -1,0 +1,60 @@
+{
+  "conversationId": "regression-gen-reg_557",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:40:13.685Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255439876_udvfvx",
+      "userText": "喝过精酿列表",
+      "assistantReply": "我会这样点：\n\n1. 喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：喝过精酿列表\n最值得尝新：喝过精酿列表\n我会先跳过：喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 喝过精酿列表。\n\n⚠️ 喝过精酿列表 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:30:41.971Z"
+    },
+    {
+      "turnId": "trace_1784256012339_qfazed",
+      "userText": "喝过精酿列表",
+      "assistantReply": "我会这样点：\n\n1. 喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试（有风险，见下方）\n2. 喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n3. 喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n最稳：喝过精酿列表\n最值得尝新：喝过精酿列表\n我会先跳过：喝过精酿列表 - 无评分数据，无法判断质量，啤酒风格未知，酒厂信息缺失，数据不足，谨慎尝试\n\n如果只能喝一杯，选 喝过精酿列表。\n\n⚠️ 喝过精酿列表 数据不足，谨慎尝试。\n\n💡 你最近喜欢热带水果风味的啤酒，要不要试试Hazy Ipa？",
+      "intent": "menu_recommend",
+      "createdAt": "2026-07-17T02:40:13.685Z"
+    }
+  ],
+  "lastMenu": {
+    "traceId": "trace_1784256012339_3e9q6h",
+    "candidates": [
+      {
+        "candidateId": "1",
+        "displayName": "喝过精酿列表",
+        "brewery": "",
+        "style": "",
+        "abv": 0,
+        "price": null,
+        "rating": null
+      }
+    ],
+    "source": "text",
+    "createdAt": "2026-07-17T02:40:13.685Z"
+  },
+  "lastPicks": {
+    "topPick": {
+      "candidateId": "1",
+      "label": "最佳"
+    },
+    "safePick": {
+      "candidateId": "1",
+      "label": "最稳"
+    },
+    "explorePick": {
+      "candidateId": "1",
+      "label": "尝新"
+    },
+    "avoidOrCaution": {
+      "candidateId": "1",
+      "label": "谨慎"
+    }
+  },
+  "activeBeer": {
+    "candidateId": "1",
+    "displayName": "喝过精酿列表",
+    "brewery": ""
+  }
+}

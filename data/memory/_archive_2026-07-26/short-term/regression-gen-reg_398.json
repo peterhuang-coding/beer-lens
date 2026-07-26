@@ -1,0 +1,77 @@
+{
+  "conversationId": "regression-gen-reg_398",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:47:07.601Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129664942_pjvc9c",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:34:28.415Z"
+    },
+    {
+      "turnId": "trace_1784162644613_eh2h4q",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒（Sour Ale）是一种以酸味为特色的啤酒风格。它通常通过使用特定的酵母菌种、乳酸菌或在酿造过程中添加水果等方式来增加酸味。酸艾尔的口感可以从轻微的酸涩到强烈的酸味不等，常常伴随着果香和复杂的风味。\n\n这种风格的啤酒在近年来越来越受欢迎，尤其是在手工酿酒的圈子里。常见的酸艾尔包括比利时酸啤（如Gueuze和Flanders Red Ale）和美式酸啤（如Berliner Weisse和Gose）。如果你喜欢清爽、带有酸味的啤酒，酸艾尔可能会很合你的口味！",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:44:09.498Z"
+    },
+    {
+      "turnId": "trace_1784162964806_0icrh0",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒（Sour Ale）是一种具有酸味的啤酒风格，通常是通过特殊的酵母或细菌发酵来实现酸味的。它的酸味可以来自多种来源，比如乳酸菌、野生酵母（如布雷坦酵母）等。酸艾尔的风味多样，可能带有水果、香料或木桶的复杂风味，常见的有比利时酸艾尔、德国的柏林酸小麦啤酒等。\n\n这种啤酒通常比较清爽，适合在夏天饮用，尤其是你喜欢的热带水果和柑橘风味的饮品，酸艾尔可能会给你带来意想不到的惊喜！你对酸艾尔有兴趣尝试吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:49:29.124Z"
+    },
+    {
+      "turnId": "trace_1784218627045_zo1rr9",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如“什么是 West Coast IPA”。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:17:09.740Z"
+    },
+    {
+      "turnId": "trace_1784219179574_wyu3a7",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒是一种具有独特酸味的啤酒，这种酸味通常来自于特定的发酵过程，比如使用乳酸菌或 Brettanomyces 酵母等微生物。这些微生物在发酵过程中会产生酸性物质，给啤酒带来一种清新的酸味，有时候还会带有一点果味或香料味。\n\n酸艾尔的风格多种多样，比如比利时的兰比克（Lambic）、法兰德斯红色艾尔（Flanders Red Ale）和法兰德斯棕色艾尔（Flanders Brown Ale），以及德国的柏林白啤酒（Berliner Weisse）等。这些啤酒通常口感清爽，适合夏天饮用，而且酸度可以很好地平衡食物的味道。\n\n你对哪种酸艾尔啤酒感兴趣？或者有没有试过什么特别的酸艾尔？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:26:27.463Z"
+    },
+    {
+      "turnId": "trace_1784220686455_u2yzzh",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒是一种具有明显酸味的啤酒，这种酸味通常来自于乳酸菌或 Brettanomyces 酵母等微生物的作用。酸艾尔的风格多种多样，比如比利时的兰比克（Lambic）、法罗（Faro）、古兹（Gueuze），还有美国的野菌艾尔（Wild Ale）等。这些啤酒通常口感清新，有的还带有果香或花香，非常适合夏天饮用。你对哪种酸艾尔啤酒感兴趣呢？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:51:35.011Z"
+    },
+    {
+      "turnId": "trace_1784254304492_et7zfz",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒，也叫 Sour Ale，是一种带有明显酸味的啤酒。这种啤酒的酸味通常来自于乳酸菌、 Brettanomyces 酵母等微生物的作用，这些微生物在发酵过程中会产生酸性物质，给啤酒带来独特的风味。\n\n酸艾尔的风格多种多样，比如有比利时的兰比克（Lambic）、贵兹（Gueuze）、法兰德斯红艾尔（Flanders Red Ale）、柏林白啤（Berliner Weisse）等。每种风格都有其独特的酸度和风味特点，有的可能还会带有果香、花香或者是木质香气，非常复杂多变。\n\n如果你喜欢热带水果、柑橘这类清新口味，那么酸艾尔中的某些风格，比如加入了水果发酵的版本，可能会特别适合你。这些啤酒通常酸度适中，同时带有清新的果香，非常适合夏天饮用。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:12:12.709Z"
+    },
+    {
+      "turnId": "trace_1784254775642_4yvo4c",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:19:38.972Z"
+    },
+    {
+      "turnId": "trace_1784255483590_43fyik",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "酸艾尔啤酒，也叫 Sour Ale，是一种带有明显酸味的啤酒。这种酸味通常是通过在酿造过程中加入乳酸菌或者 Brettanomyces（布雷特酵母）等微生物来实现的。酸艾尔的风味可以非常多样，从轻柔的柠檬酸味到更复杂的水果、醋酸或甚至有些木质、泥土的味道。\n\n酸艾尔啤酒的风格很多，比如法兰德斯红色艾尔（Flanders Red Ale）、兰比克（Lambic）、果味兰比克（Fruit Lambic）、柏林白啤酒（Berliner Weisse）等。每种风格都有其独特的风味特点，但共同点是都有一定的酸度，给人以清新的口感。\n\n如果你喜欢热带水果、柑橘这类清新口味，酸艾尔啤酒中的某些风格可能会特别适合你，比如柏林白啤酒或者果味兰比克，它们通常带有清新的果香和酸度，非常适合夏天饮用。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:31:31.152Z"
+    },
+    {
+      "turnId": "trace_1784256425823_wkxf7i",
+      "userText": "酸艾尔啤酒是什么",
+      "assistantReply": "抱歉，模型暂时没能回答这个问题。你可以换个问法，或者直接问某个风格，比如「什么是 West Coast IPA」、「干投酒花是什么意思」。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:47:07.601Z"
+    }
+  ]
+}

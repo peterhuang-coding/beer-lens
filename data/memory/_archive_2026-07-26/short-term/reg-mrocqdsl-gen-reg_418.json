@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrocqdsl-gen-reg_418",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:08:23.604Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784257694426_9j6xvx",
+      "userText": "酿酒狗名字由来",
+      "assistantReply": "啊，BrewDog（酿酒狗）这个名字可有意思了！其实背后是个挺叛逆的故事：\n\n2007年两个苏格兰小伙James Watt和Martin Dickie创立酒厂时，就是想用这个名字表达对传统啤酒行业的\"反叛\"态度。他们把大酒厂比作\"看门狗\"（guard dogs），而自己就是那群专门捣乱的\"酿酒狗\"（brew dogs）——用大胆创新的精酿啤酒去挑战那些工业啤酒巨头。\n\n最有意思的是，他们早期真的把自家牧羊犬\"Bracken\"的照片印在酒标上，这只狗狗还成为了酒厂的\"首席品尝官\"（Head of Taste）呢！现在你去他们官网，还能看到\"员工介绍\"里排第一的就是各种狗狗员工。\n\n这种又痞又酷的命名方式，和他们那些酒精度爆炸的朋克IPA啊、过桶陈酿啊的风格简直绝配。要不要聊聊他们哪款酒最颠覆你的认知？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:08:23.604Z"
+    }
+  ]
+}

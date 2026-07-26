@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrodkcoi-gen-reg_347",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:26:03.150Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258754171_4sj00y",
+      "userText": "搞一杯好精酿",
+      "assistantReply": "来啦！根据你之前提到的偏好（热带水果、柑橘、清爽、低甜度），我猜你现在想喝点清新爽口的对吧？\n\n推荐几个适合的风格方向：\n1. 新英格兰IPA - 浑浊酒体，爆炸的热带水果香气，苦度低\n2. 西海岸IPA - 更干净的柑橘松木风味，收口干爽\n3. 酸IPA - 带乳酸发酵的明亮酸度，超级解渴\n\n最近天气开始热了，要不要试试带点酸度的？比如柏林小麦或者水果古斯，超级适合配烧烤！或者你有其他想尝试的风味方向？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:26:03.150Z"
+    }
+  ]
+}

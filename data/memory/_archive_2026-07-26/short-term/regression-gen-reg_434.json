@@ -1,0 +1,59 @@
+{
+  "conversationId": "regression-gen-reg_434",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:51:19.612Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784129776581_n9igjw",
+      "userText": "Session IPA是什么",
+      "assistantReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-15T15:36:17.210Z"
+    },
+    {
+      "turnId": "trace_1784163144282_yzrkbp",
+      "userText": "Session IPA是什么",
+      "assistantReply": "Session IPA是一种轻盈、低酒精度的印度淡色艾尔（IPA），通常酒精含量在3%到5%之间。它的特点是保留了IPA的香气和风味，但更加清爽，适合长时间饮用。Session IPA通常会有热带水果和柑橘的香气，口感相对较轻，苦味也不会太强，非常适合在炎热的天气或者聚会时享用。你对这种风格感兴趣吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T00:52:26.203Z"
+    },
+    {
+      "turnId": "trace_1784218785095_3d55mp",
+      "userText": "Session IPA是什么",
+      "assistantReply": "Session IPA 是一种酒精度较低的印度淡色艾尔（India Pale Ale，简称 IPA）。它的酒精度通常在 4.0% ABV 以下，有时候甚至更低，这样设计的目的是为了让人们在享受 IPA 的风味和香气的同时，能够更长时间地饮用而不会很快醉倒。Session IPA 通常保留了传统 IPA 的苦味和浓郁的啤酒花香气，但整体上更加清爽、易饮，适合在社交场合或日常放松时饮用。如果你喜欢热带水果、柑橘类的香气和清爽的口感，Session IPA 会是一个不错的选择。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:19:51.679Z"
+    },
+    {
+      "turnId": "trace_1784219535395_aldmww",
+      "userText": "Session IPA是什么",
+      "assistantReply": "Session IPA 是一种酒精度较低的印度淡色艾尔（India Pale Ale，简称 IPA）。它的酒精度通常在 4.5% 以下，有的甚至更低，这样设计的目的是为了让人们在享受 IPA 的风味和香气的同时，可以更轻松地饮用，不会因为酒精度高而很快感到醉意。Session IPA 保留了传统 IPA 的花香、果香和苦味，但整体上更加清爽，适合长时间或大量饮用，非常适合社交场合或是夏天解渴。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-16T16:32:21.527Z"
+    },
+    {
+      "turnId": "trace_1784255007320_yjodur",
+      "userText": "Session IPA是什么",
+      "assistantReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:23:27.964Z"
+    },
+    {
+      "turnId": "trace_1784255767774_vdwect",
+      "userText": "Session IPA是什么",
+      "assistantReply": "Session IPA是一种酒精度较低的印度淡色艾尔（IPA），通常酒精度在4.5%以下。它的特点是保留了IPA的典型香气和风味，比如热带水果、柑橘等，但同时又保持了较低的酒精度，让人可以轻松饮用，适合长时间的社交场合或户外活动时饮用。Session IPA的口感通常比较清爽，苦度适中，不会像传统IPA那样过于强烈。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:36:11.033Z"
+    },
+    {
+      "turnId": "trace_1784256679014_e3vr9p",
+      "userText": "Session IPA是什么",
+      "assistantReply": "IPA 是 India Pale Ale，核心特点是酒花香气和苦味更突出。常见香气有柑橘、热带水果、松针、花香，不同分支会差很多：West Coast IPA 更干更苦，Hazy IPA 更柔和多汁，Session IPA 更轻盈易饮。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T02:51:19.612Z"
+    }
+  ],
+  "currentConstraints": [
+    "IPA"
+  ]
+}

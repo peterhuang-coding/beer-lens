@@ -1,0 +1,28 @@
+{
+  "conversationId": "regression-gen-reg_510",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T02:54:45.683Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784255290632_5tuwqu",
+      "userText": "第4杯酒如何",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:28:13.023Z"
+    },
+    {
+      "turnId": "trace_1784255936709_6w2ngt",
+      "userText": "第4杯酒如何",
+      "assistantReply": "收到！已记录你对「未知啤酒」的品饮反馈。\n评分：未提供\n是否再喝：未明确。\n备注：第4杯酒如何\n你的口味画像：喜欢热带水果和柑橘和苦和酸风味",
+      "intent": "tasting_feedback",
+      "createdAt": "2026-07-17T02:38:57.707Z"
+    },
+    {
+      "turnId": "trace_1784256883919_ssovb5",
+      "userText": "第4杯酒如何",
+      "assistantReply": "你是想推荐啤酒、记录喝过的酒，还是了解啤酒知识？",
+      "intent": "unclear",
+      "createdAt": "2026-07-17T02:54:45.683Z"
+    }
+  ]
+}

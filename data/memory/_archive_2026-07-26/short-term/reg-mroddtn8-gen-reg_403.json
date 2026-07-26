@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mroddtn8-gen-reg_403",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-17T03:24:13.636Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784258636271_wkzhku",
+      "userText": "啤酒酵母分类",
+      "assistantReply": "啤酒酵母主要分为两大类：艾尔酵母（Ale Yeast）和拉格酵母（Lager Yeast）。\n\n1. **艾尔酵母（Ale Yeast）**：\n   - **发酵温度**：通常在15-24°C之间。\n   - **发酵位置**：顶部发酵，酵母在发酵过程中会浮到啤酒表面。\n   - **风味特点**：通常会产生更多的酯类和酚类化合物，带来果香、香料味等复杂风味。\n   - **常见啤酒类型**：IPA、Stout、Porter、Wheat Beer等。\n\n2. **拉格酵母（Lager Yeast）**：\n   - **发酵温度**：通常在7-13°C之间。\n   - **发酵位置**：底部发酵，酵母在发酵过程中会沉到发酵罐底部。\n   - **风味特点**：通常更加干净、清爽，带有麦芽和轻微的硫磺味。\n   - **常见啤酒类型**：Pilsner、Helles、Bock、Dunkel等。\n\n此外，还有一些特殊类型的酵母，如野生酵母和布雷特酵母（Brettanomyces），它们常用于酿造酸啤酒和自然发酵啤酒，带来独特的酸味和复杂风味。\n\n希望这些信息对你有帮助！如果你有更多问题，随时问我。",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-17T03:24:13.636Z"
+    }
+  ]
+}

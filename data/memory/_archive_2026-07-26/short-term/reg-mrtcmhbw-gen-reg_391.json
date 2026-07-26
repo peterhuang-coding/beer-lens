@@ -1,0 +1,14 @@
+{
+  "conversationId": "reg-mrtcmhbw-gen-reg_391",
+  "userId": "regression-user",
+  "updatedAt": "2026-07-20T14:59:36.980Z",
+  "recentTurns": [
+    {
+      "turnId": "trace_1784559568582_k19zpx",
+      "userText": "古斯啤酒是什么风格",
+      "assistantReply": "啊，古斯(Gose)是个超有意思的德国传统风格！我来给你详细说说：\n\n1. 起源：来自德国戈斯拉尔小镇，后来在莱比锡发扬光大\n\n2. 特点：\n- 酸爽口感(乳酸菌发酵)\n- 微微咸味(加盐酿造)\n- 常有香菜籽的香料风味\n- 酒精度通常4-5%左右\n\n3. 现代变种：\n现在很多酒厂会玩出新花样，比如：\n- 加入各种水果(莓果/热带水果)\n- 做成浑浊版\n- 甚至做成酸IPA风格\n\n特别适合夏天喝，那种咸咸酸酸的感觉超解渴！你喝过这种风格吗？",
+      "intent": "beer_knowledge",
+      "createdAt": "2026-07-20T14:59:36.980Z"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ep_1784219910691_p756xh",
+    "userId": "debug",
+    "createdAt": "2026-07-16T16:38:30.691Z",
+    "sourceTraceId": "trace_1784219910688_i31n5x",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "IPA品鉴方法"
+    }
+  },
+  {
+    "id": "ep_1784219921417_9015az",
+    "userId": "debug",
+    "createdAt": "2026-07-16T16:38:41.417Z",
+    "sourceTraceId": "trace_1784219921414_5idudi",
+    "beer": {
+      "displayName": "未知啤酒"
+    },
+    "feedback": {
+      "wouldDrinkAgain": "maybe",
+      "aromaTags": [],
+      "tasteTags": [],
+      "contextTags": [],
+      "note": "IPA品鉴方法"
+    }
+  }
+]

@@ -2,6 +2,16 @@
 
 个人啤酒推荐对话系统。拍照酒单 → OCR 识别 → 查真实评分 → 按口味推荐。
 
+> **Wave 2b 已完成** (2026-07-26)：merge 5 个分支 + 修复 8 项任务
+> - `fix(#4)` STM 异步原子写入 + Feishu ACK placeholder
+> - `fix(#5 #6)` 活跃菜单短路 + canonical userId
+> - `fix(#7 L1)` analyze_image 走 runImagePipeline
+> - `fix(#8)` tasting-feedback AB off 分支恢复 episodic 写入
+> - `fix(#9 #10 #11)` crawler 强化 + upsert 连线 + DB 索引
+> - `merge dev-vision` 视觉管线打通
+> - `merge dev-crawler` Untappd/RateBeer/Flickr/Wikimedia 8 个新 env
+> - `merge dev-feedback` feedback 路径稳定性
+
 ## 快速启动
 
 ```bash
@@ -10,6 +20,48 @@ npm run dev                  # http://localhost:3000
 ```
 Web Chat: `http://localhost:3000`
 Debug 面板: `http://localhost:3000/debug`
+
+环境变量：复制 `.env.example` → `.env.local`，**至少**需要
+`OPENROUTER_API_KEY` 才能跑对话；爬虫/图片相关的 8 个新 var
+（`UNTAPPD_PROXY_URL`、`FLICKR_API_KEY`、`WIKIMEDIA_USER_AGENT` 等）
+没有也不影响本地 dev，留空即可。
+
+## 系统架构
+
+```
+[Web Chat] [Feishu Bot] [CLI]
+         \     |     /
+      runBeerDialogTurn()    ← 统一入口
+              |
+    ┌─────────┼─────────┐
+    ▼         ▼         ▼
+ Intent    Memory    Postprocess
+ Classifier Snapshot  Guardrails
+    │         │           │
+    ▼         ▼           ▼
+ Dispatcher  Short-term  Trace+Case
+    │        (conversationId)
+    ▼
+ 8 Handler
+    │
+    ▼
+  Reply
+```
+
+### 双 Pipeline 现状
+
+Wave 2b 之后存在两条并行的代码路径，目前都是可运行的：
+
+| 路径 | 入口文件 | 角色 | 何时调用 |
+|------|---------|------|---------|
+| **Active** | `lib/agent/controller.ts` | 生产入口，LLM 自主选 skill | `/api/agent`、`/api/feishu/events` |
+| **Legacy** | `lib/beer-agent/orchestrator.ts` | 参考实现，规则优先 + LLM fallback | CLI demo、replay、debug 面板 |
+
+`controller.ts` 通过 `discoverSkills()` 扫描 `lib/skills/` 下 8 个
+builtin skill 做动态调度；`orchestrator.ts` 用 `intent-registry.ts`
+做规则匹配再走 `dispatcher.ts`。两套都返回兼容的
+`BeerDialogResponse`，前端无感。新功能优先加在 active 路径；legacy
+路径只在排查 replay / 旧 case 时用到。
 
 ## 系统架构
 
@@ -51,16 +103,10 @@ Feishu chat_id → conversationId (短期记忆)
 Web 默认: conversationId = "local-web-session"
 ```
 
-### 已知问题 (待修)
-
-1. **异步 session 更新延迟** — Feishu 要求 <3s 响应，LLM 调用 10-30s，
-   当前 fire-and-forget，用户快速追问时记忆可能未写入。
-   → 修复方向：先写 processing placeholder，LLM 完成后再更新。
-
-2. **短追问意图不准** — "哪款"、"hello" 可能被误判为 beer_knowledge。
-   → 修复方向：活跃菜单时降低 knowledge 优先级。
-
-3. **conversationId 单一** — Web 用 "local-web-session"，Feishu 用 chat_id，无跨渠道同步。
+Feishu ACK 在 3 秒内返回：先写 STM 原子 placeholder，LLM 完成后再
+更新真实结果，由 `lib/beer-agent/memory/short-term.ts` 的
+`updateShortTermMemory()` 兜底；handler 异常时通过 `after()` 托管，
+避免 placeholder 变成脏数据。
 
 ## 啤酒数据库
 
@@ -126,6 +172,33 @@ FEISHU_APP_ID=cli_xxx
 FEISHU_APP_SECRET=xxx
 FEISHU_VERIFICATION_TOKEN=xxx
 ```
+
+爬虫/图片源新增 8 个 var（详见 `.env.example` 顶部注释段）：
+`UNTAPPD_PROXY_URL`、`UNTAPPD_USER_AGENT`、`UNTAPPD_COOKIE`、
+`UNTAPPD_TIMEOUT_MS`、`RATEBEER_SOURCE_URL`、`RATEBEER_SOURCE_FILE`、
+`FLICKR_API_KEY`、`WIKIMEDIA_USER_AGENT`。本地 dev 不填也不报错。
+
+## Skills 系统
+
+Wave 2b 之后，`lib/agent/controller.ts` 通过 `discoverSkills()` 扫描
+`lib/skills/` 下 8 个 builtin skill，由 LLM 按用户输入选 skill。
+完整清单见 `data/skill-manifest.json`；规则/样例/slot 见
+`data/intent-registry.json`。
+
+| Skill id (文件) | 中文名 | 对应 intent | 触发场景 | 是否需要图片 |
+|-----------------|--------|------------|----------|--------------|
+| `recommend` | 啤酒推荐 | `menu_recommend` | 拍照酒单、"帮我推荐 IPA" | 否（可带图） |
+| `menu-vision` | 酒单视觉分析 | (内部 helper) | recommend 内部：OCR + 酒单分类 | 是 |
+| `taste-feedback` | 品饮反馈 | `tasting_feedback` | "4 分，会再喝，热带水果" | 否 |
+| `profile-query` | 口味画像查询 | `profile_query` | "我的口味是什么" | 否 |
+| `beer-knowledge` | 啤酒知识 | `beer_knowledge` | "IPA 和拉格有什么区别" | 否 |
+| `label-check` | 酒标检查 | `label_check` | 拍照单瓶/单罐 | 是 |
+| `memory-correction` | 记忆纠正 | `memory_correction` | "记错了，应该是 Green City" | 否 |
+| `fallback` | 兜底处理 | `unclear` | "hello"/无法识别意图 | 否 |
+
+注：`follow_up_filter` 在 active 路径里被 `recommend` 内部短路
+（"有 IPA 吗"/"第 3 个怎么样"直接走 `lastMenu` 过滤，不调 LLM），
+因此不占独立的 skill 槽位。
 
 ## 飞书接入
 

@@ -1,56 +1,97 @@
 {
-  "skill": "beer-lens",
-  "version": "3.0",
-  "description": "中国精酿啤酒查询与推荐",
-  "domains": ["beer", "craft-beer", "brewery", "tasting", "recommendation"],
-  "interfaces": {
-    "cli": {
-      "command": "npx beer-lens",
-      "workingDir": "/Volumes/SanDisk2TB/beer-lens",
-      "format": "json",
-      "description": "无需服务器，直接查询啤酒数据库"
+  "version": 1,
+  "generatedAt": "2026-07-26T00:00:00Z",
+  "source": "lib/skills/*/skill.ts + data/intent-registry.json",
+  "description": "Beer Lens 8 个 builtin skill 的清单。运行时由 lib/agent/skill-registry.ts 的 discoverSkills() 动态发现并注册。",
+  "skills": [
+    {
+      "id": "recommend",
+      "label": "啤酒推荐",
+      "description": "给用户推荐啤酒。分析酒单照片或根据用户文字描述（风格、口味偏好）推荐最佳选择。支持「帮我推荐IPA」「今天喝什么」「拍酒单推荐」等场景。",
+      "handlerFile": "lib/skills/recommend/execute.ts",
+      "intent": "menu_recommend",
+      "requiresImage": false,
+      "enabledByDefault": true,
+      "priority": 10,
+      "tags": ["recommend", "menu", "ocr"]
     },
-    "api": {
-      "baseUrl": "http://localhost:3000",
-      "requiresServer": true,
-      "endpoints": {
-        "agent": "POST /api/agent",
-        "intents": "GET /api/intents",
-        "classify": "POST /api/intent-test"
-      }
+    {
+      "id": "menu-vision",
+      "label": "酒单视觉分析",
+      "description": "分析酒单/酒头照片，使用视觉模型做OCR识别、酒单分类、视觉质量检测，然后通过Untappd丰富数据。返回结构化酒单候选列表。这是 recommend skill 的内部依赖。",
+      "handlerFile": "lib/skills/menu-vision/execute.ts",
+      "intent": null,
+      "requiresImage": true,
+      "enabledByDefault": true,
+      "priority": 50,
+      "tags": ["internal-helper", "vision", "ocr"],
+      "notes": "不直接对应 intent；通常由 recommend 内部调用。"
+    },
+    {
+      "id": "taste-feedback",
+      "label": "品饮反馈",
+      "description": "记录用户对喝过的啤酒的评价。解析评分(1-5分)、是否会再喝、风味标签(柑橘/热带水果/清爽/苦/甜等)，写入品饮记录并更新口味画像。",
+      "handlerFile": "lib/skills/taste-feedback/execute.ts",
+      "intent": "tasting_feedback",
+      "requiresImage": false,
+      "enabledByDefault": true,
+      "priority": 20,
+      "tags": ["feedback", "memory", "rating"]
+    },
+    {
+      "id": "profile-query",
+      "label": "口味画像查询",
+      "description": "查询用户的口味画像：偏好风格、风味标签、ABV舒适区间、品饮记录数量、画像置信度、近期趋势。当用户问「我的口味」「我喝过什么」「我的偏好」时使用。",
+      "handlerFile": "lib/skills/profile-query/execute.ts",
+      "intent": "profile_query",
+      "requiresImage": false,
+      "enabledByDefault": true,
+      "priority": 25,
+      "tags": ["profile", "memory"]
+    },
+    {
+      "id": "beer-knowledge",
+      "label": "啤酒知识",
+      "description": "回答啤酒相关的专业知识问题：风格定义和区别(IPA vs 拉格)、酿造工艺(干投酒花)、酒厂历史、品饮技巧、啤酒文化。纯LLM回答，不查数据库。",
+      "handlerFile": "lib/skills/beer-knowledge/execute.ts",
+      "intent": "beer_knowledge",
+      "requiresImage": false,
+      "enabledByDefault": true,
+      "priority": 35,
+      "tags": ["knowledge", "qa", "llm"]
+    },
+    {
+      "id": "label-check",
+      "label": "酒标检查",
+      "description": "分析单瓶/单罐啤酒的酒标照片。识别酒名、酒厂、风格、ABV、生产日期/包装日期、新鲜度评估、酒标是否有褪色/破损等问题。",
+      "handlerFile": "lib/skills/label-check/execute.ts",
+      "intent": "label_check",
+      "requiresImage": true,
+      "enabledByDefault": true,
+      "priority": 15,
+      "tags": ["label", "ocr", "freshness"]
+    },
+    {
+      "id": "memory-correction",
+      "label": "记忆纠正",
+      "description": "处理用户对AI记忆的纠正。当用户说「不是这个」「记错了」「纠正一下」「应该是」「改成」时使用。解析纠正内容，应用于口味画像，返回确认。也支持清空/重置记忆。",
+      "handlerFile": "lib/skills/memory-correction/execute.ts",
+      "intent": "memory_correction",
+      "requiresImage": false,
+      "enabledByDefault": true,
+      "priority": 40,
+      "tags": ["memory", "correction"]
+    },
+    {
+      "id": "fallback",
+      "label": "兜底处理",
+      "description": "当用户意图不明确或LLM无法选择合适的技能时使用的兜底处理。引导用户说明需求（推荐啤酒、记录反馈、知识问答等）。",
+      "handlerFile": "lib/skills/fallback/execute.ts",
+      "intent": "unclear",
+      "requiresImage": false,
+      "enabledByDefault": true,
+      "priority": 99,
+      "tags": ["fallback"]
     }
-  },
-  "triggers": [
-    "啤酒",
-    "精酿",
-    "IPA",
-    "Stout",
-    "Lager",
-    "craft beer",
-    "beer recommendation",
-    "酒单",
-    "品饮",
-    "评分",
-    "brewery",
-    "酒厂",
-    "ABV"
-  ],
-  "intents": {
-    "recognizes": [
-      "menu_recommend",
-      "follow_up_filter",
-      "tasting_feedback",
-      "profile_query",
-      "beer_knowledge",
-      "label_check",
-      "memory_correction",
-      "unclear"
-    ],
-    "classifier": "intent-registry.ts → rule → sample → LLM fallback"
-  },
-  "data": {
-    "chinese_beers": 64,
-    "global_beers_sqlite": 14228,
-    "sources": ["chinese-craft-beers.json", "RateBeer Kaggle", "Untappd cache"]
-  }
+  ]
 }

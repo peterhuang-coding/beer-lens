@@ -19,6 +19,11 @@ OPENROUTER_SITE_URL=http://localhost:3000
 OPENROUTER_APP_TITLE=Beer Lens
 # Optional if Node cannot reach OpenRouter directly:
 OPENROUTER_PROXY=http://127.0.0.1:7890
+# Optional. Crawler-style per-request timeout in ms. Reference values
+# are documented alongside UNTAPPD_TIMEOUT_MS / RATEBEER source flags
+# in `.env.example` — keep OpenRouter and crawler timeouts in the same
+# order of magnitude so a slow upstream doesn't mask a real error.
+OPENROUTER_TIMEOUT_MS=20000
 ```
 
 Then run:
@@ -84,6 +89,10 @@ Current support:
 - Reply in plain text as the bot
 - Per-chat conversation memory using `chat_id`
 - Manual reset command: `清空`, `重置`, `/reset`
+- **3 秒 ACK**：先在 STM 写一个 `processing` atomic placeholder
+  (`lib/beer-agent/memory/short-term.ts` 的 `updateShortTermMemory()`)
+  再 return 200；LLM 完成后的真实结果由 `after()` 托管异步落盘，
+  用户快速追问时读到的也是同一份 STM，不会出现脏 memory。
 
 Current limitations:
 

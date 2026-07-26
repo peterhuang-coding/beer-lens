@@ -41,7 +41,9 @@ Archive path: `data/memory/_archive_2026-07-26/users/<id>/`
 | 20 | verify                     |  12K | 3 | 2026-07-16           | verify agent |
 | 21 | vqa-auto-test              |  32K | 4 | 2026-07-09..07-10    | VQA automation suite (1-day span) |
 
-**Total archived user data**: ~324 KB across 67 JSON files (episodes / profile / long-term / trends).
+**Total archived user data**: ~324 KB across **60** JSON files (episodes / profile / long-term / trends)。  
+
+> 校正：先前列为 67 的总结数字与 A 节表格各行（4+3+4+3+1+2+2+4+5+2+4+2+2+2+4+2+2+3+2+3+4=60）不一致；现改正为 60，verification round-2 见 verify handoff。
 
 Note: task brief described the cleanup set as "22" but the enumerated list contains 21 unique directory names. All 21 listed items were archived.
 

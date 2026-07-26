@@ -2,6 +2,7 @@
   "name": "beer-researcher",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "demo": "node scripts/beer-agent-demo.mjs",
@@ -9,7 +10,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test": "node --experimental-strip-types --test tests/*.test.ts tests/*.test.mts",
     "test:agent": "node scripts/run-agent-regression.mjs",
     "raw:crawl": "node scripts/crawl-raw-sources.mjs",
     "raw:tasks": "node scripts/generate-raw-tasks.mjs",

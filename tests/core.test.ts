@@ -1051,3 +1051,104 @@ describe("isGenericRecommendRequest — broad fallback for reg_343", () => {
     assert.strictEqual(isGenericRecommendRequest("推荐夏天喝的啤酒"), true);
   });
 });
+
+// ═══════════════════════════════════════════════════════
+// Tests: isDeterministicShortQuestion (task #5 short-circuit)
+// ═══════════════════════════════════════════════════════
+
+// Mirror of `lib/skills/recommend/execute.ts → isDeterministicShortQuestion`
+// kept inline to avoid .ts import extensions that tsc rejects here.
+function isDeterministicShortQuestion(text: string): boolean {
+  const normalized = (text || "").trim();
+  if (normalized.length === 0 || normalized.length > 12) return false;
+  const patterns: RegExp[] = [
+    /^(哪款|哪一款|哪一种|哪一杯|哪一个)\s*[?？。.\s]*$/i,
+    /^这个\s*[?？。.\s]*$/i,
+    /^(hello|hi|hey|你好|在吗)\s*[!！?？。.\s]*$/i,
+  ];
+  return patterns.some((p) => p.test(normalized));
+}
+
+describe("isDeterministicShortQuestion", () => {
+  it("matches short '哪款' prompts", () => {
+    assert.strictEqual(isDeterministicShortQuestion("哪款"), true);
+    assert.strictEqual(isDeterministicShortQuestion("哪款?"), true);
+    assert.strictEqual(isDeterministicShortQuestion("哪款？"), true);
+    assert.strictEqual(isDeterministicShortQuestion("哪一款"), true);
+    assert.strictEqual(isDeterministicShortQuestion("哪一种"), true);
+  });
+
+  it("matches short '这个' prompts", () => {
+    assert.strictEqual(isDeterministicShortQuestion("这个"), true);
+    assert.strictEqual(isDeterministicShortQuestion("这个？"), true);
+  });
+
+  it("matches greetings", () => {
+    assert.strictEqual(isDeterministicShortQuestion("hello"), true);
+    assert.strictEqual(isDeterministicShortQuestion("hi"), true);
+    assert.strictEqual(isDeterministicShortQuestion("hey"), true);
+    assert.strictEqual(isDeterministicShortQuestion("你好"), true);
+    assert.strictEqual(isDeterministicShortQuestion("在吗"), true);
+  });
+
+  it("ignores text with constraints (must fall through)", () => {
+    assert.strictEqual(isDeterministicShortQuestion("哪款不苦"), false);
+    assert.strictEqual(isDeterministicShortQuestion("哪款IPA好"), false);
+    assert.strictEqual(isDeterministicShortQuestion("介绍第一款"), false);
+    assert.strictEqual(isDeterministicShortQuestion(""), false);
+    assert.strictEqual(isDeterministicShortQuestion("  "), false);
+  });
+
+  it("ignores text longer than the cap", () => {
+    assert.strictEqual(isDeterministicShortQuestion("哪一款最适合送人？"), false);
+  });
+});
+
+// ═══════════════════════════════════════════════════════
+// Tests: canonical memory key resolver (task #6)
+// ═══════════════════════════════════════════════════════
+
+// Mirror of `lib/beer-agent/memory/short-term.ts → resolveMemoryKey`
+function resolveMemoryKey(canonicalUserId: string | undefined, conversationId: string): string {
+  if (canonicalUserId && canonicalUserId.trim().length > 0 && canonicalUserId !== "local-user") {
+    return `user_${canonicalUserId.replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 64)}`;
+  }
+  return `conv_${conversationId.replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 64)}`;
+}
+
+describe("resolveMemoryKey (task #6 canonical userId)", () => {
+  it("returns user_-prefixed key when canonical userId present", () => {
+    assert.strictEqual(
+      resolveMemoryKey("user-abc-123", "web-tab-1"),
+      "user_user-abc-123",
+    );
+  });
+
+  it("strips unsafe chars and clamps to 64 chars", () => {
+    const long = "x".repeat(100);
+    const key = resolveMemoryKey(long, "conv");
+    assert.strictEqual(key.startsWith("user_"), true);
+    assert.strictEqual(key.length, "user_".length + 64);
+  });
+
+  it("falls back to per-conversation key when no canonical userId", () => {
+    assert.strictEqual(
+      resolveMemoryKey(undefined, "web-tab-1"),
+      "conv_web-tab-1",
+    );
+    assert.strictEqual(
+      resolveMemoryKey("", "web-tab-1"),
+      "conv_web-tab-1",
+    );
+    assert.strictEqual(
+      resolveMemoryKey("local-user", "web-tab-1"),
+      "conv_web-tab-1",
+    );
+  });
+
+  it("same canonical userId across channels resolves to same key", () => {
+    const web = resolveMemoryKey("user-abc-123", "web-tab-1");
+    const feishu = resolveMemoryKey("user-abc-123", "feishu-chat-xyz");
+    assert.strictEqual(web, feishu);
+  });
+});

@@ -312,10 +312,24 @@ export async function execute(
     return handleImage(ctx);
   }
 
-  // Path 2: Follow-up (has active menu + constraint-like text)
+  // Path 2: Deterministic short-circuit — task #5
+  // When the user types a "which-one" prompt that is too terse for the LLM skill
+  // selector to handle reliably, AND an active menu is present, we route straight
+  // to follow-up filtering. This avoids burning an LLM call on trivial text.
+  if (isDeterministicShortQuestion(ctx.lastUserText)) {
+    const { readShortTermMemory } = await import("@/lib/beer-agent/memory/short-term");
+    const stm = await readShortTermMemory(ctx.conversationId, ctx.userId).catch(() => null);
+    if ((stm?.lastMenu?.candidates?.length ?? 0) > 0) {
+      return handleFollowUp(ctx);
+    }
+    // No active menu → fall through. handleText() will produce a polite fallback
+    // asking the user to share a menu first.
+  }
+
+  // Path 2b: Follow-up (active menu + constraint-like text)
   if (looksLikeFollowUp(ctx.lastUserText)) {
     const { readShortTermMemory } = await import("@/lib/beer-agent/memory/short-term");
-    const stm = await readShortTermMemory(ctx.conversationId).catch(() => null);
+    const stm = await readShortTermMemory(ctx.conversationId, ctx.userId).catch(() => null);
     if ((stm?.lastMenu?.candidates?.length ?? 0) > 0) {
       return handleFollowUp(ctx);
     }
@@ -356,6 +370,32 @@ function looksLikeFollowUp(text: string): boolean {
     /介绍.*第/, /说说.*第/, /尝新/, /特别/, /预算/,
   ];
   return patterns.some((p) => p.test(text));
+}
+
+/**
+ * Task #5 — deterministic short-circuit for obviously short questions.
+ *
+ * When the user types a question that is so terse it cannot possibly contain a
+ * real constraint (e.g. just "哪款?", "哪一款?", "这个?", "hello", "hi"),
+ * we skip the LLM skill-selection round-trip and route directly to follow-up
+ * filtering — *provided* an active menu is in short-term memory.
+ *
+ * The patterns mirror the same keywords that
+ * `lib/beer-agent/intent-registry.ts` already uses for "hello" / "哪款" prompts,
+ * so behavior stays aligned across the registry and the controller.
+ *
+ * If no active menu exists, this returns false and the call falls through to
+ * the normal LLM-driven skill selection.
+ */
+export function isDeterministicShortQuestion(text: string): boolean {
+  const normalized = (text || "").trim();
+  if (normalized.length === 0 || normalized.length > 12) return false;
+  const patterns: RegExp[] = [
+    /^(哪款|哪一款|哪一种|哪一杯|哪一个)\s*[?？。.\s]*$/i,
+    /^这个\s*[?？。.\s]*$/i,
+    /^(hello|hi|hey|你好|在吗)\s*[!！?？。.\s]*$/i,
+  ];
+  return patterns.some((p) => p.test(normalized));
 }
 
 function extractConstraints(text: string): string[] {

@@ -70,10 +70,51 @@ function emptyPicks(): SkillResult["picks"] {
 
 // ── LLM Skill Selection ──
 
+/**
+ * Task #5 — deterministic short-circuit BEFORE invoking the LLM skill selector.
+ *
+ * Short, obviously-underspecified prompts ("哪款?", "哪一款?", "这个?", "hello",
+ * "hi") are routed straight to the `recommend` skill when there is an active menu.
+ * This avoids spending an LLM round-trip (cost + latency) on questions the rules
+ * can answer with high confidence, and aligns with the matching regex family in
+ * `lib/beer-agent/intent-registry.ts`.
+ *
+ * If no active menu is detected, we fall through to the LLM so the user gets a
+ * polite "please share a menu first" reply via the regular path.
+ */
+function tryDeterministicShortCircuit(
+  ctx: import("./types").AgentContext,
+): { skill: string; reason: string; params: Record<string, unknown> } | null {
+  const lastText = (ctx.lastUserText || "").trim();
+  if (lastText.length === 0 || lastText.length > 12) return null;
+
+  const patterns: RegExp[] = [
+    /^(哪款|哪一款|哪一种|哪一杯|哪一个)\s*[?？。.\s]*$/i,
+    /^这个\s*[?？。.\s]*$/i,
+    /^(hello|hi|hey|你好|在吗)\s*[!！?？。.\s]*$/i,
+  ];
+  if (!patterns.some((p) => p.test(lastText))) return null;
+
+  // Active menu present in memory snapshot? (Populated by buildAgentContext)
+  if ((ctx.memorySnapshot?.shortTerm?.lastMenuCandidateCount ?? 0) > 0) {
+    return {
+      skill: "recommend",
+      reason: "deterministic short-question with active menu",
+      params: {},
+    };
+  }
+  // Let the LLM handle the polite-fallback reply for cold-start greetings.
+  return null;
+}
+
 async function selectSkill(
   ctx: import("./types").AgentContext,
 ): Promise<{ skill: string; reason: string; params: Record<string, unknown> }> {
   await ensureSkillsLoaded();
+
+  // Task #5 — short-circuit BEFORE invoking the LLM.
+  const shortCircuit = tryDeterministicShortCircuit(ctx);
+  if (shortCircuit) return shortCircuit;
 
   const prompt = buildSkillPrompt(ctx.hasImage);
   const userPrompt = [

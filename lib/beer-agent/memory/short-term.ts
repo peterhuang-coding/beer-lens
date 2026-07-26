@@ -70,17 +70,43 @@ function extractConstraints(userText: string): string[] {
 }
 
 /**
- * Read short-term memory for a conversation.
+ * Resolve the canonical memory key.
+ *
+ * Task #6: short-term memory must be shared across channels for the same human.
+ * We key by `canonicalUserId` so Web (localStorage GUID) and Feishu (mapped chatId)
+ * resolve to the same file. `conversationId` is preserved on the record for audit
+ * but is NOT used as the storage key.
+ *
+ * The Web API guarantees a non-empty `userId`. Feishu callers must supply a
+ * mapped canonicalUserId through metadata. We fall back to a sanitized
+ * conversationId only when neither is present so existing data files keep working.
+ */
+function resolveMemoryKey(canonicalUserId: string | undefined, conversationId: string): string {
+  if (canonicalUserId && canonicalUserId.trim().length > 0 && canonicalUserId !== "local-user") {
+    return `user_${canonicalUserId.replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 64)}`;
+  }
+  // Legacy / fallback: per-conversation file. Sanitize for filesystem safety.
+  return `conv_${conversationId.replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 64)}`;
+}
+
+/**
+ * Read short-term memory.
+ *
+ * @param canonicalUserId  the cross-channel user id (canonical GUID). When present,
+ *                         memory is shared across Web + Feishu + future channels.
+ * @param conversationId   legacy / session-scoped key. Still works as a fallback.
  */
 export async function readShortTermMemory(
   conversationId: string,
+  canonicalUserId?: string,
 ): Promise<ShortTermMemory | null> {
+  const key = resolveMemoryKey(canonicalUserId, conversationId);
   const filePath = path.join(
     process.cwd(),
     "data",
     "memory",
     "short-term",
-    `${conversationId}.json`,
+    `${key}.json`,
   );
   try {
     const raw = await readFile(filePath, "utf8");
@@ -101,7 +127,8 @@ export async function updateShortTermMemory(
   const dirPath = path.join(process.cwd(), "data", "memory", "short-term");
   await mkdir(dirPath, { recursive: true });
 
-  const filePath = path.join(dirPath, `${request.conversationId}.json`);
+  const key = resolveMemoryKey(request.userId, request.conversationId);
+  const filePath = path.join(dirPath, `${key}.json`);
 
   // ── Lock: read + modify + write within the lock to prevent races ──
   await withLock(filePath, async () => {

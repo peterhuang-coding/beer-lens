@@ -593,6 +593,42 @@ const sendBtn = document.getElementById('send-btn');
 let currentImage = null;
 let messages = [];
 
+// ── Task #6: persistent cross-session user id (canonical userId) ──
+// One UUID per browser; persists in localStorage so the same human gets the
+// same memory file across reloads (and across channels in the future).
+function ensureIds() {
+  const KEY_USER = 'beer-lens.userId';
+  const KEY_CONV = 'beer-lens.conversationId';
+
+  function uuid() {
+    // crypto.randomUUID is available on modern browsers; fall back if not.
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+      return window.crypto.randomUUID();
+    }
+    // RFC4122-ish v4 fallback using getRandomValues.
+    const buf = new Uint8Array(16);
+    (window.crypto || window.msCrypto).getRandomValues(buf);
+    buf[6] = (buf[6] & 0x0f) | 0x40;
+    buf[8] = (buf[8] & 0x3f) | 0x80;
+    const hex = Array.from(buf, b => b.toString(16).padStart(2, '0')).join('');
+    return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+  }
+
+  let userId = localStorage.getItem(KEY_USER);
+  if (!userId) {
+    userId = uuid();
+    try { localStorage.setItem(KEY_USER, userId); } catch (e) { /* ignore quota */ }
+  }
+  // conversationId is per-tab session; rotate on explicit reset (future work)
+  let conversationId = sessionStorage.getItem(KEY_CONV);
+  if (!conversationId) {
+    conversationId = uuid();
+    try { sessionStorage.setItem(KEY_CONV, conversationId); } catch (e) { /* ignore */ }
+  }
+  return { userId, conversationId };
+}
+const SESSION_IDS = ensureIds();
+
 const WELCOME = `把酒单照片发给我，或者告诉我你今天想喝什么。
 
 我会帮你：
@@ -994,7 +1030,13 @@ async function send() {
     const resp = await fetch('/api/agent', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ messages, image: imagePayload })
+      body: JSON.stringify({
+        // Task #6 — explicit cross-channel identity, persisted in localStorage.
+        userId: SESSION_IDS.userId,
+        conversationId: SESSION_IDS.conversationId,
+        messages,
+        image: imagePayload,
+      })
     });
 
     if (!resp.ok) {

@@ -23,7 +23,7 @@ export async function buildAgentContext(
 
   // Read memory in parallel
   const [stm, profile] = await Promise.all([
-    readShortTermMemory(request.conversationId).catch(() => null),
+    readShortTermMemory(request.conversationId, request.userId).catch(() => null),
     readProfile(request.userId),
   ]);
 

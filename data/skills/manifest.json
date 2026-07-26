@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "name": "beer-lens-harness",
+  "description": "Unified skill registry manifest — 8 builtin skills mirroring data/intent-registry.json",
+  "defaultEnabled": [
+    "menu_recommend",
+    "follow_up_filter",
+    "tasting_feedback",
+    "profile_query",
+    "beer_knowledge",
+    "label_check",
+    "memory_correction",
+    "unclear"
+  ],
+  "skills": [
+    {
+      "id": "menu_recommend",
+      "label": "酒单推荐",
+      "description": "菜单/纯文字推荐（含图片酒单识别）",
+      "handlerFile": "lib/skills/recommend/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    },
+    {
+      "id": "follow_up_filter",
+      "label": "追问过滤",
+      "description": "基于活跃酒单的追问筛选",
+      "handlerFile": "lib/skills/recommend/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    },
+    {
+      "id": "tasting_feedback",
+      "label": "品饮反馈",
+      "description": "解析评分与风味标签",
+      "handlerFile": "lib/skills/taste-feedback/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    },
+    {
+      "id": "profile_query",
+      "label": "画像查询",
+      "description": "查询用户口味画像",
+      "handlerFile": "lib/skills/profile-query/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    },
+    {
+      "id": "beer_knowledge",
+      "label": "啤酒知识",
+      "description": "纯 LLM 回答啤酒知识",
+      "handlerFile": "lib/skills/beer-knowledge/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    },
+    {
+      "id": "label_check",
+      "label": "酒标检查",
+      "description": "酒标 OCR + 新鲜度",
+      "handlerFile": "lib/skills/label-check/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    },
+    {
+      "id": "memory_correction",
+      "label": "记忆纠正",
+      "description": "纠正 AI 的错误记忆",
+      "handlerFile": "lib/skills/memory-correction/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    },
+    {
+      "id": "unclear",
+      "label": "意图不明",
+      "description": "兜底/引导",
+      "handlerFile": "lib/skills/fallback/execute.ts",
+      "preferred": "active",
+      "enabled": true
+    }
+  ],
+  "updatedAt": "2026-07-26T00:00:00Z"
+}

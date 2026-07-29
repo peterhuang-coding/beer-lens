@@ -1,36 +1,36 @@
 {
-  "generatedAt": "2026-07-29T15:11:40.764Z",
+  "generatedAt": "2026-07-29T15:31:54.220Z",
   "root": "/Volumes/SanDisk2TB/beer-lens/.claude/worktrees/feat-always-on-crawler",
   "summary": {
-    "verdict": "DEGRADED",
-    "issues": 3,
-    "cases": 6,
+    "verdict": "OK",
+    "issues": 2,
+    "cases": 54,
     "actions": 4
   },
   "phases": {
     "state": {
       "stats": {
         "beer_cache": {
-          "total": 28,
-          "verified": 28,
+          "total": 32,
+          "verified": 32,
           "unverified": 0,
-          "last_24h": 0,
-          "total_accesses": 11
+          "last_24h": 6,
+          "total_accesses": 9
         },
-        "warm_list_coverage": "28/30",
+        "warm_list_coverage": "30/30",
         "ratebeer_backup": 14228,
         "top_accessed": [
           {
             "name": "Flying Fist IPA",
             "brewery": "Jing-A (京A) Brewing Co.",
             "rating": 4.14,
-            "access_count": 5
+            "access_count": 4
           },
           {
             "name": "Pseudo Sue",
             "brewery": "Toppling Goliath Brewing Co.",
             "rating": 4.11,
-            "access_count": 3
+            "access_count": 2
           },
           {
             "name": "Heady Topper",
@@ -54,6 +54,42 @@
         "recent_operations": [
           {
             "operation": "cache_write",
+            "target": "DDH West Coast | Crazy Bear Industry",
+            "status": "ok",
+            "created_at": "2026-07-29 15:30:44"
+          },
+          {
+            "operation": "cache_write",
+            "target": "Hop Roulade - Australian Hops | YE Brewing",
+            "status": "ok",
+            "created_at": "2026-07-29 15:30:44"
+          },
+          {
+            "operation": "cache_write",
+            "target": "Hop Roulade | YE Brewing",
+            "status": "ok",
+            "created_at": "2026-07-29 15:30:44"
+          },
+          {
+            "operation": "cache_write",
+            "target": "Burning HDHC | Crazy Bear Industry",
+            "status": "ok",
+            "created_at": "2026-07-29 15:30:44"
+          },
+          {
+            "operation": "cache_write",
+            "target": "Bird Land NE IPA | Master Gao Brewing Co. of Nanjing",
+            "status": "ok",
+            "created_at": "2026-07-29 15:29:53"
+          },
+          {
+            "operation": "cache_write",
+            "target": "Sleep | HopFan",
+            "status": "ok",
+            "created_at": "2026-07-29 15:29:27"
+          },
+          {
+            "operation": "cache_write",
             "target": "Sucker Punch Pale Ale | Boxing Cat Brewery",
             "status": "ok",
             "created_at": "2026-07-25 16:44:40"
@@ -75,77 +111,521 @@
             "target": "Mandarin Wheat | Jing-A (京A) Brewing Co.",
             "status": "ok",
             "created_at": "2026-07-25 16:43:44"
-          },
-          {
-            "operation": "cache_write",
-            "target": "Captain's Pale Ale | Slow Boat Brewery",
-            "status": "ok",
-            "created_at": "2026-07-25 16:43:42"
-          },
-          {
-            "operation": "cache_write",
-            "target": "No To Criticism | NO.18 BREWING & CO.",
-            "status": "ok",
-            "created_at": "2026-07-25 16:41:56"
-          },
-          {
-            "operation": "cache_write",
-            "target": "Baby IPA | Master Gao",
-            "status": "ok",
-            "created_at": "2026-07-25 16:12:01"
-          },
-          {
-            "operation": "cache_write",
-            "target": "Jump East Lake IPA | NO.18 BREWING & CO.",
-            "status": "ok",
-            "created_at": "2026-07-25 16:11:59"
-          },
-          {
-            "operation": "cache_write",
-            "target": "Workers Pale Ale | Jing-A Brewing Co.",
-            "status": "ok",
-            "created_at": "2026-07-25 16:11:57"
-          },
-          {
-            "operation": "cache_write",
-            "target": "Monkey's Fist IPA | Slow Boat Brewery",
-            "status": "ok",
-            "created_at": "2026-07-25 16:11:56"
           }
         ]
       },
       "health": {
         "healthy": true,
-        "cache_entries": 28,
-        "verified_entries": 28,
-        "log_entries": 28,
-        "timestamp": "2026-07-29T15:11:40.804968+00:00"
+        "cache_entries": 32,
+        "verified_entries": 32,
+        "log_entries": 34,
+        "timestamp": "2026-07-29T15:31:54.266070+00:00"
       },
       "warm_list": [
         {
-          "name": "Sleep",
-          "brewery": "HopFan",
-          "priority": "warm_list"
+          "name": "Cantillon Blåbær Lambik",
+          "brewery": "Brasserie Cantillon",
+          "priority": "high_rated"
         },
         {
-          "name": "Bird Land NE IPA",
-          "brewery": "Master Gao Brewing Co. of Nanjing",
-          "priority": "warm_list"
+          "name": "Citra DIPA",
+          "brewery": "Kern River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Deviation - Bottleworks 9th Anniversary",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Trappist Westvleteren 12",
+          "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Founders CBS Imperial Stout",
+          "brewery": "Founders Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Live Oak HefeWeizen",
+          "brewery": "Live Oak Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Portsmouth Kate The Great",
+          "brewery": "Portsmouth Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Duck Duck Gooze",
+          "brewery": "The Lost Abbey",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Rare Bourbon County Stout",
+          "brewery": "Goose Island Beer Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Reality Czeck",
+          "brewery": "Moonlight Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Weihenstephaner Hefeweissbier",
+          "brewery": "Bayerische Staatsbrauerei Weihenstephan",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Trappist Westvleteren 8",
+          "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Zombie Dust",
+          "brewery": "Three Floyds Brewing Co. & Brewpub",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Masala Mama India Pale Ale",
+          "brewery": "Minneapolis Town Hall Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Vanilla Bean Aged Dark Lord",
+          "brewery": "Three Floyds Brewing Co. & Brewpub",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Kuhnhenn Bourbon Barrel Fourth Dementia",
+          "brewery": "Kuhnhenn Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Cable Car",
+          "brewery": "The Lost Abbey",
+          "priority": "high_rated"
+        },
+        {
+          "name": "The Abyss",
+          "brewery": "Deschutes Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Sculpin India Pale Ale",
+          "brewery": "Ballast Point Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Unplugged Bohemian Lager",
+          "brewery": "New Glarus Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Abner Imperial IPA",
+          "brewery": "Hill Farmstead Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Abrasive Ale",
+          "brewery": "Surly Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Andechser Doppelbock Dunkel",
+          "brewery": "Klosterbrauerei Andechs",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Edward Pale Ale",
+          "brewery": "Hill Farmstead Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Ephraim",
+          "brewery": "Hill Farmstead Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Isabelle Proximus",
+          "brewery": "The Lost Abbey",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Supplication",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Czar Jack Imperial Stout",
+          "brewery": "Minneapolis Town Hall Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Parabola",
+          "brewery": "Firestone Walker Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Brute",
+          "brewery": "Ithaca Beer Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Cantillon Lou Pepe - Gueuze",
+          "brewery": "Brasserie Cantillon",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Founders KBS (Kentucky Breakfast Stout)",
+          "brewery": "Founders Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Gumballhead",
+          "brewery": "Three Floyds Brewing Co. & Brewpub",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Silva Stout",
+          "brewery": "Green Flash Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Tröegs Nugget Nectar",
+          "brewery": "Tröegs Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Temptation",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "White Rajah",
+          "brewery": "The Brew Kettle Taproom & Smokehouse / Production Works",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Bell's Black Note Stout",
+          "brewery": "Bell's Brewery, Inc.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Bell's Hopslam Ale",
+          "brewery": "Bell's Brewery, Inc.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Boy King Double IPA",
+          "brewery": "COAST Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "§ucaba (Abacus)",
+          "brewery": "Firestone Walker Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Cantillon Saint Lamvinus",
+          "brewery": "Brasserie Cantillon",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Dancing Man Wheat",
+          "brewery": "New Glarus Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Duet IPA",
+          "brewery": "Alpine Beer Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Firestone 11 - Anniversary Ale",
+          "brewery": "Firestone Walker Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Hunahpu's Imperial Stout",
+          "brewery": "Cigar City Brewing",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Nelson",
+          "brewery": "Alpine Beer Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Trappist Westvleteren Blonde",
+          "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Blind Pig IPA",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Drie Fonteinen Schaerbeekse Kriek",
+          "brewery": "Brouwerij Drie Fonteinen",
+          "priority": "high_rated"
         }
       ]
     },
     "gaps": {
-      "warm_list_coverage": "28/30",
+      "warm_list_coverage": "30/30",
       "missing": [
         {
-          "name": "Sleep",
-          "brewery": "HopFan",
-          "priority": "warm_list"
+          "name": "Cantillon Blåbær Lambik",
+          "brewery": "Brasserie Cantillon",
+          "priority": "high_rated"
         },
         {
-          "name": "Bird Land NE IPA",
-          "brewery": "Master Gao Brewing Co. of Nanjing",
-          "priority": "warm_list"
+          "name": "Citra DIPA",
+          "brewery": "Kern River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Deviation - Bottleworks 9th Anniversary",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Trappist Westvleteren 12",
+          "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Founders CBS Imperial Stout",
+          "brewery": "Founders Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Live Oak HefeWeizen",
+          "brewery": "Live Oak Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Portsmouth Kate The Great",
+          "brewery": "Portsmouth Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Duck Duck Gooze",
+          "brewery": "The Lost Abbey",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Rare Bourbon County Stout",
+          "brewery": "Goose Island Beer Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Reality Czeck",
+          "brewery": "Moonlight Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Weihenstephaner Hefeweissbier",
+          "brewery": "Bayerische Staatsbrauerei Weihenstephan",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Trappist Westvleteren 8",
+          "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Zombie Dust",
+          "brewery": "Three Floyds Brewing Co. & Brewpub",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Masala Mama India Pale Ale",
+          "brewery": "Minneapolis Town Hall Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Vanilla Bean Aged Dark Lord",
+          "brewery": "Three Floyds Brewing Co. & Brewpub",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Kuhnhenn Bourbon Barrel Fourth Dementia",
+          "brewery": "Kuhnhenn Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Cable Car",
+          "brewery": "The Lost Abbey",
+          "priority": "high_rated"
+        },
+        {
+          "name": "The Abyss",
+          "brewery": "Deschutes Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Sculpin India Pale Ale",
+          "brewery": "Ballast Point Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Unplugged Bohemian Lager",
+          "brewery": "New Glarus Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Abner Imperial IPA",
+          "brewery": "Hill Farmstead Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Abrasive Ale",
+          "brewery": "Surly Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Andechser Doppelbock Dunkel",
+          "brewery": "Klosterbrauerei Andechs",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Edward Pale Ale",
+          "brewery": "Hill Farmstead Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Ephraim",
+          "brewery": "Hill Farmstead Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Isabelle Proximus",
+          "brewery": "The Lost Abbey",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Supplication",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Czar Jack Imperial Stout",
+          "brewery": "Minneapolis Town Hall Brewery",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Parabola",
+          "brewery": "Firestone Walker Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Brute",
+          "brewery": "Ithaca Beer Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Cantillon Lou Pepe - Gueuze",
+          "brewery": "Brasserie Cantillon",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Founders KBS (Kentucky Breakfast Stout)",
+          "brewery": "Founders Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Gumballhead",
+          "brewery": "Three Floyds Brewing Co. & Brewpub",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Silva Stout",
+          "brewery": "Green Flash Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Tröegs Nugget Nectar",
+          "brewery": "Tröegs Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Temptation",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "White Rajah",
+          "brewery": "The Brew Kettle Taproom & Smokehouse / Production Works",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Bell's Black Note Stout",
+          "brewery": "Bell's Brewery, Inc.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Bell's Hopslam Ale",
+          "brewery": "Bell's Brewery, Inc.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Boy King Double IPA",
+          "brewery": "COAST Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "§ucaba (Abacus)",
+          "brewery": "Firestone Walker Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Cantillon Saint Lamvinus",
+          "brewery": "Brasserie Cantillon",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Dancing Man Wheat",
+          "brewery": "New Glarus Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Duet IPA",
+          "brewery": "Alpine Beer Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Firestone 11 - Anniversary Ale",
+          "brewery": "Firestone Walker Brewing Co.",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Hunahpu's Imperial Stout",
+          "brewery": "Cigar City Brewing",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Nelson",
+          "brewery": "Alpine Beer Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Trappist Westvleteren Blonde",
+          "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Blind Pig IPA",
+          "brewery": "Russian River Brewing Company",
+          "priority": "high_rated"
+        },
+        {
+          "name": "Drie Fonteinen Schaerbeekse Kriek",
+          "brewery": "Brouwerij Drie Fonteinen",
+          "priority": "high_rated"
         }
       ],
       "sources_present": [
@@ -160,21 +640,6 @@
         "xiaohongshu"
       ],
       "issues": [
-        {
-          "severity": "warn",
-          "kind": "warm_list_gap",
-          "msg": "warm_list coverage 28/30; missing 2 beers",
-          "items": [
-            {
-              "name": "Sleep",
-              "brewery": "HopFan"
-            },
-            {
-              "name": "Bird Land NE IPA",
-              "brewery": "Master Gao Brewing Co. of Nanjing"
-            }
-          ]
-        },
         {
           "severity": "info",
           "kind": "missing_sources",
@@ -224,33 +689,33 @@
       "recent_operations": [
         {
           "operation": "cache_write",
-          "target": "Sucker Punch Pale Ale | Boxing Cat Brewery",
+          "target": "DDH West Coast | Crazy Bear Industry",
           "status": "ok",
-          "created_at": "2026-07-25 16:44:40"
+          "created_at": "2026-07-29 15:30:44"
         },
         {
           "operation": "cache_write",
-          "target": "Mandarin Wheat | Jing-A Brewing Co.",
+          "target": "Hop Roulade - Australian Hops | YE Brewing",
           "status": "ok",
-          "created_at": "2026-07-25 16:44:05"
+          "created_at": "2026-07-29 15:30:44"
         },
         {
           "operation": "cache_write",
-          "target": "Captain's Pale Ale | Slow Boat Brewery",
+          "target": "Hop Roulade | YE Brewing",
           "status": "ok",
-          "created_at": "2026-07-25 16:44:04"
+          "created_at": "2026-07-29 15:30:44"
         },
         {
           "operation": "cache_write",
-          "target": "Mandarin Wheat | Jing-A (京A) Brewing Co.",
+          "target": "Burning HDHC | Crazy Bear Industry",
           "status": "ok",
-          "created_at": "2026-07-25 16:43:44"
+          "created_at": "2026-07-29 15:30:44"
         },
         {
           "operation": "cache_write",
-          "target": "Captain's Pale Ale | Slow Boat Brewery",
+          "target": "Bird Land NE IPA | Master Gao Brewing Co. of Nanjing",
           "status": "ok",
-          "created_at": "2026-07-25 16:43:42"
+          "created_at": "2026-07-29 15:29:53"
         }
       ],
       "query_probe": {
@@ -270,8 +735,8 @@
           "created_at": "2026-07-25 15:37:22",
           "chinese_name": "飞拳 IPA",
           "chinese_brewery": "京A",
-          "last_accessed_at": "2026-07-29 15:11:25",
-          "access_count": 5,
+          "last_accessed_at": "2026-07-29 15:22:40",
+          "access_count": 4,
           "hit": true,
           "match_type": "fuzzy"
         },
@@ -291,14 +756,31 @@
           "created_at": "2026-07-25 16:10:04",
           "chinese_name": null,
           "chinese_brewery": null,
-          "last_accessed_at": "2026-07-29 15:11:25",
-          "access_count": 3,
+          "last_accessed_at": "2026-07-29 15:22:40",
+          "access_count": 2,
           "hit": true,
           "match_type": "fuzzy"
         },
         "sleep_gap": {
-          "hit": false,
-          "query": "Sleep"
+          "id": 31,
+          "name": "Sleep",
+          "brewery": "HopFan",
+          "style": "Imperial IPA (NEIPA)",
+          "abv": 6.5,
+          "rating": 4,
+          "ratings_count": 150,
+          "ibu": null,
+          "source_url": "https://hopfan.com/beer/15426",
+          "source_platform": "HopFan+Untappd+RateBeer",
+          "verified": 1,
+          "verified_at": "2026-07-29T15:29:27.007030+00:00",
+          "created_at": "2026-07-29 15:29:27",
+          "chinese_name": "睡",
+          "chinese_brewery": "或不凡",
+          "last_accessed_at": "2026-07-29T15:29:27.007183+00:00",
+          "access_count": 0,
+          "hit": true,
+          "cached_at": "2026-07-29 15:29:27"
         }
       },
       "issues": []
@@ -309,28 +791,700 @@
           "kind": "warm_list_gap",
           "priority": "P0",
           "target": {
-            "name": "Sleep",
-            "brewery": "HopFan"
+            "name": "Cantillon Blåbær Lambik",
+            "brewery": "Brasserie Cantillon"
           },
           "steps": [
-            "WebSearch(\"Sleep\" \"HopFan\" ABV rating Untappd)",
-            "WebSearch(\"Sleep\" \"HopFan\" 小红书 评分)",
+            "WebSearch(\"Cantillon Blåbær Lambik\" \"Brasserie Cantillon\" ABV rating Untappd)",
+            "WebSearch(\"Cantillon Blåbær Lambik\" \"Brasserie Cantillon\" 小红书 评分)",
             "validate (2+ sources, abv 0-20, rating 0-5)",
-            "harness.py cache '{\"name\":\"Sleep\",\"brewery\":\"HopFan\",\"verified\":true}'"
+            "harness.py cache '{\"name\":\"Cantillon Blåbær Lambik\",\"brewery\":\"Brasserie Cantillon\",\"verified\":true}'"
           ]
         },
         {
           "kind": "warm_list_gap",
           "priority": "P0",
           "target": {
-            "name": "Bird Land NE IPA",
-            "brewery": "Master Gao Brewing Co. of Nanjing"
+            "name": "Citra DIPA",
+            "brewery": "Kern River Brewing Company"
           },
           "steps": [
-            "WebSearch(\"Bird Land NE IPA\" \"Master Gao Brewing Co. of Nanjing\" ABV rating Untappd)",
-            "WebSearch(\"Bird Land NE IPA\" \"Master Gao Brewing Co. of Nanjing\" 小红书 评分)",
+            "WebSearch(\"Citra DIPA\" \"Kern River Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Citra DIPA\" \"Kern River Brewing Company\" 小红书 评分)",
             "validate (2+ sources, abv 0-20, rating 0-5)",
-            "harness.py cache '{\"name\":\"Bird Land NE IPA\",\"brewery\":\"Master Gao Brewing Co. of Nanjing\",\"verified\":true}'"
+            "harness.py cache '{\"name\":\"Citra DIPA\",\"brewery\":\"Kern River Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Deviation - Bottleworks 9th Anniversary",
+            "brewery": "Russian River Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Deviation - Bottleworks 9th Anniversary\" \"Russian River Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Deviation - Bottleworks 9th Anniversary\" \"Russian River Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Deviation - Bottleworks 9th Anniversary\",\"brewery\":\"Russian River Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Trappist Westvleteren 12",
+            "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)"
+          },
+          "steps": [
+            "WebSearch(\"Trappist Westvleteren 12\" \"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\" ABV rating Untappd)",
+            "WebSearch(\"Trappist Westvleteren 12\" \"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Trappist Westvleteren 12\",\"brewery\":\"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Founders CBS Imperial Stout",
+            "brewery": "Founders Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Founders CBS Imperial Stout\" \"Founders Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Founders CBS Imperial Stout\" \"Founders Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Founders CBS Imperial Stout\",\"brewery\":\"Founders Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Live Oak HefeWeizen",
+            "brewery": "Live Oak Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Live Oak HefeWeizen\" \"Live Oak Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Live Oak HefeWeizen\" \"Live Oak Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Live Oak HefeWeizen\",\"brewery\":\"Live Oak Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Portsmouth Kate The Great",
+            "brewery": "Portsmouth Brewery"
+          },
+          "steps": [
+            "WebSearch(\"Portsmouth Kate The Great\" \"Portsmouth Brewery\" ABV rating Untappd)",
+            "WebSearch(\"Portsmouth Kate The Great\" \"Portsmouth Brewery\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Portsmouth Kate The Great\",\"brewery\":\"Portsmouth Brewery\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Duck Duck Gooze",
+            "brewery": "The Lost Abbey"
+          },
+          "steps": [
+            "WebSearch(\"Duck Duck Gooze\" \"The Lost Abbey\" ABV rating Untappd)",
+            "WebSearch(\"Duck Duck Gooze\" \"The Lost Abbey\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Duck Duck Gooze\",\"brewery\":\"The Lost Abbey\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Rare Bourbon County Stout",
+            "brewery": "Goose Island Beer Co."
+          },
+          "steps": [
+            "WebSearch(\"Rare Bourbon County Stout\" \"Goose Island Beer Co.\" ABV rating Untappd)",
+            "WebSearch(\"Rare Bourbon County Stout\" \"Goose Island Beer Co.\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Rare Bourbon County Stout\",\"brewery\":\"Goose Island Beer Co.\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Reality Czeck",
+            "brewery": "Moonlight Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Reality Czeck\" \"Moonlight Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Reality Czeck\" \"Moonlight Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Reality Czeck\",\"brewery\":\"Moonlight Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Weihenstephaner Hefeweissbier",
+            "brewery": "Bayerische Staatsbrauerei Weihenstephan"
+          },
+          "steps": [
+            "WebSearch(\"Weihenstephaner Hefeweissbier\" \"Bayerische Staatsbrauerei Weihenstephan\" ABV rating Untappd)",
+            "WebSearch(\"Weihenstephaner Hefeweissbier\" \"Bayerische Staatsbrauerei Weihenstephan\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Weihenstephaner Hefeweissbier\",\"brewery\":\"Bayerische Staatsbrauerei Weihenstephan\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Trappist Westvleteren 8",
+            "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)"
+          },
+          "steps": [
+            "WebSearch(\"Trappist Westvleteren 8\" \"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\" ABV rating Untappd)",
+            "WebSearch(\"Trappist Westvleteren 8\" \"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Trappist Westvleteren 8\",\"brewery\":\"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Zombie Dust",
+            "brewery": "Three Floyds Brewing Co. & Brewpub"
+          },
+          "steps": [
+            "WebSearch(\"Zombie Dust\" \"Three Floyds Brewing Co. & Brewpub\" ABV rating Untappd)",
+            "WebSearch(\"Zombie Dust\" \"Three Floyds Brewing Co. & Brewpub\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Zombie Dust\",\"brewery\":\"Three Floyds Brewing Co. & Brewpub\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Masala Mama India Pale Ale",
+            "brewery": "Minneapolis Town Hall Brewery"
+          },
+          "steps": [
+            "WebSearch(\"Masala Mama India Pale Ale\" \"Minneapolis Town Hall Brewery\" ABV rating Untappd)",
+            "WebSearch(\"Masala Mama India Pale Ale\" \"Minneapolis Town Hall Brewery\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Masala Mama India Pale Ale\",\"brewery\":\"Minneapolis Town Hall Brewery\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Vanilla Bean Aged Dark Lord",
+            "brewery": "Three Floyds Brewing Co. & Brewpub"
+          },
+          "steps": [
+            "WebSearch(\"Vanilla Bean Aged Dark Lord\" \"Three Floyds Brewing Co. & Brewpub\" ABV rating Untappd)",
+            "WebSearch(\"Vanilla Bean Aged Dark Lord\" \"Three Floyds Brewing Co. & Brewpub\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Vanilla Bean Aged Dark Lord\",\"brewery\":\"Three Floyds Brewing Co. & Brewpub\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Kuhnhenn Bourbon Barrel Fourth Dementia",
+            "brewery": "Kuhnhenn Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Kuhnhenn Bourbon Barrel Fourth Dementia\" \"Kuhnhenn Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Kuhnhenn Bourbon Barrel Fourth Dementia\" \"Kuhnhenn Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Kuhnhenn Bourbon Barrel Fourth Dementia\",\"brewery\":\"Kuhnhenn Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Cable Car",
+            "brewery": "The Lost Abbey"
+          },
+          "steps": [
+            "WebSearch(\"Cable Car\" \"The Lost Abbey\" ABV rating Untappd)",
+            "WebSearch(\"Cable Car\" \"The Lost Abbey\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Cable Car\",\"brewery\":\"The Lost Abbey\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "The Abyss",
+            "brewery": "Deschutes Brewery"
+          },
+          "steps": [
+            "WebSearch(\"The Abyss\" \"Deschutes Brewery\" ABV rating Untappd)",
+            "WebSearch(\"The Abyss\" \"Deschutes Brewery\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"The Abyss\",\"brewery\":\"Deschutes Brewery\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Sculpin India Pale Ale",
+            "brewery": "Ballast Point Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Sculpin India Pale Ale\" \"Ballast Point Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Sculpin India Pale Ale\" \"Ballast Point Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Sculpin India Pale Ale\",\"brewery\":\"Ballast Point Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Unplugged Bohemian Lager",
+            "brewery": "New Glarus Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Unplugged Bohemian Lager\" \"New Glarus Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Unplugged Bohemian Lager\" \"New Glarus Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Unplugged Bohemian Lager\",\"brewery\":\"New Glarus Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Abner Imperial IPA",
+            "brewery": "Hill Farmstead Brewery"
+          },
+          "steps": [
+            "WebSearch(\"Abner Imperial IPA\" \"Hill Farmstead Brewery\" ABV rating Untappd)",
+            "WebSearch(\"Abner Imperial IPA\" \"Hill Farmstead Brewery\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Abner Imperial IPA\",\"brewery\":\"Hill Farmstead Brewery\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Abrasive Ale",
+            "brewery": "Surly Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Abrasive Ale\" \"Surly Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Abrasive Ale\" \"Surly Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Abrasive Ale\",\"brewery\":\"Surly Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Andechser Doppelbock Dunkel",
+            "brewery": "Klosterbrauerei Andechs"
+          },
+          "steps": [
+            "WebSearch(\"Andechser Doppelbock Dunkel\" \"Klosterbrauerei Andechs\" ABV rating Untappd)",
+            "WebSearch(\"Andechser Doppelbock Dunkel\" \"Klosterbrauerei Andechs\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Andechser Doppelbock Dunkel\",\"brewery\":\"Klosterbrauerei Andechs\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Edward Pale Ale",
+            "brewery": "Hill Farmstead Brewery"
+          },
+          "steps": [
+            "WebSearch(\"Edward Pale Ale\" \"Hill Farmstead Brewery\" ABV rating Untappd)",
+            "WebSearch(\"Edward Pale Ale\" \"Hill Farmstead Brewery\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Edward Pale Ale\",\"brewery\":\"Hill Farmstead Brewery\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Ephraim",
+            "brewery": "Hill Farmstead Brewery"
+          },
+          "steps": [
+            "WebSearch(\"Ephraim\" \"Hill Farmstead Brewery\" ABV rating Untappd)",
+            "WebSearch(\"Ephraim\" \"Hill Farmstead Brewery\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Ephraim\",\"brewery\":\"Hill Farmstead Brewery\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Isabelle Proximus",
+            "brewery": "The Lost Abbey"
+          },
+          "steps": [
+            "WebSearch(\"Isabelle Proximus\" \"The Lost Abbey\" ABV rating Untappd)",
+            "WebSearch(\"Isabelle Proximus\" \"The Lost Abbey\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Isabelle Proximus\",\"brewery\":\"The Lost Abbey\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Supplication",
+            "brewery": "Russian River Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Supplication\" \"Russian River Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Supplication\" \"Russian River Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Supplication\",\"brewery\":\"Russian River Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Czar Jack Imperial Stout",
+            "brewery": "Minneapolis Town Hall Brewery"
+          },
+          "steps": [
+            "WebSearch(\"Czar Jack Imperial Stout\" \"Minneapolis Town Hall Brewery\" ABV rating Untappd)",
+            "WebSearch(\"Czar Jack Imperial Stout\" \"Minneapolis Town Hall Brewery\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Czar Jack Imperial Stout\",\"brewery\":\"Minneapolis Town Hall Brewery\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Parabola",
+            "brewery": "Firestone Walker Brewing Co."
+          },
+          "steps": [
+            "WebSearch(\"Parabola\" \"Firestone Walker Brewing Co.\" ABV rating Untappd)",
+            "WebSearch(\"Parabola\" \"Firestone Walker Brewing Co.\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Parabola\",\"brewery\":\"Firestone Walker Brewing Co.\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Brute",
+            "brewery": "Ithaca Beer Company"
+          },
+          "steps": [
+            "WebSearch(\"Brute\" \"Ithaca Beer Company\" ABV rating Untappd)",
+            "WebSearch(\"Brute\" \"Ithaca Beer Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Brute\",\"brewery\":\"Ithaca Beer Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Cantillon Lou Pepe - Gueuze",
+            "brewery": "Brasserie Cantillon"
+          },
+          "steps": [
+            "WebSearch(\"Cantillon Lou Pepe - Gueuze\" \"Brasserie Cantillon\" ABV rating Untappd)",
+            "WebSearch(\"Cantillon Lou Pepe - Gueuze\" \"Brasserie Cantillon\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Cantillon Lou Pepe - Gueuze\",\"brewery\":\"Brasserie Cantillon\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Founders KBS (Kentucky Breakfast Stout)",
+            "brewery": "Founders Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Founders KBS (Kentucky Breakfast Stout)\" \"Founders Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Founders KBS (Kentucky Breakfast Stout)\" \"Founders Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Founders KBS (Kentucky Breakfast Stout)\",\"brewery\":\"Founders Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Gumballhead",
+            "brewery": "Three Floyds Brewing Co. & Brewpub"
+          },
+          "steps": [
+            "WebSearch(\"Gumballhead\" \"Three Floyds Brewing Co. & Brewpub\" ABV rating Untappd)",
+            "WebSearch(\"Gumballhead\" \"Three Floyds Brewing Co. & Brewpub\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Gumballhead\",\"brewery\":\"Three Floyds Brewing Co. & Brewpub\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Silva Stout",
+            "brewery": "Green Flash Brewing Co."
+          },
+          "steps": [
+            "WebSearch(\"Silva Stout\" \"Green Flash Brewing Co.\" ABV rating Untappd)",
+            "WebSearch(\"Silva Stout\" \"Green Flash Brewing Co.\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Silva Stout\",\"brewery\":\"Green Flash Brewing Co.\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Tröegs Nugget Nectar",
+            "brewery": "Tröegs Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Tröegs Nugget Nectar\" \"Tröegs Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Tröegs Nugget Nectar\" \"Tröegs Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Tröegs Nugget Nectar\",\"brewery\":\"Tröegs Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Temptation",
+            "brewery": "Russian River Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Temptation\" \"Russian River Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Temptation\" \"Russian River Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Temptation\",\"brewery\":\"Russian River Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "White Rajah",
+            "brewery": "The Brew Kettle Taproom & Smokehouse / Production Works"
+          },
+          "steps": [
+            "WebSearch(\"White Rajah\" \"The Brew Kettle Taproom & Smokehouse / Production Works\" ABV rating Untappd)",
+            "WebSearch(\"White Rajah\" \"The Brew Kettle Taproom & Smokehouse / Production Works\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"White Rajah\",\"brewery\":\"The Brew Kettle Taproom & Smokehouse / Production Works\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Bell's Black Note Stout",
+            "brewery": "Bell's Brewery, Inc."
+          },
+          "steps": [
+            "WebSearch(\"Bell's Black Note Stout\" \"Bell's Brewery, Inc.\" ABV rating Untappd)",
+            "WebSearch(\"Bell's Black Note Stout\" \"Bell's Brewery, Inc.\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Bell's Black Note Stout\",\"brewery\":\"Bell's Brewery, Inc.\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Bell's Hopslam Ale",
+            "brewery": "Bell's Brewery, Inc."
+          },
+          "steps": [
+            "WebSearch(\"Bell's Hopslam Ale\" \"Bell's Brewery, Inc.\" ABV rating Untappd)",
+            "WebSearch(\"Bell's Hopslam Ale\" \"Bell's Brewery, Inc.\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Bell's Hopslam Ale\",\"brewery\":\"Bell's Brewery, Inc.\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Boy King Double IPA",
+            "brewery": "COAST Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Boy King Double IPA\" \"COAST Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Boy King Double IPA\" \"COAST Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Boy King Double IPA\",\"brewery\":\"COAST Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "§ucaba (Abacus)",
+            "brewery": "Firestone Walker Brewing Co."
+          },
+          "steps": [
+            "WebSearch(\"§ucaba (Abacus)\" \"Firestone Walker Brewing Co.\" ABV rating Untappd)",
+            "WebSearch(\"§ucaba (Abacus)\" \"Firestone Walker Brewing Co.\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"§ucaba (Abacus)\",\"brewery\":\"Firestone Walker Brewing Co.\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Cantillon Saint Lamvinus",
+            "brewery": "Brasserie Cantillon"
+          },
+          "steps": [
+            "WebSearch(\"Cantillon Saint Lamvinus\" \"Brasserie Cantillon\" ABV rating Untappd)",
+            "WebSearch(\"Cantillon Saint Lamvinus\" \"Brasserie Cantillon\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Cantillon Saint Lamvinus\",\"brewery\":\"Brasserie Cantillon\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Dancing Man Wheat",
+            "brewery": "New Glarus Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Dancing Man Wheat\" \"New Glarus Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Dancing Man Wheat\" \"New Glarus Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Dancing Man Wheat\",\"brewery\":\"New Glarus Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Duet IPA",
+            "brewery": "Alpine Beer Company"
+          },
+          "steps": [
+            "WebSearch(\"Duet IPA\" \"Alpine Beer Company\" ABV rating Untappd)",
+            "WebSearch(\"Duet IPA\" \"Alpine Beer Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Duet IPA\",\"brewery\":\"Alpine Beer Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Firestone 11 - Anniversary Ale",
+            "brewery": "Firestone Walker Brewing Co."
+          },
+          "steps": [
+            "WebSearch(\"Firestone 11 - Anniversary Ale\" \"Firestone Walker Brewing Co.\" ABV rating Untappd)",
+            "WebSearch(\"Firestone 11 - Anniversary Ale\" \"Firestone Walker Brewing Co.\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Firestone 11 - Anniversary Ale\",\"brewery\":\"Firestone Walker Brewing Co.\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Hunahpu's Imperial Stout",
+            "brewery": "Cigar City Brewing"
+          },
+          "steps": [
+            "WebSearch(\"Hunahpu's Imperial Stout\" \"Cigar City Brewing\" ABV rating Untappd)",
+            "WebSearch(\"Hunahpu's Imperial Stout\" \"Cigar City Brewing\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Hunahpu's Imperial Stout\",\"brewery\":\"Cigar City Brewing\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Nelson",
+            "brewery": "Alpine Beer Company"
+          },
+          "steps": [
+            "WebSearch(\"Nelson\" \"Alpine Beer Company\" ABV rating Untappd)",
+            "WebSearch(\"Nelson\" \"Alpine Beer Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Nelson\",\"brewery\":\"Alpine Beer Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Trappist Westvleteren Blonde",
+            "brewery": "Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)"
+          },
+          "steps": [
+            "WebSearch(\"Trappist Westvleteren Blonde\" \"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\" ABV rating Untappd)",
+            "WebSearch(\"Trappist Westvleteren Blonde\" \"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Trappist Westvleteren Blonde\",\"brewery\":\"Brouwerij Westvleteren (Sint-Sixtusabdij van Westvleteren)\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Blind Pig IPA",
+            "brewery": "Russian River Brewing Company"
+          },
+          "steps": [
+            "WebSearch(\"Blind Pig IPA\" \"Russian River Brewing Company\" ABV rating Untappd)",
+            "WebSearch(\"Blind Pig IPA\" \"Russian River Brewing Company\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Blind Pig IPA\",\"brewery\":\"Russian River Brewing Company\",\"verified\":true}'"
+          ]
+        },
+        {
+          "kind": "warm_list_gap",
+          "priority": "P0",
+          "target": {
+            "name": "Drie Fonteinen Schaerbeekse Kriek",
+            "brewery": "Brouwerij Drie Fonteinen"
+          },
+          "steps": [
+            "WebSearch(\"Drie Fonteinen Schaerbeekse Kriek\" \"Brouwerij Drie Fonteinen\" ABV rating Untappd)",
+            "WebSearch(\"Drie Fonteinen Schaerbeekse Kriek\" \"Brouwerij Drie Fonteinen\" 小红书 评分)",
+            "validate (2+ sources, abv 0-20, rating 0-5)",
+            "harness.py cache '{\"name\":\"Drie Fonteinen Schaerbeekse Kriek\",\"brewery\":\"Brouwerij Drie Fonteinen\",\"verified\":true}'"
           ]
         },
         {

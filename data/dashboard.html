@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beer Lens — Skill Hub</title>
+  <link rel="stylesheet" href="/data/dashboard.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script defer src="/data/dashboard.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🍺 Beer Lens — Skill Hub</h1>
+    <p class="subtitle">Always-on crawler control plane · beer-lens v6.0</p>
+    <div class="meta">
+      <span id="meta-time">…</span>
+      <span class="sep">·</span>
+      <span id="meta-health" class="badge">health: …</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ───────── Panel 1: Daily crawler data ───────── -->
+    <section id="panel-crawl">
+      <h2>📡 每天爬的啤酒数据</h2>
+      <p class="hint">From <code>data/crawl-log.jsonl</code> — appended on every always-on crawler round.</p>
+      <div id="crawl-summary" class="kpi-row"></div>
+      <table id="crawl-table">
+        <thead>
+          <tr>
+            <th>time</th>
+            <th>round</th>
+            <th>beer</th>
+            <th>brewery</th>
+            <th>status</th>
+            <th>abv</th>
+            <th>rating</th>
+            <th>sources</th>
+          </tr>
+        </thead>
+        <tbody id="crawl-tbody">
+          <tr><td colspan="8" class="empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ───────── Panel 2: DB growth ───────── -->
+    <section id="panel-db">
+      <h2>📈 DB 增长曲线</h2>
+      <p class="hint">From <code>harness.py stats</code> + historical snapshots in <code>data/snapshots/</code>.</p>
+      <div id="db-kpis" class="kpi-row"></div>
+      <canvas id="db-chart" height="120"></canvas>
+    </section>
+
+    <!-- ───────── Panel 3: All API surfaces ───────── -->
+    <section id="panel-apis">
+      <h2>🔌 所有调用接口</h2>
+      <p class="hint">Static scan of <code>package.json</code> scripts + <code>harness.py</code> subcommands.</p>
+      <div class="grid" id="apis-grid"></div>
+    </section>
+
+    <!-- ───────── Panel 4: Feature state machine ───────── -->
+    <section id="panel-features">
+      <h2>🧩 Feature 状态机</h2>
+      <p class="hint">From <code>pm-feature.sh list</code> — beer-lens features only.</p>
+      <div class="grid" id="features-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Beer Lens Skill Hub · localhost:8888 · 零依赖 · 数据全来自 <code>harness.py</code> + JSON 文件</p>
+  </footer>
+</body>
+</html>

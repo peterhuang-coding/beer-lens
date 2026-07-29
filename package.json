@@ -21,6 +21,8 @@
     "crawl": "npx tsx scripts/crawl-all.mjs",
     "crawl:cn": "npx tsx scripts/crawl-all.mjs --cn-only",
     "crawl:untappd": "npx tsx scripts/crawl-all.mjs --source untappd --country CN",
+    "crawl:round": "node scripts/always-on-crawler.mjs",
+    "hub:serve": "node scripts/skill-hub-server.mjs",
     "cli": "node scripts/cli.mjs"
   },
   "bin": {

@@ -21,10 +21,12 @@
     "crawl": "npx tsx scripts/crawl-all.mjs",
     "crawl:cn": "npx tsx scripts/crawl-all.mjs --cn-only",
     "crawl:untappd": "npx tsx scripts/crawl-all.mjs --source untappd --country CN",
-    "cli": "node scripts/cli.mjs"
+    "cli": "node scripts/cli.mjs",
+    "crawl:test": "node --experimental-strip-types --test tests/crawler-cli.test.mts"
   },
   "bin": {
-    "beer-lens": "scripts/cli.mjs"
+    "beer-lens": "scripts/cli.mjs",
+    "beer-lens-crawl": "./bin/beer-lens-crawl.mjs"
   },
   "dependencies": {
     "next": "^16.0.0",

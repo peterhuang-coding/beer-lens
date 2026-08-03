@@ -1,11 +1,13 @@
 /**
  * lib/crawler/contracts.ts
  *
- * Shared TypeScript types from lib/crawler/CONTRACT.md.
- * All 4 agents (puppeteer / http / untappd / ratebeer / cli) must import from here.
+ * Shared TypeScript types from lib/crawler/CONTRACT.md, plus CLI-side
+ * error/state constants added by the CLI harness agent.
  *
- * NOTE: do not modify — authoritative types live in CONTRACT.md.
+ * NOTE: do not modify without updating CONTRACT.md first.
  */
+
+// ── Core types (CONTRACT.md) ──────────────────────────────────────────────
 
 export type Source = "untappd" | "ratebeer";
 export type CrawlMode = "live" | "dry-run" | "replay";
@@ -79,3 +81,58 @@ export interface BackoffPolicy {
   multiplier: number;            // 2
   jitter_ratio: number;          // 0.3
 }
+
+// ── CLI extensions (added by CLI harness agent) ───────────────────────────
+
+/** CLI-arg shape — narrow subset of CrawlOptions. */
+export interface CliArgs {
+  source: Source;
+  concurrency: number;
+  dry_run: boolean;
+  limit: number | null;
+  tag: string | null;
+  resume: boolean;
+  help: boolean;
+}
+
+/** Error category — used by error-aggregator.ts. */
+export type CrawlErrorKind =
+  | "http_4xx"
+  | "http_5xx"
+  | "timeout"
+  | "parser"
+  | "cookie_ban";
+
+export interface CrawlError {
+  kind: CrawlErrorKind;
+  url: string;
+  message: string;
+  status?: number;
+  ts: string;
+}
+
+export interface AggregatedErrors {
+  groups: Record<CrawlErrorKind, CrawlError[]>;
+  totals: Record<CrawlErrorKind, number>;
+}
+
+/** On-disk resume state — written by signal.ts on SIGINT/SIGTERM. */
+export interface CrawlState {
+  source: Source;
+  started_at: string;
+  updated_at: string;
+  cursor: string | null;
+  processed_ids: string[];
+  failed_ids: string[];
+  opts: {
+    concurrency: number;
+    limit: number | null;
+    tag: string | null;
+  };
+}
+
+export const MAX_CONCURRENCY = 4;
+export const DEFAULT_CONCURRENCY = 2;
+export const DEFAULT_RETRY_BUDGET = 5;
+export const STATE_FILENAME = ".state.json";
+export const PROGRESS_TICK_MS = 200;

@@ -96,9 +96,9 @@ async function main() {
       process.exit(2);
     }
 
-    // 等新标签出现在 CDP 列表里 (最多 10s)
+    // 等新标签出现在 CDP 列表里 (最多 30s — Chrome 150 fresh 启动可能慢)
     let found = null;
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 60; i++) {
       await new Promise((r) => setTimeout(r, 500));
       const list = await cdpFetch("/json/list");
       found = list.find(
@@ -111,9 +111,35 @@ async function main() {
     }
 
     if (!found) {
-      log.err(`Chrome 没开起 ${TARGET_DOMAIN} 标签 (10s 超时)`);
-      log.hint(`在 Chrome 里手动开 https://${TARGET_DOMAIN} 再重跑这个脚本`);
-      process.exit(3);
+      // 30s 都开不起来 — 大概率 open 命令把 URL 发到了别的浏览器 (默认浏览器)
+      // 兜底: dump 当前所有标签 + 让用户手动开
+      log.err(`30s 内 ${TARGET_DOMAIN} 标签没出现 (open 可能发到别的浏览器了)`);
+      try {
+        const list = await cdpFetch("/json/list");
+        const pages = list.filter((t) => t.type === "page");
+        log.hint(`当前 Chrome 标签 (${pages.length} 个):`);
+        for (const p of pages.slice(0, 8)) {
+          log.hint(`  - ${p.url || "(空)"}`);
+        }
+      } catch {
+        log.hint(`(读 /json/list 失败 — Chrome 状态异常)`);
+      }
+      log.warn(`手动在 Google Chrome 里打开 https://${TARGET_DOMAIN} (Cmd+L → 输入 → 回车)`);
+      log.warn(`确认能看到已登录的用户头像后，按回车继续...`);
+      await waitForEnter();
+
+      // 重试一次
+      const list2 = await cdpFetch("/json/list");
+      found = list2.find(
+        (t) =>
+          t.type === "page" &&
+          typeof t.url === "string" &&
+          t.url.includes(TARGET_DOMAIN),
+      );
+      if (!found) {
+        log.err(`还是没找到 ${TARGET_DOMAIN} 标签，退出`);
+        process.exit(4);
+      }
     }
 
     untappdTarget = found;

@@ -20,6 +20,7 @@
 // 注意: 如果 Chrome 已在跑且没开 debug 端口，必须先关再重启。
 
 import process from "node:process";
+import { execFileSync } from "node:child_process";
 
 const CDP_HTTP = "http://localhost:9222";
 const TARGET_DOMAIN = "untappd.com";
@@ -82,10 +83,41 @@ async function main() {
   );
 
   if (!untappdTarget) {
-    log.warn(`没找到 ${TARGET_DOMAIN} 标签，新建一个...`);
-    const newTab = await cdpFetch(`/json/new?https://${TARGET_DOMAIN}`);
-    untappdTarget = newTab;
-    log.info(`新标签 URL: ${untappdTarget.url}`);
+    log.warn(`没找到 ${TARGET_DOMAIN} 标签，让 Chrome 新开一个...`);
+    try {
+      // macOS 原生命令: open -a "App" URL  → 在指定 app 里开新标签
+      // 绕开 CDP 的 new-tab HTTP 端点 (Chrome 150+ 该端点只接 PUT, GET 会 405)
+      execFileSync("open", ["-a", "Google Chrome", `https://${TARGET_DOMAIN}`], {
+        stdio: "ignore",
+      });
+    } catch (e) {
+      log.err(`open 命令失败: ${e.message}`);
+      log.hint(`手动在 Chrome 里打开 https://${TARGET_DOMAIN} 再重跑`);
+      process.exit(2);
+    }
+
+    // 等新标签出现在 CDP 列表里 (最多 10s)
+    let found = null;
+    for (let i = 0; i < 20; i++) {
+      await new Promise((r) => setTimeout(r, 500));
+      const list = await cdpFetch("/json/list");
+      found = list.find(
+        (t) =>
+          t.type === "page" &&
+          typeof t.url === "string" &&
+          t.url.includes(TARGET_DOMAIN),
+      );
+      if (found) break;
+    }
+
+    if (!found) {
+      log.err(`Chrome 没开起 ${TARGET_DOMAIN} 标签 (10s 超时)`);
+      log.hint(`在 Chrome 里手动开 https://${TARGET_DOMAIN} 再重跑这个脚本`);
+      process.exit(3);
+    }
+
+    untappdTarget = found;
+    log.info(`新标签: ${untappdTarget.url}`);
     await waitForEnter();
   } else {
     log.info(`复用现有标签: ${untappdTarget.url}`);

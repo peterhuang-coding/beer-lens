@@ -104,3 +104,28 @@ test("main() output path is exactly one console.log on the export line", () => {
     `console.log line must reference UNTAPPD_DEV_COOKIE:\n${logLines[0]}`,
   );
 });
+
+// ── 6. regression: does NOT call CDP /json/new (Chrome 150+ returns 405) ─
+
+test("script does NOT call CDP /json/new (regression: Chrome 150+ returns 405)", () => {
+  const src = readFileSync("scripts/dump-untappd-cookies.mjs", "utf8");
+  // We must not call /json/new via HTTP — use macOS `open` instead.
+  assert.ok(
+    !src.includes("/json/new"),
+    "found /json/new reference — must use macOS `open` to avoid 405",
+  );
+  // And we DO use macOS `open` for tab creation:
+  assert.ok(
+    src.includes('execFileSync("open"'),
+    "expected execFileSync('open', ...) to create new tab",
+  );
+});
+
+test("script falls back through `open` + retry loop (waits for new tab)", () => {
+  const src = readFileSync("scripts/dump-untappd-cookies.mjs", "utf8");
+  // After open, the script should re-list targets to find the new tab.
+  assert.ok(
+    src.includes("json/list") && src.includes("setTimeout"),
+    "expected re-list + retry loop after opening new tab",
+  );
+});

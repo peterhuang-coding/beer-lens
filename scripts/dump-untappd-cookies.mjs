@@ -22,7 +22,11 @@
 import process from "node:process";
 import { execFileSync } from "node:child_process";
 
-const CDP_HTTP = "http://localhost:9222";
+// Default 9222 (matches Chrome's --remote-debugging-port=9222).
+// Override via CDP_HTTP env when running against a non-default Chrome instance
+// (e.g. a clean profile on 9223 used to keep Untappd cookies isolated from
+// the user's primary browser session).
+const CDP_HTTP = process.env.CDP_HTTP || "http://localhost:9222";
 const TARGET_DOMAIN = "untappd.com";
 const WANTED = ["untappd_session_t", "untappd_user_v3_e", "untappd_traits"];
 

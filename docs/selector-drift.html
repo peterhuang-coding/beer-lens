@@ -51,9 +51,9 @@
   <h1>Beer-Lens Selector Drift</h1>
   <div class="meta">
     Repo <code>/Volumes/SanDisk2TB/beer-lens</code> ·
-    HEAD <code>62af55d</code> ·
-    Generated <code>2026-08-16 12:22:38</code> ·
-    Baseline <code>2026-08-16T12:22:38.413Z</code> ·
+    HEAD <code>b293921</code> ·
+    Generated <code>2026-08-16 12:25:06</code> ·
+    Baseline <code>2026-08-16T12:25:06.583Z</code> ·
     Threshold <code>20%</code>
   </div>
 </header>
@@ -62,7 +62,7 @@
     <div class="tile"><div class="label">probe targets</div><div class="value">16</div></div>
     <div class="tile ok"><div class="label">within tolerance</div><div class="value">16</div></div>
     <div class="tile ok"><div class="label">drift alerts</div><div class="value">0</div></div>
-    <div class="tile"><div class="label">drift log entries</div><div class="value">1</div></div>
+    <div class="tile"><div class="label">drift log entries</div><div class="value">0</div></div>
   </section>
 
   <section class="harness">
@@ -233,22 +233,9 @@
   <section class="harness">
     <div class="harness-head">
       <h2>drift log</h2>
-      <span class="counts"><b>1</b> entries · data/crawler/selector-probe/drift*.jsonl</span>
+      <span class="counts"><b>0</b> entries · data/crawler/selector-probe/drift*.jsonl</span>
     </div>
-    <table>
-      <thead><tr><th>timestamp</th><th>source</th><th>surface</th><th>target</th><th>baseline</th><th>latest</th><th>Δ</th></tr></thead>
-      <tbody>
-<tr>
-        <td class="ts">2026-02-01T00:00:00Z</td>
-        <td>untappd</td>
-        <td>list</td>
-        <td class="name">LIST_SELECTORS.id</td>
-        <td class="num">5</td>
-        <td class="num">0</td>
-        <td class="num">100.0%</td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="empty">no drift detected — every probe target is within 20% of baseline.</div>
   </section>
 </main>
 <footer>

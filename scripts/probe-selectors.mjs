@@ -214,7 +214,16 @@ async function main() {
   // 3. baseline.json — flatten the fixture (or first) run into a
   //    per-target lookup keyed by id. Used as the comparison baseline
   //    for future runs.
+  //    IMPORTANT: read the previous baseline BEFORE we overwrite it,
+  //    otherwise drift detection compares the new run against itself.
   const baselinePath = join(args.out, "baseline.json");
+  let prevBaseline = null;
+  try {
+    prevBaseline = JSON.parse(await readFile(baselinePath, "utf8"));
+  } catch {
+    // first run — nothing to compare against
+  }
+
   const baselineMap = {};
   for (const run of allRuns) {
     for (const r of run.results) baselineMap[r.id] = r.matched;
@@ -233,25 +242,41 @@ async function main() {
     `  ✓ ${baselinePath} (${baseline.targets.length} targets)`,
   );
 
-  // 4. drift detection — compare live runs (if any) against the
-  //    fixture baseline. Writes drifts.jsonl on deviations > 20%.
+  // 4. drift detection — compare the *just-run* results against the
+  //    previous baseline.json (if it exists). A fixture mutation, or
+  //    a live sample, both surface as drift this way.
   const { detectDrift } = await importTs(
     join(ROOT, "lib/crawler/selector-probe.ts"),
   );
-  const baselineResults = allRuns
-    .filter((r) => r.url.startsWith("fixture://"))
-    .flatMap((r) => r.results);
-  const latestResults = allRuns
-    .filter((r) => !r.url.startsWith("fixture://"))
-    .flatMap((r) => r.results);
 
-  if (latestResults.length > 0 && baselineResults.length > 0) {
+  if (prevBaseline?.targets?.length > 0) {
+    const latestResults = allRuns.flatMap((r) => r.results);
+    const baselineById = new Map(
+      prevBaseline.targets.map((t) => [
+        t.id,
+        {
+          id: t.id,
+          source: t.id.split(".")[0],
+          surface: t.id.split(".")[1],
+          name: t.id,
+          matched: t.matched,
+          sample: [],
+        },
+      ]),
+    );
+    const baselineResults = [...baselineById.values()];
     const drifts = detectDrift(baselineResults, latestResults);
     if (drifts.length > 0) {
       const driftPath = join(args.out, "drifts.jsonl");
-      for (const d of drifts) await appendJsonl(driftPath, d);
+      // Overwrite per run — drifts.jsonl is a snapshot of (latest vs
+      // previous baseline), not an append-only log.
+      const lines = drifts.map((d) => JSON.stringify(d)).join("\n") + "\n";
+      await writeFile(driftPath, lines, "utf8");
       console.log(`  ⚠ ${driftPath} (${drifts.length} drifts)`);
     } else {
+      // Clear any stale drift log from a previous run.
+      const driftPath = join(args.out, "drifts.jsonl");
+      await writeFile(driftPath, "", "utf8").catch(() => {});
       console.log(`  ✓ no drift (latest within 20% of baseline)`);
     }
   }

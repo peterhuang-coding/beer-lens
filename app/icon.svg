@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    Beer Lens favicon.
+    Next.js 16 picks up app/icon.svg automatically and emits the <link rel="icon"> tag.
+    Palette matches the app chrome: #0f1115 ground, #f5a524 accent (beer),
+    #e8eaf0 foam. Drawn for 32×32 readability, scales to any tab size.
+  -->
+  <rect width="32" height="32" rx="6" fill="#0f1115"/>
+
+  <!-- Mug body (amber beer fill with dark outline) -->
+  <path d="M7 10 L7 25 Q7 27 9 27 L21 27 Q23 27 23 25 L23 10 Z"
+        fill="#f5a524" stroke="#0f1115" stroke-width="1.4"/>
+
+  <!-- Handle on the right -->
+  <path d="M23 13 Q28 13 28 18 Q28 23 23 23"
+        fill="none" stroke="#0f1115" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- Foam: bumpy top with two highlights -->
+  <path d="M7 10 Q8 7 11 8 Q12 5 15 7 Q17 4 20 7 Q22 5 23 8 Q24 10 23 11 L7 11 Z"
+        fill="#e8eaf0" stroke="#0f1115" stroke-width="1.2" stroke-linejoin="round"/>
+
+  <!-- Bubbles inside the beer -->
+  <circle cx="11" cy="17" r="0.9" fill="#0f1115" opacity="0.55"/>
+  <circle cx="15" cy="20" r="0.7" fill="#0f1115" opacity="0.55"/>
+  <circle cx="19" cy="15" r="0.8" fill="#0f1115" opacity="0.55"/>
+  <circle cx="13" cy="23" r="0.6" fill="#0f1115" opacity="0.55"/>
+</svg>

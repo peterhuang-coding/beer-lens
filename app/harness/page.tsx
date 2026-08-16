@@ -1,6 +1,7 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
+import Link from "next/link";
 import ToggleSkill from "./_components/ToggleSkill";
 
 // ── Data loading (server-side, runs at request time) ─────────────────────
@@ -175,6 +176,15 @@ export default async function HarnessPage() {
         .harness-main { background: #0f1115; color: #e8eaf0; min-height: 100vh;
           font: 14px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", sans-serif; }
         .harness-main * { box-sizing: border-box; }
+        .top-nav { padding: 14px 40px; background: #1f232c; border-bottom: 1px solid #2a2f3a;
+          display: flex; gap: 18px; align-items: center; }
+        .top-nav a { color: #4cb3ff; text-decoration: none; font-size: 13px; font-weight: 500;
+          padding: 4px 10px; border-radius: 6px; }
+        .top-nav a:hover { background: #2a2f3a; }
+        .top-nav a.active { background: #2a2f3a; color: #f5a524; }
+        .top-nav .nav-spacer { flex: 1; }
+        .top-nav .nav-head { font-family: ui-monospace, "SF Mono", Menlo, monospace;
+          font-size: 11px; color: #9aa3b2; }
         .harness-header { padding: 28px 40px 18px; border-bottom: 1px solid #2a2f3a; }
         .harness-header h1 { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
         .harness-meta { color: #9aa3b2; font-size: 12px; }
@@ -231,6 +241,14 @@ export default async function HarnessPage() {
         .block-legend { padding: 14px 24px; color: #9aa3b2; font-size: 12px; background: #1f232c; border-top: 1px solid #2a2f3a; }
         .block-legend code { color: #f5a524; }
       `}</style>
+
+      <nav className="top-nav">
+        <span className="nav-head">🍺 Beer Lens</span>
+        <Link href="/harness" className="active">/harness</Link>
+        <Link href="/beers">/beers</Link>
+        <span className="nav-spacer" />
+        <span className="nav-head">skills harness · crawler</span>
+      </nav>
 
       <header className="harness-header">
         <h1>🍺 Beer-Lens Harness Platform</h1>

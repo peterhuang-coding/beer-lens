@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import Link from "next/link";
+import { pickRandomBeers, type SampledBeer } from "./_lib/sample";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -54,6 +55,16 @@ export const dynamic = "force-dynamic";
 
 export default async function BeersPage() {
   const stats = await loadStats();
+
+  // Random sample from raw jsonl — runs on every GET (force-dynamic).
+  // 5 beers is small; the heavy lifting (parse 18 MB) is cached in
+  // ./sample.ts for 5 min via module-level cache.
+  let sample: SampledBeer[] = [];
+  try {
+    sample = await pickRandomBeers("data/raw-data/untappd-csv-input.jsonl", 5);
+  } catch {
+    // jsonl may be missing — UI will show "not yet imported"
+  }
   const source: Source = {
     file: "data/raw-data/untappd-csv-stats.json",
     generatedAt: stats?.generated_at ?? "unknown",
@@ -130,6 +141,33 @@ export default async function BeersPage() {
         .summary-card .note { color: #6b7280; font-size: 10px; margin-top: 4px; font-style: italic; }
         .missing { padding: 60px 40px; text-align: center; color: #9aa3b2; font-size: 14px; }
         .missing code { background: #171a21; padding: 2px 8px; border-radius: 4px; color: #f5a524; }
+        .sample-toolbar { padding: 12px 24px; display: flex; gap: 12px; align-items: center;
+          background: #1f232c; border-bottom: 1px solid #2a2f3a; }
+        .sample-toolbar form { display: inline-flex; }
+        .reroll-btn { background: #4cb3ff; color: #0f1115; border: none; padding: 7px 16px;
+          border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;
+          font-family: inherit; }
+        .reroll-btn:hover { background: #6fc3ff; }
+        .reroll-btn:active { transform: translateY(1px); }
+        .sample-grid { padding: 14px; display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: #2a2f3a; }
+        .sample-card { background: #171a21; padding: 14px 16px; display: flex;
+          flex-direction: column; gap: 6px; }
+        .sample-card-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+        .sample-name { color: #e8eaf0; font-size: 13px; font-weight: 600; line-height: 1.35; }
+        .sample-id { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 10px;
+          color: #6b7280; flex-shrink: 0; }
+        .sample-meta { color: #9aa3b2; font-size: 12px; }
+        .sample-meta b { color: #4cb3ff; font-weight: 500; }
+        .sample-stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; font-size: 11px; }
+        .sample-stat { background: #0f1115; border: 1px solid #2a2f3a; border-radius: 4px;
+          padding: 3px 8px; }
+        .sample-stat .k { color: #6b7280; margin-right: 4px; text-transform: uppercase;
+          letter-spacing: 0.4px; font-size: 9px; }
+        .sample-stat .v { color: #e8eaf0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+          font-weight: 600; }
+        .sample-stat.rating .v { color: #f5a524; }
+        .sample-empty { padding: 40px 24px; text-align: center; color: #9aa3b2; font-size: 13px; }
         .block-legend { padding: 14px 24px; color: #9aa3b2; font-size: 12px; background: #1f232c; border-top: 1px solid #2a2f3a; }
         .block-legend code { color: #f5a524; }
       `}</style>
@@ -284,6 +322,66 @@ export default async function BeersPage() {
                 <div className="k">独立 brewery</div>
                 <div className="v">{fmtNum(stats.brewery_unique)}</div>
               </div>
+            </div>
+          </section>
+
+          {/* 5. Random sample ───────────────────────────────────────────── */}
+          <section className="beers-block">
+            <div className="beers-block-head">
+              <h2>5. 随机抽 5 条 · 数据格式预览</h2>
+              <span className="sub">来源 {`untappd-csv-input.jsonl`} (32,728 records)</span>
+              <span className="counts"><b>{sample.length}</b> / 5</span>
+            </div>
+            <div className="sample-toolbar">
+              <form method="get" action="">
+                <button type="submit" className="reroll-btn">🎲 换 5 条</button>
+              </form>
+              <span style={{ color: "#9aa3b2", fontSize: 11 }}>
+                每次点击或刷新页面都会重新随机选 5 条 — 缓存 5 分钟
+              </span>
+            </div>
+            {sample.length === 0 ? (
+              <div className="sample-empty">
+                jsonl 不在 — 先跑 <code>npm run import-untappd-csv</code>
+              </div>
+            ) : (
+              <div className="sample-grid">
+                {sample.map((b) => (
+                  <div key={b.source_id} className="sample-card">
+                    <div className="sample-card-head">
+                      <span className="sample-name">{b.name}</span>
+                      <span className="sample-id">#{b.source_id}</span>
+                    </div>
+                    <div className="sample-meta">
+                      <b>{b.brewery_name ?? "(unknown brewery)"}</b>
+                      {b.country ? <> · {b.country}</> : null}
+                    </div>
+                    <div className="sample-meta" style={{ fontStyle: b.style ? "normal" : "italic", color: b.style ? "#9aa3b2" : "#6b7280" }}>
+                      {b.style ?? "未分类"}
+                    </div>
+                    <div className="sample-stats">
+                      <span className="sample-stat">
+                        <span className="k">abv</span>
+                        <span className="v">{b.abv !== null ? `${b.abv.toFixed(1)}%` : "—"}</span>
+                      </span>
+                      <span className="sample-stat rating">
+                        <span className="k">rating</span>
+                        <span className="v">{b.rating !== null ? b.rating.toFixed(2) : "—"}</span>
+                      </span>
+                      <span className="sample-stat">
+                        <span className="k">calls</span>
+                        <span className="v">
+                          {b.rating_count !== null ? fmtNum(b.rating_count) : "0"}
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="block-legend">
+              <code>rating_count</code> 是 Untappd 上被多少人打分的次数(用户原话:"被调用的次数")。
+              当前 <code>enabled: true</code> 的 skills 还没接 LLM,所以 router 实际被调用的次数还是 0 — 这是预期状态。
             </div>
           </section>
 

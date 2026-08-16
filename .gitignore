@@ -21,3 +21,8 @@ data/traces/
 data/cases.json
 
 .claude/settings.local.json
+
+# Generated data (selector-drift + csv-import)
+data/raw-data/*.jsonl
+data/crawler/selector-probe/*.jsonl
+data/crawler/_logs/

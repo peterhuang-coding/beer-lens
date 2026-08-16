@@ -1,0 +1,11 @@
+id,name,brewery,style,country,abv,rating,ratings_count,untappd_url,label_image
+4957193,Pure Draft Dusseldorf Altbier,Y.Market Brewing,Altbier - Traditional,Japan,5,3.695,172,/b/y-market-brewing-pure-draft-dusseldorf-altbier/4957193,https://assets.untappd.com/site/brewery_logos/brewery-116775_762a7.jpeg
+3481352,Adult Wolf - Düsseldorfer Alt,Wolfbräu,Altbier - Traditional,Japan,5,3.688,158,/b/wolfbrau-adult-wolf-dusseldorfer-alt/3481352,https://assets.untappd.com/site/brewery_logos/brewery-440740_60bc0.jpeg
+713464,Tainai Kogen Alt,"Niigata Brewery Co., Ltd.",Altbier - Traditional,Japan,5,3.582,180,/b/niigata-brewery-co-ltd-tainai-kogen-alt/713464,https://assets.untappd.com/site/brewery_logos/brewery-94616_c81d3.jpeg
+6057920,"Christmas Beer Barley Wine w/ Cinnamon, Vanilla (2024)",VERTERE,This beer is no longer being produced by the brewery,Japan,10,3.75,151,/b/vertere-christmas-beer-barley-w-cinnamon-vanilla-2024/6057920,https://assets.untappd.com/site/beer_logos/beer-6057920_b1d8c_sm.jpeg
+1,Edge Case Zero Rating,Edge Brewery,Lager - Japanese,Japan,5,0.0,1,/b/edge-zero/1,https://example.com/zero.jpeg
+2,Edge Case Top Rating,Edge Brewery,Lager - Japanese,Japan,5,5.0,2,/b/edge-top/2,https://example.com/top.jpeg
+3,Edge Case Mid Rating,Edge Brewery,Lager - Japanese,Japan,5,2.5,3,/b/edge-mid/3,https://example.com/mid.jpeg
+4,Missing ABV,No Abv Brewing,IPA - American,USA,,4.0,10,/b/no-abv/4,https://example.com/noabv.jpeg
+5,Missing Rating,No Rating Brewing,Stout - Imperial,USA,8,,5,/b/no-rating/5,https://example.com/norating.jpeg
+6,"Quoted, Name With Comma",Quoted Brewery,Porter - American,UK,6,3.9,20,/b/quoted-name/6,https://example.com/quoted.jpeg

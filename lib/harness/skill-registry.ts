@@ -16,6 +16,49 @@ export { registerSkill, getSkill, listSkills, invokeSkill };
 import type { Skill, SkillId, SkillContext } from "./types.ts";
 import type { AgentContext } from "../agent/types.ts";
 
+// ── Static executor dispatch ──────────────────────────────────────────────
+//
+// We use a hand-rolled switch keyed by skill id instead of a dynamic
+// `import(handlerPath)` because the production bundler cannot statically
+// resolve a variable module specifier and emits the dreaded
+// "Cannot find module as expression is too dynamic" error at runtime.
+//
+// All execute.ts modules are imported eagerly at module load; they sit in
+// lib/skills/*/execute.ts and the call sites below are explicit. The
+// `_executors` map makes adding a new skill a one-line change.
+
+import * as recommendExec from "../skills/recommend/execute.ts";
+import * as tasteFeedbackExec from "../skills/taste-feedback/execute.ts";
+import * as profileQueryExec from "../skills/profile-query/execute.ts";
+import * as beerKnowledgeExec from "../skills/beer-knowledge/execute.ts";
+import * as labelCheckExec from "../skills/label-check/execute.ts";
+import * as memoryCorrectionExec from "../skills/memory-correction/execute.ts";
+import * as fallbackExec from "../skills/fallback/execute.ts";
+
+type ExecFn = (
+  ctx: AgentContext,
+  params: Record<string, unknown>,
+) => Promise<import("./types").AgentReply>;
+
+const _executors: Record<string, ExecFn> = {
+  recommend: recommendExec.execute,
+  "taste-feedback": tasteFeedbackExec.execute,
+  "profile-query": profileQueryExec.execute,
+  "beer-knowledge": beerKnowledgeExec.execute,
+  "label-check": labelCheckExec.execute,
+  "memory-correction": memoryCorrectionExec.execute,
+  fallback: fallbackExec.execute,
+};
+
+function pickExecutor(handlerFile: string): ExecFn | undefined {
+  // handlerFile looks like "../skills/recommend/execute.ts"; the second
+  // path segment is the module name. If a future skill adds a new module
+  // we just add it to _executors above.
+  const parts = handlerFile.split("/");
+  const moduleName = parts[2];
+  return moduleName ? _executors[moduleName] : undefined;
+}
+
 // ── Helpers ──
 
 /**
@@ -45,14 +88,15 @@ function toAgentContext(ctx: SkillContext): AgentContext {
 // This avoids a hard startup dependency and lets tests inject mocks later if
 // needed by overwriting the registered Skill in the registry.
 
-function makeExecutor(handlerPath: string) {
+function makeExecutor(handlerFile: string) {
   return async (ctx: SkillContext) => {
-    const agentCtx = toAgentContext(ctx);
-    const mod = (await import(handlerPath)) as {
-      execute: (ctx: AgentContext, params: Record<string, unknown>) =>
-        Promise<import("./types").AgentReply>;
-    };
-    return mod.execute(agentCtx, ctx.params ?? {});
+    const exec = pickExecutor(handlerFile);
+    if (!exec) {
+      throw new Error(
+        `[harness] no executor registered for handlerFile="${handlerFile}" — add it to lib/harness/skill-registry.ts`,
+      );
+    }
+    return exec(toAgentContext(ctx), ctx.params ?? {});
   };
 }
 

@@ -26,3 +26,9 @@ data/cases.json
 data/raw-data/*.jsonl
 data/crawler/selector-probe/*.jsonl
 data/crawler/_logs/
+
+# PM orchestrator artifacts (per-machine, not project source)
+features/
+
+# Python harness cache (legacy, unused)
+.beer-data/

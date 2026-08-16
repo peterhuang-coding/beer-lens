@@ -146,34 +146,57 @@ function cssToRegex(selector: string): RegExp {
       }
     }
 
-    const frag = tokens.map((tok) => {
+    // Each token produces a regex fragment. The first token starts with
+    // `<` (the opening of the tag); subsequent tokens are attribute
+    // pieces separated by whitespace inside the tag. We join with `\s+`
+    // so a compound selector like `a[href*="/beer/"]` parses as
+    // `<a ... href=...>` without doubling the `<`.
+    const fragList: string[] = [];
+    tokens.forEach((tok, idx) => {
       const [kind, body] = tok.split(":", 2);
+      const isFirst = idx === 0;
+      const tagOpen = isFirst ? "<" : "";
+      // For tag-only first tokens we don't need `[^>]*`; for attr /
+      // class / id first tokens we want it to consume any preceding
+      // chars inside the opening tag.
+      const anyPre = (isFirst && kind === "tag") ? "" : "[^>]*";
       if (kind === "tag") {
-        return `<${body}\\b`;
-      }
-      if (kind === "class") {
-        return `<[^>]*\\bclass\\s*=\\s*"[^"]*\\b${escapeRe(body)}\\b`;
-      }
-      if (kind === "id") {
-        return `<[^>]*\\bid\\s*=\\s*"${escapeRe(body)}"`;
-      }
-      if (kind === "attr") {
-        // [attr] / [attr="v"] / [attr*="v"]
-        const m = body.match(/^([a-zA-Z_-]+)(\*?=)["']?([^"']*)["']?$/);
-        if (!m) return `<[^>]*${escapeRe(body)}=`;
-        const [, attrName, op, attrVal] = m;
-        if (op === "") return `<[^>]*\\b${attrName}\\s*=\\s*"`;
-        if (op === "=") {
-          return `<[^>]*\\b${attrName}\\s*=\\s*"${escapeRe(attrVal ?? "")}"`;
+        fragList.push(`${tagOpen}${escapeRe(body)}\\b`);
+      } else if (kind === "class") {
+        fragList.push(
+          `${tagOpen}${anyPre}\\bclass\\s*=\\s*"[^"]*\\b${escapeRe(body)}\\b`,
+        );
+      } else if (kind === "id") {
+        fragList.push(
+          `${tagOpen}${anyPre}\\bid\\s*=\\s*"${escapeRe(body)}"`,
+        );
+      } else if (kind === "attr") {
+        const eq = body.indexOf("=");
+        if (eq === -1) {
+          fragList.push(
+            `${tagOpen}${anyPre}\\b${escapeRe(body)}\\s*=\\s*"`,
+          );
+        } else {
+          const attrName = body.slice(0, eq);
+          const rawVal = body.slice(eq + 1).replace(/^["']|["']$/g, "");
+          if (attrName.endsWith("*")) {
+            const realName = attrName.slice(0, -1);
+            fragList.push(
+              `${tagOpen}${anyPre}\\b${escapeRe(realName)}\\s*=\\s*"[^"]*${escapeRe(rawVal)}[^"]*"`,
+            );
+          } else {
+            fragList.push(
+              `${tagOpen}${anyPre}\\b${escapeRe(attrName)}\\s*=\\s*"${escapeRe(rawVal)}"`,
+            );
+          }
         }
-        // "*=" contains
-        return `<[^>]*\\b${attrName}\\s*=\\s*"[^"]*${escapeRe(attrVal ?? "")}[^"]*"`;
       }
-      return "";
-    }).join("[^>]*");
+    });
 
-    // Close tag fragment with a > and allow whitespace inside.
-    return `${frag}\\b[^>]*>`;
+    // Join tokens with whitespace (attributes are space-separated in
+    // any real HTML tag) and close with `[^>]*>` for the rest of the
+    // opening tag.
+    return `${fragList.join("\\s+")}[^>]*>`;
   });
 
   const joined = alternatives.map((a) => `(?:${a})`).join("|");
@@ -383,7 +406,7 @@ export function runProbe(
 function probeOne(html: string, t: ProbeTarget): ProbeResult {
   const re = t.kind === "css"
     ? cssToRegex(t.pattern)
-    : new RegExp(t.pattern, t.flags ?? "gi");
+    : new RegExp(t.pattern, ensureGlobal(t.flags));
 
   let matched = 0;
   const sample: string[] = [];
@@ -407,6 +430,17 @@ function probeOne(html: string, t: ProbeTarget): ProbeResult {
     matched,
     sample,
   };
+}
+
+/**
+ * Make sure the rebuilt regex always carries the global flag. The
+ * ratebeer selectors are declared without /g (they call `.match()`
+ * not `.matchAll()`); when we walk them with exec() we need g or the
+ * loop will spin on the same zero-length match forever.
+ */
+function ensureGlobal(flags: string | undefined): string {
+  const f = flags ?? "";
+  return f.includes("g") ? f : f + "g";
 }
 
 /** Export for tests / docs — keep the helper visible. */

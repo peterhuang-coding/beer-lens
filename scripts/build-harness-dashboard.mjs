@@ -81,6 +81,16 @@ const fixtureFiles = await globFiles(
   ".html",
 );
 
+// CSV import stats (optional — dashboard still builds when missing).
+let csvStats = null;
+try {
+  csvStats = await readJSON(
+    join(ROOT, "data/raw-data/untappd-csv-stats.json"),
+  );
+} catch {
+  csvStats = null;
+}
+
 const crawlerModules = [];
 for (const f of [...crawlerFiles, ...crawlerMd].sort()) {
   const name = f.split("/").pop();
@@ -91,6 +101,65 @@ for (const f of [...crawlerFiles, ...crawlerMd].sort()) {
 
 const head = execSafe("git", ["rev-parse", "--short", "HEAD"]);
 const now = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+// ── CSV import panel render ───────────────────────────────────────────────
+
+let csvPanel = "";
+if (csvStats) {
+  const totalRecords = csvStats.total_records ?? 0;
+  const breweryUnique = csvStats.brewery_unique ?? 0;
+  const countries = Array.isArray(csvStats.by_country)
+    ? csvStats.by_country
+    : Object.entries(csvStats.by_country ?? {}).map(([country, count]) => ({
+        country,
+        count,
+      }));
+  const countryCount = countries.length;
+  const topStyles = csvStats.by_style_top_50 ?? [];
+  const stylesShown = topStyles.slice(0, 10);
+  const stylesHidden = topStyles.length - stylesShown.length;
+
+  const countryList = countries
+    .map(
+      (c) =>
+        `<li><b>${htmlEscape(c.country)}</b> <span>${htmlEscape(String(c.count))}</span></li>`,
+    )
+    .join("");
+
+  const styleList = stylesShown
+    .map(
+      (s, i) =>
+        `<li><span class="rank">${i + 1}</span><b>${htmlEscape(s.style)}</b> <span>${htmlEscape(String(s.count))}</span></li>`,
+    )
+    .join("");
+
+  csvPanel = `
+  <section class="harness csv">
+    <div class="harness-head">
+      <h2>1. CSV import</h2>
+      <span class="sub">scripts/import-untappd-csv.mjs · data/raw-data/untappd-csv-input.jsonl</span>
+      <span class="counts"><b>${htmlEscape(String(totalRecords))}</b> records from <code>untappd.csv</code> · <b>${htmlEscape(String(breweryUnique))}</b> breweries · <b>${htmlEscape(String(countryCount))}</b> countries</span>
+    </div>
+    <div class="csv-body">
+      <div class="csv-col">
+        <h3>By country</h3>
+        <ul class="csv-list" style="column-count: 3;">
+          ${countryList}
+        </ul>
+      </div>
+      <div class="csv-col">
+        <h3>By style — top 50 (showing ${stylesShown.length})</h3>
+        <ul class="csv-list">
+          ${styleList}
+        </ul>
+        ${stylesHidden > 0 ? `<p class="more">...and ${stylesHidden} more</p>` : ""}
+      </div>
+    </div>
+    <div class="legend">
+      数据源: <code>/tmp/untappd.csv</code> · 命令: <code>npm run import-untappd-csv</code> · stats: <code>data/raw-data/untappd-csv-stats.json</code>
+    </div>
+  </section>`;
+}
 
 // ── render ────────────────────────────────────────────────────────────────
 
@@ -166,6 +235,15 @@ const html = `<!doctype html>
   .module-desc { color: var(--fg-dim); font-size: 12px; }
   .legend { padding: 14px 24px; color: var(--fg-dim); font-size: 12px; background: var(--panel-2); border-top: 1px solid var(--border); }
   .legend code { color: var(--accent); }
+  .csv-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .csv-col { background: var(--panel); padding: 16px 18px; }
+  .csv-col h3 { margin: 0 0 10px; font-size: 12px; font-weight: 600; color: var(--accent-2); text-transform: uppercase; letter-spacing: 0.4px; }
+  .csv-list { list-style: none; padding: 0; margin: 0; font-size: 12px; color: var(--fg-dim); column-gap: 18px; }
+  .csv-list li { display: flex; align-items: baseline; gap: 6px; padding: 3px 0; break-inside: avoid; }
+  .csv-list li b { color: var(--fg); font-weight: 500; min-width: 0; }
+  .csv-list li span { color: var(--green); font-variant-numeric: tabular-nums; margin-left: auto; }
+  .csv-list li .rank { color: var(--accent); min-width: 18px; font-variant-numeric: tabular-nums; }
+  .csv .more { margin: 10px 0 0; color: var(--fg-dim); font-size: 11px; font-style: italic; }
   footer { padding: 16px 40px 40px; color: var(--fg-dim); font-size: 12px; text-align: center; }
 </style>
 </head>
@@ -176,14 +254,14 @@ const html = `<!doctype html>
     Repo <code>/Volumes/SanDisk2TB/beer-lens</code> ·
     HEAD <code>${htmlEscape(head)}</code> ·
     Generated <code>${htmlEscape(now)}</code> ·
-    2 harnesses · <b>${builtinSkills.length}</b> builtin skills · <b>${crawlerModules.length}</b> crawler modules
+    2 harnesses · <b>${builtinSkills.length}</b> builtin skills · <b>${crawlerModules.length}</b> crawler modules${csvStats ? ` · <b>${htmlEscape(String(csvStats.total_records ?? 0))}</b> CSV records` : ""}
   </div>
 </header>
 <main>
-
+${csvPanel}
   <section class="harness">
     <div class="harness-head">
-      <h2>1. Skills Harness</h2>
+      <h2>2. Skills Harness</h2>
       <span class="sub">lib/harness/{types,router,skill-registry}.ts</span>
       <span class="counts"><b>${builtinSkills.length}</b> builtin skills · <b>${handlerCounts.size}</b> executors</span>
     </div>
@@ -200,7 +278,7 @@ ${skillCards}
 
   <section class="harness">
     <div class="harness-head">
-      <h2>2. Crawler Harness</h2>
+      <h2>3. Crawler Harness</h2>
       <span class="sub">lib/crawler/*.ts · bin/beer-lens-crawl.mjs · data/crawler/_fixtures/</span>
       <span class="counts"><b>${crawlerModules.length}</b> modules · <b>${fixtureFiles.length}</b> fixtures · <b>1</b> CLI entry</span>
     </div>

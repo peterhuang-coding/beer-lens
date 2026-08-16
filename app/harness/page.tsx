@@ -1,6 +1,7 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
+import ToggleSkill from "./_components/ToggleSkill";
 
 // ── Data loading (server-side, runs at request time) ─────────────────────
 
@@ -20,6 +21,14 @@ type SkillManifest = {
   updatedAt?: string;
 };
 
+type IntentEntry = {
+  id: string;
+  label: string;
+  description?: string;
+  enabled?: boolean;
+  [key: string]: unknown;
+};
+
 async function lineCount(p: string): Promise<number> {
   const txt = await readFile(p, "utf8");
   return txt.split("\n").length;
@@ -34,6 +43,25 @@ async function listFiles(dir: string, suffix?: string): Promise<string[]> {
       .sort();
   } catch {
     return [];
+  }
+}
+
+async function loadFirstLines(filePath: string, max: number): Promise<{ text: string; total: number } | null> {
+  try {
+    const txt = await readFile(filePath, "utf8");
+    const lines = txt.split("\n");
+    return { text: lines.slice(0, max).join("\n"), total: lines.length };
+  } catch {
+    return null;
+  }
+}
+
+async function loadJsonSafe<T>(filePath: string): Promise<T | null> {
+  try {
+    const txt = await readFile(filePath, "utf8");
+    return JSON.parse(txt) as T;
+  } catch {
+    return null;
   }
 }
 
@@ -76,15 +104,70 @@ async function getHead(): Promise<string> {
   }
 }
 
+// Map `handlerFile` (e.g. "lib/skills/recommend/execute.ts") to a category
+// directory ("recommend") — the convention is the second path segment.
+// We use this to look up `lib/skills/<category>/profile.json` if it exists.
+function categoryFromHandler(handlerFile: string): string {
+  const parts = handlerFile.split("/");
+  // expected: ["lib", "skills", "<category>", "execute.ts"]
+  return parts[2] ?? "";
+}
+
+async function loadSkillDetail(s: { id: string; handlerFile: string }) {
+  const cat = categoryFromHandler(s.handlerFile);
+  const execPath = join(process.cwd(), s.handlerFile);
+  const exec = await loadFirstLines(execPath, 80);
+  const profilePath = cat ? join(process.cwd(), "lib", "skills", cat, "profile.json") : "";
+  const profile = profilePath ? await loadJsonSafe<unknown>(profilePath) : null;
+  return {
+    exec,
+    profile,
+    profilePretty: profile !== null ? JSON.stringify(profile, null, 2) : null,
+  };
+}
+
+async function loadIntentsBySkill(): Promise<Map<string, IntentEntry[]>> {
+  const map = new Map<string, IntentEntry[]>();
+  try {
+    const raw = await readFile("data/intent-registry.json", "utf8");
+    const arr = JSON.parse(raw) as IntentEntry[];
+    for (const intent of arr) {
+      // Intent <-> skill id is 1:1 by id (manifest is keyed by skill id,
+      // intent-registry is keyed by intent id — same 8 values).
+      if (!map.has(intent.id)) map.set(intent.id, []);
+      map.get(intent.id)!.push(intent);
+    }
+  } catch {
+    // ignore — detail UI will just show "no intent mapping"
+  }
+  return map;
+}
+
 // ── Page (server component) ──────────────────────────────────────────────
 
 export const dynamic = "force-dynamic"; // always re-read manifest on request
 
 export default async function HarnessPage() {
-  const [{ manifest, builtin, handlerCounts }, crawler, head] = await Promise.all(
-    [loadSkills(), loadCrawler(), getHead()],
-  );
+  const [
+    { manifest, builtin, handlerCounts },
+    crawler,
+    head,
+    intentsBySkill,
+  ] = await Promise.all([
+    loadSkills(),
+    loadCrawler(),
+    getHead(),
+    loadIntentsBySkill(),
+  ]);
   const now = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+  // Pre-load all skill details (execute.ts first 80 lines + profile.json).
+  const detailBySkill = new Map<string, Awaited<ReturnType<typeof loadSkillDetail>>>();
+  await Promise.all(
+    builtin.map(async (s) => {
+      detailBySkill.set(s.id, await loadSkillDetail(s));
+    }),
+  );
 
   return (
     <main className="harness-main">
@@ -117,6 +200,29 @@ export default async function HarnessPage() {
         .pill.off { background: #4b5563; color: #d1d5db; }
         .pill.shared { background: #1e3a8a; color: #bfdbfe; }
         .skill-path { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px; color: #9aa3b2; word-break: break-all; }
+        .skill-toggle { font-size: 11px; padding: 3px 10px; border-radius: 6px; border: 1px solid transparent;
+          cursor: pointer; font-weight: 600; letter-spacing: 0.3px; transition: background 0.12s, border 0.12s; }
+        .skill-toggle.on { background: #4b5563; color: #f3f4f6; border-color: #6b7280; }
+        .skill-toggle.on:hover { background: #374151; }
+        .skill-toggle.off { background: #166534; color: #d1fae5; border-color: #15803d; }
+        .skill-toggle.off:hover { background: #14532d; }
+        .skill-toggle:disabled { opacity: 0.5; cursor: not-allowed; }
+        .skill-details { margin-top: 8px; }
+        .skill-details > summary { cursor: pointer; color: #9aa3b2; font-size: 11px;
+          padding: 4px 0; user-select: none; }
+        .skill-details > summary:hover { color: #4cb3ff; }
+        .skill-details > summary::marker { color: #4cb3ff; }
+        .skill-detail-body { padding: 10px 0 4px; display: flex; flex-direction: column; gap: 10px; }
+        .skill-detail-section { background: #0f1115; border: 1px solid #2a2f3a; border-radius: 6px; padding: 10px 12px; }
+        .skill-detail-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+        .skill-detail-title { font-size: 10px; color: #f5a524; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .skill-detail-meta { font-size: 10px; color: #9aa3b2; }
+        .code { margin: 0; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px;
+          line-height: 1.5; color: #e8eaf0; overflow: auto; max-height: 320px; white-space: pre; }
+        .intent-map { display: flex; flex-wrap: wrap; gap: 4px; }
+        .intent-chip { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 10px;
+          background: #1e3a8a; color: #bfdbfe; padding: 2px 6px; border-radius: 4px; }
+        .intent-empty { color: #9aa3b2; font-size: 11px; font-style: italic; }
         .module-row { padding: 14px 24px; border-bottom: 1px solid #2a2f3a; display: flex; align-items: baseline; gap: 14px; }
         .module-row:last-child { border-bottom: none; }
         .module-name { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: #4cb3ff; font-size: 13px; min-width: 220px; }
@@ -145,6 +251,8 @@ export default async function HarnessPage() {
           <div className="skills-grid">
             {builtin.map((s) => {
               const shared = (handlerCounts.get(s.handlerFile) ?? 0) > 1;
+              const detail = detailBySkill.get(s.id);
+              const intents = intentsBySkill.get(s.id) ?? [];
               return (
                 <div key={s.id} className="skill-card">
                   <div className="skill-card-head">
@@ -155,8 +263,64 @@ export default async function HarnessPage() {
                   <div className="skill-foot">
                     <span className={`pill ${s.enabled ? "on" : "off"}`}>{s.enabled ? "ON" : "OFF"}</span>
                     {shared ? <span className="pill shared">shared</span> : null}
+                    <ToggleSkill id={s.id} initialEnabled={s.enabled} />
                   </div>
                   <div className="skill-path">{s.handlerFile}</div>
+                  <details className="skill-details">
+                    <summary>细节</summary>
+                    <div className="skill-detail-body">
+                      <div className="skill-detail-section">
+                        <div className="skill-detail-head">
+                          <span className="skill-detail-title">execute.ts (前 80 行)</span>
+                          {detail?.exec ? (
+                            <span className="skill-detail-meta">
+                              {detail.exec.text.split("\n").length} / {detail.exec.total} 行
+                            </span>
+                          ) : (
+                            <span className="skill-detail-meta">未找到</span>
+                          )}
+                        </div>
+                        {detail?.exec ? (
+                          <pre className="code">{detail.exec.text}</pre>
+                        ) : (
+                          <div className="intent-empty">execute.ts 不可读</div>
+                        )}
+                      </div>
+                      <div className="skill-detail-section">
+                        <div className="skill-detail-head">
+                          <span className="skill-detail-title">profile.json</span>
+                          <span className="skill-detail-meta">
+                            {detail?.profilePretty ? "已挂载" : "未挂载"}
+                          </span>
+                        </div>
+                        {detail?.profilePretty ? (
+                          <pre className="code">{detail.profilePretty}</pre>
+                        ) : (
+                          <div className="intent-empty">该 skill 未提供 profile.json</div>
+                        )}
+                      </div>
+                      <div className="skill-detail-section">
+                        <div className="skill-detail-head">
+                          <span className="skill-detail-title">关联 intent</span>
+                          <span className="skill-detail-meta">
+                            {intents.length > 0 ? `${intents.length} 个` : "无"}
+                          </span>
+                        </div>
+                        {intents.length > 0 ? (
+                          <div className="intent-map">
+                            {intents.map((it) => (
+                              <span key={it.id} className="intent-chip">
+                                {it.id}
+                                {it.label ? ` · ${it.label}` : ""}
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="intent-empty">intent-registry 中未匹配到该 skill</div>
+                        )}
+                      </div>
+                    </div>
+                  </details>
                 </div>
               );
             })}

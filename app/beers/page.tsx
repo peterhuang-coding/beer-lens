@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import Link from "next/link";
 import { pickRandomBeers, type SampledBeer } from "./_lib/sample";
+import Nav from "../_components/Nav";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -96,15 +97,6 @@ export default async function BeersPage() {
         .beers-main { background: #0f1115; color: #e8eaf0; min-height: 100vh;
           font: 14px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", sans-serif; }
         .beers-main * { box-sizing: border-box; }
-        .top-nav { padding: 14px 40px; background: #1f232c; border-bottom: 1px solid #2a2f3a;
-          display: flex; gap: 18px; align-items: center; }
-        .top-nav a { color: #4cb3ff; text-decoration: none; font-size: 13px; font-weight: 500;
-          padding: 4px 10px; border-radius: 6px; }
-        .top-nav a:hover { background: #2a2f3a; }
-        .top-nav a.active { background: #2a2f3a; color: #f5a524; }
-        .top-nav .nav-spacer { flex: 1; }
-        .top-nav .nav-head { font-family: ui-monospace, "SF Mono", Menlo, monospace;
-          font-size: 11px; color: #9aa3b2; }
         .beers-header { padding: 28px 40px 18px; border-bottom: 1px solid #2a2f3a; }
         .beers-header h1 { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
         .beers-meta { color: #9aa3b2; font-size: 12px; }
@@ -172,13 +164,7 @@ export default async function BeersPage() {
         .block-legend code { color: #f5a524; }
       `}</style>
 
-      <nav className="top-nav">
-        <span className="nav-head">🍺 Beer Lens</span>
-        <Link href="/harness">/harness</Link>
-        <Link href="/beers" className="active">/beers</Link>
-        <span className="nav-spacer" />
-        <span className="nav-head">data viz · Untappd CSV</span>
-      </nav>
+      <Nav active="beers" rightLabel="data viz · Untappd CSV" />
 
       <header className="beers-header">
         <h1>🍻 Untappd 啤酒数据可视化</h1>

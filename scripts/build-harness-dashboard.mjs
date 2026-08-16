@@ -172,6 +172,7 @@ const html = `<!doctype html>
 <body>
 <header>
   <h1>🍺 Beer-Lens Harness Platform</h1>
+  <p style="margin:8px 0 0;"><a href="selector-drift.html">→ Live Selector Probe</a></p>
   <div class="meta">
     Repo <code>/Volumes/SanDisk2TB/beer-lens</code> ·
     HEAD <code>${htmlEscape(head)}</code> ·

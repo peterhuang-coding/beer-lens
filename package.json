@@ -23,7 +23,9 @@
     "crawl:untappd": "npx tsx scripts/crawl-all.mjs --source untappd --country CN",
     "cli": "node scripts/cli.mjs",
     "crawl:test": "node --experimental-strip-types --test tests/crawler-cli.test.mts",
-    "harness:dashboard": "node scripts/build-harness-dashboard.mjs"
+    "harness:dashboard": "node scripts/build-harness-dashboard.mjs",
+    "selector-probe": "node scripts/probe-selectors.mjs",
+    "selector-drift:dashboard": "node scripts/build-selector-drift-dashboard.mjs"
   },
   "bin": {
     "beer-lens": "scripts/cli.mjs",

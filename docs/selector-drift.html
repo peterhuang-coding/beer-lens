@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beer-Lens Selector Drift</title>
+<style>
+  :root {
+    --bg: #0f1115; --panel: #171a21; --panel-2: #1f232c; --border: #2a2f3a;
+    --fg: #e8eaf0; --fg-dim: #9aa3b2; --accent: #f5a524; --accent-2: #4cb3ff;
+    --green: #4ade80; --red: #f87171; --pill-on: #166534; --pill-off: #4b5563;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 14px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro", "PingFang SC", sans-serif; }
+  header { padding: 28px 40px 18px; border-bottom: 1px solid var(--border); }
+  header h1 { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
+  header .meta { color: var(--fg-dim); font-size: 12px; }
+  header .meta code { background: var(--panel); padding: 1px 6px; border-radius: 4px; color: var(--accent); }
+  main { padding: 28px 40px 60px; display: grid; gap: 32px; max-width: 1280px; margin: 0 auto; }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .tile { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; }
+  .tile .label { color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tile .value { font-size: 28px; font-weight: 700; color: var(--accent); margin-top: 6px; }
+  .tile.ok .value { color: var(--green); }
+  .tile.warn .value { color: var(--red); }
+  .harness { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .harness-head { padding: 18px 24px; background: var(--panel-2); border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .harness-head h2 { margin: 0; font-size: 16px; font-weight: 600; color: var(--accent); text-transform: capitalize; }
+  .harness-head .counts { margin-left: auto; color: var(--fg-dim); font-size: 12px; }
+  .harness-head .counts b { color: var(--fg); font-weight: 600; }
+  h3 { margin: 18px 24px 8px; font-size: 12px; font-weight: 600; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.6px; }
+  table { width: calc(100% - 48px); margin: 0 24px 18px; border-collapse: collapse; font-size: 12px; }
+  thead th { background: var(--panel-2); color: var(--fg-dim); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-weight: 600; }
+  tbody td { padding: 8px 10px; border-bottom: 1px solid var(--border); font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.name { color: var(--accent-2); }
+  td.surface { color: var(--fg-dim); text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
+  td.num.ok { color: var(--green); }
+  td.num.drift { color: var(--red); font-weight: 700; }
+  td.status.drift { color: var(--red); font-weight: 700; }
+  td.status.ok { color: var(--green); }
+  td.sample code { background: var(--panel-2); padding: 1px 5px; border-radius: 3px; color: var(--fg-dim); display: inline-block; margin: 1px 0; word-break: break-all; font-size: 10px; }
+  .empty { padding: 24px; color: var(--fg-dim); font-size: 13px; text-align: center; }
+  footer { padding: 16px 40px 40px; color: var(--fg-dim); font-size: 12px; text-align: center; }
+  footer code { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Beer-Lens Selector Drift</h1>
+  <div class="meta">
+    Repo <code>/Volumes/SanDisk2TB/beer-lens</code> ·
+    HEAD <code>62af55d</code> ·
+    Generated <code>2026-08-16 12:22:38</code> ·
+    Baseline <code>2026-08-16T12:22:38.413Z</code> ·
+    Threshold <code>20%</code>
+  </div>
+</header>
+<main>
+  <section class="summary">
+    <div class="tile"><div class="label">probe targets</div><div class="value">16</div></div>
+    <div class="tile ok"><div class="label">within tolerance</div><div class="value">16</div></div>
+    <div class="tile ok"><div class="label">drift alerts</div><div class="value">0</div></div>
+    <div class="tile"><div class="label">drift log entries</div><div class="value">1</div></div>
+  </section>
+
+  <section class="harness">
+    <div class="harness-head">
+      <h2>ratebeer</h2>
+      <span class="counts"><b>7</b> targets · <b>0</b> drifts</span>
+    </div>
+    <h3>list page</h3>
+    <table>
+      <thead><tr><th>target</th><th>surface</th><th>baseline</th><th>latest</th><th>status</th><th>sample</th></tr></thead>
+      <tbody>
+      <tr>
+        <td class="name">ratebeer.list.beer-link</td>
+        <td class="surface">list</td>
+        <td class="num ok">5</td>
+        <td class="num ok">5</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;a href=&quot;/beer/panda-ipa/123456/&quot;&gt;熊猫精酿 功夫 IPA&lt;/a&gt;</code> <code>&lt;a href=&quot;/beer/jing-a-pale-ale/234567/&quot;&gt;京A 飞拳 淡色艾尔&lt;/a&gt;</code></td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>detail page</h3>
+    <table>
+      <thead><tr><th>target</th><th>surface</th><th>baseline</th><th>latest</th><th>status</th><th>sample</th></tr></thead>
+      <tbody>
+      <tr>
+        <td class="name">ratebeer.detail.abv</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>abv&quot;&gt;ABV: 6.5%</code></td>
+      </tr>
+      <tr>
+        <td class="name">ratebeer.detail.brewery</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;a href=&quot;/brewers/panda-brew/789/&quot;&gt;熊猫精酿&lt;/a&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">ratebeer.detail.name</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;h1&gt;熊猫精酿 功夫 IPA&lt;/h1&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">ratebeer.detail.rating</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div class=&quot;rating&quot;&gt; &lt;span class=&quot;number&quot;&gt;3.62&lt;/span&gt; &lt;span class=&quot;label&quot;&gt;Overa…</code></td>
+      </tr>
+      <tr>
+        <td class="name">ratebeer.detail.rating-count</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>With 1,847 ratings</code></td>
+      </tr>
+      <tr>
+        <td class="name">ratebeer.detail.style</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>Style: &lt;a href=&quot;/beerstyles/ipa/127/&quot;&gt;India Pale Ale (IPA)&lt;/a&gt;</code></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+<section class="harness">
+    <div class="harness-head">
+      <h2>untappd</h2>
+      <span class="counts"><b>9</b> targets · <b>0</b> drifts</span>
+    </div>
+    <h3>list page</h3>
+    <table>
+      <thead><tr><th>target</th><th>surface</th><th>baseline</th><th>latest</th><th>status</th><th>sample</th></tr></thead>
+      <tbody>
+      <tr>
+        <td class="name">untappd.list.id</td>
+        <td class="surface">list</td>
+        <td class="num ok">5</td>
+        <td class="num ok">5</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div data-beer-id=&quot;1&quot;&gt;</code> <code>&lt;div data-beer-id=&quot;2&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">untappd.list.item</td>
+        <td class="surface">list</td>
+        <td class="num ok">5</td>
+        <td class="num ok">5</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div data-beer-id=&quot;1&quot;&gt;</code> <code>&lt;div data-beer-id=&quot;2&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">untappd.list.name</td>
+        <td class="surface">list</td>
+        <td class="num ok">5</td>
+        <td class="num ok">5</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;a class=&quot;beer-name&quot; href=&quot;/beer/one&quot;&gt;</code> <code>&lt;a class=&quot;beer-name&quot; href=&quot;/beer/two&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">untappd.list.url</td>
+        <td class="surface">list</td>
+        <td class="num ok">5</td>
+        <td class="num ok">5</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;a class=&quot;beer-name&quot; href=&quot;/beer/one&quot;&gt;</code> <code>&lt;a class=&quot;beer-name&quot; href=&quot;/beer/two&quot;&gt;</code></td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>detail page</h3>
+    <table>
+      <thead><tr><th>target</th><th>surface</th><th>baseline</th><th>latest</th><th>status</th><th>sample</th></tr></thead>
+      <tbody>
+      <tr>
+        <td class="name">untappd.detail.food</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div id=&quot;food&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">untappd.detail.info</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div id=&quot;info&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">untappd.detail.ratings</td>
+        <td class="surface">detail</td>
+        <td class="num ok">2</td>
+        <td class="num ok">2</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div id=&quot;ratings&quot;&gt;</code> <code>&lt;span class=&quot;rating&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">untappd.detail.similar</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div id=&quot;similar&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td class="name">untappd.detail.tags</td>
+        <td class="surface">detail</td>
+        <td class="num ok">1</td>
+        <td class="num ok">1</td>
+        <td class="status ok">OK</td>
+        <td class="sample"><code>&lt;div id=&quot;tags&quot;&gt;</code></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="harness">
+    <div class="harness-head">
+      <h2>drift log</h2>
+      <span class="counts"><b>1</b> entries · data/crawler/selector-probe/drift*.jsonl</span>
+    </div>
+    <table>
+      <thead><tr><th>timestamp</th><th>source</th><th>surface</th><th>target</th><th>baseline</th><th>latest</th><th>Δ</th></tr></thead>
+      <tbody>
+<tr>
+        <td class="ts">2026-02-01T00:00:00Z</td>
+        <td>untappd</td>
+        <td>list</td>
+        <td class="name">LIST_SELECTORS.id</td>
+        <td class="num">5</td>
+        <td class="num">0</td>
+        <td class="num">100.0%</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+<footer>
+  self-contained · no JS · no assets · regenerated by <code>scripts/build-selector-drift-dashboard.mjs</code> · sibling of <a href="harness-platform.html" style="color:var(--accent-2);">harness-platform.html</a>
+</footer>
+</body>
+</html>

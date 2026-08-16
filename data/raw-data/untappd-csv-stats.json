@@ -1,0 +1,267 @@
+{
+  "total_records": 32728,
+  "by_country": [
+    {
+      "country": "England",
+      "count": 8316
+    },
+    {
+      "country": "Netherlands",
+      "count": 7439
+    },
+    {
+      "country": "Australia",
+      "count": 5439
+    },
+    {
+      "country": "Scotland",
+      "count": 3670
+    },
+    {
+      "country": "New Zealand",
+      "count": 3207
+    },
+    {
+      "country": "Japan",
+      "count": 2214
+    },
+    {
+      "country": "Wales",
+      "count": 1816
+    },
+    {
+      "country": "Northern Ireland",
+      "count": 627
+    }
+  ],
+  "by_style_top_50": [
+    {
+      "style": "This beer is no longer being produced by the brewery",
+      "count": 8360
+    },
+    {
+      "style": "Pale Ale - New England / Hazy",
+      "count": 297
+    },
+    {
+      "style": "Pilsner - Other",
+      "count": 295
+    },
+    {
+      "style": "Sour - Fruited",
+      "count": 292
+    },
+    {
+      "style": "IPA - American",
+      "count": 284
+    },
+    {
+      "style": "Pale Ale - Other",
+      "count": 283
+    },
+    {
+      "style": "IPA - Session",
+      "count": 278
+    },
+    {
+      "style": "Sour - Smoothie / Pastry",
+      "count": 277
+    },
+    {
+      "style": "IPA - Imperial / Double",
+      "count": 273
+    },
+    {
+      "style": "Pale Ale - American",
+      "count": 272
+    },
+    {
+      "style": "IPA - New England / Hazy",
+      "count": 271
+    },
+    {
+      "style": "IPA - Other",
+      "count": 270
+    },
+    {
+      "style": "Stout - Other",
+      "count": 265
+    },
+    {
+      "style": "Lager - Pale",
+      "count": 262
+    },
+    {
+      "style": "Farmhouse Ale - Saison",
+      "count": 261
+    },
+    {
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "count": 257
+    },
+    {
+      "style": "Blonde / Golden Ale - Other",
+      "count": 255
+    },
+    {
+      "style": "Porter - Other",
+      "count": 236
+    },
+    {
+      "style": "Red Ale - American Amber / Red",
+      "count": 223
+    },
+    {
+      "style": "Fruit Beer",
+      "count": 222
+    },
+    {
+      "style": "Pale Ale - English",
+      "count": 222
+    },
+    {
+      "style": "Cider - Traditional / Apfelwein",
+      "count": 219
+    },
+    {
+      "style": "Lager - Helles",
+      "count": 217
+    },
+    {
+      "style": "IPA - English",
+      "count": 216
+    },
+    {
+      "style": "Sour - Other",
+      "count": 216
+    },
+    {
+      "style": "Wheat Beer - Hefeweizen",
+      "count": 216
+    },
+    {
+      "style": "IPA - Triple New England / Hazy",
+      "count": 212
+    },
+    {
+      "style": "Stout - Imperial / Double Pastry",
+      "count": 208
+    },
+    {
+      "style": "Wheat Beer - Witbier / Blanche",
+      "count": 207
+    },
+    {
+      "style": "Sour - Fruited Gose",
+      "count": 204
+    },
+    {
+      "style": "Stout - Imperial / Double",
+      "count": 204
+    },
+    {
+      "style": "IPA - Milkshake",
+      "count": 201
+    },
+    {
+      "style": "IPA - New Zealand",
+      "count": 201
+    },
+    {
+      "style": "IPA - Cold",
+      "count": 199
+    },
+    {
+      "style": "IPA - Black / Cascadian Dark Ale",
+      "count": 198
+    },
+    {
+      "style": "Pilsner - German",
+      "count": 198
+    },
+    {
+      "style": "Pilsner - Czech / Bohemian",
+      "count": 192
+    },
+    {
+      "style": "IPA - Red",
+      "count": 191
+    },
+    {
+      "style": "Stout - Milk / Sweet",
+      "count": 190
+    },
+    {
+      "style": "Bitter - Session / Ordinary",
+      "count": 180
+    },
+    {
+      "style": "Stout - Coffee",
+      "count": 178
+    },
+    {
+      "style": "IPA - Sour",
+      "count": 175
+    },
+    {
+      "style": "Kölsch",
+      "count": 174
+    },
+    {
+      "style": "Red Ale - Other",
+      "count": 171
+    },
+    {
+      "style": "Stout - Oatmeal",
+      "count": 168
+    },
+    {
+      "style": "Lager - IPL (India Pale Lager)",
+      "count": 165
+    },
+    {
+      "style": "Porter - English",
+      "count": 165
+    },
+    {
+      "style": "Dark Ale",
+      "count": 164
+    },
+    {
+      "style": "IPA - Fruited",
+      "count": 162
+    },
+    {
+      "style": "Stout - Pastry",
+      "count": 161
+    }
+  ],
+  "rating_distribution": {
+    "0-1": 0,
+    "1-2": 1,
+    "2-3": 354,
+    "3-3.5": 4448,
+    "3.5-4": 25218,
+    "4-4.5": 2707,
+    "4.5-5": 0
+  },
+  "brewery_unique": 3449,
+  "abv_distribution": {
+    "mean": 6.351836053526047,
+    "median": 5.8,
+    "min": 0,
+    "max": 75,
+    "n": 32657
+  },
+  "generated_at": "2026-08-16T13:30:48.300Z",
+  "by_country_obj": {
+    "Japan": 2214,
+    "England": 8316,
+    "Scotland": 3670,
+    "Wales": 1816,
+    "Northern Ireland": 627,
+    "New Zealand": 3207,
+    "Australia": 5439,
+    "Netherlands": 7439
+  }
+}

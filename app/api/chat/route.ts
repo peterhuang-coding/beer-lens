@@ -34,6 +34,7 @@ import { buildReplyComposerMessages } from "@/lib/harness/llm/prompts/reply-comp
 import { OpenAICompatibleProvider, streamToAsyncIterable } from "@/lib/harness/llm/openai-compatible";
 import { loadLLMConfig } from "@/lib/harness/llm/config";
 import { LLMConfigError, LLMUpstreamError, type ChatDelta } from "@/lib/harness/llm/provider";
+import { appendTrace, previewMessage } from "@/lib/harness/trace-buffer";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -172,6 +173,18 @@ export async function POST(request: Request): Promise<Response> {
           const reply = "我还在学习中,先告诉我你想推荐啤酒、查酒标,还是聊点啤酒知识?";
           controller.enqueue(sseEvent("delta", { text: reply }));
           controller.enqueue(sseEvent("done", { skill_id, latency_ms: Date.now() - t0 }));
+          appendTrace({
+            ts: Date.now(),
+            ts_iso: new Date().toISOString(),
+            message: previewMessage(message),
+            skill_id: "none",
+            source: "none",
+            ok: true,
+            latency_ms: Date.now() - t0,
+            candidate_count: 0,
+            has_image: !!imageDataUrl,
+            reason,
+          });
           controller.close();
           return;
         }
@@ -235,6 +248,18 @@ export async function POST(request: Request): Promise<Response> {
             hasLabels,
           }),
         );
+        appendTrace({
+          ts: Date.now(),
+          ts_iso: new Date().toISOString(),
+          message: previewMessage(message),
+          skill_id,
+          source: routeRes.source,
+          ok: true,
+          latency_ms: Date.now() - t0,
+          candidate_count: enrichedCandidates.length,
+          has_image: !!imageDataUrl,
+          reason,
+        });
 
         // Path C: optionally stream the composer output. The composer is OFF
         // by default because the reasoning model (doubao-seed-evolving) eats
@@ -274,6 +299,19 @@ export async function POST(request: Request): Promise<Response> {
           }),
         );
         controller.enqueue(sseEvent("done", { skill_id, latency_ms: Date.now() - t0 }));
+        appendTrace({
+          ts: Date.now(),
+          ts_iso: new Date().toISOString(),
+          message: previewMessage(message),
+          skill_id: skill_id ?? "error",
+          source: "error",
+          ok: false,
+          error_code: "internal",
+          latency_ms: Date.now() - t0,
+          candidate_count: 0,
+          has_image: !!imageDataUrl,
+          reason,
+        });
         controller.close();
       }
     },

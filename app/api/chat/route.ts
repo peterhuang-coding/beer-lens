@@ -41,6 +41,9 @@ export const dynamic = "force-dynamic";
 interface ChatRequestBody {
   message?: unknown;
   conversationId?: unknown;
+  imageDataUrl?: unknown;
+  imageName?: unknown;
+  imageType?: unknown;
 }
 
 const encoder = new TextEncoder();
@@ -118,6 +121,14 @@ export async function POST(request: Request): Promise<Response> {
   if (!message) {
     return NextResponse.json({ error: "message required" }, { status: 400 });
   }
+  const imageDataUrl =
+    typeof body.imageDataUrl === "string" && body.imageDataUrl.startsWith("data:")
+      ? body.imageDataUrl
+      : undefined;
+  const imageName =
+    typeof body.imageName === "string" ? body.imageName : undefined;
+  const imageType =
+    typeof body.imageType === "string" ? body.imageType : undefined;
   const conversationId =
     typeof body.conversationId === "string" && body.conversationId
       ? body.conversationId
@@ -174,6 +185,13 @@ export async function POST(request: Request): Promise<Response> {
             conversationId,
             turnId: `t_${Date.now().toString(36)}`,
             messages: [{ role: "user", content: message }],
+            image: imageDataUrl
+              ? {
+                  dataUrl: imageDataUrl,
+                  name: imageName ?? "upload",
+                  type: imageType ?? "image/png",
+                }
+              : undefined,
           },
           userId: "anon",
           conversationId,

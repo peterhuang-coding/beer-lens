@@ -15,7 +15,18 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type Message = { id: string; role: "user" | "assistant"; text: string };
+type Attachment = {
+  dataUrl: string;
+  name: string;
+  type: string;
+};
+
+type Message = {
+  id: string;
+  role: "user" | "assistant";
+  text: string;
+  attachment?: Attachment;
+};
 
 type Meta = { skill_id: string; reason?: string; params?: Record<string, unknown> };
 
@@ -64,15 +75,18 @@ export default function ChatBox() {
     {
       id: "welcome",
       role: "assistant",
-      text: "你好,我是 Beer Lens 🍺。挑个话题开始,或者直接打字。",
+      text: "你好,我是 Beer Lens 🍺。挑个话题开始,或者直接打字。也可以 📷 拍照或粘贴酒单图。",
     },
   ]);
   const [input, setInput] = useState("");
+  const [attachment, setAttachment] = useState<Attachment | null>(null);
   const [busy, setBusy] = useState(false);
   const [meta, setMeta] = useState<Meta | null>(null);
   const [status, setStatus] = useState<"idle" | "routing" | "streaming" | "error">("idle");
   const [results, setResults] = useState<Record<string, ResultPayload>>({});
+  const [dragOver, setDragOver] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Auto-scroll on new content.
   useEffect(() => {
@@ -80,22 +94,60 @@ export default function ChatBox() {
     boxRef.current.scrollTop = boxRef.current.scrollHeight;
   }, [messages, results]);
 
+  // Read a File object into {dataUrl, name, type} for embedding in the request.
+  async function readFileAsAttachment(file: File): Promise<Attachment | null> {
+    if (!file.type.startsWith("image/")) return null;
+    if (file.size > 8 * 1024 * 1024) return null;
+    const dataUrl = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(file);
+    });
+    return { dataUrl, name: file.name || "type", type: file.type };
+  }
+
+  // Handle a file picked from the input, drag-drop, or clipboard paste.
+  async function attachFiles(files: FileList | File[] | null | undefined) {
+    if (!files || busy) return;
+    const list = Array.from(files);
+    for (const f of list) {
+      const a = await readFileAsAttachment(f);
+      if (a) {
+        setAttachment(a);
+        return; // only one attachment at a time for now
+      }
+    }
+  }
+
   async function send(text: string) {
     const trimmed = text.trim();
-    if (!trimmed || busy) return;
+    if ((!trimmed && !attachment) || busy) return;
     setBusy(true);
     setStatus("routing");
     setMeta(null);
-    const userMsg: Message = { id: `u_${Date.now()}`, role: "user", text: trimmed };
+    const userMsg: Message = {
+      id: `u_${Date.now()}`,
+      role: "user",
+      text: trimmed,
+      attachment: attachment ?? undefined,
+    };
     const assistantId = `a_${Date.now()}`;
     setMessages((prev) => [...prev, userMsg, { id: assistantId, role: "assistant", text: "" }]);
     setInput("");
+    const attached = attachment;
+    setAttachment(null);
 
     try {
       const resp = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed }),
+        body: JSON.stringify({
+          message: trimmed || (attached ? "看看这张图" : ""),
+          imageDataUrl: attached?.dataUrl,
+          imageName: attached?.name,
+          imageType: attached?.type,
+        }),
       });
       if (!resp.ok || !resp.body) {
         setStatus("error");
@@ -150,7 +202,19 @@ export default function ChatBox() {
   }
 
   return (
-    <div className="chat-shell">
+    <div
+      className={`chat-shell ${dragOver ? "drag-over" : ""}`}
+      onDragOver={(e) => {
+        e.preventDefault();
+        setDragOver(true);
+      }}
+      onDragLeave={() => setDragOver(false)}
+      onDrop={async (e) => {
+        e.preventDefault();
+        setDragOver(false);
+        await attachFiles(e.dataTransfer?.files);
+      }}
+    >
       <div className="chat-meta">
         <span className={`status status-${status}`}>
           {status === "idle" ? "就绪" : status === "routing" ? "路由中…" : status === "streaming" ? "生成中…" : "错误"}
@@ -165,10 +229,31 @@ export default function ChatBox() {
         )}
       </div>
 
-      <div className="chat-box" ref={boxRef}>
+      <div
+        className="chat-box"
+        ref={boxRef}
+        onPaste={async (e) => {
+          const items = e.clipboardData?.items;
+          if (!items) return;
+          for (const it of Array.from(items)) {
+            if (it.kind === "file" && it.type.startsWith("image/")) {
+              const file = it.getAsFile();
+              if (file) await attachFiles([file]);
+              e.preventDefault();
+              break;
+            }
+          }
+        }}
+      >
         {messages.map((m) => (
           <div key={m.id} className={`bubble ${m.role}`}>
             <div className="role">{m.role === "user" ? "你" : "Beer Lens"}</div>
+            {m.attachment ? (
+              <div className="attach-preview">
+                <img src={m.attachment.dataUrl} alt={m.attachment.name} />
+                <span className="attach-cap">📷 {m.attachment.name}</span>
+              </div>
+            ) : null}
             <div className="text">{m.text || (m.role === "assistant" ? "…" : "")}</div>
             {m.role === "assistant" && results[m.id] ? (
               <BeerResultView result={results[m.id]} />
@@ -185,6 +270,19 @@ export default function ChatBox() {
         ))}
       </div>
 
+      {attachment ? (
+        <div className="attach-strip">
+          <img src={attachment.dataUrl} alt={attachment.name} />
+          <div className="attach-meta">
+            <strong>📎 {attachment.name}</strong>
+            <small>{Math.round(attachment.dataUrl.length * 0.75 / 1024)} KB · {attachment.type}</small>
+          </div>
+          <button type="button" onClick={() => setAttachment(null)} disabled={busy}>
+            移除
+          </button>
+        </div>
+      ) : null}
+
       <form
         className="chat-input"
         onSubmit={(e) => {
@@ -193,18 +291,35 @@ export default function ChatBox() {
         }}
       >
         <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={(e) => attachFiles(e.target.files)}
+        />
+        <button
+          type="button"
+          className="attach-btn"
+          onClick={() => fileInputRef.current?.click()}
+          disabled={busy}
+          title="选择图片 / 拖拽 / 粘贴"
+        >
+          📎
+        </button>
+        <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="说点什么吧… (Enter 发送)"
+          placeholder={attachment ? "加一句描述再发送…" : "说点什么吧… (Enter 发送 · 📎 图片)"}
           disabled={busy}
         />
-        <button type="submit" disabled={busy || !input.trim()}>
+        <button type="submit" disabled={busy || (!input.trim() && !attachment)}>
           {busy ? "等待…" : "发送"}
         </button>
       </form>
 
       <style jsx>{`
-        .chat-shell { display:flex; flex-direction:column; gap:12px; height: 70vh; }
+        .chat-shell { display:flex; flex-direction:column; gap:12px; height: 70vh; position:relative; }
+        .chat-shell.drag-over::after { content:"📷 拖到这里附加图片"; position:absolute; inset:0; background:rgba(76,179,255,0.18); border:2px dashed #4cb3ff; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:600; color:#4cb3ff; pointer-events:none; z-index:10; }
         .chat-meta { display:flex; gap:12px; align-items:center; font-size:12px; color:#9aa3b2; }
         .status { padding:2px 8px; border-radius:999px; font-weight:600; letter-spacing:0.4px; text-transform:uppercase; }
         .status-idle { background:#1e3a8a; color:#bfdbfe; }
@@ -217,15 +332,27 @@ export default function ChatBox() {
         .bubble.user { align-self:flex-end; background:#1e3a8a; color:#dbeafe; }
         .bubble.assistant { align-self:flex-start; background:#1f232c; color:#e8eaf0; border:1px solid #2a2f3a; }
         .bubble .role { font-size:10px; text-transform:uppercase; color:#9aa3b2; margin-bottom:4px; letter-spacing:0.5px; font-weight:600; }
+        .attach-preview { margin-bottom:6px; border-radius:6px; overflow:hidden; border:1px solid rgba(255,255,255,0.12); max-width:280px; }
+        .attach-preview img { display:block; width:100%; height:auto; }
+        .attach-preview .attach-cap { display:block; padding:2px 8px; background:rgba(15,17,21,0.6); color:#bfdbfe; font-size:10px; }
+        .attach-strip { display:flex; gap:10px; align-items:center; background:#171a21; border:1px solid #2a2f3a; border-radius:8px; padding:6px 8px; }
+        .attach-strip img { width:48px; height:48px; object-fit:cover; border-radius:4px; }
+        .attach-strip .attach-meta { flex:1; display:flex; flex-direction:column; min-width:0; }
+        .attach-strip strong { color:#e8eaf0; font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+        .attach-strip small { color:#9aa3b2; font-size:10px; }
+        .attach-strip button { background:#374151; color:#e8eaf0; border:none; border-radius:4px; padding:4px 10px; font-size:11px; cursor:pointer; }
         .quick-row { display:flex; gap:6px; flex-wrap:wrap; }
         .quick-row button { background:#171a21; color:#9aa3b2; border:1px solid #2a2f3a; border-radius:6px; padding:4px 10px; font-size:11px; cursor:pointer; }
         .quick-row button:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; }
         .quick-row button:disabled { opacity:0.5; cursor:not-allowed; }
         .chat-input { display:flex; gap:8px; }
-        .chat-input input { flex:1; background:#0f1115; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:10px 12px; font-size:13px; outline:none; }
+        .chat-input .attach-btn { background:#171a21; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:0 12px; font-size:16px; cursor:pointer; }
+        .chat-input .attach-btn:hover:not(:disabled) { background:#1f232c; }
+        .chat-input .attach-btn:disabled { opacity:0.5; cursor:not-allowed; }
+        .chat-input input[type="text"], .chat-input > input:not([type]) { flex:1; background:#0f1115; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:10px 12px; font-size:13px; outline:none; }
         .chat-input input:focus { border-color:#4cb3ff; }
-        .chat-input button { background:#4cb3ff; color:#0f1115; border:none; border-radius:8px; padding:0 16px; font-weight:600; cursor:pointer; }
-        .chat-input button:disabled { background:#374151; color:#9aa3b2; cursor:not-allowed; }
+        .chat-input button[type="submit"] { background:#4cb3ff; color:#0f1115; border:none; border-radius:8px; padding:0 16px; font-weight:600; cursor:pointer; }
+        .chat-input button[type="submit"]:disabled { background:#374151; color:#9aa3b2; cursor:not-allowed; }
       `}</style>
     </div>
   );

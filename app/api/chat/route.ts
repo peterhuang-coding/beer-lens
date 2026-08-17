@@ -21,6 +21,8 @@
  */
 
 import { NextResponse } from "next/server";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { routeByLLM } from "@/lib/harness/router-llm";
 import { invokeSkill, listEnabledSkillIds } from "@/lib/harness/router";
 // Side-effect import: ensures the 8 default skills are registered before
@@ -45,6 +47,61 @@ const encoder = new TextEncoder();
 
 function sseEvent(event: string, data: unknown): Uint8Array {
   return encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+}
+
+// ── Beer-cache label lookup ───────────────────────────────────────────────
+// The SkillResult.candidates array doesn't carry labelImage by default — it
+// only carries text fields. We load data/beer_cache.json once at module
+// load (≈200 KB, parsed once per process) and use it to attach label URLs
+// + Untappd links so the chat UI can render beer cards with photos.
+
+interface BeerCacheRecord {
+  id: string;
+  beerName: string;
+  breweryName: string | null;
+  labelImage: string | null;
+  untappdUrl: string | null;
+  ratingScore: number | null;
+  ratingCount: number | null;
+}
+
+let _labelIndex: Map<string, BeerCacheRecord> | null = null;
+
+function loadLabelIndex(): Map<string, BeerCacheRecord> {
+  if (_labelIndex) return _labelIndex;
+  try {
+    const raw = readFileSync(
+      join(process.cwd(), "data/beer_cache.json"),
+      "utf8",
+    );
+    const parsed = JSON.parse(raw) as { beers: Record<string, BeerCacheRecord> };
+    const idx = new Map<string, BeerCacheRecord>();
+    for (const r of Object.values(parsed.beers ?? {})) {
+      const key = `${r.beerName}::${r.breweryName ?? ""}`.toLowerCase();
+      if (!idx.has(key)) idx.set(key, r);
+    }
+    _labelIndex = idx;
+  } catch {
+    _labelIndex = new Map();
+  }
+  return _labelIndex;
+}
+
+function enrichCandidateWithLabel(c: Record<string, unknown>): Record<string, unknown> {
+  if (c.labelImage) return c;
+  const idx = loadLabelIndex();
+  const name = String(c.displayName ?? "").trim();
+  const brewery = String(c.brewery ?? "").trim();
+  if (!name) return c;
+  const hit = idx.get(`${name}::${brewery}`.toLowerCase())
+    ?? idx.get(`${name}::`.toLowerCase());
+  if (!hit) return c;
+  return {
+    ...c,
+    labelImage: hit.labelImage,
+    untappdUrl: c.untappdUrl ?? hit.untappdUrl,
+    untappdId: c.untappdId ?? hit.id,
+  };
 }
 
 export async function POST(request: Request): Promise<Response> {
@@ -134,9 +191,40 @@ export async function POST(request: Request): Promise<Response> {
 
         const skillReply: AgentReply = result;
 
-        // Path C: stream the composer output if available, else stream the
-        // skill's static reply character-by-character so the UI feels alive.
-        const composerStream = await tryCompose(message, skill_id, skillReply);
+        // Emit candidates/picks as their own SSE event so the chat UI can
+        // render beer cards (labelImage + brewery + score) instead of just
+        // text. Backwards compatible: any client that ignores "result" still
+        // gets the full delta text below.
+        const enrichedCandidates = (skillReply.candidates ?? []).map((c) =>
+          enrichCandidateWithLabel(c as unknown as Record<string, unknown>),
+        );
+        // For recommend-style replies, also emit a "menu image" hint so the
+        // UI can render a small tap-list illustration when no per-beer
+        // labels are available (or to accompany them as context).
+        const hasLabels = enrichedCandidates.some((c) => (c as { labelImage?: string | null }).labelImage);
+        const menuImage =
+          skill_id === "menu_recommend"
+            ? "/images/tap-list.jpg"
+            : undefined;
+        controller.enqueue(
+          sseEvent("result", {
+            skill_id,
+            reply: skillReply.reply,
+            candidates: enrichedCandidates,
+            picks: skillReply.picks,
+            profileSummary: skillReply.profileSummary ?? "",
+            menuImage,
+            hasLabels,
+          }),
+        );
+
+        // Path C: optionally stream the composer output. The composer is OFF
+        // by default because the reasoning model (doubao-seed-evolving) eats
+        // 30-60s on a 200-token wrapper pass and the skill's own reply is
+        // already a polished line. Opt back in via LLM_COMPOSE_REPLY=1 if
+        // you need the composer for a specific skill.
+        const useComposer = process.env.LLM_COMPOSE_REPLY === "1";
+        const composerStream = useComposer ? await tryCompose(message, skill_id, skillReply) : null;
         if (composerStream) {
           for await (const delta of composerStream) {
             if (delta.contentDelta) {

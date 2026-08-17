@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "demo": "node scripts/beer-agent-demo.mjs",
     "build": "next build",
     "start": "next start",

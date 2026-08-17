@@ -19,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body>{children}</body>
+      {/* suppressHydrationWarning: tolerates browser extensions
+          (Grammarly adds data-gr-ext-installed / data-new-gr-c-s-check-loaded,
+          Loom adds data-loom...) that mutate <body> before React loads. */}
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

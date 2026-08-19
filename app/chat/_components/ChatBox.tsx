@@ -70,6 +70,15 @@ const QUICK_PROMPTS = [
   "什么是 NEIPA?",
 ];
 
+// 3 test images copied into public/test-assets/. These mirror the
+// quick-pick buttons in /debug Tester so /chat and /debug share the
+// same regression cases.
+const QUICK_IMAGES: Array<{ id: string; path: string; label: string; defaultQuery: string }> = [
+  { id: "menu-el-nido", path: "/test-assets/menu-el-nido.png", label: "酒单 (El Nido)", defaultQuery: "这酒单帮我挑一杯 IPA,不要太苦" },
+  { id: "can-monkish-la-love", path: "/test-assets/can-monkish-la-love.png", label: "LA LOVE 罐", defaultQuery: "这瓶是什么酒?" },
+  { id: "marketing-lunch-dinner", path: "/test-assets/marketing-lunch-dinner.png", label: "Lunch + Dinner 营销卡", defaultQuery: "Lunch 和 Dinner 哪个适合我?我不爱苦" },
+];
+
 export default function ChatBox() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -120,9 +129,45 @@ export default function ChatBox() {
     }
   }
 
-  async function send(text: string) {
+  // One-click image case — fetch the static asset, attach it, then send
+  // the case's defaultQuery. Mirrors the /debug Tester button row.
+  async function sendImageCase(img: typeof QUICK_IMAGES[number]) {
+    if (busy) return;
+    try {
+      const resp = await fetch(img.path);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const blob = await resp.blob();
+      const dataUrl = await new Promise<string>((resolve, reject) => {
+        const fr = new FileReader();
+        fr.onload = () => resolve(fr.result as string);
+        fr.onerror = () => reject(fr.error);
+        fr.readAsDataURL(blob);
+      });
+      const attachment: Attachment = {
+        dataUrl,
+        name: img.path.split("/").pop() ?? img.label,
+        type: blob.type || "image/png",
+      };
+      // Pass the attachment directly into send() to avoid the closure
+      // race where setAttachment() hasn't flushed yet.
+      await send(img.defaultQuery, attachment);
+    } catch (err) {
+      setStatus("error");
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `e_${Date.now()}`,
+          role: "assistant",
+          text: `⚠️ 无法加载测试图片 ${img.path}: ${String((err as Error).message ?? err)}`,
+        },
+      ]);
+    }
+  }
+
+  async function send(text: string, overrideAttachment?: Attachment) {
     const trimmed = text.trim();
-    if ((!trimmed && !attachment) || busy) return;
+    const effectiveAttachment = overrideAttachment ?? attachment;
+    if ((!trimmed && !effectiveAttachment) || busy) return;
     setBusy(true);
     setStatus("routing");
     setMeta(null);
@@ -130,13 +175,13 @@ export default function ChatBox() {
       id: `u_${Date.now()}`,
       role: "user",
       text: trimmed,
-      attachment: attachment ?? undefined,
+      attachment: effectiveAttachment ?? undefined,
     };
     const assistantId = `a_${Date.now()}`;
     setMessages((prev) => [...prev, userMsg, { id: assistantId, role: "assistant", text: "" }]);
     setInput("");
-    const attached = attachment;
-    setAttachment(null);
+    const attached = effectiveAttachment;
+    if (!overrideAttachment) setAttachment(null);
 
     try {
       const resp = await fetch("/api/chat", {
@@ -270,6 +315,22 @@ export default function ChatBox() {
         ))}
       </div>
 
+      <div className="quick-imgs">
+        <span className="quick-imgs-label">📷 回归 case:</span>
+        {QUICK_IMAGES.map((img) => (
+          <button
+            key={img.id}
+            disabled={busy}
+            title={`${img.label} · ${img.defaultQuery}`}
+            onClick={() => sendImageCase(img)}
+            className="quick-img-btn"
+          >
+            <img src={img.path} alt={img.label} />
+            <span>{img.label}</span>
+          </button>
+        ))}
+      </div>
+
       {attachment ? (
         <div className="attach-strip">
           <img src={attachment.dataUrl} alt={attachment.name} />
@@ -345,6 +406,12 @@ export default function ChatBox() {
         .quick-row button { background:#171a21; color:#9aa3b2; border:1px solid #2a2f3a; border-radius:6px; padding:4px 10px; font-size:11px; cursor:pointer; }
         .quick-row button:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; }
         .quick-row button:disabled { opacity:0.5; cursor:not-allowed; }
+        .quick-imgs { display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:6px 0; border-top:1px dashed #2a2f3a; border-bottom:1px dashed #2a2f3a; }
+        .quick-imgs-label { font-size:10px; color:#9aa3b2; text-transform:uppercase; letter-spacing:0.6px; font-weight:600; }
+        .quick-img-btn { display:flex; align-items:center; gap:6px; background:#171a21; color:#9aa3b2; border:1px solid #2a2f3a; border-radius:6px; padding:3px 8px 3px 3px; font-size:10px; cursor:pointer; }
+        .quick-img-btn:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; border-color:#4cb3ff; }
+        .quick-img-btn:disabled { opacity:0.5; cursor:not-allowed; }
+        .quick-img-btn img { width:40px; height:30px; object-fit:cover; border-radius:3px; }
         .chat-input { display:flex; gap:8px; }
         .chat-input .attach-btn { background:#171a21; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:0 12px; font-size:16px; cursor:pointer; }
         .chat-input .attach-btn:hover:not(:disabled) { background:#1f232c; }

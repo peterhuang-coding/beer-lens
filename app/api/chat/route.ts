@@ -34,7 +34,8 @@ import { buildReplyComposerMessages } from "@/lib/harness/llm/prompts/reply-comp
 import { OpenAICompatibleProvider, streamToAsyncIterable } from "@/lib/harness/llm/openai-compatible";
 import { loadLLMConfig } from "@/lib/harness/llm/config";
 import { LLMConfigError, LLMUpstreamError, type ChatDelta } from "@/lib/harness/llm/provider";
-import { appendTrace, previewMessage } from "@/lib/harness/trace-buffer";
+import { appendStage, previewMessage } from "@/lib/harness/trace-buffer";
+import { runWithTrace } from "@/lib/harness/trace-context";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -111,32 +112,33 @@ function enrichCandidateWithLabel(c: Record<string, unknown>): Record<string, un
 export async function POST(request: Request): Promise<Response> {
   const t0 = Date.now();
 
-  // ── Parse body ──────────────────────────────────────────────────────────
-  let body: ChatRequestBody;
-  try {
-    body = (await request.json()) as ChatRequestBody;
-  } catch {
-    return NextResponse.json({ error: "invalid_json" }, { status: 400 });
-  }
-  const message = typeof body.message === "string" ? body.message.trim() : "";
-  if (!message) {
-    return NextResponse.json({ error: "message required" }, { status: 400 });
-  }
-  const imageDataUrl =
-    typeof body.imageDataUrl === "string" && body.imageDataUrl.startsWith("data:")
-      ? body.imageDataUrl
-      : undefined;
-  const imageName =
-    typeof body.imageName === "string" ? body.imageName : undefined;
-  const imageType =
-    typeof body.imageType === "string" ? body.imageType : undefined;
-  const conversationId =
-    typeof body.conversationId === "string" && body.conversationId
-      ? body.conversationId
-      : `conv_${Date.now().toString(36)}`;
+  return runWithTrace({ root_ts: t0, parent_ts: null }, async () => {
+    // ── Parse body ──────────────────────────────────────────────────────────
+    let body: ChatRequestBody;
+    try {
+      body = (await request.json()) as ChatRequestBody;
+    } catch {
+      return NextResponse.json({ error: "invalid_json" }, { status: 400 });
+    }
+    const message = typeof body.message === "string" ? body.message.trim() : "";
+    if (!message) {
+      return NextResponse.json({ error: "message required" }, { status: 400 });
+    }
+    const imageDataUrl =
+      typeof body.imageDataUrl === "string" && body.imageDataUrl.startsWith("data:")
+        ? body.imageDataUrl
+        : undefined;
+    const imageName =
+      typeof body.imageName === "string" ? body.imageName : undefined;
+    const imageType =
+      typeof body.imageType === "string" ? body.imageType : undefined;
+    const conversationId =
+      typeof body.conversationId === "string" && body.conversationId
+        ? body.conversationId
+        : `conv_${Date.now().toString(36)}`;
 
   // ── Route via LLM ──────────────────────────────────────────────────────
-  const routeRes = await routeByLLM(message);
+  const routeRes = await routeByLLM(message, { root_ts: t0, parent_ts: null });
   if (!routeRes.ok) {
     // Routing failed — return a streaming error rather than 500 so the UI
     // can display the cause without losing the connection.
@@ -173,17 +175,16 @@ export async function POST(request: Request): Promise<Response> {
           const reply = "我还在学习中,先告诉我你想推荐啤酒、查酒标,还是聊点啤酒知识?";
           controller.enqueue(sseEvent("delta", { text: reply }));
           controller.enqueue(sseEvent("done", { skill_id, latency_ms: Date.now() - t0 }));
-          appendTrace({
-            ts: Date.now(),
-            ts_iso: new Date().toISOString(),
+          appendStage(t0, null, "chat", {
             message: previewMessage(message),
             skill_id: "none",
             source: "none",
             ok: true,
-            latency_ms: Date.now() - t0,
             candidate_count: 0,
             has_image: !!imageDataUrl,
             reason,
+            started_at: t0,
+            ts: t0,
           });
           controller.close();
           return;
@@ -209,6 +210,7 @@ export async function POST(request: Request): Promise<Response> {
           userId: "anon",
           conversationId,
           params,
+          _trace_ctx: { root_ts: t0, parent_ts: null },
         };
         const result = await invokeSkill(skill_id as never, ctx);
         if (!result.ok) {
@@ -248,17 +250,16 @@ export async function POST(request: Request): Promise<Response> {
             hasLabels,
           }),
         );
-        appendTrace({
-          ts: Date.now(),
-          ts_iso: new Date().toISOString(),
+        appendStage(t0, null, "chat", {
           message: previewMessage(message),
           skill_id,
           source: routeRes.source,
           ok: true,
-          latency_ms: Date.now() - t0,
           candidate_count: enrichedCandidates.length,
           has_image: !!imageDataUrl,
           reason,
+          started_at: t0,
+          ts: t0,
         });
 
         // Path C: optionally stream the composer output. The composer is OFF
@@ -299,18 +300,17 @@ export async function POST(request: Request): Promise<Response> {
           }),
         );
         controller.enqueue(sseEvent("done", { skill_id, latency_ms: Date.now() - t0 }));
-        appendTrace({
-          ts: Date.now(),
-          ts_iso: new Date().toISOString(),
+        appendStage(t0, null, "chat", {
           message: previewMessage(message),
           skill_id: skill_id ?? "error",
           source: "error",
           ok: false,
           error_code: "internal",
-          latency_ms: Date.now() - t0,
           candidate_count: 0,
           has_image: !!imageDataUrl,
           reason,
+          started_at: t0,
+          ts: t0,
         });
         controller.close();
       }
@@ -324,6 +324,7 @@ export async function POST(request: Request): Promise<Response> {
       Connection: "keep-alive",
       "X-Accel-Buffering": "no",
     },
+  });
   });
 }
 

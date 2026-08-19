@@ -24,6 +24,8 @@ import {
   type ToolSpec,
 } from "./provider.ts";
 import { type LLMConfig, getLLMConfig } from "./config.ts";
+import { appendStage } from "../trace-buffer.ts";
+import { getTraceCtx } from "../trace-context.ts";
 
 // ── Wire shapes (subset of OpenAI Chat Completions) ──────────────────────
 
@@ -82,6 +84,8 @@ export class OpenAICompatibleProvider implements LLMProvider {
     const url = `${this.cfg.baseUrl}/chat/completions`;
     const ac = new AbortController();
     const timeout = setTimeout(() => ac.abort(), 60_000);
+    const started_at = Date.now();
+    const trace = getTraceCtx();
     let resp: Response;
     try {
       resp = await fetch(url, {
@@ -95,18 +99,64 @@ export class OpenAICompatibleProvider implements LLMProvider {
       });
     } catch (err) {
       clearTimeout(timeout);
+      if (trace) {
+        try {
+          appendStage(trace.root_ts, trace.parent_ts ?? trace.root_ts, "llm:call", {
+            ok: false,
+            error_code: "upstream_connect",
+            stage_skill_id: trace.skill_id,
+            decision: { model: this.cfg.model, messages_count: req.messages.length, error: String((err as Error).message ?? err) },
+            started_at,
+          });
+        } catch { /* never let tracing kill the request */ }
+      }
       throw new LLMUpstreamError(0, String((err as Error).message ?? err));
     }
     clearTimeout(timeout);
 
     if (!resp.ok) {
       const body = await resp.text().catch(() => "");
+      if (trace) {
+        try {
+          appendStage(trace.root_ts, trace.parent_ts ?? trace.root_ts, "llm:call", {
+            ok: false,
+            error_code: `http_${resp.status}`,
+            stage_skill_id: trace.skill_id,
+            decision: { model: this.cfg.model, messages_count: req.messages.length, status: resp.status, body_preview: body.slice(0, 200) },
+            started_at,
+          });
+        } catch { /* swallow */ }
+      }
       throw new LLMUpstreamError(resp.status, body);
     }
     if (!resp.body) {
+      if (trace) {
+        try {
+          appendStage(trace.root_ts, trace.parent_ts ?? trace.root_ts, "llm:call", {
+            ok: false,
+            error_code: "empty_body",
+            stage_skill_id: trace.skill_id,
+            decision: { model: this.cfg.model, messages_count: req.messages.length },
+            started_at,
+          });
+        } catch { /* swallow */ }
+      }
       throw new LLMUpstreamError(resp.status, "empty body");
     }
 
+    if (trace) {
+      // Emit the llm:call stage now with the request-side data; usage tokens
+      // are not available until the stream finishes (they arrive in the
+      // final SSE chunk as `usage`). For streaming calls, attach a wrapper
+      // that records the eventual end timestamp + first usage tokens.
+      try {
+        appendStage(trace.root_ts, trace.parent_ts ?? trace.root_ts, "llm:call", {
+          stage_skill_id: trace.skill_id,
+          decision: { model: this.cfg.model, messages_count: req.messages.length, streaming: req.stream ?? true },
+          started_at,
+        });
+      } catch { /* swallow */ }
+    }
     return mapStreamToDeltas(resp.body);
   }
 

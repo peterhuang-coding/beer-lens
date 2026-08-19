@@ -13,6 +13,7 @@
 import { listSkills } from "./router.ts";
 import type { SkillId } from "./types.ts";
 import type { RouteDecision } from "./llm/prompts/intent-classifier.ts";
+import { appendStage } from "./trace-buffer.ts";
 
 interface Rule {
   skill: SkillId;
@@ -113,17 +114,45 @@ const RULES: Rule[] = [
 /**
  * Run the keyword table against `message`. Returns the first matching
  * RouteDecision, or null if nothing fires.
+ *
+ * When `root_ts` is provided, each rule check emits a `rule:eval` stage
+ * entry to the trace buffer; a hit also emits `rule:match` so the trace
+ * tree shows which rule fired (and the rule_idx of every non-match so
+ * the UI can explain why the fast-path missed).
  */
-export function keywordRoute(message: string, onlyEnabled = true): RouteDecision | null {
+export function keywordRoute(
+  message: string,
+  onlyEnabled = true,
+  root_ts?: number,
+  parent_ts?: number | null,
+): RouteDecision | null {
   const lower = message.toLowerCase();
   const enabledIds = new Set(
     listSkills()
       .filter((s) => (onlyEnabled ? s.enabled : true))
       .map((s) => s.id),
   );
-  for (const rule of RULES) {
+  const traceEnabled = typeof root_ts === "number";
+  const pt = parent_ts ?? root_ts ?? null;
+  for (let rule_idx = 0; rule_idx < RULES.length; rule_idx++) {
+    const rule = RULES[rule_idx];
     if (!enabledIds.has(rule.skill)) continue;
-    if (rule.keywords.some((k) => lower.includes(k.toLowerCase()))) {
+    const matched = rule.keywords.some((k) => lower.includes(k.toLowerCase()));
+    if (traceEnabled) {
+      try {
+        appendStage(root_ts!, pt, "rule:eval", {
+          decision: { rule_idx, skill_id: rule.skill, matched, keyword_count: rule.keywords.length },
+        });
+      } catch { /* never let tracing kill routing */ }
+    }
+    if (matched) {
+      if (traceEnabled) {
+        try {
+          appendStage(root_ts!, pt, "rule:match", {
+            decision: { rule_idx, skill_id: rule.skill },
+          });
+        } catch { /* never let tracing kill routing */ }
+      }
       return {
         skill_id: rule.skill,
         params: rule.params ? rule.params(message) : { free_text: message },

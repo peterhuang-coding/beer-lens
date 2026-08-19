@@ -1,4 +1,6 @@
 import { ProxyAgent, setGlobalDispatcher, getGlobalDispatcher } from "undici";
+import { appendStage } from "../harness/trace-buffer.ts";
+import { getTraceCtx } from "../harness/trace-context.ts";
 
 let proxyInitialized = false;
 let proxyFailed = false;
@@ -100,11 +102,27 @@ export async function openrouterFetch(
   };
 
   // Try with proxy first; if it fails with ECONNREFUSED, fall back to direct
+  const started_at = Date.now();
+  const trace = getTraceCtx();
+  const traceCall = (ok: boolean, extra?: Record<string, unknown>) => {
+    if (!trace) return;
+    try {
+      appendStage(trace.root_ts, trace.parent_ts ?? trace.root_ts, "llm:call", {
+        ok,
+        stage_skill_id: trace.skill_id,
+        decision: { model: modelName, messages_count: Array.isArray((body as Record<string, unknown>).messages) ? ((body as Record<string, unknown>).messages as unknown[]).length : undefined, provider: "openrouter", ...extra },
+        started_at,
+      });
+    } catch { /* never let tracing kill the request */ }
+  };
   try {
-    return await makeRequest();
+    const result = await makeRequest();
+    traceCall(true, { result_chars: result.length });
+    return result;
   } catch (err) {
     // Distinguish timeout from other failures
     if (err instanceof Error && err.name === "AbortError") {
+      traceCall(false, { error_code: "TIMEOUT", error: "timeout" });
       throw new OpenRouterError(
         `OpenRouter request timed out after ${timeoutMs}ms`,
         "openrouter",
@@ -112,7 +130,10 @@ export async function openrouterFetch(
         "TIMEOUT",
       );
     }
-    if (err instanceof OpenRouterError) throw err;
+    if (err instanceof OpenRouterError) {
+      traceCall(false, { error_code: err.errorCode, error: err.message.slice(0, 200) });
+      throw err;
+    }
     const msg = err instanceof Error ? (err.message || "") : "";
     // If proxy connection refused, reset to direct and retry
     if (msg.includes("ECONNREFUSED") || msg.includes("fetch failed") || msg.includes("ProxyAgent")) {
@@ -121,8 +142,16 @@ export async function openrouterFetch(
         setGlobalDispatcher((await import("undici")).getGlobalDispatcher());
       } catch {}
       console.warn("[openrouter] proxy unreachable, retrying with direct connection...");
-      return await makeRequest();
+      try {
+        const result = await makeRequest();
+        traceCall(true, { result_chars: result.length, retry: true });
+        return result;
+      } catch (retryErr) {
+        traceCall(false, { error: String((retryErr as Error).message ?? retryErr).slice(0, 200), retry: true });
+        throw retryErr;
+      }
     }
+    traceCall(false, { error: msg.slice(0, 200) });
     throw err;
   } finally {
     if (timeoutId) clearTimeout(timeoutId);

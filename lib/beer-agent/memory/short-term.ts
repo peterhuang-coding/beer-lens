@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import type { BeerDialogRequest, BeerDialogResponse } from "@/lib/beer-agent/dialog-types";
+import { traceMemoryRead, traceMemoryWrite } from "./with-trace.ts";
 
 // Simple in-process lock to prevent concurrent writes to the same file
 const writeLocks = new Map<string, Promise<void>>();
@@ -110,8 +111,17 @@ export async function readShortTermMemory(
   );
   try {
     const raw = await readFile(filePath, "utf8");
-    return JSON.parse(raw) as ShortTermMemory;
+    const parsed = JSON.parse(raw) as ShortTermMemory;
+    traceMemoryRead({
+      kind: "short_term",
+      key,
+      found: true,
+      last_menu_candidate_count: parsed.lastMenu?.candidates.length ?? 0,
+      recent_turns: parsed.recentTurns?.length ?? 0,
+    });
+    return parsed;
   } catch {
+    traceMemoryRead({ kind: "short_term", key, found: false });
     return null;
   }
 }
@@ -226,6 +236,23 @@ export async function updateShortTermMemory(
   }
 
   // ── Write back (inside the lock — no nested lock needed) ──
-  await writeFile(filePath, JSON.stringify(memory, null, 2) + "\n", "utf8");
+  const writeStartedAt = Date.now();
+  const bytes = JSON.stringify(memory, null, 2).length + 1;
+  try {
+    await writeFile(filePath, JSON.stringify(memory, null, 2) + "\n", "utf8");
+    traceMemoryWrite({
+      kind: "short_term",
+      key: resolveMemoryKey(request.userId, request.conversationId),
+      write_size_bytes: bytes,
+      candidates_written: memory.lastMenu?.candidates.length ?? 0,
+    });
+  } catch (err) {
+    traceMemoryWrite({
+      kind: "short_term",
+      key: resolveMemoryKey(request.userId, request.conversationId),
+      error: String((err as Error).message ?? err).slice(0, 200),
+    }, false);
+    throw err;
+  }
   }); // end withLock
 }

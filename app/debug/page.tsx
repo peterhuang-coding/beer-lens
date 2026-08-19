@@ -21,13 +21,15 @@ import Link from "next/link";
 
 // ── Constants ──────────────────────────────────────────────────────────────
 
-type TabId = "pipeline" | "skills" | "tester" | "recent" | "config";
+type TabId = "pipeline" | "skills" | "tester" | "recent" | "stats" | "rules" | "config";
 
 const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: "pipeline", label: "Pipeline", icon: "🛤" },
   { id: "skills", label: "Skills", icon: "🎯" },
   { id: "tester", label: "Tester", icon: "🧪" },
   { id: "recent", label: "Recent", icon: "🕘" },
+  { id: "stats", label: "Stats", icon: "📊" },
+  { id: "rules", label: "Rules", icon: "⚖" },
   { id: "config", label: "Config", icon: "⚙" },
 ];
 
@@ -104,6 +106,8 @@ export default function DebugPage() {
       {tab === "skills" ? <SkillsView /> : null}
       {tab === "tester" ? <TesterView /> : null}
       {tab === "recent" ? <RecentView /> : null}
+      {tab === "stats" ? <StatsView /> : null}
+      {tab === "rules" ? <RulesView /> : null}
       {tab === "config" ? <ConfigView /> : null}
 
       <style jsx>{`
@@ -458,12 +462,19 @@ interface TraceEntry {
   candidate_count: number;
   has_image: boolean;
   reason?: string;
+  root_ts: number;
+  parent_ts: number | null;
+  stage: string;
+  duration_ms: number;
+  decision?: Record<string, unknown>;
+  stage_skill_id?: string;
 }
 
 function RecentView() {
   const [entries, setEntries] = useState<TraceEntry[]>([]);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
   const [loading, setLoading] = useState(true);
+  const [traceRoot, setTraceRoot] = useState<number | null>(null);
 
   const refresh = useCallback(async () => {
     try {
@@ -488,7 +499,7 @@ function RecentView() {
     <div className="card">
       <h3 style={{ margin: "0 0 12px", fontSize: 14, color: "#4cb3ff", display: "flex", alignItems: "center", gap: 8 }}>
         Recent chat runs
-        <span className="muted" style={{ fontSize: 11, fontWeight: 400 }}>· {entries.length} / 100 · 每 3 秒刷新</span>
+        <span className="muted" style={{ fontSize: 11, fontWeight: 400 }}>· {entries.length} / 500 · 每 3 秒刷新 · 点击行展开调用树</span>
       </h3>
       {entries.length === 0 && !loading ? (
         <div className="muted" style={{ fontSize: 12 }}>暂无记录。发一条 /chat 请求就会出现在这里。</div>
@@ -528,9 +539,21 @@ function RecentView() {
                   <td>
                     <div style={{ fontSize: 12 }}>{e.message}</div>
                     {isExpanded ? (
-                      <pre style={{ marginTop: 4, fontSize: 10, background: "#0f1115", padding: 6, borderRadius: 4 }}>
-                        {JSON.stringify(e, null, 2)}
-                      </pre>
+                      <div style={{ marginTop: 6 }}>
+                        <button
+                          onClick={(ev) => { ev.stopPropagation(); setTraceRoot(e.root_ts); }}
+                          style={{
+                            padding: "3px 10px", borderRadius: 4,
+                            background: "#1e3a8a", color: "#bfdbfe",
+                            border: "none", cursor: "pointer", fontSize: 11, marginBottom: 6,
+                          }}
+                        >
+                          查看调用树
+                        </button>
+                        <pre style={{ fontSize: 10, background: "#0f1115", padding: 6, borderRadius: 4, maxHeight: 160, overflow: "auto" }}>
+                          {JSON.stringify(e, null, 2)}
+                        </pre>
+                      </div>
                     ) : null}
                   </td>
                 </tr>
@@ -539,8 +562,412 @@ function RecentView() {
           </tbody>
         </table>
       )}
+      {traceRoot !== null ? <TraceModal rootTs={traceRoot} onClose={() => setTraceRoot(null)} /> : null}
     </div>
   );
+}
+
+// ── Stats view ─────────────────────────────────────────────────────────────
+
+interface Stats {
+  rpm: number;
+  p50_latency_ms: number;
+  p95_latency_ms: number;
+  error_rate: number;
+  skill_distribution: Array<{ skill_id: string; count: number }>;
+  llm_distribution: Array<{ model: string; count: number; total_ms: number }>;
+  rule_hits: Array<{ rule_id: string; count: number; last_fired_at: string | null }>;
+  total_requests: number;
+  window_minutes: number;
+}
+
+function StatsView() {
+  const [stats, setStats] = useState<Stats | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const refresh = useCallback(async () => {
+    try {
+      const r = await fetch("/api/debug/stats");
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const j = (await r.json()) as Stats;
+      setStats(j);
+      setError(null);
+    } catch (e) {
+      setError(String((e as Error).message ?? e));
+    }
+  }, []);
+
+  useEffect(() => {
+    refresh();
+    const t = setInterval(refresh, 3000);
+    return () => clearInterval(t);
+  }, [refresh]);
+
+  if (error) {
+    return <div className="card" style={{ color: "#da3633", fontSize: 12 }}>stats 加载失败: {error}</div>;
+  }
+  if (!stats) {
+    return <div className="card muted" style={{ fontSize: 12 }}>加载中…</div>;
+  }
+
+  const maxLlm = Math.max(1, ...stats.llm_distribution.map((d) => d.count));
+  const totalRuleHits = stats.rule_hits.reduce((s, r) => s + r.count, 0);
+
+  return (
+    <div style={{ display: "grid", gap: 16 }}>
+      {/* KPI tiles */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 12 }}>
+        <Kpi label="RPM (5min)" value={stats.rpm} />
+        <Kpi label="p50 latency" value={`${stats.p50_latency_ms}ms`} />
+        <Kpi label="p95 latency" value={`${stats.p95_latency_ms}ms`} />
+        <Kpi label="error rate" value={`${(stats.error_rate * 100).toFixed(1)}%`} />
+        <Kpi label="total / 5min" value={`${stats.total_requests}`} />
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        {/* Skill distribution */}
+        <div className="card">
+          <h3 style={{ margin: "0 0 8px", fontSize: 13, color: "#4cb3ff" }}>Skill distribution</h3>
+          {stats.skill_distribution.length === 0 ? (
+            <div className="muted" style={{ fontSize: 11 }}>暂无</div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              {stats.skill_distribution.map((s) => {
+                const pct = (s.count / Math.max(1, stats.total_requests)) * 100;
+                return (
+                  <div key={s.skill_id} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <code style={{ fontSize: 10, width: 130 }}>{s.skill_id}</code>
+                    <div style={{ flex: 1, height: 14, background: "#0f1115", borderRadius: 3, overflow: "hidden" }}>
+                      <div style={{ width: `${pct}%`, height: "100%", background: "#4cb3ff" }} />
+                    </div>
+                    <span style={{ fontSize: 11, color: "#9aa3b2", width: 30, textAlign: "right" }}>{s.count}</span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* LLM distribution */}
+        <div className="card">
+          <h3 style={{ margin: "0 0 8px", fontSize: 13, color: "#4cb3ff" }}>LLM distribution</h3>
+          {stats.llm_distribution.length === 0 ? (
+            <div className="muted" style={{ fontSize: 11 }}>暂无</div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {stats.llm_distribution.map((d) => {
+                const pct = (d.count / maxLlm) * 100;
+                const avg = d.count > 0 ? Math.round(d.total_ms / d.count) : 0;
+                return (
+                  <div key={d.model}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11 }}>
+                      <code>{d.model}</code>
+                      <span className="muted">{d.count} calls · avg {avg}ms</span>
+                    </div>
+                    <div style={{ height: 10, background: "#0f1115", borderRadius: 3, overflow: "hidden", marginTop: 2 }}>
+                      <div style={{ width: `${pct}%`, height: "100%", background: "#f5a524" }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Rule hits */}
+      <div className="card">
+        <h3 style={{ margin: "0 0 8px", fontSize: 13, color: "#4cb3ff" }}>
+          Rule hits
+          <span className="muted" style={{ fontSize: 11, fontWeight: 400, marginLeft: 8 }}>
+            total {totalRuleHits} fires (since process start)
+          </span>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>rule_id</th>
+              <th style={{ width: 80 }}>count</th>
+              <th style={{ width: 180 }}>last fired</th>
+            </tr>
+          </thead>
+          <tbody>
+            {stats.rule_hits.map((r) => (
+              <tr key={r.rule_id}>
+                <td><code style={{ fontSize: 10 }}>{r.rule_id}</code></td>
+                <td style={{ fontSize: 11 }}>{r.count}</td>
+                <td style={{ fontSize: 11, color: "#9aa3b2" }}>{r.last_fired_at ?? "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function Kpi({ label, value }: { label: string; value: string | number }) {
+  return (
+    <div className="card" style={{ padding: 12 }}>
+      <div className="muted" style={{ fontSize: 11, marginBottom: 4 }}>{label}</div>
+      <div style={{ fontSize: 22, fontWeight: 700, color: "#f5a524" }}>{value}</div>
+    </div>
+  );
+}
+
+// ── Rules view ─────────────────────────────────────────────────────────────
+
+interface RuleRow {
+  id: string;
+  stage: string;
+  enabled: boolean;
+  priority: number;
+  description: string;
+}
+
+function RulesView() {
+  const [rules, setRules] = useState<RuleRow[]>([]);
+  const [hits, setHits] = useState<Record<string, number>>({});
+  const [busy, setBusy] = useState<string | null>(null);
+
+  const refresh = useCallback(async () => {
+    try {
+      const r = await fetch("/api/debug/rules");
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const j = (await r.json()) as { rules: RuleRow[] };
+      setRules(j.rules);
+      const s = await fetch("/api/debug/stats");
+      if (s.ok) {
+        const sj = (await s.json()) as { rule_hits: Array<{ rule_id: string; count: number }> };
+        setHits(Object.fromEntries(sj.rule_hits.map((h) => [h.rule_id, h.count])));
+      }
+    } catch { /* keep prior */ }
+  }, []);
+
+  useEffect(() => {
+    refresh();
+    const t = setInterval(refresh, 3000);
+    return () => clearInterval(t);
+  }, [refresh]);
+
+  async function toggle(id: string, enabled: boolean) {
+    setBusy(id);
+    try {
+      const r = await fetch(`/api/debug/rules/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ enabled }),
+      });
+      if (r.ok) {
+        const j = (await r.json()) as { id: string; enabled: boolean };
+        setRules((prev) => prev.map((row) => (row.id === j.id ? { ...row, enabled: j.enabled } : row)));
+      }
+    } finally {
+      setBusy(null);
+    }
+  }
+
+  return (
+    <div className="card">
+      <h3 style={{ margin: "0 0 12px", fontSize: 14, color: "#4cb3ff" }}>
+        Hard rules · {rules.length} starter
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th style={{ width: 200 }}>id</th>
+            <th style={{ width: 130 }}>stage</th>
+            <th style={{ width: 60 }}>priority</th>
+            <th style={{ width: 60 }}>hits</th>
+            <th style={{ width: 60 }}>enabled</th>
+            <th>description</th>
+            <th style={{ width: 90 }}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rules.map((r) => (
+            <tr key={r.id}>
+              <td><code style={{ fontSize: 10 }}>{r.id}</code></td>
+              <td><code style={{ fontSize: 10, color: "#f5a524" }}>{r.stage}</code></td>
+              <td style={{ fontSize: 11 }}>{r.priority}</td>
+              <td style={{ fontSize: 11 }}>{hits[r.id] ?? 0}</td>
+              <td>
+                <span className={`pill ${r.enabled ? "pill-ok" : "pill-off"}`}>{r.enabled ? "ON" : "OFF"}</span>
+              </td>
+              <td style={{ fontSize: 11 }}>{r.description}</td>
+              <td>
+                <button
+                  onClick={() => toggle(r.id, !r.enabled)}
+                  disabled={busy === r.id}
+                  style={{
+                    padding: "3px 10px", borderRadius: 4,
+                    background: r.enabled ? "#374151" : "#166534",
+                    color: "#e8eaf0", border: "none", cursor: "pointer", fontSize: 11,
+                  }}
+                >
+                  {busy === r.id ? "…" : r.enabled ? "禁用" : "启用"}
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="muted" style={{ marginTop: 12, fontSize: 11 }}>
+        规则定义在 <code>lib/harness/rules.ts</code>;每次触发会写一条 <code>rule:fire</code> stage 到 trace buffer。
+        切换 enabled 只影响内存,进程重启会重置为代码默认值。
+      </p>
+    </div>
+  );
+}
+
+// ── Trace modal ────────────────────────────────────────────────────────────
+
+function TraceModal({ rootTs, onClose }: { rootTs: number; onClose: () => void }) {
+  const [tree, setTree] = useState<TraceEntry[] | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetch(`/api/debug/trace/${rootTs}`)
+      .then((r) => r.json() as Promise<{ tree: TraceEntry[] } | { error: string }>)
+      .then((j) => {
+        if (!alive) return;
+        if ("error" in j) { setErr(j.error); return; }
+        setTree(j.tree);
+      })
+      .catch((e) => { if (alive) setErr(String(e)); });
+    return () => { alive = false; };
+  }, [rootTs]);
+
+  // ESC closes
+  useEffect(() => {
+    function onKey(ev: KeyboardEvent) {
+      if (ev.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+      style={{
+        position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)",
+        display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000,
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: "#171a21", border: "1px solid #2a2f3a", borderRadius: 8,
+          padding: 20, maxWidth: 720, maxHeight: "85vh", overflow: "auto",
+          width: "90%",
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+          <h3 style={{ margin: 0, fontSize: 14, color: "#4cb3ff" }}>
+            Trace tree · root_ts={rootTs}
+          </h3>
+          <button
+            onClick={onClose}
+            style={{
+              padding: "4px 12px", borderRadius: 4, background: "#374151",
+              color: "#e8eaf0", border: "none", cursor: "pointer", fontSize: 12,
+            }}
+          >
+            关闭 (ESC)
+          </button>
+        </div>
+        {err ? (
+          <div style={{ color: "#da3633", fontSize: 12 }}>加载失败: {err}</div>
+        ) : !tree ? (
+          <div className="muted" style={{ fontSize: 12 }}>加载中…</div>
+        ) : tree.length === 0 ? (
+          <div className="muted" style={{ fontSize: 12 }}>该 root_ts 下没有 stage 条目。</div>
+        ) : (
+          <TraceTree tree={tree} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function TraceTree({ tree }: { tree: TraceEntry[] }) {
+  // Build parent → children map.
+  const childMap = new Map<number | null, TraceEntry[]>();
+  for (const e of tree) {
+    const key = e.parent_ts;
+    const arr = childMap.get(key) ?? [];
+    arr.push(e);
+    childMap.set(key, arr);
+  }
+  // Sort children by ts ascending.
+  for (const arr of childMap.values()) arr.sort((a, b) => a.ts - b.ts);
+  const roots = childMap.get(null) ?? [];
+  return (
+    <div style={{ fontFamily: "monospace", fontSize: 11 }}>
+      {roots.map((r) => <TraceNode key={r.ts} entry={r} childMap={childMap} depth={0} />)}
+    </div>
+  );
+}
+
+function TraceNode({
+  entry,
+  childMap,
+  depth,
+}: {
+  entry: TraceEntry;
+  childMap: Map<number | null, TraceEntry[]>;
+  depth: number;
+}) {
+  const children = childMap.get(entry.ts) ?? [];
+  const stageColor =
+    entry.stage.startsWith("llm") ? "#f5a524"
+    : entry.stage.startsWith("rule") ? "#1e3a8a"
+    : entry.stage.startsWith("skill") ? "#166534"
+    : entry.stage.startsWith("route") ? "#7c2d12"
+    : entry.stage.startsWith("memory") ? "#5b21b6"
+    : "#4cb3ff";
+  return (
+    <div style={{ marginLeft: depth * 14 }}>
+      <div style={{
+        display: "flex", alignItems: "center", gap: 8,
+        padding: "3px 6px", borderLeft: `3px solid ${stageColor}`,
+        marginTop: 2, background: depth === 0 ? "#0f1115" : "transparent",
+        borderRadius: 2,
+      }}>
+        <span style={{
+          display: "inline-block", padding: "0 6px", borderRadius: 2,
+          background: stageColor, color: "#0f1115", fontSize: 10, fontWeight: 700,
+        }}>{entry.stage}</span>
+        <span style={{ color: "#9aa3b2", fontSize: 10 }}>
+          {entry.duration_ms}ms
+        </span>
+        {!entry.ok ? <span className="pill pill-error" style={{ fontSize: 9 }}>ERR</span> : null}
+        {entry.stage_skill_id ? <code style={{ fontSize: 10 }}>{entry.stage_skill_id}</code> : null}
+        {entry.decision ? (
+          <code style={{ fontSize: 10, color: "#9aa3b2", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: 360 }}>
+            {summariseDecision(entry.decision)}
+          </code>
+        ) : null}
+      </div>
+      {children.map((c) => (
+        <TraceNode key={c.ts} entry={c} childMap={childMap} depth={depth + 1} />
+      ))}
+    </div>
+  );
+}
+
+function summariseDecision(d: Record<string, unknown>): string {
+  const entries = Object.entries(d).slice(0, 5);
+  return entries.map(([k, v]) => {
+    if (typeof v === "string") return `${k}=${v.length > 24 ? v.slice(0, 24) + "…" : v}`;
+    if (typeof v === "number" || typeof v === "boolean") return `${k}=${v}`;
+    if (Array.isArray(v)) return `${k}=[${v.length}]`;
+    return `${k}=${typeof v}`;
+  }).join(" ");
 }
 
 // ── Config view ────────────────────────────────────────────────────────────

@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { getTastingEpisodes } from "./episodic";
 import { getCorrections, type CorrectionEntry } from "./corrections";
+import { traceMemoryRead, traceMemoryWrite } from "./with-trace.ts";
 
 export type ProfileMemory = {
   userId: string;
@@ -329,7 +330,24 @@ export async function rebuildProfileMemory(
     "profile.json",
   );
   await mkdir(path.dirname(filePath), { recursive: true });
-  await writeFile(filePath, JSON.stringify(profile, null, 2) + "\n", "utf8");
+  try {
+    await writeFile(filePath, JSON.stringify(profile, null, 2) + "\n", "utf8");
+    traceMemoryWrite({
+      kind: "profile",
+      userId,
+      evidence_count: profile.evidenceCount,
+      confidence: profile.confidence,
+      preferred_styles_count: profile.preferredStyles.length,
+      corrections_applied: profile.correctionsApplied,
+    });
+  } catch (err) {
+    traceMemoryWrite({
+      kind: "profile",
+      userId,
+      error: String((err as Error).message ?? err).slice(0, 200),
+    }, false);
+    throw err;
+  }
 
   return profile;
 }
@@ -354,7 +372,7 @@ export async function getProfileMemory(
     const raw = await readFile(filePath, "utf8");
     const parsed = JSON.parse(raw) as Partial<ProfileMemory>;
     // Backward compat: fill in missing fields
-    return {
+    const filled: ProfileMemory = {
       userId: parsed.userId ?? userId,
       updatedAt: parsed.updatedAt ?? new Date(0).toISOString(),
       summary: parsed.summary ?? "",
@@ -369,8 +387,25 @@ export async function getProfileMemory(
       correctionsCount: parsed.correctionsCount ?? 0,
       correctionsApplied: parsed.correctionsApplied ?? false,
     };
+    traceMemoryRead({
+      kind: "profile",
+      userId,
+      source: "cache",
+      evidence_count: filled.evidenceCount,
+      confidence: filled.confidence,
+      preferred_styles_count: filled.preferredStyles.length,
+    });
+    return filled;
   } catch {
-    return rebuildProfileMemory(userId);
+    const built = await rebuildProfileMemory(userId);
+    traceMemoryRead({
+      kind: "profile",
+      userId,
+      source: "rebuild",
+      evidence_count: built.evidenceCount,
+      confidence: built.confidence,
+    });
+    return built;
   }
 }
 

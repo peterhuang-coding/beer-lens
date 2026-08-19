@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { traceMemoryRead, traceMemoryWrite } from "./with-trace.ts";
 
 // Simple in-process lock to prevent concurrent read-modify-write races
 const writeLocks = new Map<string, Promise<void>>();
@@ -62,7 +63,24 @@ export async function appendTastingEpisode(
     }
 
     episodes.push(episode);
-    await writeFile(filePath, JSON.stringify(episodes, null, 2) + "\n", "utf8");
+    try {
+      await writeFile(filePath, JSON.stringify(episodes, null, 2) + "\n", "utf8");
+      traceMemoryWrite({
+        kind: "episodic",
+        userId,
+        beer_name: episode.beer.displayName,
+        overall_score: episode.feedback.overallScore,
+        episode_count: episodes.length,
+      });
+    } catch (err) {
+      traceMemoryWrite({
+        kind: "episodic",
+        userId,
+        beer_name: episode.beer.displayName,
+        error: String((err as Error).message ?? err).slice(0, 200),
+      }, false);
+      throw err;
+    }
   });
 }
 
@@ -82,8 +100,11 @@ export async function getTastingEpisodes(
   );
   try {
     const raw = await readFile(filePath, "utf8");
-    return JSON.parse(raw) as TastingEpisode[];
+    const parsed = JSON.parse(raw) as TastingEpisode[];
+    traceMemoryRead({ kind: "episodic", userId, episode_count: parsed.length });
+    return parsed;
   } catch {
+    traceMemoryRead({ kind: "episodic", userId, episode_count: 0 });
     return [];
   }
 }

@@ -44,6 +44,16 @@ export interface SkillContext {
   agentContext?: AgentContext;
   params?: Record<string, unknown>;
   intentMeta?: { source: "rule" | "llm"; confidence: number };
+  /**
+   * Optional trace context injected by the harness. Carries the chat
+   * request's root_ts plus the parent stage that the skill invocation
+   * should hang under. Skills do not need to read or write this — the
+   * harness uses it internally to emit `skill:invoke` stage entries.
+   *
+   * Optional so legacy callers (tests, CLI tools) that don't go through
+   * the chat route keep working unchanged.
+   */
+  _trace_ctx?: { root_ts: number; parent_ts: number | null };
 }
 
 // ── AgentReply (backward-compatible with SkillResult) ──

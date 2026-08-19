@@ -33,14 +33,14 @@ export async function getProfileSummary() {
   }
 
   const avg =
-    journal.entries.reduce((total, entry) => total + (entry.parsed.overallScore ?? 0), 0) /
-    journal.entries.filter((entry) => entry.parsed.overallScore).length;
+    journal.entries.reduce((total, entry) => total + (entry.parsed?.overallScore ?? 0), 0) /
+    journal.entries.filter((entry) => entry.parsed?.overallScore).length;
 
   const tags = countTags(
     journal.entries.flatMap((entry) => [
-      ...entry.parsed.aromaTags,
-      ...entry.parsed.tasteTags,
-      ...entry.parsed.contextTags
+      ...(entry.parsed?.aromaTags ?? []),
+      ...(entry.parsed?.tasteTags ?? []),
+      ...(entry.parsed?.contextTags ?? []),
     ])
   );
 

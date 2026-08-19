@@ -13,8 +13,9 @@
 import { registerSkill, getSkill, listSkills, invokeSkill } from "./router.ts";
 export { registerSkill, getSkill, listSkills, invokeSkill };
 
-import type { Skill, SkillId, SkillContext } from "./types.ts";
+import type { Skill, SkillId, SkillContext, AgentReply } from "./types.ts";
 import type { AgentContext } from "../agent/types.ts";
+import { appendStage } from "./trace-buffer.ts";
 
 // ── Static executor dispatch ──────────────────────────────────────────────
 //
@@ -88,7 +89,7 @@ function toAgentContext(ctx: SkillContext): AgentContext {
 // This avoids a hard startup dependency and lets tests inject mocks later if
 // needed by overwriting the registered Skill in the registry.
 
-function makeExecutor(handlerFile: string) {
+function makeExecutor(handlerFile: string, skillId: SkillId) {
   return async (ctx: SkillContext) => {
     const exec = pickExecutor(handlerFile);
     if (!exec) {
@@ -96,7 +97,34 @@ function makeExecutor(handlerFile: string) {
         `[harness] no executor registered for handlerFile="${handlerFile}" — add it to lib/harness/skill-registry.ts`,
       );
     }
-    return exec(toAgentContext(ctx), ctx.params ?? {});
+    const traceCtx = ctx._trace_ctx;
+    const started_at = Date.now();
+    const traceAppend = (ok: boolean, decision: Record<string, unknown>, duration_ms: number) => {
+      if (!traceCtx) return;
+      try {
+        appendStage(traceCtx.root_ts, traceCtx.parent_ts, "skill:invoke", {
+          stage_skill_id: skillId,
+          ok,
+          duration_ms,
+          decision,
+          started_at,
+        });
+      } catch { /* never let tracing kill the skill */ }
+    };
+    let reply: AgentReply;
+    try {
+      reply = await exec(toAgentContext(ctx), ctx.params ?? {});
+    } catch (err) {
+      traceAppend(false, { error: String((err as Error).message ?? err).slice(0, 200) }, Date.now() - started_at);
+      throw err;
+    }
+    traceAppend(true, {
+      candidates_count: reply.candidates?.length ?? 0,
+      picks_keys: reply.picks ? Object.keys(reply.picks) : [],
+      params_keys: Object.keys(ctx.params ?? {}),
+      reply_chars: reply.reply?.length ?? 0,
+    }, Date.now() - started_at);
+    return reply;
   };
 }
 
@@ -178,7 +206,7 @@ function registerDefaults(): void {
   for (const def of DEFAULT_SKILLS) {
     registerSkill({
       ...def,
-      invoke: makeExecutor(def.handlerFile),
+      invoke: makeExecutor(def.handlerFile, def.id),
     });
   }
   _registered = true;

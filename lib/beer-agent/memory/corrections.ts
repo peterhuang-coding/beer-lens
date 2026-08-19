@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { traceMemoryRead, traceMemoryWrite } from "./with-trace.ts";
 
 // Simple in-process lock to prevent concurrent read-modify-write races
 const writeLocks = new Map<string, Promise<void>>();
@@ -84,7 +85,24 @@ export async function appendCorrection(
       store.corrections = store.corrections.slice(-50);
     }
 
-    await writeFile(filePath, JSON.stringify(store, null, 2) + "\n", "utf8");
+    try {
+      await writeFile(filePath, JSON.stringify(store, null, 2) + "\n", "utf8");
+      traceMemoryWrite({
+        kind: "correction",
+        userId,
+        action: entry.action,
+        target_value_preview: entry.targetValue.slice(0, 40),
+        total_corrections: store.corrections.length,
+      });
+    } catch (err) {
+      traceMemoryWrite({
+        kind: "correction",
+        userId,
+        action: entry.action,
+        error: String((err as Error).message ?? err).slice(0, 200),
+      }, false);
+      throw err;
+    }
   });
 }
 
@@ -103,8 +121,11 @@ export async function getCorrections(userId: string): Promise<CorrectionStore> {
   );
   try {
     const raw = await readFile(filePath, "utf8");
-    return JSON.parse(raw) as CorrectionStore;
+    const parsed = JSON.parse(raw) as CorrectionStore;
+    traceMemoryRead({ kind: "correction", userId, count: parsed.corrections.length });
+    return parsed;
   } catch {
+    traceMemoryRead({ kind: "correction", userId, count: 0 });
     return {
       userId,
       updatedAt: new Date().toISOString(),

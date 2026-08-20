@@ -31,6 +31,10 @@ export interface RuleOutcome {
   logs: Array<{ level: "info" | "warn"; message: string }>;
   /** Rule ids that fired (any action). */
   firedRuleIds: string[];
+  /** Last transform_reply that fired (post-skill only). Empty otherwise. */
+  transformedReply: string | null;
+  /** First retry_llm_with_hint that fired (pre-llm only). Null otherwise. */
+  retryHint: { hint: string; max_attempts?: number } | null;
 }
 
 export function runRulesForStage(
@@ -43,6 +47,8 @@ export function runRulesForStage(
     annotations: {},
     logs: [],
     firedRuleIds: [],
+    transformedReply: null,
+    retryHint: null,
   };
 
   // Sort by priority desc; ties keep insertion order (stable sort).
@@ -70,11 +76,19 @@ export function runRulesForStage(
 
     outcome.firedRuleIds.push(rule.id);
 
-    // Annotations accumulate; other actions short-circuit or replace.
+    // Annotations accumulate; transform_reply keeps the LAST one (so a
+    // lower-priority rule can't be silently overridden by an earlier
+    // higher-priority one without trace); other actions short-circuit.
     if (action.kind === "annotate") {
       outcome.annotations[action.key] = action.value;
     } else if (action.kind === "log") {
       outcome.logs.push({ level: action.level, message: action.message });
+    } else if (action.kind === "transform_reply") {
+      outcome.transformedReply = action.new_reply;
+    } else if (action.kind === "retry_llm_with_hint") {
+      if (!outcome.retryHint) {
+        outcome.retryHint = { hint: action.hint, max_attempts: action.max_attempts };
+      }
     } else if (!outcome.action) {
       // route_override / filter_candidates / block — first one wins.
       outcome.action = action;
@@ -94,6 +108,10 @@ export function runRulesForStage(
             ...(action.kind === "route_override" ? { skill_id: action.skill_id } : {}),
             ...(action.kind === "log" ? { level: action.level } : {}),
             ...(action.kind === "filter_candidates" ? { predicate: action.predicate } : {}),
+            ...(action.kind === "transform_reply" ? { reason: action.reason } : {}),
+            ...(action.kind === "retry_llm_with_hint"
+              ? { hint: action.hint, max_attempts: action.max_attempts ?? 1 }
+              : {}),
           },
         });
       } catch { /* never let tracing kill the harness */ }

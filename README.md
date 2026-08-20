@@ -134,9 +134,67 @@ Feishu ACK 在 3 秒内返回：先写 STM 原子 placeholder，LLM 完成后再
 
 `http://localhost:3000/debug`
 
-- **Pipeline** — 可视化流程图，点节点改参数 (阈值/开关/模型选择)
-- **Intent Classifier 节点** — Intent 规则覆盖 (正则 → 意图)
-- **Cases** — 每轮对话自动记录，可打标签、写备注、设期望回复
+- **Pipeline** — 6 节点水平流 + 8 个内置 skill 侧栏
+- **Skills** — 启/禁 skill（写 `data/skills/manifest.json`）
+- **Tester** — 文本或 3 张回归图发送请求，实时 SSE 事件 + 解析后 result
+- **Recent** — 最近 100 次 chat run,3 秒刷新；点击行展开 entry,再点"查看调用树"看完整 stage 树。键盘导航:`j`/`k` 上下,`Enter` 开树,`e` 展开行,`Esc` 关 modal。Stage 过滤 chips:`全部 / route / rule / llm / skill / memory`
+- **Stats** — RPM / p50 / p95 / error rate / skill & LLM 分布 / rule hits
+- **Rules** — starter + YAML 已加载规则表 + 启/禁开关 + 「⟳ Reload YAML」按钮（热加载 `data/rules/*.yaml`）
+
+### `/debug` Stage 2 写入
+
+- **调用树** (`/api/debug/trace/[root_ts]`) — 按 `root_ts + parent_ts` 把所有 hook 点 stage 拼成缩进树,色块区分 stage。树根 chat → route → skill → 内部事件
+- **JSONL 保存** (`POST /api/debug/trace/[root_ts]/save`) — 把 buffer 里某次完整 trace 写到 `data/traces/{root_ts}.jsonl`,每行一条 JSON entry,FIFO 淘汰后仍能离线回放
+- **stage filter** (`/api/debug/recent?stage=skill,llm`) — 按 stage 前缀过滤 entry;Recent tab 顶部 chips 切换
+
+### Hard rule engine
+
+`lib/harness/rules.ts` 定义 7 个 starter rule,覆盖 6 个 stage:
+
+| stage | starter rule | action |
+|---|---|---|
+| pre-route | `yaml-block-offtopic` / `routing-freshness-pre-override` | `block` / `route_override` |
+| post-route | `yaml-flag-ipa-mention` / `low-confidence-route-warn` | `annotate` / `log` |
+| pre-skill | `cross-skill-freshness-block` | `block` |
+| post-skill | `polish-short-reply` | `transform_reply` |
+| pre-llm | `retry-llm-unclear-lean-menu` | `retry_llm_with_hint` |
+| post-llm | `image-ocr-freshness` | `annotate` |
+| post-memory-read | `memory-style-bias-annotate` | `annotate` |
+
+支持的 action 类型:`route_override` / `filter_candidates` / `annotate` / `block` / `log` / `transform_reply` / `retry_llm_with_hint`。每次触发写一条 `rule:fire` stage,Stats tab 据此统计。
+
+### YAML rules (热加载)
+
+`data/rules/*.yaml` 自动加载到规则引擎。schema:
+
+```yaml
+rules:
+  - id: my-rule
+    stage: post-skill            # pre-route / post-route / pre-skill / post-skill / pre-llm / post-llm / pre-memory-read / post-memory-read / pre-memory-write / post-memory-write
+    enabled: true                # default true
+    priority: 50                 # 越高越先
+    description: 一句话说明
+    when:                        # 可选;AND 拼接
+      - field: profile.preferredStyles.0.weight
+        op: ">"
+        value: 0.6
+    then:
+      kind: annotate             # block | log | annotate | route_override | transform_reply
+      key: profile.bias_style
+      value_from: profile.preferredStyles.0.style
+      reason: "yaml rule demo"
+```
+
+支持的 op:`exists` / `missing` / `==` / `!=` / `contains` / `starts_with` / `ends_with` / `matches` (RegExp) / `>` / `>=` / `<` / `<=`。
+
+修完 YAML 不用重启:点 `/debug` Rules tab 的「⟳ Reload YAML」按钮即可。代码级 rule 改动 (`lib/harness/rules.ts`) 需进程重启。
+
+## Image pipeline 硬化
+
+- **客户端压缩** (`lib/image/compress.ts`) — Canvas 缩放 + JPEG 重编码。`>2MB` 或 `>1600px` 触发,质量从 0.85 递减到 0.50
+- **服务端 guard** — `POST /api/chat` 拒绝 `>8MB` dataUrl,返回 413
+- **vision timeout** — `multi-stage-pipeline.ts` 默认 vision `timeoutMs: 45000` (从 30000 提升)
+- **fallback chain** — vision 默认 `gemini-2.5-flash → gpt-4o-mini → claude-sonnet-4`。每个失败自动试下一个;可在 `process.env.VISION_FALLBACK_MODELS="m1,m2,m3"` 覆盖
 
 ## Case 标签 (在飞书里直接发)
 

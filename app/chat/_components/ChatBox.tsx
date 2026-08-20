@@ -14,6 +14,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { compressImage } from "@/lib/image/compress";
 
 type Attachment = {
   dataUrl: string;
@@ -94,6 +95,8 @@ export default function ChatBox() {
   const [status, setStatus] = useState<"idle" | "routing" | "streaming" | "error">("idle");
   const [results, setResults] = useState<Record<string, ResultPayload>>({});
   const [dragOver, setDragOver] = useState(false);
+  const [quickOpen, setQuickOpen] = useState<boolean>(true);
+  const [hoveredQuery, setHoveredQuery] = useState<string | null>(null);
   const boxRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -122,10 +125,21 @@ export default function ChatBox() {
     const list = Array.from(files);
     for (const f of list) {
       const a = await readFileAsAttachment(f);
-      if (a) {
-        setAttachment(a);
-        return; // only one attachment at a time for now
+      if (!a) continue;
+      // Auto-compress large user uploads so the vision API gets a manageable
+      // payload (especially when the user screenshots a hi-res menu).
+      try {
+        const compressed = await compressImage(a.dataUrl);
+        if (compressed.compressed) {
+          console.info(`[chat] compressed ${a.name}: ${(compressed.originalBytes/1024).toFixed(0)}KB → ${(compressed.compressedBytes/1024).toFixed(0)}KB`);
+          setAttachment({ dataUrl: compressed.dataUrl, name: a.name, type: "image/jpeg" });
+          return;
+        }
+      } catch (err) {
+        console.warn(`[chat] compress failed for ${a.name}, sending original:`, err);
       }
+      setAttachment(a);
+      return; // only one attachment at a time for now
     }
   }
 
@@ -137,16 +151,22 @@ export default function ChatBox() {
       const resp = await fetch(img.path);
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
       const blob = await resp.blob();
-      const dataUrl = await new Promise<string>((resolve, reject) => {
+      let dataUrl = await new Promise<string>((resolve, reject) => {
         const fr = new FileReader();
         fr.onload = () => resolve(fr.result as string);
         fr.onerror = () => reject(fr.error);
         fr.readAsDataURL(blob);
       });
+      // Auto-compress large test images (menu-el-nido is ~1.5MB).
+      const compressed = await compressImage(dataUrl).catch(() => null);
+      if (compressed?.compressed) {
+        console.info(`[chat] compressed ${img.id}: ${(compressed.originalBytes/1024).toFixed(0)}KB → ${(compressed.compressedBytes/1024).toFixed(0)}KB @ q${compressed.quality.toFixed(2)}`);
+        dataUrl = compressed.dataUrl;
+      }
       const attachment: Attachment = {
         dataUrl,
         name: img.path.split("/").pop() ?? img.label,
-        type: blob.type || "image/png",
+        type: compressed?.compressed ? "image/jpeg" : (blob.type || "image/png"),
       };
       // Pass the attachment directly into send() to avoid the closure
       // race where setAttachment() hasn't flushed yet.
@@ -293,13 +313,13 @@ export default function ChatBox() {
         {messages.map((m) => (
           <div key={m.id} className={`bubble ${m.role}`}>
             <div className="role">{m.role === "user" ? "你" : "Beer Lens"}</div>
+            <div className="text">{m.text || (m.role === "assistant" ? "…" : "")}</div>
             {m.attachment ? (
               <div className="attach-preview">
                 <img src={m.attachment.dataUrl} alt={m.attachment.name} />
                 <span className="attach-cap">📷 {m.attachment.name}</span>
               </div>
             ) : null}
-            <div className="text">{m.text || (m.role === "assistant" ? "…" : "")}</div>
             {m.role === "assistant" && results[m.id] ? (
               <BeerResultView result={results[m.id]} />
             ) : null}
@@ -307,28 +327,46 @@ export default function ChatBox() {
         ))}
       </div>
 
-      <div className="quick-row">
-        {QUICK_PROMPTS.map((p) => (
-          <button key={p} disabled={busy} onClick={() => send(p)}>
-            {p}
-          </button>
-        ))}
-      </div>
-
-      <div className="quick-imgs">
-        <span className="quick-imgs-label">📷 回归 case:</span>
-        {QUICK_IMAGES.map((img) => (
-          <button
-            key={img.id}
-            disabled={busy}
-            title={`${img.label} · ${img.defaultQuery}`}
-            onClick={() => sendImageCase(img)}
-            className="quick-img-btn"
-          >
-            <img src={img.path} alt={img.label} />
-            <span>{img.label}</span>
-          </button>
-        ))}
+      <div className="quick-panel">
+        <button
+          type="button"
+          className="quick-toggle"
+          onClick={() => setQuickOpen((v) => !v)}
+          disabled={busy}
+        >
+          {quickOpen ? "▼" : "▶"} 快捷 ({QUICK_PROMPTS.length} 条文字 · {QUICK_IMAGES.length} 张图)
+        </button>
+        {quickOpen ? (
+          <>
+            <div className="quick-row">
+              {QUICK_PROMPTS.map((p) => (
+                <button key={p} disabled={busy} onClick={() => send(p)}>
+                  {p}
+                </button>
+              ))}
+            </div>
+            <div className="quick-imgs">
+              <span className="quick-imgs-label">📷 回归 case:</span>
+              {QUICK_IMAGES.map((img) => (
+                <button
+                  key={img.id}
+                  disabled={busy}
+                  title={`${img.label} · ${img.defaultQuery}`}
+                  onClick={() => sendImageCase(img)}
+                  onMouseEnter={() => setHoveredQuery(img.defaultQuery)}
+                  onMouseLeave={() => setHoveredQuery(null)}
+                  className="quick-img-btn"
+                >
+                  <img src={img.path} alt={img.label} />
+                  <span>{img.label}</span>
+                </button>
+              ))}
+            </div>
+            {hoveredQuery ? (
+              <div className="quick-tooltip">💬 {hoveredQuery}</div>
+            ) : null}
+          </>
+        ) : null}
       </div>
 
       {attachment ? (
@@ -402,6 +440,10 @@ export default function ChatBox() {
         .attach-strip strong { color:#e8eaf0; font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
         .attach-strip small { color:#9aa3b2; font-size:10px; }
         .attach-strip button { background:#374151; color:#e8eaf0; border:none; border-radius:4px; padding:4px 10px; font-size:11px; cursor:pointer; }
+        .quick-panel { display:flex; flex-direction:column; gap:6px; }
+        .quick-toggle { align-self:flex-start; background:transparent; color:#9aa3b2; border:1px solid #2a2f3a; border-radius:6px; padding:3px 10px; font-size:11px; cursor:pointer; }
+        .quick-toggle:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; }
+        .quick-toggle:disabled { opacity:0.5; cursor:not-allowed; }
         .quick-row { display:flex; gap:6px; flex-wrap:wrap; }
         .quick-row button { background:#171a21; color:#9aa3b2; border:1px solid #2a2f3a; border-radius:6px; padding:4px 10px; font-size:11px; cursor:pointer; }
         .quick-row button:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; }
@@ -412,6 +454,7 @@ export default function ChatBox() {
         .quick-img-btn:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; border-color:#4cb3ff; }
         .quick-img-btn:disabled { opacity:0.5; cursor:not-allowed; }
         .quick-img-btn img { width:40px; height:30px; object-fit:cover; border-radius:3px; }
+        .quick-tooltip { background:#171a21; color:#bfdbfe; border:1px solid #2a2f3a; border-radius:6px; padding:6px 10px; font-size:11px; line-height:1.4; max-width:480px; }
         .chat-input { display:flex; gap:8px; }
         .chat-input .attach-btn { background:#171a21; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:0 12px; font-size:16px; cursor:pointer; }
         .chat-input .attach-btn:hover:not(:disabled) { background:#1f232c; }

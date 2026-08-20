@@ -29,6 +29,7 @@ import { listSkills, getSkill } from "./router.ts";
 import { keywordRoute } from "./router-rules.ts";
 import type { SkillId } from "./types.ts";
 import { appendStage } from "./trace-buffer.ts";
+import { runRulesForStage } from "./rules-engine.ts";
 
 export type RouteLLMResult =
   | { ok: true; decision: RouteDecision; source: "rule" | "llm" }
@@ -79,14 +80,51 @@ export async function routeByLLM(
   }
 
   const messages = buildIntentClassifierMessages(userMessage, enabledOnly);
-  let raw: string;
+  let raw: string = "";
+
+  // pre-llm hook: rules can inject a hint via `retry_llm_with_hint`. We
+  // append the hint to the system message and retry once before falling
+  // back to the original classification.
+  let hintMessages = messages;
+  if (traceOn) {
+    const preLlm = runRulesForStage(
+      "pre-llm",
+      { message: userMessage },
+      { root_ts: root_ts!, parent_ts: pt },
+    );
+    if (preLlm.retryHint) {
+      const hintText = preLlm.retryHint.hint;
+      const augmented = [
+        ...messages,
+        { role: "system" as const, content: `HINT (from rule): ${hintText}` },
+      ];
+      try {
+        const hinted = await provider.completeText({
+          messages: augmented.map((m) => ({ role: m.role, content: m.content })),
+          temperature: 0.2,
+          maxTokens: 400,
+          stream: true,
+        });
+        traceAppend("llm:retry", {
+          decision: { hint: hintText, original_raw: "(replaced)", retry_raw_preview: hinted.slice(0, 80) },
+        });
+        raw = hinted;
+        hintMessages = augmented;
+      } catch (err) {
+        traceAppend("route:error", { ok: false, decision: { reason: "upstream", message: "hint retry failed: " + String((err as Error).message ?? err) } });
+      }
+    }
+  }
+
   try {
-    raw = await provider.completeText({
-      messages: messages.map((m) => ({ role: m.role, content: m.content })),
-      temperature: 0.2,
-      maxTokens: 400,
-      stream: true,
-    });
+    if (!raw) {
+      raw = await provider.completeText({
+        messages: hintMessages.map((m) => ({ role: m.role, content: m.content })),
+        temperature: 0.2,
+        maxTokens: 400,
+        stream: true,
+      });
+    }
   } catch (err) {
     const reason = "upstream";
     const msg = err instanceof LLMUpstreamError ? err.message : String((err as Error).message ?? err);

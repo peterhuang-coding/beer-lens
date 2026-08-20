@@ -475,10 +475,42 @@ function RecentView() {
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
   const [loading, setLoading] = useState(true);
   const [traceRoot, setTraceRoot] = useState<number | null>(null);
+  const [stageFilter, setStageFilter] = useState<string>("");
+  const [focusIdx, setFocusIdx] = useState<number>(0);
+  const focusRef = useRef<HTMLTableRowElement | null>(null);
+
+  // j / k / Enter / s keyboard nav when modal closed and focus inside RecentView
+  useEffect(() => {
+    function onKey(ev: KeyboardEvent) {
+      if (traceRoot !== null) return; // modal handles its own keys
+      const tag = (ev.target as HTMLElement)?.tagName ?? "";
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      if (ev.key === "j" || ev.key === "ArrowDown") {
+        ev.preventDefault();
+        setFocusIdx((i) => Math.min(entries.length - 1, i + 1));
+      } else if (ev.key === "k" || ev.key === "ArrowUp") {
+        ev.preventDefault();
+        setFocusIdx((i) => Math.max(0, i - 1));
+      } else if (ev.key === "Enter") {
+        const e = entries[focusIdx];
+        if (e) setTraceRoot(e.root_ts);
+      } else if (ev.key === "e" && entries[focusIdx]) {
+        setExpanded((p) => ({ ...p, [entries[focusIdx].ts]: !p[entries[focusIdx].ts] }));
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [entries, focusIdx, traceRoot]);
+
+  // Scroll focused row into view
+  useEffect(() => {
+    focusRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [focusIdx]);
 
   const refresh = useCallback(async () => {
     try {
-      const r = await fetch("/api/debug/recent?limit=50");
+      const q = stageFilter ? `&stage=${encodeURIComponent(stageFilter)}` : "";
+      const r = await fetch(`/api/debug/recent?limit=50${q}`);
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const j = (await r.json()) as { entries: TraceEntry[] };
       setEntries(j.entries);
@@ -487,7 +519,7 @@ function RecentView() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [stageFilter]);
 
   useEffect(() => {
     refresh();
@@ -495,12 +527,41 @@ function RecentView() {
     return () => clearInterval(t);
   }, [refresh]);
 
+  const STAGE_CHIPS = [
+    { label: "全部", value: "" },
+    { label: "route", value: "route" },
+    { label: "rule", value: "rule" },
+    { label: "llm", value: "llm" },
+    { label: "skill", value: "skill" },
+    { label: "memory", value: "memory" },
+  ];
+
   return (
     <div className="card">
       <h3 style={{ margin: "0 0 12px", fontSize: 14, color: "#4cb3ff", display: "flex", alignItems: "center", gap: 8 }}>
         Recent chat runs
-        <span className="muted" style={{ fontSize: 11, fontWeight: 400 }}>· {entries.length} / 500 · 每 3 秒刷新 · 点击行展开调用树</span>
+        <span className="muted" style={{ fontSize: 11, fontWeight: 400 }}>· {entries.length} / 500 · 每 3 秒刷新 · 点击行展开调用树 · <code style={{ color: "#4cb3ff" }}>j/k</code> 上下 · <code style={{ color: "#4cb3ff" }}>Enter</code> 打开树 · <code style={{ color: "#4cb3ff" }}>e</code> 展开行</span>
       </h3>
+      <div style={{ display: "flex", gap: 6, marginBottom: 10, flexWrap: "wrap" }}>
+        {STAGE_CHIPS.map((c) => {
+          const active = stageFilter === c.value;
+          return (
+            <button
+              key={c.label}
+              onClick={() => setStageFilter(c.value)}
+              style={{
+                padding: "3px 10px", fontSize: 11, borderRadius: 12,
+                border: "1px solid #1e3a8a",
+                background: active ? "#1e3a8a" : "transparent",
+                color: active ? "#bfdbfe" : "#94a3b8",
+                cursor: "pointer",
+              }}
+            >
+              {c.label}
+            </button>
+          );
+        })}
+      </div>
       {entries.length === 0 && !loading ? (
         <div className="muted" style={{ fontSize: 12 }}>暂无记录。发一条 /chat 请求就会出现在这里。</div>
       ) : (
@@ -525,8 +586,14 @@ function RecentView() {
                 : e.source === "error" ? "pill-error"
                 : "pill-off";
               const isExpanded = expanded[e.ts];
+              const isFocused = i === focusIdx;
               return (
-                <tr key={e.ts} onClick={() => setExpanded((p) => ({ ...p, [e.ts]: !p[e.ts] }))} style={{ cursor: "pointer" }}>
+                <tr
+                  key={e.ts}
+                  ref={isFocused ? focusRef : null}
+                  onClick={() => { setFocusIdx(i); setExpanded((p) => ({ ...p, [e.ts]: !p[e.ts] })); }}
+                  style={{ cursor: "pointer", outline: isFocused ? "2px solid #4cb3ff" : "none", outlineOffset: -2 }}
+                >
                   <td style={{ fontSize: 11 }}>{new Date(e.ts).toLocaleTimeString()}</td>
                   <td><code style={{ fontSize: 10 }}>{e.skill_id}</code></td>
                   <td><span className={`pill ${sourcePill}`}>{e.source}</span></td>
@@ -729,6 +796,7 @@ function RulesView() {
   const [rules, setRules] = useState<RuleRow[]>([]);
   const [hits, setHits] = useState<Record<string, number>>({});
   const [busy, setBusy] = useState<string | null>(null);
+  const [reloadMsg, setReloadMsg] = useState<string>("");
 
   const refresh = useCallback(async () => {
     try {
@@ -767,10 +835,42 @@ function RulesView() {
     }
   }
 
+  async function reloadYaml() {
+    setBusy("__reload__");
+    setReloadMsg("");
+    try {
+      const r = await fetch("/api/debug/rules/reload", { method: "POST" });
+      const j = (await r.json()) as { ok?: boolean; rules_loaded?: number; yaml_added?: number; error?: string };
+      if (j.ok) {
+        setReloadMsg(`已加载 ${j.rules_loaded} 条 (新增 ${j.yaml_added})`);
+        refresh();
+      } else {
+        setReloadMsg(`失败: ${j.error ?? "unknown"}`);
+      }
+    } finally {
+      setBusy(null);
+    }
+  }
+
   return (
     <div className="card">
       <h3 style={{ margin: "0 0 12px", fontSize: 14, color: "#4cb3ff" }}>
-        Hard rules · {rules.length} starter
+        Hard rules · {rules.length} loaded
+        <button
+          onClick={reloadYaml}
+          disabled={busy === "__reload__"}
+          title="Reload YAML files from data/rules/*.yaml (lib/harness/rules.ts code edits need a process restart)"
+          style={{
+            marginLeft: 12, padding: "3px 10px", borderRadius: 4,
+            background: "#1e3a8a", color: "#bfdbfe",
+            border: "none", cursor: "pointer", fontSize: 11,
+          }}
+        >
+          {busy === "__reload__" ? "重载中…" : "⟳ Reload YAML"}
+        </button>
+        {reloadMsg ? (
+          <span className="muted" style={{ marginLeft: 10, fontSize: 11 }}>{reloadMsg}</span>
+        ) : null}
       </h3>
       <table>
         <thead>
@@ -813,8 +913,7 @@ function RulesView() {
         </tbody>
       </table>
       <p className="muted" style={{ marginTop: 12, fontSize: 11 }}>
-        规则定义在 <code>lib/harness/rules.ts</code>;每次触发会写一条 <code>rule:fire</code> stage 到 trace buffer。
-        切换 enabled 只影响内存,进程重启会重置为代码默认值。
+        规则定义在 <code>lib/harness/rules.ts</code>(代码,需重启) 与 <code>data/rules/*.yaml</code>(热加载)。每次触发会写一条 <code>rule:fire</code> stage 到 trace buffer。切换 enabled 只影响内存,进程重启会重置为代码默认值。
       </p>
     </div>
   );
@@ -825,6 +924,8 @@ function RulesView() {
 function TraceModal({ rootTs, onClose }: { rootTs: number; onClose: () => void }) {
   const [tree, setTree] = useState<TraceEntry[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [saveMsg, setSaveMsg] = useState<string>("");
 
   useEffect(() => {
     let alive = true;
@@ -839,7 +940,7 @@ function TraceModal({ rootTs, onClose }: { rootTs: number; onClose: () => void }
     return () => { alive = false; };
   }, [rootTs]);
 
-  // ESC closes
+  // ESC closes, / toggles focus on stage pill (placeholder for future)
   useEffect(() => {
     function onKey(ev: KeyboardEvent) {
       if (ev.key === "Escape") onClose();
@@ -847,6 +948,25 @@ function TraceModal({ rootTs, onClose }: { rootTs: number; onClose: () => void }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  async function saveJsonl() {
+    setSaveState("saving");
+    setSaveMsg("");
+    try {
+      const r = await fetch(`/api/debug/trace/${rootTs}/save`, { method: "POST" });
+      const j = await r.json() as { ok?: boolean; path?: string; bytes?: number; error?: string; message?: string };
+      if (j.ok) {
+        setSaveState("saved");
+        setSaveMsg(`${j.path} (${j.bytes}B)`);
+      } else {
+        setSaveState("error");
+        setSaveMsg(`${j.error ?? "error"}${j.message ? ": " + j.message : ""}`);
+      }
+    } catch (e) {
+      setSaveState("error");
+      setSaveMsg(String((e as Error).message ?? e));
+    }
+  }
 
   return (
     <div
@@ -866,20 +986,42 @@ function TraceModal({ rootTs, onClose }: { rootTs: number; onClose: () => void }
           width: "90%",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, gap: 8 }}>
           <h3 style={{ margin: 0, fontSize: 14, color: "#4cb3ff" }}>
             Trace tree · root_ts={rootTs}
           </h3>
-          <button
-            onClick={onClose}
-            style={{
-              padding: "4px 12px", borderRadius: 4, background: "#374151",
-              color: "#e8eaf0", border: "none", cursor: "pointer", fontSize: 12,
-            }}
-          >
-            关闭 (ESC)
-          </button>
+          <div style={{ display: "flex", gap: 6 }}>
+            <button
+              onClick={saveJsonl}
+              disabled={saveState === "saving"}
+              title="Save full tree as JSONL (one JSON per line) to data/traces/{root_ts}.jsonl"
+              style={{
+                padding: "4px 12px", borderRadius: 4,
+                background: saveState === "saved" ? "#14532d" : "#1e3a8a",
+                color: saveState === "saved" ? "#bbf7d0" : "#bfdbfe",
+                border: "none", cursor: "pointer", fontSize: 12,
+              }}
+            >
+              {saveState === "saving" ? "保存中…" :
+               saveState === "saved" ? "✓ 已保存" :
+               saveState === "error" ? "✗ 失败" : "💾 Save JSONL"}
+            </button>
+            <button
+              onClick={onClose}
+              style={{
+                padding: "4px 12px", borderRadius: 4, background: "#374151",
+                color: "#e8eaf0", border: "none", cursor: "pointer", fontSize: 12,
+              }}
+            >
+              关闭 (ESC)
+            </button>
+          </div>
         </div>
+        {saveMsg ? (
+          <div className="muted" style={{ fontSize: 11, marginBottom: 8, color: saveState === "error" ? "#f87171" : "#86efac" }}>
+            {saveMsg}
+          </div>
+        ) : null}
         {err ? (
           <div style={{ color: "#da3633", fontSize: 12 }}>加载失败: {err}</div>
         ) : !tree ? (

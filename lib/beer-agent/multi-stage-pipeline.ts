@@ -1,4 +1,5 @@
 import { openrouterFetch } from "./openrouter-client";
+import { vision } from "@/lib/multimodal";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -19,7 +20,7 @@ async function getModelConfig(kind: string): Promise<ModelConfig> {
   const cfg = await loadConfig();
   const fromConfig = cfg.models?.[kind];
   const defaults: Record<string, ModelConfig> = {
-    vision:    { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 30000 },
+    vision:    { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 45000 },
     analysis:  { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
   };
   if (fromConfig && typeof fromConfig === "object" && fromConfig.model) {
@@ -29,6 +30,25 @@ async function getModelConfig(kind: string): Promise<ModelConfig> {
     return { ...defaults[kind], model: fromConfig };
   }
   return defaults[kind];
+}
+
+/** Default vision fallback chain. Tried in order when the primary model
+ *  fails (timeout / upstream 5xx / parse error). Override via env var
+ *  `VISION_FALLBACK_MODELS="model1,model2,model3"` or by editing this
+ *  array. The full chain is logged to the dev console on each image
+ *  pipeline run. */
+export const DEFAULT_VISION_FALLBACK: string[] = [
+  "openai/gpt-4o-mini",
+  "anthropic/claude-sonnet-4-20250514",
+];
+
+export function getVisionFallbackChain(): string[] {
+  const envChain = process.env.VISION_FALLBACK_MODELS;
+  if (envChain) {
+    const list = envChain.split(",").map((s) => s.trim()).filter(Boolean);
+    if (list.length > 0) return list;
+  }
+  return DEFAULT_VISION_FALLBACK;
 }
 
 // ── Progress callback ──
@@ -186,6 +206,8 @@ export async function runMultiStagePipeline(params: {
   }
 
   // Stage 1: Combined vision analysis (classify + OCR + quality) — single API call
+  // Routed through the multimodal container; visionModel/apiKey are now
+  // resolved inside the container from capability defaults + env.
   const combined = await withProgress(emit, "vision", "🔍📝🔬 视觉分析 (分类+OCR+质量)", visionModel,
     () => combinedVisionAnalysis(apiKey, visionModel, imageDataUrl, userText));
 
@@ -260,12 +282,11 @@ function combinedVisionSchema() {
 }
 
 async function combinedVisionAnalysis(
-  apiKey: string, model: string, imageDataUrl: string, userText: string
+  _apiKey: string, _model: string, imageDataUrl: string, userText: string
 ): Promise<CombinedVisionOutput> {
+  const { base64, mime } = parseDataUrl(imageDataUrl);
   const schema = combinedVisionSchema();
-  const result = await callOpenRouterJson(apiKey, model, [
-    { role: "user", content: [
-      { type: "text", text: `你是啤酒图像分析器。一次完成以下三项任务，返回完整 JSON。
+  const visionPrompt = `你是啤酒图像分析器。一次完成以下三项任务，返回完整 JSON。
 
 ## 任务1: imageContext — 图片分类
 判断图片类型：menu(酒单) / tap_list(酒头列表) / bottle(瓶) / can(罐) / glass(杯中酒) / venue(环境) / unknown
@@ -281,17 +302,32 @@ async function combinedVisionAnalysis(
 - 酒单/tap list：日期可见性、IPA 新鲜度风险
 - 只能说是"疑似风险"，不能下结论
 
-用户补充需求：${userText}` },
-      { type: "image_url", image_url: { url: imageDataUrl } }
-    ]}
-  ], schema, "beer_combined_vision", 12000);
+用户补充需求：${userText}`;
 
-  const data = result as any;
+  // Route through the multimodal container — it owns fallback, cache,
+  // tracing, and rule-engine hooks. apiKey/model come from env/config
+  // inside the container, so we drop them here.
+  const result = await vision.call<CombinedVisionOutput>("beer_menu_image", {
+    image: { base64, mime },
+    prompt: visionPrompt,
+    schema,
+    schemaName: "beer_combined_vision",
+    maxTokens: 12000,
+  });
+
+  const data = result.parsed as any;
   return {
-    imageContext: data.imageContext ?? textOnlyImageContext(),
-    extracted: data.extracted ?? { sourceType: "unknown", rawText: "", items: [], visualBeerDescription: { color: "", clarity: "", foam: "", visiblePackagingDate: "", notes: [] }, uncertainties: [] },
-    visualQuality: data.visualQuality ?? textOnlyVisualQuality(),
+    imageContext: data?.imageContext ?? textOnlyImageContext(),
+    extracted: data?.extracted ?? { sourceType: "unknown", rawText: "", items: [], visualBeerDescription: { color: "", clarity: "", foam: "", visiblePackagingDate: "", notes: [] }, uncertainties: [] },
+    visualQuality: data?.visualQuality ?? textOnlyVisualQuality(),
   };
+}
+
+/** Strip "data:image/jpeg;base64," prefix to plain {base64, mime}. */
+function parseDataUrl(dataUrl: string): { base64: string; mime: string } {
+  const m = /^data:([^;]+);base64,(.*)$/.exec(dataUrl);
+  if (!m) return { base64: dataUrl, mime: "image/jpeg" };
+  return { base64: m[2], mime: m[1] };
 }
 
 // ── Text-only extraction ──
@@ -356,59 +392,67 @@ async function callOpenRouterJson(
   messages: object[], schema: object, schemaName: string, maxTokens: number
 ): Promise<object> {
   const schemaJson = JSON.stringify(schema);
-
-  const supportsJsonSchema = !model.includes("gemini");
-
-  const body: any = {
-    model,
-    messages: messages.map((m: any) => {
-      if (typeof m.content === "string") {
-        return {
-          ...m,
-          content: `${m.content}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}`,
-        };
-      }
-      if (Array.isArray(m.content)) {
-        return {
-          ...m,
-          content: m.content.map((part: any) =>
-            part.type === "text"
-              ? { ...part, text: `${part.text}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}` }
-              : part
-          ),
-        };
-      }
-      return m;
-    }),
-    temperature: 0.1,
-    max_tokens: maxTokens,
+  const buildBody = (m: string): any => {
+    const supportsJsonSchema = !m.includes("gemini");
+    const b: any = {
+      model: m,
+      messages: messages.map((msg: any) => {
+        if (typeof msg.content === "string") {
+          return {
+            ...msg,
+            content: `${msg.content}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}`,
+          };
+        }
+        if (Array.isArray(msg.content)) {
+          return {
+            ...msg,
+            content: msg.content.map((part: any) =>
+              part.type === "text"
+                ? { ...part, text: `${part.text}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}` }
+                : part
+            ),
+          };
+        }
+        return msg;
+      }),
+      temperature: 0.1,
+      max_tokens: maxTokens,
+    };
+    if (supportsJsonSchema) {
+      b.response_format = { type: "json_schema", json_schema: { name: schemaName, strict: true, schema } };
+    } else {
+      b.response_format = { type: "json_object" };
+    }
+    return b;
   };
 
-  if (supportsJsonSchema) {
-    body.response_format = {
-      type: "json_schema",
-      json_schema: { name: schemaName, strict: true, schema },
-    };
-  } else {
-    body.response_format = { type: "json_object" };
-  }
+  // Try the primary model first (with response_format=json_schema). On any
+  // failure, walk the fallback chain with a relaxed response_format.
+  const fallbackChain = [model, ...getVisionFallbackChain().filter((m) => m !== model)];
+  const errors: Array<{ model: string; err: string }> = [];
 
-  let content: string;
-  try {
-    content = await openrouterFetch(body);
-  } catch (err) {
-    const fallbackBody = {
-      ...body,
-      response_format: undefined,
-    };
+  for (let attempt = 0; attempt < fallbackChain.length; attempt++) {
+    const m = fallbackChain[attempt];
+    const tryJsonSchema = attempt === 0;
+    const body = tryJsonSchema ? buildBody(m) : { ...buildBody(m), response_format: undefined };
+
     try {
-      content = await openrouterFetch(fallbackBody);
-    } catch (err2) {
-      throw new Error(`OpenRouter call failed for ${schemaName}: ${err instanceof Error ? err.message : String(err)}; fallback: ${err2 instanceof Error ? err2.message : String(err2)}`);
+      const content = await openrouterFetch(body);
+      if (attempt > 0) {
+        console.warn(`[multi-stage] ${schemaName} succeeded on fallback model ${m} after ${attempt} failures`);
+      }
+      return parseAndRepairJson(content, schemaName);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      errors.push({ model: m, err: msg });
+      // Continue to next model.
     }
   }
 
-  return parseAndRepairJson(content, schemaName);
+  throw new Error(
+    `OpenRouter call failed for ${schemaName} after ${fallbackChain.length} attempts:\n` +
+      errors.map((e, i) => `  [${i}] ${e.model}: ${e.err}`).join("\n"),
+  );
 }
 
 function parseAndRepairJson(content: string, label: string): object {

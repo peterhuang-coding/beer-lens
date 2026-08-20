@@ -7,14 +7,21 @@ let proxyFailed = false;
 
 /** Structured error carrying model/provider/status for trace diagnostics. */
 export class OpenRouterError extends Error {
+  readonly provider: string;
+  readonly model: string;
+  readonly errorCode: string;
+
   constructor(
     message: string,
-    public readonly provider: string,
-    public readonly model: string,
-    public readonly errorCode: string,
+    provider: string,
+    model: string,
+    errorCode: string,
   ) {
     super(message);
     this.name = "OpenRouterError";
+    this.provider = provider;
+    this.model = model;
+    this.errorCode = errorCode;
   }
 }
 

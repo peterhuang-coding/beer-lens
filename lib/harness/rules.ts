@@ -35,6 +35,8 @@ export type Stage =
   | "post-skill"
   | "pre-llm"
   | "post-llm"
+  | "pre-vision"
+  | "post-vision"
   | "pre-memory-read"
   | "post-memory-read"
   | "pre-memory-write"
@@ -45,7 +47,14 @@ export type RuleAction =
   | { kind: "filter_candidates"; predicate: "fresh_only" | "high_score"; reason: string }
   | { kind: "annotate"; key: string; value: unknown; reason?: string }
   | { kind: "block"; reason: string }
-  | { kind: "log"; level: "info" | "warn"; message: string };
+  | { kind: "log"; level: "info" | "warn"; message: string }
+  /** Post-skill only — rewrite the user-visible reply text. Engine never
+   *  mutates candidates/picks, only the string that streams to the UI. */
+  | { kind: "transform_reply"; new_reply: string; reason: string }
+  /** Pre-llm only — if the LLM provider supports it, retry once with this
+   *  hint appended to the system prompt. The engine emits a synthetic
+   *  "llm:retry" stage so the trace shows both attempts. */
+  | { kind: "retry_llm_with_hint"; hint: string; max_attempts?: number; reason: string };
 
 export interface RuleCtx {
   /** The user message that triggered this stage. */
@@ -58,6 +67,8 @@ export interface RuleCtx {
   llm_response?: unknown;
   /** Skill result candidates (post-skill only). */
   candidates?: unknown[];
+  /** The skill's user-visible reply (post-skill only). */
+  reply?: string;
   /** Free-form annotations other rules have already attached. */
   annotations?: Record<string, unknown>;
   /** Profile summary (post-memory-read of profileSummary). */
@@ -187,6 +198,52 @@ const RULES: HardRule[] = [
       return null;
     },
   },
+
+  // 6. Post-skill reply polish — append a tiny note when the reply looks
+  //    terse (no punctuation, short). Demonstrates the new transform_reply
+  //    action. Keep low priority so user-specific rules win if added later.
+  {
+    id: "polish-short-reply",
+    stage: "post-skill",
+    enabled: true,
+    priority: 10,
+    description: "If skill reply < 8 chars, append a friendly line via transform_reply.",
+    evaluate(ctx) {
+      const r = (ctx.reply ?? "").trim();
+      if (r.length > 0 && r.length < 8 && ctx.skill_id) {
+        return {
+          kind: "transform_reply",
+          new_reply: r + " — 还想知道哪一款的细节?",
+          reason: "short reply polish",
+        };
+      }
+      return null;
+    },
+  },
+
+  // 7. Pre-llm retry hint — when LLM classifies a request to "unclear" but
+  //    the user message contains obvious menu words, hint the next attempt
+  //    to lean harder toward menu_recommend. Demonstrates retry_llm_with_hint.
+  {
+    id: "retry-llm-unclear-lean-menu",
+    stage: "pre-llm",
+    enabled: true,
+    priority: 50,
+    description: "If pre-llm context suggests an unclear route, hint retry toward menu_recommend.",
+    evaluate(ctx) {
+      const m = ctx.message ?? "";
+      const hitMenu = /(酒单|菜单|挑一杯|点一杯|推荐|tap\s*list)/i.test(m);
+      if (hitMenu) {
+        return {
+          kind: "retry_llm_with_hint",
+          hint: "If unsure between menu_recommend and other skills, prefer menu_recommend when the user mentions 酒单/菜单/挑一杯/点一杯.",
+          max_attempts: 1,
+          reason: "menu word detected; hint retry toward menu_recommend",
+        };
+      }
+      return null;
+    },
+  },
 ];
 
 export function listRules(): HardRule[] {
@@ -204,6 +261,17 @@ export function setRuleEnabled(id: string, enabled: boolean): HardRule | null {
   return r;
 }
 
+/** Merge YAML-defined rules into RULES. Existing rule with the same id wins. */
+export function mergeYmlRules(yamlRules: HardRule[]): number {
+  let added = 0;
+  for (const y of yamlRules) {
+    if (findRule(y.id)) continue;
+    RULES.push(y);
+    added++;
+  }
+  return added;
+}
+
 // Test helper: snapshot current enabled flags so a test can restore them.
 export function _snapshotEnabled(): Record<string, boolean> {
   return Object.fromEntries(RULES.map((r) => [r.id, r.enabled]));
@@ -213,4 +281,19 @@ export function _restoreEnabled(snap: Record<string, boolean>): void {
   for (const r of RULES) {
     if (snap[r.id] !== undefined) r.enabled = snap[r.id];
   }
+}
+
+// Test helper: add a rule (returns true if added, false if id collision).
+export function _addRuleForTest(rule: HardRule): boolean {
+  if (findRule(rule.id)) return false;
+  RULES.push(rule);
+  return true;
+}
+
+// Test helper: remove a rule by id.
+export function _removeRuleForTest(id: string): boolean {
+  const idx = RULES.findIndex((r) => r.id === id);
+  if (idx < 0) return false;
+  RULES.splice(idx, 1);
+  return true;
 }

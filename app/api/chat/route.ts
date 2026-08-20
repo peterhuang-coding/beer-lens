@@ -36,6 +36,7 @@ import { loadLLMConfig } from "@/lib/harness/llm/config";
 import { LLMConfigError, LLMUpstreamError, type ChatDelta } from "@/lib/harness/llm/provider";
 import { appendStage, previewMessage } from "@/lib/harness/trace-buffer";
 import { runWithTrace } from "@/lib/harness/trace-context";
+import { runRulesForStage } from "@/lib/harness/rules-engine";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -128,6 +129,15 @@ export async function POST(request: Request): Promise<Response> {
       typeof body.imageDataUrl === "string" && body.imageDataUrl.startsWith("data:")
         ? body.imageDataUrl
         : undefined;
+    // Server-side guard: reject absurdly large images that the client
+    // compressor failed to shrink. 8MB cap leaves headroom for a 6MB
+    // compressed JPEG + JSON envelope.
+    if (imageDataUrl && imageDataUrl.length > 8 * 1024 * 1024) {
+      return NextResponse.json(
+        { error: "image_too_large", message: "Image dataUrl exceeds 8MB even after client compression. Please use a smaller image." },
+        { status: 413 },
+      );
+    }
     const imageName =
       typeof body.imageName === "string" ? body.imageName : undefined;
     const imageType =
@@ -138,7 +148,33 @@ export async function POST(request: Request): Promise<Response> {
         : `conv_${Date.now().toString(36)}`;
 
   // ── Route via LLM ──────────────────────────────────────────────────────
-  const routeRes = await routeByLLM(message, { root_ts: t0, parent_ts: null });
+  // pre-route hook: rules can override to "label_check" etc. if the LLM
+  // would otherwise pick "unclear" (rule 4: routing-freshness-pre-override).
+  const preRoute = runRulesForStage("pre-route", { message }, { root_ts: t0, parent_ts: null });
+  if (preRoute.action?.kind === "route_override") {
+    // Don't bother with full re-route; honour the override and skip the LLM.
+    appendStage(t0, null, "route:override", {
+      decision: { from: "pre-route-rule", to: preRoute.action.skill_id, reason: preRoute.action.reason },
+    });
+  }
+  let routeRes = await routeByLLM(message, { root_ts: t0, parent_ts: null });
+  if (preRoute.action?.kind === "route_override") {
+    routeRes = {
+      ok: true,
+      decision: { skill_id: preRoute.action.skill_id, params: {}, reason: preRoute.action.reason },
+      source: "rule" as const,
+    };
+  }
+  // post-route hook: rule 5 logs low-confidence LLM routes.
+  runRulesForStage(
+    "post-route",
+    {
+      message,
+      skill_id: routeRes.ok ? routeRes.decision.skill_id : undefined,
+      source: routeRes.ok ? routeRes.source : "error",
+    },
+    { root_ts: t0, parent_ts: null },
+  );
   if (!routeRes.ok) {
     // Routing failed — return a streaming error rather than 500 so the UI
     // can display the cause without losing the connection.
@@ -212,6 +248,38 @@ export async function POST(request: Request): Promise<Response> {
           params,
           _trace_ctx: { root_ts: t0, parent_ts: null },
         };
+        // pre-skill hook: rule 2 (cross-skill-freshness-block) reads
+        // annotations.label_check.freshness and may block here.
+        const preSkill = runRulesForStage(
+          "pre-skill",
+          {
+            message,
+            skill_id,
+            source: routeRes.source,
+            annotations: {}, // filled in by previous rules; pre-skill sees starter #2's
+          },
+          { root_ts: t0, parent_ts: null },
+        );
+        if (preSkill.action?.kind === "block") {
+          controller.enqueue(
+            sseEvent("error", { code: "rule_block", message: preSkill.action.reason }),
+          );
+          controller.enqueue(sseEvent("done", { skill_id, latency_ms: Date.now() - t0 }));
+          appendStage(t0, null, "chat", {
+            message: previewMessage(message),
+            skill_id,
+            source: "rule",
+            ok: false,
+            error_code: "rule_block",
+            candidate_count: 0,
+            has_image: !!imageDataUrl,
+            reason: preSkill.action.reason,
+            started_at: t0,
+            ts: t0,
+          });
+          controller.close();
+          return;
+        }
         const result = await invokeSkill(skill_id as never, ctx);
         if (!result.ok) {
           controller.enqueue(
@@ -223,6 +291,27 @@ export async function POST(request: Request): Promise<Response> {
         }
 
         const skillReply: AgentReply = result;
+
+        // post-skill hook: rule transform_reply may rewrite the user-visible
+        // text. Annotations accumulate onto the SSE result payload so the
+        // chat UI can read profile.bias_style etc.
+        const postSkill = runRulesForStage(
+          "post-skill",
+          {
+            message,
+            skill_id,
+            source: routeRes.source,
+            candidates: skillReply.candidates,
+            reply: skillReply.reply,
+          },
+          { root_ts: t0, parent_ts: null },
+        );
+        if (postSkill.transformedReply) {
+          appendStage(t0, null, "skill:reply_transformed", {
+            decision: { from: skillReply.reply, to: postSkill.transformedReply },
+          });
+          skillReply.reply = postSkill.transformedReply;
+        }
 
         // Emit candidates/picks as their own SSE event so the chat UI can
         // render beer cards (labelImage + brewery + score) instead of just

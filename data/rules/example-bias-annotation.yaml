@@ -1,0 +1,76 @@
+# Sample YAML rule file. Drop your own `*.yaml` files in this directory and
+# they'll be loaded at process start. RULES in lib/harness/rules.ts win on id
+# conflict, so this is a safe override target.
+#
+# Schema (each entry must be a YAML map):
+#   id          unique slug, used by Stats and the Rules tab
+#   stage       one of: pre-route | post-route | pre-skill | post-skill |
+#               pre-llm | post-llm | pre-memory-read | post-memory-read |
+#               pre-memory-write | post-memory-write
+#   enabled     true | false (default true)
+#   priority    integer, higher runs first
+#   description free-form label shown in the Rules tab
+#   when        optional list of { field, op, value } (AND-joined)
+#                 field: dotted path into ctx (e.g. profile.preferredStyles.0.weight)
+#                 op:    exists | missing | == | != | contains | starts_with |
+#                        ends_with | matches | > | >= | < | <=
+#                 value: string | number | bool | null
+#   then        action descriptor (one of):
+#                 { kind: block,           reason: <str> }
+#                 { kind: log,             level: info|warn, message: <str> }
+#                 { kind: annotate,        key: <str>, value: <any>, reason?: <str> }
+#                 { kind: route_override,  skill_id: <id>, reason: <str> }
+#                 { kind: transform_reply, new_reply: <str>, reason: <str> }
+
+rules:
+
+  # Annotate when the user's message explicitly mentions "IPA" but the LLM
+  # routed to a non-recommend skill. Lets the UI surface "we noticed you want IPA".
+  - id: yaml-flag-ipa-mention
+    stage: post-route
+    enabled: true
+    priority: 55
+    description: If message mentions IPA and skill is not menu_recommend, annotate.
+    when:
+      - field: message
+        op: matches
+        value: "(?i)ipa"
+      - field: skill_id
+        op: "!="
+        value: menu_recommend
+    then:
+      kind: annotate
+      key: user.mentioned_ipa
+      value: true
+      reason: "yaml rule: user mentioned IPA but route != menu_recommend"
+
+  # Tag requests that come with an image as "visual_context" so downstream
+  # skills can branch. Demonstrates post-route on image-bearing queries.
+  - id: yaml-flag-image-context
+    stage: post-route
+    enabled: true
+    priority: 40
+    description: Annotate any post-route request that carried an image.
+    when:
+      - field: request_has_image
+        op: "=="
+        value: true
+    then:
+      kind: annotate
+      key: visual_context
+      value: true
+      reason: "yaml rule: request arrived with an image"
+
+  # Safety net: block when the message contains obviously off-topic content.
+  - id: yaml-block-offtopic
+    stage: pre-route
+    enabled: true
+    priority: 200
+    description: Block obvious off-topic queries (regex) before any routing.
+    when:
+      - field: message
+        op: matches
+        value: "(?i)(politics|election|stock\\s+crypto|weather\\s+forecast)"
+    then:
+      kind: block
+      reason: "我只懂啤酒相关的问题,这个话题超纲了 🍺"

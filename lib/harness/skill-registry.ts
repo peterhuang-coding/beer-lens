@@ -16,6 +16,24 @@ export { registerSkill, getSkill, listSkills, invokeSkill };
 import type { Skill, SkillId, SkillContext, AgentReply } from "./types.ts";
 import type { AgentContext } from "../agent/types.ts";
 import { appendStage } from "./trace-buffer.ts";
+import { join } from "node:path";
+import { mergeYmlRules } from "./rules.ts";
+import { loadYamlHardRules } from "./yaml-rules.ts";
+
+// ── YAML rule bootstrap ───────────────────────────────────────────────────
+// On module load we scan `data/rules/*.yaml` for additional rules. Hard-
+// coded RULES in rules.ts win on id conflict, so YAML can shadow / extend
+// without recompile.
+const RULES_DIR = join(process.cwd(), "data", "rules");
+try {
+  const yamlRules = loadYamlHardRules(RULES_DIR);
+  const added = mergeYmlRules(yamlRules as never);
+  if (added > 0) {
+    console.log(`[harness] loaded ${added} YAML rule(s) from ${RULES_DIR}`);
+  }
+} catch (err) {
+  console.warn(`[harness] failed to load YAML rules from ${RULES_DIR}:`, (err as Error).message ?? err);
+}
 
 // ── Static executor dispatch ──────────────────────────────────────────────
 //

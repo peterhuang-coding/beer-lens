@@ -39,7 +39,6 @@ async function getModelConfig(kind: string): Promise<ModelConfig> {
  *  pipeline run. */
 export const DEFAULT_VISION_FALLBACK: string[] = [
   "openai/gpt-4o-mini",
-  "anthropic/claude-sonnet-4-20250514",
 ];
 
 export function getVisionFallbackChain(): string[] {

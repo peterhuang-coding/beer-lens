@@ -115,8 +115,29 @@ test("classify maps 429 to VisionRateLimitError", () => {
   assert.equal(e.retriable, true);
 });
 
-test("classify maps 401/403/auth to VisionAuthError (non-retriable)", () => {
+test("classify maps 401 to VisionAuthError (non-retriable)", () => {
   const e = classify(new Error("401 Unauthorized: api_key invalid"));
+  assert.ok(e instanceof VisionAuthError);
+  assert.equal(e.retriable, false);
+});
+
+test("classify maps 403 region-block to VisionNetworkError (retriable)", () => {
+  // Critical for fallback chains: region-block on one model should let us try the next.
+  const e = classify(
+    new Error('OpenRouter 403: {"error":{"message":"This model is not available in your region.","code":403}}'),
+  );
+  assert.ok(e instanceof VisionNetworkError, `expected network, got ${e.constructor.name}`);
+  assert.equal(e.retriable, true, "region-block must be retriable so fallback chain walks");
+});
+
+test("classify maps 403 model-forbidden to VisionNetworkError (retriable)", () => {
+  const e = classify(new Error("403 forbidden: model not available for your tier"));
+  assert.ok(e instanceof VisionNetworkError);
+  assert.equal(e.retriable, true);
+});
+
+test("classify keeps 403 with real auth/permission as VisionAuthError", () => {
+  const e = classify(new Error("403 Forbidden: api_key lacks permission"));
   assert.ok(e instanceof VisionAuthError);
   assert.equal(e.retriable, false);
 });

@@ -49,6 +49,12 @@ export function listCapabilities(): Capability[] {
  *
  * Callers MUST pass their own schema (the schema is task-specific to the
  * prompt). Default schema is left undefined.
+ *
+ * Model chain: gemini-2.5-flash → gpt-4o-mini. Earlier we also listed
+ * `anthropic/claude-sonnet-4-20250514` but OpenRouter 400'd it
+ * ("not a valid model ID") — the canonical OpenRouter slug for Claude 4
+ * needs to be confirmed (probably `anthropic/claude-3.5-sonnet` or the
+ * 4.5 generation). Add it back once we have a confirmed slug.
  */
 registerCapability({
   id: "beer_menu_image",
@@ -60,7 +66,6 @@ registerCapability({
       models: [
         "google/gemini-2.5-flash",
         "openai/gpt-4o-mini",
-        "anthropic/claude-sonnet-4-20250514",
       ],
       timeoutMs: 45_000,
     },
@@ -97,10 +102,7 @@ registerCapability({
   defaultProviders: [
     {
       provider: "openrouter",
-      models: [
-        "google/gemini-2.5-flash",
-        "anthropic/claude-sonnet-4-20250514",
-      ],
+      models: ["google/gemini-2.5-flash", "openai/gpt-4o-mini"],
       timeoutMs: 30_000,
     },
   ],

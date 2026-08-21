@@ -10,6 +10,7 @@
 import type { AgentContext, SkillResult } from "@/lib/agent/types";
 import type { ScoredCandidate } from "@/lib/beer-agent/recommendation/types";
 import type { BeerCandidate } from "@/lib/beer-agent/types";
+import { suggest as suggestVisionError, VisionError } from "../../multimodal/index.ts";
 
 function emptyPicks(): SkillResult["picks"] {
   const e = { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 };
@@ -96,9 +97,16 @@ async function handleImage(ctx: AgentContext): Promise<SkillResult> {
       errors: [],
     };
   } catch (err) {
+    // Use the multimodal container's degrade copy when we have a typed
+    // VisionError — it tells the user whether to retry, change image, or
+    // fall back to typing the beer name. For anything else, keep the
+    // generic catch-all copy.
+    const reply = err instanceof VisionError
+      ? suggestVisionError(err)
+      : "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。";
     return {
       skillId: "recommend",
-      reply: "抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",
+      reply,
       candidates: [],
       picks: emptyPicks(),
       profileSummary: "",

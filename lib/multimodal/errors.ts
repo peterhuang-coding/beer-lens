@@ -90,7 +90,15 @@ export function classify(err: unknown, provider?: string, model?: string): Visio
   if (/429|rate.?limit|too\s*many\s*requests/i.test(msg)) {
     return new VisionRateLimitError(msg, provider, model);
   }
-  if (/401|403|unauthorized|forbidden|api.?key/i.test(msg)) {
+  // 401 = real auth problem (wrong key) — non-retriable.
+  // 403 + region/availability hint = different model might work — retriable.
+  if (/401|unauthorized/i.test(msg)) {
+    return new VisionAuthError(msg, provider, model);
+  }
+  if (/not\s*available\s*in\s*your\s*region|region|geographic|geo[-\s]?block|forbidden.*model|model.*not.*available/i.test(msg)) {
+    return new VisionNetworkError(msg, provider, model);
+  }
+  if (/403|forbidden|api.?key|permission/i.test(msg)) {
     return new VisionAuthError(msg, provider, model);
   }
   if (/413|payload\s*too\s*large|too\s*large/i.test(msg)) {

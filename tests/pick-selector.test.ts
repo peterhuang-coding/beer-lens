@@ -112,6 +112,30 @@ test("scored menu: top/safe/explore are distinct by rule", () => {
   assert.equal(picks.avoidOrCaution.candidateId, "stout", "lowest fitScore among remaining wins");
 });
 
+test("partial data: clearly-safer top lager repeats as safePick (honesty over diversity)", () => {
+  const menu = [
+    candidate({ candidateId: "lag", displayName: "清爽拉格", style: "拉格", worthScore: 60, fitScore: 80 }),
+    candidate({ candidateId: "pils", displayName: "无评分皮尔森", style: "皮尔森", riskFlags: ["无评分数据"] }),
+    candidate({ candidateId: "ipa", displayName: "三倍IPA", style: "三倍浑浊IPA", worthScore: 95, fitScore: 30, riskFlags: ["高酒精"] }),
+  ];
+  const picks = selectPicks(menu);
+  assert.equal(picks.topPick.candidateId, "lag");
+  // pils is unrated (fit 0); gap 80 is well beyond SAFE_DUP_GAP → repeat top
+  assert.equal(picks.safePick.candidateId, "lag");
+});
+
+test("partial data: near-tie safe styles diversify", () => {
+  const menu = [
+    candidate({ candidateId: "lag", displayName: "清爽拉格", style: "拉格", worthScore: 60, fitScore: 80 }),
+    candidate({ candidateId: "pils", displayName: "皮尔森", style: "皮尔森", worthScore: 40, fitScore: 75 }),
+    candidate({ candidateId: "ipa", displayName: "三倍IPA", style: "三倍浑浊IPA", worthScore: 95, fitScore: 30, riskFlags: ["高酒精"] }),
+  ];
+  const picks = selectPicks(menu);
+  assert.equal(picks.topPick.candidateId, "lag");
+  // gap 5 ≤ SAFE_DUP_GAP → runner-up lager keeps the 最稳 slot
+  assert.equal(picks.safePick.candidateId, "pils");
+});
+
 // ── reply builder ──
 
 test("reply: all-data-missing menu gets honesty note + no skip line", () => {

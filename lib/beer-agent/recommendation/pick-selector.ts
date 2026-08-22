@@ -18,6 +18,15 @@ function hasSafeStyle(style: string): boolean {
 }
 
 /**
+ * Fit-score gap below which two candidates are treated as "indistinguishable".
+ * When topPick is itself a safe style and its fit advantage over the
+ * runner-up is within this gap (e.g., whole menu unrated → gap 0), safePick
+ * picks the runner-up for diversity; beyond the gap, topPick is clearly the
+ * safest choice and safePick repeats it (coincidence = honesty).
+ */
+const SAFE_DUP_GAP = 15;
+
+/**
  * Highest combined-score candidate not yet picked, or undefined if none.
  */
 function firstUnpicked(
@@ -37,11 +46,12 @@ function firstUnpicked(
  * - **explorePick**: highest worthScore among risky or low-fit candidates — "尝新"
  * - **avoidOrCaution**: lowest fitScore among remaining candidates — "谨慎"
  *
- * safePick may coincide with topPick when the top pick is the only safe
- * style on the menu (semantically true). explorePick and avoidOrCaution
- * exclude already-picked candidates so they don't repeat the same beer;
- * when nothing is left, avoidOrCaution gets an empty candidateId and the
- * reply builder omits that line.
+ * General rule: scores distinguish → role correctness wins (safePick may
+ * coincide with topPick when topPick is clearly the safest — coincidence
+ * is honesty); scores tie or nearly tie → diversity wins (safePick takes
+ * the runner-up safe style, explore/avoid exclude already-picked
+ * candidates). When nothing is left, avoidOrCaution gets an empty
+ * candidateId and the reply builder omits that line.
  */
 export function selectPicks(candidates: ScoredCandidate[]): PickResult {
   const emptyPick = () => ({
@@ -70,14 +80,27 @@ export function selectPicks(candidates: ScoredCandidate[]): PickResult {
   pickedIds.add(topPick.candidateId);
 
   // ── safePick: highest fitScore among safe styles, excluding topPick;
-  //    fall back to topPick when no other safe style exists ──
+  //    fall back to topPick when no other safe style exists. When topPick
+  //    is itself a safe style, repeat it only if it is clearly safer
+  //    (gap > SAFE_DUP_GAP) — otherwise keep the runner-up for diversity. ──
   const safePool = candidates.filter(
     (c) => !pickedIds.has(c.candidateId) && hasSafeStyle(c.style),
   );
-  const safePick =
+  const safePoolBest =
     safePool.length > 0
       ? safePool.sort((a, b) => b.fitScore - a.fitScore)[0]
-      : topPick;
+      : undefined;
+  let safePick: ScoredCandidate;
+  if (!safePoolBest) {
+    safePick = topPick;
+  } else if (
+    hasSafeStyle(topPick.style) &&
+    topPick.fitScore - safePoolBest.fitScore > SAFE_DUP_GAP
+  ) {
+    safePick = topPick;
+  } else {
+    safePick = safePoolBest;
+  }
   if (safePick !== topPick) pickedIds.add(safePick.candidateId);
 
   // ── explorePick: highest worthScore among risky / low-fit, excluding

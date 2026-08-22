@@ -58,7 +58,7 @@ async function llmClassify(
   } else if (typeof modelConfig === "string") {
     model = modelConfig;
   } else {
-    model = pipelineConfig.config?.["intent-classifier"]?.["llmFallbackModel"] ?? "openai/gpt-4o-mini";
+    model = pipelineConfig.config?.["intent-classifier"]?.["llmFallbackModel"] ?? "qwen/qwen-2.5-72b-instruct";
   }
 
   // Resolve prompt from config

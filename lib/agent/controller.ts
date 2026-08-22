@@ -127,7 +127,7 @@ async function selectSkill(
 
   try {
     const raw = await openrouterFetch({
-      model: process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini",
+      model: process.env.OPENROUTER_MODEL ?? "qwen/qwen-2.5-72b-instruct",
       messages: [
         { role: "system", content: prompt },
         { role: "user", content: userPrompt },

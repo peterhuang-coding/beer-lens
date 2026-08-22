@@ -15,7 +15,7 @@ async function getVisionModel(): Promise<string> {
     if (typeof mc === "object" && mc.model) return mc.model;
     if (typeof mc === "string") return mc;
   } catch {}
-  return process.env.OPENROUTER_VISION_MODEL ?? "google/gemini-2.5-flash";
+  return process.env.OPENROUTER_VISION_MODEL ?? "qwen/qwen3-vl-32b-instruct";
 }
 
 export async function execute(
@@ -102,7 +102,7 @@ export async function execute(
   try {
     const { openrouterFetch } = await import("@/lib/beer-agent/openrouter-client");
     const raw = await openrouterFetch({
-      model: process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini",
+      model: process.env.OPENROUTER_MODEL ?? "qwen/qwen-2.5-72b-instruct",
       messages: [
         { role: "system", content: "你是啤酒专家。用户想了解一款酒的酒标信息（日期、新鲜度等）。用中文简短回答，不要说太多无关内容。如果没有图片，请用户发一张酒标照片。" },
         { role: "user", content: ctx.lastUserText },

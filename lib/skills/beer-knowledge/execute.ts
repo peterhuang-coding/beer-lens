@@ -5,7 +5,7 @@ function emptyPicks(): SkillResult["picks"] {
   return { topPick: e, safePick: e, explorePick: e, avoidOrCaution: e };
 }
 
-const KNOWLEDGE_MODEL = process.env.OPENROUTER_ANALYSIS_MODEL ?? "openai/gpt-4o-mini";
+const KNOWLEDGE_MODEL = process.env.OPENROUTER_ANALYSIS_MODEL ?? "qwen/qwen-2.5-72b-instruct";
 
 export async function execute(
   ctx: AgentContext,

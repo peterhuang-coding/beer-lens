@@ -19,8 +19,8 @@ async function getModelConfig(kind: string): Promise<ModelConfig> {
   const cfg = await loadConfig();
   const fromConfig = cfg.models?.[kind];
   const defaults: Record<string, ModelConfig> = {
-    vision:   { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 30000 },
-    analysis: { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+    vision:   { provider: "openrouter", model: "qwen/qwen3-vl-32b-instruct", temperature: 0.1, maxTokens: 12000, timeoutMs: 120000 },
+    analysis: { provider: "openrouter", model: "qwen/qwen-2.5-72b-instruct", temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
   };
   if (fromConfig && typeof fromConfig === "object" && fromConfig.model) return fromConfig as ModelConfig;
   if (typeof fromConfig === "string" && fromConfig) return { ...defaults[kind], model: fromConfig };

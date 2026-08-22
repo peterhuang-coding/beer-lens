@@ -20,8 +20,8 @@ async function getModelConfig(kind: string): Promise<ModelConfig> {
   const cfg = await loadConfig();
   const fromConfig = cfg.models?.[kind];
   const defaults: Record<string, ModelConfig> = {
-    vision:    { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 45000 },
-    analysis:  { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+    vision:    { provider: "openrouter", model: "qwen/qwen3-vl-32b-instruct", temperature: 0.1, maxTokens: 12000, timeoutMs: 120000 },
+    analysis:  { provider: "openrouter", model: "qwen/qwen-2.5-72b-instruct", temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
   };
   if (fromConfig && typeof fromConfig === "object" && fromConfig.model) {
     return fromConfig as ModelConfig;
@@ -38,7 +38,7 @@ async function getModelConfig(kind: string): Promise<ModelConfig> {
  *  array. The full chain is logged to the dev console on each image
  *  pipeline run. */
 export const DEFAULT_VISION_FALLBACK: string[] = [
-  "openai/gpt-4o-mini",
+  "qwen/qwen3-vl-32b-instruct",
 ];
 
 export function getVisionFallbackChain(): string[] {

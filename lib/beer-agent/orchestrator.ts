@@ -133,7 +133,7 @@ export async function getModel(kind: "vision" | "analysis" | "chat" | "intent"):
     chat: process.env.OPENROUTER_MODEL,
     intent: process.env.OPENROUTER_MODEL,
   };
-  return envMap[kind] ?? "openai/gpt-4o-mini";
+  return envMap[kind] ?? "qwen/qwen-2.5-72b-instruct";
 }
 
 /** Get full ModelConfig (provider, model, temperature, maxTokens, timeoutMs).
@@ -143,10 +143,10 @@ export async function getModelConfig(kind: "vision" | "analysis" | "chat" | "int
   const fromConfig = cfg.models?.[kind];
 
   const defaults: Record<string, ModelConfig> = {
-    vision:    { provider: "openrouter", model: "google/gemini-2.5-flash", temperature: 0.1, maxTokens: 12000, timeoutMs: 30000 },
-    analysis:  { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
-    chat:      { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
-    intent:    { provider: "openrouter", model: "openai/gpt-4o-mini",    temperature: 0,   maxTokens: 300,   timeoutMs: 10000 },
+    vision:    { provider: "openrouter", model: "qwen/qwen3-vl-32b-instruct", temperature: 0.1, maxTokens: 12000, timeoutMs: 120000 },
+    analysis:  { provider: "openrouter", model: "qwen/qwen-2.5-72b-instruct", temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+    chat:      { provider: "openrouter", model: "qwen/qwen-2.5-72b-instruct", temperature: 0.3, maxTokens: 1500,  timeoutMs: 20000 },
+    intent:    { provider: "openrouter", model: "qwen/qwen-2.5-72b-instruct", temperature: 0,   maxTokens: 300,   timeoutMs: 10000 },
     embedding: { provider: "openai",     model: "text-embedding-3-small", temperature: 0,   maxTokens: 512,   timeoutMs: 10000 },
   };
 

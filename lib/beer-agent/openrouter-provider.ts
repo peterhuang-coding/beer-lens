@@ -6,7 +6,7 @@ import { enrichBeer } from "./beer-db/enricher";
 import { openrouterFetch } from "./openrouter-client";
 import type { AgentRequest, AgentResponse, BeerCandidate } from "./types";
 
-const fallbackModel = "openai/gpt-4o-mini";
+const fallbackModel = "qwen/qwen-2.5-72b-instruct";
 
 export async function runOpenRouterBeerAgent(request: AgentRequest): Promise<AgentResponse> {
   const apiKey = process.env.OPENROUTER_API_KEY;

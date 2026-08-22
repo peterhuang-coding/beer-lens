@@ -99,6 +99,7 @@ function toAgentContext(ctx: SkillContext): AgentContext {
     lastUserText,
     messages: req.messages,
     channel: req.channel,
+    onProgress: ctx.onProgress,
   };
 }
 

@@ -83,6 +83,17 @@ export type AgentContext = {
   channel: string;
   memorySnapshot?: MemorySnapshot;
   profileSummary?: string;
+  /** Forwarded from harness SkillContext — long-running stages (vision OCR)
+   *  emit progress events here so the chat UI can show them instead of silence. */
+  onProgress?: (event: {
+    type: string;
+    stage?: string;
+    label?: string;
+    done?: number;
+    total?: number;
+    count?: number;
+    durationMs?: number;
+  }) => void;
 };
 
 // ── LLM Skill Selection ──

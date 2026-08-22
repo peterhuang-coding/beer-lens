@@ -247,6 +247,33 @@ export async function POST(request: Request): Promise<Response> {
           conversationId,
           params,
           _trace_ctx: { root_ts: t0, parent_ts: null },
+          // Forward skill progress (vision OCR etc.) to the client so the
+          // 60-80s image analysis isn't silent.
+          onProgress: (evt) => {
+            const messages: Record<string, string> = {
+              vision: "🔍 正在识别图片（分类+OCR+质量，约 1-2 分钟）…",
+              ocr: "📝 正在抽取文本…",
+              recommendation: "🧠 正在生成推荐…",
+            };
+            const stageNames: Record<string, string> = {
+              vision: "图片识别",
+              ocr: "文本抽取",
+              recommendation: "推荐分析",
+            };
+            let text = "";
+            if (evt.type === "stage_start") {
+              text = messages[evt.stage ?? ""] ?? `⏳ ${evt.label ?? evt.stage ?? "处理中"}…`;
+            } else if (evt.type === "stage_done") {
+              text = `✅ ${stageNames[evt.stage ?? ""] ?? evt.label ?? evt.stage ?? "步骤"}完成`;
+            } else if (evt.type === "enrich_start") {
+              text = `📚 正在匹配酒库（${evt.count ?? 0} 款候选）…`;
+            } else if (evt.type === "enrich_progress") {
+              text = `📚 匹配中 ${evt.done ?? 0}/${evt.total ?? "?"}…`;
+            }
+            if (text) {
+              controller.enqueue(sseEvent("progress", { text, stage: evt.stage }));
+            }
+          },
         };
         // pre-skill hook: rule 2 (cross-skill-freshness-block) reads
         // annotations.label_check.freshness and may block here.

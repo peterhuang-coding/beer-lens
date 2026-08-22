@@ -54,6 +54,21 @@ export interface SkillContext {
    * the chat route keep working unchanged.
    */
   _trace_ctx?: { root_ts: number; parent_ts: number | null };
+  /**
+   * Optional progress callback for skills with long-running stages (e.g.,
+   * vision OCR taking 60-80s). The chat route wires this to SSE `progress`
+   * events so the UI can show what is happening instead of silence.
+   * Skills without progress support simply ignore it.
+   */
+  onProgress?: (event: {
+    type: string;
+    stage?: string;
+    label?: string;
+    done?: number;
+    total?: number;
+    count?: number;
+    durationMs?: number;
+  }) => void;
 }
 
 // ── AgentReply (backward-compatible with SkillResult) ──

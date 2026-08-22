@@ -93,6 +93,7 @@ export default function ChatBox() {
   const [busy, setBusy] = useState(false);
   const [meta, setMeta] = useState<Meta | null>(null);
   const [status, setStatus] = useState<"idle" | "routing" | "streaming" | "error">("idle");
+  const [progress, setProgress] = useState<string>("");
   const [results, setResults] = useState<Record<string, ResultPayload>>({});
   const [dragOver, setDragOver] = useState(false);
   const [quickOpen, setQuickOpen] = useState<boolean>(true);
@@ -247,8 +248,11 @@ export default function ChatBox() {
               prev.map((m) => (m.id === assistantId ? { ...m, text: m.text + errText } : m)),
             );
             setStatus("error");
+          } else if (evt.event === "progress" && evt.data) {
+            setProgress((evt.data as { text?: string }).text ?? "");
           } else if (evt.event === "done") {
             setStatus("idle");
+            setProgress("");
           }
         }
       }
@@ -284,6 +288,7 @@ export default function ChatBox() {
         <span className={`status status-${status}`}>
           {status === "idle" ? "就绪" : status === "routing" ? "路由中…" : status === "streaming" ? "生成中…" : "错误"}
         </span>
+        {progress ? <span className="progress-hint">{progress}</span> : null}
         {meta ? (
           <span className="route">
             skill: <code>{meta.skill_id}</code>

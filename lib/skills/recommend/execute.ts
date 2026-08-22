@@ -49,6 +49,7 @@ async function handleImage(ctx: AgentContext): Promise<SkillResult> {
       ctx.imageDataUrl,
       ctx.lastUserText,
       profileSummary,
+      ctx.onProgress,
     );
 
     // Convert pipeline candidates to scored format

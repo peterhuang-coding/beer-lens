@@ -47,8 +47,9 @@ import type {
   VisionCallResult,
 } from "./types.ts";
 
-// Auto-register the openrouter provider on container import.
+// Auto-register providers on container import.
 import "./providers/openrouter.ts";
+import "./providers/deepseek.ts";
 
 export interface ContainerConfig {
   /** Per-capability provider chain overrides. */

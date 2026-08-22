@@ -50,11 +50,16 @@ export function listCapabilities(): Capability[] {
  * Callers MUST pass their own schema (the schema is task-specific to the
  * prompt). Default schema is left undefined.
  *
- * Model chain: gemini-2.5-flash → gpt-4o-mini. Earlier we also listed
- * `anthropic/claude-sonnet-4-20250514` but OpenRouter 400'd it
- * ("not a valid model ID") — the canonical OpenRouter slug for Claude 4
- * needs to be confirmed (probably `anthropic/claude-3.5-sonnet` or the
- * 4.5 generation). Add it back once we have a confirmed slug.
+ * Provider chain (verified 2026-08-23 with the real 3-task menu prompt):
+ * openrouter `qwen/qwen3-vl-32b-instruct` (primary, ~76s, reliable —
+ * succeeded on every attempt) → deepseek direct
+ * `deepseek-v4-flash-vision-exp` (fallback, ~68s when it works, but a
+ * reasoner: on the full prompt it sometimes burns the whole max_tokens
+ * budget on reasoning_content and returns empty content, which the
+ * provider throws as VisionParseError → container walks to the next
+ * provider). Timeouts are 120s because 45s aborted mid-request. Google/
+ * GPT models on OpenRouter are 403 region-blocked here; qwen3.7-flash
+ * burns its whole budget on reasoning — do NOT put either in a chain.
  */
 registerCapability({
   id: "beer_menu_image",
@@ -63,11 +68,13 @@ registerCapability({
   defaultProviders: [
     {
       provider: "openrouter",
-      models: [
-        "google/gemini-2.5-flash",
-        "openai/gpt-4o-mini",
-      ],
-      timeoutMs: 45_000,
+      models: ["qwen/qwen3-vl-32b-instruct"],
+      timeoutMs: 120_000,
+    },
+    {
+      provider: "deepseek",
+      models: ["deepseek-v4-flash-vision-exp"],
+      timeoutMs: 120_000,
     },
   ],
   schemaName: "beer_combined_vision",
@@ -84,7 +91,7 @@ registerCapability({
   defaultProviders: [
     {
       provider: "openrouter",
-      models: ["google/gemini-2.5-flash", "openai/gpt-4o-mini"],
+      models: ["qwen/qwen3-vl-32b-instruct"],
       timeoutMs: 30_000,
     },
   ],
@@ -102,7 +109,7 @@ registerCapability({
   defaultProviders: [
     {
       provider: "openrouter",
-      models: ["google/gemini-2.5-flash", "openai/gpt-4o-mini"],
+      models: ["qwen/qwen3-vl-32b-instruct"],
       timeoutMs: 30_000,
     },
   ],

@@ -33,6 +33,7 @@ import {
   invalidateCache as _invalidateCache,
 } from "./cache.ts";
 import "./providers/openrouter.ts";
+import "./providers/deepseek.ts";
 import "./capabilities.ts";
 
 export { container as vision } from "./container.ts";

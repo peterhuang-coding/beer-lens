@@ -22,7 +22,12 @@ import type { ProviderCallOptions, VisionProvider } from "./base.ts";
 function supportsJsonSchema(model: string): boolean {
   // Gemini models on OpenRouter don't reliably honor strict json_schema;
   // downgrade to json_object + text-instruction for them.
-  return !model.toLowerCase().includes("gemini");
+  // qwen3-vl with strict json_schema on the beer_menu_image schema took
+  // >120s (2026-08-23); json_object finished in ~80s. Downgrade qwen too.
+  return (
+    !model.toLowerCase().includes("gemini") &&
+    !model.toLowerCase().includes("qwen")
+  );
 }
 
 function appendSchemaInstruction(prompt: string, schemaJson: string): string {

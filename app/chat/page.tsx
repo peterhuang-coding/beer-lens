@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export default function ChatPage() {
   return (
     <main className="chat-main">
-      <Nav active="chat" rightLabel="LLM · Ark · doubao-seed-evolving" />
+      <Nav active="chat" rightLabel={`LLM · ${process.env.LLM_MODEL || "LLM_MODEL 未设置"}`} />
 
       <style>{`
         .chat-main { background:#0f1115; color:#e8eaf0; min-height:100vh;

@@ -217,7 +217,13 @@ export default function ChatBox() {
       });
       if (!resp.ok || !resp.body) {
         setStatus("error");
-        setBusy(false);
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantId
+              ? { ...m, text: `⚠️ 请求失败:HTTP ${resp.status}(${resp.statusText || "无响应"}),请稍后重试` }
+              : m,
+          ),
+        );
         return;
       }
       setStatus("streaming");
@@ -486,7 +492,7 @@ function BeerResultView({ result }: { result: ResultPayload }) {
       {menuImage ? (
         <a className="menu-img" href={menuImage} target="_blank" rel="noreferrer">
           <img src={menuImage} alt="酒单示意" loading="lazy" />
-          <span className="menu-img-cap">📋 现场酒单(参考)</span>
+          <span className="menu-img-cap">📋 酒单示意图(装饰,非现场实拍)</span>
         </a>
       ) : null}
 

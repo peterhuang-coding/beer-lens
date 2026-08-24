@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       <footer className="home-foot">
-        <code>POST /api/chat</code> · SSE stream · Ark doubao-seed-evolving · 361/361 tests pass
+        <code>POST /api/chat</code> · SSE stream · LLM {process.env.LLM_MODEL || "LLM_MODEL 未设置"} · 411/411 tests pass
       </footer>
 
       <style>{`

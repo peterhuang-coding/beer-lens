@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef, useMemo, type CSSProperties } from "react";
+import Nav from "../_components/Nav";
 
 // ── Types ──
 
@@ -61,6 +62,7 @@ export default function TestRunnerPage() {
   const [vqaTasks, setVqaTasks] = useState<TestCase[]>([]);
   const [results, setResults] = useState<Record<string, TestResult>>({});
   const [loading, setLoading] = useState(true);
+  const [loadErr, setLoadErr] = useState<string | null>(null);
   const [running, setRunning] = useState(false);
   const [progress, setProgress] = useState({ done: 0, total: 0 });
   const [fi, setFi] = useState("all");
@@ -95,6 +97,10 @@ export default function TestRunnerPage() {
       });
       setRegCases(r);
       setVqaTasks(v);
+      setLoading(false);
+    }).catch((err: any) => {
+      if (cancelled) return;
+      setLoadErr(String(err?.message ?? err));
       setLoading(false);
     });
     return () => { cancelled = true; };
@@ -169,7 +175,6 @@ export default function TestRunnerPage() {
       const r = await runSingle(list[i]);
       setResults(prev => ({ ...prev, [list[i].id]: r }));
       setProgress({ done: i + 1, total: list.length });
-      if (i < list.length - 1) await new Promise(r2 => setTimeout(r2, 500));
     }
     setRunning(false);
   }, [filtered, runSingle, running]);
@@ -185,6 +190,15 @@ export default function TestRunnerPage() {
 
   return (
     <div style={{ background: C.bg, color: C.text, minHeight: "100vh", padding: "20px 24px", fontFamily: "system-ui, sans-serif", fontSize: 14 } as CSSProperties}>
+      <Nav active="test-runner" />
+      {loadErr ? (
+        <div style={{ background: "#3d2f00", border: `1px solid ${C.orange}`, borderRadius: 6, padding: "10px 14px", marginTop: 16, fontSize: 13, color: "#e3b341" } as CSSProperties}>
+          ⚠️ 用例数据加载失败:{loadErr} — 请确认 public/data/regression-cases.json 与 public/data/vqa-tasks.json 存在
+        </div>
+      ) : null}
+      <div style={{ background: "#2a2410", border: `1px solid ${C.orange}`, borderRadius: 6, padding: "8px 14px", margin: "16px 0", fontSize: 12, color: "#e3b341" } as CSSProperties}>
+        ⚠️ 本页跑的是旧 pipeline <code>POST /api/agent</code>(lib/agent/controller),与 /chat 使用的 lib/harness 路由不是同一套,结论不能直接代表生产聊天行为。
+      </div>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 12 } as CSSProperties}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 } as CSSProperties}>
@@ -277,6 +291,10 @@ export default function TestRunnerPage() {
                         <button onClick={() => { const n = new Set(expanded); exp ? n.delete(tc.id) : n.add(tc.id); setExpanded(n); }}
                           style={{ background: "transparent", color: C.accent, border: `1px solid ${C.border}`, borderRadius: 4, padding: "2px 6px", fontSize: 10, cursor: "pointer", marginLeft: 4 } as CSSProperties}>
                           {exp ? "收起" : "详情"}
+                        </button>
+                        <button onClick={async () => { const r2 = await runSingle(tc); setResults(prev => ({ ...prev, [tc.id]: r2 })); }}
+                          style={{ background: "transparent", color: C.orange, border: `1px solid ${C.border}`, borderRadius: 4, padding: "2px 6px", fontSize: 10, cursor: "pointer", marginLeft: 4 } as CSSProperties}>
+                          ↻ 重跑
                         </button>
                       </span>
                     ) : (

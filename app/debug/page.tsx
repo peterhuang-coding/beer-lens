@@ -688,7 +688,7 @@ function StatsView() {
         <Kpi label="p50 latency" value={`${stats.p50_latency_ms}ms`} />
         <Kpi label="p95 latency" value={`${stats.p95_latency_ms}ms`} />
         <Kpi label="error rate" value={`${(stats.error_rate * 100).toFixed(1)}%`} />
-        <Kpi label="total / 5min" value={`${stats.total_requests}`} />
+        <Kpi label="total (buffer)" value={`${stats.total_requests}`} />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>

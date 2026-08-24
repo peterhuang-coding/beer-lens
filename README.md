@@ -205,7 +205,7 @@ ocr_wrong 备注xxx
 good
 ```
 
-发完后自动标记上一轮对话。去 Debug → Cases 查看。
+发完后自动标记上一轮对话,可通过 `GET /api/cases` 查看(/debug 页的 Cases 面板尚未实现)。
 
 可用标签:
 - good — 没问题

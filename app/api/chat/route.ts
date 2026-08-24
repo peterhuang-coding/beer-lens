@@ -347,12 +347,13 @@ export async function POST(request: Request): Promise<Response> {
         const enrichedCandidates = (skillReply.candidates ?? []).map((c) =>
           enrichCandidateWithLabel(c as unknown as Record<string, unknown>),
         );
-        // For recommend-style replies, also emit a "menu image" hint so the
-        // UI can render a small tap-list illustration when no per-beer
-        // labels are available (or to accompany them as context).
+        // For recommend-style replies on image-attached requests, also emit a
+        // "menu image" hint so the UI can render a small tap-list illustration
+        // when no per-beer labels are available. Text-only requests never get
+        // it — a fake "现场酒单" photo next to a text reply breaks trust.
         const hasLabels = enrichedCandidates.some((c) => (c as { labelImage?: string | null }).labelImage);
         const menuImage =
-          skill_id === "menu_recommend"
+          skill_id === "menu_recommend" && imageDataUrl
             ? "/images/tap-list.jpg"
             : undefined;
         controller.enqueue(

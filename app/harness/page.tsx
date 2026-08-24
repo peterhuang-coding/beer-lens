@@ -239,8 +239,8 @@ export default async function HarnessPage() {
       <header className="harness-header">
         <h1>🍺 Beer-Lens Harness Platform</h1>
         <div className="harness-meta">
-          Repo <code>/Volumes/SanDisk2TB/beer-lens</code> · HEAD <code>{head}</code> · Generated <code>{now}</code> ·
-          {" "}<b>2</b> harnesses · <b>{builtin.length}</b> builtin skills · <b>{crawler.modules.length}</b> crawler modules
+          Repo <code>beer-lens</code> · HEAD <code>{head}</code> · Generated <code>{now}</code> ·
+          {" "}skills + crawler 双 harness · <b>{builtin.length}</b> builtin skills · <b>{crawler.modules.length}</b> crawler modules
         </div>
       </header>
 

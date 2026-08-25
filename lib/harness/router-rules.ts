@@ -31,7 +31,7 @@ const RULES: Rule[] = [
   //    even when the question contains a style name.
   {
     skill: "beer_knowledge",
-    keywords: ["什么是", "为什么", "区别", "怎么", "如何酿", "介绍一下", "介绍下"],
+    keywords: ["什么是", "是什么", "为什么", "区别", "定义", "品鉴", "工艺", "历史", "由来", "怎么", "如何", "作用", "计算", "故事", "酒厂", "哪家", "介绍一下", "介绍下"],
     params: (msg) => ({ question: msg }),
   },
   // 2. Memory corrections — the user is changing their preferences.
@@ -45,7 +45,7 @@ const RULES: Rule[] = [
   //    "想要味道浓郁的" (recommend intent) and breaks that route.
   {
     skill: "tasting_feedback",
-    keywords: ["喝过", "尝了", "感觉", "口感", "反馈", "记一下", "记一笔", "记下来", "刚喝", "喝了", "今天喝了"],
+    keywords: ["喝过", "尝了", "感觉", "口感", "反馈", "记一下", "记一笔", "记下来", "刚喝", "喝了", "今天喝了", "会再喝", "再喝", "不会喝", "打分", "评分", "给个分", "几分", "分", "几颗星", "颗星"],
     params: (msg) => ({
       notes: msg,
       sentiment: msg.match(/好喝|不错|喜欢|棒|顺滑/) ? "positive"
@@ -56,7 +56,7 @@ const RULES: Rule[] = [
   // 4. Profile queries.
   {
     skill: "profile_query",
-    keywords: ["我喜欢", "我的偏好", "我的画像", "我喝过什么", "统计一下", "总结一下"],
+    keywords: ["我喜欢", "我的偏好", "偏好", "我的画像", "我喝过什么", "统计一下", "总结一下", "我的口味", "口味总结", "品饮记录", "品酒记录", "口味数据", "口味画像", "我的记录"],
     params: (msg) => ({ topic: msg }),
   },
   // 5. Follow-up filter — usually on an existing menu ("第3个", "换一款").
@@ -88,6 +88,7 @@ const RULES: Rule[] = [
     skill: "menu_recommend",
     keywords: [
       "推荐", "挑", "选", "想喝", "帮我选", "帮我挑", "有什么",
+      "哪款", "值得喝", "值得一试", "整点", "性价比", "号那款",
       "neipa", "ipa", "stout", "lager", "pilsner", "ale", "sour",
       "拉格", "世涛", "酸啤", "艾尔", "小麦", "精酿",
     ],

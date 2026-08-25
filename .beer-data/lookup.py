@@ -792,12 +792,71 @@ def _read_payload(arg: str) -> object:
         return {"error": f"Could not read payload from {arg}"}
 
 
+def run_audit() -> dict:
+    """数据体检 — 供 selfcheck/测评使用。
+
+    对两表做字段级缺失/异常/重复/新鲜度审计,回答「哪条数据的哪个字段
+    需要补爬」:价格无字段、abv/style/country 缺失、url 畸形、缓存过期等。
+    """
+    con = _connect()
+    if not con:
+        return {"error": "Database not found"}
+
+    def one(sql):
+        return con.execute(sql).fetchone()[0]
+
+    audit = {"generated_at": datetime.now(timezone.utc).isoformat()}
+
+    u = {}
+    u["total"] = one("SELECT COUNT(*) FROM untappd_cache")
+    u["style_null"] = one("SELECT COUNT(*) FROM untappd_cache WHERE style IS NULL OR style=''")
+    u["abv_null"] = one("SELECT COUNT(*) FROM untappd_cache WHERE abv IS NULL")
+    u["rating_null"] = one("SELECT COUNT(*) FROM untappd_cache WHERE rating IS NULL")
+    u["ratings_count_zero"] = one("SELECT COUNT(*) FROM untappd_cache WHERE ratings_count IS NULL OR ratings_count=0")
+    u["label_image_missing"] = one("SELECT COUNT(*) FROM untappd_cache WHERE label_image IS NULL OR label_image=''")
+    u["country_null"] = one("SELECT COUNT(*) FROM untappd_cache WHERE country IS NULL OR country=''")
+    u["url_malformed"] = one("SELECT COUNT(*) FROM untappd_cache WHERE untappd_url IS NULL OR untappd_url='' OR untappd_url NOT LIKE 'http%'")
+    u["country_china"] = one("SELECT COUNT(*) FROM untappd_cache WHERE country='China'")
+    u["stale_gt90d"] = one(
+        "SELECT COUNT(*) FROM untappd_cache WHERE updated_at < (strftime('%s','now') - 90*86400)*1000"
+    )
+    u["updated_max_ms"] = one("SELECT MAX(updated_at) FROM untappd_cache")
+    u["dup_name_groups"] = one(
+        "SELECT COUNT(*) FROM (SELECT LOWER(name) FROM untappd_cache GROUP BY LOWER(name) HAVING COUNT(*)>1)"
+    )
+    u["brewery_count"] = one("SELECT COUNT(DISTINCT brewery) FROM untappd_cache")
+    u["has_price_column"] = False  # 无价格字段:价值估算走 origin 基准,价格为缺口
+    audit["untappd_cache"] = u
+
+    b = {}
+    b["total"] = one("SELECT COUNT(*) FROM beers")
+    b["abv_null"] = one("SELECT COUNT(*) FROM beers WHERE abv IS NULL")
+    b["rating_null"] = one("SELECT COUNT(*) FROM beers WHERE rating IS NULL")
+    b["ratings_count_null"] = one("SELECT COUNT(*) FROM beers WHERE ratings_count IS NULL")
+    b["style_null"] = one("SELECT COUNT(*) FROM beers WHERE style IS NULL OR style=''")
+    b["dup_name_brewery_groups"] = one(
+        "SELECT COUNT(*) FROM (SELECT LOWER(name), LOWER(brewery) FROM beers GROUP BY LOWER(name), LOWER(brewery) HAVING COUNT(*)>1)"
+    )
+    # NOT EXISTS + LOWER 双表对比在 14k×50k 上要 30s,改 Python 端集合计算
+    untappd_names = {
+        row[0] for row in con.execute("SELECT LOWER(name) FROM untappd_cache WHERE name IS NOT NULL")
+    }
+    b["not_in_untappd"] = sum(
+        1 for (name,) in con.execute("SELECT name FROM beers")
+        if not name or name.lower() not in untappd_names
+    )
+    audit["beers"] = b
+
+    con.close()
+    return audit
+
+
 def main():
     args = sys.argv[1:]
 
     if not args:
         print(json.dumps({"error": (
-            "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats | "
+            "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats | --audit | "
             "--init | --upsert-untappd <json-file-or-stdin> | "
             "--report-untappd-nulls | --insert-cn-beers <json> | --insert-beers <json>"
         )}))
@@ -806,6 +865,8 @@ def main():
     cmd = args[0]
     if cmd == '--stats':
         result = get_stats()
+    elif cmd == '--audit':
+        result = run_audit()
     elif cmd == '--batch':
         if len(args) < 2:
             print(json.dumps({"error": "--batch requires pipe-separated beer names"}))

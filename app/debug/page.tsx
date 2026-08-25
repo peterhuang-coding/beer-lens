@@ -16,12 +16,12 @@
  *   - Config:   env knobs (server-masked secrets) + legacy pipeline-config
  */
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 
 // ── Constants ──────────────────────────────────────────────────────────────
 
-type TabId = "pipeline" | "skills" | "tester" | "recent" | "stats" | "rules" | "config";
+type TabId = "pipeline" | "skills" | "tester" | "recent" | "stats" | "rules" | "config" | "selfcheck";
 
 const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: "pipeline", label: "Pipeline", icon: "🛤" },
@@ -31,6 +31,7 @@ const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: "stats", label: "Stats", icon: "📊" },
   { id: "rules", label: "Rules", icon: "⚖" },
   { id: "config", label: "Config", icon: "⚙" },
+  { id: "selfcheck", label: "测评", icon: "🧪" },
 ];
 
 // 8 builtin skills — mirror of DEFAULT_SKILLS in lib/harness/skill-registry.ts.
@@ -40,7 +41,7 @@ const SKILLS: { id: string; label: string; description: string; handler: string 
   { id: "follow_up_filter", label: "追问过滤", description: "基于活跃酒单的追问筛选(哪款/IPA/不苦/第3个等)", handler: "../skills/recommend/execute.ts" },
   { id: "tasting_feedback", label: "品饮反馈", description: "解析评分与风味标签,写入 episodic memory", handler: "../skills/taste-feedback/execute.ts" },
   { id: "profile_query", label: "画像查询", description: "查询用户口味画像(偏好风格/风味标签/ABV 区间)", handler: "../skills/profile-query/execute.ts" },
-  { id: "beer_knowledge", label: "啤酒知识", description: "纯 LLM 回答啤酒风格/酿造/酒厂知识", handler: "../skills/beer-knowledge/execute.ts" },
+  { id: "beer_knowledge", label: "啤酒知识", description: "查库优先回答风格/酿造/酒厂知识(命中注入事实,miss 纯 LLM)", handler: "../skills/beer-knowledge/execute.ts" },
   { id: "label_check", label: "酒标检查", description: "拍照单瓶 → 识别酒名/日期/新鲜度风险", handler: "../skills/label-check/execute.ts" },
   { id: "memory_correction", label: "记忆纠正", description: "纠正 AI 的错误记忆(酒名/偏好/记录)", handler: "../skills/memory-correction/execute.ts" },
   { id: "unclear", label: "意图不明", description: "无法识别意图时的兜底,引导用户说明需求", handler: "../skills/fallback/execute.ts" },
@@ -63,6 +64,165 @@ const PIPELINE_NODES = [
   { id: "exec", label: "executors × 8", hint: "skill-registry.ts + lib/skills/*" },
   { id: "sse", label: "SSE → Client", hint: "meta → result → delta → done" },
 ] as const;
+
+// ── Self-check (测评) ────────────────────────────────────────────────────────
+
+type SelfCheckReport = {
+  generated_at?: string;
+  data_quality?: any;
+  routing?: any;
+  health?: any;
+  error?: string;
+};
+
+function SelfCheckView() {
+  const [report, setReport] = useState<SelfCheckReport | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  const run = useCallback(async () => {
+    setBusy(true);
+    setErr(null);
+    try {
+      const res = await fetch("/api/selfcheck", { cache: "no-store" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setReport(data);
+    } catch (e: any) {
+      setErr(String(e?.message ?? e));
+    } finally {
+      setBusy(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    run();
+  }, [run]);
+
+  const card: CSSProperties = {
+    background: "#171a21",
+    border: "1px solid #2a2f3a",
+    borderRadius: 10,
+    padding: "16px 18px",
+    marginBottom: 16,
+  };
+  const dim = { color: "#9aa3b2", fontSize: 12 };
+  const big = { fontSize: 30, fontWeight: 700, color: "#4ade80" };
+
+  return (
+    <div>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
+        <h2 style={{ margin: 0, fontSize: 16, color: "#e8eaf0" }}>🧪 一键测评</h2>
+        <button
+          onClick={run}
+          disabled={busy}
+          style={{
+            background: "#4cb3ff",
+            color: "#0f1115",
+            border: "none",
+            borderRadius: 6,
+            padding: "6px 16px",
+            fontSize: 13,
+            fontWeight: 600,
+            cursor: busy ? "wait" : "pointer",
+            opacity: busy ? 0.6 : 1,
+          }}
+        >
+          {busy ? "测评中…" : "重新测评"}
+        </button>
+        {report?.generated_at ? (
+          <span style={dim}>生成于 {new Date(report.generated_at).toLocaleString()}</span>
+        ) : null}
+        <span style={{ ...dim, marginLeft: "auto" }}>
+          数据体检 + 路由自测 + 链路健康 · 零 LLM 成本
+        </span>
+      </div>
+
+      {err ? (
+        <div style={{ ...card, borderColor: "#f85149", color: "#f85149" }}>⚠️ 测评失败:{err}</div>
+      ) : null}
+
+      {report && !err ? (
+        <div>
+          {/* 路由自测 */}
+          <div style={card}>
+            <div style={{ fontWeight: 600, marginBottom: 10 }}>🎯 路由自测(规则层)</div>
+            {report.routing?.error ? (
+              <div style={{ color: "#f85149" }}>⚠️ {report.routing.error}</div>
+            ) : (
+              <>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
+                  <span style={big}>{report.routing.accuracy_pct}%</span>
+                  <span style={dim}>
+                    {report.routing.pass}/{report.routing.total} 规则命中正确 ·{" "}
+                    无规则走 LLM 兜底 {report.routing.no_rule_route} 条
+                  </span>
+                </div>
+                {report.routing.top_mismatches?.length > 0 ? (
+                  <div style={{ marginTop: 10 }}>
+                    <div style={dim}>主要错配:</div>
+                    {report.routing.top_mismatches.map((m: any) => (
+                      <div key={m.pattern} style={{ fontSize: 12, color: "#e8eaf0", marginTop: 2 }}>
+                        {m.pattern} ×{m.count}
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </>
+            )}
+          </div>
+
+          {/* 数据体检 */}
+          <div style={card}>
+            <div style={{ fontWeight: 600, marginBottom: 10 }}>📦 数据体检(untappd_cache {report.data_quality?.untappd_cache?.total ?? "?"} 条)</div>
+            {report.data_quality?.error ? (
+              <div style={{ color: "#f85149" }}>⚠️ {String(report.data_quality.error)}</div>
+            ) : (
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 8, fontSize: 12 }}>
+                {[
+                  ["价格字段", report.data_quality?.untappd_cache?.has_price_column === false ? "❌ 无(需爬)" : "✅"],
+                  ["style 缺失", report.data_quality?.untappd_cache?.style_null],
+                  ["url 缺失/畸形", report.data_quality?.untappd_cache?.url_malformed],
+                  ["超 90 天未更新", report.data_quality?.untappd_cache?.stale_gt90d],
+                  ["中国酒", report.data_quality?.untappd_cache?.country_china],
+                  ["abv 缺失", report.data_quality?.untappd_cache?.abv_null],
+                  ["country 缺失", report.data_quality?.untappd_cache?.country_null],
+                  ["label_image 缺失", report.data_quality?.untappd_cache?.label_image_missing],
+                  ["重名组", report.data_quality?.untappd_cache?.dup_name_groups],
+                  ["beers 表 abv 缺失", report.data_quality?.beers?.abv_null],
+                  ["beers 未在 untappd", report.data_quality?.beers?.not_in_untappd],
+                ].map(([k, v]) => (
+                  <div key={k as string} style={{ background: "#0f1115", borderRadius: 6, padding: "8px 10px" }}>
+                    <div style={{ color: "#9aa3b2" }}>{k}</div>
+                    <div style={{ color: "#e8eaf0", fontWeight: 600, marginTop: 2 }}>{String(v)}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* 链路健康 */}
+          <div style={card}>
+            <div style={{ fontWeight: 600, marginBottom: 10 }}>❤️ 链路健康(最近 5 分钟)</div>
+            <div style={{ display: "flex", gap: 20, fontSize: 12, flexWrap: "wrap" }}>
+              <span style={dim}>rpm <b style={{ color: "#e8eaf0" }}>{report.health?.rpm ?? "?"}</b></span>
+              <span style={dim}>p50 <b style={{ color: "#e8eaf0" }}>{report.health?.p50_ms ?? "?"}ms</b></span>
+              <span style={dim}>p95 <b style={{ color: "#e8eaf0" }}>{report.health?.p95_ms ?? "?"}ms</b></span>
+              <span style={dim}>error_rate <b style={{ color: report.health?.error_rate > 0.1 ? "#f85149" : "#4ade80" }}>{report.health?.error_rate ?? "?"}</b></span>
+            </div>
+            {report.health?.skill_distribution?.length ? (
+              <div style={{ marginTop: 8, fontSize: 12, color: "#9aa3b2" }}>
+                技能分布:{report.health.skill_distribution.map((s: any) => `${s.skill_id}:${s.count}`).join(" · ")}
+              </div>
+            ) : null}
+          </div>
+        </div>
+      ) : busy ? (
+        <div style={dim}>测评中…</div>
+      ) : null}
+    </div>
+  );
+}
 
 // ── Page ───────────────────────────────────────────────────────────────────
 
@@ -108,6 +268,7 @@ export default function DebugPage() {
       {tab === "recent" ? <RecentView /> : null}
       {tab === "stats" ? <StatsView /> : null}
       {tab === "rules" ? <RulesView /> : null}
+      {tab === "selfcheck" ? <SelfCheckView /> : null}
       {tab === "config" ? <ConfigView /> : null}
 
       <style jsx>{`

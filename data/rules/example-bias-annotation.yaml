@@ -22,7 +22,6 @@
 #                 { kind: route_override,  skill_id: <id>, reason: <str> }
 #                 { kind: transform_reply, new_reply: <str>, reason: <str> }
 
-rules:
 
   # Annotate when the user's message explicitly mentions "IPA" but the LLM
   # routed to a non-recommend skill. Lets the UI surface "we noticed you want IPA".

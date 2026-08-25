@@ -444,6 +444,12 @@ def search_beer(query: str, limit: int = 5) -> list[dict]:
             con.close()
             return results
 
+        # Priority 0.5: exact-name hits across both data tables (before fuzzy)
+        exact_hits = _search_exact_both(con, attempt_q, limit)
+        if exact_hits:
+            con.close()
+            return exact_hits
+
         # Priority 1: Untappd cache
         results = _search_table(con, 'untappd_cache', attempt_q, limit)
         if results:
@@ -488,6 +494,25 @@ def _expand_queries(q: str) -> list[str]:
     if words:
         queries.append(words[0])
     return queries
+
+
+def _search_exact_both(con, q: str, limit: int) -> list[dict]:
+    """Exact-name matches across untappd_cache + beers, before any fuzzy path.
+
+    防止模糊 LIKE 高分酒抢在精确同名酒前面(如 "Lunch" 只走 untappd
+    会错配 "Dutch IPA - Lemons for Lunch",而 beers 表里有精确的 Lunch)。
+    """
+    out = []
+    for table in ('untappd_cache', 'beers'):
+        cols = "id, name, brewery, style, abv, rating, ratings_count"
+        if table == 'untappd_cache':
+            cols += ", untappd_url, country, label_image"
+        rows = con.execute(
+            f"SELECT {cols} FROM {table} WHERE LOWER(name) = ? ORDER BY ratings_count DESC LIMIT ?",
+            (q, limit)
+        ).fetchall()
+        out.extend(_row_to_dict(r, table) for r in rows)
+    return out
 
 
 def _search_table(con, table: str, q: str, limit: int) -> list[dict]:

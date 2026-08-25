@@ -35,7 +35,7 @@ export type { BeerResult, EnrichedBeer, BeerCacheEntry, PriceInfo, ValueResult }
  *   "双倍干投暴龙苏 双倍干投浑浊淡色艾尔 DDH Pseudo Sue Toppling Goliath"
  * → extracts ["Pseudo Sue", "DDH Pseudo Sue"]
  */
-function extractEnglishAliases(query: string): string[] {
+export function extractEnglishAliases(query: string): string[] {
   // If the query is purely ASCII, no alias extraction needed
   if (!/[^\x00-\x7F]/.test(query)) return [];
 
@@ -86,7 +86,7 @@ const CN_TO_EN_BEER_MAP: Record<string, string[]> = {
   "罗萨达": ["Limonada Rosada"],
 
   // ── Suntory ──
-  "黑啤": ["Schwarzbiier", "Premium Malt"],
+  "黑啤": ["Schwarzbier", "Premium Malt"],
 
   // ── Cloudwater ──
   "查博斯": ["Chubbles"],
@@ -115,18 +115,9 @@ const CN_TO_EN_BEER_MAP: Record<string, string[]> = {
   // ── Amundsen ──
   "甜甜圈波士顿奶油": ["Donut Series", "DONUT SERIES"],
 
-  // ── Common Chinese names for styles/descriptors ──
-  "浑浊": ["Hazy IPA"],
-  "西海岸": ["West Coast IPA"],
-  "双倍浑浊": ["Double Hazy IPA"],
-  "三倍浑浊": ["Triple Hazy IPA"],
-  "帝国": ["Imperial"],
-  "水果酸艾尔": ["Fruited Sour"],
-  "农舍塞松": ["Farmhouse Saison"],
-  "帝国甜点世涛": ["Imperial Pastry Stout"],
-  "帝国水果古斯": ["Imperial Fruited Gose"],
-  "捷克皮尔森": ["Czech Pilsner"],
-  "德式黑啤": ["Schwarzbiier", "German Black"],
+  // ── 注:风格描述词(浑浊/西海岸/帝国/德式黑啤…)不再映射——
+  // 通用风格名命中酒名检索会产生假阳性(如「午餐 西海岸IPA」错配智利 West Coast IPA)。
+  // 风格探测走 genericRecommendationQueries,不走本表。(2026-08-25 实测移除)
 
   // ── Chinese Craft Breweries (高大师) ──
   "婴儿肥": ["Baby IPA"],
@@ -221,20 +212,38 @@ const CN_TO_EN_BEER_MAP: Record<string, string[]> = {
   "珠江纯生": ["Pearl River Draft"],
   "乌苏": ["Wusu Beer"],
   "千岛湖": ["West Lake Lager"],
+
+  // ── El Nido 酒单 (2026-08-24 OCR 实测, 2026-08-25 入库验证) ──
+  "黑比考黑": ["Sapporo Premium Black Beer"],
+  "午餐": ["Lunch"],
 };
 
-function lookupChineseBeerName(chineseName: string): string | null {
+/** 别名与库内酒名的强吻合校验(见 lookupBeers Phase 3 用法) */
+function strongNameMatch(alias: string, beerName: string): boolean {
+  const a = alias.toLowerCase().trim();
+  const b = beerName.toLowerCase().trim();
+  if (!a || !b) return false;
+  if (a === b) return true;
+  const aw = a.split(/\s+/).filter(Boolean);
+  return aw.length >= 2 && aw.every((w) => b.includes(w));
+}
+
+export function lookupChineseBeerName(chineseName: string): string | null {
   // Try exact match first
   if (CN_TO_EN_BEER_MAP[chineseName]?.length > 0) {
     return CN_TO_EN_BEER_MAP[chineseName][0];
   }
-  // Try prefix match (shorter Chinese name may be prefix of a known entry)
+  // Substring match with scoring: start-anchored keys win over embedded ones,
+  // longer keys win over shorter — 防止「午餐 西海岸IPA」被通用键「西海岸」抢走。
+  let best: { score: number; eng: string } | null = null;
   for (const [cn, eng] of Object.entries(CN_TO_EN_BEER_MAP)) {
-    if (chineseName.includes(cn) || cn.includes(chineseName)) {
-      return eng[0];
-    }
+    if (!eng.length) continue;
+    if (!chineseName.includes(cn) && !cn.includes(chineseName)) continue;
+    const startsWith = chineseName.startsWith(cn) ? 1 : 0;
+    const score = startsWith * 1000 + cn.length;
+    if (!best || score > best.score) best = { score, eng: eng[0] };
   }
-  return null;
+  return best ? best.eng : null;
 }
 
 export type BeerLookupResult = {
@@ -304,11 +313,13 @@ export async function lookupBeers(queries: string[]): Promise<BeerLookupResult[]
       fallbackQueries.map((f) => f.alias),
     );
     for (let fi = 0; fi < fallbackQueries.length; fi++) {
-      const { idx } = fallbackQueries[fi];
+      const { idx, alias } = fallbackQueries[fi];
       const fallbackResult = fallbackResults[fi];
-      if (fallbackResult?.found === true) {
-        results[idx] = fallbackResult;
-      }
+      if (fallbackResult?.found !== true) continue;
+      // 别名兜底命中的,要求酒名与别名强吻合:完全相同或(多词别名)每词都在酒名中。
+      // 防止「West Coast IPA」这类通用词命中无关酒厂的同名风格酒。
+      if (!strongNameMatch(alias, fallbackResult.name)) continue;
+      results[idx] = fallbackResult;
     }
   }
 

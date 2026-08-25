@@ -1,7 +1,7 @@
 import type { AgentResponse, BeerCandidate } from "./types";
 import type { ProgressCallback } from "./multi-stage-pipeline";
 import { runMultiStagePipeline } from "./multi-stage-pipeline";
-import { enrichCandidates, type EnrichedBeer } from "./beer-db/pipeline";
+import { enrichCandidates, lookupBeers, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
 
 export type { ProgressCallback };
 
@@ -51,6 +51,15 @@ export async function runImagePipeline(
     enrichedBeers = [];
   }
 
+  // SQLite 50k 酒库匹配(含中文别名桥)。图片路径此前完全不走本地库,
+  // OCR 出的中文酒名被 web 富化吞掉 —— 这里补上本地库命中。
+  let dbLookups: BeerLookupResult[] = [];
+  try {
+    dbLookups = await lookupBeers(enrichInputs.map((x) => x.beerName));
+  } catch (err) {
+    console.warn("[provider] local db lookup failed:", err);
+  }
+
   const candidates: BeerCandidate[] = [];
   const enrichmentLog: Array<Record<string, unknown>> = [];
 
@@ -59,7 +68,7 @@ export async function runImagePipeline(
     const enriched = enrichedBeers[i] ?? null;
     emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName });
 
-    const candidate = ocrItemToCandidate(item, i, enriched);
+    const candidate = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null);
     candidates.push(candidate);
     enrichmentLog.push({
       name: candidate.displayName,
@@ -74,6 +83,7 @@ export async function runImagePipeline(
       volumeMl: candidate.volumeMl ?? null,
       breweryCountry: candidate.breweryCountry ?? null,
       found: candidate.untappdScore != null,
+      dbHit: dbLookups[i]?.found ?? false,
     });
   }
 
@@ -96,6 +106,7 @@ function ocrItemToCandidate(
   item: { menuIndex?: number; beerName?: string; brewery?: string; style?: string; abv?: number; ibu?: number | null; price?: number | null; serving?: string },
   idx: number,
   enriched: EnrichedBeer | null,
+  dbHit: BeerLookupResult | null,
 ): BeerCandidate {
   const base: BeerCandidate = {
     candidateId: String(item.menuIndex || `ocr_${idx}`),
@@ -129,6 +140,18 @@ function ocrItemToCandidate(
 
     if (!base.style && enriched.style) base.style = enriched.style;
     if (!base.brewery && enriched.breweryName) base.brewery = enriched.breweryName;
+  }
+
+  // 本地 SQLite 酒库命中:补上 web 富化缺失的评分/风格/酒厂字段
+  if (dbHit?.found && dbHit.data) {
+    const d = dbHit.data;
+    base.untappdId ??= String(d.id);
+    base.untappdScore ??= d.rating ?? undefined;
+    base.untappdRatingCount ??= d.ratings_count ?? undefined;
+    base.untappdUrl ??= d.untappd_url ?? undefined;
+    base.breweryCountry ??= d.country ?? undefined;
+    if (!base.style && d.style) base.style = d.style;
+    if (!base.brewery && d.brewery) base.brewery = d.brewery;
   }
 
   return base;

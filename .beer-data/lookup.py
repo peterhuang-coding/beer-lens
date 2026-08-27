@@ -512,6 +512,13 @@ def _search_exact_both(con, q: str, limit: int) -> list[dict]:
             (q, limit)
         ).fetchall()
         out.extend(_row_to_dict(r, table) for r in rows)
+        # 撇号归一: "Becks" 也要能命中 "Beck's"(2026-08-28 实测暴露)
+        if not out:
+            rows = con.execute(
+                f"SELECT {cols} FROM {table} WHERE REPLACE(LOWER(name), '''', '') = ? ORDER BY ratings_count DESC LIMIT ?",
+                (q.replace("'", "").replace("’", ""), limit)
+            ).fetchall()
+            out.extend(_row_to_dict(r, table) for r in rows)
     return out
 
 

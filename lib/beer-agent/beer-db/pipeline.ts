@@ -319,12 +319,14 @@ export async function lookupBeers(queries: string[]): Promise<BeerLookupResult[]
     const result = results[i];
     if (result?.found !== true) return { query, found: false, data: null };
     const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-    const name = String(result.name ?? "");
-    const brewery = String(result.brewery ?? "");
+    // 撇号归一:Becks 与 Beck's 视为同一词(2026-08-28 实测暴露)
+    const norm = (s: string) => s.toLowerCase().replace(/['’]/g, "");
+    const name = norm(String(result.name ?? ""));
+    const brewery = norm(String(result.brewery ?? ""));
     const ok =
       words.length > 0 &&
       words.every((w) => {
-        const re = new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+        const re = new RegExp(`\\b${norm(w).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
         return re.test(name) || re.test(brewery);
       });
     return {

@@ -218,16 +218,6 @@ const CN_TO_EN_BEER_MAP: Record<string, string[]> = {
   "午餐": ["Lunch"],
 };
 
-/** 别名与库内酒名的强吻合校验(见 lookupBeers Phase 3 用法) */
-function strongNameMatch(alias: string, beerName: string): boolean {
-  const a = alias.toLowerCase().trim();
-  const b = beerName.toLowerCase().trim();
-  if (!a || !b) return false;
-  if (a === b) return true;
-  const aw = a.split(/\s+/).filter(Boolean);
-  return aw.length >= 2 && aw.every((w) => b.includes(w));
-}
-
 export function lookupChineseBeerName(chineseName: string): string | null {
   // Try exact match first
   if (CN_TO_EN_BEER_MAP[chineseName]?.length > 0) {
@@ -313,23 +303,34 @@ export async function lookupBeers(queries: string[]): Promise<BeerLookupResult[]
       fallbackQueries.map((f) => f.alias),
     );
     for (let fi = 0; fi < fallbackQueries.length; fi++) {
-      const { idx, alias } = fallbackQueries[fi];
+      const { idx } = fallbackQueries[fi];
       const fallbackResult = fallbackResults[fi];
-      if (fallbackResult?.found !== true) continue;
-      // 别名兜底命中的,要求酒名与别名强吻合:完全相同或(多词别名)每词都在酒名中。
-      // 防止「West Coast IPA」这类通用词命中无关酒厂的同名风格酒。
-      if (!strongNameMatch(alias, fallbackResult.name)) continue;
-      results[idx] = fallbackResult;
+      if (fallbackResult?.found === true) {
+        results[idx] = fallbackResult;
+      }
     }
   }
 
+  // 统一强吻合门(所有结果,含第一阶段直接命中):
+  // 查询的每个词都必须以词边界匹配出现在 酒名或酒厂 里(防 raft→draft、
+  // stamm→Stammtisch 类子串假命中),并防止 lookup.py 的逐级缩短查询
+  // 把 "Moon Lark" 缩成 "Moon" 命中,给推荐灌假数据。(2026-08-25 实测暴露)
   return queries.map((query, i) => {
     const result = results[i];
-    const found = result?.found === true;
+    if (result?.found !== true) return { query, found: false, data: null };
+    const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+    const name = String(result.name ?? "");
+    const brewery = String(result.brewery ?? "");
+    const ok =
+      words.length > 0 &&
+      words.every((w) => {
+        const re = new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+        return re.test(name) || re.test(brewery);
+      });
     return {
       query,
-      found,
-      data: found ? result : null,
+      found: ok,
+      data: ok ? result : null,
     };
   });
 }

@@ -32,6 +32,9 @@ export async function runImagePipeline(
   });
 
   const ocrItems = pipeline.extracted?.items ?? [];
+  if (ocrItems.length === 0) {
+    console.warn("[provider] vision succeeded but extracted 0 items — 模型可能返回了空 JSON");
+  }
 
   emit({ type: "enrich_start", count: ocrItems.length });
 

@@ -86,6 +86,7 @@ export async function GET(request: Request) {
   // 4. 大牌哨兵 — 世界知名啤酒必须能查到,漏了直接报警
   //    (2026-08-28 起:Beck's 曾因撇号归一缺失+50k 爬取缺口双重问题查不到)
   let sentinels: unknown = { error: "哨兵不可用" };
+  let cnSentinels: unknown = { error: "中国精酿哨兵不可用" };
   try {
     const { lookupBeers } = await import("@/lib/beer-agent/beer-db");
     const SENTINEL_BEERS = [
@@ -99,15 +100,25 @@ export async function GET(request: Request) {
         ? { query: q, found: true, name: r.data.name }
         : { query: q, found: false };
     });
+    // 中国精酿验收组:当前全红属预期(China=0),P3 补爬后应转绿
+    const CN_SENTINELS = ["Jing-A", "Master Gao", "Slow Boat", "NBeer", "Trueman"];
+    const cnRs = await lookupBeers(CN_SENTINELS);
+    cnSentinels = CN_SENTINELS.map((q, i) => {
+      const r = cnRs[i];
+      return r?.found && r.data
+        ? { query: q, found: true, name: r.data.name }
+        : { query: q, found: false };
+    });
   } catch (err: any) {
     sentinels = { error: String(err?.message ?? err) };
   }
 
-  return NextResponse.json({
+  const report = {
     generated_at: new Date().toISOString(),
     data_quality: dataQuality,
     routing,
     sentinels,
+    cn_sentinels: cnSentinels,
     health: {
       rpm: health.rpm,
       p50_ms: health.p50_latency_ms,
@@ -116,5 +127,27 @@ export async function GET(request: Request) {
       skill_distribution: health.skill_distribution.slice(0, 8),
       rule_hits: health.rule_hits.filter((r) => r.count > 0).slice(0, 8),
     },
-  });
+  };
+
+  // 测评历史存档(趋势对比用,fire-and-forget,失败不影响响应)
+  import("node:fs/promises")
+    .then(({ appendFile }) =>
+      appendFile(
+        path.join(process.cwd(), "data", "selfcheck-history.jsonl"),
+        JSON.stringify({
+          ts: report.generated_at,
+          routing_pct: (report.routing as any)?.accuracy_pct ?? null,
+          sentinels_ok: Array.isArray(report.sentinels)
+            ? report.sentinels.filter((s: any) => s.found).length
+            : null,
+          cn_ok: Array.isArray(report.cn_sentinels)
+            ? report.cn_sentinels.filter((s: any) => s.found).length
+            : null,
+          error_rate: (report.health as any)?.error_rate ?? null,
+        }) + "\n",
+      )
+      .catch(() => {}),
+    );
+
+  return NextResponse.json(report);
 }

@@ -60,6 +60,9 @@ export function listCapabilities(): Capability[] {
  * provider). Timeouts are 120s because 45s aborted mid-request. Google/
  * GPT models on OpenRouter are 403 region-blocked here; qwen3.7-flash
  * burns its whole budget on reasoning — do NOT put either in a chain.
+ *
+ * 2026-08-28: qwen3-vl-32b 在 120s 内仍出现 TIM(菜单图 ~1.3MB,大图链路慢),
+ * 提到 180s 减抖动;deepseek 兜底同提,防止主模型超时后兜底也顶到上限。
  */
 registerCapability({
   id: "beer_menu_image",
@@ -69,12 +72,12 @@ registerCapability({
     {
       provider: "openrouter",
       models: ["qwen/qwen3-vl-32b-instruct"],
-      timeoutMs: 120_000,
+      timeoutMs: 180_000,
     },
     {
       provider: "deepseek",
       models: ["deepseek-v4-flash-vision-exp"],
-      timeoutMs: 120_000,
+      timeoutMs: 180_000,
     },
   ],
   schemaName: "beer_combined_vision",

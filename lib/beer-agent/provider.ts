@@ -1,7 +1,8 @@
 import type { AgentResponse, BeerCandidate } from "./types";
 import type { ProgressCallback } from "./multi-stage-pipeline";
 import { runMultiStagePipeline } from "./multi-stage-pipeline";
-import { enrichCandidates, lookupBeers, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
+import { enrichCandidates, lookupBeers, lookupBreweryStats, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
+import type { BreweryLookupResult } from "./beer-db/data-layer";
 
 export type { ProgressCallback };
 
@@ -60,6 +61,26 @@ export async function runImagePipeline(
     console.warn("[provider] local db lookup failed:", err);
   }
 
+  // 酒厂级兜底:酒款与 web 富化都没分时,若 OCR 提取到了酒厂且库内该厂
+  // 有 ≥3 款,用厂级统计(均分/款数/代表款)代替「无评分数据」。
+  const breweryHits: (BreweryLookupResult | null)[] = new Array(enrichInputs.length).fill(null);
+  try {
+    for (let i = 0; i < enrichInputs.length; i++) {
+      const hasScore =
+        enrichedBeers[i]?.untappdScore != null ||
+        (dbLookups[i]?.found && dbLookups[i].data != null);
+      if (hasScore) continue;
+      const bw = String(enrichInputs[i].brewery ?? "").trim();
+      if (bw.length < 2) continue;
+      const hit = await lookupBreweryStats(bw);
+      if (hit?.found && hit.brewery_stats && hit.brewery_stats.count >= 3) {
+        breweryHits[i] = hit;
+      }
+    }
+  } catch (err) {
+    console.warn("[provider] brewery fallback failed:", err);
+  }
+
   const candidates: BeerCandidate[] = [];
   const enrichmentLog: Array<Record<string, unknown>> = [];
 
@@ -68,7 +89,7 @@ export async function runImagePipeline(
     const enriched = enrichedBeers[i] ?? null;
     emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName });
 
-    const candidate = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null);
+    const candidate = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null, breweryHits[i]);
     candidates.push(candidate);
     enrichmentLog.push({
       name: candidate.displayName,
@@ -84,6 +105,7 @@ export async function runImagePipeline(
       breweryCountry: candidate.breweryCountry ?? null,
       found: candidate.untappdScore != null,
       dbHit: dbLookups[i]?.found ?? false,
+      breweryHit: breweryHits[i]?.found ?? false,
     });
   }
 
@@ -107,6 +129,7 @@ function ocrItemToCandidate(
   idx: number,
   enriched: EnrichedBeer | null,
   dbHit: BeerLookupResult | null,
+  breweryHit: BreweryLookupResult | null,
 ): BeerCandidate {
   const base: BeerCandidate = {
     candidateId: String(item.menuIndex || `ocr_${idx}`),
@@ -152,6 +175,23 @@ function ocrItemToCandidate(
     base.breweryCountry ??= d.country ?? undefined;
     if (!base.style && d.style) base.style = d.style;
     if (!base.brewery && d.brewery) base.brewery = d.brewery;
+  }
+
+  // 酒厂级兜底:诚实代理分 —— 用厂级均分,并打「非本款」标注
+  if (breweryHit?.found && breweryHit.brewery_stats && base.untappdScore == null) {
+    const s = breweryHit.brewery_stats;
+    const top = breweryHit.top_beers?.[0];
+    if (s.avg_rating != null) {
+      base.untappdScore = s.avg_rating;
+      base.riskFlags.push("酒厂均分(非本款)");
+      base.evidence.push({
+        source: "untappd",
+        confidence: 0.5,
+        summary: `酒厂 ${top?.brewery ?? ""} 库内 ${s.count} 款,均分 ${s.avg_rating},代表款:${top?.name ?? ""} ★${top?.rating ?? "-"}`,
+      });
+    }
+    if (!base.breweryCountry && top?.country) base.breweryCountry = top.country;
+    if (!base.brewery && top?.brewery) base.brewery = top.brewery;
   }
 
   return base;

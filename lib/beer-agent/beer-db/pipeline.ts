@@ -16,8 +16,8 @@
  *   - multiSource()       → RateBeer / Untappd / custom source switching
  */
 
-import { batchLookupBeers, getBeerDbStats } from "./data-layer";
-import type { BeerResult } from "./data-layer";
+import { batchLookupBeers, getBeerDbStats, lookupBrewery } from "./data-layer";
+import type { BeerResult, BreweryLookupResult } from "./data-layer";
 import { enrichBeer, enrichBeers } from "./enricher";
 import type { EnrichedBeer } from "./enricher";
 import { searchCacheByName, getCacheStats } from "./cache";
@@ -335,6 +335,13 @@ export async function lookupBeers(queries: string[]): Promise<BeerLookupResult[]
       data: ok ? result : null,
     };
   });
+}
+
+/**
+ * Brewery-level lookup — 具体酒款查不到时的兜底:返回厂级统计 + 代表款。
+ */
+export async function lookupBreweryStats(query: string): Promise<BreweryLookupResult> {
+  return lookupBrewery(query);
 }
 
 /**

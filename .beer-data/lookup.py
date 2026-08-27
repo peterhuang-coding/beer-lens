@@ -858,12 +858,50 @@ def run_audit() -> dict:
     return audit
 
 
+def search_brewery_untappd(q: str, limit: int = 5) -> dict:
+    """酒厂级检索 — 具体酒款查不到时,返回该厂在 untappd_cache 的统计与代表款。"""
+    con = _connect()
+    if not con:
+        return {"query": q, "found": False, "error": "Database not found"}
+    ql = q.strip().lower()
+    if not ql:
+        con.close()
+        return {"query": q, "found": False}
+
+    cols = "id, name, brewery, style, abv, rating, ratings_count, untappd_url, country, label_image"
+    # 先精确酒厂名,再词边界 LIKE:(' ' || brewery || ' ') LIKE '% raft %'
+    # 防止 raft→Craft、stamm→Stammtisch 类子串假命中(2026-08-28 实测暴露)
+    boundary = f"% {ql} %"
+    rows = con.execute(
+        f"SELECT {cols} FROM untappd_cache WHERE LOWER(brewery) = ? ORDER BY ratings_count DESC LIMIT ?",
+        (ql, limit)
+    ).fetchall()
+    if not rows:
+        rows = con.execute(
+            f"SELECT {cols} FROM untappd_cache WHERE (' ' || LOWER(brewery) || ' ') LIKE ? ORDER BY ratings_count DESC LIMIT ?",
+            (boundary, limit)
+        ).fetchall()
+    stats = con.execute(
+        "SELECT COUNT(*) AS n, ROUND(AVG(rating),2) AS avg_rating, SUM(ratings_count) AS total_ratings "
+        "FROM untappd_cache WHERE LOWER(brewery) = ? OR (' ' || LOWER(brewery) || ' ') LIKE ?",
+        (ql, boundary)
+    ).fetchone()
+    out = {
+        "query": q,
+        "found": bool(rows),
+        "brewery_stats": {"count": stats[0] or 0, "avg_rating": stats[1], "total_ratings": stats[2] or 0},
+        "top_beers": [_row_to_dict(r, 'untappd_cache') for r in rows],
+    }
+    con.close()
+    return out
+
+
 def main():
     args = sys.argv[1:]
 
     if not args:
         print(json.dumps({"error": (
-            "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats | --audit | "
+            "Usage: lookup.py <beer_name> | --batch <name1|name2|...> | --stats | --audit | --brewery <name> | "
             "--init | --upsert-untappd <json-file-or-stdin> | "
             "--report-untappd-nulls | --insert-cn-beers <json> | --insert-beers <json>"
         )}))
@@ -874,6 +912,11 @@ def main():
         result = get_stats()
     elif cmd == '--audit':
         result = run_audit()
+    elif cmd == '--brewery':
+        if len(args) < 2:
+            print(json.dumps({"error": "--brewery requires a brewery name"}))
+            sys.exit(1)
+        result = search_brewery_untappd(args[1])
     elif cmd == '--batch':
         if len(args) < 2:
             print(json.dumps({"error": "--batch requires pipe-separated beer names"}))

@@ -71,6 +71,7 @@ type SelfCheckReport = {
   generated_at?: string;
   data_quality?: any;
   routing?: any;
+  sentinels?: any;
   health?: any;
   error?: string;
 };
@@ -198,6 +199,32 @@ function SelfCheckView() {
                   </div>
                 ))}
               </div>
+            )}
+          </div>
+
+          {/* 大牌哨兵 */}
+          <div style={card}>
+            <div style={{ fontWeight: 600, marginBottom: 10 }}>🚨 大牌哨兵(世界知名啤酒必须能查到)</div>
+            {Array.isArray(report.sentinels) ? (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {report.sentinels.map((s: any) => (
+                  <span
+                    key={s.query}
+                    style={{
+                      background: s.found ? "#0f2a17" : "#3d0f0f",
+                      color: s.found ? "#4ade80" : "#f85149",
+                      borderRadius: 6,
+                      padding: "4px 10px",
+                      fontSize: 12,
+                    }}
+                    title={s.found ? s.name : undefined}
+                  >
+                    {s.found ? "✅" : "❌"} {s.query}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <div style={{ color: "#f85149" }}>⚠️ {String(report.sentinels?.error ?? "不可用")}</div>
             )}
           </div>
 

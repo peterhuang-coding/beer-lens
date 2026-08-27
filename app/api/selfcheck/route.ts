@@ -83,10 +83,31 @@ export async function GET(request: Request) {
   // 3. 链路健康(最近 5 分钟 trace 窗口)
   const health = getStats();
 
+  // 4. 大牌哨兵 — 世界知名啤酒必须能查到,漏了直接报警
+  //    (2026-08-28 起:Beck's 曾因撇号归一缺失+50k 爬取缺口双重问题查不到)
+  let sentinels: unknown = { error: "哨兵不可用" };
+  try {
+    const { lookupBeers } = await import("@/lib/beer-agent/beer-db");
+    const SENTINEL_BEERS = [
+      "Becks", "Guinness", "Heineken", "Tsingtao", "Corona", "Budweiser",
+      "Stella Artois", "Hoegaarden", "Duvel", "Carlsberg", "Pilsner Urquell",
+    ];
+    const rs = await lookupBeers(SENTINEL_BEERS);
+    sentinels = SENTINEL_BEERS.map((q, i) => {
+      const r = rs[i];
+      return r?.found && r.data
+        ? { query: q, found: true, name: r.data.name }
+        : { query: q, found: false };
+    });
+  } catch (err: any) {
+    sentinels = { error: String(err?.message ?? err) };
+  }
+
   return NextResponse.json({
     generated_at: new Date().toISOString(),
     data_quality: dataQuality,
     routing,
+    sentinels,
     health: {
       rpm: health.rpm,
       p50_ms: health.p50_latency_ms,

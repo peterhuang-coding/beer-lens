@@ -56,6 +56,24 @@ export async function getBeerDbStats(): Promise<Record<string, unknown>> {
   return callLookup("--stats");
 }
 
+// ── Brewery-level lookup (酒厂级兜底) ──
+
+export type BreweryLookupResult = {
+  query: string;
+  found: boolean;
+  brewery_stats: {
+    count: number;
+    avg_rating: number | null;
+    total_ratings: number;
+  } | null;
+  top_beers: BeerResult[];
+  error?: string;
+};
+
+export async function lookupBrewery(query: string): Promise<BreweryLookupResult> {
+  return callLookup("--brewery", query);
+}
+
 // ── Common interface (compatible with old SearchResult) ──
 
 export type SearchResult = {

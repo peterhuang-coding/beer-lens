@@ -27,7 +27,7 @@
   # routed to a non-recommend skill. Lets the UI surface "we noticed you want IPA".
   - id: yaml-flag-ipa-mention
     stage: post-route
-    enabled: true
+    enabled: false
     priority: 55
     description: If message mentions IPA and skill is not menu_recommend, annotate.
     when:
@@ -47,7 +47,7 @@
   # skills can branch. Demonstrates post-route on image-bearing queries.
   - id: yaml-flag-image-context
     stage: post-route
-    enabled: true
+    enabled: false
     priority: 40
     description: Annotate any post-route request that carried an image.
     when:
@@ -63,7 +63,7 @@
   # Safety net: block when the message contains obviously off-topic content.
   - id: yaml-block-offtopic
     stage: pre-route
-    enabled: true
+    enabled: false
     priority: 200
     description: Block obvious off-topic queries (regex) before any routing.
     when:

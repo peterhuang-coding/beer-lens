@@ -431,6 +431,8 @@ export default function ChatBox() {
         .chat-shell { display:flex; flex-direction:column; gap:12px; height: 70vh; position:relative; }
         .chat-shell.drag-over::after { content:"📷 拖到这里附加图片"; position:absolute; inset:0; background:rgba(76,179,255,0.18); border:2px dashed #4cb3ff; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:600; color:#4cb3ff; pointer-events:none; z-index:10; }
         .chat-meta { display:flex; gap:12px; align-items:center; font-size:12px; color:#9aa3b2; }
+        .progress-hint { font-style:italic; color:#9aa3b2; }
+        .route { margin-left:auto; white-space:nowrap; }
         .status { padding:2px 8px; border-radius:999px; font-weight:600; letter-spacing:0.4px; text-transform:uppercase; }
         .status-idle { background:#1e3a8a; color:#bfdbfe; }
         .status-routing, .status-streaming { background:#166534; color:#d1fae5; }
@@ -452,6 +454,7 @@ export default function ChatBox() {
         .attach-strip small { color:#9aa3b2; font-size:10px; }
         .attach-strip button { background:#374151; color:#e8eaf0; border:none; border-radius:4px; padding:4px 10px; font-size:11px; cursor:pointer; }
         .quick-panel { display:flex; flex-direction:column; gap:6px; }
+        .quick-panel { position:relative; display:flex; flex-direction:column; gap:6px; background:#171a21; border:1px solid #2a2f3a; border-radius:8px; padding:8px 10px; }
         .quick-toggle { align-self:flex-start; background:transparent; color:#9aa3b2; border:1px solid #2a2f3a; border-radius:6px; padding:3px 10px; font-size:11px; cursor:pointer; }
         .quick-toggle:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; }
         .quick-toggle:disabled { opacity:0.5; cursor:not-allowed; }
@@ -465,7 +468,7 @@ export default function ChatBox() {
         .quick-img-btn:hover:not(:disabled) { background:#1f232c; color:#e8eaf0; border-color:#4cb3ff; }
         .quick-img-btn:disabled { opacity:0.5; cursor:not-allowed; }
         .quick-img-btn img { width:40px; height:30px; object-fit:cover; border-radius:3px; }
-        .quick-tooltip { background:#171a21; color:#bfdbfe; border:1px solid #2a2f3a; border-radius:6px; padding:6px 10px; font-size:11px; line-height:1.4; max-width:480px; }
+        .quick-tooltip { position:absolute; top:100%; left:0; margin-top:6px; z-index:10; background:#171a21; color:#bfdbfe; border:1px solid #2a2f3a; border-radius:6px; padding:6px 10px; font-size:11px; line-height:1.4; max-width:480px; box-shadow:0 4px 12px #000a; }
         .chat-input { display:flex; gap:8px; }
         .chat-input .attach-btn { background:#171a21; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:0 12px; font-size:16px; cursor:pointer; }
         .chat-input .attach-btn:hover:not(:disabled) { background:#1f232c; }
@@ -576,7 +579,7 @@ function BeerCardView({ c }: { c: BeerCard }) {
         .bcard { background:#0f1115; border:1px solid #2a2f3a; border-radius:6px; overflow:hidden;
           text-decoration:none; color:inherit; display:flex; flex-direction:column;
           transition: border-color .12s, transform .12s; }
-        .bcard:hover { border-color:#4cb3ff; transform: translateY(-1px); }
+        .bcard:hover { border-color:#4cb3ff; }
         .bcard-img { width:100%; aspect-ratio: 1/1; background:#171a21; display:flex; align-items:center; justify-content:center; overflow:hidden; }
         .bcard-img img { width:100%; height:100%; object-fit:cover; }
         .bcard-img-fallback { font-size:32px; opacity:0.5; }

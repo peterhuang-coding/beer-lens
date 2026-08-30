@@ -36,8 +36,8 @@ export default function ChatPage() {
       <div className="chat-content">
         <div className="chat-main-col">
           <div className="chat-legend">
-            <b>使用说明</b>:浏览器发送 <code>message</code>,harness 经 LLM 路由 → invoke 8 个 skill 之一 →
-            流式返回。每条消息上方 <code>skill_id</code> 是 LLM 选中的目标;若路由失败会显示 <code>error</code> 事件。
+            <b>📷 拍张酒单</b>,或者说一句「推荐一款不苦的 IPA」——我帮你挑今天该喝的那杯。
+            没喝过的酒我会直说「数据不足」,不编分。
           </div>
           <ChatBox />
         </div>

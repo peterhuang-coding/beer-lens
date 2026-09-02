@@ -77,7 +77,7 @@ async function handleImage(ctx: AgentContext): Promise<SkillResult> {
     if (memoryEnabled) {
       profile = await getProfileMemory(ctx.userId).catch(() => null);
     }
-    const stm = await readShortTermMemory(ctx.conversationId).catch(() => null);
+    const stm = await readShortTermMemory(ctx.conversationId, ctx.userId).catch(() => null);
     const constraints = stm?.currentConstraints ?? [];
     const scored = scoreCandidates(scoredInput as any, profile, constraints, memoryEnabled);
     const picks = selectPicks(scored as any);
@@ -125,7 +125,7 @@ async function handleFollowUp(ctx: AgentContext): Promise<SkillResult> {
   const { selectPicks } = await import("@/lib/beer-agent/recommendation/pick-selector");
   const { buildRecommendationReply } = await import("@/lib/beer-agent/recommendation/reply-builder");
 
-  const stm = await readShortTermMemory(ctx.conversationId).catch(() => null);
+  const stm = await readShortTermMemory(ctx.conversationId, ctx.userId).catch(() => null);
   const menuCandidates = stm?.lastMenu?.candidates ?? [];
 
   if (menuCandidates.length === 0) {
@@ -289,7 +289,7 @@ async function handleText(ctx: AgentContext, params: Record<string, unknown>): P
   // Score
   const memoryEnabled = await isMemoryReadEnabled(ctx.userId).catch(() => false);
   const profile = memoryEnabled ? await getProfileMemory(ctx.userId).catch(() => null) : null;
-  const stm = await readShortTermMemory(ctx.conversationId).catch(() => null);
+  const stm = await readShortTermMemory(ctx.conversationId, ctx.userId).catch(() => null);
   const allConstraints = [...(constraintsParam ?? []), ...(stm?.currentConstraints ?? [])];
   const scored = scoreCandidates(scoredInput as any, profile, allConstraints, memoryEnabled);
   const picks = selectPicks(scored as any);
@@ -445,7 +445,14 @@ function extractBeerSegments(text: string): string[] {
     .map((p) => p.trim())
     .filter((p) => {
       if (!p || p.length < 2) return false;
-      const stopWords = ["推荐", "帮我看", "看看", "帮我", "建议", "好喝", "什么", "怎么", "如何", "这个", "那个", "哪个", "第", "杯", "预算", "配餐", "清爽", "不苦"];
+      // 推荐意图动词:不论长短,整段都是需求描述而不是酒名
+      // (2026-08-28 实测:「推荐一款不苦的IPA」9 字被当成酒名回显)
+      const intentWords = ["推荐", "帮我看", "帮我选", "帮我挑", "想喝", "建议", "今天喝", "喝什么", "来一杯", "搞一杯"];
+      for (const sw of intentWords) {
+        if (p.includes(sw)) return false;
+      }
+      // 短文本再过滤口感/指代词
+      const stopWords = ["看看", "帮我", "好喝", "什么", "怎么", "如何", "这个", "那个", "哪个", "第", "杯", "预算", "配餐", "清爽", "不苦"];
       for (const sw of stopWords) {
         if (p.length <= 6 && p.includes(sw)) return false;
       }

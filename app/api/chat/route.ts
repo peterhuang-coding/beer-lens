@@ -200,6 +200,12 @@ export async function POST(request: Request): Promise<Response> {
   }
   const { skill_id, params, reason } = routeRes.decision;
 
+  // 水下思考:路由/识别/匹配的关键步骤,SSE 发给前端「🔍 思考过程」展示
+  const thinkingSteps: string[] = [];
+  thinkingSteps.push(
+    `路由:${routeRes.source === "rule" ? "关键词规则" : "LLM"} → ${skill_id} · ${reason || "无原因"}`,
+  );
+
   // ── Build SSE stream ────────────────────────────────────────────────────
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -356,6 +362,59 @@ export async function POST(request: Request): Promise<Response> {
           skill_id === "menu_recommend" && imageDataUrl
             ? "/images/tap-list.jpg"
             : undefined;
+        const scoredCount = (skillReply.candidates ?? []).filter(
+          (c: unknown) => (c as { untappdScore?: number | null }).untappdScore != null,
+        ).length;
+        thinkingSteps.push(
+          `识别/匹配:${(skillReply.candidates ?? []).length} 款候选,${scoredCount} 款带评分`,
+        );
+
+        // 水下思考 → 前端展示
+        controller.enqueue(sseEvent("thinking", { steps: thinkingSteps }));
+
+        // 多轮记忆:写会话 STM,追问「第2款呢 / 不太苦的」才有上下文
+        try {
+          const { updateShortTermMemory } = await import(
+            "@/lib/beer-agent/memory/short-term"
+          );
+          const emptyPick = { candidateId: "", label: "" };
+          const safePicks = skillReply.picks ?? {
+            topPick: emptyPick,
+            safePick: emptyPick,
+            explorePick: emptyPick,
+            avoidOrCaution: emptyPick,
+          };
+          await updateShortTermMemory(
+            {
+              channel: "web",
+              userId: "anon",
+              conversationId,
+              turnId: `t_${t0.toString(36)}`,
+              messages: [{ role: "user", content: message }],
+            } as never,
+            {
+              traceId: String(t0),
+              candidates: (skillReply.candidates ?? []).map((c: unknown, i: number) => {
+                const cc = c as Record<string, unknown>;
+                return {
+                  candidateId: String(cc.candidateId ?? cc.menuIndex ?? i + 1),
+                  displayName: String(cc.displayName ?? cc.name ?? `候选${i + 1}`),
+                  brewery: String(cc.brewery ?? ""),
+                  style: String(cc.style ?? ""),
+                  abv: Number(cc.abv ?? 0),
+                  price: cc.price ?? null,
+                  untappdScore: cc.untappdScore ?? null,
+                };
+              }),
+              picks: safePicks,
+              reply: skillReply.reply,
+              intentResult: { intent: skill_id },
+            } as never,
+          );
+        } catch (err) {
+          console.warn("[chat] stm write failed:", err);
+        }
+
         controller.enqueue(
           sseEvent("result", {
             skill_id,

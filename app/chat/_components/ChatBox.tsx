@@ -27,7 +27,23 @@ type Message = {
   role: "user" | "assistant";
   text: string;
   attachment?: Attachment;
+  thinking?: string[];
 };
+
+// 会话 ID:同一浏览器标签页内保持稳定,多轮追问(「第2款呢」)才有上下文
+function getConvId(): string {
+  try {
+    const k = "beerlens-conv-id";
+    let id = sessionStorage.getItem(k);
+    if (!id) {
+      id = `conv_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+      sessionStorage.setItem(k, id);
+    }
+    return id;
+  } catch {
+    return `conv_${Date.now().toString(36)}`;
+  }
+}
 
 type Meta = { skill_id: string; reason?: string; params?: Record<string, unknown> };
 
@@ -213,6 +229,7 @@ export default function ChatBox() {
           imageDataUrl: attached?.dataUrl,
           imageName: attached?.name,
           imageType: attached?.type,
+          conversationId: getConvId(),
         }),
       });
       if (!resp.ok || !resp.body) {
@@ -256,6 +273,11 @@ export default function ChatBox() {
             setStatus("error");
           } else if (evt.event === "progress" && evt.data) {
             setProgress((evt.data as { text?: string }).text ?? "");
+          } else if (evt.event === "thinking" && evt.data) {
+            const steps = (evt.data as { steps?: string[] }).steps ?? [];
+            setMessages((prev) =>
+              prev.map((m) => (m.id === assistantId ? { ...m, thinking: steps } : m)),
+            );
           } else if (evt.event === "done") {
             setStatus("idle");
             setProgress("");
@@ -333,6 +355,16 @@ export default function ChatBox() {
             ) : null}
             {m.role === "assistant" && results[m.id] ? (
               <BeerResultView result={results[m.id]} />
+            ) : null}
+            {m.thinking && m.thinking.length > 0 ? (
+              <details className="thinking">
+                <summary>🔍 思考过程</summary>
+                <ol>
+                  {m.thinking.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ol>
+              </details>
             ) : null}
           </div>
         ))}
@@ -441,6 +473,9 @@ export default function ChatBox() {
         .route.muted { color:#6b7280; font-style:italic; }
         .chat-box { flex:1; overflow-y:auto; background:#0f1115; border:1px solid #2a2f3a; border-radius:8px; padding:14px; display:flex; flex-direction:column; gap:10px; }
         .bubble { padding:10px 12px; border-radius:8px; max-width:92%; white-space:pre-wrap; line-height:1.55; }
+        .thinking { margin-top:6px; font-size:11px; color:#9aa3b2; white-space:normal; }
+        .thinking summary { cursor:pointer; color:#4cb3ff; user-select:none; }
+        .thinking ol { margin:4px 0 0; padding-left:18px; line-height:1.7; }
         .bubble.user { align-self:flex-end; background:#1e3a8a; color:#dbeafe; }
         .bubble.assistant { align-self:flex-start; background:#1f232c; color:#e8eaf0; border:1px solid #2a2f3a; }
         .bubble .role { font-size:10px; text-transform:uppercase; color:#9aa3b2; margin-bottom:4px; letter-spacing:0.5px; font-weight:600; }

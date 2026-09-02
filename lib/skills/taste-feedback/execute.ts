@@ -49,7 +49,7 @@ export async function execute(
 
   try {
     const { readShortTermMemory } = await import("@/lib/beer-agent/memory/short-term");
-    const stm = await readShortTermMemory(ctx.conversationId);
+    const stm = await readShortTermMemory(ctx.conversationId, ctx.userId);
     const candidates = stm?.lastMenu?.candidates ?? [];
     const lastPicks = stm?.lastPicks;
 

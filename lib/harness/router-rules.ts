@@ -31,7 +31,7 @@ const RULES: Rule[] = [
   //    even when the question contains a style name.
   {
     skill: "beer_knowledge",
-    keywords: ["什么是", "是什么", "为什么", "区别", "定义", "品鉴", "工艺", "历史", "由来", "怎么", "如何", "作用", "计算", "故事", "酒厂", "哪家", "介绍一下", "介绍下"],
+    keywords: ["什么是", "是什么", "为什么", "区别", "定义", "品鉴", "工艺", "历史", "由来", "如何酿", "作用", "计算", "故事", "酒厂", "哪家", "介绍一下", "介绍下"],
     params: (msg) => ({ question: msg }),
   },
   // 2. Memory corrections — the user is changing their preferences.
@@ -59,30 +59,13 @@ const RULES: Rule[] = [
     keywords: ["我喜欢", "我的偏好", "偏好", "我的画像", "我喝过什么", "统计一下", "总结一下", "我的口味", "口味总结", "品饮记录", "品酒记录", "口味数据", "口味画像", "我的记录"],
     params: (msg) => ({ topic: msg }),
   },
-  // 5. Follow-up filter — usually on an existing menu ("第3个", "换一款").
-  {
-    skill: "follow_up_filter",
-    keywords: ["第", "第一款", "第二款", "第三款", "换", "改成", "再来", "不苦", "更苦", "更烈", "低度", "高度"],
-    params: (msg) => {
-      const params: Record<string, unknown> = { free_text: msg };
-      const idx = msg.match(/第\s*(\d+|[一二三四五六七八九十])/);
-      if (idx) {
-        const numMap: Record<string, number> = {
-          一: 1, 二: 2, 三: 3, 四: 4, 五: 5,
-          六: 6, 七: 7, 八: 8, 九: 9, 十: 10,
-        };
-        params.index = numMap[idx[1]] ?? Number(idx[1]);
-      }
-      return params;
-    },
-  },
-  // 6. Label check — needs image; we just route and let the UI handle.
+  // 5. Label check — needs image; we just route and let the UI handle.
   {
     skill: "label_check",
     keywords: ["酒标", "这瓶", "看看这瓶", "识别一下"],
     params: (msg) => ({ has_image: false, free_text: msg }),
   },
-  // 7. Default: recommend by style/ABV. Last so the more specific intents
+  // 6. Default: recommend by style/ABV. Last so the more specific intents
   //    above always win over a bare "推荐 NEIPA".
   {
     skill: "menu_recommend",
@@ -107,6 +90,25 @@ const RULES: Rule[] = [
         params.min_abv = n - 0.5;
       }
       params.free_text = msg;
+      return params;
+    },
+  },
+  // 7. Follow-up filter — usually on an existing menu ("第3个", "换一款").
+  //    Placed AFTER recommend so "推荐一款不苦的IPA" 走推荐而不是追问
+  //    (2026-08-28 实测:「不苦」曾抢先)。追问式 "第2款/再来一杯" 不含推荐词,仍会落这里。
+  {
+    skill: "follow_up_filter",
+    keywords: ["第", "第一款", "第二款", "第三款", "换", "改成", "再来", "不苦", "更苦", "更烈", "低度", "高度"],
+    params: (msg) => {
+      const params: Record<string, unknown> = { free_text: msg };
+      const idx = msg.match(/第\s*(\d+|[一二三四五六七八九十])/);
+      if (idx) {
+        const numMap: Record<string, number> = {
+          一: 1, 二: 2, 三: 3, 四: 4, 五: 5,
+          六: 6, 七: 7, 八: 8, 九: 9, 十: 10,
+        };
+        params.index = numMap[idx[1]] ?? Number(idx[1]);
+      }
       return params;
     },
   },

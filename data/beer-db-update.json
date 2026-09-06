@@ -1,7 +1,7 @@
 {
-  "lastInit": "2026-07-26T02:44:15.900117Z",
+  "lastInit": "2026-08-24T16:46:36.622204Z",
   "initialization": {
-    "initializedAt": "2026-07-26T02:44:15.900117Z",
+    "initializedAt": "2026-08-24T16:46:36.622204Z",
     "indexes": [
       "ux_beers_name_brewery"
     ],
@@ -176,6 +176,7 @@
   "warnings": [
     "18 duplicate (name, brewery) groups in beers — left in place for manual resolution",
     "Backfilled 64 NULL untappd_cache.id rows",
+    "18 duplicate (name, brewery) groups in beers — left in place for manual resolution",
     "18 duplicate (name, brewery) groups in beers — left in place for manual resolution",
     "18 duplicate (name, brewery) groups in beers — left in place for manual resolution",
     "18 duplicate (name, brewery) groups in beers — left in place for manual resolution"

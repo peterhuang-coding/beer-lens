@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "name": "beer-menu-advisor 中英文菜单黄金集",
+    "schemaVersion": 1,
+    "created": "2026-09-08",
+    "source": "设计文档 §六（Hub feature F-20260908-012059）+ lib/beer-agent/beer-db/pipeline.ts CN_TO_EN_BEER_MAP @ 537f05b",
+    "status": "data-only",
+    "runner": "待 P0 建立 runBeerDecision() 后接入；本轮只保证 Schema 与覆盖率测试",
+    "metrics": [
+      "menuItemRecall 菜单项目召回率",
+      "entityTop1Accuracy 实体 Top-1 匹配准确率",
+      "constraintSatisfaction 约束满足率",
+      "topPickExplainability 首选可解释率",
+      "fabricatedFactRate 无依据事实率",
+      "lowConfidenceExposure 低置信度正确暴露率",
+      "e2eLatencyMs 端到端延迟"
+    ],
+    "requiredCategories": [
+      "pure-cn-names",
+      "english-names",
+      "cn-en-paired",
+      "same-name-diff-brewery",
+      "handwriting-blurry",
+      "name-brewery-split-lines",
+      "mixed-price-abv-volume",
+      "no-db-hit",
+      "ocr-errors",
+      "constraints"
+    ]
+  },
+  "cases": [
+    {
+      "id": "g001",
+      "category": "pure-cn-names",
+      "description": "纯中文酒名菜单，全部来自真实 OCR 映射表（高大师）",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "婴儿肥IPA\n茉莉花茶拉格\n烤地瓜艾尔\n熊猫王",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "婴儿肥IPA", "beer": "Baby IPA", "brewery": "高大师", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "茉莉花茶拉格", "beer": "Jasmine Tea Lager", "brewery": "高大师", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "烤地瓜艾尔", "beer": "Roasted Sweet Potato Ale", "brewery": "高大师", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "熊猫王", "beer": "Panda King IPA", "brewery": "高大师", "entityConfidence": 0.8, "uncertain": false }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0, "entityTop1Accuracy": 1.0, "fabricatedFactRate": 0.0 },
+        "notes": "四行全部命中映射表；不得回退到风格级兜底。"
+      }
+    },
+    {
+      "id": "g002",
+      "category": "english-names",
+      "description": "纯英文酒名 + 酒厂（对应中文映射表的英文侧）",
+      "status": "ready",
+      "locale": "en-US",
+      "input": {
+        "menuText": "Pseudo Sue - Toppling Goliath\nFlying Fist IPA - Jing-A\nBaby IPA - Master Gao",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "Pseudo Sue - Toppling Goliath", "beer": "Pseudo Sue", "brewery": "Toppling Goliath", "entityConfidence": 0.9, "uncertain": false },
+          { "rawText": "Flying Fist IPA - Jing-A", "beer": "Flying Fist IPA", "brewery": "京A", "entityConfidence": 0.9, "uncertain": false },
+          { "rawText": "Baby IPA - Master Gao", "beer": "Baby IPA", "brewery": "高大师", "entityConfidence": 0.9, "uncertain": false }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0, "entityTop1Accuracy": 1.0, "fabricatedFactRate": 0.0 },
+        "notes": "英文名需经撇号/大小写归一（Beck's 类问题不适用本例，但归一管道必须生效）。"
+      }
+    },
+    {
+      "id": "g003",
+      "category": "cn-en-paired",
+      "description": "中文译名 + 英文原名成对出现，两侧必须收敛到同一实体",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "暴龙苏 Pseudo Sue (Toppling Goliath)\n赛博暴龙 Cyber Sue (Toppling Goliath)\n飞拳 Flying Fist IPA (京A)",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "暴龙苏 Pseudo Sue", "beer": "Pseudo Sue", "brewery": "Toppling Goliath", "entityConfidence": 0.9, "uncertain": false },
+          { "rawText": "赛博暴龙 Cyber Sue", "beer": "Cyber Sue", "brewery": "Toppling Goliath", "entityConfidence": 0.9, "uncertain": false },
+          { "rawText": "飞拳 Flying Fist IPA", "beer": "Flying Fist IPA", "brewery": "京A", "entityConfidence": 0.9, "uncertain": false }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0, "entityTop1Accuracy": 1.0, "fabricatedFactRate": 0.0 },
+        "notes": "中英两侧不得解析成两个不同候选；每行只出一个 menuItem。"
+      }
+    },
+    {
+      "id": "g004",
+      "category": "same-name-diff-brewery",
+      "description": "同名酒款不同酒厂：酒厂在映射表中（高置信）vs 酒厂不在（必须暴露不确定）",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "马赛克IPA | 道酿 | 68\n马赛克IPA | 京A | 58",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "马赛克IPA | 道酿", "beer": "Mosaic IPA", "brewery": "道酿", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "马赛克IPA | 京A", "beer": null, "brewery": "京A", "entityConfidence": 0.3, "uncertain": true }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0, "lowConfidenceExposure": 1.0, "fabricatedFactRate": 0.0 },
+        "notes": "第二行京A 无马赛克记录：不得默默复用道酿的匹配，必须标「可能是」或用酒厂级信息推荐。"
+      }
+    },
+    {
+      "id": "g005",
+      "category": "handwriting-blurry",
+      "description": "手写/低清酒单图片：OCR 置信度必须低，且不得编造酒名",
+      "status": "needs-fixture",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": null,
+        "imagePath": "tests/fixtures/menu-blurry.jpg",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [],
+        "flags": { "hasLowConfidence": true, "noHallucination": true },
+        "expectedMetrics": { "lowConfidenceExposure": 1.0, "fabricatedFactRate": 0.0 },
+        "notes": "fixture 待补（参照 tests/e2e/image-qa.json menu_blurry_01）。低置信 OCR 不得产出高置信推荐。"
+      }
+    },
+    {
+      "id": "g006",
+      "category": "name-brewery-split-lines",
+      "description": "酒厂与酒款分行排列，解析必须按邻接行合并归属",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "18号酒馆\n跳东湖IPA 48\n京A\n飞拳IPA 55\n牛啤堂\n帝都海盐 58",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "跳东湖IPA", "beer": "Jump East Lake IPA", "brewery": "18号酒馆", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "飞拳IPA", "beer": "Flying Fist IPA", "brewery": "京A", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "帝都海盐", "beer": "Imperial Sea Salt Gose", "brewery": "牛啤堂", "entityConfidence": 0.8, "uncertain": false }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0, "entityTop1Accuracy": 1.0 },
+        "notes": "酒厂行与酒款行必须成对；不得把 18号酒馆/京A/牛啤堂 当成酒名单独出候选。"
+      }
+    },
+    {
+      "id": "g007",
+      "category": "mixed-price-abv-volume",
+      "description": "价格、容量、ABV 三种混排格式，抽取字段必须一一对应",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "跳东湖IPA ¥48 473ml 6.2%\n伏魔IPA 68元/500ml ABV 7.0\n飞拳IPA ¥55 · 330ml · 6.5% ABV\n黄河水 45/330 4.8%",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "跳东湖IPA ¥48 473ml 6.2%", "beer": "Jump East Lake IPA", "price": 48, "volumeMl": 473, "abv": 6.2, "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "伏魔IPA 68元/500ml ABV 7.0", "beer": "Demon Tamer IPA", "price": 68, "volumeMl": 500, "abv": 7.0, "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "飞拳IPA ¥55 · 330ml · 6.5% ABV", "beer": "Flying Fist IPA", "price": 55, "volumeMl": 330, "abv": 6.5, "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "黄河水 45/330 4.8%", "beer": "Yellow River Water", "price": 45, "volumeMl": 330, "abv": 4.8, "entityConfidence": 0.8, "uncertain": false }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0 },
+        "notes": "抽取层校验：价格/容量/ABV 不得错位（如把 473 当价格）；abv 允许 ±0.1 容差。"
+      }
+    },
+    {
+      "id": "g008",
+      "category": "no-db-hit",
+      "description": "虚构酒名，外部库无命中：不得用同名/近似结果冒充，不得高置信推荐",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "霓虹雨夜双倍浑浊IPA 78\n巷口野啤酒花赛松 62",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "霓虹雨夜双倍浑浊IPA", "beer": null, "entityConfidence": 0.1, "uncertain": true },
+          { "rawText": "巷口野啤酒花赛松", "beer": null, "entityConfidence": 0.1, "uncertain": true }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0, "fabricatedFactRate": 0.0, "lowConfidenceExposure": 1.0 },
+        "notes": "无库命中时：只允许酒厂/风格级判断或请求用户确认具体行；禁止 top pick 声称精确酒款事实。"
+      }
+    },
+    {
+      "id": "g009",
+      "category": "ocr-errors",
+      "description": "OCR 错字（挙/友/糊）：模糊召回允许命中，但必须标「可能是」",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "猴挙IPA 55\n暴友苏 88\n跳东糊 48",
+        "userConstraints": []
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "猴挙IPA", "beer": "Monkey Fist IPA", "brewery": "悠航", "entityConfidence": 0.5, "uncertain": true },
+          { "rawText": "暴友苏", "beer": "Pseudo Sue", "brewery": "Toppling Goliath", "entityConfidence": 0.5, "uncertain": true },
+          { "rawText": "跳东糊", "beer": "Jump East Lake IPA", "brewery": "18号酒馆", "entityConfidence": 0.5, "uncertain": true }
+        ],
+        "expectedMetrics": { "menuItemRecall": 1.0, "lowConfidenceExposure": 1.0, "fabricatedFactRate": 0.0 },
+        "notes": "模糊命中置信度必须低于精确命中；回复需带「可能是」标记，不得按高置信推荐。"
+      }
+    },
+    {
+      "id": "g010",
+      "category": "constraints",
+      "description": "约束：80 元以内 — 必须解析出数值并真过滤，超预算款只能进 caution",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "飞拳IPA ¥55 330ml\n伏魔IPA ¥68 500ml\n黄河水 ¥88 330ml\n婴儿肥IPA ¥35 330ml",
+        "userConstraints": ["80 元以内"]
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "飞拳IPA ¥55 330ml", "beer": "Flying Fist IPA", "price": 55, "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "伏魔IPA ¥68 500ml", "beer": "Demon Tamer IPA", "price": 68, "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "黄河水 ¥88 330ml", "beer": "Yellow River Water", "price": 88, "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "婴儿肥IPA ¥35 330ml", "beer": "Baby IPA", "price": 35, "entityConfidence": 0.8, "uncertain": false }
+        ],
+        "constraints": { "maxPrice": 80, "currency": "CNY" },
+        "forbiddenPicks": { "top": ["黄河水"], "safe": ["黄河水"] },
+        "allowedPicks": { "caution": ["黄河水"] },
+        "expectedMetrics": { "constraintSatisfaction": 1.0 },
+        "notes": "「有价格就加分」不算约束满足；88 > 80 必须被 maxPrice 判定。"
+      }
+    },
+    {
+      "id": "g011",
+      "category": "constraints",
+      "description": "约束：不苦 + 酒精度低 — IPA 不得进 top/safe，拉格/小麦优先",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "暴龙苏 Pseudo Sue 88 473ml\n琥珀拉格 35 330ml\n陈皮小麦 45 330ml",
+        "userConstraints": ["不苦", "酒精度低一点"]
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "暴龙苏 Pseudo Sue 88 473ml", "beer": "Pseudo Sue", "style": "IPA", "entityConfidence": 0.9, "uncertain": false },
+          { "rawText": "琥珀拉格 35 330ml", "beer": "Amber Lager", "style": "Lager", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "陈皮小麦 45 330ml", "beer": "Mandarin Wheat", "style": "Wheat", "entityConfidence": 0.8, "uncertain": false }
+        ],
+        "constraints": { "bitterness": "low", "maxAbv": 4.5 },
+        "forbiddenPicks": { "top": ["暴龙苏 Pseudo Sue"], "safe": ["暴龙苏 Pseudo Sue"] },
+        "expectedMetrics": { "constraintSatisfaction": 1.0 },
+        "notes": "IPA 高苦高 ABV：违反「不苦」即排除出 top/safe，只可进 caution 并说明理由。"
+      }
+    },
+    {
+      "id": "g012",
+      "category": "constraints",
+      "description": "约束：第一杯 + 想尝新 — 三款有数据但用户要尝新，explore 必须给出可解释理由",
+      "status": "ready",
+      "locale": "zh-CN",
+      "input": {
+        "menuText": "黄河水 45 330ml\n跳东湖IPA 48 473ml\n君不见 52 330ml",
+        "userConstraints": ["第一杯", "想尝新"]
+      },
+      "expected": {
+        "resolvedItems": [
+          { "rawText": "黄河水 45 330ml", "beer": "Yellow River Water", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "跳东湖IPA 48 473ml", "beer": "Jump East Lake IPA", "entityConfidence": 0.8, "uncertain": false },
+          { "rawText": "君不见 52 330ml", "beer": "Cannot See", "entityConfidence": 0.8, "uncertain": false }
+        ],
+        "constraints": { "occasion": "first_beer", "novelty": "explore" },
+        "expectedMetrics": { "topPickExplainability": 1.0 },
+        "notes": "第一杯优先低 ABV/顺口；想尝新时 explore 可推新鲜度高的款，但回复必须给出一条可解释理由；top/safe/explore 不得全指向同一款。"
+      }
+    }
+  ]
+}

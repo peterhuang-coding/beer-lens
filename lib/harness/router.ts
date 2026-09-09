@@ -46,7 +46,9 @@ export function listEnabledSkillIds(): SkillId[] {
 
 export type InvokeError = {
   ok: false;
-  error: "unknown_skill" | "skill_disabled";
+  error: "unknown_skill" | "skill_disabled" | "skill_failed";
+  /** Count preserves failure diagnostics without exposing provider response bodies. */
+  error_count?: number;
   skill: SkillId;
   message: string;
 };
@@ -64,7 +66,8 @@ export type InvokeResult = InvokeOk | InvokeError;
  * Behavior:
  *   - Unknown id         → throws `UnknownSkillError`
  *   - Known but disabled → returns `{ ok:false, error:"skill_disabled", ... }`
- *   - Known + enabled    → returns `{ ok:true, ...reply }`
+ *   - Executor failure  → returns a safe `{ ok:false, error:"skill_failed", ... }`
+ *   - Successful reply  → returns `{ ok:true, ...reply }`
  *
  * The non-throwing disabled case lets the controller fall back gracefully
  * without try/catch noise.
@@ -85,8 +88,22 @@ export async function invokeSkill(
       message: `Skill "${id}" is currently disabled.`,
     };
   }
-  const reply = await skill.invoke(ctx);
-  return { ok: true, ...reply };
+  const failure = (count: number): InvokeError => ({
+    ok: false,
+    error: "skill_failed",
+    skill: id,
+    error_count: count,
+    message: "处理请求时服务暂时出错，请稍后重试；如果持续失败，请联系管理员检查服务配置。",
+  });
+  try {
+    const reply = await skill.invoke(ctx);
+    if (reply.errors?.length) return failure(reply.errors.length);
+    return { ...reply, ok: true };
+  } catch {
+    // Provider errors may include response bodies, URLs, or credentials.
+    // Keep the public result stable and never forward their raw messages.
+    return failure(1);
+  }
 }
 
 // ── Errors ──

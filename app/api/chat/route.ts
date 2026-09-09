@@ -319,6 +319,18 @@ export async function POST(request: Request): Promise<Response> {
             sseEvent("error", { code: result.error, message: result.message }),
           );
           controller.enqueue(sseEvent("done", { skill_id, latency_ms: Date.now() - t0 }));
+          appendStage(t0, null, "chat", {
+            message: previewMessage(message),
+            skill_id,
+            source: routeRes.source,
+            ok: false,
+            error_code: result.error,
+            candidate_count: 0,
+            has_image: !!imageDataUrl,
+            decision: { error_count: result.error_count ?? 0 },
+            started_at: t0,
+            ts: t0,
+          });
           controller.close();
           return;
         }

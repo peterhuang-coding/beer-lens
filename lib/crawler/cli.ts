@@ -52,6 +52,11 @@ Options:
   --tag <name>          Filter tag: china | craft
   --resume              Continue from data/crawler/<source>/.state.json
   --help                Show this help and exit
+
+Execution defaults to an offline plan. Set BEER_LENS_LIVE=1 to fetch public
+pages with Playwright Chromium; BEER_LENS_DRY_RUN=1 always keeps it offline.
+Live scope: one Untappd top list or one RateBeer China list, plus details.
+Live --tag is supported only for RateBeer china; other tags fail explicitly.
 `;
 
 export class CliArgError extends Error {

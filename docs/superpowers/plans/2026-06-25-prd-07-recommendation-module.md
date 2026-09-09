@@ -1,3 +1,5 @@
+> 2026-09-10 核对：模块文件与调用链已实现，相关测试及生产构建已通过。以下为历史计划。
+
 # PRD 07 - Beer Recommendation Module Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use subagent-driven-development to implement this plan.
@@ -15,7 +17,7 @@
 **Files:**
 - Create: `lib/beer-agent/recommendation/types.ts`
 
-- [ ] **Write types.ts**
+- [x] **Write types.ts**
 
 ```typescript
 export type CandidateInput = {
@@ -59,7 +61,7 @@ export type PickResult = {
 **Files:**
 - Create: `lib/beer-agent/recommendation/scoring.ts`
 
-- [ ] **Write scoring.ts**
+- [x] **Write scoring.ts**
 
 Calculate `worthScore` (0-100):
 - Has rating (rating > 0) → base = rating * 20
@@ -85,7 +87,7 @@ Calculate `fitScore` (0-100):
 **Files:**
 - Create: `lib/beer-agent/recommendation/pick-selector.ts`
 
-- [ ] **Write pick-selector.ts**
+- [x] **Write pick-selector.ts**
 
 Rules:
 - topPick: highest combined (worthScore + fitScore), label "最佳"
@@ -100,7 +102,7 @@ Rules:
 **Files:**
 - Create: `lib/beer-agent/recommendation/reply-builder.ts`
 
-- [ ] **Write reply-builder.ts**
+- [x] **Write reply-builder.ts**
 
 Format:
 ```
@@ -122,7 +124,7 @@ Format:
 **Files:**
 - Create: `lib/beer-agent/recommendation/index.ts`
 
-- [ ] **Write index.ts**
+- [x] **Write index.ts**
 
 Re-export all public types and functions.
 
@@ -131,7 +133,7 @@ Re-export all public types and functions.
 **Files:**
 - Modify: `lib/beer-agent/handlers/menu-recommend.ts`
 
-- [ ] **Rewrite menu-recommend.ts**
+- [x] **Rewrite menu-recommend.ts**
 
 Import and use:
 - `batchLookupBeers` from data-layer.ts
@@ -155,7 +157,7 @@ Flow:
 
 ### Task 7: Verify
 
-- [ ] **Run build**
+- [x] **Run build**
 
 Run: `cd /Volumes/SanDisk2TB/beer_researcher && npm run build`
 Expected: Build succeeds with no TypeScript errors.

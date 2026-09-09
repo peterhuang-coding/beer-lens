@@ -69,9 +69,10 @@ function requireNullableNumber(
 function requireNonEmptyStringArray(
   record: Record<string, unknown>,
   field: keyof BeerRecord,
+  allowEmpty = false,
 ): void {
   const value = record[field];
-  if (!Array.isArray(value) || value.length === 0) {
+  if (!Array.isArray(value) || (!allowEmpty && value.length === 0)) {
     fail(field, `Field "${field}" must be a non-empty string array`);
   }
   if (value.some((item) => typeof item !== "string" || item.trim().length === 0)) {
@@ -83,7 +84,7 @@ function requireNonEmptyStringArray(
  * Perform the minimum runtime checks needed before an LLM response is treated
  * as the shared BeerRecord type.
  */
-export function validateBeerRecord(input: unknown): BeerRecord {
+export function validateBeerRecord(input: unknown, options: { allowEmptyArrays?: boolean } = {}): BeerRecord {
   if (!isRecord(input)) {
     fail("$", "BeerRecord must be a JSON object");
   }
@@ -118,7 +119,7 @@ export function validateBeerRecord(input: unknown): BeerRecord {
   }
 
   for (const field of ["labels", "food_pairing", "similar_ids"] as const) {
-    requireNonEmptyStringArray(input, field);
+    requireNonEmptyStringArray(input, field, options.allowEmptyArrays);
   }
 
   return input as unknown as BeerRecord;

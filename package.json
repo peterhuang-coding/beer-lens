@@ -8,8 +8,8 @@
     "demo": "node scripts/beer-agent-demo.mjs",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
-    "lint": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
+    "lint": "npm run typecheck",
     "test": "node --experimental-strip-types --test tests/*.test.ts tests/*.test.mts",
     "test:agent": "node scripts/run-agent-regression.mjs",
     "raw:crawl": "node scripts/crawl-raw-sources.mjs",
@@ -27,7 +27,13 @@
     "harness:dashboard": "node scripts/build-harness-dashboard.mjs",
     "selector-probe": "node scripts/probe-selectors.mjs",
     "selector-drift:dashboard": "node scripts/build-selector-drift-dashboard.mjs",
-    "import-untappd-csv": "node scripts/import-untappd-csv.mjs"
+    "import-untappd-csv": "node scripts/import-untappd-csv.mjs",
+    "agent": "node scripts/agent.mjs",
+    "crawl:round": "node scripts/always-on-crawler.mjs",
+    "inspector": "node scripts/skill-inspector.mjs",
+    "hub:serve": "node scripts/skill-hub-server.mjs",
+    "crawl:cli": "node --experimental-strip-types bin/beer-lens-crawl.mjs",
+    "check": "npm test && npm run typecheck && npm run build"
   },
   "bin": {
     "beer-lens": "scripts/cli.mjs",
@@ -47,5 +53,8 @@
     "playwright": "^1.47.0",
     "tsx": "^4.22.4",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.19.0"
   }
 }

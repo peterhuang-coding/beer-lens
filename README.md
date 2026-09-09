@@ -2,29 +2,48 @@
 
 个人啤酒推荐对话系统。拍照酒单 → OCR 识别 → 查真实评分 → 按口味推荐。
 
-> **Wave 2b 已完成** (2026-07-26)：merge 5 个分支 + 修复 8 项任务
-> - `fix(#4)` STM 异步原子写入 + Feishu ACK placeholder
-> - `fix(#5 #6)` 活跃菜单短路 + canonical userId
-> - `fix(#7 L1)` analyze_image 走 runImagePipeline
-> - `fix(#8)` tasting-feedback AB off 分支恢复 episodic 写入
-> - `fix(#9 #10 #11)` crawler 强化 + upsert 连线 + DB 索引
-> - `merge dev-vision` 视觉管线打通
-> - `merge dev-crawler` Untappd/RateBeer/Flickr/Wikimedia 8 个新 env
-> - `merge dev-feedback` feedback 路径稳定性
+## 开发与运行
 
-## 快速启动
+需要 Node.js **22.19+**，以及 npm。已有 SQLite 查询路径需要 Python 3.9+；新增 Agent / Hub / 巡检 / 采集清单工具可直接使用仓库中的 JSON 种子数据。
 
 ```bash
-cd /Volumes/SanDisk2TB/beer_researcher
+npm ci
+cp .env.example .env.local
 npm run dev                  # http://localhost:3000
+npm run check                # 测试 + 类型检查 + 生产构建
 ```
-Web Chat: `http://localhost:3000`
-Debug 面板: `http://localhost:3000/debug`
 
-环境变量：复制 `.env.example` → `.env.local`，**至少**需要
-`OPENROUTER_API_KEY` 才能跑对话；爬虫/图片相关的 8 个新 var
-（`UNTAPPD_PROXY_URL`、`FLICKR_API_KEY`、`WIKIMEDIA_USER_AGENT` 等）
-没有也不影响本地 dev，留空即可。
+- `/chat`：当前流式聊天入口，配置 `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL`；图像能力还需要相应视觉模型配置。
+- `/debug`：管线、技能、调用轨迹、规则与 Cases 复盘。
+- `/harness`：技能管理；`/beers`：酒库浏览。
+- `/api/agent` 与飞书入口沿用 Agent controller；旧 demo/replay 走 legacy orchestrator。已有 OpenRouter 路径使用 `OPENROUTER_API_KEY`，完整配置见 `.env.example`。
+
+## Claude Code、采集与项目巡检
+
+```bash
+npm run agent -- --check                  # 检查随代码提供的能力
+npm run agent                            # 启动已安装的 Claude Code
+npm run agent -- --query "飞拳是什么风格"   # Claude Code 单轮查询
+npm run cli -- --name 飞拳 --source json --json
+npm run --silent crawl:round -- --limit 10 --print # 生成目标清单，不执行采集
+npm run --silent inspector -- --print             # 读取数据/技能/日志，不伪报测试结果
+npm run hub:serve                         # http://127.0.0.1:8888
+npm run crawl:cli -- --help               # 爬虫 CLI 参数
+```
+
+真实爬取需显式启用，例如 `BEER_LENS_LIVE=1 npm run crawl:cli -- --source untappd --limit 2`。当前每次读取一个来源列表页（Untappd Top / RateBeer China），再读取详情；支持数量上限、续跑和完整 JSONL 结果，遇到站点拒绝访问会报告失败。该入口访问公开页面，不注入登录 Cookie 或自动重试；中断会等待进行中的请求结束（单次最长 30 秒）再保存结果。需要 Playwright Chromium（`npx playwright install chromium`）。默认命令及 `--dry-run` 不访问网站，`BEER_LENS_DRY_RUN=1` 可强制离线。标签仅支持 RateBeer 的 `china`，其他组合会明确拒绝。
+
+项目 Skill 位于 `.claude/skills/beer-lens/SKILL.md`。Agent 启动器会显式加载它，并使用本机 Claude Code 原有权限设置。
+
+目标优先级：`data/warm-list-gaps.json`（可选）→ `--targets PATH` → 中国精酿种子。支持 `--breweries` / `--countries` 过滤种子、`--gap-only`、`--round`、`--output`；相对输入/输出路径以当前目录为准。`--print` 和 `--dry-run` 输出纯 JSON 且不写文件。
+
+Hub 展示种子数据统计、实际采集日志、历史快照和本地功能记录；不把种子评分称为已验证实时数据。可选文件不存在时显示空态，格式损坏时显示错误。
+
+- 日志：`data/crawl-log.jsonl`，每行实际采集结果，含 `ts/name/brewery/status/sources`。
+- 快照：`data/snapshots/stats-YYYY-MM-DD.json`，含 `date/total_beers/verified_entries`；曲线读取实际数值。
+- 巡检：`regression.status=not_run` 表示本次没有运行测试；请独立执行 `npm test`。
+
+这套实现承接旧草稿 PR #2。保留当前爬虫架构，避免重新引入旧的浏览器脚本、硬编码缓存数量和本机项目管理依赖。npm 独立发布、Docker 托管及商业产品化仍属于单独的待决策路线。
 
 ## 系统架构
 
@@ -62,28 +81,6 @@ builtin skill 做动态调度；`orchestrator.ts` 用 `intent-registry.ts`
 做规则匹配再走 `dispatcher.ts`。两套都返回兼容的
 `BeerDialogResponse`，前端无感。新功能优先加在 active 路径；legacy
 路径只在排查 replay / 旧 case 时用到。
-
-## 系统架构
-
-```
-[Web Chat] [Feishu Bot] [CLI]
-         \     |     /
-      runBeerDialogTurn()    ← 统一入口
-              |
-    ┌─────────┼─────────┐
-    ▼         ▼         ▼
- Intent    Memory    Postprocess
- Classifier Snapshot  Guardrails
-    │         │           │
-    ▼         ▼           ▼
- Dispatcher  Short-term  Trace+Case
-    │        (conversationId)
-    ▼
- 8 Handler
-    │
-    ▼
-  Reply
-```
 
 ## Session 管理
 
@@ -125,7 +122,7 @@ Feishu ACK 在 3 秒内返回：先写 STM 原子 placeholder，LLM 完成后再
 |------|------|
 | POST /api/agent | Web Chat 入口 |
 | POST /api/feishu/events | 飞书事件回调 |
-| GET/POST /api/cases | Case 列表/创建 |
+| GET /api/cases | Case 列表；对话自动记录 Case |
 | GET/PATCH /api/cases/[id] | Case 详情/更新 |
 | GET /api/traces/[traceId] | Trace 查询 |
 | GET/PUT /api/debug-config | Pipeline 配置读写 |
@@ -139,6 +136,7 @@ Feishu ACK 在 3 秒内返回：先写 STM 原子 placeholder，LLM 完成后再
 - **Tester** — 文本或 3 张回归图发送请求，实时 SSE 事件 + 解析后 result
 - **Recent** — 最近 100 次 chat run,3 秒刷新；点击行展开 entry,再点"查看调用树"看完整 stage 树。键盘导航:`j`/`k` 上下,`Enter` 开树,`e` 展开行,`Esc` 关 modal。Stage 过滤 chips:`全部 / route / rule / llm / skill / memory`
 - **Stats** — RPM / p50 / p95 / error rate / skill & LLM 分布 / rule hits
+- **Cases** — 列表筛选、详情与 Trace、状态/标签/备注审核；保存前校验输入。
 - **Rules** — starter + YAML 已加载规则表 + 启/禁开关 + 「⟳ Reload YAML」按钮（热加载 `data/rules/*.yaml`）
 
 ### `/debug` Stage 2 写入
@@ -205,7 +203,7 @@ ocr_wrong 备注xxx
 good
 ```
 
-发完后自动标记上一轮对话,可通过 `GET /api/cases` 查看(/debug 页的 Cases 面板尚未实现)。
+发完后自动标记上一轮对话,可通过 `GET /api/cases` 查看，也可以在 `/debug` 的 **Cases** 页按状态、标签和关键词筛选，查看输入/回复/Trace，修改状态、标签和备注。配置 `DEBUG_API_TOKEN` 时，在 Cases 页输入 token（仅保存在当前页面内存）。
 
 可用标签:
 - good — 没问题
@@ -291,7 +289,7 @@ lib/beer-agent/
 │   ├── profile-query.ts      画像查询
 │   ├── beer-knowledge.ts     知识问答 (纯LLM)
 │   ├── label-check.ts        酒标检查
-│   ├── memory-correction.ts  记忆纠正 (占位)
+│   ├── memory-correction.ts  记忆纠正（已实现，持久化纠正并重建画像）
 │   └── unclear.ts            意图不明追问
 ├── memory/
 │   ├── short-term.ts         短期记忆 (per conversationId)

@@ -110,15 +110,13 @@ async function getHead(): Promise<string> {
 // directory ("recommend") — the convention is the second path segment.
 // We use this to look up `lib/skills/<category>/profile.json` if it exists.
 function categoryFromHandler(handlerFile: string): string {
-  const parts = handlerFile.split("/");
-  // expected: ["lib", "skills", "<category>", "execute.ts"]
-  return parts[2] ?? "";
+  return handlerFile.match(/^lib\/skills\/([a-zA-Z0-9_-]+)\/execute\.ts$/)?.[1] ?? "";
 }
 
 async function loadSkillDetail(s: { id: string; handlerFile: string }) {
   const cat = categoryFromHandler(s.handlerFile);
-  const execPath = join(process.cwd(), s.handlerFile);
-  const exec = await loadFirstLines(execPath, 80);
+  const execPath = cat ? join(process.cwd(), "lib", "skills", cat, "execute.ts") : "";
+  const exec = execPath ? await loadFirstLines(execPath, 80) : null;
   const profilePath = cat ? join(process.cwd(), "lib", "skills", cat, "profile.json") : "";
   const profile = profilePath ? await loadJsonSafe<unknown>(profilePath) : null;
   return {

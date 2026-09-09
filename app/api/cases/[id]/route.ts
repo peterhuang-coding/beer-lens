@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getCase, updateCase } from "@/lib/beer-agent/cases";
+import { getCase, updateCase, validateCaseUpdate } from "@/lib/beer-agent/cases";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { isDebugRequestAllowed } from "@/lib/debug-auth";
@@ -7,10 +7,10 @@ import { isDebugRequestAllowed } from "@/lib/debug-auth";
 export const runtime = "nodejs";
 
 // Read trace file from disk
-async function findTrace(traceId: string): Promise<any | null> {
+async function findTrace(traceId: string): Promise<unknown | null> {
   try {
     // Parse timestamp from traceId: trace_{timestamp}_{suffix}
-    const m = traceId.match(/^trace_(\d+)_/);
+    const m = traceId.match(/^trace_(\d+)_[a-zA-Z0-9]+$/);
     if (!m) return null;
     const ts = parseInt(m[1], 10);
     const d = new Date(ts);
@@ -48,12 +48,22 @@ export async function PATCH(
     return NextResponse.json({ error: "forbidden" }, { status: 403 });
   }
   const { id } = await params;
+  let body: unknown;
   try {
-    const body = await request.json();
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ ok: false, error: "invalid_json" }, { status: 400 });
+  }
+  try {
+    validateCaseUpdate(body);
+  } catch {
+    return NextResponse.json({ ok: false, error: "invalid_case_update" }, { status: 400 });
+  }
+  try {
     const updated = await updateCase(id, body);
     if (!updated) return NextResponse.json({ ok: false, error: "case_not_found" }, { status: 404 });
     return NextResponse.json(updated);
   } catch {
-    return NextResponse.json({ ok: false, error: "invalid_json" }, { status: 400 });
+    return NextResponse.json({ ok: false, error: "case_update_failed" }, { status: 500 });
   }
 }

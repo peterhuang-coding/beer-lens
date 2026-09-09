@@ -36,3 +36,10 @@
 - 种子库 298 款；54 条缺 ABV、93 条缺评分。巡检明确标为 DEGRADED，不自动捏造或把种子快照标为已验证。补数据需要有来源的后续采集。
 - README 曾标为占位的记忆纠正、未勾选的推荐模块及 LLM 基础集成实际已经实现，已校正文档状态。
 - 产品化评估中的许可证、npm 发布、Docker、商业模式等仍按用户确认保留为后续决策。
+
+## GitHub 交付
+
+- [PR #3](https://github.com/peterhuang-coding/beer-lens/pull/3) 已合入 main（代码合并提交 839b2c8）。
+- 被替代的旧草稿 PR #2 已关闭。
+- [GitHub CI](https://github.com/peterhuang-coding/beer-lens/actions/runs/34378965090) 在 Linux / Node 22 / Python 3.12 上通过，包含安装、465 项测试、类型检查与生产构建。
+- 本地原项目已快进同步 main；原有报表改动、系统文件与 beer.db 按 SHA-256 校验保持原字节内容，并安装了更新后的依赖。

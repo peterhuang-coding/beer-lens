@@ -12,7 +12,7 @@
 - [x] Add Cases panel using GET filters, GET detail and PATCH review. Add mutation validation tests before fixes. Verify UI loading, empty, error and review/save behavior.
 - [x] Update project skill to standard SKILL.md path, commands/docs and source honesty. Install shared project Skills for Claude Code through existing skill locations, preserving existing installations.
 - [x] Remove tracked historical working copies and system files from new revision. Ignore new runtime outputs. Add CI running `npm ci`, `npm test`, `npm run typecheck`, `npm run build`; reconcile dependency audit findings with compatible fixes.
-- [ ] Run full tests/build/typecheck and HTTP/browser smoke checks. Review changes against approved design and code quality. Commit and push `codex/finish-project`, publish PR that supersedes old PR #2, and record remaining external service limitations.
+- [x] Run full tests/build/typecheck and HTTP/browser smoke checks. Review changes against approved design and code quality. Commit and push `codex/finish-project`, publish PR that supersedes old PR #2, and record remaining external service limitations.
 
 ## 实测追加修复
 

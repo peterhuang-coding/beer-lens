@@ -18,15 +18,17 @@
 
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
+import CasesView from "./_components/CasesView";
 
 // ── Constants ──────────────────────────────────────────────────────────────
 
-type TabId = "pipeline" | "skills" | "tester" | "recent" | "stats" | "rules" | "config" | "selfcheck";
+type TabId = "pipeline" | "skills" | "tester" | "recent" | "stats" | "rules" | "config" | "selfcheck" | "cases";
 
 const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: "pipeline", label: "Pipeline", icon: "🛤" },
   { id: "skills", label: "Skills", icon: "🎯" },
   { id: "tester", label: "Tester", icon: "🧪" },
+  { id: "cases", label: "Cases", icon: "📋" },
   { id: "recent", label: "Recent", icon: "🕘" },
   { id: "stats", label: "Stats", icon: "📊" },
   { id: "rules", label: "Rules", icon: "⚖" },
@@ -317,6 +319,7 @@ export default function DebugPage() {
       {tab === "pipeline" ? <PipelineView /> : null}
       {tab === "skills" ? <SkillsView /> : null}
       {tab === "tester" ? <TesterView /> : null}
+      {tab === "cases" ? <CasesView /> : null}
       {tab === "recent" ? <RecentView /> : null}
       {tab === "stats" ? <StatsView /> : null}
       {tab === "rules" ? <RulesView /> : null}

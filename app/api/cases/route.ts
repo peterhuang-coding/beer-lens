@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createCaseFromTrace, listCases, updateCase } from "@/lib/beer-agent/cases";
+import { listCases } from "@/lib/beer-agent/cases";
 import { isDebugRequestAllowed } from "@/lib/debug-auth";
 
 export const runtime = "nodejs";

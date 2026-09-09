@@ -32,3 +32,22 @@ features/
 
 # Python harness cache (legacy, unused)
 .beer-data/
+
+# Local development and collection artifacts
+.DS_Store
+.claude/worktrees/
+.worktrees/
+.playwright-cli/
+/beer.db
+/beer.db-*
+data/round-targets.json
+data/inspector-report.json
+data/crawl-log.jsonl
+data/snapshots/
+
+# Live crawler outputs and checkpoints
+data/crawler/untappd/beers.jsonl*
+data/crawler/untappd/.state.json*
+data/crawler/ratebeer/beers.jsonl*
+data/crawler/ratebeer/.state.json*
+output/playwright/

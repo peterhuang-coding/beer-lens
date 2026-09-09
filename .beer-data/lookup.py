@@ -30,6 +30,8 @@ Subcommands:
                           Returns count fixed.
 """
 
+from __future__ import annotations
+
 import sqlite3
 import json
 import sys
@@ -432,15 +434,17 @@ def search_beer(query: str, limit: int = 5) -> list[dict]:
 
     q = re.sub(r'\s+', ' ', query.strip().lower())
     results = []
+    if not q:
+        con.close()
+        return []
 
-    # Try progressively shorter queries: "beer name brewery" → "beer name" → "beer"
+    # Keep all supplied words; dropping words can identify an unrelated beer.
     for attempt_q in _expand_queries(q):
         # Priority 0: Verified beer_cache (hand-curated, cross-referenced)
         results = _search_table(con, 'beer_cache', attempt_q, limit)
         if results:
             for r in results:
                 r['source'] = 'beer_cache'
-                r['verified'] = True
             con.close()
             return results
 
@@ -483,17 +487,8 @@ def search_beer(query: str, limit: int = 5) -> list[dict]:
 
 
 def _expand_queries(q: str) -> list[str]:
-    """Expand 'beer name brewery' into progressively shorter queries.
-    e.g. 'pseudo sue toppling goliath' → ['pseudo sue', 'pseudo'] """
-    words = q.split()
-    # Start with all words, then drop the last one progressively
-    queries = []
-    for n in range(len(words), 1, -1):
-        queries.append(' '.join(words[:n]))
-    # Also try just the first word (in case it's distinctive)
-    if words:
-        queries.append(words[0])
-    return queries
+    """Keep the original query; brewery words are handled by _search_table."""
+    return [q] if q else []
 
 
 def _search_exact_both(con, q: str, limit: int) -> list[dict]:
@@ -531,6 +526,10 @@ def _search_table(con, table: str, q: str, limit: int) -> list[dict]:
     else:
         cols = "id, name, brewery, style, abv, rating, ratings_count"
 
+    if table == 'beer_cache':
+        cache_columns = {row[1] for row in con.execute('PRAGMA table_info(beer_cache)')}
+        cols += ', verified' if 'verified' in cache_columns else ', 0 AS verified'
+
     # Exact match
     rows = con.execute(
         f"SELECT {cols} FROM {table} WHERE LOWER(name) = ? ORDER BY ratings_count DESC LIMIT ?",
@@ -547,11 +546,11 @@ def _search_table(con, table: str, q: str, limit: int) -> list[dict]:
     if rows:
         return [_row_to_dict(r, table) for r in rows]
 
-    # Multi-word: match all words
+    # Multi-word: every supplied word must occur in the name or brewery.
     words = q.split()
     if len(words) >= 2:
-        conditions = " AND ".join([f"LOWER(name) LIKE ?" for _ in words])
-        params = [f"%{w}%" for w in words] + [limit]
+        conditions = " AND ".join(["(LOWER(name) LIKE ? OR LOWER(brewery) LIKE ?)" for _ in words])
+        params = [pattern for word in words for pattern in (f"%{word}%", f"%{word}%")] + [limit]
         rows = con.execute(
             f"SELECT {cols} FROM {table} WHERE {conditions} ORDER BY ratings_count DESC LIMIT ?",
             params
@@ -655,6 +654,11 @@ def _row_to_dict(row, table: str = 'beers') -> dict:
         'source': 'untappd' if table == 'untappd_cache' else 'ratebeer',
         'found': True,
     }
+    if table == 'beer_cache':
+        result['source'] = 'beer_cache'
+        # Cache membership is not evidence of verification; older schemas
+        # without the flag remain unverified.
+        result['verified'] = row['verified'] == 1 if 'verified' in row.keys() else False
     # Extra fields from ratebeer
     try:
         result['review_aroma'] = row['review_aroma']

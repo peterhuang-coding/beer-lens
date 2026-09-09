@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beer Lens — Skill Hub</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/data/dashboard.css" />
+    <script defer src="/data/dashboard.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>🍺 Beer Lens — Skill Hub</h1>
+      <p class="subtitle">采集日志、种子数据与本地项目状态</p>
+      <div class="meta">
+        <span id="meta-time">…</span>
+        <span class="sep">·</span>
+        <span id="meta-health" class="badge">health: …</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- ───────── Panel 1: Daily crawler data ───────── -->
+      <section id="panel-crawl">
+        <h2>📡 每天爬的啤酒数据</h2>
+        <p class="hint">仅展示实际采集日志；生成目标清单不会写入成功记录。</p>
+        <div id="crawl-summary" class="kpi-row"></div>
+        <table id="crawl-table">
+          <thead>
+            <tr>
+              <th>time</th>
+              <th>round</th>
+              <th>beer</th>
+              <th>brewery</th>
+              <th>status</th>
+              <th>abv</th>
+              <th>rating</th>
+              <th>sources</th>
+            </tr>
+          </thead>
+          <tbody id="crawl-tbody">
+            <tr>
+              <td colspan="8" class="empty">Loading…</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ───────── Panel 2: DB growth ───────── -->
+      <section id="panel-db">
+        <h2>📈 数据统计与历史快照</h2>
+        <p class="hint">
+          评分来自本地种子快照，并非实时已验证评分。历史曲线读取实际快照。
+        </p>
+        <div id="db-kpis" class="kpi-row"></div>
+        <canvas
+          id="db-chart"
+          height="220"
+          role="img"
+          aria-label="历史快照"
+        ></canvas>
+        <ul id="snapshot-values"></ul>
+      </section>
+
+      <!-- ───────── Panel 3: All API surfaces ───────── -->
+      <section id="panel-apis">
+        <h2>🔌 所有调用接口</h2>
+        <p class="hint">项目可用命令与本地只读接口。</p>
+        <div class="grid" id="apis-grid"></div>
+      </section>
+
+      <!-- ───────── Panel 4: Feature state machine ───────── -->
+      <section id="panel-features">
+        <h2>🧩 Feature 状态机</h2>
+        <p class="hint">读取当前项目的功能记录；无需额外安装项目管理工具。</p>
+        <div class="grid" id="features-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Beer Lens Skill Hub · 本地只读 · 所有状态来自项目文件</p>
+    </footer>
+  </body>
+</html>

@@ -256,6 +256,29 @@ export async function getCase(id: string): Promise<CaseRecord | null> {
 
 // ── Update (label, status, note, expected) ──
 
+/** Validate untrusted API input before touching stored case evidence. */
+export function validateCaseUpdate(value: unknown): asserts value is {
+  label?: CaseLabel;
+  status?: CaseRecord["status"];
+  note?: string;
+  expected?: CaseRecord["expected"];
+  rootCause?: RootCause;
+} {
+  const invalid = () => { throw new TypeError("invalid_case_update"); };
+  if (!value || typeof value !== "object" || Array.isArray(value)) return invalid();
+  const update = value as Record<string, unknown>;
+  const allowed = ["label", "status", "note", "expected", "rootCause"];
+  if (!Object.keys(update).length || Object.keys(update).some(key => !allowed.includes(key))) return invalid();
+  if ("label" in update && update.label !== null && !["good", "intent_wrong", "ocr_wrong", "recommendation_bad", "hallucination", "memory_wrong", "data_missing", "response_bad"].includes(update.label as string)) return invalid();
+  if ("status" in update && !["unlabeled", "reviewed", "fixed", "ignored"].includes(update.status as string)) return invalid();
+  if ("note" in update && (typeof update.note !== "string" || update.note.length > 10000)) return invalid();
+  if ("rootCause" in update && !["ocr", "intent", "beer_db", "recommendation", "prompt", "model", "memory", "guardrail", "planner", "tool_route", "unknown"].includes(update.rootCause as string)) return invalid();
+  if ("expected" in update) {
+    if (!update.expected || typeof update.expected !== "object" || Array.isArray(update.expected)) return invalid();
+    if (Object.entries(update.expected).some(([key, item]) => !["intent", "reply", "beerName"].includes(key) || typeof item !== "string" || item.length > 10000)) return invalid();
+  }
+}
+
 export async function updateCase(
   id: string,
   update: {
@@ -266,6 +289,7 @@ export async function updateCase(
     rootCause?: CaseRecord["rootCause"];
   },
 ): Promise<CaseRecord | null> {
+  validateCaseUpdate(update);
   const cases = await readCases();
   const idx = cases.findIndex(c => c.id === id);
   if (idx === -1) return null;
@@ -277,7 +301,7 @@ export async function updateCase(
     cases[idx].label = update.label;
     // Auto-set status to "reviewed" when label is set, unless explicitly provided
     if (update.status === undefined) {
-      cases[idx].status = "reviewed";
+      cases[idx].status = update.label === null ? "unlabeled" : "reviewed";
     }
   }
   if (update.status !== undefined) cases[idx].status = update.status;

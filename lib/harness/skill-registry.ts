@@ -134,10 +134,12 @@ function makeExecutor(handlerFile: string, skillId: SkillId) {
     try {
       reply = await exec(toAgentContext(ctx), ctx.params ?? {});
     } catch (err) {
-      traceAppend(false, { error: String((err as Error).message ?? err).slice(0, 200) }, Date.now() - started_at);
+      traceAppend(false, { error: "skill_failed", error_count: 1 }, Date.now() - started_at);
       throw err;
     }
-    traceAppend(true, {
+    traceAppend(!reply.errors?.length, {
+      error_count: reply.errors?.length ?? 0,
+      ...(reply.errors?.length ? { error: "skill_failed" } : {}),
       candidates_count: reply.candidates?.length ?? 0,
       picks_keys: reply.picks ? Object.keys(reply.picks) : [],
       params_keys: Object.keys(ctx.params ?? {}),

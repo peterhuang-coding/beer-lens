@@ -10,6 +10,7 @@
  * not matched here falls through to the LLM classifier.
  */
 
+import { parseMenuInput } from "../beer-agent/recommendation/menu-input.ts";
 import { listSkills } from "./router.ts";
 import type { SkillId } from "./types.ts";
 import type { RouteDecision } from "./llm/prompts/intent-classifier.ts";
@@ -31,7 +32,7 @@ const RULES: Rule[] = [
   //    even when the question contains a style name.
   {
     skill: "beer_knowledge",
-    keywords: ["什么是", "是什么", "为什么", "区别", "定义", "品鉴", "工艺", "历史", "由来", "如何酿", "作用", "计算", "故事", "酒厂", "哪家", "介绍一下", "介绍下"],
+    keywords: ["什么是", "是什么", "为什么", "区别", "定义", "品鉴", "工艺", "历史", "由来", "如何酿", "分类", "原因", "饮用时机", "作用", "计算", "故事", "酒厂", "哪家", "介绍一下", "介绍下"],
     params: (msg) => ({ question: msg }),
   },
   // 2. Memory corrections — the user is changing their preferences.
@@ -45,7 +46,7 @@ const RULES: Rule[] = [
   //    "想要味道浓郁的" (recommend intent) and breaks that route.
   {
     skill: "tasting_feedback",
-    keywords: ["喝过", "尝了", "感觉", "口感", "反馈", "记一下", "记一笔", "记下来", "刚喝", "喝了", "今天喝了", "会再喝", "再喝", "不会喝", "打分", "评分", "给个分", "几分", "分", "几颗星", "颗星"],
+    keywords: ["喝过", "尝了", "感觉", "口感", "反馈", "记一下", "记一笔", "记下来", "刚喝", "喝了", "今天喝了", "会再喝", "再喝", "不会喝", "打分", "评分", "给个分", "几分", "几颗星", "颗星"],
     params: (msg) => ({
       notes: msg,
       sentiment: msg.match(/好喝|不错|喜欢|棒|顺滑/) ? "positive"
@@ -128,6 +129,7 @@ export function keywordRoute(
   onlyEnabled = true,
   root_ts?: number,
   parent_ts?: number | null,
+  hasImage = false,
 ): RouteDecision | null {
   const lower = message.toLowerCase();
   const enabledIds = new Set(
@@ -135,6 +137,25 @@ export function keywordRoute(
       .filter((s) => (onlyEnabled ? s.enabled : true))
       .map((s) => s.id),
   );
+  if (hasImage) {
+    const skill: SkillId = /这瓶|这罐|酒标|罐子|瓶子|包装|新鲜|生产日期|保质/.test(message) ? "label_check" : "menu_recommend";
+    return {skill_id: enabledIds.has(skill) ? skill : "none", params: {has_image:true,free_text:message}, reason:"image-aware visual routing"};
+  }
+  if (parseMenuInput(message).isMenu) {
+    return {skill_id:enabledIds.has("menu_recommend")?"menu_recommend":"none",params:{free_text:message},reason:"explicit text menu"};
+  }
+  // Personal questions/actions must win before words such as “是什么/历史/喝过”.
+  const priority: Array<[SkillId,RegExp]> = [
+    ['memory_correction',/更正|纠正|记错了|(?:上次|前面|之前).*错了|不是这个口味是|不对.*(?:更爱|喜欢|口味)|改成.*(?:喜欢|偏好)|其实.*(?:喜欢|不喜欢)|(?:重置|清空|清理|删除).*(?:记录|偏好|画像)/],
+    ['profile_query',/(?:我的|我.*(?:喝过|之前)).*(?:偏好|口味|画像|记录|哪些|什么)|画像内容|(?:品酒|品饮)(?:记录|历史)|喝过.*列表|评分历史|^我不喜欢/],
+    ['tasting_feedback',/^(?!.*(?:推荐|哪款|哪个|多少|几分|如何|怎么|是什么|为什么|意思|区别|定义|超过|高于|低于|以上|以下)).*\d+(?:\.\d+)?\s*分/],
+    ['beer_knowledge',/(?:啤酒|精酿|IPA|世涛).*(?:能否陈年|怎么保存|如何保存)/i],
+    ['menu_recommend',/^(?:推荐|帮我推荐).*评分|(?:哪款|哪个)评分.*(?:超|高|低|以上|以下)/],
+    ['label_check',/这瓶|这罐|酒标|罐装.*检查|识别这是什么|^这是哪款/],
+    ['unclear',/^(?:随便吧|说说看吧)[。！？!?\s]*$/],
+    ['follow_up_filter',/^(?:哪个最受欢迎|哪个酒精度最高|酒精度高不高)[。！？!?\s]*$/],
+  ];
+  for (const [skill,pattern] of priority) if(enabledIds.has(skill)&&pattern.test(message)) return {skill_id:skill,params:{free_text:message},reason:`specific request → ${skill}`};
   const traceEnabled = typeof root_ts === "number";
   const pt = parent_ts ?? root_ts ?? null;
   for (let rule_idx = 0; rule_idx < RULES.length; rule_idx++) {

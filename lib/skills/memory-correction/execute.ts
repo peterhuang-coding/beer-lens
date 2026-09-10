@@ -59,6 +59,7 @@ export async function execute(
     candidates: [],
     picks: emptyPicks(),
     profileSummary: profile.summary,
+    data: {updatedProfile:true},
     errors: [],
   };
 }

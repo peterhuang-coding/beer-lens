@@ -1,3 +1,6 @@
+import { clearShortTermMenu } from "@/lib/beer-agent/memory/short-term";
+import { parseMenuInput, hasNamedMenuItems } from "@/lib/beer-agent/recommendation/menu-input";
+import { resolveWebIdentity } from "@/lib/beer-agent/web-identity";
 /**
  * POST /api/chat — harness chat endpoint.
  *
@@ -113,7 +116,8 @@ function enrichCandidateWithLabel(c: Record<string, unknown>): Record<string, un
 export async function POST(request: Request): Promise<Response> {
   const t0 = Date.now();
 
-  return runWithTrace({ root_ts: t0, parent_ts: null }, async () => {
+  const identity = resolveWebIdentity(request);
+  const response = await runWithTrace({ root_ts: t0, parent_ts: null }, async () => {
     // ── Parse body ──────────────────────────────────────────────────────────
     let body: ChatRequestBody;
     try {
@@ -147,6 +151,9 @@ export async function POST(request: Request): Promise<Response> {
         ? body.conversationId
         : `conv_${Date.now().toString(36)}`;
 
+  const parsedMenu = parseMenuInput(message);
+  if (imageDataUrl || parsedMenu.isMenu) await clearShortTermMenu(conversationId,identity.userId);
+
   // ── Route via LLM ──────────────────────────────────────────────────────
   // pre-route hook: rules can override to "label_check" etc. if the LLM
   // would otherwise pick "unclear" (rule 4: routing-freshness-pre-override).
@@ -157,7 +164,7 @@ export async function POST(request: Request): Promise<Response> {
       decision: { from: "pre-route-rule", to: preRoute.action.skill_id, reason: preRoute.action.reason },
     });
   }
-  let routeRes = await routeByLLM(message, { root_ts: t0, parent_ts: null });
+  let routeRes = await routeByLLM(message, { root_ts: t0, parent_ts: null, hasImage: !!imageDataUrl });
   if (preRoute.action?.kind === "route_override") {
     routeRes = {
       ok: true,
@@ -199,6 +206,7 @@ export async function POST(request: Request): Promise<Response> {
     });
   }
   const { skill_id, params, reason } = routeRes.decision;
+  if (skill_id==='menu_recommend' && hasNamedMenuItems(parsedMenu.items)) await clearShortTermMenu(conversationId,identity.userId);
 
   // 水下思考:路由/识别/匹配的关键步骤,SSE 发给前端「🔍 思考过程」展示
   const thinkingSteps: string[] = [];
@@ -237,7 +245,7 @@ export async function POST(request: Request): Promise<Response> {
           request: {
             // Minimal BeerDialogRequest — only fields the harness uses today.
             channel: "web",
-            userId: "anon",
+            userId: identity.userId,
             conversationId,
             turnId: `t_${Date.now().toString(36)}`,
             messages: [{ role: "user", content: message }],
@@ -249,7 +257,7 @@ export async function POST(request: Request): Promise<Response> {
                 }
               : undefined,
           },
-          userId: "anon",
+          userId: identity.userId,
           conversationId,
           params,
           _trace_ctx: { root_ts: t0, parent_ts: null },
@@ -372,7 +380,7 @@ export async function POST(request: Request): Promise<Response> {
         const hasLabels = enrichedCandidates.some((c) => (c as { labelImage?: string | null }).labelImage);
         const menuImage =
           skill_id === "menu_recommend" && imageDataUrl
-            ? "/images/tap-list.jpg"
+            ? imageDataUrl
             : undefined;
         const scoredCount = (skillReply.candidates ?? []).filter(
           (c: unknown) => (c as { untappdScore?: number | null }).untappdScore != null,
@@ -399,25 +407,16 @@ export async function POST(request: Request): Promise<Response> {
           await updateShortTermMemory(
             {
               channel: "web",
-              userId: "anon",
+              userId: identity.userId,
               conversationId,
               turnId: `t_${t0.toString(36)}`,
               messages: [{ role: "user", content: message }],
+              image: ctx.request.image,
             } as never,
             {
               traceId: String(t0),
-              candidates: (skillReply.candidates ?? []).map((c: unknown, i: number) => {
-                const cc = c as Record<string, unknown>;
-                return {
-                  candidateId: String(cc.candidateId ?? cc.menuIndex ?? i + 1),
-                  displayName: String(cc.displayName ?? cc.name ?? `候选${i + 1}`),
-                  brewery: String(cc.brewery ?? ""),
-                  style: String(cc.style ?? ""),
-                  abv: Number(cc.abv ?? 0),
-                  price: cc.price ?? null,
-                  untappdScore: cc.untappdScore ?? null,
-                };
-              }),
+              turnId: ctx.request.turnId,
+              candidates: skillReply.candidates ?? [],
               picks: safePicks,
               reply: skillReply.reply,
               intentResult: { intent: skill_id },
@@ -514,6 +513,8 @@ export async function POST(request: Request): Promise<Response> {
     },
   });
   });
+  if (identity.setCookie) response.headers.append("Set-Cookie",identity.setCookie);
+  return response;
 }
 
 /**

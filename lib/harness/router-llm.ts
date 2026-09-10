@@ -49,7 +49,7 @@ export type RouteLLMResult =
  */
 export async function routeByLLM(
   userMessage: string,
-  options: { enabledOnly?: boolean; skipRules?: boolean; root_ts?: number; parent_ts?: number | null } = {},
+  options: { hasImage?: boolean; enabledOnly?: boolean; skipRules?: boolean; root_ts?: number; parent_ts?: number | null } = {},
 ): Promise<RouteLLMResult> {
   const { enabledOnly = true, skipRules = false, root_ts, parent_ts } = options;
   const traceOn = typeof root_ts === "number";
@@ -62,7 +62,7 @@ export async function routeByLLM(
   traceAppend("route:enter", { decision: { skip_rules: skipRules, msg_preview: userMessage.slice(0, 80) } });
 
   if (!skipRules) {
-    const hit = keywordRoute(userMessage, enabledOnly, root_ts, parent_ts);
+    const hit = keywordRoute(userMessage, enabledOnly, root_ts, parent_ts, options.hasImage);
     if (hit) {
       traceAppend("route:exit", { decision: { source: "rule", skill_id: hit.skill_id } });
       return { ok: true, decision: hit, source: "rule" };

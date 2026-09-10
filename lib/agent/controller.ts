@@ -1,3 +1,5 @@
+import { keywordRoute } from "../harness/router-rules.ts";
+import { parseMenuInput, hasNamedMenuItems } from "../beer-agent/recommendation/menu-input.ts";
 /**
  * Agent Controller — LLM-driven autonomous skill dispatcher.
  *
@@ -109,12 +111,18 @@ function tryDeterministicShortCircuit(
 
 async function selectSkill(
   ctx: import("./types").AgentContext,
-): Promise<{ skill: string; reason: string; params: Record<string, unknown> }> {
+): Promise<{ skill: string; reason: string; params: Record<string, unknown>; source: "rule" | "llm" | "fallback" }> {
   await ensureSkillsLoaded();
 
   // Task #5 — short-circuit BEFORE invoking the LLM.
   const shortCircuit = tryDeterministicShortCircuit(ctx);
-  if (shortCircuit) return shortCircuit;
+  if (shortCircuit && !ctx.hasImage) return {...shortCircuit,source:"rule"};
+
+  // Reuse the public router's fast path, including its image guard and enabled skills.
+  await import("@/lib/harness/skill-registry");
+  const fast = keywordRoute(ctx.lastUserText,true,undefined,undefined,ctx.hasImage);
+  const handlers:Record<string,string> = {menu_recommend:"recommend",follow_up_filter:"recommend",tasting_feedback:"taste-feedback",beer_knowledge:"beer-knowledge",label_check:"label-check",profile_query:"profile-query",memory_correction:"memory-correction",unclear:"fallback",none:"fallback"};
+  if (fast) return {skill:handlers[fast.skill_id]??"fallback",params:fast.params,reason:fast.reason,source:"rule"};
 
   const prompt = buildSkillPrompt(ctx.hasImage);
   const userPrompt = [
@@ -136,10 +144,10 @@ async function selectSkill(
       temperature: 0,
     });
 
-    return parseSkillSelection(raw);
+    return {...parseSkillSelection(raw),source:"llm"};
   } catch (err) {
     console.warn("[controller] Skill selection failed, using fallback:", err);
-    return { skill: "fallback", reason: "LLM selection failed", params: {} };
+    return { skill: "fallback", reason: "LLM selection failed", params: {}, source:"fallback" };
   }
 }
 
@@ -186,6 +194,11 @@ export async function runAgentTurn(
     }
   }
 
+  handlerError ||= result.errors.length>0;
+  const publicNames:Record<string,string> = {"follow-up-filter":"follow_up_filter",recommend:"menu_recommend","taste-feedback":"tasting_feedback","beer-knowledge":"beer_knowledge","label-check":"label_check","profile-query":"profile_query","memory-correction":"memory_correction","menu-vision":"menu_recommend",fallback:"unclear"};
+  let publicIntent = publicNames[handlerError?"fallback":result.skillId]??"unclear";
+  if(publicIntent==="menu_recommend" && !ctx.hasImage && !parseMenuInput(ctx.lastUserText).isMenu && !hasNamedMenuItems(parseMenuInput(ctx.lastUserText).items) && (ctx.memorySnapshot?.shortTerm?.lastMenuCandidateCount??0)>0) publicIntent="follow_up_filter";
+
   // 5. Build response (backward compatible)
   const turnResult: AgentTurnResult = {
     reply: result.reply,
@@ -207,6 +220,47 @@ export async function runAgentTurn(
   // 6. Metrics
   recordTurnEnd(turnStartMs, !handlerError);
 
+  // Persist the complete public response, including intentResult.
+  const response: BeerDialogResponse = {
+    reply: turnResult.reply,
+    candidates: turnResult.candidates,
+    picks: turnResult.picks,
+    mode: turnResult.mode,
+    profileSummary: turnResult.profileSummary,
+    traceId: turnResult.traceId,
+    userId: turnResult.userId,
+    channel: turnResult.channel as import("@/lib/beer-agent/dialog-types").BeerChannel,
+    conversationId: turnResult.conversationId,
+    turnId: turnResult.turnId,
+    intentResult: {
+      intents: [{ intent: publicIntent, confidence: 0.9, slots: selection.params }],
+      intent: publicIntent,
+      confidence: 0.9,
+      slots: selection.params,
+      missingInfo: [],
+      routeReason: selection.reason,
+      source: selection.source,
+      isMultiIntent: false,
+    },
+    memoryDelta: {
+      wroteShortTerm: false,
+      wroteEpisodic: result.data?.wroteEpisodic === true,
+      updatedProfile: result.data?.updatedProfile === true,
+      notes: [],
+    },
+    debug: {
+      route: selection.skill,
+      warnings: result.errors.length > 0 ? result.errors : undefined,
+    },
+  };
+  try {
+    await updateShortTermMemory(request,response);
+    response.memoryDelta.wroteShortTerm=true;
+  } catch(err) {
+    response.memoryDelta.notes.push("short-term memory write failed");
+    response.debug={...response.debug,route:selection.skill,warnings:[...(response.debug?.warnings??[]),"short-term memory write failed"]};
+    console.warn("[controller] short-term memory update failed:",err);
+  }
   // 7. Trace (fire-and-forget)
   writeTrace({
     traceId: ctx.traceId,
@@ -221,22 +275,17 @@ export async function runAgentTurn(
       hasImage: ctx.hasImage,
     },
     intentResult: {
-      intents: [{ intent: selection.skill, confidence: 0.9, slots: selection.params }],
-      intent: selection.skill,
+      intents: [{ intent: publicIntent, confidence: 0.9, slots: selection.params }],
+      intent: publicIntent,
       confidence: 0.9,
       slots: selection.params,
       missingInfo: [],
       routeReason: selection.reason,
-      source: "llm",
+      source: selection.source,
       isMultiIntent: false,
     },
     memorySnapshot: ctx.memorySnapshot,
-    memoryDelta: {
-      wroteShortTerm: true,
-      wroteEpisodic: false,
-      updatedProfile: false,
-      notes: [`Skill: ${selection.skill}`],
-    },
+    memoryDelta: response.memoryDelta,
     route: {
       handler: selection.skill,
     },
@@ -251,44 +300,5 @@ export async function runAgentTurn(
     console.warn("[controller] trace write failed:", err);
   });
 
-  // 8. Update short-term memory before returning; its per-conversation lock serializes RMW.
-  try {
-    await updateShortTermMemory(request, turnResult as unknown as BeerDialogResponse);
-  } catch (err) {
-    console.warn("[controller] short-term memory update failed:", err);
-  }
-
-  // 9. Return as BeerDialogResponse
-  return {
-    reply: turnResult.reply,
-    candidates: turnResult.candidates,
-    picks: turnResult.picks,
-    mode: turnResult.mode,
-    profileSummary: turnResult.profileSummary,
-    traceId: turnResult.traceId,
-    userId: turnResult.userId,
-    channel: turnResult.channel as import("@/lib/beer-agent/dialog-types").BeerChannel,
-    conversationId: turnResult.conversationId,
-    turnId: turnResult.turnId,
-    intentResult: {
-      intents: [{ intent: selection.skill, confidence: 0.9, slots: selection.params }],
-      intent: selection.skill,
-      confidence: 0.9,
-      slots: selection.params,
-      missingInfo: [],
-      routeReason: selection.reason,
-      source: "llm" as const,
-      isMultiIntent: false,
-    },
-    memoryDelta: {
-      wroteShortTerm: true,
-      wroteEpisodic: false,
-      updatedProfile: false,
-      notes: [],
-    },
-    debug: {
-      route: selection.skill,
-      warnings: result.errors.length > 0 ? result.errors : undefined,
-    },
-  };
+  return response;
 }

@@ -1,9 +1,11 @@
-import { ProxyAgent, setGlobalDispatcher, getGlobalDispatcher } from "undici";
+import { ProxyAgent, setGlobalDispatcher, getGlobalDispatcher, type Dispatcher } from "undici";
+import { setTimeout as wait } from "node:timers/promises";
 import { appendStage } from "../harness/trace-buffer.ts";
 import { getTraceCtx } from "../harness/trace-context.ts";
 
 let proxyInitialized = false;
-let proxyFailed = false;
+let previousDispatcher: Dispatcher | undefined;
+let configuredProxy: ProxyAgent | undefined;
 
 /** Structured error carrying model/provider/status for trace diagnostics. */
 export class OpenRouterError extends Error {
@@ -39,19 +41,21 @@ function initProxyOnce() {
 
   const proxyUrl = proxy.startsWith("http") ? proxy : `http://${proxy}`;
   try {
-    setGlobalDispatcher(new ProxyAgent({ uri: proxyUrl }));
-    console.log(`[openrouter] proxy configured: ${proxyUrl}`);
-  } catch (err) {
-    console.warn(`[openrouter] failed to configure proxy: ${proxyUrl}, will fall back to direct connection`, err);
-    proxyFailed = true;
+    const proxyAgent = new ProxyAgent({ uri: proxyUrl });
+    previousDispatcher = getGlobalDispatcher();
+    setGlobalDispatcher(proxyAgent);
+    configuredProxy = proxyAgent;
+    console.log("[openrouter] proxy configured");
+  } catch {
+    console.warn("[openrouter] failed to configure proxy; keeping the existing dispatcher");
   }
 }
 
-/**
- * Check if the proxy is actually working. If it's dead, reset to direct connection.
- */
-function isProxyDead(): boolean {
-  return proxyFailed;
+/** Restore only the dispatcher installed by this module, not a later override. */
+function restorePreviousDispatcher(): boolean {
+  if (!previousDispatcher || !configuredProxy || getGlobalDispatcher() !== configuredProxy) return false;
+  setGlobalDispatcher(previousDispatcher);
+  return true;
 }
 
 export async function openrouterFetch(
@@ -67,17 +71,22 @@ export async function openrouterFetch(
   const bodyModel = (body as Record<string, unknown>).model as string | undefined;
   const modelName = options?.model ?? bodyModel ?? "unknown";
 
-  // Wire up timeout via AbortController (caller-supplied signal takes precedence)
+  // One deadline covers every attempt and backoff, including when the caller
+  // also supplies a cancellation signal. Neither timer is reset by a retry.
   const timeoutMs = options?.timeoutMs ?? 20000;
-  let abortController: AbortController | null = null;
-  let timeoutId: ReturnType<typeof setTimeout> | null = null;
-
-  if (!options?.signal) {
-    abortController = new AbortController();
-    timeoutId = setTimeout(() => abortController!.abort(), timeoutMs);
-  }
+  const abortController = new AbortController();
+  const timeoutId = setTimeout(() => abortController.abort(), timeoutMs);
+  const signal = options?.signal
+    ? AbortSignal.any([options.signal, abortController.signal])
+    : abortController.signal;
+  let retryAfterMs = 0;
+  let attempts = 0;
+  let connectionRetried = false;
 
   const makeRequest = async () => {
+    signal.throwIfAborted();
+    attempts++;
+    retryAfterMs = 0;
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -87,10 +96,16 @@ export async function openrouterFetch(
         "X-Title": process.env.OPENROUTER_APP_TITLE ?? "Beer Lens",
       },
       body: JSON.stringify(body),
-      signal: options?.signal ?? abortController?.signal,
+      signal,
     });
 
     if (!response.ok) {
+      const retryAfter = response.headers.get("retry-after");
+      if (retryAfter) {
+        const seconds = Number(retryAfter);
+        const delay = Number.isFinite(seconds) ? seconds * 1000 : Date.parse(retryAfter) - Date.now();
+        if (Number.isFinite(delay)) retryAfterMs = Math.max(0, delay);
+      }
       const errorText = await response.text().catch(() => "unknown");
       throw new OpenRouterError(
         `OpenRouter ${response.status}: ${errorText}`,
@@ -104,7 +119,9 @@ export async function openrouterFetch(
       choices?: Array<{ message?: { content?: string } }>;
     };
     const content = result?.choices?.[0]?.message?.content;
-    if (!content) throw new Error("OpenRouter returned empty content");
+    if (typeof content !== "string" || !content.trim()) {
+      throw new OpenRouterError("OpenRouter returned empty content", "openrouter", modelName, "EMPTY_CONTENT");
+    }
     return content;
   };
 
@@ -123,18 +140,42 @@ export async function openrouterFetch(
     } catch { /* never let tracing kill the request */ }
   };
   try {
-    const result = await makeRequest();
-    traceCall(true, { result_chars: result.length });
-    return result;
+    // Two retries for transient provider failures; request/model configuration
+    // stays identical. All other HTTP errors (especially 401/403) fail directly.
+    for (let attempt = 0; ; attempt++) {
+      try {
+        const result = await makeRequest();
+        traceCall(true, { result_chars: result.length, attempts });
+        return result;
+      } catch (err) {
+        if (signal.aborted || attempts >= 3) throw err;
+        const message = err instanceof Error ? err.message : "";
+        const connectionFailure = !(err instanceof OpenRouterError) &&
+          /ECONNREFUSED|fetch failed|ProxyAgent/.test(message);
+        if (connectionFailure && !connectionRetried) {
+          connectionRetried = true;
+          const restored = restorePreviousDispatcher();
+          console.warn(restored
+            ? "[openrouter] proxy unreachable; restored the previous dispatcher for retry"
+            : "[openrouter] connection failed; retrying once");
+          continue;
+        }
+        const retryable = err instanceof OpenRouterError &&
+          ["429", "502", "503", "504", "EMPTY_CONTENT"].includes(err.errorCode);
+        if (!retryable) throw err;
+        await wait(Math.min(timeoutMs, Math.max(250 * 2 ** attempt, retryAfterMs)), undefined, { signal });
+      }
+    }
   } catch (err) {
-    // Distinguish timeout from other failures
-    if (err instanceof Error && err.name === "AbortError") {
-      traceCall(false, { error_code: "TIMEOUT", error: "timeout" });
+    if (signal.aborted || (err instanceof Error && err.name === "AbortError")) {
+      const cancelled = options?.signal?.aborted === true;
+      const code = cancelled ? "ABORTED" : "TIMEOUT";
+      traceCall(false, { error_code: code, error: cancelled ? "cancelled" : "timeout" });
       throw new OpenRouterError(
-        `OpenRouter request timed out after ${timeoutMs}ms`,
+        cancelled ? "OpenRouter request cancelled" : `OpenRouter request timed out after ${timeoutMs}ms`,
         "openrouter",
         modelName,
-        "TIMEOUT",
+        code,
       );
     }
     if (err instanceof OpenRouterError) {
@@ -142,25 +183,9 @@ export async function openrouterFetch(
       throw err;
     }
     const msg = err instanceof Error ? (err.message || "") : "";
-    // If proxy connection refused, reset to direct and retry
-    if (msg.includes("ECONNREFUSED") || msg.includes("fetch failed") || msg.includes("ProxyAgent")) {
-      try {
-        const { setGlobalDispatcher } = await import("undici");
-        setGlobalDispatcher((await import("undici")).getGlobalDispatcher());
-      } catch {}
-      console.warn("[openrouter] proxy unreachable, retrying with direct connection...");
-      try {
-        const result = await makeRequest();
-        traceCall(true, { result_chars: result.length, retry: true });
-        return result;
-      } catch (retryErr) {
-        traceCall(false, { error: String((retryErr as Error).message ?? retryErr).slice(0, 200), retry: true });
-        throw retryErr;
-      }
-    }
     traceCall(false, { error: msg.slice(0, 200) });
     throw err;
   } finally {
-    if (timeoutId) clearTimeout(timeoutId);
+    clearTimeout(timeoutId);
   }
 }

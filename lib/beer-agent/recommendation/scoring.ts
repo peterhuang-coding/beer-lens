@@ -72,10 +72,10 @@ export function scoreCandidates(
   return candidates.map((candidate) => {
     let worthScore: number;
     let fitScore: number;
-    const riskFlags: string[] = [];
+    const riskFlags: string[] = [...(candidate.riskFlags ?? [])];
     const objectiveReasons: string[] = [];
     const personalReasons: string[] = [];
-    const riskReasons: string[] = [];
+    const riskReasons: string[] = [...(candidate.riskFlags ?? [])];
 
     const styleLower = (candidate.style || "").toLowerCase();
     const nameAndStyle = `${candidate.displayName} ${candidate.style}`.toLowerCase();
@@ -204,7 +204,8 @@ export function scoreCandidates(
         if (isBitterStyle(styleLower)) {
           fitScore -= 15; // stronger penalty for explicit "不苦"
           riskFlags.push("可能偏苦");
-          riskReasons.push("你可能觉得偏苦（虽属偏好风格）");
+          riskReasons.push("该风格可能偏苦，不能保证低苦味");
+          if (/hazy|neipa|浑浊/i.test(styleLower)) fitScore += 5;
         }
       }
 
@@ -220,11 +221,16 @@ export function scoreCandidates(
         personalReasons.push("探索新风格");
       }
 
-      if (c.includes("预算") || c.includes("便宜") || c.includes("省钱") || c.includes("budget")) {
-        if (candidate.price != null) {
+      if (c.startsWith("maxPrice:")) {
+        const max = Number(c.slice(9));
+        if (candidate.price != null && candidate.price > 0 && candidate.price <= max) {
           fitScore += 5;
-          objectiveReasons.push("在预算内");
+          objectiveReasons.push(`价格 ¥${candidate.price}，符合 ¥${max} 预算`);
         }
+      }
+      if (c === "第一杯" && candidate.abv > 0 && candidate.abv <= 5) {
+        fitScore += 8;
+        personalReasons.push("酒精度较低，适合作为第一杯");
       }
     }
 

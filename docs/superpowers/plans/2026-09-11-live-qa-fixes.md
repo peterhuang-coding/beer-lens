@@ -47,5 +47,5 @@ Files: lib/harness/router-rules.ts、router-llm.ts、lib/agent/controller.ts、r
 
 - [x] 运行 `npm test`、`npm run typecheck`、`npm run build`，保存退出码与日志。
 - [x] 只在3000运行一个实例，重跑原请求、页面点击、预算追问和会话隔离；运行344 API与60 VQA，逐项分析剩余失败，不随意改期望。
-- [ ] 复核代码改动并解决评审问题；提交 PR/合并到 main并推 GitHub；生产目录构建后恢复3000单实例并检查HTTP。
-- [ ] 更新公开测试报告与Hub wrapup/方法，区分已修行为、上游错误与缺失样本。
+- [x] 复核代码改动并解决评审问题；提交 PR/合并到 main并推 GitHub；生产目录构建后恢复3000单实例并检查HTTP。
+- [x] 更新公开测试报告与Hub wrapup/方法，区分已修行为、上游错误与缺失样本。

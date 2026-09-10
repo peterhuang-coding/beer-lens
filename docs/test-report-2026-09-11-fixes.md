@@ -46,3 +46,5 @@
 本地 PM Hub：`projects/beer-lens/test-runs/2026-09-11-fixes/`。包含 `regression-delivery-full.json`、`image-final.json`、`image-delivery-recheck.json`、`tap-delivery-recheck.json`、`vqa-live.json`、定向重测、命令日志及 UI 截图；浏览器 cookie 已脱敏。完整响应、私有记忆和业务数据不随代码上传 GitHub。
 
 生产服务与 GitHub 交付状态以对应 commit、CI 和项目 Hub 最新复盘为准；本报告中的全量模型回归运行于构建前开发服务，生产启动后另做冒烟，不混称全量生产回归。
+
+交付已确认：修复提交 `80a3b3e` 经 [PR #4](https://github.com/peterhuang-coding/beer-lens/pull/4) 合并为 main `c6c9c30`。PR 与 [main CI](https://github.com/peterhuang-coding/beer-lens/actions/runs/34514025841) 均通过。主目录生产构建退出 0；3000 单实例的四个 HTTP 入口、新菜单与预算追问冒烟通过。原有三份爬虫/展示报告改动经哈希核对保持原样。

@@ -88,15 +88,20 @@ export function buildRecommendationReply(
       "（这批酒都没有评分数据，以下仅按风格粗略分档，别全信我）",
     );
   }
-  lines.push(
-    "",
-    `1. ${topName} - ${topReason}${topQualifier}`,
-    `2. ${safeName} - ${safeReason}`,
-    `3. ${exploreName} - ${exploreReason}`,
-    "",
-    `最稳：${safeName}`,
-    `最值得尝新：${exploreName}`,
-  );
+  const roles = [
+    { candidate: top, reason: topReason + topQualifier },
+    { candidate: safe, reason: safeReason },
+    { candidate: explore, reason: exploreReason },
+  ];
+  const seen = new Set<string>();
+  lines.push("");
+  for (const role of roles) {
+    if (!role.candidate || seen.has(role.candidate.candidateId)) continue;
+    seen.add(role.candidate.candidateId);
+    lines.push(`${seen.size}. ${role.candidate.displayName} - ${role.reason}`);
+  }
+  lines.push("", `最稳：${safeName}`);
+  if (explore && explore.candidateId !== top?.candidateId) lines.push(`最值得尝新：${exploreName}`);
   // No skip line when the whole menu is data-missing — there is no basis
   // for caution beyond the ⚠️ note — or when avoidOrCaution is empty.
   if (picks.avoidOrCaution.candidateId && !allDataMissing) {

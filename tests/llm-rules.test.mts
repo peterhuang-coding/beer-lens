@@ -42,6 +42,20 @@ function stub(id: string, enabled = true): void {
   });
 }
 
+test('attached bottle identification enters vision before the knowledge keyword',()=>{
+ reset();stub('beer_knowledge');stub('label_check');stub('menu_recommend');
+ assert.equal(keywordRoute('这瓶是什么酒?',true,undefined,undefined,true)?.skill_id,'label_check');
+});
+test('generic image and pictured comparison both enter visual recommendation',()=>{
+ reset();stub('menu_recommend');stub('label_check');stub('beer_knowledge');
+ assert.equal(keywordRoute('帮我看这张图',true,undefined,undefined,true)?.skill_id,'menu_recommend');
+ assert.equal(keywordRoute('Lunch 和 Dinner 哪个适合我?我不爱苦',true,undefined,undefined,true)?.skill_id,'menu_recommend');
+});
+test('a disabled visual skill cannot silently turn an image into text-only knowledge',()=>{
+ reset();stub('label_check',false);stub('beer_knowledge');
+ assert.equal(keywordRoute('这瓶是什么酒?',true,undefined,undefined,true)?.skill_id,'none');
+});
+
 test("keywordRoute: matches menu_recommend for 推荐 + IPA", () => {
   reset();
   stub("menu_recommend");
@@ -116,4 +130,40 @@ test("keywordRoute: matches case-insensitively on English style names", () => {
   assert.ok(d);
   assert.equal(d!.skill_id, "menu_recommend");
   assert.equal((d!.params as { style: string }).style, "STOUT");
+});
+
+test('personal history and correction actions outrank generic knowledge and feedback words',()=>{
+ reset();for(const id of ['profile_query','memory_correction','beer_knowledge','tasting_feedback','menu_recommend','label_check'])stub(id as any);
+ for(const text of ['我的口味偏好是什么？','我喝过哪些酒','我之前喝过哪些啤酒？帮我看看历史记录'])assert.equal(keywordRoute(text)?.skill_id,'profile_query');
+ for(const text of ['重置我的记录','清空我的偏好','上次我说喜欢IPA，但其实我更喜欢西海岸IPA'])assert.equal(keywordRoute(text)?.skill_id,'memory_correction');
+ for(const text of ['啤酒酵母分类','啤酒风格分类','IPA最佳饮用时机'])assert.equal(keywordRoute(text)?.skill_id,'beer_knowledge');
+ assert.equal(keywordRoute('这罐啤酒哪个酒厂产')?.skill_id,'label_check');
+});
+
+test('numeric tasting statements outrank bottle/style/knowledge words without catching rating questions',()=>{
+ reset();for(const id of ['profile_query','memory_correction','beer_knowledge','tasting_feedback','menu_recommend','label_check'])stub(id as any);
+ for(const text of ['今天IPA4分不错','品鉴柑橘浓郁4分','10分太好喝了这瓶','0分没法喝这瓶酒','Budweiser2分工业水'])assert.equal(keywordRoute(text)?.skill_id,'tasting_feedback',text);
+ assert.equal(keywordRoute('推荐评分超过4分的IPA')?.skill_id,'menu_recommend');
+ assert.equal(keywordRoute('IPA评分是如何计算的')?.skill_id,'beer_knowledge');
+ for(const text of ['啤酒评分4分是什么意思？','为什么这款IPA只有3分？'])assert.equal(keywordRoute(text)?.skill_id,'beer_knowledge',text);
+});
+
+test('history queries and explicit preference corrections win over style names',()=>{
+ reset();for(const id of ['profile_query','memory_correction','beer_knowledge','tasting_feedback','menu_recommend','label_check'])stub(id as any);
+ for(const text of ['看看历史品酒记录','评分历史查看','我不喜欢IPA'])assert.equal(keywordRoute(text)?.skill_id,'profile_query',text);
+ for(const text of ['不对我更爱世涛不是IPA','清理喝过的记录','记错了更爱世涛风格','改成喜欢浑浊IPA','改成不喜欢IPA风格'])assert.equal(keywordRoute(text)?.skill_id,'memory_correction',text);
+ for(const text of ['精酿啤酒能否陈年','精酿啤酒怎么保存'])assert.equal(keywordRoute(text)?.skill_id,'beer_knowledge',text);
+ assert.equal(keywordRoute('推荐不苦的IPA')?.skill_id,'menu_recommend');
+});
+
+test('remaining live history, correction, identification and ambiguous requests have stable routes',()=>{
+ reset();for(const id of ['profile_query','memory_correction','beer_knowledge','tasting_feedback','menu_recommend','label_check','unclear','follow_up_filter'])stub(id as any);
+ const groups:Record<string,string[]>= {
+  profile_query:['以前品饮历史','喝过精酿列表'],
+  memory_correction:['上次推荐错了我有这款','不是这个口味是拉格'],
+  label_check:['帮我识别这是什么啤酒','这是哪款风格啤酒'],
+  unclear:['随便吧','说说看吧'],
+  follow_up_filter:['哪个最受欢迎','哪个酒精度最高','酒精度高不高'],
+ };
+ for(const [skill,texts] of Object.entries(groups))for(const text of texts)assert.equal(keywordRoute(text)?.skill_id,skill,text);
 });

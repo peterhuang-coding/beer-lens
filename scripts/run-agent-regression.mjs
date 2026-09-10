@@ -15,6 +15,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { randomUUID } from "node:crypto";
 
 const root = process.cwd();
 
@@ -33,7 +34,7 @@ if (args.help) {
 const BASE_URL = args.url ?? "http://localhost:3000/api/agent";
 const CASES_FILE = args.cases ?? path.join(root, "data", "regression-cases.json");
 const WRITE_BADCASES = args.writeBadcases !== false; // default true
-const RUN_ID = Date.now().toString(36);
+const RUN_ID = randomUUID();
 const CONV_PREFIX = args.conversationPrefix ?? `reg-${RUN_ID}`;
 const USER_ID = args.userId ?? "regression-user";
 const TIMEOUT_MS = args.timeoutMs ?? 30000;
@@ -169,7 +170,8 @@ const report = {
 const reportDir = path.join(root, "data", "regression-runs");
 await mkdir(reportDir, { recursive: true });
 
-const reportPath = path.join(reportDir, `${timestamp}.json`);
+// Parallel shards may start in the same millisecond. Keep every full report.
+const reportPath = path.join(reportDir, `${timestamp}-${RUN_ID}.json`);
 const latestPath = path.join(reportDir, "latest.json");
 
 await writeFile(reportPath, JSON.stringify(report, null, 2) + "\n");

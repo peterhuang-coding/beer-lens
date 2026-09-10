@@ -10,7 +10,7 @@
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "npm run typecheck",
-    "test": "node --experimental-strip-types --test tests/*.test.ts tests/*.test.mts",
+    "test": "node --import tsx --test tests/*.test.ts tests/*.test.mts",
     "test:agent": "node scripts/run-agent-regression.mjs",
     "raw:crawl": "node scripts/crawl-raw-sources.mjs",
     "raw:tasks": "node scripts/generate-raw-tasks.mjs",

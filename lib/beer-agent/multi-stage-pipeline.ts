@@ -184,6 +184,8 @@ export async function runMultiStagePipeline(params: {
   userText: string;
   profile: string;
   onProgress?: ProgressCallback;
+  /** The skill applies its own deterministic recommendation after enrichment. */
+  skipRecommendation?: boolean;
 }): Promise<PipelineResult> {
   const { apiKey, imageDataUrl, userText, profile, onProgress } = params;
   const visionCfg = await getModelConfig("vision");
@@ -231,6 +233,8 @@ export async function runMultiStagePipeline(params: {
       },
     };
   }
+
+  if (params.skipRecommendation) return {imageContext,extracted,visualQuality,recommendation:{reply:"",topPickId:"",safePickId:"",explorePickId:"",avoidPickId:"",topReason:"",safeReason:"",exploreReason:"",avoidReason:""}};
 
   // Stage 2: Recommendation (text model)
   const recommendation = await withProgress(emit, "recommendation", "🧠 智能推荐分析", analysisModel,
@@ -280,28 +284,40 @@ function combinedVisionSchema() {
   };
 }
 
-async function combinedVisionAnalysis(
-  _apiKey: string, _model: string, imageDataUrl: string, userText: string
-): Promise<CombinedVisionOutput> {
-  const { base64, mime } = parseDataUrl(imageDataUrl);
-  const schema = combinedVisionSchema();
-  const visionPrompt = `你是啤酒图像分析器。一次完成以下三项任务，返回完整 JSON。
+export function buildVisionPrompt(userText: string): string {
+  return `你是啤酒图像分析器。一次完成以下三项任务，返回完整 JSON。
 
 ## 任务1: imageContext — 图片分类
 判断图片类型：menu(酒单) / tap_list(酒头列表) / bottle(瓶) / can(罐) / glass(杯中酒) / venue(环境) / unknown
 
 ## 任务2: extracted — 提取所有啤酒
 从图中抽取每款酒：beerName(酒名)、brewery(酒厂)、style(风格)、abv、ibu、price(元, 数字)、serving(容量, 如330ml)
-- 不确定就降低 confidence，不要编造
-- rawText 保留 OCR 原文
+- beerName 必须保留图片中清楚可见的英文专有酒名，保持完整词序；可附中文译名，但不能用风格描述替换酒名。
+- 先抄每个条目或海报板块字号最大的中英文标题作为 beerName，再抄下面的风格作为 style。标题中的英文词即使是日常单词，也是酒名，不能略过。大标题、手写标志和正文提到同名时只记一款。
+- style 单独填写 IPA、Double IPA、West Coast IPA 等风格；副标题中的风格绝不能占用 beerName。返回前逐款对照：beerName 是否误抄成了 style？如果是，回看该板块的大标题并修正。
+- 小字酒厂逐字复查，尤其 n/r/h/k 等易混淆字母；同一行不同语言的酒厂信息可用于交叉核对。
+- brewery 只抄录同一条目/标签明确关联的酒厂；优先清楚的英文酒厂文字，不猜中文谐音，也不要串到相邻酒款。
+- 按图片版面逐条对应酒名、酒厂、风格、价格与容量；同一酒款的标题、译名和瓶罐图片只算一个条目。不同酒厂或不同容量/价格的售卖规格应保留。
+- rawText 保留该条目完整 OCR 原文（含英文酒名、酒厂、价格和容量），不要只保留风格。
+- 营销卡、宣传海报中的评分或获奖措辞仅是图中宣传信息，保留在 rawText 中，不得作为已核验评分或独立数据库事实。
+- 不确定就降低 confidence；看不清的 beerName/brewery/date 留空，不要根据风格、用户提问或常识补全。
 
 ## 任务3: visualQuality — 视觉质量风险
 - 杯中酒：氧化/老化迹象、泡沫、浑浊度
 - 瓶/罐：是否能看到日期、包装受损
 - 酒单/tap list：日期可见性、IPA 新鲜度风险
+- 未清楚看见包装/生产日期时，日期留空，freshnessRisk 必须为 unknown；不能从酒款上市时间或包装设计推算日期。
 - 只能说是"疑似风险"，不能下结论
 
 用户补充需求：${userText}`;
+}
+
+async function combinedVisionAnalysis(
+  _apiKey: string, _model: string, imageDataUrl: string, userText: string
+): Promise<CombinedVisionOutput> {
+  const { base64, mime } = parseDataUrl(imageDataUrl);
+  const schema = combinedVisionSchema();
+  const visionPrompt = buildVisionPrompt(userText);
 
   // Route through the multimodal container — it owns fallback, cache,
   // tracing, and rule-engine hooks. apiKey/model come from env/config
@@ -622,7 +638,7 @@ function salvageTruncated(json: string): string {
 
 function imageContextSchema() { return { type: "object", additionalProperties: false, required: ["imageType","confidence","reason","needsOcr","needsLabelRecognition","canAssessVisualQuality","visibleClues"], properties: { imageType: { type: "string", enum: ["menu","tap_list","bottle","can","glass","venue","unknown"] }, confidence: { type: "number" }, reason: { type: "string" }, needsOcr: { type: "boolean" }, needsLabelRecognition: { type: "boolean" }, canAssessVisualQuality: { type: "boolean" }, visibleClues: { type: "array", items: { type: "string" } } } }; }
 
-function beerSignalExtractSchema() { return { type: "object", additionalProperties: false, required: ["sourceType","rawText","items","visualBeerDescription","uncertainties"], properties: { sourceType: { type: "string", enum: ["menu","tap_list","bottle","can","glass","venue","text","unknown"] }, rawText: { type: "string" }, visualBeerDescription: { type: "object", additionalProperties: false, required: ["color","clarity","foam","visiblePackagingDate","notes"], properties: { color:{type:"string"}, clarity:{type:"string"}, foam:{type:"string"}, visiblePackagingDate:{type:"string"}, notes:{type:"array",items:{type:"string"}} } }, uncertainties: { type: "array", items: { type: "string" } }, items: { type: "array", items: { type: "object", additionalProperties: false, required: ["menuIndex","rawText","beerName","brewery","style","abv","ibu","price","serving","packagingDate","confidence"], properties: { menuIndex:{type:"integer"}, rawText:{type:"string"}, beerName:{type:"string"}, brewery:{type:"string"}, style:{type:"string"}, abv:{type:"number"}, ibu:{type:"number"}, price:{type:"number"}, serving:{type:"string"}, packagingDate:{type:"string"}, confidence:{type:"number"} } } } } }; }
+function beerSignalExtractSchema() { return { type: "object", additionalProperties: false, required: ["sourceType","rawText","items","visualBeerDescription","uncertainties"], properties: { sourceType: { type: "string", enum: ["menu","tap_list","bottle","can","glass","venue","text","unknown"] }, rawText: { type: "string" }, visualBeerDescription: { type: "object", additionalProperties: false, required: ["color","clarity","foam","visiblePackagingDate","notes"], properties: { color:{type:"string"}, clarity:{type:"string"}, foam:{type:"string"}, visiblePackagingDate:{type:"string"}, notes:{type:"array",items:{type:"string"}} } }, uncertainties: { type: "array", items: { type: "string" } }, items: { type: "array", items: { type: "object", additionalProperties: false, required: ["menuIndex","rawText","beerName","brewery","style","abv","ibu","price","serving","packagingDate","confidence"], properties: { menuIndex:{type:"integer"}, rawText:{type:"string"}, beerName:{type:"string"}, brewery:{type:"string"}, style:{type:"string"}, abv:{type:"number"}, ibu:{type:["number","null"]}, price:{type:["number","null"]}, serving:{type:"string"}, packagingDate:{type:"string"}, confidence:{type:"number"} } } } } }; }
 
 function visualQualitySchema() { return { type: "object", additionalProperties: false, required: ["canAssess","visualRiskFlags","oxidationRisk","freshnessRisk","lightstrikeRisk","evidence","caveat"], properties: { canAssess:{type:"boolean"}, visualRiskFlags:{type:"array",items:{type:"string",enum:["possible_oxidation","possible_stale_hops","possible_lightstrike","low_foam","unexpected_haze","unexpected_darkening","date_not_visible","packaging_damage","low_confidence"]}}, oxidationRisk:{type:"string",enum:["low","medium","high","unknown"]}, freshnessRisk:{type:"string",enum:["low","medium","high","unknown"]}, lightstrikeRisk:{type:"string",enum:["low","medium","high","unknown"]}, evidence:{type:"array",items:{type:"string"}}, caveat:{type:"string"} } }; }
 

@@ -1,3 +1,4 @@
+import type { BeerCandidate } from "../types.ts";
 export type CandidateInput = {
   displayName: string;
   brewery?: string;
@@ -29,7 +30,7 @@ export type ScoredCandidate = {
   objectiveReasons?: string[];
   personalReasons?: string[];
   riskReasons?: string[];
-};
+} & Partial<Pick<BeerCandidate, "sourceRiskFlags" | "evidence" | "hops" | "ibu" | "untappdId" | "untappdUrl" | "breweryCountry" | "labelImage" | "originBenchmark" | "savingsVsOrigin">>;
 
 export type PickResult = {
   topPick: {

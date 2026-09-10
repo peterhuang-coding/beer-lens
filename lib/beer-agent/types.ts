@@ -41,6 +41,8 @@ export type BeerCandidate = {
   worthScore: number;
   fitScore: number;
   riskFlags: string[];
+  /** Extraction/source warnings, before recomputing this turn’s constraints. */
+  sourceRiskFlags?: string[];
   reason: string;
   evidence: Evidence[];
   // enriched from Untappd

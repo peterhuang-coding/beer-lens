@@ -49,6 +49,7 @@ const openrouterProvider: VisionProvider = {
       type: "image_url",
       image_url: {
         url: `data:${input.image.mime};base64,${input.image.base64}`,
+        detail: "high",
       },
     });
 

@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { resolveWebIdentity } from "@/lib/beer-agent/web-identity";
 import { NextResponse } from "next/server";
 import { runAgentTurn } from "@/lib/agent/controller";
 import { createTraceId } from "@/lib/beer-agent/trace";
@@ -12,7 +14,6 @@ export const runtime = "nodejs";
 // We only fall back to a sentinel default if BOTH are absent, which lets
 // existing curl / test scripts keep working without breaking.
 
-const DEFAULT_USER_ID = "local-user";
 const DEFAULT_CONVERSATION_ID = "local-web-session";
 
 function sanitizeId(value: unknown, fallback: string, max = 96): string {
@@ -20,17 +21,18 @@ function sanitizeId(value: unknown, fallback: string, max = 96): string {
   const trimmed = value.trim();
   if (trimmed.length === 0) return fallback;
   // Keep alnum + a small set of separators; clamp length for FS safety.
-  return trimmed.replace(/[^a-zA-Z0-9_\-:.]/g, "_").slice(0, max);
+  return /^[a-zA-Z0-9_\-:.]+$/.test(trimmed) && trimmed.length<=max ? trimmed : `id_${createHash("sha256").update(trimmed).digest("hex")}`;
 }
 
 export async function POST(request: Request) {
+  const identity = resolveWebIdentity(request);
   const body = (await request.json()) as AgentRequest;
 
   try {
     // Resolve canonical identifiers. Trust the client for both, but fall back
     // to safe defaults so legacy callers do not silently break.
     const userId =
-      sanitizeId((body as any).userId, DEFAULT_USER_ID) || DEFAULT_USER_ID;
+      sanitizeId((body as any).userId, identity.userId);
     const conversationId =
       sanitizeId(
         (body as any).conversationId,
@@ -49,11 +51,9 @@ export async function POST(request: Request) {
 
     const result = await runAgentTurn(dialogRequest);
     // Echo the canonical identifiers back so clients can log/persist them.
-    return NextResponse.json({
-      ...result,
-      userId,
-      conversationId,
-    });
+    const response = NextResponse.json({...result,userId,conversationId});
+    if (identity.setCookie) response.headers.append("Set-Cookie",identity.setCookie);
+    return response;
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json({ error: message }, { status: 500 });

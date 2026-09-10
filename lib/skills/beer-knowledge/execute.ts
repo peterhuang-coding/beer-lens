@@ -90,7 +90,9 @@ ${dbFacts}
       ],
       temperature: 0.3,
       max_tokens: 1500,
-    });
+    // A full explanation can exceed the router's short 20-second deadline.
+    // Keep one bounded deadline across provider retries.
+    }, { timeoutMs: 45000 });
 
     return {
       skillId: "beer-knowledge",

@@ -178,6 +178,7 @@ export async function execute(
     candidates: [],
     picks: emptyPicks(),
     profileSummary: profile.summary,
+    data: {wroteEpisodic:memoryWriteEnabled,updatedProfile:memoryWriteEnabled},
     errors: [],
   };
 }

@@ -1,5 +1,9 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { createHash } from "node:crypto";
+import type { BeerCandidate } from "../types.ts";
+import { extractConstraints, mergeConstraints } from "../recommendation/constraints.ts";
+import { parseMenuInput, hasNamedMenuItems } from "../recommendation/menu-input.ts";
 import type { BeerDialogRequest, BeerDialogResponse } from "@/lib/beer-agent/dialog-types";
 import { traceMemoryRead, traceMemoryWrite } from "./with-trace.ts";
 
@@ -19,15 +23,7 @@ export type ShortTermMemory = {
   updatedAt: string;
   lastMenu?: {
     traceId: string;
-    candidates: Array<{
-      candidateId: string;
-      displayName: string;
-      brewery: string;
-      style: string;
-      abv: number;
-      price?: number | null;
-      rating?: number | null;
-    }>;
+    candidates: Array<BeerCandidate & { rating?: number | null; ratingsCount?: number | null }>;
     source: "ocr" | "text" | "manual";
     createdAt: string;
   };
@@ -52,51 +48,19 @@ export type ShortTermMemory = {
   }>;
 };
 
-// ── Constraint keywords to extract from user text ──
-const CONSTRAINT_KEYWORDS = ["清爽", "不苦", "预算", "第一杯", "配餐", "IPA", "拉格"];
-
-/**
- * Determine the lastMenu source based on request characteristics.
- */
 function determineMenuSource(request: BeerDialogRequest): "ocr" | "text" | "manual" {
-  if (request.image) return "ocr";
-  return "text";
+  return request.image ? "ocr" : "text";
 }
 
-/**
- * Extract constraint keywords present in the user text.
- */
-function extractConstraints(userText: string): string[] {
-  return CONSTRAINT_KEYWORDS.filter((kw) => userText.includes(kw));
-}
-
-/**
- * Resolve the canonical memory key.
- *
- * Task #6: short-term memory must be shared across channels for the same human.
- * We key by `canonicalUserId` so Web (localStorage GUID) and Feishu (mapped chatId)
- * resolve to the same file. `conversationId` is preserved on the record for audit
- * but is NOT used as the storage key.
- *
- * The Web API guarantees a non-empty `userId`. Feishu callers must supply a
- * mapped canonicalUserId through metadata. We fall back to a sanitized
- * conversationId only when neither is present so existing data files keep working.
+/** Active menus belong to a user AND conversation; long-term profiles remain user scoped.
+ * Hash full IDs so punctuation and long identifiers cannot collide after sanitizing.
+ * Old user-only files are deliberately not read into new conversations.
  */
 function resolveMemoryKey(canonicalUserId: string | undefined, conversationId: string): string {
-  if (canonicalUserId && canonicalUserId.trim().length > 0 && canonicalUserId !== "local-user") {
-    return `user_${canonicalUserId.replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 64)}`;
-  }
-  // Legacy / fallback: per-conversation file. Sanitize for filesystem safety.
-  return `conv_${conversationId.replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 64)}`;
+  const identity = JSON.stringify([canonicalUserId || "anonymous", conversationId]);
+  return `session_${createHash("sha256").update(identity).digest("hex")}`;
 }
 
-/**
- * Read short-term memory.
- *
- * @param canonicalUserId  the cross-channel user id (canonical GUID). When present,
- *                         memory is shared across Web + Feishu + future channels.
- * @param conversationId   legacy / session-scoped key. Still works as a fallback.
- */
 export async function readShortTermMemory(
   conversationId: string,
   canonicalUserId?: string,
@@ -159,18 +123,18 @@ export async function updateShortTermMemory(
   // Always update timestamp
   memory.updatedAt = new Date().toISOString();
 
-  // ── Update lastMenu and lastPicks if response has candidates ──
-  if (response.candidates.length > 0) {
+  const lastUserText = request.messages.at(-1)?.content ?? "";
+  const parsedInput = parseMenuInput(lastUserText);
+  const newMenu = !!request.image || parsedInput.isMenu || (response.intentResult.intent === "menu_recommend" && hasNamedMenuItems(parsedInput.items));
+  // Keep the full menu when filtering. An explicitly new empty menu clears stale context.
+  if (newMenu || response.candidates.length > 0) {
     memory.lastMenu = {
       traceId: response.traceId,
       candidates: response.candidates.map((c) => ({
-        candidateId: c.candidateId,
-        displayName: c.displayName,
-        brewery: c.brewery,
-        style: c.style,
-        abv: c.abv,
-        price: c.price ?? null,
+        ...c,
         rating: c.untappdScore ?? null,
+        ratingsCount: c.untappdRatingCount ?? null,
+        sourceRiskFlags: c.sourceRiskFlags ?? c.riskFlags ?? [],
       })),
       source: determineMenuSource(request),
       createdAt: new Date().toISOString(),
@@ -196,6 +160,8 @@ export async function updateShortTermMemory(
     };
   }
 
+  if (newMenu || response.candidates.length > 0) delete memory.activeBeer;
+
   // ── Update activeBeer from picks (use topPick as the active beer) ──
   if (memory.lastPicks?.topPick?.candidateId) {
     const topCandidate = response.candidates.find(
@@ -210,20 +176,12 @@ export async function updateShortTermMemory(
     }
   }
 
-  // ── Extract currentConstraints from user text ──
-  const lastUserText = request.messages.at(-1)?.content ?? "";
-  const newConstraints = extractConstraints(lastUserText);
-
-  if (newConstraints.length > 0) {
-    // Merge with existing constraints, deduplicate
-    const existing = memory.currentConstraints ?? [];
-    memory.currentConstraints = [...new Set([...existing, ...newConstraints])];
-  }
-  // If no new constraints, keep existing ones in place (don't clear)
+  const newConstraints = extractConstraints(newMenu && hasNamedMenuItems(parsedInput.items) ? parsedInput.requestText : lastUserText);
+  memory.currentConstraints = mergeConstraints(newMenu ? [] : memory.currentConstraints ?? [], newConstraints);
 
   // ── Append to recentTurns ──
   memory.recentTurns.push({
-    turnId: response.turnId,
+    turnId: response.turnId || request.turnId,
     userText: lastUserText,
     assistantReply: response.reply,
     intent: response.intentResult.intent,
@@ -255,4 +213,19 @@ export async function updateShortTermMemory(
     throw err;
   }
   }); // end withLock
+}
+
+/** A newly supplied menu invalidates the active one even if its analysis fails. */
+export async function clearShortTermMenu(conversationId: string, userId: string): Promise<void> {
+  const filePath = path.join(process.cwd(), 'data/memory/short-term', `${resolveMemoryKey(userId,conversationId)}.json`);
+  await withLock(filePath, async()=>{
+    let memory:ShortTermMemory;
+    try { memory=JSON.parse(await readFile(filePath,'utf8')); } catch(err) {
+      if ((err as NodeJS.ErrnoException).code==='ENOENT') return;
+      throw err;
+    }
+    delete memory.lastMenu; delete memory.lastPicks; delete memory.activeBeer;
+    memory.currentConstraints=[];memory.updatedAt=new Date().toISOString();
+    await writeFile(filePath,JSON.stringify(memory,null,2)+'\n','utf8');
+  });
 }

@@ -1,0 +1,27 @@
+{
+  "exampleId": "label-check-la-love",
+  "testedAt": "2026-09-12T13:42:48.100Z",
+  "codeCommit": "2665a60993f1f7316fcc899c0f1335bd9644dafa",
+  "endpoint": "/api/chat",
+  "input": {
+    "query": "这瓶是什么酒?",
+    "image": "public/test-assets/can-monkish-la-love.png"
+  },
+  "httpStatus": 200,
+  "output": {
+    "reply": "图中酒标识别为 MONKISH / LA LOVE。 风格：DOUBLE INDIA PALE ALE。 酒精度 8.1%。 容量 473ml。 包装/生产日期未清楚可见，新鲜度未知。",
+    "fields": {
+      "displayName": "LA LOVE",
+      "brewery": "MONKISH",
+      "style": "DOUBLE INDIA PALE ALE",
+      "abv": 8.1,
+      "volumeMl": 473
+    }
+  },
+  "readmeExcerpt": [
+    "图中酒标识别为 MONKISH / LA LOVE。",
+    "风格：DOUBLE INDIA PALE ALE。",
+    "包装/生产日期未清楚可见，新鲜度未知。"
+  ],
+  "reviewNote": "真实测试响应存档；README 节选原句，省略酒精度与容量。字段为模型输出，原测试未逐字段验证正确性，不能作为准确率证明。"
+}

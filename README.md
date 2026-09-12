@@ -4,7 +4,7 @@
 <h3>把酒单看懂，把这一杯选明白。</h3>
 <p>面向真实点单场景的多模态精酿决策工作台。<br>连接酒单图片、自主整合的领域数据与个人口味，逐步沉淀可验证的推荐经验。</p>
 <p><a href="https://github.com/peterhuang-coding/beer-lens/actions/workflows/ci.yml"><img src="https://github.com/peterhuang-coding/beer-lens/actions/workflows/ci.yml/badge.svg" alt="CI"></a> <img src="https://img.shields.io/badge/stage-experimental-d97706" alt="Stage: Experimental"> <img src="https://img.shields.io/badge/Next.js-16-18181b?logo=nextdotjs" alt="Next.js 16"> <img src="https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&amp;logoColor=white" alt="TypeScript"></p>
-<p><a href="#真实输入">真实输入</a> · <a href="#项目特色">项目特色</a> · <a href="#数据资产">数据资产</a> · <a href="#快速开始">快速开始</a> · <a href="#测试与进展">测试与进展</a> · <a href="docs/development.md">开发文档</a></p>
+<p><a href="#示例问答">示例问答</a> · <a href="#真实输入">真实输入</a> · <a href="#项目特色">项目特色</a> · <a href="#数据资产">数据资产</a> · <a href="#快速开始">快速开始</a> · <a href="#测试与进展">测试与进展</a> · <a href="docs/development.md">开发文档</a></p>
 
 </div>
 
@@ -23,6 +23,24 @@ Beer Lens 围绕这样的问题工作：从图片中识别酒款，结合可查�
 | 🧪 查看证据 | 提供调用轨迹、规则、Cases 审阅界面和文本／图片测试脚本 |
 
 **当前为实验版本。** OCR、候选解析和反馈写入仍有已知缺陷；从反馈到 Skill 改进、评测和发布的完整闭环在规划中。具体边界见 [测试说明](docs/testing.md)。
+
+## 示例问答
+
+上传一张酒标照片，先认出眼前这款酒。
+
+<table>
+<tr>
+<td width="30%" align="center"><img src="public/test-assets/can-monkish-la-love.png" width="200" alt="示例输入：Monkish LA LOVE 酒罐照片"></td>
+<td valign="top">
+<p><strong>Q · 用户</strong></p>
+<p>这瓶是什么酒?</p>
+<p><strong>A · Beer Lens</strong>（实际回复节选）</p>
+<blockquote><p>图中酒标识别为 MONKISH / LA LOVE。<br>风格：DOUBLE INDIA PALE ALE。<br>包装/生产日期未清楚可见，新鲜度未知。</p></blockquote>
+</td>
+</tr>
+</table>
+
+来自 2026-09-12 的 `/api/chat` 实测，以上节选保留原句。查看 [完整输入与原始回复](docs/examples/label-check-la-love.json)。
 
 ## 真实输入
 

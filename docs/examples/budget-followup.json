@@ -1,0 +1,19 @@
+{
+  "exampleId": "budget-followup-tap-list",
+  "status": "recorded-response",
+  "testedAt": "2026-09-12T13:42:48.100Z",
+  "codeCommit": "2665a60993f1f7316fcc899c0f1335bd9644dafa",
+  "endpoint": "/api/chat",
+  "precondition": {
+    "image": "tests/fixtures/tap-list.jpg",
+    "query": "帮我看这个酒单",
+    "sameConversation": true
+  },
+  "input": {
+    "query": "预算50元以内，只推荐符合预算的；没有就告诉我没有"
+  },
+  "output": {
+    "reply": "酒单上没有可以确认符合当前预算、风格或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格/酒精度。"
+  },
+  "scope": "预算不满足时的真实回复；不代表已实现性价比排序。"
+}

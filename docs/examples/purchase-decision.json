@@ -1,0 +1,53 @@
+{
+  "exampleId": "purchase-decision-tap-list",
+  "status": "target-experience-not-model-output",
+  "sourceImage": "tests/fixtures/tap-list.jpg",
+  "sourceNote": "价格与容量来自测试酒单原图，已逐行对照；仅说明图中报价，不代表当前在售或市场最低价。",
+  "input": {
+    "query": "预算70元，第一杯想清爽一点、不太苦，这张酒单买哪款更划算？"
+  },
+  "offers": [
+    {
+      "menuIndex": 7,
+      "name": "科隆",
+      "brewery": "Gaffel",
+      "style": "Kölsch",
+      "priceCny": 55,
+      "volumeMl": 425,
+      "abv": 4.8,
+      "pricePer100MlCny": 12.94
+    },
+    {
+      "menuIndex": 1,
+      "name": "年轻领主",
+      "brewery": "Stamm",
+      "style": "Czech Pilsner",
+      "priceCny": 60,
+      "volumeMl": 425,
+      "abv": 4.7,
+      "pricePer100MlCny": 14.12
+    },
+    {
+      "menuIndex": 3,
+      "name": "赛博暴龙",
+      "brewery": "Toppling Goliath",
+      "style": "West Coast IPA",
+      "priceCny": 85,
+      "volumeMl": 425,
+      "abv": 7.2,
+      "pricePer100MlCny": 20.0
+    }
+  ],
+  "decisionDesign": {
+    "primaryMenuIndex": 7,
+    "alternativeMenuIndex": 1,
+    "excludedMenuIndex": 3,
+    "reason": "预算内优先考虑科隆；年轻领主同为425ml，贵5元，可按个人风格偏好决定是否加价；赛博暴龙超预算15元。单位价不代表品质，苦度与新鲜度仍需确认。",
+    "requiresImplementation": [
+      "比较意图",
+      "可比较报价与单位价",
+      "预算/个人偏好优先",
+      "差价与不确定性解释"
+    ]
+  }
+}

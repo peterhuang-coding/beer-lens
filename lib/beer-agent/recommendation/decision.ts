@@ -4,6 +4,7 @@ import { constraintFailures } from './constraints.ts';
 import { scoreCandidates } from './scoring.ts';
 import { selectPicks } from './pick-selector.ts';
 import { buildRecommendationReply } from './reply-builder.ts';
+import { applyPricePreference, strictPricePreferenceId } from './price-comparison.ts';
 
 /** One decision path for image, text and follow-ups. Keep menu facts; constrain picks. */
 export function recommendFromCandidates(candidates: BeerCandidate[], profile: ProfileMemory|null, constraints: string[], memoryEnabled: boolean) {
@@ -22,15 +23,20 @@ export function recommendFromCandidates(candidates: BeerCandidate[], profile: Pr
     const approachable = eligible.filter(c=>c.style && !bitter.test(c.style));
     if (approachable.length) eligible=approachable;
   }
-  const picks = selectPicks(eligible);
+  eligible = applyPricePreference(eligible,constraints);
+  const picks = selectPicks(eligible,strictPricePreferenceId(eligible,constraints));
+  const eligibleById = new Map(eligible.map(candidate=>[candidate.candidateId,candidate]));
   const reply = eligible.length ? buildRecommendationReply(picks,eligible)
-    : scored.length ? '酒单上没有可以确认符合当前预算、风格或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格/酒精度。'
+    : scored.length ? '酒单上没有可以确认符合当前预算、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、IBU 或酒精度。'
       : '没有识别到可确认的酒款，请补充清晰酒单或具体酒名。';
   return {
     reply,picks,
-    candidates: scored.map(c=>({
+    candidates: scored.map(original=>{
+      const c=eligibleById.get(original.candidateId)??original;
+      return ({
       ...c, hops:c.hops??[], evidence:c.evidence??[], untappdScore:c.rating??null, untappdRatingCount:c.ratingsCount??null,
       riskFlags:[...new Set([...c.riskFlags,...(failures.get(c.candidateId)??[])])],
-    } as BeerCandidate)),
+      } as BeerCandidate);
+    }),
   };
 }

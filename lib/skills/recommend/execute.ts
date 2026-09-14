@@ -3,7 +3,7 @@ import type { AgentContext, SkillResult } from "@/lib/agent/types";
 import type { BeerCandidate } from "@/lib/beer-agent/types";
 import { VisionError, suggest as suggestVisionError } from "../../multimodal/index.ts";
 import { extractConstraints, mergeConstraints } from "../../beer-agent/recommendation/constraints.ts";
-import { parseMenuInput, inferStyle, hasNamedMenuItems } from "../../beer-agent/recommendation/menu-input.ts";
+import { parseMenuInput, inferStyle, hasNamedMenuItems, parseOrdinalReference } from "../../beer-agent/recommendation/menu-input.ts";
 import { recommendFromCandidates } from "../../beer-agent/recommendation/decision.ts";
 import { readShortTermMemory } from "../../beer-agent/memory/short-term.ts";
 
@@ -41,6 +41,21 @@ async function handleFollowUp(ctx: AgentContext): Promise<SkillResult> {
     worthScore:0,fitScore:0,reason:"",untappdScore:c.rating??null,untappdRatingCount:c.ratingsCount??null,
   }));
   if (!candidates.length) return {skillId:ctx.messages.some(m=>m.role==="assistant")?"follow-up-filter":"fallback",reply:"我还没有可核验的完整酒单上下文。请重新发一下酒单图片或具体酒名和价格，我再按你的要求筛选。",candidates:[],picks:emptyPicks(),profileSummary:ctx.profileSummary??"",errors:[]};
+  const ordinal = parseOrdinalReference(ctx.lastUserText);
+  if (ordinal != null) {
+    const menuCandidate = candidates.find((candidate, index) => (candidate.menuIndex ?? index + 1) === ordinal);
+    const rankedIds = [stm?.lastPicks?.topPick?.candidateId, stm?.lastPicks?.safePick?.candidateId, stm?.lastPicks?.explorePick?.candidateId]
+      .filter((candidateId, index, all): candidateId is string => !!candidateId && all.indexOf(candidateId) === index);
+    const rankedCandidate = candidates.find(candidate => candidate.candidateId === rankedIds[ordinal - 1]);
+    const explicitMenu = /(?:菜单|酒单|原(?:菜单|酒单))/.test(ctx.lastUserText);
+    const explicitRanking = /(?:推荐(?:列表)?(?:的)?|推荐结果|上次推荐)/.test(ctx.lastUserText);
+    if (!explicitMenu && !explicitRanking && menuCandidate && rankedCandidate && menuCandidate.candidateId !== rankedCandidate.candidateId) {
+      return {skillId:"follow-up-filter",reply:`“第 ${ordinal} 款”有两种含义：菜单第 ${ordinal} 款是 ${menuCandidate.displayName}，推荐列表第 ${ordinal} 款是 ${rankedCandidate.displayName}。请说明你问的是菜单序号还是推荐顺序。`,candidates:[],picks:emptyPicks(),profileSummary:ctx.profileSummary??"",errors:[]};
+    }
+    const selected = explicitRanking ? rankedCandidate : explicitMenu ? menuCandidate : menuCandidate ?? rankedCandidate;
+    if (!selected) return {skillId:"follow-up-filter",reply:`当前菜单或推荐列表没有第 ${ordinal} 款，请使用已有序号重新选择。`,candidates:[],picks:emptyPicks(),profileSummary:ctx.profileSummary??"",errors:[]};
+    return finish(ctx,[selected],ctx.lastUserText,false);
+  }
   return finish(ctx,candidates,ctx.lastUserText,false);
 }
 
@@ -52,7 +67,7 @@ async function handleText(ctx: AgentContext): Promise<SkillResult> {
   if (!items.length) {
     const named = ctx.lastUserText.match(/[A-Za-z][A-Za-z0-9'’ -]{2,}/g)?.map(s=>s.trim()).filter(s=>! /^(?:IPA|NEIPA|ABV|stout|sour|lager|pilsner|hazy IPA|west coast IPA)$/i.test(s))??[];
     const queries = named.length ? named : genericRecommendationQueries(ctx.lastUserText);
-    items = queries.map((beerName,i)=>({beerName,brewery:"",style:inferStyle(beerName),abv:0,price:null,volumeMl:null,menuIndex:i+1,rawText:beerName}));
+    items = queries.map((beerName,i)=>({beerName,brewery:"",style:inferStyle(beerName),abv:0,ibu:null,price:null,volumeMl:null,menuIndex:i+1,rawText:beerName}));
   }
   const results = await lookupBeers(items.map(i=>i.beerName),items.map(i=>i.brewery));
   // Enrichment receives the same complete name and brewery as the local lookup.
@@ -73,10 +88,10 @@ export async function execute(ctx:AgentContext,_params:Record<string,unknown>):P
   const parsed=parseMenuInput(ctx.lastUserText);
   if(parsed.isMenu) return handleText(ctx);
   const stm=await readShortTermMemory(ctx.conversationId,ctx.userId);
-  const isFollowUp=isDeterministicShortQuestion(ctx.lastUserText)||extractConstraints(ctx.lastUserText).length>0||/第[一二三四五六七八九十0-9]+|哪(?:款|个)|换一款|再来一杯/.test(ctx.lastUserText);
+  const isFollowUp=isDeterministicShortQuestion(ctx.lastUserText)||extractConstraints(ctx.lastUserText).length>0||/第\s*[一二三四五六七八九十0-9]+|哪(?:款|个)|换一款|再来一杯|性价比|划算|单位价|最便宜|少花|省钱/.test(ctx.lastUserText);
   // A newly supplied proper name takes precedence over a style word inside it.
   const newName=hasNamedMenuItems(parsed.items);
-  const referencesPrevious=/^(?:第[一二三四五六七八九十0-9]+|这个|这里面|这几款|这几杯|哪(?:个|款)|有没有|酒精度高不高)/.test(ctx.lastUserText) && !/推荐/.test(ctx.lastUserText);
+  const referencesPrevious=/^(?:第\s*[一二三四五六七八九十0-9]+|(?:菜单|酒单|推荐(?:列表)?(?:的)?)?第\s*[一二三四五六七八九十0-9]+|这个|这里面|这几款|这几杯|哪(?:个|款)|有没有|酒精度高不高|放宽到|调整到|提高到)/.test(ctx.lastUserText);
   if((stm?.lastMenu?.candidates.length || referencesPrevious) && (isFollowUp || referencesPrevious) && !newName) return handleFollowUp(ctx);
   return handleText(ctx);
 }

@@ -19,6 +19,7 @@ for (const file of [
   "data/chinese-craft-beers.json",
   "data/skill-manifest.json",
   ".claude/skills/beer-lens",
+  "skills/beer-lens",
   "package.json",
 ]) {
   const target = path.join(root, file);
@@ -42,6 +43,14 @@ test("agent rejects unknown flags before invoking Claude", () => {
   const r = run("agent.mjs", ["--unknown"]);
   assert.equal(r.status, 1);
   assert.match(r.stderr, /Unknown/);
+});
+test("portable skill decision helper works outside the repository cwd", () => {
+  const input = JSON.stringify({ constraints: { maxPrice: 50 }, offers: [{ index: 1, name: "A", price: 45, volumeMl: 330 }] });
+  const r = spawnSync(process.execPath, [path.join(root, "skills/beer-lens/scripts/decide-menu.mjs")], {
+    cwd: tmpdir(), input, encoding: "utf8", timeout: 15000,
+  });
+  assert.equal(r.status, 0, r.stderr);
+  assert.equal(JSON.parse(r.stdout).recommendations[0].index, 1);
 });
 test("crawler prints only JSON, honors zero, and resolves project data outside CWD", () => {
   const r = run("always-on-crawler.mjs", ["--print", "--limit", "0"]);

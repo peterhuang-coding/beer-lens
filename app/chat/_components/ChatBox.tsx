@@ -448,10 +448,17 @@ export default function ChatBox() {
         >
           📎
         </button>
-        <input
+        <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={attachment ? "加一句描述再发送…" : "说点什么吧… (Enter 发送 · 📎 图片)"}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+              e.preventDefault();
+              e.currentTarget.form?.requestSubmit();
+            }
+          }}
+          rows={2}
+          placeholder={attachment ? "加一句描述再发送…" : "粘贴酒单或说点什么吧… (Enter 发送 · Shift+Enter 换行)"}
           disabled={busy}
         />
         <button type="submit" disabled={busy || (!input.trim() && !attachment)}>
@@ -508,8 +515,8 @@ export default function ChatBox() {
         .chat-input .attach-btn { background:#171a21; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:0 12px; font-size:16px; cursor:pointer; }
         .chat-input .attach-btn:hover:not(:disabled) { background:#1f232c; }
         .chat-input .attach-btn:disabled { opacity:0.5; cursor:not-allowed; }
-        .chat-input input[type="text"], .chat-input > input:not([type]) { flex:1; background:#0f1115; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:10px 12px; font-size:13px; outline:none; }
-        .chat-input input:focus { border-color:#4cb3ff; }
+        .chat-input textarea { flex:1; min-height:44px; max-height:140px; resize:vertical; background:#0f1115; color:#e8eaf0; border:1px solid #2a2f3a; border-radius:8px; padding:10px 12px; font:inherit; font-size:13px; line-height:1.45; outline:none; }
+        .chat-input textarea:focus { border-color:#4cb3ff; }
         .chat-input button[type="submit"] { background:#4cb3ff; color:#0f1115; border:none; border-radius:8px; padding:0 16px; font-weight:600; cursor:pointer; }
         .chat-input button[type="submit"]:disabled { background:#374151; color:#9aa3b2; cursor:not-allowed; }
       `}</style>

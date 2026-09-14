@@ -116,20 +116,9 @@ export function scoreCandidates(
       riskReasons.push("无评分数据，无法判断质量");
     }
 
-    // Price / volume ratio bonus
-    if (candidate.price != null && candidate.volumeMl != null && candidate.volumeMl > 0) {
-      const pricePerMl = candidate.price / candidate.volumeMl;
-      if (pricePerMl <= 0.01) {
-        worthScore = Math.min(100, worthScore + 8);
-        objectiveReasons.push(`性价比极高 ¥${candidate.price}/${candidate.volumeMl}ml`);
-      } else if (pricePerMl <= 0.015) {
-        worthScore = Math.min(100, worthScore + 5);
-        objectiveReasons.push("性价比高");
-      } else if (pricePerMl <= 0.02) {
-        worthScore = Math.min(100, worthScore + 2);
-        objectiveReasons.push("价格适中");
-      }
-    }
+    // Price facts are rendered by the reply builder. Absolute thresholds do
+    // not establish value across venues/currencies; relative comparison is
+    // applied later only when the user explicitly asks for it.
 
     // Risk: missing data — explicit penalty
     let missingDataCount = 0;
@@ -201,10 +190,22 @@ export function scoreCandidates(
       }
 
       if (c.includes("不苦") || c.includes("不要太苦")) {
-        if (isBitterStyle(styleLower)) {
-          fitScore -= 15; // stronger penalty for explicit "不苦"
+        if (candidate.ibu != null && candidate.ibu >= 0) {
+          if (candidate.ibu <= 25) {
+            fitScore += 12;
+            personalReasons.push(`IBU ${candidate.ibu}，苦度较低`);
+          } else if (candidate.ibu <= 40) {
+            fitScore += 4;
+            personalReasons.push(`IBU ${candidate.ibu}，苦度相对温和`);
+          } else {
+            fitScore -= candidate.ibu >= 60 ? 30 : 18;
+            riskFlags.push("苦度偏高");
+            riskReasons.push(`IBU ${candidate.ibu}，不符合低苦偏好`);
+          }
+        } else if (isBitterStyle(styleLower)) {
+          fitScore -= 15;
           riskFlags.push("可能偏苦");
-          riskReasons.push("该风格可能偏苦，不能保证低苦味");
+          riskReasons.push("IBU 未知；该风格可能偏苦，不能保证低苦味");
           if (/hazy|neipa|浑浊/i.test(styleLower)) fitScore += 5;
         }
       }

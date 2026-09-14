@@ -53,7 +53,7 @@ function firstUnpicked(
  * candidates). When nothing is left, avoidOrCaution gets an empty
  * candidateId and the reply builder omits that line.
  */
-export function selectPicks(candidates: ScoredCandidate[]): PickResult {
+export function selectPicks(candidates: ScoredCandidate[], preferredTopId?: string | null): PickResult {
   const emptyPick = () => ({
     candidateId: "",
     label: "",
@@ -74,7 +74,7 @@ export function selectPicks(candidates: ScoredCandidate[]): PickResult {
   const pickedIds = new Set<string>();
 
   // ── topPick: highest combined score ──
-  const topPick = [...candidates].sort(
+  const topPick = candidates.find((candidate) => candidate.candidateId === preferredTopId) ?? [...candidates].sort(
     (a, b) => b.worthScore + b.fitScore - (a.worthScore + a.fitScore),
   )[0];
   pickedIds.add(topPick.candidateId);

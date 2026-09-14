@@ -1,4 +1,4 @@
-type CandidateFacts = { displayName: string; style?: string; price?: number | null; abv?: number };
+type CandidateFacts = { displayName: string; style?: string; price?: number | null; volumeMl?: number | null; abv?: number; ibu?: number | null };
 
 const STYLES: Record<string, RegExp> = {
   IPA: /\b(?:neipa|ipa)\b|浑浊|西海岸|印度淡色/i,
@@ -25,16 +25,28 @@ export function extractConstraints(text: string): string[] {
   if (/清爽|轻盈|crisp/i.test(text)) result.push('crisp');
   if (/尝新|探索|特别|explore/i.test(text)) result.push('explore');
   if (/第一杯|开场/i.test(text)) result.push('第一杯');
+  if (/单位价|每\s*100\s*(?:ml|毫升)|每毫升/i.test(text)) result.push('priceGoal:unit');
+  else if (/性价比|划算|值不值/i.test(text)) result.push('priceGoal:compare');
+  else if (/最便宜|少花|省钱|总价最低|杯价最低/i.test(text)) result.push('priceGoal:total');
 
   const number = '(\\d+(?:\\.\\d+)?)';
+  const priceRange = text.match(new RegExp(`预算(?:为|是|在)?\\s*[¥￥]?\\s*${number}\\s*(?:-|~|至|到|—)\\s*[¥￥]?\\s*${number}(?:\\s*(?:元|块))?`, 'i'))
+    ?? text.match(new RegExp(`[¥￥]?\\s*${number}\\s*(?:-|~|至|到|—)\\s*[¥￥]?\\s*${number}\\s*(?:元|块)`, 'i'));
+  if (priceRange) {
+    const low = Number(priceRange[1]);
+    const high = Number(priceRange[2]);
+    result.push(`minPrice:${Math.min(low, high)}`, `maxPrice:${Math.max(low, high)}`);
+  }
   const pricePatterns = [
-    new RegExp(`(?:预算|最多|不超过|不超|上限)(?:为|是|在)?\\s*[¥￥]?\\s*${number}\\s*(?:元|块)?`),
+    new RegExp(`(?:预算|最多|不超过|不超|上限|放宽到|调整到|提高到|改到)(?:为|是|在)?\\s*[¥￥]?\\s*${number}\\s*(?:元|块)?`),
     new RegExp(`${number}\\s*(?:元|块)\\s*(?:以内|以下|内|封顶)`),
     new RegExp(`[¥￥]\\s*${number}\\s*(?:以内|以下)`),
   ];
-  for (const p of pricePatterns) {
-    const m = text.match(p);
-    if (m && !/酒精|abv/i.test(text.slice(Math.max(0,m.index! - 8),m.index!))) { result.push(`maxPrice:${Number(m[1])}`); break; }
+  if (!priceRange) {
+    for (const p of pricePatterns) {
+      const m = text.match(p);
+      if (m && !/酒精|abv/i.test(text.slice(Math.max(0,m.index! - 8),m.index!))) { result.push(`maxPrice:${Number(m[1])}`); break; }
+    }
   }
   const range = text.match(/(?:ABV|酒精度)\s*(\d+(?:\.\d+)?)\s*[-~至到—]\s*(\d+(?:\.\d+)?)/i);
   if (range) result.push(`minAbv:${Number(range[1])}`, `maxAbv:${Number(range[2])}`);
@@ -44,12 +56,19 @@ export function extractConstraints(text: string): string[] {
     if (max) result.push(`maxAbv:${Number(max[1])}`);
     else if (/低度|酒精度低|低酒精/i.test(text)) result.push('maxAbv:4.5');
   }
+  const ibuRange = text.match(/IBU\s*(\d+(?:\.\d+)?)\s*[-~至到—]\s*(\d+(?:\.\d+)?)/i);
+  if (ibuRange) result.push(`minIbu:${Math.min(Number(ibuRange[1]), Number(ibuRange[2]))}`, `maxIbu:${Math.max(Number(ibuRange[1]), Number(ibuRange[2]))}`);
+  else {
+    const maxIbu = text.match(/IBU\s*(?:不超过|低于|最多|小于|≤|<=)\s*(\d+(?:\.\d+)?)/i)
+      ?? text.match(/(?:苦度|IBU)\s*(\d+(?:\.\d+)?)\s*(?:以下|以内)/i);
+    if (maxIbu) result.push(`maxIbu:${Number(maxIbu[1])}`);
+  }
   return [...new Set(result)];
 }
 
 /** Current values replace the same kind of earlier constraint, instead of accumulating forever. */
 export function mergeConstraints(previous: string[], current: string[]): string[] {
-  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : c.split(':')[0];
+  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : /^(?:min|max)Ibu:/.test(c) ? 'ibu' : /^(?:min|max)Price:/.test(c) ? 'price' : c.startsWith('priceGoal:') ? 'priceGoal' : c.split(':')[0];
   const replaced = new Set(current.map(family));
   return [...new Set([...previous.filter(c => !replaced.has(family(c))), ...current])];
 }
@@ -66,10 +85,25 @@ export function constraintFailures(candidate: CandidateFacts, constraints: strin
       if (candidate.price == null || candidate.price <= 0) failures.push('价格未知，无法确认是否符合预算');
       else if (candidate.price > max) failures.push(`超出预算 ¥${max}`);
     }
+    if (c.startsWith('minPrice:')) {
+      const min = Number(c.slice(9));
+      if (candidate.price == null || candidate.price <= 0) failures.push('价格未知，无法确认是否符合预算');
+      else if (candidate.price < min) failures.push(`低于预算下限 ¥${min}`);
+    }
+    if (c === 'priceGoal:unit' || c === 'priceGoal:compare') {
+      if (candidate.price == null || candidate.price <= 0) failures.push('价格未知，无法比较单位价');
+      if (candidate.volumeMl == null || candidate.volumeMl <= 0) failures.push('容量未知，无法比较单位价');
+    }
+    if (c === 'priceGoal:total' && (candidate.price == null || candidate.price <= 0)) failures.push('价格未知，无法比较总价');
     if (c.startsWith('maxAbv:') || c.startsWith('minAbv:')) {
       const value = Number(c.split(':')[1]);
       if (!candidate.abv || candidate.abv <= 0) failures.push('酒精度未知，无法确认是否符合要求');
       else if (c.startsWith('maxAbv:') ? candidate.abv > value : candidate.abv < value) failures.push('酒精度不符合要求');
+    }
+    if (c.startsWith('maxIbu:') || c.startsWith('minIbu:')) {
+      const value = Number(c.split(':')[1]);
+      if (candidate.ibu == null || candidate.ibu < 0) failures.push('IBU 未知，无法确认是否符合苦度要求');
+      else if (c.startsWith('maxIbu:') ? candidate.ibu > value : candidate.ibu < value) failures.push('IBU 不符合要求');
     }
   }
   return [...new Set(failures)];

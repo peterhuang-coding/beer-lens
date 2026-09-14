@@ -26,6 +26,8 @@ Beer Lens 的核心目标是帮助用户做出有依据的购买选择：先满�
 
 预算筛选已有实现；**单位价对比、差价解释与可靠的性价比推荐尚需完善**。下面的主示例明确展示要交付的购买体验，现有能力与验收要求见 [购买决策设计](docs/purchase-decision.md)。
 
+产品后续方向与协作入口：[调研待办与白班决策](docs/product-research-backlog.md) · [Notion 决策页](https://app.notion.com/p/3db3285284df81e397d1e520c2f7fece)（需访问权限）。
+
 ## 示例问答
 
 ### 主场景：预算内，买哪杯更值得？

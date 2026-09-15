@@ -214,6 +214,6 @@ npm run benchmark:images                           # 对运行中的服务做图
 
 ## 开发文档
 
-[购买决策设计](docs/purchase-decision.md) · [开发与架构](docs/development.md) · [数据资产](docs/data-assets.md) · [测试与已知问题](docs/testing.md) · [同类项目与定位](docs/positioning.md) · [数据升级设计](docs/superpowers/specs/2026-09-11-data-upgrade-crawler-design.md)
+[购买决策设计](docs/purchase-decision.md) · [R1 现场购买调研](docs/r1-onsite-purchase-research.md) · [开发与架构](docs/development.md) · [数据资产](docs/data-assets.md) · [测试与已知问题](docs/testing.md) · [同类项目与定位](docs/positioning.md) · [数据升级设计](docs/superpowers/specs/2026-09-11-data-upgrade-crawler-design.md)
 
 欢迎通过 [Issues](https://github.com/peterhuang-coding/beer-lens/issues) 提供可复现的问题：输入样本、预期结果、实际结果和运行版本，能直接帮助我们改进下一次点单体验。分享前请去除个人信息与密钥。

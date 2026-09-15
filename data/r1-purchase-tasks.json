@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "1",
+  "purpose": "R1 onsite purchase decision human-expected evaluation set",
+  "status": "design_baseline_not_model_score",
+  "updatedAt": "2026-09-15",
+  "baselineRun": {
+    "executedAt": "2026-09-15",
+    "runner": "skills/beer-lens/scripts/decide-menu.mjs",
+    "scope": "deterministic helper only; no image or model calls",
+    "summary": {
+      "meetsCoreExpectation": ["R1-01", "R1-03", "R1-04", "R1-07", "R1-08"],
+      "doesNotMeetExpectation": ["R1-02", "R1-05", "R1-09"],
+      "partiallyMeetsExpectation": ["R1-06"],
+      "notRunBecauseHostStateRequired": ["R1-10"]
+    }
+  },
+  "tasks": [
+    {
+      "id": "R1-01",
+      "title": "预算优先于单位价",
+      "inputMode": "text",
+      "constraints": { "maxPrice": 50, "priceGoal": "unit" },
+      "offers": [
+        { "index": 1, "name": "A", "price": 48, "volumeMl": 330, "currency": "CNY", "servingMode": "draft" },
+        { "index": 2, "name": "B", "price": 60, "volumeMl": 500, "currency": "CNY", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "completed",
+        "topOfferIndexes": [1],
+        "excludedOfferIndexes": [2],
+        "mustMention": ["A 约 14.55 元/100ml", "B 约 12 元/100ml", "B 超预算 10 元"]
+      }
+    },
+    {
+      "id": "R1-02",
+      "title": "期望容量优先于大杯单位价",
+      "inputMode": "text",
+      "constraints": { "maxPrice": 70, "targetVolumeMl": 300, "priceGoal": "unit" },
+      "offers": [
+        { "index": 1, "name": "Small Lager", "price": 45, "volumeMl": 300, "currency": "CNY", "servingMode": "draft" },
+        { "index": 2, "name": "Large Lager", "price": 60, "volumeMl": 500, "currency": "CNY", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "completed",
+        "topOfferIndexes": [1],
+        "mustMention": ["用户只想喝约 300ml", "大杯单位价较低但容量不符合本次需求"]
+      },
+      "knownGap": "current helper has no targetVolumeMl constraint"
+    },
+    {
+      "id": "R1-03",
+      "title": "未知价格不能通过预算约束",
+      "inputMode": "text",
+      "constraints": { "maxPrice": 70, "priceGoal": "balanced" },
+      "offers": [
+        { "index": 1, "name": "Known Price", "price": 65, "volumeMl": 400, "currency": "CNY", "servingMode": "draft" },
+        { "index": 2, "name": "Unknown Price", "price": null, "volumeMl": 400, "currency": "CNY", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "partial",
+        "topOfferIndexes": [1],
+        "needsConfirmationOfferIndexes": [2],
+        "mustMention": ["第 2 款价格未知，无法确认预算"]
+      }
+    },
+    {
+      "id": "R1-04",
+      "title": "未知容量不能计算单位价",
+      "inputMode": "text",
+      "constraints": { "maxPrice": 80, "priceGoal": "unit" },
+      "offers": [
+        { "index": 1, "name": "Known Volume", "price": 60, "volumeMl": 500, "currency": "CNY", "servingMode": "draft" },
+        { "index": 2, "name": "Unknown Volume", "price": 50, "volumeMl": null, "currency": "CNY", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "partial",
+        "topOfferIndexes": [1],
+        "needsConfirmationOfferIndexes": [2],
+        "mustMention": ["第 2 款容量未知，不能比较单位价"]
+      }
+    },
+    {
+      "id": "R1-05",
+      "title": "不同消费形式不可直接比较",
+      "inputMode": "image",
+      "constraints": { "maxPrice": 100, "priceGoal": "unit" },
+      "offers": [
+        { "index": 1, "name": "House IPA Draft", "price": 55, "volumeMl": 400, "currency": "CNY", "servingMode": "draft", "packageType": "glass", "quantity": 1 },
+        { "index": 2, "name": "House IPA Four Pack", "price": 96, "volumeMl": 1320, "currency": "CNY", "servingMode": "takeaway", "packageType": "can", "quantity": 4 }
+      ],
+      "expected": {
+        "status": "needs_clarification",
+        "mustMention": ["堂饮与外带不是同一消费形式", "先询问本次要现场喝还是带走"]
+      },
+      "knownGap": "current helper ignores servingMode and packageType"
+    },
+    {
+      "id": "R1-06",
+      "title": "同酒款多杯型保留为不同报价",
+      "inputMode": "image",
+      "constraints": { "maxPrice": 55, "targetVolumeMl": 500, "priceGoal": "balanced" },
+      "offers": [
+        { "index": 3, "offerId": "beer-x-300", "name": "Beer X", "price": 38, "volumeMl": 300, "currency": "CNY", "servingMode": "draft" },
+        { "index": 3, "offerId": "beer-x-500", "name": "Beer X", "price": 52, "volumeMl": 500, "currency": "CNY", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "completed",
+        "topOfferIds": ["beer-x-500"],
+        "mustMention": ["同一酒款的两个杯型都是有效报价", "500ml 符合本次容量和预算"]
+      },
+      "knownGap": "portable schema has no offerId or targetVolumeMl"
+    },
+    {
+      "id": "R1-07",
+      "title": "全部超预算时不凑推荐",
+      "inputMode": "text",
+      "constraints": { "maxPrice": 40, "priceGoal": "balanced" },
+      "offers": [
+        { "index": 1, "name": "A", "price": 55, "volumeMl": 400, "currency": "CNY", "servingMode": "draft" },
+        { "index": 2, "name": "B", "price": 60, "volumeMl": 400, "currency": "CNY", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "needs_clarification",
+        "topOfferIndexes": [],
+        "excludedOfferIndexes": [1, 2],
+        "mustMention": ["没有确认符合预算的候选", "最低需要把预算放宽到 55 元"]
+      }
+    },
+    {
+      "id": "R1-08",
+      "title": "IBU 未知不能通过数值苦度约束",
+      "inputMode": "text",
+      "constraints": { "maxIbu": 30, "priceGoal": "balanced" },
+      "offers": [
+        { "index": 1, "name": "Known Low IBU", "price": 55, "volumeMl": 400, "ibu": 22, "currency": "CNY", "servingMode": "draft" },
+        { "index": 2, "name": "Unknown IBU", "price": 50, "volumeMl": 400, "ibu": null, "currency": "CNY", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "partial",
+        "topOfferIndexes": [1],
+        "needsConfirmationOfferIndexes": [2],
+        "mustMention": ["第 2 款 IBU 未知", "低 IBU 不保证实际感知不苦"]
+      }
+    },
+    {
+      "id": "R1-09",
+      "title": "不同币种不做直接价格排名",
+      "inputMode": "text",
+      "constraints": { "priceGoal": "unit" },
+      "offers": [
+        { "index": 1, "name": "CNY Beer", "price": 50, "volumeMl": 400, "currency": "CNY", "servingMode": "draft" },
+        { "index": 2, "name": "USD Beer", "price": 8, "volumeMl": 473, "currency": "USD", "servingMode": "draft" }
+      ],
+      "expected": {
+        "status": "needs_clarification",
+        "mustMention": ["币种不同，不能直接比较", "需要统一币种以及汇率观察时间"]
+      },
+      "knownGap": "current helper accepts only one top-level currency"
+    },
+    {
+      "id": "R1-10",
+      "title": "印刷编号追问与预算重算",
+      "inputMode": "follow_up",
+      "turns": [
+        {
+          "user": "第 2 款呢？",
+          "expected": ["按菜单印刷编号解释第 2 款", "不覆盖完整菜单"]
+        },
+        {
+          "user": "预算改到 80 元，重新选",
+          "expected": ["用 maxPrice 80 替换旧预算", "在原完整菜单上重新计算"]
+        }
+      ],
+      "expected": {
+        "status": "completed",
+        "mustMention": ["当前菜单快照保持不变", "新预算替换旧预算而不是叠加"]
+      }
+    }
+  ]
+}

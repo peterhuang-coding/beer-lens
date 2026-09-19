@@ -113,10 +113,12 @@ test('vision extraction instructions separate proper beer names from styles and 
   assert.match(prompt, /同一.*(?:酒款|条目)/);
 });
 
-test('bare and bilingual aliases agree with English while native Chinese matches stay valid', async () => {
+test('bare bilingual aliases stay ambiguous across breweries while qualified identities resolve', async () => {
   const [cn, en, bilingual] = await db.lookupBeers(['赛博暴龙', 'Cyber Sue', '赛博暴龙 Cyber Sue Toppling Goliath']);
-  assert.equal(cn.found, true);
-  assert.equal(cn.data.id, en.data.id);
+  // The fixture contains Cyber Sue from two breweries: neither bare spelling
+  // supplies evidence to choose one, even though both previously chose the same wrong row.
+  assert.equal(cn.found, false);
+  assert.equal(en.found, false);
   assert.equal(bilingual.found, true);
   assert.equal(bilingual.data.rating, 3.86);
   assert.equal(db.matchesBeerIdentity('婴儿肥 高大师', { name: '婴儿肥', brewery: '高大师' }), true);

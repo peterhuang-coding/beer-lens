@@ -31,3 +31,29 @@ test('distinct offers with unresolved serving survive recommendation',()=>{
  const b={...a,candidateId:'2',evidence:[{source:'ocr' as const,summary:'large pint',confidence:.9}]};
  assert.equal(recommendFromCandidates([a,b],null,[],false).candidates.length,2);
 });
+
+test('not-bitter request prefers the lower-IBU beer among otherwise equal IPA candidates',()=>{
+ const highIbu={...make('1',60),displayName:'High IBU IPA',ibu:80};
+ const lowIbu={...make('2',60),displayName:'Low IBU IPA',ibu:20};
+ const result=recommendFromCandidates([highIbu,lowIbu],null,['不苦'],false);
+ assert.equal(result.picks.topPick.candidateId,'2');
+ assert.equal(result.candidates.find(candidate=>candidate.candidateId==='2')?.fitScore,result.picks.topPick.fitScore);
+});
+
+test('explicit unit-price request selects the lowest comparable unit price',()=>{
+ const small={...make('1',60,'Lager'),displayName:'Small Lager',volumeMl:300};
+ const large={...make('2',50,'Lager'),displayName:'Large Lager',volumeMl:500};
+ const result=recommendFromCandidates([small,large],null,['maxPrice:80','priceGoal:unit'],false);
+ assert.equal(result.picks.topPick.candidateId,'2');
+ assert.match(result.reply,/¥50 \/ 500ml（约 ¥10\/100ml）/);
+ assert.match(result.reply,/价量对比/);
+ assert.match(result.reply,/多花 ¥10/);
+});
+
+test('lower unit price never overrides a hard total-price budget',()=>{
+ const within={...make('1',48,'Lager'),volumeMl:330};
+ const over={...make('2',60,'Lager'),volumeMl:500};
+ const result=recommendFromCandidates([within,over],null,['maxPrice:50','priceGoal:unit'],false);
+ assert.equal(result.picks.topPick.candidateId,'1');
+ assert.ok(result.candidates.find(candidate=>candidate.candidateId==='2')?.riskFlags.some(flag=>flag.includes('预算')));
+});

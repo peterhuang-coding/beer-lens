@@ -51,8 +51,8 @@ c.commit()`,join(dir,'.beer-data/beer.db')]);
  assert.equal(namedFollow.picks.topPick.candidateId,named.candidates[0].candidateId);
  const empty=await runAgentTurn(request('酒单：'));
  assert.equal(empty.candidates.length,0);
- assert.equal((await readShortTermMemory('one','isolated-user'))?.lastMenu?.candidates.length,0);
- assert.equal((await readShortTermMemory('one','isolated-user'))?.activeBeer,undefined);
+ assert.equal((await readShortTermMemory('one','isolated-user'))?.lastMenu?.candidates[0].displayName,'Beer A');
+ assert.equal((await readShortTermMemory('one','isolated-user'))?.activeBeer?.displayName,'Beer A');
 
  // Exercise real SSE route, only substituting the external visual executor boundary.
  const {POST}=await import('../../app/api/chat/route.ts');
@@ -73,7 +73,7 @@ c.commit()`,join(dir,'.beer-data/beer.db')]);
  const failed=await POST(new Request('http://localhost/api/chat',{method:'POST',headers:{'content-type':'application/json',cookie:initial.cookie},body:JSON.stringify({message:'新的酒单',conversationId:'browser-one',imageDataUrl:'data:image/png;base64,dGVzdA=='})}));
  assert.match(await failed.text(),/event: error/);
  const browserId='web_'+initial.cookie.split('=')[1];
- assert.ok(!(await readShortTermMemory('browser-one',browserId))?.lastMenu);
+ assert.equal((await readShortTermMemory('browser-one',browserId))?.lastMenu?.candidates.length,2);
  registerSkill(original);
  const newConversation=await chat('酒单：\nBeer B ¥85 330ml 4%','browser-two',initial.cookie);
  assert.equal(newConversation.result.candidates.length,1);assert.equal(newConversation.result.candidates[0].displayName,'Beer B');

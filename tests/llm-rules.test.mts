@@ -93,6 +93,25 @@ test("keywordRoute: routes '第3个' to follow_up_filter", () => {
   assert.equal((d!.params as { index: number }).index, 3);
 });
 
+test('spaced ordinal follow-ups retain their menu index', () => {
+  reset();
+  stub('follow_up_filter');
+  for (const [text,index] of [['第 3 个评分',3], ['第 三 款苦度',3], ['第十一款评分',11]] as const) {
+    const decision = keywordRoute(text);
+    assert.equal(decision?.skill_id, 'follow_up_filter', text);
+    assert.equal((decision?.params as { index: number }).index, index, text);
+  }
+});
+
+test('price comparison follow-ups use the active menu', () => {
+  reset();
+  stub('follow_up_filter');
+  stub('menu_recommend');
+  for (const text of ['按单位价选', '性价比最高的呢', '最便宜的是哪个']) {
+    assert.equal(keywordRoute(text)?.skill_id, 'follow_up_filter', text);
+  }
+});
+
 test("keywordRoute: routes '我其实不喜欢 IPA' to memory_correction", () => {
   reset();
   stub("memory_correction");
@@ -154,6 +173,13 @@ test('history queries and explicit preference corrections win over style names',
  for(const text of ['不对我更爱世涛不是IPA','清理喝过的记录','记错了更爱世涛风格','改成喜欢浑浊IPA','改成不喜欢IPA风格'])assert.equal(keywordRoute(text)?.skill_id,'memory_correction',text);
  for(const text of ['精酿啤酒能否陈年','精酿啤酒怎么保存'])assert.equal(keywordRoute(text)?.skill_id,'beer_knowledge',text);
  assert.equal(keywordRoute('推荐不苦的IPA')?.skill_id,'menu_recommend');
+});
+
+test('explicit remember-preference instructions route to persistent memory correction',()=>{
+ reset();for(const id of ['memory_correction','menu_recommend','profile_query'])stub(id as any);
+ for(const text of ['请记住我喜欢 IPA','记住我不喜欢世涛']) {
+  assert.equal(keywordRoute(text)?.skill_id,'memory_correction',text);
+ }
 });
 
 test('remaining live history, correction, identification and ambiguous requests have stable routes',()=>{

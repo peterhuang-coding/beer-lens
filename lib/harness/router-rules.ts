@@ -11,6 +11,7 @@
  */
 
 import { parseMenuInput } from "../beer-agent/recommendation/menu-input.ts";
+import { parseOrdinalReference } from "../beer-agent/recommendation/menu-input.ts";
 import { listSkills } from "./router.ts";
 import type { SkillId } from "./types.ts";
 import type { RouteDecision } from "./llm/prompts/intent-classifier.ts";
@@ -38,7 +39,7 @@ const RULES: Rule[] = [
   // 2. Memory corrections — the user is changing their preferences.
   {
     skill: "memory_correction",
-    keywords: ["我其实", "其实不喜欢", "其实喜欢", "更正", "以后不要", "更新一下", "改一下", "重新记"],
+    keywords: ["我其实", "其实不喜欢", "其实喜欢", "更正", "以后不要", "更新一下", "改一下", "重新记", "记住我", "请记住"],
     params: (msg) => ({ correction: msg }),
   },
   // 3. Tasting feedback — "刚喝了一款..." / "记一下" / "尝了".
@@ -146,7 +147,9 @@ export function keywordRoute(
   }
   // Personal questions/actions must win before words such as “是什么/历史/喝过”.
   const priority: Array<[SkillId,RegExp]> = [
-    ['memory_correction',/更正|纠正|记错了|(?:上次|前面|之前).*错了|不是这个口味是|不对.*(?:更爱|喜欢|口味)|改成.*(?:喜欢|偏好)|其实.*(?:喜欢|不喜欢)|(?:重置|清空|清理|删除).*(?:记录|偏好|画像)/],
+    ['memory_correction',/更正|纠正|记错了|(?:上次|前面|之前).*错了|不是这个口味是|不对.*(?:更爱|喜欢|口味)|改成.*(?:喜欢|偏好)|其实.*(?:喜欢|不喜欢)|(?:请)?记住.*(?:喜欢|不喜欢|偏好)|(?:重置|清空|清理|删除).*(?:记录|偏好|画像)/],
+    ['follow_up_filter',/^第\s*(?:\d+|[一二三四五六七八九十]+)\s*(?:款|个|杯)?(?:怎么样|如何|呢|的)?(?:评分|酒精度|苦度|价格|多少钱|好喝)?/],
+    ['follow_up_filter',/^(?:按)?(?:单位价|性价比|总价)|^(?:最便宜|哪款最划算|哪个最划算|少花|省钱)/],
     ['profile_query',/(?:我的|我.*(?:喝过|之前)).*(?:偏好|口味|画像|记录|哪些|什么)|画像内容|(?:品酒|品饮)(?:记录|历史)|喝过.*列表|评分历史|^我不喜欢/],
     ['tasting_feedback',/^(?!.*(?:推荐|哪款|哪个|多少|几分|如何|怎么|是什么|为什么|意思|区别|定义|超过|高于|低于|以上|以下)).*\d+(?:\.\d+)?\s*分/],
     ['beer_knowledge',/(?:啤酒|精酿|IPA|世涛).*(?:能否陈年|怎么保存|如何保存)/i],
@@ -155,7 +158,15 @@ export function keywordRoute(
     ['unclear',/^(?:随便吧|说说看吧)[。！？!?\s]*$/],
     ['follow_up_filter',/^(?:哪个最受欢迎|哪个酒精度最高|酒精度高不高)[。！？!?\s]*$/],
   ];
-  for (const [skill,pattern] of priority) if(enabledIds.has(skill)&&pattern.test(message)) return {skill_id:skill,params:{free_text:message},reason:`specific request → ${skill}`};
+  for (const [skill,pattern] of priority) {
+    if (!enabledIds.has(skill) || !pattern.test(message)) continue;
+    const params: Record<string, unknown> = {free_text:message};
+    if (skill === 'follow_up_filter') {
+      const ordinal = parseOrdinalReference(message);
+      if (ordinal != null) params.index = ordinal;
+    }
+    return {skill_id:skill,params,reason:`specific request → ${skill}`};
+  }
   const traceEnabled = typeof root_ts === "number";
   const pt = parent_ts ?? root_ts ?? null;
   for (let rule_idx = 0; rule_idx < RULES.length; rule_idx++) {

@@ -1,5 +1,3 @@
-import { clearShortTermMenu } from "@/lib/beer-agent/memory/short-term";
-import { parseMenuInput, hasNamedMenuItems } from "@/lib/beer-agent/recommendation/menu-input";
 import { resolveWebIdentity } from "@/lib/beer-agent/web-identity";
 /**
  * POST /api/chat — harness chat endpoint.
@@ -151,9 +149,6 @@ export async function POST(request: Request): Promise<Response> {
         ? body.conversationId
         : `conv_${Date.now().toString(36)}`;
 
-  const parsedMenu = parseMenuInput(message);
-  if (imageDataUrl || parsedMenu.isMenu) await clearShortTermMenu(conversationId,identity.userId);
-
   // ── Route via LLM ──────────────────────────────────────────────────────
   // pre-route hook: rules can override to "label_check" etc. if the LLM
   // would otherwise pick "unclear" (rule 4: routing-freshness-pre-override).
@@ -206,8 +201,6 @@ export async function POST(request: Request): Promise<Response> {
     });
   }
   const { skill_id, params, reason } = routeRes.decision;
-  if (skill_id==='menu_recommend' && hasNamedMenuItems(parsedMenu.items)) await clearShortTermMenu(conversationId,identity.userId);
-
   // 水下思考:路由/识别/匹配的关键步骤,SSE 发给前端「🔍 思考过程」展示
   const thinkingSteps: string[] = [];
   thinkingSteps.push(

@@ -126,8 +126,11 @@ export async function updateShortTermMemory(
   const lastUserText = request.messages.at(-1)?.content ?? "";
   const parsedInput = parseMenuInput(lastUserText);
   const newMenu = !!request.image || parsedInput.isMenu || (response.intentResult.intent === "menu_recommend" && hasNamedMenuItems(parsedInput.items));
-  // Keep the full menu when filtering. An explicitly new empty menu clears stale context.
-  if (newMenu || response.candidates.length > 0) {
+  const acceptedNewMenu = newMenu && response.candidates.length > 0;
+  // A follow-up may intentionally return one focused candidate. Never use that
+  // response subset, or a failed extraction, to replace the authoritative menu snapshot.
+  const replaceMenu = acceptedNewMenu || (!memory.lastMenu && response.candidates.length > 0);
+  if (replaceMenu) {
     memory.lastMenu = {
       traceId: response.traceId,
       candidates: response.candidates.map((c) => ({
@@ -140,6 +143,9 @@ export async function updateShortTermMemory(
       createdAt: new Date().toISOString(),
     };
 
+  }
+
+  if (response.candidates.length > 0) {
     memory.lastPicks = {
       topPick: {
         candidateId: response.picks.topPick.candidateId,
@@ -160,7 +166,7 @@ export async function updateShortTermMemory(
     };
   }
 
-  if (newMenu || response.candidates.length > 0) delete memory.activeBeer;
+  if (acceptedNewMenu || response.candidates.length > 0) delete memory.activeBeer;
 
   // ── Update activeBeer from picks (use topPick as the active beer) ──
   if (memory.lastPicks?.topPick?.candidateId) {
@@ -176,8 +182,10 @@ export async function updateShortTermMemory(
     }
   }
 
-  const newConstraints = extractConstraints(newMenu && hasNamedMenuItems(parsedInput.items) ? parsedInput.requestText : lastUserText);
-  memory.currentConstraints = mergeConstraints(newMenu ? [] : memory.currentConstraints ?? [], newConstraints);
+  if (!newMenu || acceptedNewMenu) {
+    const newConstraints = extractConstraints(acceptedNewMenu && hasNamedMenuItems(parsedInput.items) ? parsedInput.requestText : lastUserText);
+    memory.currentConstraints = mergeConstraints(acceptedNewMenu ? [] : memory.currentConstraints ?? [], newConstraints);
+  }
 
   // ── Append to recentTurns ──
   memory.recentTurns.push({

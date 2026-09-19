@@ -5,6 +5,7 @@ import { scoreCandidates } from './scoring.ts';
 import { selectPicks } from './pick-selector.ts';
 import { purchaseScope, purchaseDecision } from './purchase.ts';
 import { buildRecommendationReply } from './reply-builder.ts';
+import { applyPricePreference, strictPricePreferenceId } from './price-comparison.ts';
 
 /** One decision path for image, text and follow-ups. Keep menu facts; constrain picks. */
 export function recommendFromCandidates(candidates: BeerCandidate[], profile: ProfileMemory|null, constraints: string[], memoryEnabled: boolean, requestText = "") {
@@ -17,23 +18,28 @@ export function recommendFromCandidates(candidates: BeerCandidate[], profile: Pr
   }
   const scored = scoreCandidates([...unique.values()].map(c=>({...c,sourceRiskFlags:c.sourceRiskFlags??c.riskFlags,riskFlags:c.sourceRiskFlags??c.riskFlags,price:c.price??null,volumeMl:c.volumeMl??null,rating:c.untappdScore??null,ratingsCount:c.untappdRatingCount??null})),profile,constraints,memoryEnabled);
   const scope = purchaseScope(scored, requestText);
-  const failures = new Map(scored.map(c=>[c.candidateId, constraintFailures(c,constraints)]));
+  const failures = new Map(scored.map(c=>[c.candidateId, constraintFailures(c,requestText ? constraints.filter(x=>!x.startsWith('priceGoal:')) : constraints)]));
   let eligible = scope.rows.filter(c=>!failures.get(c.candidateId)?.length);
   const bitter = /ipa|bitter|double|triple|印度|西海岸/i;
   if (constraints.includes('不苦') && !constraints.includes('IPA')) {
     const approachable = eligible.filter(c=>c.style && !bitter.test(c.style));
     if (approachable.length) eligible=approachable;
   }
+  eligible = applyPricePreference(eligible,constraints);
   const purchase = purchaseDecision(eligible, requestText, scope.explicit);
-  const picks = scope.error ? selectPicks([]) : purchase?.picks ?? selectPicks(eligible);
+  const picks = scope.error ? selectPicks([]) : purchase?.picks ?? selectPicks(eligible,strictPricePreferenceId(eligible,constraints));
+  const eligibleById = new Map(eligible.map(candidate=>[candidate.candidateId,candidate]));
   const reply = scope.error ?? purchase?.reply ?? (eligible.length ? buildRecommendationReply(picks,eligible)
-    : scored.length ? '酒单上没有可以确认符合当前预算、风格或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格/酒精度。'
+    : scored.length ? '酒单上没有可以确认符合当前预算、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、IBU 或酒精度。'
       : '没有识别到可确认的酒款，请补充清晰酒单或具体酒名。');
   return {
     reply,picks,
-    candidates: scored.map(c=>({
+    candidates: scored.map(original=>{
+      const c=eligibleById.get(original.candidateId)??original;
+      return ({
       ...c, hops:c.hops??[], evidence:c.evidence??[], untappdScore:c.rating??null, untappdRatingCount:c.ratingsCount??null,
       riskFlags:[...new Set([...c.riskFlags,...(failures.get(c.candidateId)??[])])],
-    } as BeerCandidate)),
+      } as BeerCandidate);
+    }),
   };
 }

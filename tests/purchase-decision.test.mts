@@ -43,3 +43,6 @@ test('foreign or unknown currencies and mixed serving modes do not get a value w
  const r=run([{...c('A',1,60,300),currency:'CNY',servingMode:'draught'},{...c('B',7,10,500),currency:'CNY',servingMode:'draught',...props}],'哪款单位价低？');assert.equal(r.picks.topPick.candidateId,'');assert.match(r.reply,/币种|消费形式/);
  }
 });
+test('foreign currency price cannot satisfy a yuan budget',()=>{
+ const r=run([{...c('A',1,10,300),currency:'USD'}],'预算50元，给我推荐');assert.equal(r.picks.topPick.candidateId,'');
+});

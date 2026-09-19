@@ -51,3 +51,6 @@ data/crawler/untappd/.state.json*
 data/crawler/ratebeer/beers.jsonl*
 data/crawler/ratebeer/.state.json*
 output/playwright/
+flux/.local
+flux/changes
+log/

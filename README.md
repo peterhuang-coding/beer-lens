@@ -24,7 +24,7 @@ Beer Lens 的核心目标是帮助用户做出有依据的购买选择：先满�
 
 **当前为实验版本。** OCR、候选解析和反馈写入仍有已知缺陷；从反馈到 Skill 改进、评测和发布的完整闭环在规划中。具体边界见 [测试说明](docs/testing.md)。
 
-预算筛选已有实现；**单位价对比、差价解释与可靠的性价比推荐尚需完善**。下面的主示例明确展示要交付的购买体验，现有能力与验收要求见 [购买决策设计](docs/purchase-decision.md)。
+预算、ABV 与 IBU 数值约束已有确定性过滤；当前菜单内的单位价、总价差和价格目标已进入推荐回复。**跨门店／市场报价、币种与消费形式的可靠比较仍未实现**。下面的主示例展示购买体验，现有能力与验收要求见 [购买决策设计](docs/purchase-decision.md)。
 
 产品后续方向与协作入口：[调研待办与白班决策](docs/product-research-backlog.md) · [Notion 决策页](https://app.notion.com/p/3db3285284df81e397d1e520c2f7fece)（需访问权限）。
 
@@ -32,7 +32,7 @@ Beer Lens 的核心目标是帮助用户做出有依据的购买选择：先满�
 
 ### 主场景：预算内，买哪杯更值得？
 
-**目标体验示例，尚非当前模型的实测输出。** 价格和容量取自下方真实测试酒单；单位价已经计算核对。
+**目标体验示例，尚非当前图片模型的实测输出。** 价格和容量取自下方真实测试酒单；同口径的预算、单位价和差价逻辑已有自动测试。
 
 [![购买决策示例使用的酒单原图](tests/fixtures/tap-list.jpg)](tests/fixtures/tap-list.jpg)
 
@@ -143,6 +143,20 @@ Beer Lens 的核心目标是帮助用户做出有依据的购买选择：先满�
 
 ## 快速开始
 
+### 只安装消费决策 Skill
+
+面向最终用户的便携版本位于 [`skills/beer-lens/`](skills/beer-lens/)。把该目录复制到兼容 Agent 的 Skills 目录即可；它不要求最终用户登录 Untappd，也不依赖本仓库的私有数据库。宿主负责读取图片或文本，随 Skill 分发的确定性脚本负责预算、IBU、单位价与差价判断。
+
+仓库内可以直接验证决策 helper：
+
+```bash
+npm run skill:decide -- --input skills/beer-lens/examples/menu.json
+```
+
+公共评分查询属于可选证据；无法访问时仍应依据菜单价量和用户约束完成可解释的降级回答。
+
+### 运行完整开发项目
+
 需要 **Node.js 22.19+**、npm 和 **Python 3.9+**（SQLite 查询使用）。
 
 ```bash
@@ -191,14 +205,15 @@ npm run benchmark:images                           # 对运行中的服务做图
 
 ### 接下来要完成
 
-- [ ] 修复候选解析、否定偏好和反馈归因，并验收实际记忆变化。
-- [ ] 打通单位价比较、差价解释和价格缺失时的澄清，交付购买决策主示例。
+- [x] 修复连续序号追问覆盖完整菜单的问题，并补充预算、IBU 与偏好路由回归。
+- [x] 打通当前菜单内的单位价比较、差价解释和价格／容量缺失提示，提供便携消费决策 Skill。
+- [ ] 修复剩余候选解析、否定偏好和反馈归因问题，并验收实际记忆变化。
 - [ ] 统一执行记录、Cases 与参考答案，补足字段级图片评测。
 - [ ] 接入新增数据，建立有界补采、去重与质量缺口回写流程。
 - [ ] 建立 Skill 新旧版本对照、独立样本验证和人工发布／回退流程。
 
 ## 开发文档
 
-[购买决策设计](docs/purchase-decision.md) · [开发与架构](docs/development.md) · [数据资产](docs/data-assets.md) · [测试与已知问题](docs/testing.md) · [同类项目与定位](docs/positioning.md) · [数据升级设计](docs/superpowers/specs/2026-09-11-data-upgrade-crawler-design.md)
+[购买决策设计](docs/purchase-decision.md) · [R1 现场购买调研](docs/r1-onsite-purchase-research.md) · [开发与架构](docs/development.md) · [数据资产](docs/data-assets.md) · [测试与已知问题](docs/testing.md) · [同类项目与定位](docs/positioning.md) · [数据升级设计](docs/superpowers/specs/2026-09-11-data-upgrade-crawler-design.md)
 
 欢迎通过 [Issues](https://github.com/peterhuang-coding/beer-lens/issues) 提供可复现的问题：输入样本、预期结果、实际结果和运行版本，能直接帮助我们改进下一次点单体验。分享前请去除个人信息与密钥。

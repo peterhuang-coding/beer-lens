@@ -1,5 +1,5 @@
-import { offerText } from './purchase.ts';
 import type { PickResult, ScoredCandidate } from "./types";
+import { formatOffer, pricePer100ml } from './price-comparison.ts';
 
 /**
  * Build a Chinese recommendation reply from the four picks.
@@ -40,7 +40,7 @@ export function buildRecommendationReply(
   function reasonLine(candidate: ScoredCandidate | undefined, fallbackReason: string): string {
     if (!candidate) return fallbackReason;
 
-    const parts: string[] = [offerText(candidate)];
+    const parts: string[] = [];
 
     // Objective info always first
     if (candidate.objectiveReasons && candidate.objectiveReasons.length > 0) {
@@ -99,7 +99,21 @@ export function buildRecommendationReply(
   for (const role of roles) {
     if (!role.candidate || seen.has(role.candidate.candidateId)) continue;
     seen.add(role.candidate.candidateId);
-    lines.push(`${seen.size}. ${role.candidate.displayName} - ${role.reason}`);
+    const offer = formatOffer(role.candidate);
+    lines.push(`${seen.size}. ${role.candidate.displayName}${offer ? ` · ${offer}` : " · 价格/容量待确认"} - ${role.reason}`);
+  }
+  const alternative = [safe, explore, ...candidates].find((candidate) => candidate && candidate.candidateId !== top?.candidateId);
+  if (top && alternative && top.price != null && alternative.price != null) {
+    const totalDelta = alternative.price - top.price;
+    const totalText = totalDelta === 0
+      ? '单次购买总价相同'
+      : `单次购买${totalDelta > 0 ? `多花 ¥${formatDelta(totalDelta)}` : `少花 ¥${formatDelta(-totalDelta)}`}`;
+    const topUnit = pricePer100ml(top);
+    const alternativeUnit = pricePer100ml(alternative);
+    const unitText = topUnit != null && alternativeUnit != null
+      ? `；单位价${alternativeUnit === topUnit ? '相同' : alternativeUnit > topUnit ? `高约 ¥${formatDelta(alternativeUnit - topUnit)}/100ml` : `低约 ¥${formatDelta(topUnit - alternativeUnit)}/100ml`}`
+      : '';
+    lines.push('', `价量对比：${alternative.displayName} 相对 ${top.displayName}，${totalText}${unitText}。`);
   }
   lines.push("", `最稳：${safeName}`);
   if (explore && explore.candidateId !== top?.candidateId) lines.push(`最值得尝新：${exploreName}`);
@@ -114,4 +128,8 @@ export function buildRecommendationReply(
   if (cautionNote) lines.push(cautionNote);
 
   return lines.join("\n");
+}
+
+function formatDelta(value: number): string {
+  return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/0+$/, '').replace(/\.$/, '');
 }

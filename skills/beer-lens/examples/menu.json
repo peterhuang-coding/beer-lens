@@ -1,0 +1,14 @@
+{
+  "currency": "CNY",
+  "constraints": {
+    "maxPrice": 70,
+    "preferredStyles": ["lager"],
+    "notBitter": true,
+    "priceGoal": "balanced"
+  },
+  "offers": [
+    {"index": 7, "name": "科隆", "style": "Kölsch", "price": 55, "volumeMl": 425, "abv": 4.8, "ibu": null},
+    {"index": 1, "name": "年轻领主", "style": "Czech Pilsner", "price": 60, "volumeMl": 425, "abv": 5.0, "ibu": null},
+    {"index": 3, "name": "赛博暴龙", "style": "West Coast IPA", "price": 85, "volumeMl": 425, "abv": 6.8, "ibu": null}
+  ]
+}

@@ -33,11 +33,11 @@ export function purchaseDecision(rows: ScoredCandidate[], request: string, expli
   const value=/性价比|划算|值得买|值不值|单位价|每\s*100\s*ml|价差|差价|比价|最便宜/i.test(request);
   if(!value&&!explicit) return null;
   if(!rows.length) return null;
+  const facts=rows.map(c=>`第${c.menuIndex||'?'}号 ${c.displayName}：${offerText(c)}${positive(c.abv)?`；ABV ${c.abv}%`:''}。`);
+  if(rows.some(c=>unitPrice(c)==null))return {picks:selectPicks([]),reply:[...facts,'价格或容量信息缺失，无法可靠比较性价比。请补充实际报价、容量、币种和堂饮/外带规格；评分不能代替价格证据。'].join('\n')};
   const currencies = new Set(rows.map(c=>c.currency??'CNY'));
   const modes = new Set(rows.map(c=>c.servingMode??'legacy'));
   if(currencies.size!==1 || !currencies.has('CNY') || modes.size!==1 || modes.has('unknown')) return {picks:selectPicks([]),reply:'当前只支持同币种人民币、同消费形式的价量比较。币种或消费形式未知/不一致，请补充确认，不作跨币种或堂饮与外带的性价比排名。'};
-  const facts=rows.map(c=>`第${c.menuIndex||'?'}号 ${c.displayName}：${offerText(c)}${positive(c.abv)?`；ABV ${c.abv}%`:''}。`);
-  if(rows.some(c=>unitPrice(c)==null))return {picks:selectPicks([]),reply:[...facts,'价格或容量信息缺失，无法可靠比较性价比。请补充实际报价、容量、币种和堂饮/外带规格；评分不能代替价格证据。'].join('\n')};
   const volume=request.match(/(?:只想喝|想喝|要喝|容量(?:为|是)?|想要)\s*(\d+(?:\.\d+)?)\s*ml/i);
   const desired=volume?Number(volume[1]):null;
   const byUnit=/单位价.*(?:低|比较)|哪.*单位价|每\s*100\s*ml.*(?:低|便宜)|按单位价/i.test(request);

@@ -46,3 +46,8 @@ test('foreign or unknown currencies and mixed serving modes do not get a value w
 test('foreign currency price cannot satisfy a yuan budget',()=>{
  const r=run([{...c('A',1,10,300),currency:'USD'}],'预算50元，给我推荐');assert.equal(r.picks.topPick.candidateId,'');
 });
+test('missing offer facts are explained even when image currency and serving are unknown',()=>{
+ const rows=[{...c('Lunch',1,null,null),currency:'unknown',servingMode:'unknown'},{...c('Dinner',2,null,null),currency:'unknown',servingMode:'unknown'}];
+ const r=run(rows,'Lunch和Dinner哪款性价比高？');
+ assert.equal(r.picks.topPick.candidateId,'');assert.match(r.reply,/价格.*容量.*缺失/);assert.match(r.reply,/补充实际报价/);
+});

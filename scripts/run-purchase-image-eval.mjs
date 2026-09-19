@@ -5,18 +5,21 @@ import {randomUUID,createHash} from 'node:crypto';
 import path from 'node:path';
 const out=path.resolve(process.env.REPORT_DIR??'docs/test-results/2026-09-18-purchase');
 const tap='tests/fixtures/tap-list.jpg', ad='public/test-assets/marketing-lunch-dinner.png';
-const cases=[
+const allCases=[
 {id:'budget70',image:tap,query:'预算70元，第一杯想清爽一点、不太苦。请从这张酒单选一杯，并给一个备选，写出两者价格、容量和差价。',expected:'候选必须在70元内；#7科隆55/425ml与#1年轻领主60/425ml是合理首选/备选，差5元；不凭风格断言实际苦度。'},
 {id:'budget50',image:tap,follow:true,query:'预算改为50元以内，只推荐符合预算的；没有就告诉我没有。',expected:'沿用上一轮图片；可读完整菜单最低55元，无符合者，不推荐超预算或未知价格酒款。'},
 {id:'same-volume',image:tap,query:'只比较第1号年轻领主和第7号科隆，我两种风格都接受。哪款单位价低？请列杯价、容量、每100ml价格和差价，不要拿评分代替性价比。',expected:'年轻领主60元/425ml=14.12元/100ml；科隆55元/425ml=12.94元/100ml；科隆便宜5元。价格结论不等于品质结论。'},
 {id:'volume-choice',image:tap,query:'只比较第3号赛博暴龙和第18号甜甜圈波士顿奶油，两款都是85元。我这次只想喝300ml左右，也接受这两种风格。请算每100ml价格，并解释该选哪杯；不要只因为容量大就推荐。',expected:'赛博暴龙85/425=20元/100ml；#18为85/300=28.33元/100ml。前者单位价低，后者容量更合本次需求；应说明后者11.5%与前者7.2%的酒精度差异，允许有理由的澄清而非唯一硬标签。'},
 {id:'missing-price',image:ad,query:'Lunch和Dinner哪款性价比更高、值得买？请比较实际价格和每100ml价格；图片没有的不要猜。',expected:'广告没有价格或容量，不能计算单位价、价差或确定性价比赢家；应索取报价/规格。广告评分不能代替价量证据。'}
 ];
+const selected=process.env.CASE_IDS?.split(',');
+const cases=selected?allCases.filter(c=>selected.includes(c.id)):allCases;
+if(selected?.some(id=>!allCases.some(c=>c.id===id))||!cases.length||cases.some(c=>c.follow&&!cases.some(p=>p.id==='budget70')))throw new Error('Select known cases; budget50 requires budget70');
 await mkdir(out,{recursive:true});
 await mkdir(path.join(out,'images'),{recursive:true});
 const assets=[];
 for(const src of [tap,ad]){const bytes=await readFile(src);await copyFile(src,path.join(out,'images',path.basename(src)));assets.push({src,sha256:createHash('sha256').update(bytes).digest('hex')});}
-const report={startedAt:new Date().toISOString(),head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),runtime:'existing production build; build source commit not attested',scope:'5 scenarios × 2 APIs; 2 unique originals; follow-up reuses prior image and cookie; not a population accuracy estimate',assets,cases,results:[]};
+const report={startedAt:new Date().toISOString(),head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),runtime:process.env.EVAL_BUILD_COMMIT ? `fresh production build at ${process.env.EVAL_BUILD_COMMIT}; build ID ${await readFile('.next/BUILD_ID','utf8')}` : 'existing production build; build source commit not attested',scope:`${cases.length} scenarios × 2 APIs; follow-up reuses prior image and cookie; not a population accuracy estimate`,assets,cases,results:[]};
 await writeFile(path.join(out,'manifest.json'),JSON.stringify({scope:report.scope,assets,cases},null,2));
 const save=()=>writeFile(path.join(out,'results.json'),JSON.stringify(report,null,2));
 for(const endpoint of ['/api/chat','/api/agent']){

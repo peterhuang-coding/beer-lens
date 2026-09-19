@@ -19,7 +19,7 @@ async function finish(ctx: AgentContext, candidates: BeerCandidate[], requestTex
   const profile = memoryEnabled ? await getProfileMemory(ctx.userId).catch(()=>null) : null;
   const stm = newMenu ? null : await readShortTermMemory(ctx.conversationId,ctx.userId);
   const constraints = mergeConstraints(stm?.currentConstraints??[],extractConstraints(requestText));
-  return {skillId:"recommend",...recommendFromCandidates(candidates,profile,constraints,memoryEnabled),profileSummary:profile?.summary??"",errors:[]};
+  return {skillId:"recommend",...recommendFromCandidates(candidates,profile,constraints,memoryEnabled,requestText),profileSummary:profile?.summary??"",errors:[]};
 }
 
 async function handleImage(ctx: AgentContext): Promise<SkillResult> {
@@ -42,7 +42,7 @@ async function handleFollowUp(ctx: AgentContext): Promise<SkillResult> {
   }));
   if (!candidates.length) return {skillId:ctx.messages.some(m=>m.role==="assistant")?"follow-up-filter":"fallback",reply:"我还没有可核验的完整酒单上下文。请重新发一下酒单图片或具体酒名和价格，我再按你的要求筛选。",candidates:[],picks:emptyPicks(),profileSummary:ctx.profileSummary??"",errors:[]};
   const ordinal = parseOrdinalReference(ctx.lastUserText);
-  if (ordinal != null) {
+  if (ordinal != null && !/比较|比价|价差|差价|性价比|单位价/.test(ctx.lastUserText)) {
     const menuCandidate = candidates.find((candidate, index) => (candidate.menuIndex ?? index + 1) === ordinal);
     const rankedIds = [stm?.lastPicks?.topPick?.candidateId, stm?.lastPicks?.safePick?.candidateId, stm?.lastPicks?.explorePick?.candidateId]
       .filter((candidateId, index, all): candidateId is string => !!candidateId && all.indexOf(candidateId) === index);

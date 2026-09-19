@@ -75,7 +75,7 @@ export async function runLiveCrawl(opts: LiveRunOptions): Promise<LiveRunResult>
       return page.html;
     };
     if (opts.signal?.aborted) return { ...result, interrupted: true };
-    const listUrl = args.source === 'untappd' ? 'https://untappd.com/beers/top' : RATEBEER_CHINA_LIST_URL;
+    const listUrl = args.source === 'untappd' ? 'https://untappd.com/beer/top_rated' : RATEBEER_CHINA_LIST_URL;
     const html = await fetchHtml(listUrl);
     const entries = args.source === 'untappd' ? parseList(html) : parseRatebeerList(html);
     if (!entries.length) throw new Error(`No beer links parsed from ${listUrl}; check access or selectors`);

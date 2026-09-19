@@ -424,6 +424,28 @@ def upsert_untappd(payload) -> dict:
 # ── Search ──
 
 
+def _ambiguous_exact_name(con, query: str) -> bool:
+    """Check exact-name evidence before source priority or fuzzy fallback.
+
+    Popularity and a verified row do not disambiguate a bare shared name.
+    Source-local row IDs cannot identify duplicates across databases.
+    """
+    normalized = query.replace("'", "").replace("’", "")
+    rows = []
+    for table in ('beer_cache', 'untappd_cache', 'beers'):
+        rows.extend(con.execute(
+            f"SELECT brewery, abv FROM {table} "
+            "WHERE REPLACE(REPLACE(LOWER(name), CHAR(39), ''), '’', '') = ?",
+            (normalized,),
+        ).fetchall())
+    if not rows:
+        return False
+    breweries = {re.sub(r'\s+', ' ', str(row['brewery'] or '').strip().lower()) for row in rows}
+    strengths = {round(row['abv'], 1) for row in rows if isinstance(row['abv'], (int, float))}
+    # Missing brewery or conflicting strengths require more identity evidence.
+    return '' in breweries or len(breweries) > 1 or len(strengths) > 1
+
+
 def search_beer(query: str, limit: int = 5) -> list[dict]:
     """Search beer_cache (verified, priority), untappd_cache, then RateBeer."""
     con = _connect()
@@ -435,6 +457,10 @@ def search_beer(query: str, limit: int = 5) -> list[dict]:
     q = re.sub(r'\s+', ' ', query.strip().lower())
     results = []
     if not q:
+        con.close()
+        return []
+
+    if _ambiguous_exact_name(con, q):
         con.close()
         return []
 

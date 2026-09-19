@@ -25,12 +25,14 @@
 | [`data/`](../data/) | 种子、配置和回归任务等项目数据 |
 | [`public/test-assets/`](../public/test-assets/) | 酒单、酒罐和营销卡片测试图片 |
 
-2026-09-12 本机只读检查的表行数为：
+2026-09-19 本机完成备份、增量导入后的快照：
 
 | 表 | 行数 |
 | :--- | ---: |
 | `beers` | 14,228 |
-| `untappd_cache` | 50,629 |
+| `untappd_cache` | 51,267 |
+| `venue_observations` | 2,565 |
+| `crawl_jobs` | 10,930 |
 | `beer_cache` | 0 |
 
 这是一个本地快照，不是实时统计。不同表可能覆盖同一酒款，不能相加当作去重酒款数，也不表示全部记录已人工核验。
@@ -43,6 +45,19 @@
 
 ## 下一阶段
 
-新增门店数据、价格与采集资产已有 [升级设计](superpowers/specs/2026-09-11-data-upgrade-crawler-design.md)。待完成的工作包括：增量导入与去重、门店和时间维度的价格记录、持久化质量缺口队列，以及有数量边界的补采与回写。
+新增资产已完成增量导入、去重、带来源与时间的价格观察记录和持久化缺口队列。完整队列执行、退避重试及质量缺口回写仍待完成，见 [本轮验证](validation-2026-09-19.md)。已有 [升级设计](superpowers/specs/2026-09-11-data-upgrade-crawler-design.md) 保留为后续路线。
 
 已有采集入口、目标清单和巡检工具可复用，见 [开发文档](development.md#采集与巡检)。生成了一份采集清单，不代表已经执行采集或更新主库。
+
+## 可重复的增量导入
+
+```bash
+python3 scripts/beer-data-assets.py --source /path/to/source/beer.db --target .beer-data/beer.db
+# 默认仅预演；核对统计后增加 --apply，执行前自动备份目标库
+python3 scripts/beer-data-assets.py --source /path/to/source/beer.db --target .beer-data/beer.db --apply --report /tmp/import-report.json
+npm run test:data
+```
+
+源库只读。已有非空字段不被覆盖；差异和非法字段进入审计，价格观察按内容去重，价格变化保留新记录。重复执行应新增零条；事务失败回滚。备份路径写入报告。数据库与原始报告保留本地，不随本轮代码提交。
+
+本次新增 638 款酒，补齐 3 个空字段，保留目标独有 9 款。2,565 条价格中有 232 条通过结构和实体对应检查；这不等于当前有效或人工核实的价格。样本全部为外币，不能直接作为中国市场报价或跨币种排名。33 条零价、8,880 条停产提示风格文本被审计；59,378 条字段差异包含更新时间差异，不是同等数量的错误酒款。

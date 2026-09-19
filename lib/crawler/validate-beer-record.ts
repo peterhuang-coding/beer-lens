@@ -118,6 +118,10 @@ export function validateBeerRecord(input: unknown, options: { allowEmptyArrays?:
     fail("rating", 'Field "rating" must be between 0 and 5');
   }
 
+  if (typeof input.abv === "number" && (input.abv < 0 || input.abv > 100)) fail("abv", 'ABV must be between 0 and 100');
+  if (typeof input.ibu === "number" && input.ibu < 0) fail("ibu", 'IBU must be nonnegative');
+  if (typeof input.rating_count === "number" && (!Number.isSafeInteger(input.rating_count) || input.rating_count < 0)) fail("rating_count", 'Rating count must be a nonnegative safe integer');
+
   for (const field of ["labels", "food_pairing", "similar_ids"] as const) {
     requireNonEmptyStringArray(input, field, options.allowEmptyArrays);
   }

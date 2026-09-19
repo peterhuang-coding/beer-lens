@@ -53,6 +53,8 @@ export type BeerCandidate = {
   breweryCountry?: string | null;
   labelImage?: string | null;
   // pricing
+  currency?: string;
+  servingMode?: string;
   price?: number | null;
   volumeMl?: number | null;
   pricePerMl?: number | null;

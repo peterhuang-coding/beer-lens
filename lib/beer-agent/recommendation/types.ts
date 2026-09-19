@@ -16,6 +16,8 @@ export type ScoredCandidate = {
   brewery: string;
   style: string;
   abv: number;
+  currency?: string;
+  servingMode?: string;
   price: number | null;
   volumeMl: number | null;
   worthScore: number;

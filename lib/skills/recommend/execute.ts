@@ -19,7 +19,7 @@ async function finish(ctx: AgentContext, candidates: BeerCandidate[], requestTex
   const profile = memoryEnabled ? await getProfileMemory(ctx.userId).catch(()=>null) : null;
   const stm = newMenu ? null : await readShortTermMemory(ctx.conversationId,ctx.userId);
   const constraints = mergeConstraints(stm?.currentConstraints??[],extractConstraints(requestText));
-  return {skillId:"recommend",...recommendFromCandidates(candidates,profile,constraints,memoryEnabled),profileSummary:profile?.summary??"",errors:[]};
+  return {skillId:"recommend",...recommendFromCandidates(candidates,profile,constraints,memoryEnabled,requestText),profileSummary:profile?.summary??"",errors:[]};
 }
 
 async function handleImage(ctx: AgentContext): Promise<SkillResult> {

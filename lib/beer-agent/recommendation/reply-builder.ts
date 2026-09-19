@@ -1,3 +1,4 @@
+import { offerText } from './purchase.ts';
 import type { PickResult, ScoredCandidate } from "./types";
 
 /**
@@ -39,7 +40,7 @@ export function buildRecommendationReply(
   function reasonLine(candidate: ScoredCandidate | undefined, fallbackReason: string): string {
     if (!candidate) return fallbackReason;
 
-    const parts: string[] = [];
+    const parts: string[] = [offerText(candidate)];
 
     // Objective info always first
     if (candidate.objectiveReasons && candidate.objectiveReasons.length > 0) {

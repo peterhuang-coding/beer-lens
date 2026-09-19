@@ -33,7 +33,9 @@
     "inspector": "node scripts/skill-inspector.mjs",
     "hub:serve": "node scripts/skill-hub-server.mjs",
     "crawl:cli": "node --experimental-strip-types bin/beer-lens-crawl.mjs",
-    "check": "npm test && npm run typecheck && npm run build"
+    "check": "npm test && npm run test:data && npm run typecheck && npm run build",
+    "test:data": "python3 -m unittest discover -s tests/python",
+    "data:assets": "python3 scripts/beer-data-assets.py"
   },
   "bin": {
     "beer-lens": "scripts/cli.mjs",

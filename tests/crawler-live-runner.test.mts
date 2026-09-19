@@ -14,7 +14,7 @@ class FixtureDriver implements CrawlDriver {
   listStatus = 200;
   async fetchPage(url: string) {
     this.calls.push(url);
-    const isList = url.endsWith('/top');
+    const isList = (url.endsWith('/top') || url.endsWith('/top_rated'));
     const id = url.split('/').at(-1);
     return { url, status: isList ? this.listStatus : id === this.failedId ? 503 : 200, retry_after_ms: null,
       html: isList ? [1, 2, 3, 4].map(n => `<a href="/b/beer-${n}/${n}">Beer ${n}</a>`).join('')
@@ -32,6 +32,7 @@ test('live runner fetches only reserved limit and writes complete records with e
   await temporary(async outputDir => {
     const driver = new FixtureDriver();
     const result = await runLiveCrawl({ args: args(), driver, outputDir });
+    assert.equal(driver.calls[0], "https://untappd.com/beer/top_rated");
     assert.equal(result.done, 2); assert.equal(result.failed, 0); assert.equal(driver.calls.length, 3); assert.equal(driver.closed, true);
     const lines = (await readFile(join(outputDir, 'beers.jsonl'), 'utf8')).trim().split('\n').map(line => JSON.parse(line));
     assert.equal(lines.length, 3); assert.ok(lines[0]._meta);
@@ -106,7 +107,7 @@ test('runner rejects a successful HTTP page containing no beer fields', async ()
     const fetch = driver.fetchPage.bind(driver);
     driver.fetchPage = async url => {
       const page = await fetch(url);
-      if (!url.endsWith('/top')) page.html = '<h1>Access challenge</h1>';
+      if (!(url.endsWith('/top') || url.endsWith('/top_rated'))) page.html = '<h1>Access challenge</h1>';
       return page;
     };
     const result = await runLiveCrawl({ args: args(), driver, outputDir });

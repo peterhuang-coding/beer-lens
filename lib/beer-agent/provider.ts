@@ -203,7 +203,9 @@ function ocrItemToCandidate(
 ): BeerCandidate {
   const base: BeerCandidate = {
     candidateId: `ocr_${idx + 1}`,
-    menuIndex: item.menuIndex || idx + 1,
+    menuIndex: typeof item.menuIndex === "number" && Number.isInteger(item.menuIndex) && item.menuIndex > 0 ? item.menuIndex : 0,
+    currency: item.currency,
+    servingMode: item.servingMode,
     displayName: item.beerName?.trim() || `Unknown #${idx + 1}`,
     brewery: item.brewery?.trim() || "",
     style: item.style?.trim() || "",

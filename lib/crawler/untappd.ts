@@ -9,7 +9,7 @@ export class UntappdCrawler {
   constructor(config: UntappdCrawlerConfig) { this.driver = config.driver; this.opts = { ...defaults, ...config.opts, concurrency: Math.min(4, Math.max(1, config.opts.concurrency ?? 2)) }; }
   async *run(): AsyncIterable<BeerRecord> {
     const cookie: CookieRef = this.opts.cookies[0] ?? { name: 'fixture', file: 'fixture', qps_per_cookie: 1 };
-    const listUrl = 'https://untappd.com/beers/top'; let entries: ReturnType<typeof parseList> = [];
+    const listUrl = 'https://untappd.com/beer/top_rated'; let entries: ReturnType<typeof parseList> = [];
     if (this.opts.dry_run && !this.driver) return;
     if (this.driver) { const page = await this.driver.fetchPage(listUrl, { cookie, jitter_ms: 0, timeout_ms: 30000 }); entries = parseList(page.html); }
     entries = this.opts.limit == null ? entries : entries.slice(0, Math.max(0, this.opts.limit));

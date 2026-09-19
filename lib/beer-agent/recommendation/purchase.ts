@@ -1,5 +1,6 @@
 import type { ScoredCandidate, PickResult } from './types.ts';
 import { selectPicks } from './pick-selector.ts';
+import { chineseOrdinal } from './chinese-ordinal.ts';
 
 const positive = (n: unknown): n is number => typeof n === 'number' && Number.isFinite(n) && n > 0;
 export const unitPrice = (c: ScoredCandidate) => positive(c.price) && positive(c.volumeMl) ? c.price / c.volumeMl * 100 : null;
@@ -11,7 +12,9 @@ export function offerText(c: ScoredCandidate): string {
 
 /** Only explicit menu references select rows; budgets, ABV and serving digits never do. */
 export function purchaseScope<T extends ScoredCandidate>(rows: T[], request: string): { rows: T[]; error?: string; explicit: boolean } {
-  const numbers = [...request.matchAll(/(?:第\s*(\d+)\s*(?:号|款|个|杯)|#\s*(\d+)|(\d+)\s*号)/g)].map(m=>Number(m[1]??m[2]??m[3]));
+  const numbers = [...request.matchAll(/第\s*([一二两三四五六七八九十]{1,3})\s*(?:号|款|个|杯)|第\s*(\d+)\s*(?:号|款|个|杯)|#\s*(\d+)|(\d+)\s*号/g)]
+    .map(m => m[1] !== undefined ? chineseOrdinal(m[1]) : Number(m[2] ?? m[3] ?? m[4]))
+    .filter((n): n is number => n !== null);
   if (numbers.length) {
     const chosen: T[] = [];
     for (const n of new Set(numbers)) {

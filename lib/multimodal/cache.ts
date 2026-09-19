@@ -1,7 +1,7 @@
 /**
  * Vision call cache.
  *
- * Keys are sha256(capability_id + prompt + schema + image_base64 + mime),
+ * Keys are sha256(capability_id + effective request + provider chain),
  * truncated to 32 hex chars (still 128 bits of entropy — collision-proof at
  * any plausible scale). Values are the raw provider response string.
  *
@@ -13,7 +13,7 @@
  */
 
 import { createHash } from "node:crypto";
-import type { CapabilityInput } from "./types.ts";
+import type { CapabilityInput, ProviderSpec } from "./types.ts";
 
 const MAX_ENTRIES = 32;
 const DEFAULT_TTL_MS = 60_000;
@@ -39,19 +39,28 @@ export function getCacheTtl(): number {
  * If a schema is provided, the schema JSON is mixed in so two different
  * capability calls with the same image don't collide.
  */
-export function computeKey(capabilityId: string, input: CapabilityInput): string {
+export function computeKey(
+  capabilityId: string,
+  input: CapabilityInput,
+  providerSpecs: ProviderSpec[] = [],
+): string {
   const h = createHash("sha256");
+  h.update("\x00capability\x00");
   h.update(capabilityId);
   h.update("\x00prompt\x00");
   h.update(input.prompt);
-  if (input.schema) {
-    h.update("\x00schema\x00");
-    h.update(JSON.stringify(input.schema));
-  }
+  h.update("\x00schema_name\x00");
+  h.update(input.schemaName ?? "");
+  h.update("\x00max_tokens\x00");
+  h.update(String(input.maxTokens ?? ""));
+  h.update("\x00schema\x00");
+  h.update(input.schema === undefined ? "" : JSON.stringify(input.schema));
   h.update("\x00mime\x00");
   h.update(input.image.mime);
   h.update("\x00img\x00");
   h.update(input.image.base64);
+  h.update("\x00providers\x00");
+  h.update(JSON.stringify(providerSpecs));
   return h.digest("hex").slice(0, 32);
 }
 

@@ -6,10 +6,10 @@
  * What the container does on each call:
  *   1. emit `vision:enter` trace stage (with capability id, prompt preview)
  *   2. run `pre-vision` hard rules — short-circuit on `block`
- *   3. cache lookup by sha256(capability + prompt + schema + image)
- *      — on hit, emit `vision:cache_hit` and return
+ *   3. cache lookup by effective request + provider chain
+ *      — on hit, rerun post-vision rules, emit `vision:cache_hit` and return
  *   4. walk provider chain: for each provider spec, for each model,
- *      call → if success, cache, run `post-vision` rules, return
+ *      call → if success, run `post-vision` rules, cache accepted result, return
  *      — on failure, classify error, log `vision:attempt_fail`, continue
  *   5. all providers failed → emit `vision:all_failed`, throw
  *
@@ -131,11 +131,50 @@ async function call<T = unknown>(
     // Other rule-engine errors must never break the call
   }
 
-  // 3. cache lookup
-  const cacheKey = opts.bypassCache ? null : computeKey(capabilityId, input);
+  // 3. resolve the effective request and provider chain before consulting the
+  //    cache so per-call schema/model changes cannot reuse an old response.
+  const effectiveInput: CapabilityInput = {
+    ...input,
+    schema: opts.schema ?? input.schema ?? cap.schema,
+    schemaName: opts.schemaName ?? input.schemaName ?? cap.schemaName,
+    maxTokens: opts.maxTokens ?? input.maxTokens ?? 12_000,
+  };
+
+  const providerSpecs: ProviderSpec[] =
+    opts.providers ??
+    _config.capabilityProviders?.[capabilityId] ??
+    cap.defaultProviders ??
+    _config.fallbackProviders ??
+    [];
+
+  if (providerSpecs.length === 0) {
+    throw new VisionAllProvidersFailedError(
+      `No providers configured for capability ${capabilityId}`,
+    );
+  }
+
+  const cacheKey = opts.bypassCache
+    ? null
+    : computeKey(capabilityId, effectiveInput, providerSpecs);
   if (cacheKey) {
     const cached = getCache(cacheKey);
     if (cached !== null) {
+      try {
+        const parsed = tryParse(cached);
+        const ruleCtx: RuleCtx = {
+          message: input.prompt,
+          skill_id: capabilityId,
+          llm_response: parsed,
+        };
+        const outcome = runRulesForStage("post-vision", ruleCtx, trace);
+        if (outcome.action?.kind === "block") {
+          throw new VisionBlockedError(outcome.action.reason, capabilityId);
+        }
+      } catch (e) {
+        if (e instanceof VisionBlockedError) throw e;
+        // Other rule-engine errors must never break a cache hit.
+      }
+
       if (trace) {
         try {
           appendStage(trace.root_ts, trace.parent_ts, "vision:cache_hit", {
@@ -157,26 +196,6 @@ async function call<T = unknown>(
   }
 
   // 4. walk provider chain
-  const providerSpecs: ProviderSpec[] =
-    opts.providers ??
-    _config.capabilityProviders?.[capabilityId] ??
-    cap.defaultProviders ??
-    _config.fallbackProviders ??
-    [];
-
-  if (providerSpecs.length === 0) {
-    throw new VisionAllProvidersFailedError(
-      `No providers configured for capability ${capabilityId}`,
-    );
-  }
-
-  const effectiveInput: CapabilityInput = {
-    ...input,
-    schema: opts.schema ?? input.schema ?? cap.schema,
-    schemaName: opts.schemaName ?? input.schemaName ?? cap.schemaName,
-    maxTokens: opts.maxTokens ?? input.maxTokens ?? 12_000,
-  };
-
   const attempts: ProviderAttempt[] = [];
 
   for (const spec of providerSpecs) {
@@ -217,9 +236,9 @@ async function call<T = unknown>(
           } catch { /* ignore */ }
         }
 
-        if (cacheKey) setCache(cacheKey, raw);
-
         // post-vision rules — always run (governance isn't trace-dependent).
+        // Cache only after governance accepts the response. A VisionBlockedError
+        // is terminal and must not cause fallback to another provider/model.
         try {
           const parsed = tryParse(raw);
           const ruleCtx: RuleCtx = {
@@ -233,7 +252,10 @@ async function call<T = unknown>(
           }
         } catch (e) {
           if (e instanceof VisionBlockedError) throw e;
+          // Other rule-engine errors must never break the call.
         }
+
+        if (cacheKey) setCache(cacheKey, raw);
 
         return {
           raw,
@@ -245,6 +267,7 @@ async function call<T = unknown>(
           attempts,
         };
       } catch (err) {
+        if (err instanceof VisionBlockedError) throw err;
         const ve = classify(err, spec.provider, model);
         const durationMs = Date.now() - t0;
         attempts.push({

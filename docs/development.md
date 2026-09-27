@@ -14,9 +14,21 @@
 | `OPENROUTER_ANALYSIS_MODEL` | 可选；知识 Skill 使用，不设置时沿用代码默认值 |
 | `OPENROUTER_VISION_MODEL` | 可选；酒标 Skill 使用，应选择支持图片的模型 |
 | `VISION_FALLBACK_MODELS` | 可选；多阶段图像管线的视觉回退模型列表，以逗号分隔 |
+| `BEER_VISION_PROVIDER` | 可选；仅认 `coding-plan`。设置后 Agent 菜单图片、意图选择、知识文本走固定包接口；不设置保持 OpenRouter 现状，其他非空值在请求前失败 |
+| `CODING_PLAN_API_KEY` | 当 `BEER_VISION_PROVIDER=coding-plan` 时必需；包接口密钥，调用时读取 |
 | `DEBUG_API_TOKEN` | 可选；受保护的调试接口凭据 |
 
 可以使用同一提供者，但 `LLM_*` 与 `OPENROUTER_*` 目前仍是分别配置的调用路径。可选模型变量不使用时请省略，不要填空字符串覆盖默认值。修改环境变量后重启服务。
+
+包选择是显式 opt-in，作用范围只限 Agent 的菜单图片识别、意图技能选择和啤酒知识文本：
+
+```bash
+# 默认（省略即保持 OpenRouter 链路）
+# BEER_VISION_PROVIDER=coding-plan
+# CODING_PLAN_API_KEY=...
+```
+
+包模式固定端点与模型（`doubao-seed-evolving`，`max_tokens` 12000，thinking 开启），每次调用最多一个请求，没有重试或付费回退；调用方的消息原样发送，body/options 不会被修改。超时按调用方区分：新增文本 helper 的默认超时为 90000ms，显式传入正有限值时生效、上限 180000ms；知识调用显式传 45000ms，Agent 菜单图片路由显式传 180000ms，均不沿用文本 helper 的默认值。该选择不影响 Web `/api/chat` 的 `LLM_*`、旧 demo 或其他模块；缺少密钥、信号已取消等情况均零请求失败。这里的 12000/45000/90000/180000 都是选定的边界，不是实测质量或时延结论。
 
 ```bash
 npm ci

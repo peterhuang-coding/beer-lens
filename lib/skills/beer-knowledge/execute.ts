@@ -33,7 +33,7 @@ export async function execute(
   ctx: AgentContext,
   _params: Record<string, unknown>,
 ): Promise<SkillResult> {
-  const { openrouterFetch } = await import("@/lib/beer-agent/openrouter-client");
+  const { agentTextFetch } = await import("@/lib/beer-agent/text-client");
   const profileSummary = ctx.profileSummary ?? "";
 
   const history = ctx.messages
@@ -82,7 +82,7 @@ ${dbFacts}
 - 如果没有足够信息，诚实说，不要编造`;
 
   try {
-    const raw = await openrouterFetch({
+    const raw = await agentTextFetch({
       model: KNOWLEDGE_MODEL,
       messages: [
         { role: "system", content: systemPrompt },

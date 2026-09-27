@@ -34,6 +34,8 @@ npm run dev
 
 `/api/agent` will use OpenRouter when `OPENROUTER_API_KEY` is present.
 
+Optional package-only selection: set `BEER_VISION_PROVIDER=coding-plan` with `CODING_PLAN_API_KEY` to route Agent menu image, intent selection, and knowledge text through one fixed package endpoint with no OpenRouter key required. Leaving it unset preserves the legacy behavior above; any other nonblank value fails closed before a request. See [Feishu](#飞书长连接试用入口) for the long-connection setup flow.
+
 Local CLI demo:
 
 ```bash
@@ -117,7 +119,17 @@ Important:
 
 ### 飞书长连接试用入口
 
-`npm run feishu:check` 检查 `.env.local` 或应用运行环境中的 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`OPENROUTER_API_KEY`，只输出缺失字段名。该检查不验证凭据有效性。
+`npm run feishu:check` 检查 `.env.local` 或应用运行环境中的 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`，并按当前选择检查对应密钥（默认 `OPENROUTER_API_KEY`；`BEER_VISION_PROVIDER=coding-plan` 时为 `CODING_PLAN_API_KEY`），只输出缺失字段名。该检查不验证凭据有效性。
+
+```bash
+FEISHU_APP_ID=cli_xxx
+FEISHU_APP_SECRET=xxx
+# 可选：限定试用用户（逗号分隔的 open_id）
+# FEISHU_ALLOWED_OPEN_IDS=ou_xxx
+# 可选：Agent 菜单图片 + 意图选择 + 知识文本改走固定包接口
+# BEER_VISION_PROVIDER=coding-plan
+# CODING_PLAN_API_KEY=...
+```
 
 `npm run feishu:bot` 使用官方 SDK 建立长连接，和 HTTP 回调共用 `lib/feishu/handler.ts`。此入口只接收用户私聊；`FEISHU_ALLOWED_OPEN_IDS` 可进一步限定试用用户。收到事件后立即回执，同一聊天串行处理，重复事件去重。
 
@@ -125,9 +137,9 @@ Important:
 
 每个应用只运行一个本项目接收进程，使用可写、持久化的 `data/` 目录。进程需持续运行才能接收新消息；当前工作区的临时进程不等同于长期托管。长连接不经过 HTTP 回调的加密分支。
 
-飞书沿用 Agent Controller 的 OpenRouter 链路。Web `/api/chat` 的 `LLM_*` 配置不能替代这里的 `OPENROUTER_API_KEY`；视觉管线的模型设置仍由项目 `data/pipeline-config.json` 决定。
+飞书沿用 Agent Controller 的文本/图片链路：未设置 `BEER_VISION_PROVIDER` 的旧链路默认走 OpenRouter，此时视觉管线的模型设置仍由项目 `data/pipeline-config.json` 决定；显式设置 `BEER_VISION_PROVIDER=coding-plan` 后，菜单图片、意图选择和知识文本只走固定包接口、不再需要 `OPENROUTER_API_KEY`，该显式包选择会覆盖 `data/pipeline-config.json` 及调试界面保存的视觉链，统一使用单一固定 seed 包提供者。Web `/api/chat` 的 `LLM_*` 配置不能替代这里的密钥。该选择不覆盖旧 demo 或其他模块，包模式每次调用最多一个请求，无重试或付费回退。
 
-试用先私聊发送“你好”和“你能帮我做什么？”，再发真实酒单并追问预算、编号。接入检查与真实回答质量分别验收；预算、实体抽取、否定编号及容量更新已有离线修复回归，真实模型与飞书会话质量仍需单独验收。见[本次改动与验证](beer-lens/改动与验证.md)。
+试用先私聊发送“你好”和“你能帮我做什么？”，再发真实酒单并追问预算、编号。接入检查与真实回答质量分别验收；预算、实体抽取、否定编号及容量更新已有离线修复回归。**配置检查通过不等于凭据有效、长连接已连通或图片质量合格**：真实飞书会话与原始照片链路尚未测试，此前一次公网图片请求超时。见[本次改动与验证](beer-lens/改动与验证.md)。
 
 ## Provider Priority
 

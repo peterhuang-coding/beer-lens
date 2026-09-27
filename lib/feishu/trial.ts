@@ -1,13 +1,28 @@
 import { extractFeishuMessage, type FeishuEventPayload } from "./client.ts";
 
-const requiredKeys = ["FEISHU_APP_ID", "FEISHU_APP_SECRET", "OPENROUTER_API_KEY"] as const;
+const appKeys = ["FEISHU_APP_ID", "FEISHU_APP_SECRET"] as const;
+const legacyProviderKey = "OPENROUTER_API_KEY";
+const packageProviderKey = "CODING_PLAN_API_KEY";
+const packageProviderSelector = "coding-plan";
+const placeholderPattern = /^(?:<.*>|xxx|cli_xxx|replace.*|your[-_ ].*)$/i;
+
+function isMissingField(value: string | undefined) {
+  const trimmed = value?.trim();
+  return !trimmed || placeholderPattern.test(trimmed);
+}
 
 /** 只返回缺失字段名，绝不回显配置值。 */
 export function checkFeishuTrialConfig(env: Record<string, string | undefined>) {
-  const missing = requiredKeys.filter(key => {
-    const value = env[key]?.trim();
-    return !value || /^(?:<.*>|xxx|cli_xxx|replace.*|your[-_ ].*)$/i.test(value);
-  });
+  const missing: string[] = appKeys.filter(key => isMissingField(env[key]));
+  const selector = env.BEER_VISION_PROVIDER?.trim() ?? "";
+  if (selector === "") {
+    if (isMissingField(env[legacyProviderKey])) missing.push(legacyProviderKey);
+  } else if (selector === packageProviderSelector) {
+    if (isMissingField(env[packageProviderKey])) missing.push(packageProviderKey);
+  } else {
+    // 非空但未识别的选择器必须失败关闭：只给稳定字段名，绝不回显原值。
+    missing.push("BEER_VISION_PROVIDER");
+  }
   return { ready: missing.length === 0, missing, mode: "private-chat" as const };
 }
 

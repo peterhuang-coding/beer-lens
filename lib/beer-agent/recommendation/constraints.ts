@@ -76,9 +76,19 @@ export function extractConstraints(text: string): string[] {
     if (maxVolume) result.push(`maxVolumeMl:${Number(maxVolume[1])}`);
     if (minVolume) result.push(`minVolumeMl:${Number(minVolume[1])}`);
     if (!maxVolume && !minVolume) {
-      const volume = text.match(/(?:只要|只想喝|只喝|容量\s*(?:为|是|改[成为])?|改[成为]|换成)\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(左右|上下|附近)?/i)
+      // Around-volume wording keeps the numeric anchor: suffixes 左右/上下/附近 or
+      // prefixes 约/近似/接近 produce aroundVolumeMl:N. No invented tolerance, and
+      // it must never collapse to volumeMl:any like the previous suffix branch did.
+      // 想要 is a serving verb too (mid-sentence, e.g. 预算80，想要约300ml), and the
+      // lookbehind keeps unit-price 每100ml wording from becoming a serving token.
+      const volume = text.match(/(?:只要|只想喝|只喝|想要|容量\s*(?:改[成为](?:为)?)?|改[成为](?:为)?|换成)\s*(约|近似|接近)?\s*(?:为|是)?\s*(?<!每\s*)(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(左右|上下|附近)?/i)
+        ?? text.match(/^\s*(约|近似|接近)?\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(左右|上下|附近)/i)
+        ?? text.match(/^\s*(约|近似|接近)\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)/i)
         ?? text.match(/^\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*$/i);
-      if (volume) result.push(volume[2] ? 'volumeMl:any' : `volumeMl:${Number(volume[1])}`);
+      if (volume) {
+        const around = volume[3] !== undefined || (volume[2] !== undefined && volume[1] !== undefined);
+        result.push(around ? `aroundVolumeMl:${Number(volume[2] ?? volume[1])}` : `volumeMl:${Number(volume[2] ?? volume[1])}`);
+      }
     }
   }
   return [...new Set(result)];
@@ -86,7 +96,7 @@ export function extractConstraints(text: string): string[] {
 
 /** Current values replace the same kind of earlier constraint, instead of accumulating forever. */
 export function mergeConstraints(previous: string[], current: string[]): string[] {
-  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : /^(?:min|max)Ibu:/.test(c) ? 'ibu' : /^(?:min|max)Price:/.test(c) ? 'price' : /^(?:volumeMl|minVolumeMl|maxVolumeMl):/.test(c) ? 'volume' : c.startsWith('priceGoal:') ? 'priceGoal' : c.split(':')[0];
+  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : /^(?:min|max)Ibu:/.test(c) ? 'ibu' : /^(?:min|max)Price:/.test(c) ? 'price' : /^(?:aroundVolumeMl|volumeMl|minVolumeMl|maxVolumeMl):/.test(c) ? 'volume' : c.startsWith('priceGoal:') ? 'priceGoal' : c.split(':')[0];
   const replaced = new Set(current.map(family));
   return [...new Set([...previous.filter(c => !replaced.has(family(c))), ...current])];
 }
@@ -98,7 +108,7 @@ export function constraintFailures(candidate: CandidateFacts, constraints: strin
   const requestedStyles = constraints.filter(c => STYLES[c]);
   if (requestedStyles.length && !requestedStyles.some(s => STYLES[s].test(text))) failures.push(`不符合要求的风格：${requestedStyles.join('或')}`);
   for (const c of constraints) {
-    if (/^(?:volumeMl|minVolumeMl|maxVolumeMl):/.test(c) && c !== 'volumeMl:any') {
+    if (/^(?:aroundVolumeMl|volumeMl|minVolumeMl|maxVolumeMl):/.test(c) && c !== 'volumeMl:any') {
       const value = Number(c.split(':')[1]);
       const volume = candidate.volumeMl;
       if (volume == null || !Number.isFinite(volume) || volume <= 0) failures.push('容量未知，无法确认是否符合要求');

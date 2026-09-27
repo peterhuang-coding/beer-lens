@@ -54,7 +54,7 @@ export function extractConstraints(text: string): string[] {
   const range = text.match(/(?:ABV|酒精度)\s*(\d+(?:\.\d+)?)\s*[-~至到—]\s*(\d+(?:\.\d+)?)/i);
   if (range) result.push(`minAbv:${Number(range[1])}`, `maxAbv:${Number(range[2])}`);
   else {
-    const max = text.match(/(?:ABV|酒精度)\s*(?:改成|改为|调整到)?\s*(?:不超过|低于|最多|小于|低过)\s*(\d+(?:\.\d+)?)/i)
+    const max = text.match(/(?:ABV|酒精度)\s*(?:改成|改为|调整到)?\s*(?:不超过|低于|最多|最高|小于|低过)\s*(\d+(?:\.\d+)?)/i)
       ?? text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:以下|以内)/i);
     if (max) result.push(`maxAbv:${Number(max[1])}`);
     else if (/低度|酒精度低|低酒精/i.test(text)) result.push('maxAbv:4.5');

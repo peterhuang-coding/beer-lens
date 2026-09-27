@@ -4,7 +4,7 @@ export type MenuItem = {
   price: number | null; volumeMl: number | null; abv: number; ibu: number | null; rawText: string;
 };
 
-const requestLine = /^(?:这里面|这几款|这几杯|有没有|不喝|不想喝|排除|除了|哪(?:款|个|一)|这个|这款|这杯|换一款|再来|清爽|便宜|最便宜|少花|省钱|性价比|划算|单位价|按.*(?:单位价|性价比|总价)|每\s*100\s*(?:ml|毫升)|更苦|更烈|更轻|有.+吗|第\s*[一二三四五六七八九十0-9]+|hello\b|hi\b|你好|在吗|帮我|请|推荐|想喝|我想|今天|预算|不超过|最多|放宽到|调整到|提高到|不要|只要|不苦|不爱苦|低度|苦度|IBU|酒精度|ABV|第一杯|想尝新|换成|改成|看看|选|挑|\d+(?:\.\d+)?\s*(?:元|块)\s*(?:以内|以下))/i;
+const requestLine = /^(?:这里面|这几款|这几杯|有没有|不喝|不想喝|排除|除了|哪(?:款|个|一)|这个|这款|这杯|换一款|再来|清爽|便宜|最便宜|少花|省钱|性价比|划算|单位价|按.*(?:单位价|性价比|总价)|按\s*每\s*100\s*(?:ml|毫升)|每\s*100\s*(?:ml|毫升)|更苦|更烈|更轻|有.+吗|第\s*[一二三四五六七八九十0-9]+|hello\b|hi\b|你好|在吗|帮我|请|推荐|想喝|我想|今天|预算|不超过|最多|放宽到|调整到|提高到|不要|只要|不苦|不爱苦|低度|苦度|IBU|酒精度|ABV|第一杯|想尝新|换成|改成|看看|选|挑|\d+(?:\.\d+)?\s*(?:元|块)\s*(?:以内|以下))/i;
 const breweryHeading = /^(?:京A|高大师|牛啤堂|悠航|道酿|Jing-A|Master Gao)$|(?:酒厂|酒馆|酿造|Brewery|Brewing(?: Company)?)$/i;
 
 const genericStyle = /^(?:(?:west coast|hazy|double|triple|session|imperial|milk)\s+)?(?:IPA|NEIPA|拉格|世涛|小麦|酸啤|lager|stout|sour|wheat|pilsner|wheat beer)$/i;

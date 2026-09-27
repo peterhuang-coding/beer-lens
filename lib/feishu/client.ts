@@ -18,7 +18,7 @@ type FeishuMessage = {
   content?: string;
 };
 
-type FeishuEventPayload = {
+export type FeishuEventPayload = {
   challenge?: string;
   token?: string;
   type?: string;
@@ -109,6 +109,8 @@ export function extractFeishuMessage(payload: FeishuEventPayload) {
   }
 }
 
+export type FeishuIncomingMessage = NonNullable<ReturnType<typeof extractFeishuMessage>>;
+
 export async function replyFeishuMessage(messageId: string, text: string) {
   if (!process.env.FEISHU_APP_ID || !process.env.FEISHU_APP_SECRET) {
     throw new Error("Missing FEISHU_APP_ID or FEISHU_APP_SECRET");
@@ -131,8 +133,10 @@ export async function replyFeishuMessage(messageId: string, text: string) {
   );
 
   if (!response.ok) {
-    throw new Error(`Feishu reply failed ${response.status}: ${await response.text()}`);
+    throw new Error(`Feishu reply failed: HTTP ${response.status}`);
   }
+  const result = await response.json() as { code?: number };
+  if (result.code !== 0) throw new Error(`Feishu reply failed: code ${result.code ?? "unknown"}`);
 }
 
 export async function downloadFeishuImage(imageKey: string, messageId?: string) {

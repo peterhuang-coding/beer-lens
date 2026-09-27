@@ -30,7 +30,7 @@ export function recommendFromCandidates(candidates: BeerCandidate[], profile: Pr
   const picks = scope.error ? selectPicks([]) : purchase?.picks ?? selectPicks(eligible,strictPricePreferenceId(eligible,constraints));
   const eligibleById = new Map(eligible.map(candidate=>[candidate.candidateId,candidate]));
   const reply = scope.error ?? purchase?.reply ?? (eligible.length ? buildRecommendationReply(picks,eligible)
-    : scored.length ? '酒单上没有可以确认符合当前预算、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、IBU 或酒精度。'
+    : scored.length ? '酒单上没有可以确认符合当前预算、容量、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、容量、IBU 或酒精度。'
       : '没有识别到可确认的酒款，请补充清晰酒单或具体酒名。');
   return {
     reply,picks,

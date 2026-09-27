@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="910" viewBox="0 0 1360 910">
+  <title>啤酒助手回复模块结构画板设计</title>
+  <desc>设计提案：先判断任务与已有证据，证据足够时直接结论，关键缺口会改变答案时给出已知部分与一个澄清，随后按需补充理由、事实、不确定性与取舍，有必要才给下一步。右侧列出表达和事实约束。</desc>
+  <rect x="0" y="0" width="1360" height="910" rx="24" fill="#FAF8F3" />
+  <path font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" d="M48 42 H77 V64 C77 80 48 80 48 64 Z M77 47 H84 Q94 47 94 57 Q94 69 78 69" stroke="#A87920" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x1="56" y1="50" x2="56" y2="64" stroke="#A87920" stroke-width="2" />
+  <line font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x1="67" y1="50" x2="67" y2="64" stroke="#A87920" stroke-width="2" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x="116" y="69" font-size="32" font-weight="700">啤酒助手的回复结构</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#64736A" x="48" y="113" font-size="20">围绕这一轮任务组织回答，按需展开。</text>
+  <rect font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#F4E4BA" x="1130" y="36" width="182" height="40" rx="20" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#785617" x="1221" y="63" text-anchor="middle" font-size="19" font-weight="600">设计提案</text>
+  <polyline font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" stroke="#718277" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="478,260 478,304 261,304 261,345" />
+  <polyline font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" stroke="#718277" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="478,304 695,304 695,345" />
+  <polyline font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" stroke="#718277" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="261,473 261,523 478,523 478,560" />
+  <polyline font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" stroke="#718277" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="695,473 695,523 478,523" />
+  <line font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" stroke="#718277" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" x1="478" y1="686" x2="478" y2="736" />
+  <polygon font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#718277" points="255,335 261,345 267,335" />
+  <polygon font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#718277" points="689,335 695,345 701,335" />
+  <polygon font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#718277" points="472,550 478,560 484,550" />
+  <polygon font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#718277" points="472,726 478,736 484,726" />
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#718277" cx="478" cy="304" r="4" />
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#718277" cx="478" cy="523" r="4" />
+  <rect font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#233F34" x="68" y="170" width="820" height="90" rx="22" />
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#456455" cx="115" cy="215" r="19" />
+  <path font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" d="M107 215 L113 221 L124 209" stroke="#F8F3E8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#FFFFFF" x="159" y="225" font-size="28" font-weight="600">先判断这一轮任务与已有证据</text>
+  <rect font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#E4EEE5" x="68" y="345" width="386" height="128" rx="18" stroke="#ABC2AD" stroke-width="1.5" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#57715D" x="101" y="384" font-size="20">足够回答</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x="101" y="430" font-size="29" font-weight="700">直接结论</text>
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#C9DECA" cx="405" cy="405" r="18" />
+  <path font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" d="M397 405 L403 411 L414 399" stroke="#43634B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <rect font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#F9EECF" x="502" y="345" width="386" height="128" rx="18" stroke="#D7BC76" stroke-width="1.5" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#7B602C" x="531" y="384" font-size="20">关键缺口会改变答案</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#664E22" x="531" y="430" font-size="27" font-weight="700">已知部分＋一个澄清</text>
+  <rect font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#EDF0E9" x="68" y="560" width="820" height="126" rx="20" stroke="#C9D1C4" stroke-width="1.5" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#53634D" x="101" y="604" font-size="22" font-weight="600">按需补充</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x="101" y="649" font-size="25">选择理由 / 关键事实与不确定性 / 取舍</text>
+  <rect font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#233F34" x="143" y="736" width="670" height="78" rx="39" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#FFFFFF" x="478" y="786" text-anchor="middle" font-size="27" font-weight="600">有必要才给下一步，允许结束</text>
+  <line font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x1="949" y1="177" x2="949" y2="805" stroke="#D9D5C8" stroke-width="2" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x="986" y="205" font-size="23" font-weight="700">表达与事实约束</text>
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#E4EEE5" cx="1002" cy="275" r="16" />
+  <path font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" d="M995 271 H1009 V280 H1002 L998 284 V280 H995 Z" stroke="#56735E" stroke-width="1.8" stroke-linejoin="round" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x="1033" y="283" font-size="23" font-weight="600">承接语按需</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#64736A" x="1033" y="322" font-size="20">不每轮道歉</text>
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#E4EEE5" cx="1002" cy="407" r="16" />
+  <path font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="none" d="M994 402 L1002 410 L1010 402" stroke="#56735E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x="1033" y="415" font-size="23" font-weight="600">来源可展开</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#64736A" x="1033" y="454" font-size="20">按需核对回答依据</text>
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#F4E4BA" cx="1002" cy="539" r="16" />
+  <line font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#22342D" x1="1002" y1="531" x2="1002" y2="541" stroke="#8B6922" stroke-width="2.4" stroke-linecap="round" />
+  <circle font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#8B6922" cx="1002" cy="547" r="1.5" />
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#785617" x="1033" y="547" font-size="23" font-weight="600">不得虚构</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#64736A" x="1033" y="587" font-size="20">评分 / 价格</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#64736A" x="1033" y="621" font-size="20">参展信息</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#64736A" x="1033" y="655" font-size="20">记忆保存成功</text>
+  <text font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#7D8479" x="48" y="867" font-size="18">图示为设计提案，非已上线功能。</text>
+</svg>

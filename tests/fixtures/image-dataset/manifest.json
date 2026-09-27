@@ -1,0 +1,3167 @@
+{
+  "schema_version": 1,
+  "name": "Beer Lens图片评测集",
+  "summary": {
+    "image_files": 69,
+    "source_images": 63,
+    "derived_images": 6,
+    "baseline_images": 4,
+    "frozen_image_cases": 36,
+    "extension_images_pending_full_annotation": 33,
+    "new_menu_photos": 0,
+    "model_passed": 0,
+    "mbcb_confirmed_brewery_instances": 0
+  },
+  "path_base": "repository_root",
+  "policy": {
+    "source_facts": "仅作来源背景，不得作为图片可见答案，也不得传给被测模型",
+    "filenames": "上传使用中性样本编号；旧基线需复制为编号文件名",
+    "family_split": "同酒款、近似系列和父子图应在同一分割侧；尚未执行训练分割",
+    "rights": "原图版权归各自权利人，公开可访问不等于开放许可",
+    "execution": "图片准备与人工答案不是模型测试通过"
+  },
+  "items": [
+    {
+      "id": "IMG-N001",
+      "name": "Thor Pour",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/thor-pour-ddh-dipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/IMG_0887.png?v=1790347289",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Thor Pour",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "DDH Double India Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "visually_reviewed",
+          "expected": 8.0,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "visually_reviewed",
+          "expected": "1 PINT (16 FL. OZ.)",
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Thor Pour",
+        "description": "Double Dry Hopped (DDH) Double IPA with Citra, Galaxy and THORA 8.0% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "1a412f6c7b7ee2f83ec8c8996fab2903b6a499555d18d060a15b3339409d3bf6",
+      "path": "tests/fixtures/image-dataset/images/IMG-N001.png",
+      "partition": "new_original",
+      "family_id": "IMG-N001",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-001",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N002",
+      "name": "West Coast Aroma",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/west-coast-aroma-wc-ipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/WEB-WCAroma.pngWEB-ThorPour.png?v=1790347171",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "West Coast Aroma",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "West Coast Aroma",
+        "description": "West Coast IPA w/ Mosaic, Simcoe, Centennial hops 7.0% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "fbd33f13d41dd4780b77052cd15a907427675719af18df39f215accaf45687c5",
+      "path": "tests/fixtures/image-dataset/images/IMG-N002.png",
+      "partition": "new_original",
+      "family_id": "IMG-N002",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-002",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N003",
+      "name": "Pen Hits Tremendous",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/pen-hits-tremendous-tdh-ipa4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/WEB-PenHits.pngWEB-Superrr.png?v=1773201649",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Pen Hits Tremendous",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Pen Hits Tremendous",
+        "description": "Triple Dry Hopped (TDH) IPA w/ Mosaic, Citra, Galaxy hops 7.0% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "d16f0bdc920a9aa36d8c2de78f387f5996f9b4a2525cd57d505bd85407a7e510",
+      "path": "tests/fixtures/image-dataset/images/IMG-N003.png",
+      "partition": "new_original",
+      "family_id": "IMG-N003",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-003",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N004",
+      "name": "Ego",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/ego-ddh-dipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/EGOweb.pngZOMBIESweb.pngVORTEXweb.jpg?v=1707933732",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Ego",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Ego",
+        "description": "Double Dry Hopped (DDH) Double IPA with Citra, Galaxy, and Krush 8.5% ABV. Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "1938800567e0cb2bf70f3ea62470ca60d8d681376f4df7dda5571bfff04c7265",
+      "path": "tests/fixtures/image-dataset/images/IMG-N004.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N004",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-004",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N005",
+      "name": "West Coast Outlook",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/west-coast-outlook-wc-ipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/IMG_0493_798d6977-7d69-43bd-bda8-6b3177a86704.png?v=1789707565",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "West Coast Outlook",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "West Coast Outlook",
+        "description": "West Coast IPA w/ Citra and Krush hops 7.1% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "94b50c1c990fcf377b7fc93a3c25a18f337e8e98c9573dbe311dcf615f010b9f",
+      "path": "tests/fixtures/image-dataset/images/IMG-N005.png",
+      "partition": "new_original",
+      "family_id": "IMG-N005",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-005",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N006",
+      "name": "Water Balloon Animals",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/water-balloon-animals-tipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/products/wba_75d21bfc-2137-40ae-8a90-0ceac66364a5.jpg?v=1641796459",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Water Balloon Animals",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Water Balloon Animals",
+        "description": "TRIPLE IPA with Citra, Mosaic, and Simcoe 10% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "9ee427b4cacf20985b54b4d45486d9078a016b3ad986a407015eca22bcc973a7",
+      "path": "tests/fixtures/image-dataset/images/IMG-N006.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N006",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-006",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N007",
+      "name": "Feminist",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/feminist-belgian-tripel-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/products/fem-web.jpg?v=1637691557",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Feminist",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "Belgian-style Tripel Ale brewed with hibiscus",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "visually_reviewed",
+          "expected": 9.4,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "visually_reviewed",
+          "expected": "1 PINT (16 FL. OZ.)",
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Feminist",
+        "description": "Belgian TRIPEL w/ hibiscus 9.4% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "7e451f933f8f3fa9b97eb5a1350e9680961d32825dd0eed45ba9c161ee9b23c4",
+      "path": "tests/fixtures/image-dataset/images/IMG-N007.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N007",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-007",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N008",
+      "name": "Monk-Style Proverbs",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/monk-style-proverbs-ipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/products/monnk-web.jpg?v=1660324886",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Monk-Style Proverbs",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Monk-Style Proverbs",
+        "description": "IPA featuring Citra hops 7.1% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "80e003e11cf488655d3e1c2da358e1a78e0b40d67ab259615b5534bfc2a082cf",
+      "path": "tests/fixtures/image-dataset/images/IMG-N008.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N008",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-008",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N009",
+      "name": "Just Tryin' to Feel Something",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/hay-cuz-ddh-ipa-4pk-16oz-copy",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/WEB-JustTryinToLive.pngWEB-TheOneTen.pngWEB-WestCoastFlora.png?v=1789099507",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Just Tryin' to Feel Something",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "DDH India Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "visually_reviewed",
+          "expected": 7.0,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "visually_reviewed",
+          "expected": "1 PINT (16 FL. OZ.)",
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Just Tryin' to Feel Something",
+        "description": "Double Dry Hopped (DDH) IPA with Citra, Simcoe, Rakau hops 7.0% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "203b315cb7c89d3e1fabbc0fa7a39503ea7d945437dde9385762e66ee8a08681",
+      "path": "tests/fixtures/image-dataset/images/IMG-N009.png",
+      "partition": "new_original",
+      "family_id": "IMG-N009",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-009",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N010",
+      "name": "Swap Meets",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/swap-meets-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/products/swap.jpg?v=1634229536",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Swap Meets",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Swap Meets",
+        "description": "Double IPA with Nelson Sauivin, Mosaic, Citra, and Galaxy 8.3% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "87640c8da0f2515aa17bb8b3a18a38b5f35b2db63bdddabb102f7a971624a16e",
+      "path": "tests/fixtures/image-dataset/images/IMG-N010.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N010",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-010",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N011",
+      "name": "Song of Silence",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/song-of-silence-belgian-blonde-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/products/SONGweb.jpg?v=1652888901",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Song of Silence",
+          "allow_unknown": true
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "Belgian Blonde",
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Song of Silence",
+        "description": "Lovely Belgian blonde/single 5.3% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "776f1ec2042e9795babe4f19e1422d53eddfa8a2b6e2d0c110864595cf9cd62d",
+      "path": "tests/fixtures/image-dataset/images/IMG-N011.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N011",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-011",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N012",
+      "name": "Still TIPA'in",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/still-tipain-ddh-tipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/products/TIPAweb.jpg?v=1661526412",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Still TIPA'in",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "DDH Triple India Pale Ale",
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "visually_reviewed",
+          "expected": 10.0,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "visually_reviewed",
+          "expected": "1 PINT (16 FL. OZ.)",
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Still TIPA'in",
+        "description": "Double Dry Hopped (DDH) TRIPLE IPA w/ Comet, Citra, and Riwaka 10.0% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "c33201de9ff93c7220e0721bd5e0e00c1241f8293a7bc119e1601a264cdf5ddc",
+      "path": "tests/fixtures/image-dataset/images/IMG-N012.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N012",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-012",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N013",
+      "name": "Still Puffin",
+      "brewery": "Monkish",
+      "category": "can",
+      "source_page": "https://shop.monkishbrewing.com/products/still-puffin-ipa-4pk-16oz",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/puffin_20-web.jpg?v=1683872232",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Still Puffin",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Still Puffin",
+        "description": "Double Dry Hopped (DDH) IPA with Citra, Mosaic, Nelson Sauvin, and Galaxy hops. Part of the Swap Meet and Sticky Traffic series 6.9% ABV Price is for ONE 4-pack of 16oz cans (PLUS sales tax, CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "cfb511bb2482766ca3fee2b4f038fdcc020bee82a577ab99b87c717f82634139",
+      "path": "tests/fixtures/image-dataset/images/IMG-N013.jpg",
+      "partition": "new_original",
+      "family_id": "IMG-N013",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-013",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N014",
+      "name": "Haiku de Saison",
+      "brewery": "Monkish",
+      "category": "bottle",
+      "source_page": "https://shop.monkishbrewing.com/products/interstellar-hitchhiker-750ml-bottle-copy",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/IMG_7769.png?v=1779432039",
+      "source_kind": "official_product",
+      "photo_type": "official_packshot",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Haiku de Saison",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Haiku de Saison",
+        "description": "mixed fermentation saison aged in an oak foudre. Bottle conditioned in 750ml cork and caged bottles. 6.3% ABV. Lively and Lovely! Price is for one 750ml bottle, plus tax (CRV included). Read full details HERE before purchasing.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "b0d5bf29f7a79625892744984ea78509079da702cb55e7a29f369f5e72d035e7",
+      "path": "tests/fixtures/image-dataset/images/IMG-N014.png",
+      "partition": "new_original",
+      "family_id": "IMG-N014",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-014",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N015",
+      "name": "Lunch",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/lunch",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_Lunch.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688276&s=bfe9f621fe93c83b3a8942f3c136dba4",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Lunch",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "India Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "Lunch",
+        "description": "Our Beer > Lunch Lunch India Pale Ale ABV 7% Year Round Available on tap & in bottles in our tasting room Allied Whale, the marine mammal lab at College of the Atlantic, is leading the way in field research. Home to the world’s largest library of photo-identified whales, scientists use this research to follow them by comparing patterns, fin shapes, and identifying marks. Lunch is a fin whale that was first spotted by their team along the Maine coast in 1982. She has what looks like a bite taken out of her fin. Aromas of caramel, orange, papaya, grapefruit, and underlying floral notes, with hints of onion and garlic. Amarillo, Centennial, Simcoe American 2-Row, Caramel 40L, Red Wheat, Munich 10L, Carapils 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "834bec85bb30a5b9697cb94688632e38508a22be09742e1fcc19f05ab87c2eba",
+      "path": "tests/fixtures/image-dataset/images/IMG-N015.png",
+      "partition": "new_original",
+      "family_id": "IMG-N015",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-015",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N016",
+      "name": "Peeper",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/peeper",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_Peeper.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688373&s=24b69c7eaa0e39d6c0ce08d21a78b5e0",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Peeper",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "Peeper",
+        "description": "Our Beer > Peeper Peeper Pale Ale ABV 5.5% Year Round Available on tap & in bottles in our tasting room Maine Big Night is a community science project with eyes on responsible stewardship of the amphibian ecosystem. After a long winter of hiding beneath leaves, soil, and logs, many amphibians will re-emerge when night temperatures reach approximately 40°F and the ground is soaked in rain. Each year, hundreds of volunteers assemble across the state when the conditions are right, to ensure safe highway crossings for species like Spotted Salamanders and Spring Peepers. mainebignight.org Aromas of peach, orange, lemon, grapefruit, and melon. Notes of pine, raspberry, and strawberry. Underlying malt grain sweetness. Amarillo, Cascade, Centennial American 2-Row, Carapils, Red Wheat, Vienna In 2009, we opened shop on Industrial Way in Portland. We had a one barrel brew house. The term nano brewery was not even around yet, as far as I know. A brewery had not been started in Maine for a long time. Our plan was to do one beer really well to start. Make only beer that we want to drink, period. No market research. Do it, do it well. If they drink it, great. If they don’t, we go back to our day jobs. We worked on a single recipe. Over and over and over and over. Spring Peeper Ale (now Peeper) was born. I hit the streets with a small, cheap cooler filled with our beer. Door to door I went. Sometimes my young daughter, Zoe, would come along. 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "a0c2e76352625ebae9332ff21ca4c53c29301211e7c13e0202a1a68e31e5db4a",
+      "path": "tests/fixtures/image-dataset/images/IMG-N016.png",
+      "partition": "new_original",
+      "family_id": "IMG-N016",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-016",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N017",
+      "name": "Mean Old Tom",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/mean-old-tom",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_Tom.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688538&s=141837218e86219a439b6e69c37e345a",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Mean Old Tom",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "Stout Aged on Natural Vanilla Beans",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "Mean Old Tom",
+        "description": "Our Beer > Mean Old Tom Mean Old Tom Stout Aged on Natural Vanilla Beans ABV 6.5% Limited Brewed in honor of the Kleban brothers’ uncle, his magnificent beer can collection, and his spirit for fast cars, tough motorcycles, and mean smiles. Aromas of vanilla, coffee, and roasted cereal with notes of dark chocolate. Centennial Maris Otter Pale, Chocolate, Caramel 40L, Roasted Barley, Midnight Wheat, Caramel 80L, Flaked Oats 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "609cac6683e577b4b1760c71ae5f3e16c05c3b679a24cebb7e56b12470c09306",
+      "path": "tests/fixtures/image-dataset/images/IMG-N017.png",
+      "partition": "new_original",
+      "family_id": "IMG-N017",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-017",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N018",
+      "name": "Zoe",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/zoe",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_Zoe.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688567&s=b9b3326224d9638faecd67f56aeaec7c",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Zoe",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "Amber Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "Zoe",
+        "description": "Our Beer > Zoe Zoe Amber Ale ABV 7.2% Limited On a rainy fall day in 2009, my five-year-old daughter Zoe and I were wandering the streets of Bar Harbor and stumbled across the Whale Museum. Zoe loved it. It put a smile on her face. Hopefully, our ale will do the same for you. Aromas of pine and raisin. Notes of citrus, black currant, cherry, and fig with a malty backbone of toasted bread, dark chocolate, and caramel. Simcoe, Centennial, Columbus American 2-Row, Maris Otter Pale, Caramel 40L, Munich 10L, Victory, Caramel 80L, Chocolate 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "e243c83d8028d919e23ee24133f95f34a36252dac0680a8ac2b24673354101ac",
+      "path": "tests/fixtures/image-dataset/images/IMG-N018.png",
+      "partition": "new_original",
+      "family_id": "IMG-N018",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-018",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N019",
+      "name": "Another One",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/another-one",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_AnotherOne.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688457&s=a24ae9476b6fff8d677eb099b3b5bc04",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Another One",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "India Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "Another One",
+        "description": "Our Beer > Another One Another One India Pale Ale ABV 7% Limited Maine Audubon’s annual Loon Count provides a snapshot of Maine’s loon population that helps scientists and lawmakers conserve Maine loons and lakes. For 30 minutes, once a year, volunteers arrive early on the water to count one loon, after another one, after another one. The count is one way Maine Audubon measures the progress in protecting native wildlife. Aromas of pineapple, mango, and guava with notes of orange, grapefruit, and melon. Undertones of earthy, woody pine, and faint onion and garlic. Cascade, Citra, Simcoe American 2-Row, Red Wheat, Carapils Conservation Series The Conservation Series includes: Another One, Wolfe's Neck, Woods & Waters, and Little Whaleboat—four existing IPAs from Maine Beer Company that represent a nonprofit doing meaningful work in land, wildlife, trail, and coastal conservation. These beers rotate on an annual basis. 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "11666fa5cee2652cda20ba7f724811b4482f39fd9dc080d457059d856ea36b9e",
+      "path": "tests/fixtures/image-dataset/images/IMG-N019.png",
+      "partition": "new_original",
+      "family_id": "IMG-N019",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-019",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N020",
+      "name": "Woods & Waters",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/woods-waters",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_WoodsWaters.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688501&s=32a6391221ddb2ffbcf9f87c678be367",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Woods & Waters",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "India Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "Woods & Waters",
+        "description": "Our Beer > Woods & Waters Woods & Waters India Pale Ale ABV 6.2% Limited Available on tap in our tasting room Katahdin Woods and Waters was the first International Dark Sky Place certified in the state of Maine with some of the darkest night skies east of the Mississippi River. Each year, Friends of Katahdin Woods and Waters hosts an event called Stars Over Katahdin featuring campfire chats to educate and inspire visitors before viewing the night skies through state-of-the-art telescopes. Aromas of melon, pineapple, and pink grapefruit. Notes of onion, garlic, and subtle pine with a faint malt grain sweetness. Simcoe, Mosaic, Columbus, Idaho 7 American 2-Row, Blue Ox Pale, Blue Ox Wheat, Blue Ox Vienna Conservation Series The Conservation Series includes: Another One, Wolfe's Neck, Woods & Waters, and Little Whaleboat—four existing IPAs from Maine Beer Company that represent a nonprofit doing meaningful work in land, wildlife, trail, and coastal conservation. These beers rotate on an annual basis. 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "08fdb90eef55ba76bea737cf17c86f58d1b051ec9530d2c8a6d3351585c0c55b",
+      "path": "tests/fixtures/image-dataset/images/IMG-N020.png",
+      "partition": "new_original",
+      "family_id": "IMG-N020",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-020",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N021",
+      "name": "MO",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/mo",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_MO.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688596&s=32dd248208097ebea5652561ad254490",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "MO",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "MO",
+        "description": "Our Beer > MO MO Pale Ale ABV 6% Limited Just after opening our brewery, working long nights, weekends, and still working our day jobs, my brother Daniel (the brewer) had twins. Cheers to his courage and dedication to making better beer. Aromas of orange, apricot, tangerine, and passionfruit. Notes of pine and grass with malt sweetness. Falconer’s Flight, Simcoe American 2-Row, Carapils, Caramel 40L, Red Wheat 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "812311ba85757066ce6240b7f799009f0ea1836ea9929bdacbf015fe7f26a6b2",
+      "path": "tests/fixtures/image-dataset/images/IMG-N021.png",
+      "partition": "new_original",
+      "family_id": "IMG-N021",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-021",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N022",
+      "name": "Dinner",
+      "brewery": "Maine Beer Company",
+      "category": "bottle_packshot",
+      "source_page": "https://mainebeercompany.com/beer/dinner",
+      "source_image_url": "https://fearless-nilgai.transforms.svdcdn.com/production/uploads/images/2024_bottlemocks_Dinner.png?w=1024&h=1024&fm=png&auto=compress&fit=crop&dm=1724688798&s=017540954276f92456976f9bad5447b7",
+      "source_kind": "official_packshot_render",
+      "photo_type": "official_bottle_render",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Dinner",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Maine Beer Company",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "visually_reviewed",
+          "expected": "Double India Pale Ale",
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_bottle",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "实体字段来自图中可见文字；无法辨认时说明不确定。",
+        "不从商品页面补出图中没有的价格、评分、ABV或容量。",
+        "不宣称该酒厂为MBCB 2026参展方或该酒款为现场在售。"
+      ],
+      "source_facts": {
+        "brewery": "Maine Beer Company",
+        "product_name": "Dinner",
+        "description": "Our Beer > Dinner Dinner Double India Pale Ale ABV 8.2% Occasional / Bottles Tasting Room Only Available on tap & in bottles in our tasting room Dinner is our very special double IPA made with 7 lbs of hops per barrel. Drink this beer fresh! Aromas of mango, passionfruit, and pineapple. Undertones of garlic, onion, and pine. Sweet aromatics of malt and caramel. Citra, Falconer’s Flight, Mosaic, Simcoe American 2-Row, Caramel 40L, Carapils, Dextrose 525 US Route 1 Freeport, Maine 04032 207.221.5711 Subscribe To Our Newsletter Thank You. © 2026 Maine Beer Company | Privacy Policy",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1024,
+      "height": 1024,
+      "sha256": "b21bdc4aa40d06d733b8eff09ce9ba129f5831aee445de2c26fbbf25937a9e6f",
+      "path": "tests/fixtures/image-dataset/images/IMG-N022.png",
+      "partition": "new_original",
+      "family_id": "IMG-N022",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-022",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N023",
+      "name": "MBCB 2026 活动海报",
+      "brewery": "Mikkeller",
+      "category": "event_poster",
+      "source_page": "https://www.mikkeller.com/news/mikkeller-beer-celebration-beijing-is-back",
+      "source_image_url": "https://cdn.prod.website-files.com/64ad1f9e95d96a6e7e92a6d0/69f06072ab48be194cdd1c1d_MBCB.Poster.26.30x40.webp",
+      "source_kind": "official_event",
+      "photo_type": "official_event_artwork",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "event_poster",
+          "allow_unknown": false
+        },
+        "event_name": {
+          "status": "visually_reviewed",
+          "expected": "Mikkeller Beer Celebration Beijing",
+          "allow_unknown": false
+        },
+        "city": {
+          "status": "visually_reviewed",
+          "expected": "北京 / Beijing",
+          "allow_unknown": false
+        },
+        "year": {
+          "status": "visually_reviewed",
+          "expected": 2026,
+          "allow_unknown": false
+        },
+        "confirmed_brewery_roster": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "识别为活动海报，不作为具体酒款或酒单。",
+        "图示年份为2026，不能混成另一届。",
+        "图中没有2026逐厂名单，不把装饰文字或其他届次信息当本届参展证据。"
+      ],
+      "source_facts": {
+        "brewery": "Mikkeller",
+        "product_name": "MBCB 2026 活动海报",
+        "description": "官网2026年4月28日发布；2026年10月16日至17日，北京Maojie Arcade；第二届，预计75家酒厂。未提供逐厂名单。",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 1600,
+      "height": 1777,
+      "sha256": "12f1c819c5abd11b34d5b852ba519d162c6d90cf4e00fc4960b2e0f9fd9ec4f3",
+      "path": "tests/fixtures/image-dataset/images/IMG-N023.webp",
+      "partition": "new_original",
+      "family_id": "IMG-N023",
+      "query": "这张图是什么活动、哪个城市和哪一年？仅凭这张图能否确认该届活动的参展酒厂和现场酒款？",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-023",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N024",
+      "name": "MBCB 25 纪念海报",
+      "brewery": "Mikkeller",
+      "category": "event_poster",
+      "source_page": "https://prints.mikkeller.com/products/mbcb-25",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0745/7832/9892/files/MBCB25_Egetrae-ramme.png?v=1759325238",
+      "source_kind": "official_merch",
+      "photo_type": "official_event_artwork",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "event_poster",
+          "allow_unknown": false
+        },
+        "event_name": {
+          "status": "visually_reviewed",
+          "expected": "Mikkeller Beer Celebration Beijing",
+          "allow_unknown": false
+        },
+        "city": {
+          "status": "visually_reviewed",
+          "expected": "北京 / Beijing",
+          "allow_unknown": false
+        },
+        "year": {
+          "status": "visually_reviewed",
+          "expected": 2025,
+          "allow_unknown": false
+        },
+        "confirmed_brewery_roster": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "识别为活动海报，不作为具体酒款或酒单。",
+        "图示年份为2025，不能混成另一届。",
+        "图中没有2026逐厂名单，不把装饰文字或其他届次信息当本届参展证据。"
+      ],
+      "source_facts": {
+        "brewery": "Mikkeller",
+        "product_name": "MBCB 25 纪念海报",
+        "description": "Here is the poster \"MBCB 25\" based on Mikkeller's beer labels and artistic graphic universe. The poster is produced by Peléton on their fine art paper, with long durability and detailed colour reproduction.",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 2080,
+      "height": 2080,
+      "sha256": "c459e04f6eacda402579901c34ae1a09c1be9e09505b1b1ca7ac4094f4a304d1",
+      "path": "tests/fixtures/image-dataset/images/IMG-N024.png",
+      "partition": "new_original",
+      "family_id": "IMG-N024",
+      "query": "这张图是什么活动、哪个城市和哪一年？仅凭这张图能否确认该届活动的参展酒厂和现场酒款？",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-024",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N025",
+      "name": "Dog Plush Toy: Foggy Window Can",
+      "brewery": "Monkish",
+      "category": "non_beer_object",
+      "source_page": "https://shop.monkishbrewing.com/products/dog-plush-toy-foggy-window-can",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/IMG_5664.png?v=1766094397",
+      "source_kind": "official_merch",
+      "photo_type": "official_merch_photo",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can_shaped_plush_toy",
+          "allow_unknown": false
+        },
+        "visible_brand": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        },
+        "volume": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "识别啤酒罐造型毛绒玩具，不能当作实际啤酒。",
+        "品牌标志不等于酒款；不补造ABV、酒液容量或售价。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Dog Plush Toy: Foggy Window Can",
+        "description": "Dog plush toy of our Foggy Window beer can! Cotton filled with a squeaker inside! Size: 6 in tall and 3\" diameter",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "7f1aa5e0f9820295b46add0fdad2379a016bcb59846ef4ecfc3d9a4edb5e93a2",
+      "path": "tests/fixtures/image-dataset/images/IMG-N025.png",
+      "partition": "new_original",
+      "family_id": "IMG-N025",
+      "query": "图里是什么物品？这是实际啤酒吗？能否仅据此确定酒款、ABV和容量？",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-025",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-N026",
+      "name": "Glassware - Logo - Luttich 4cl",
+      "brewery": "Monkish",
+      "category": "non_beer_object",
+      "source_page": "https://shop.monkishbrewing.com/products/tulip-glassware-amigas-luttich-4l",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0372/5030/2091/files/LUTweb.png?v=1743182880",
+      "source_kind": "official_merch",
+      "photo_type": "official_merch_photo",
+      "rights_note": "来源版权归原权利人；未声明开放许可。",
+      "oracle": {
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "empty_beer_glass_display",
+          "allow_unknown": false
+        },
+        "visible_brand": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        },
+        "abv": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        },
+        "volume": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "识别为空酒杯展示，不能因为Monkish品牌标志生成具体酒款。",
+        "不能将商品页面杯具尺寸当成图中实际酒液容量。"
+      ],
+      "source_facts": {
+        "brewery": "Monkish",
+        "product_name": "Glassware - Logo - Luttich 4cl",
+        "description": "Monkish Logo Glassware. Capacity 17 fl oz",
+        "ground_truth_usage": "仅作来源说明，不作为图中字段的默认答案"
+      },
+      "width": 720,
+      "height": 720,
+      "sha256": "90ebe618e1bbe54f80c564d2b71badb16a0d5f339bd0c769373dbae3c82f0123",
+      "path": "tests/fixtures/image-dataset/images/IMG-N026.png",
+      "partition": "new_original",
+      "family_id": "IMG-N026",
+      "query": "图里是什么物品？图片是否足以确认某款啤酒、ABV和酒液容量？",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAN-026",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-B001",
+      "category": "menu",
+      "oracle": {
+        "7": {
+          "beer_name": "Kölsch",
+          "brewery": "Gaffel",
+          "price_cny": 55,
+          "volume_ml": 425,
+          "abv": 4.8
+        },
+        "18": {
+          "beer_name": "DONUT SERIES 2.0",
+          "brewery": "Amundsen",
+          "price_cny": 85,
+          "volume_ml": 300,
+          "abv": 11.5
+        }
+      },
+      "width": 2162,
+      "height": 656,
+      "sha256": "e9f24bb22950b20bdcc621a3dcd4fdf5c9461da7a94808941ef061bf78649bc6",
+      "path": "tests/fixtures/tap-list.jpg",
+      "partition": "baseline",
+      "family_id": "IMG-B001",
+      "query": "请逐行识别这张酒单，保留印刷编号、酒名、酒厂、价格和容量；看不清的字段请说明",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAB-001",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-B002",
+      "category": "menu",
+      "oracle": {
+        "7": {
+          "beer_name": "Story Walking",
+          "brewery": "Monkish",
+          "price_cny": 105,
+          "volume_ml": 300,
+          "abv": 7.0
+        },
+        "11": {
+          "beer_name": "LA Love",
+          "brewery": "Monkish",
+          "price_cny": 110,
+          "volume_ml": 300,
+          "abv": 8.1
+        }
+      },
+      "width": 1490,
+      "height": 352,
+      "sha256": "69f814c8a1ad43e0c83a7d950994e4c946a4691f971b44cad1b7b6fdfdf0a2de",
+      "path": "public/test-assets/menu-el-nido.png",
+      "partition": "baseline",
+      "family_id": "IMG-B002",
+      "query": "请逐行识别这张酒单，保留印刷编号、酒名、酒厂、价格和容量；看不清的字段请说明",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAB-002",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-B003",
+      "category": "can",
+      "oracle": {
+        "beer_name": "LA LOVE",
+        "brewery": "Monkish",
+        "abv": {
+          "value": 8.1,
+          "allow_unknown": true
+        },
+        "volume": "1 PINT (16 FL. OZ.)"
+      },
+      "width": 1156,
+      "height": 1472,
+      "sha256": "9ac1171a40cf602c6a13934e6a27ab09a04d532f2e331581bc6bcc5320bea041",
+      "path": "public/test-assets/can-monkish-la-love.png",
+      "partition": "baseline",
+      "family_id": "IMG-B003",
+      "query": "这是什么酒？只根据图片说明酒名、酒厂、风格、ABV，无法辨认的字段请说明",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAB-003",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-B004",
+      "category": "marketing_card",
+      "oracle": {
+        "Lunch": {
+          "style": "West Coast IPA",
+          "abv": 7.0,
+          "printed_rating": 4.15
+        },
+        "Dinner": {
+          "style": "Double IPA",
+          "abv": 8.2,
+          "printed_rating": 4.5
+        }
+      },
+      "width": 1192,
+      "height": 1608,
+      "sha256": "dca2e6144e8f04516ca08e0fdf4db55439f51cd70f0e6a0f663452adcad4c9f3",
+      "path": "public/test-assets/marketing-lunch-dinner.png",
+      "partition": "baseline",
+      "family_id": "IMG-B004",
+      "query": "图里有哪些酒，图中文字的ABV和评分分别是什么？这些信息是否是已核实的当前信息？",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAB-004",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-D001",
+      "parent_id": "IMG-N003",
+      "transform": "rotate90",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Pen Hits Tremendous",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "以父图同一字段真值核对；旋转/裁切不改变可见文字的身份和数值。"
+      ],
+      "family_id": "IMG-N003",
+      "width": 720,
+      "height": 720,
+      "sha256": "06441d2a8b7a8c302ec337c82d3066ab7d3d835044c817476952b1dddd81991a",
+      "path": "tests/fixtures/image-dataset/images/IMG-D001.png",
+      "partition": "derived",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAD-001",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-D002",
+      "parent_id": "IMG-N003",
+      "transform": "crop_label",
+      "oracle": {
+        "beer_name": {
+          "status": "visually_reviewed",
+          "expected": "Pen Hits Tremendous",
+          "allow_unknown": false
+        },
+        "brewery": {
+          "status": "visually_reviewed",
+          "expected": "Monkish",
+          "allow_unknown": false
+        },
+        "style": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "abv": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "volume": {
+          "status": "not_readable_or_not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "price": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "rating": {
+          "status": "not_shown",
+          "expected": null,
+          "allow_unknown": true
+        },
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "beer_can",
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "以父图同一字段真值核对；旋转/裁切不改变可见文字的身份和数值。"
+      ],
+      "family_id": "IMG-N003",
+      "width": 220,
+      "height": 350,
+      "sha256": "648828613646a33fe650a09f7bf3010db555b0de45fc9a7ed8e52cdbfded1b77",
+      "path": "tests/fixtures/image-dataset/images/IMG-D002.png",
+      "partition": "derived",
+      "query": "请只根据图片说明画面对象、酒名、酒厂、风格、ABV和容量；看不清的请明确说明，图中没有的价格和评分不要补造。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAD-002",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-D003",
+      "parent_id": "IMG-N003",
+      "transform": "unreadable",
+      "oracle": {
+        "readable": false,
+        "expected_action": "说明无法可靠辨认并请求清晰图片"
+      },
+      "assertions": [
+        "不得从8×8像素衍生图编造具体酒名、厂名、菜单编号、价格或容量。",
+        "不能把上一张清晰图片结果冒充本次新图识别。"
+      ],
+      "family_id": "IMG-N003",
+      "width": 720,
+      "height": 720,
+      "sha256": "414e7bd5d72f732ce3dc2e2f03a03bf64eb44f85a2afc1751c61d2988b65f35e",
+      "path": "tests/fixtures/image-dataset/images/IMG-D003.png",
+      "partition": "derived",
+      "query": "请识别这张新图；如果字不可辨认请说明。不要用之前图片的酒名、编号或价格当作本图结果。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAD-003",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-D004",
+      "parent_id": "IMG-B001",
+      "transform": "rotate90",
+      "oracle": {
+        "7": {
+          "beer_name": "Kölsch",
+          "brewery": "Gaffel",
+          "price_cny": 55,
+          "volume_ml": 425,
+          "abv": 4.8
+        },
+        "18": {
+          "beer_name": "DONUT SERIES 2.0",
+          "brewery": "Amundsen",
+          "price_cny": 85,
+          "volume_ml": 300,
+          "abv": 11.5
+        }
+      },
+      "assertions": [
+        "以父图同一字段真值核对；旋转/裁切不改变可见文字的身份和数值。"
+      ],
+      "family_id": "IMG-B001",
+      "width": 656,
+      "height": 2162,
+      "sha256": "b0cf6bbcf4a37e37221af3ad58dc7b59485be0df068c2dabf598be0953900733",
+      "path": "tests/fixtures/image-dataset/images/IMG-D004.png",
+      "partition": "derived",
+      "query": "请识别这张酒单，保留印刷编号、酒名、酒厂、价格和容量；无法辨认请说明。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAD-004",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-D005",
+      "parent_id": "IMG-B001",
+      "transform": "unreadable",
+      "oracle": {
+        "readable": false,
+        "expected_action": "说明无法可靠辨认并请求清晰图片"
+      },
+      "assertions": [
+        "不得从8×8像素衍生图编造具体酒名、厂名、菜单编号、价格或容量。",
+        "不能把上一张清晰图片结果冒充本次新图识别。"
+      ],
+      "family_id": "IMG-B001",
+      "width": 2162,
+      "height": 656,
+      "sha256": "5316b2127735a6b0e441a5484f483d8059c7f5cf3f20d9b050225c39012d2939",
+      "path": "tests/fixtures/image-dataset/images/IMG-D005.png",
+      "partition": "derived",
+      "query": "请识别这张新图；如果字不可辨认请说明。不要用之前图片的酒名、编号或价格当作本图结果。",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAD-005",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-D006",
+      "parent_id": "IMG-N023",
+      "transform": "rotate180",
+      "oracle": {
+        "object_type": {
+          "status": "visually_reviewed",
+          "expected": "event_poster",
+          "allow_unknown": false
+        },
+        "event_name": {
+          "status": "visually_reviewed",
+          "expected": "Mikkeller Beer Celebration Beijing",
+          "allow_unknown": false
+        },
+        "city": {
+          "status": "visually_reviewed",
+          "expected": "北京 / Beijing",
+          "allow_unknown": false
+        },
+        "year": {
+          "status": "visually_reviewed",
+          "expected": 2026,
+          "allow_unknown": false
+        },
+        "confirmed_brewery_roster": {
+          "status": "visually_reviewed",
+          "expected": null,
+          "allow_unknown": false
+        }
+      },
+      "assertions": [
+        "以父图同一字段真值核对；旋转/裁切不改变可见文字的身份和数值。"
+      ],
+      "family_id": "IMG-N023",
+      "width": 1600,
+      "height": 1777,
+      "sha256": "cb1c2af61564be0dd7fb45ae0605735b6620f07bb30f0826a0a96b18fd44244a",
+      "path": "tests/fixtures/image-dataset/images/IMG-D006.png",
+      "partition": "derived",
+      "query": "这张图是什么活动、哪个城市和哪一年？仅凭这张图能否确认该届活动的参展酒厂和现场酒款？",
+      "oracle_status": "frozen",
+      "model_status": "blocked",
+      "primary_case_id": "TC-VQAD-006",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E001",
+      "brewery": "京A",
+      "display_name": "京A杯装红色酒液场景",
+      "kind": "brand_only_lifestyle_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/jing-a-koji-red-ale-1920px-l-825x562.jpg",
+      "sha256": "0ab5a28c6d19b9c20e88d41567b49567df5119c20b2166a91d2dac96608e2703",
+      "width": 825,
+      "height": 562,
+      "family_id": "jinga-koji",
+      "test_focus": "杯上仅确认京A品牌，不能用背景食材或酒色确认酒名。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "京A",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E001.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E002",
+      "brewery": "京A",
+      "display_name": "京A艺妓的胭脂海报",
+      "kind": "beer_poster",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/koji-red-ale-poster-1920px-1-825x1167.jpg",
+      "sha256": "68e035603fed053500670e0b38db2bb4d2df6d314976c5783107814db1f12b4f",
+      "width": 825,
+      "height": 1167,
+      "family_id": "jinga-koji",
+      "test_focus": "确认KOJI RED ALE；数字需看原图核对，海报不代表当前在售。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "KOJI RED ALE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E002.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E003",
+      "brewery": "京A",
+      "display_name": "京A飞拳瓶装与杯装",
+      "kind": "official_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/jing-a-flying-fist-1920px-l-825x550.jpg",
+      "sha256": "3281f159ff7d521312ff6bd28e5d2351ce4b64ca339544491468d5eb072622c0",
+      "width": 825,
+      "height": 550,
+      "family_id": "jinga-flying-fist",
+      "test_focus": "瓶标可用于身份，杯标不能独立证明杯中是同款。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "飞拳",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E003.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E004",
+      "brewery": "京A",
+      "display_name": "京A飞拳双语海报",
+      "kind": "beer_poster",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/flying-fist-ipa-poster-1920px-1-825x1160.jpg",
+      "sha256": "86809b0b07874cbdf26797a3cf9027f3a54c39dc59efa280906c3dd1d27a76de",
+      "width": 825,
+      "height": 1160,
+      "family_id": "jinga-flying-fist",
+      "test_focus": "区分酒名、风格、ABV和IBU，宣传语不当酒名。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "FLYING FIST",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E004.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E005",
+      "brewery": "京A",
+      "display_name": "京A杯装琥珀色酒液场景",
+      "kind": "brand_only_lifestyle_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/jing-a-hawthorn-smash-1920px-l-825x548.jpg",
+      "sha256": "3f8ed92eb474f094273be6d8a10421f6ba51927eb83a754d6a7af6b87fa917b0",
+      "width": 825,
+      "height": 548,
+      "family_id": "jinga-hawthorn-smash",
+      "test_focus": "只确认杯上品牌；不从颜色和网页品名补造身份。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "京A",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E005.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E006",
+      "brewery": "京A",
+      "display_name": "京A花布背景杯装场景",
+      "kind": "brand_only_lifestyle_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/08/jing-a-dongbei-ipa-1920px-l-825x550.jpg",
+      "sha256": "28ae5ab0ed9d77d84a6126f424ed157b75cfd1a1fc056d0c40341baccbbc305a",
+      "width": 825,
+      "height": 550,
+      "family_id": "jinga-dongbei",
+      "test_focus": "只有杯上品牌，背景不能证明酒名或产地。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "京A",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E006.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E007",
+      "brewery": "京A",
+      "display_name": "京A东北IPA海报",
+      "kind": "beer_poster",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/dongbei-ipa-poster-1920px-1-825x1167.jpg",
+      "sha256": "3605ca20a7e6d98074e3c9fb0bd5bee51522b60da51c2ebf492380522eb227ce",
+      "width": 825,
+      "height": 1167,
+      "family_id": "jinga-dongbei",
+      "test_focus": "同一中英文酒名不要拆成两款；下方细字放大核对。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "DONG BEI IPA",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E007.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E008",
+      "brewery": "京A",
+      "display_name": "京A工人瓶装与杯装",
+      "kind": "official_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/08/jing-a-workers-pale-ale-1920px-l-825x550.jpg",
+      "sha256": "d3845f3af91fa025892cee36d0728d515f18be8c2fc7d7765fc72aca7fec0484",
+      "width": 825,
+      "height": 550,
+      "family_id": "jinga-workers",
+      "test_focus": "读取瓶标；不从杯形推算容量。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "工人",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E008.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E009",
+      "brewery": "京A",
+      "display_name": "京A工人淡色艾尔海报",
+      "kind": "beer_poster",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/workers-pale-ale-poster-1920px-1-825x1160.jpg",
+      "sha256": "2d44fccec23ff2abbfc7e50c60bc0b61c536055899ea45464deed27b8db79741",
+      "width": 825,
+      "height": 1160,
+      "family_id": "jinga-workers",
+      "test_focus": "区分WORKER’S PALE ALE与宣传语；不把奖牌当评分。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "WORKER’S PALE ALE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E009.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E010",
+      "brewery": "京A",
+      "display_name": "京A土豪金瓶装与杯装",
+      "kind": "official_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/08/jing-a-tuhao-pilsner-1920px-l-825x550.jpg",
+      "sha256": "cc5e90ae89bb15168e9c031bfca649927a8748d6ba75a0df961c19ebc4a1f602",
+      "width": 825,
+      "height": 550,
+      "family_id": "jinga-tuhao",
+      "test_focus": "区分瓶标和杯上品牌，售价与容量未知。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "土豪金",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E010.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E011",
+      "brewery": "京A",
+      "display_name": "京A土豪金海报",
+      "kind": "beer_poster",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/tuhao-pilsner-poster-1920px-1-825x1160.jpg",
+      "sha256": "a720d9b43b4364d98ea931c1d7a21f880ba9a6b5e00851ac43e4a96bf522430d",
+      "width": 825,
+      "height": 1160,
+      "family_id": "jinga-tuhao",
+      "test_focus": "区分皮尔森风格、ABV和IBU；不补售价。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "TUHAO GOLD PILSNER",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E011.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E012",
+      "brewery": "京A",
+      "display_name": "京A杯装浅色酒液场景",
+      "kind": "brand_only_lifestyle_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/08/jing-a-slacker-1920px-l-825x570.jpg",
+      "sha256": "ae9bc3a80461ddcde13117ba0626eb15cbf39a87e0ba818701c12256d3ac69a7",
+      "width": 825,
+      "height": 570,
+      "family_id": "jinga-slacker",
+      "test_focus": "品牌可见，具体酒款无法仅凭杯子确认。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "京A",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E012.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E013",
+      "brewery": "京A",
+      "display_name": "京A摸鱼漫画海报",
+      "kind": "beer_poster",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/slacker-poster-1920px-1-825x1160.jpg",
+      "sha256": "a91f0ae0ccb8e046f341535f55789b537ccae3539d64c3531c565666c7d20b91",
+      "width": 825,
+      "height": 1160,
+      "family_id": "jinga-slacker",
+      "test_focus": "漫画人物/对白不是菜单条目，酒名SLACKER。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "SLACKER",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E013.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E014",
+      "brewery": "京A",
+      "display_name": "京A杯装深色酒液场景",
+      "kind": "brand_only_lifestyle_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/08/jing-a-airpocalypse-1920px-l-825x521.jpg",
+      "sha256": "c6e80582b7b834d2263dc6dea2ad2640341707d6cfc73e9aa01e58679180cc88",
+      "width": 825,
+      "height": 521,
+      "family_id": "jinga-airpocalypse",
+      "test_focus": "背景来源产品名不等于图中酒名。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "京A",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E014.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E015",
+      "brewery": "京A",
+      "display_name": "京A空气大爆表海报",
+      "kind": "beer_poster",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/07/airpocalypse-poster-1920px-1-825x1161.jpg",
+      "sha256": "9428b370e1a00623a4feb7023914c1ecfe500be4ba966cdf99b564d67db51e6c",
+      "width": 825,
+      "height": 1161,
+      "family_id": "jinga-airpocalypse",
+      "test_focus": "酒名与夸张苦度文案分开，IBU宣传语不得编数值。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "THE AIRPOCALYPSE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E015.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E016",
+      "brewery": "京A",
+      "display_name": "京A阿白瓶装与杯装",
+      "kind": "official_photo",
+      "source_page": "https://jingabrewing.com/beers/",
+      "source_image_url": "https://jingabrewing.com/wp-content/uploads/2021/08/jing-a-mandarin-wheat-1920px-l-825x550.jpg",
+      "sha256": "36fca4d6a5a2e25e82046f518d810bf57b287d8d0c8e13ebcb6126dfdaee50ca",
+      "width": 825,
+      "height": 550,
+      "family_id": "jinga-mandarin-wheat",
+      "test_focus": "瓶标中文与品牌分开，不从官网补不可读字段。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "阿白",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E016.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E020",
+      "brewery": "Toppling Goliath",
+      "display_name": "双倍干投Pseudo Sue罐图",
+      "kind": "packaging_art",
+      "source_page": "https://www.tgbrews.com/beer",
+      "source_image_url": "https://images.squarespace-cdn.com/content/v1/5ddd3e912a0cba70b8e4b4f8/b9812be1-e7e6-4480-93b0-8e16c3bdb140/DDHPseuodSue_CANS.BeerBook.png",
+      "sha256": "b0c30615a6c3d26740831f4c4a072cab33bf133df46c20b525838f3eade6eb9b",
+      "width": 844,
+      "height": 1500,
+      "family_id": "toppling-goliath-sue-family",
+      "test_focus": "与普通Pseudo Sue和King Sue分开；品牌不是酒名。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "PSEUDO SUE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E020.webp",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E022",
+      "brewery": "Toppling Goliath",
+      "display_name": "双倍干投King Sue罐图",
+      "kind": "packaging_art",
+      "source_page": "https://www.tgbrews.com/beer",
+      "source_image_url": "https://images.squarespace-cdn.com/content/v1/5ddd3e912a0cba70b8e4b4f8/998b5f4d-eccd-4bbd-87da-b10f278f911b/DDHKingSue_CANS.BeerBook.png",
+      "sha256": "7f78da6a5fd8ed7ed2a60917417ba338fa876f5ca5aa81a5cf0eabf9da3ac0bc",
+      "width": 844,
+      "height": 1500,
+      "family_id": "toppling-goliath-sue-family",
+      "test_focus": "保留DOUBLE DRY HOP变体，不与Pseudo Sue混淆。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "KING SUE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E022.webp",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E025",
+      "brewery": "Toppling Goliath",
+      "display_name": "Citrus Sue罐图",
+      "kind": "packaging_art",
+      "source_page": "https://www.tgbrews.com/beer",
+      "source_image_url": "https://images.squarespace-cdn.com/content/v1/5ddd3e912a0cba70b8e4b4f8/49f1cebf-258e-4537-ba6a-0cc285bb5bb6/CitrusSue_TEMPLATE_CANS.BeerBook.png",
+      "sha256": "d3d23279ff910ba0b9c7f769d8e386d207ce2bd19a44849dec873eed49ce09b0",
+      "width": 844,
+      "height": 1500,
+      "family_id": "toppling-goliath-sue-family",
+      "test_focus": "橙色装饰不是ABV或售价。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "CITRUS SUE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E025.png",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E026",
+      "brewery": "Toppling Goliath",
+      "display_name": "Supa Sue-Mo罐图",
+      "kind": "packaging_art",
+      "source_page": "https://www.tgbrews.com/beer",
+      "source_image_url": "https://images.squarespace-cdn.com/content/v1/5ddd3e912a0cba70b8e4b4f8/fe8a88ac-5f83-4fce-b8fd-3c4e81ea4fc3/SupaSueMo_CANS.BeerBook.png",
+      "sha256": "8c3c0579ae37d40b47c6f8d5b154199c22663e5c852569f1a7834175c08471dd",
+      "width": 844,
+      "height": 1500,
+      "family_id": "toppling-goliath-sue-family",
+      "test_focus": "保留酒名连字符与变体，不缩成King Sue。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "SUPA SUE-MO",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E026.png",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E028",
+      "brewery": "Toppling Goliath",
+      "display_name": "无酒精Pseudo Sue罐图",
+      "kind": "packaging_art",
+      "source_page": "https://www.tgbrews.com/beer",
+      "source_image_url": "https://images.squarespace-cdn.com/content/v1/5ddd3e912a0cba70b8e4b4f8/969367cf-60f1-4aa8-b4cb-da9685c3a671/NASue_CANS.BeerBook.png",
+      "sha256": "8c9b77e791237546f121abe36b8e6dcd9a9d5e78bdb354c19f86ba63ce81caf9",
+      "width": 844,
+      "height": 1500,
+      "family_id": "toppling-goliath-sue-family",
+      "test_focus": "必须注意N/A和NON-ALCOHOLIC，不套普通款ABV。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "N/A PSEUDO SUE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E028.png",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E029",
+      "brewery": "Side Project",
+      "display_name": "Side Project Threnody瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/threnody-i-barleywine-collaboration-with-the-veil",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_Threnody_I_BW_750ml_SQ.jpg?v=1789482497",
+      "sha256": "03e89348a7e55d41c9b24b135d98a047a6af3a12aa775220f41ee4580ac4ea51",
+      "width": 2000,
+      "height": 2000,
+      "family_id": "Side Project-THRENODY",
+      "test_focus": "只识别可见THRENODY，发布版本需独立证据。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "THRENODY",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E029.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E030",
+      "brewery": "Side Project",
+      "display_name": "Side Project Marietta Ave瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/marietta-ave-2026",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_MariettaAve_750ml_WHT_SQ.jpg?v=1699291115",
+      "sha256": "00680d2f2d39f2fc8fb2b9341f264676269b4e5150a08a675e1d1585516e76ac",
+      "width": 2500,
+      "height": 2500,
+      "family_id": "Side Project-Marietta Ave",
+      "test_focus": "网页2026版本信息不得声称从图读取。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "Marietta Ave",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E030.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E031",
+      "brewery": "Side Project",
+      "display_name": "Side Project Bière du Pays瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/biere-du-pays-blend-13",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_BiereDuPays_750ml_WHT_SQ_77c87de5-1b1a-4805-a546-60f54f9ad901.jpg?v=1699289944",
+      "sha256": "00c0b23be420a624489f245e1c8ad38ebd48fb6ded2bf218477897711fa73897",
+      "width": 2500,
+      "height": 2500,
+      "family_id": "Side Project-Bière du Pays",
+      "test_focus": "保留法文重音；不把页面版本当标签事实。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "Bière du Pays",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E031.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E032",
+      "brewery": "Side Project",
+      "display_name": "Side Project Grisette含旧奖项图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/grisette-blend-11",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_Grisette_750ml_WHT_SQ_WE_6e1e0bf8-6847-4fa6-b35b-f0c57818abd6.jpg?v=1699290825",
+      "sha256": "62af2757395bd73241f5c96a04d60f7dc26b845d72dcde1200f1507092ccea9c",
+      "width": 2500,
+      "height": 2500,
+      "family_id": "side-project-grisette-family",
+      "test_focus": "TOP 25 BEERS 2020是图示历史奖项，不是当前评分。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "Grisette",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E032.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E033",
+      "brewery": "Side Project",
+      "display_name": "Side Project绿色Grisette标签图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/dry-hopped-grisette-2027",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_DH_Grisette_750ml_WHT_SQ_106ddf50-dd84-46ea-a59c-f1c7c35c4a4f.jpg?v=1699290435",
+      "sha256": "2f89a8a4e349ad35ae946138c13a7e23f49b564fc8369c59032bea9f51a97aaa",
+      "width": 2000,
+      "height": 2000,
+      "family_id": "side-project-grisette-family",
+      "test_focus": "同名近似包装与另一Grisette同族；干投信息未清晰读出时说明。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "Grisette",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E033.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E034",
+      "brewery": "Side Project",
+      "display_name": "Side Project For Henok瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/for-henok",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_ForHenok_375ml_SQ.jpg?v=1788892813",
+      "sha256": "878791c380ccdf2f6b15e9e4b32c7a073dd0c2ff9444f4db05bc53dd29b84b8e",
+      "width": 2000,
+      "height": 2000,
+      "family_id": "Side Project-FOR HENOK",
+      "test_focus": "深色标签不补造ABV、容量。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "FOR HENOK",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E034.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E035",
+      "brewery": "Side Project",
+      "display_name": "Side Project极简标签绿瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/blended-2017",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_Blended2023_375ml_WHT_SQ.jpg?v=1713798722",
+      "sha256": "46df057bed2ac6490b06eee7e6c382e5b17cfed146a87e01f7c490f4cf2c538d",
+      "width": 2000,
+      "height": 2000,
+      "family_id": "Side Project-E035",
+      "test_focus": "小字无法稳读时仅报告可见对象，不能用网页Blended 2017强填酒名。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": null,
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E035.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E036",
+      "brewery": "Side Project",
+      "display_name": "Side Project La Coterie瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/lc-2026-1",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_LaCoterie_750ml_2026_1_SQ.jpg?v=1788362842",
+      "sha256": "87d2d70ec15fb6ae1f3077274eb67903001aed1655f8725f259667d91144ace3",
+      "width": 2000,
+      "height": 2000,
+      "family_id": "Side Project-LA COTERIE",
+      "test_focus": "细字版本待原图核对，售价未知。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "LA COTERIE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E036.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E037",
+      "brewery": "Side Project",
+      "display_name": "Side Project Continuance瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/continuance-8",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_ContinuanceB8_750ml_SQ.jpg?v=1785945986",
+      "sha256": "2a5c4be3ea588509296e3d2d5182846ba4453156f62a2f3d430e4d8b5a1a4de2",
+      "width": 2000,
+      "height": 2000,
+      "family_id": "Side Project-CONTINUANCE",
+      "test_focus": "不从来源页补Blend #8为图中可见事实。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "CONTINUANCE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E037.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E038",
+      "brewery": "Side Project",
+      "display_name": "Side Project Fraternal Twins瓶图",
+      "kind": "official_product",
+      "source_page": "https://www.sideprojectbrewing.com/products/fraternal-twins-jeppe",
+      "source_image_url": "https://cdn.shopify.com/s/files/1/0513/1531/0745/files/SideProject_FratenalTwins_Jeppe_375ml_SQ.jpg?v=1785357281",
+      "sha256": "725058e234f39045be326783ef14e60aeea112b5115e75835f8b2921890d076f",
+      "width": 2000,
+      "height": 2000,
+      "family_id": "Side Project-FRATERNAL TWINS JEPPE",
+      "test_focus": "保留Jeppe变体，避免与Cory混淆。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "FRATERNAL TWINS JEPPE",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E038.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E040",
+      "brewery": "Other Half",
+      "display_name": "Other Half与Parish多罐合影",
+      "kind": "official_product",
+      "source_page": "https://store.otherhalfbrewing.com/product/parish-collab-box-2026/",
+      "source_image_url": "https://craftpeak-commerce-images.imgix.net/sites/2/2026/09/parish.png?fm=png&ixlib=php-3.3.1",
+      "sha256": "69beb1c4d40be2f7126691119abbbf26f0c2477f01f88fe7ed7a1107b1fd460c",
+      "width": 1080,
+      "height": 1080,
+      "family_id": "Other Half-E040",
+      "test_focus": "6个罐不等于6种酒；分辨重复列与不同酒款，不靠位置猜模糊酒名。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": null,
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E040.png",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    },
+    {
+      "id": "IMG-E041",
+      "brewery": "Other Half",
+      "display_name": "Other Half All In无酒精组合图",
+      "kind": "official_product",
+      "source_page": "https://store.otherhalfbrewing.com/product/all-in-case/",
+      "source_image_url": "https://craftpeak-commerce-images.imgix.net/sites/2/2025/12/OH-na-all_in-10.jpg?fm=pjpg&ixlib=php-3.3.1",
+      "sha256": "1384a1d893b3b6c7fe47d12c7dcba55194cafc01db62c16af41677ec5c67e567",
+      "width": 1500,
+      "height": 1875,
+      "family_id": "Other Half-ALL IN",
+      "test_focus": "注意NON-ALCOHOLIC和含量阈值；不能说绝对0酒精，也不能当普通IPA。",
+      "oracle": {
+        "scope": "身份/对象及错误边界；不包含完整数值真值",
+        "visible_identity": "ALL IN",
+        "price": null,
+        "rating": null,
+        "numeric_fields": "本轮未逐字段冻结；不可据候选图名或来源网页自动补值"
+      },
+      "rights": "未发现开放许可；版权归原权利人，仅作为内部评测候选素材",
+      "path": "tests/fixtures/image-dataset/images/IMG-E041.jpg",
+      "partition": "extension",
+      "query": "请只根据这张图说明是什么、能确认哪些信息、哪些不能确认；不要用官网资料补成图上文字。",
+      "oracle_status": "partial_reviewed_not_frozen",
+      "model_status": "not_run",
+      "mbcb_participation": "unconfirmed"
+    }
+  ]
+}

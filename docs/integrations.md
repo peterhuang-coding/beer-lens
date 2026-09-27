@@ -89,15 +89,14 @@ Current support:
 - Reply in plain text as the bot
 - Per-chat conversation memory using `chat_id`
 - Manual reset command: `清空`, `重置`, `/reset`
-- **3 秒 ACK**：先在 STM 写一个 `processing` atomic placeholder
-  (`lib/beer-agent/memory/short-term.ts` 的 `updateShortTermMemory()`)
-  再 return 200；LLM 完成后的真实结果由 `after()` 托管异步落盘，
-  用户快速追问时读到的也是同一份 STM，不会出现脏 memory。
+- **快速回执**：HTTP 入口通过 `after()` 安排处理后返回；长连接立即确认事件。
+  图片下载、模型调用和回复在同一聊天的队列中串行执行，下一轮等上一轮完成后再读取上下文。
+- `/reset` 同时清除当前聊天历史和短期菜单、约束；长期口味记录保留。
 
 Current limitations:
 
 - No message card reply yet
-- No async queue yet for long-running model calls
+- 队列仅驻留当前进程内存，不是持久化任务系统；进程突然退出时，尚未处理的消息可能丢失
 - Verification token is checked, but encrypted event payloads are not decrypted yet
 
 Feishu setup:
@@ -115,6 +114,20 @@ Important:
 
 - If you enable Feishu event encryption, the current code will reject encrypted payloads.
 - For the fastest first integration, keep verification token enabled but turn off event encryption in the Feishu callback settings.
+
+### 飞书长连接试用入口
+
+`npm run feishu:check` 检查 `.env.local` 或应用运行环境中的 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`OPENROUTER_API_KEY`，只输出缺失字段名。该检查不验证凭据有效性。
+
+`npm run feishu:bot` 使用官方 SDK 建立长连接，和 HTTP 回调共用 `lib/feishu/handler.ts`。此入口只接收用户私聊；`FEISHU_ALLOWED_OPEN_IDS` 可进一步限定试用用户。收到事件后立即回执，同一聊天串行处理，重复事件去重。
+
+在飞书开放平台为项目自建应用启用机器人，配置私聊消息接收、资源读取和机器人回复权限，订阅 `im.message.receive_v1` 并选择长连接方式。发布后将可用范围限定为试用人员。参见[官方长连接说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/event-subscription-guide/long-connection-mode)。
+
+每个应用只运行一个本项目接收进程，使用可写、持久化的 `data/` 目录。进程需持续运行才能接收新消息；当前工作区的临时进程不等同于长期托管。长连接不经过 HTTP 回调的加密分支。
+
+飞书沿用 Agent Controller 的 OpenRouter 链路。Web `/api/chat` 的 `LLM_*` 配置不能替代这里的 `OPENROUTER_API_KEY`；视觉管线的模型设置仍由项目 `data/pipeline-config.json` 决定。
+
+试用先私聊发送“你好”和“你能帮我做什么？”，再发真实酒单并追问预算、编号。接入检查与真实回答质量分别验收；预算、实体抽取、否定编号及容量更新已有离线修复回归，真实模型与飞书会话质量仍需单独验收。见[本次改动与验证](beer-lens/改动与验证.md)。
 
 ## Provider Priority
 

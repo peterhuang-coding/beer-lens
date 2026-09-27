@@ -1,0 +1,2078 @@
+{
+  "initial_unit": {
+    "passed": 40,
+    "total": 41,
+    "failed_case": "UT-I08"
+  },
+  "fixed_unit": {
+    "passed": 41,
+    "total": 41
+  },
+  "related_regression": {
+    "passed": 79,
+    "total": 79,
+    "skipped": 0,
+    "includes_fixed_unit": true
+  },
+  "gui": {
+    "total": 48,
+    "blocked": 48,
+    "semantic_not_run": 46,
+    "ui_cases_executed": 2,
+    "ui_assertions_passed": 5,
+    "ui_assertions_unknown": 2,
+    "cases": [
+      {
+        "id": "TC-VQAB-001",
+        "title": "[Web] IMG-B001菜单字段与编号追问",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：印刷第7号的酒名为Kölsch。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：印刷第7号的酒厂为Gaffel。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：印刷第7号的价格为人民币55元。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：印刷第7号的容量为425ml。"
+          },
+          {
+            "index": 5,
+            "expected": "额外字段：本次回答包含印刷第7号ABV时为4.8%，不与价格或容量互串。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：印刷第18号的酒名为DONUT SERIES 2.0。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：印刷第18号的酒厂为Amundsen。"
+          },
+          {
+            "index": 8,
+            "expected": "字段：印刷第18号的价格为人民币85元。"
+          },
+          {
+            "index": 9,
+            "expected": "字段：印刷第18号的容量为300ml。"
+          },
+          {
+            "index": 10,
+            "expected": "额外字段：本次回答包含印刷第18号ABV时为11.5%，不与价格或容量互串。"
+          },
+          {
+            "index": 11,
+            "expected": "额外字段：本次回答包含第18号风格时为帝国甜点世涛。"
+          },
+          {
+            "index": 12,
+            "expected": "语义：第5号无可读在售信息，不补造候选；右缘不可见条目不补全。"
+          },
+          {
+            "index": 13,
+            "expected": "语义：保留印刷编号和字段对应，不把容量、ABV或IBU当价格；酒名与酒厂不混淆。"
+          },
+          {
+            "index": 14,
+            "expected": "事实边界：未冻结的其他可见行留原始输出并标未验证，不凭模型自洽判全部行通过。"
+          },
+          {
+            "index": 15,
+            "expected": "追问仍指向当前图的第7号Kölsch，价格55元，容量425ml，不按数组位置选取。"
+          },
+          {
+            "index": 16,
+            "expected": "当前完整菜单仍可用于追问，不被前一轮候选子集替换。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAB-002",
+        "title": "[Web] IMG-B002菜单字段与编号追问",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：印刷第7号的酒名为Story Walking。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：印刷第7号的酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：印刷第7号的价格为人民币105元。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：印刷第7号的容量为300ml。"
+          },
+          {
+            "index": 5,
+            "expected": "额外字段：本次回答包含印刷第7号ABV时为7.0%，不与价格或容量互串。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：印刷第11号的酒名为LA Love。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：印刷第11号的酒厂为Monkish。"
+          },
+          {
+            "index": 8,
+            "expected": "字段：印刷第11号的价格为人民币110元。"
+          },
+          {
+            "index": 9,
+            "expected": "字段：印刷第11号的容量为300ml。"
+          },
+          {
+            "index": 10,
+            "expected": "额外字段：本次回答包含印刷第11号ABV时为8.1%，不与价格或容量互串。"
+          },
+          {
+            "index": 11,
+            "expected": "字段：印刷第18号的酒名为Abraxas 2025。"
+          },
+          {
+            "index": 12,
+            "expected": "字段：印刷第18号的价格为人民币105元。"
+          },
+          {
+            "index": 13,
+            "expected": "字段：印刷第18号的容量为300ml。"
+          },
+          {
+            "index": 14,
+            "expected": "额外字段：本次回答包含印刷第18号ABV时为10.5%，不与价格或容量互串。"
+          },
+          {
+            "index": 15,
+            "expected": "额外字段：本次回答包含第18号风格时为帝国世涛，酒厂没有冻结值，不强加酒厂断言。"
+          },
+          {
+            "index": 16,
+            "expected": "语义：Monkish不识别为Morshik；啤酒、无酒精饮品和冰沙不混为同类。"
+          },
+          {
+            "index": 17,
+            "expected": "语义：保留印刷编号，不按数组位置重排；不可辨字段说明不确定，不用容量或IBU补造价格。"
+          },
+          {
+            "index": 18,
+            "expected": "事实边界：未冻结的其他可见行留原始输出并标未验证，不凭模型自洽判全部行通过。"
+          },
+          {
+            "index": 19,
+            "expected": "追问仍指向当前图的第7号Story Walking，价格105元，容量300ml，不按数组位置选取。"
+          },
+          {
+            "index": 20,
+            "expected": "当前完整菜单仍可用于追问，不被前一轮候选子集替换。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAD-001",
+        "title": "[Web] IMG-D001衍生图识别边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Pen Hits Tremendous。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "衍生语义：旋转或裁切只改变图像呈现，仍可见文字对应的身份和数值不变；不能用看不见的父图细节补答案。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAD-002",
+        "title": "[Web] IMG-D002衍生图识别边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Pen Hits Tremendous。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "衍生语义：旋转或裁切只改变图像呈现，仍可见文字对应的身份和数值不变；不能用看不见的父图细节补答案。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAD-003",
+        "title": "[Web] IMG-D003衍生图识别边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "识别边界：明确说明当前图无法可靠辨认，并请求清晰图片。"
+          },
+          {
+            "index": 2,
+            "expected": "事实边界：不从不可辨认图编造具体酒名、厂名、菜单编号、价格或容量。"
+          },
+          {
+            "index": 3,
+            "expected": "上下文边界：不能把前一张清晰图的识别结果冒充本次新图结果。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAD-004",
+        "title": "[Web] IMG-D004衍生图识别边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：印刷第7号的酒名为Kölsch。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：印刷第7号的酒厂为Gaffel。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：印刷第7号的价格为人民币55元。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：印刷第7号的容量为425ml。"
+          },
+          {
+            "index": 5,
+            "expected": "额外字段：本次回答包含印刷第7号ABV时为4.8%，不与价格或容量互串。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：印刷第18号的酒名为DONUT SERIES 2.0。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：印刷第18号的酒厂为Amundsen。"
+          },
+          {
+            "index": 8,
+            "expected": "字段：印刷第18号的价格为人民币85元。"
+          },
+          {
+            "index": 9,
+            "expected": "字段：印刷第18号的容量为300ml。"
+          },
+          {
+            "index": 10,
+            "expected": "额外字段：本次回答包含印刷第18号ABV时为11.5%，不与价格或容量互串。"
+          },
+          {
+            "index": 11,
+            "expected": "语义：旋转不改变印刷编号和字段归属，不按数组位置重排。"
+          },
+          {
+            "index": 12,
+            "expected": "事实边界：第5号空白和右缘不可见条目不补全。"
+          },
+          {
+            "index": 13,
+            "expected": "额外字段：回答第18号风格时为帝国甜点世涛。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAD-005",
+        "title": "[Web] IMG-D005衍生图识别边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "识别边界：明确说明当前图无法可靠辨认，并请求清晰图片。"
+          },
+          {
+            "index": 2,
+            "expected": "事实边界：不从不可辨认图编造具体酒名、厂名、菜单编号、价格或容量。"
+          },
+          {
+            "index": 3,
+            "expected": "上下文边界：不能把前一张清晰图的识别结果冒充本次新图结果。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAD-006",
+        "title": "[Web] IMG-D006衍生图识别边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "对象：识别为活动海报，不是具体酒款或酒单。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：活动名称为Mikkeller Beer Celebration Beijing。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：城市为北京 / Beijing。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：年份为2026，不能混成2025或2026中的另一届。"
+          },
+          {
+            "index": 5,
+            "expected": "名单边界：当前图没有可确认的逐厂参展名单，不把品牌、装饰文字、预计酒厂数量或其他届次信息当作该届参展与现场酒款证据。"
+          },
+          {
+            "index": 6,
+            "expected": "衍生语义：旋转或裁切只改变图像呈现，仍可见文字对应的身份和数值不变；不能用看不见的父图细节补答案。"
+          }
+        ]
+      },
+      {
+        "id": "TC-SWITCH-001",
+        "title": "[Web] 清晰菜单换不可读新图并恢复",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "当前图第7号为Kölsch，55元、425ml。"
+          },
+          {
+            "index": 2,
+            "expected": "当前新图无法可靠辨认，明确说明并请求清晰图片，不把旧菜单当新识别。"
+          },
+          {
+            "index": 3,
+            "expected": "明确无法从当前新图可靠确认第7号价格，请重传或核对。"
+          },
+          {
+            "index": 4,
+            "expected": "不把旧图Kölsch的55元冒充新图识别价格。"
+          },
+          {
+            "index": 5,
+            "expected": "允许再次上传并提交清晰图片。"
+          },
+          {
+            "index": 6,
+            "expected": "恢复后的第7号为Kölsch，55元、425ml。"
+          }
+        ]
+      },
+      {
+        "id": "TC-SWITCH-002",
+        "title": "[Web] 切换不同酒厂图片后的实体追问",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "当前图识别酒名Pen Hits Tremendous、酒厂Monkish。"
+          },
+          {
+            "index": 2,
+            "expected": "新图识别酒名Lunch、酒厂Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "图中未显示ABV和容量，不沿用前图或网页数值。"
+          },
+          {
+            "index": 4,
+            "expected": "当前对象为Maine Beer Company的Lunch，不是Monkish或Pen Hits Tremendous。"
+          }
+        ]
+      },
+      {
+        "id": "TC-UI-001",
+        "title": "[Web] 真实单次发送与失败后继续编辑",
+        "result": "blocked",
+        "reason": "断言服务证据不足",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "输入框可真实聚焦，完整显示草稿“你好”，不被图片或示例遮挡。"
+          },
+          {
+            "index": 2,
+            "expected": "聊天区出现本次用户消息“你好”。"
+          },
+          {
+            "index": 3,
+            "expected": "本次消息有可见关联的处理中、完成或失败状态；实际失败不伪装成正常模型回答。"
+          },
+          {
+            "index": 4,
+            "expected": "失败后仍可编辑，输入框完整显示“什么是NEIPA？”草稿。"
+          }
+        ]
+      },
+      {
+        "id": "TC-UI-002",
+        "title": "[Web] 中性图片上传与草稿编辑",
+        "result": "blocked",
+        "reason": "断言服务证据不足",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "附件反馈显示IMG-N001.png中性文件名。"
+          },
+          {
+            "index": 2,
+            "expected": "缩略图与所选图片一致，不能显示另一张图片。"
+          },
+          {
+            "index": 3,
+            "expected": "输入框完整显示所填草稿，附件仍指向IMG-N001.png。"
+          }
+        ]
+      },
+      {
+        "id": "TC-DIALOG-001",
+        "title": "[Web] 问候到模糊指代的连续对话",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "自然回应问候，不把“你好”当作酒名。"
+          },
+          {
+            "index": 2,
+            "expected": "说明啤酒问答、识图或选酒相关能力，不将整句当酒款。"
+          },
+          {
+            "index": 3,
+            "expected": "简短说明职责或引导回到支持场景，不从离题词子串构造啤酒实体。"
+          },
+          {
+            "index": 4,
+            "expected": "无确定对象时澄清“这个”所指酒款，不沿用离题词作为酒款上下文。"
+          },
+          {
+            "index": 5,
+            "expected": "四轮均不编造在售清单、杯价或评分。"
+          }
+        ]
+      },
+      {
+        "id": "TC-DIALOG-002",
+        "title": "[Web] 知识切换与中英文酒款实体",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "正确说明IPA与拉格的类别关系，不把两者都写为同一级发酵大类。"
+          },
+          {
+            "index": 2,
+            "expected": "围绕浑浊IPA提供建议或必要澄清，无菜单时不宣称现售、价格和未经核实的评分。"
+          },
+          {
+            "index": 3,
+            "expected": "切为NEIPA知识解释，涉及浑浊外观与酒花香气，不继续强推购买。"
+          },
+          {
+            "index": 4,
+            "expected": "中英文名称按用户表达的一款酒处理，不拆成两款；身份无法核实时明确说明。"
+          },
+          {
+            "index": 5,
+            "expected": "未知名称请求澄清或明确未核实，不套用近似酒款分数或酒厂均分。"
+          }
+        ]
+      },
+      {
+        "id": "TC-MULTI-001",
+        "title": "[Web] 完整菜单编号、预算和否定编号",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "第7号为柚香，55元/425ml，不按数组下标选酒。"
+          },
+          {
+            "index": 2,
+            "expected": "第18号为夜航，78元/300ml，当前70元预算下超8元。"
+          },
+          {
+            "index": 3,
+            "expected": "80元替换70元预算，78元夜航可买并剩2元。"
+          },
+          {
+            "index": 4,
+            "expected": "完整菜单仍保留，不截断为上一轮子集。"
+          },
+          {
+            "index": 5,
+            "expected": "排除第7号柚香，保留80元预算，不把否定解释成推荐第7号。"
+          },
+          {
+            "index": 6,
+            "expected": "明确菜单没有99号并请核对，不编造酒款和属性。"
+          }
+        ]
+      },
+      {
+        "id": "TC-MULTI-002",
+        "title": "[Web] 预算与容量依次替换",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "选择45元300ml的Small Lager，不因大杯单位价低忽略300ml容量要求。"
+          },
+          {
+            "index": 2,
+            "expected": "小杯15元/100ml，大杯12元/100ml，单位价与总价分开。"
+          },
+          {
+            "index": 3,
+            "expected": "容量改为只要500ml，选择60元Large Lager，单位价12元/100ml。"
+          },
+          {
+            "index": 4,
+            "expected": "500ml不误作500元。"
+          },
+          {
+            "index": 5,
+            "expected": "50元替换70元并保留只要500ml，当前无合格候选；不因单位价低放行60元大杯。"
+          },
+          {
+            "index": 6,
+            "expected": "保留50元预算、Lager和单位价目标，容量放宽后可选45元Small Lager。"
+          },
+          {
+            "index": 7,
+            "expected": "预算替换为40元，保留两种容量均接受，当前无合格候选。"
+          }
+        ]
+      },
+      {
+        "id": "TC-MULTI-003",
+        "title": "[Web] 风格与ABV和IBU持续约束",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "仅清麦符合全部条件；ABV5%和IBU30包含在边界内。"
+          },
+          {
+            "index": 2,
+            "expected": "花潮因不要IPA排除；迷雾未知ABV/IBU不能确认合格；烈麦5.1%和31越界。"
+          },
+          {
+            "index": 3,
+            "expected": "55元替换60元，保留不要IPA、ABV≤5%、IBU≤30，仍只有清麦符合。"
+          },
+          {
+            "index": 4,
+            "expected": "IBU30和400ml不误作价格，低IBU不表述为保证不苦。"
+          },
+          {
+            "index": 5,
+            "expected": "只要IPA替换不要IPA，保留55元和ABV≤5%、IBU≤30，只有花潮符合。"
+          },
+          {
+            "index": 6,
+            "expected": "IBU上限改为19，保留只要IPA、55元及ABV≤5%，当前无合格候选。"
+          },
+          {
+            "index": 7,
+            "expected": "19是IBU上限，不是19元预算。"
+          }
+        ]
+      },
+      {
+        "id": "TC-FEEDBACK-001",
+        "title": "[Web] 明确酒款的味觉反馈",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "回复把反馈指向第7号柚香，不指向第1号青麦或第18号夜航。"
+          }
+        ]
+      },
+      {
+        "id": "TC-FEEDBACK-002",
+        "title": "[Web] 未知反馈对象先澄清",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "回复询问具体是哪款酒，不默认上轮或首选对象。"
+          },
+          {
+            "index": 2,
+            "expected": "不显示“已记录未知啤酒”或其他未知对象保存成功。"
+          }
+        ]
+      },
+      {
+        "id": "TC-FEEDBACK-003",
+        "title": "[Web] 禁写后承接偏好与纠错",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "否定IPA偏好被准确承接，纠错对象为第18号夜航。"
+          },
+          {
+            "index": 2,
+            "expected": "不显示偏好或纠错已保存成功。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAB-003",
+        "title": "[Web] IMG-B003酒罐字段与模糊小字",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为LA LOVE。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：ABV为8.1%，或明确小字无法可靠辨认并请求清晰标签；无依据的8.5%不合格。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：容量保留1 PINT（16 FL. OZ.）或给出明确单位换算，不无依据写为500ml。"
+          },
+          {
+            "index": 5,
+            "expected": "语义：没有可靠可读依据的风格明确无法确认，外部知识不冒充图上文字。"
+          },
+          {
+            "index": 6,
+            "expected": "事实边界：图中无价格，不能补造报价或性价比。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAB-004",
+        "title": "[Web] IMG-B004营销图信息来源边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：识别Lunch和Dinner为两款酒，不互换名称。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：Lunch风格为West Coast IPA。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：Lunch的ABV为7.0%。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：Lunch图示Untappd评分为4.15。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：Dinner风格为Double IPA。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：Dinner的ABV为8.2%。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：Dinner图示Untappd评分为4.50。"
+          },
+          {
+            "index": 8,
+            "expected": "语义：图示评分、宣传年份和奖项不自动成为已核实的当前线上事实。"
+          },
+          {
+            "index": 9,
+            "expected": "事实边界：无售价、容量，不编造价格、单位价或性价比赢家；购买价值比较须索取报价与容量。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-001",
+        "title": "[Web] IMG-N001原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Thor Pour。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为DDH Double India Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：ABV为8.0%，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：容量为1 PINT (16 FL. OZ.)，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-002",
+        "title": "[Web] IMG-N002原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为West Coast Aroma。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-003",
+        "title": "[Web] IMG-N003原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Pen Hits Tremendous。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-004",
+        "title": "[Web] IMG-N004原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Ego。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-005",
+        "title": "[Web] IMG-N005原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为West Coast Outlook。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-006",
+        "title": "[Web] IMG-N006原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Water Balloon Animals。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-007",
+        "title": "[Web] IMG-N007原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Feminist。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为Belgian-style Tripel Ale brewed with hibiscus。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：ABV为9.4%，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：容量为1 PINT (16 FL. OZ.)，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-008",
+        "title": "[Web] IMG-N008原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Monk-Style Proverbs。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-009",
+        "title": "[Web] IMG-N009原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Just Tryin' to Feel Something。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为DDH India Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：ABV为7.0%，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：容量为1 PINT (16 FL. OZ.)，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-010",
+        "title": "[Web] IMG-N010原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Swap Meets。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-011",
+        "title": "[Web] IMG-N011原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Song of Silence，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为Belgian Blonde，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-012",
+        "title": "[Web] IMG-N012原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Still TIPA'in。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为DDH Triple India Pale Ale，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：ABV为10.0%，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：容量为1 PINT (16 FL. OZ.)，或明确该处小字无法可靠辨认并请求更清晰图片；不能给出错误的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-013",
+        "title": "[Web] IMG-N013原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Still Puffin。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒罐展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-014",
+        "title": "[Web] IMG-N014原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Haiku de Saison。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Monkish。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：图中风格不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-015",
+        "title": "[Web] IMG-N015原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Lunch。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为India Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-016",
+        "title": "[Web] IMG-N016原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Peeper。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-017",
+        "title": "[Web] IMG-N017原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Mean Old Tom。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为Stout Aged on Natural Vanilla Beans。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-018",
+        "title": "[Web] IMG-N018原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Zoe。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为Amber Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-019",
+        "title": "[Web] IMG-N019原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Another One。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为India Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-020",
+        "title": "[Web] IMG-N020原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Woods & Waters。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为India Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-021",
+        "title": "[Web] IMG-N021原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为MO。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-022",
+        "title": "[Web] IMG-N022原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "字段：酒名为Dinner。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：酒厂为Maine Beer Company。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：风格为Double India Pale Ale。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：图中ABV不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：图中容量不可可靠辨认或未展示，明确说明不确定；不把网页背景或外部知识当作图上已读出的具体值。"
+          },
+          {
+            "index": 6,
+            "expected": "字段：图中未展示价格，不补造具体值。"
+          },
+          {
+            "index": 7,
+            "expected": "字段：图中未展示评分，不补造具体值。"
+          },
+          {
+            "index": 8,
+            "expected": "对象：识别为实际啤酒瓶展示。"
+          },
+          {
+            "index": 9,
+            "expected": "语义：品牌和装饰文字不充当酒名，字段取自当前图片，不从source_facts商品页面补成已识别结果。"
+          },
+          {
+            "index": 10,
+            "expected": "活动边界：不宣称该酒厂为MBCB参展方或该款为现场在售。"
+          },
+          {
+            "index": 11,
+            "expected": "事实边界：不编造未标注的生产时间或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-023",
+        "title": "[Web] IMG-N023原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "对象：识别为活动海报，不是具体酒款或酒单。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：活动名称为Mikkeller Beer Celebration Beijing。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：城市为北京 / Beijing。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：年份为2026，不能混成2025或2026中的另一届。"
+          },
+          {
+            "index": 5,
+            "expected": "名单边界：当前图没有可确认的逐厂参展名单，不把品牌、装饰文字、预计酒厂数量或其他届次信息当作该届参展与现场酒款证据。"
+          },
+          {
+            "index": 6,
+            "expected": "事实边界：不编造图中没有的售价、评分或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-024",
+        "title": "[Web] IMG-N024原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "对象：识别为活动海报，不是具体酒款或酒单。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：活动名称为Mikkeller Beer Celebration Beijing。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：城市为北京 / Beijing。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：年份为2025，不能混成2025或2026中的另一届。"
+          },
+          {
+            "index": 5,
+            "expected": "名单边界：当前图没有可确认的逐厂参展名单，不把品牌、装饰文字、预计酒厂数量或其他届次信息当作该届参展与现场酒款证据。"
+          },
+          {
+            "index": 6,
+            "expected": "事实边界：不编造图中没有的售价、评分或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-025",
+        "title": "[Web] IMG-N025原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "对象：识别为啤酒罐造型毛绒玩具，不是实际啤酒。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：可见品牌为Monkish，品牌标志不等于实际酒款。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：不能据玩具或空酒杯确定实际酒款；印刷品牌或装饰酒名不能成为实际酒液身份。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：无法从非酒对象确认实际啤酒ABV，不补造酒精度。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：无法从非酒对象确认实际酒液容量，不把商品尺寸、杯具容量说明当作图中酒液容量。"
+          },
+          {
+            "index": 6,
+            "expected": "事实边界：不编造图中没有的售价、评分或新鲜度。"
+          }
+        ]
+      },
+      {
+        "id": "TC-VQAN-026",
+        "title": "[Web] IMG-N026原图识别与事实边界",
+        "result": "blocked",
+        "reason": "项目模型配置缺失",
+        "verification_points": [
+          {
+            "index": 1,
+            "expected": "对象：识别为空酒杯展示，不是装有已确认酒款的啤酒。"
+          },
+          {
+            "index": 2,
+            "expected": "字段：可见品牌为Monkish，品牌标志不等于实际酒款。"
+          },
+          {
+            "index": 3,
+            "expected": "字段：不能据玩具或空酒杯确定实际酒款；印刷品牌或装饰酒名不能成为实际酒液身份。"
+          },
+          {
+            "index": 4,
+            "expected": "字段：无法从非酒对象确认实际啤酒ABV，不补造酒精度。"
+          },
+          {
+            "index": 5,
+            "expected": "字段：无法从非酒对象确认实际酒液容量，不把商品尺寸、杯具容量说明当作图中酒液容量。"
+          },
+          {
+            "index": 6,
+            "expected": "事实边界：不编造图中没有的售价、评分或新鲜度。"
+          }
+        ]
+      }
+    ]
+  },
+  "extension": {
+    "images": 33,
+    "model_status": "not_run",
+    "full_oracle_status": "pending"
+  },
+  "response_design": {
+    "implementation": "proposal_only",
+    "model_tested": false
+  },
+  "pre_push_validation": {
+    "unit_tests_passed": 88,
+    "unit_tests_total": 88,
+    "skipped": 0,
+    "includes_previous_79": true,
+    "feishu_trial_tests": 9,
+    "typescript": "passed",
+    "production_build": "not_rerun",
+    "real_model": "not_run"
+  }
+}

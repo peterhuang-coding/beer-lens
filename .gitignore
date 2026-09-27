@@ -54,3 +54,7 @@ output/playwright/
 flux/.local
 flux/changes
 log/
+
+# Workspace-only test orchestration and artifact symlink
+/.bytest/
+/flux

@@ -38,20 +38,23 @@ export function extractConstraints(text: string): string[] {
     result.push(`minPrice:${Math.min(low, high)}`, `maxPrice:${Math.max(low, high)}`);
   }
   const pricePatterns = [
-    new RegExp(`(?:预算|最多|不超过|不超|上限|放宽到|调整到|提高到|改到)(?:为|是|在)?\\s*[¥￥]?\\s*${number}\\s*(?:元|块)?`),
+    new RegExp(`(?:预算|价格上限|杯价上限|总价上限)\\s*(?:改成|改为|改到|调整到|调整为|提高到|放宽到|不超过|最多|为|是|在)?\\s*[¥￥]?\\s*${number}(?![\\d.]|\\s*(?:ml|毫升|%|IBU))\\s*(?:元|块)?`, 'i'),
+    // Without a price noun, a currency unit is required: “IBU最多30” is not a budget.
+    new RegExp(`(?:最多|不超过|不超|上限|放宽到|调整到|提高到|改到|改成)(?:为|是|在)?\\s*[¥￥]?\\s*${number}\\s*(?:元|块)`),
+    new RegExp(`(?:最多|不超过|不超|上限|放宽到|调整到|提高到|改到|改成)(?:为|是|在)?\\s*[¥￥]\\s*${number}`),
     new RegExp(`${number}\\s*(?:元|块)\\s*(?:以内|以下|内|封顶)`),
     new RegExp(`[¥￥]\\s*${number}\\s*(?:以内|以下)`),
   ];
   if (!priceRange) {
     for (const p of pricePatterns) {
       const m = text.match(p);
-      if (m && !/酒精|abv/i.test(text.slice(Math.max(0,m.index! - 8),m.index!))) { result.push(`maxPrice:${Number(m[1])}`); break; }
+      if (m) { result.push(`maxPrice:${Number(m[1])}`); break; }
     }
   }
   const range = text.match(/(?:ABV|酒精度)\s*(\d+(?:\.\d+)?)\s*[-~至到—]\s*(\d+(?:\.\d+)?)/i);
   if (range) result.push(`minAbv:${Number(range[1])}`, `maxAbv:${Number(range[2])}`);
   else {
-    const max = text.match(/(?:ABV|酒精度)\s*(?:不超过|低于|最多|小于|低过)\s*(\d+(?:\.\d+)?)/i)
+    const max = text.match(/(?:ABV|酒精度)\s*(?:改成|改为|调整到)?\s*(?:不超过|低于|最多|小于|低过)\s*(\d+(?:\.\d+)?)/i)
       ?? text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:以下|以内)/i);
     if (max) result.push(`maxAbv:${Number(max[1])}`);
     else if (/低度|酒精度低|低酒精/i.test(text)) result.push('maxAbv:4.5');
@@ -59,16 +62,31 @@ export function extractConstraints(text: string): string[] {
   const ibuRange = text.match(/IBU\s*(\d+(?:\.\d+)?)\s*[-~至到—]\s*(\d+(?:\.\d+)?)/i);
   if (ibuRange) result.push(`minIbu:${Math.min(Number(ibuRange[1]), Number(ibuRange[2]))}`, `maxIbu:${Math.max(Number(ibuRange[1]), Number(ibuRange[2]))}`);
   else {
-    const maxIbu = text.match(/IBU\s*(?:不超过|低于|最多|小于|≤|<=)\s*(\d+(?:\.\d+)?)/i)
+    const maxIbu = text.match(/(?:苦度|IBU)\s*(?:改成|改为|调整到)?\s*(?:不超过|低于|最多|小于|≤|<=)\s*(\d+(?:\.\d+)?)/i)
       ?? text.match(/(?:苦度|IBU)\s*(\d+(?:\.\d+)?)\s*(?:以下|以内)/i);
     if (maxIbu) result.push(`maxIbu:${Number(maxIbu[1])}`);
+  }
+  // Serving requirements are hard constraints, independent of total/unit price.
+  if (/(?:容量不限|不限容量|(?:两种|这两种|所有|任何)容量都?(?:接受|可以))/.test(text)) {
+    result.push('volumeMl:any');
+  } else {
+    const maxVolume = text.match(/(?:容量\s*)?(?:最多|不超过|不超|上限(?:为|是)?)\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)/i)
+      ?? text.match(/(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(?:以下|以内)/i);
+    const minVolume = text.match(/(?:容量\s*)?(?:至少|不低于|下限(?:为|是)?)\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)/i);
+    if (maxVolume) result.push(`maxVolumeMl:${Number(maxVolume[1])}`);
+    if (minVolume) result.push(`minVolumeMl:${Number(minVolume[1])}`);
+    if (!maxVolume && !minVolume) {
+      const volume = text.match(/(?:只要|只想喝|只喝|容量\s*(?:为|是|改[成为])?|改[成为]|换成)\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(左右|上下|附近)?/i)
+        ?? text.match(/^\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*$/i);
+      if (volume) result.push(volume[2] ? 'volumeMl:any' : `volumeMl:${Number(volume[1])}`);
+    }
   }
   return [...new Set(result)];
 }
 
 /** Current values replace the same kind of earlier constraint, instead of accumulating forever. */
 export function mergeConstraints(previous: string[], current: string[]): string[] {
-  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : /^(?:min|max)Ibu:/.test(c) ? 'ibu' : /^(?:min|max)Price:/.test(c) ? 'price' : c.startsWith('priceGoal:') ? 'priceGoal' : c.split(':')[0];
+  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : /^(?:min|max)Ibu:/.test(c) ? 'ibu' : /^(?:min|max)Price:/.test(c) ? 'price' : /^(?:volumeMl|minVolumeMl|maxVolumeMl):/.test(c) ? 'volume' : c.startsWith('priceGoal:') ? 'priceGoal' : c.split(':')[0];
   const replaced = new Set(current.map(family));
   return [...new Set([...previous.filter(c => !replaced.has(family(c))), ...current])];
 }
@@ -80,6 +98,12 @@ export function constraintFailures(candidate: CandidateFacts, constraints: strin
   const requestedStyles = constraints.filter(c => STYLES[c]);
   if (requestedStyles.length && !requestedStyles.some(s => STYLES[s].test(text))) failures.push(`不符合要求的风格：${requestedStyles.join('或')}`);
   for (const c of constraints) {
+    if (/^(?:volumeMl|minVolumeMl|maxVolumeMl):/.test(c) && c !== 'volumeMl:any') {
+      const value = Number(c.split(':')[1]);
+      const volume = candidate.volumeMl;
+      if (volume == null || !Number.isFinite(volume) || volume <= 0) failures.push('容量未知，无法确认是否符合要求');
+      else if (c.startsWith('maxVolumeMl:') ? volume > value : c.startsWith('minVolumeMl:') ? volume < value : volume !== value) failures.push('容量不符合要求');
+    }
     if (c.startsWith('excludeStyle:') && STYLES[c.slice(13)]?.test(text)) failures.push('属于排除的风格');
     if (c.startsWith('maxPrice:')) {
       const max = Number(c.slice(9));

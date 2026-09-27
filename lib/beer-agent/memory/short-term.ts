@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import type { BeerCandidate } from "../types.ts";
@@ -236,4 +236,10 @@ export async function clearShortTermMenu(conversationId: string, userId: string)
     memory.currentConstraints=[];memory.updatedAt=new Date().toISOString();
     await writeFile(filePath,JSON.stringify(memory,null,2)+'\n','utf8');
   });
+}
+
+/** 仅重置指定用户、指定会话的短期状态，不删除长期口味记录。 */
+export async function clearShortTermMemory(conversationId: string, userId: string): Promise<void> {
+  const filePath = path.join(process.cwd(), "data", "memory", "short-term", `${resolveMemoryKey(userId, conversationId)}.json`);
+  await withLock(filePath, () => rm(filePath, { force: true }));
 }

@@ -19,6 +19,7 @@ import type { BeerIntent, KNOWN_INTENTS, IntentDiagnosis } from "./dialog-types"
 import { writeFile, mkdir } from "node:fs/promises";
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
+import { hasNamedMenuItems, parseMenuInput } from "./recommendation/menu-input.ts";
 
 // ═══════════════════════════════════════════════════════════════
 // Types
@@ -588,6 +589,14 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
         confidence: 0,
         requiresImage: false,
       },
+      {
+        id: "correction_not_menu_limits",
+        pattern: "^(?:预算|容量|ABV|酒精度|IBU|苦度)\\s*(?:改成|改为|改到|调整到|调整为|放宽到|提高到)[^，,。；;]*(?:[，,。；;]\\s*其他条件(?:不变|保留))?[。.!！]?$",
+        type: "negative",
+        confidence: 0,
+        requiresImage: false,
+        requiresActiveMenu: true,
+      },
     ],
     samples: [
       { text: "不是这个，应该是Green City", weight: 0.88, expectedIntent: "memory_correction", note: "纠正酒名" },
@@ -628,6 +637,14 @@ export const INTENT_REGISTRY: IntentDefinition[] = [
           { field: "hasActiveMenu", op: "eq", value: true },
           { field: "turnsSinceMenu", op: "lt", value: 30 },
         ],
+      },
+      {
+        id: "followup_numeric_limit",
+        pattern: "^(?:预算|容量|ABV|酒精度|IBU|苦度)\\s*(?:改成|改为|改到|调整到|调整为|放宽到|提高到|不超过|最多|为|是)?\\s*(?:不超过|最多)?\\s*[¥￥]?\\s*\\d|^(?:只要|只想喝|容量不限|不限容量|两种容量都接受)",
+        type: "positive",
+        confidence: 0.93,
+        requiresImage: false,
+        requiresActiveMenu: true,
       },
       {
         id: "followup_which",
@@ -1157,6 +1174,11 @@ export function extractSlots(
 
   const result: Record<string, unknown> = {};
   for (const slot of def.slots) {
+    if (intentId === "menu_recommend" && slot.name === "beerName") {
+      const parsed = parseMenuInput(text);
+      if (parsed.items.length === 1 && hasNamedMenuItems(parsed.items)) result.beerName = parsed.items[0].beerName;
+      continue;
+    }
     if (slot.pattern) {
       const re = new RegExp(slot.pattern, "i");
       const m = text.match(re);

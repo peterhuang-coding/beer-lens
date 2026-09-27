@@ -11,8 +11,16 @@ const genericStyle = /^(?:(?:west coast|hazy|double|triple|session|imperial|milk
 
 export function hasNamedMenuItems(items: MenuItem[]): boolean { return items.some(item=>!genericStyle.test(item.beerName)); }
 
+/** Keep negation local to its clause, including lists such as “不要第7号和第18号”. */
+export function isExcludedMenuReference(text: string, offset: number): boolean {
+  const clause = text.slice(0, offset).split(/[，,。；;!?！？]|但是|不过|但/).at(-1) ?? '';
+  const signals = [...clause.matchAll(/不要|不选|不喝|排除|除了|跳过|别选|只选|只要|改选|改成|换成|选择|比较|选|要/g)];
+  return /^(?:不要|不选|不喝|排除|除了|跳过|别选)$/.test(signals.at(-1)?.[0] ?? '');
+}
+
 export function parseOrdinalReference(text: string): number | null {
-  const match = text.match(/第\s*(\d+|[一二三四五六七八九十]+)\s*(?:款|个|杯)?/);
+  const match = [...text.matchAll(/第\s*(\d+|[一二三四五六七八九十]+)\s*(?:款|个|杯|号)?/g)]
+    .find(m => !isExcludedMenuReference(text, m.index!));
   if (!match) return null;
   if (/^\d+$/.test(match[1])) return Number(match[1]);
   return parseChineseInteger(match[1]);
@@ -49,7 +57,12 @@ export function parseMenuInput(text: string): { items: MenuItem[]; requestText: 
     const namedRequest = namedMatch?.[1]?.trim();
     const explicitName = namedRequest && (lookupChineseBeerName(namedRequest) || (/^[A-Za-z][A-Za-z0-9'’ -]+$/.test(namedRequest) && !genericStyle.test(namedRequest)));
     if (explicitName) { if(namedMatch?.[2]) request.push(namedMatch[2]); line=namedRequest!; }
-    else if (requestLine.test(line) || /^(?:酒单|菜单)$/.test(line)) { request.push(line); if (/酒单|菜单/.test(line)) explicit=true; continue; }
+    else if (requestLine.test(line) || /^(?:你(?:能|会|可以|支持|是谁|有什么)|有什么功能|能帮我|可以帮我|容量|两种容量|这两种容量|不限容量|(?:菜单|酒单|原菜单|原酒单|推荐(?:列表)?(?:的)?)第\s*[一二三四五六七八九十0-9]+)/.test(line) || /^(?:酒单|菜单)$/.test(line)) {
+      request.push(line);
+      // Mentioning “菜单第7款” in a follow-up does not supply a new menu.
+      if (/^(?:酒单|菜单)$|(?:看|识别|推荐)[^，,。；;]*(?:酒单|菜单)/.test(line)) explicit=true;
+      continue;
+    }
     if (breweryHeading.test(line) && lines.length>1) { heading=line; continue; }
     // A second prose clause of a request is not a new menu row. Explicit
     // menus and rows with independent name/price evidence remain extractable.

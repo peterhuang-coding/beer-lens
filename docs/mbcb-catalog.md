@@ -97,7 +97,7 @@ Catalog replies bypass conversation history, model API and memory writes.
 
 Detail view shows style, ABV (with the unresolved 4.5 vs 6.0 conflict flagged,
 never auto-resolved), usable Untappd rating + count only when
-`rating_usable` is true (`23` red ratings — 22 zero + 1 missing — render as
+`rating_usable` is true (`24` red ratings — 23 zero + 1 missing — render as
 “暂无可用评分”), sessions, source URL and snapshot time, issue tags and
 missing-field names. Unknown values render as `未知`; null ABV is explicitly
 not 0%. Price, volume, booth and live stock are never displayed or inferred.
@@ -131,11 +131,11 @@ writes.
 - Exact normalized ASCII token / CJK substring matching only — there is no fuzzy matching,
   spell correction, or synonym expansion.
 
-## Included snapshot and current validation (2026-10-13)
+## Included snapshot and current validation (2026-10-16)
 
 The curated snapshot is `data/events/mbcb-2026-red.json`. It contains all 147
 red-session entries in the publisher snapshot retrieved at
-2026-10-12T16:36:40Z, including 146 Untappd IDs and one ice tea. Import it with:
+2026-10-16T14:35:03Z, including 146 Untappd IDs and #498 without an Untappd ID. Import it with:
 
 ```sh
 python3 scripts/mbcb-catalog.py --db .beer-data/beer.db --import data/events/mbcb-2026-red.json
@@ -149,19 +149,34 @@ This is our normalized and reviewed integration of public source data, not
 | Field | Known / usable entries |
 | --- | ---: |
 | English name and brewery | 147 |
-| Chinese menu name, style and source description | 146 each |
+| Chinese menu name | 144 |
+| Style | 146 |
+| Source description | 145 |
 | ABV | 144 |
-| Usable rating | 124 |
+| Usable rating | 123 |
 | Price, serving volume, booth, live stock | 0 |
 
-Three ABVs remain unknown (#127, #439, #498). The two Helles records (#96,
+Three ABVs remain unknown (#93, #127, #439). #498 now has publisher-stated
+ABV 7.5%; style, description and Untappd score remain unavailable. Its live
+attendee score (3.75, one person) is stored separately, never as an Untappd score.
+The two Helles records (#96,
 #599) have conflicting/duplicated Chinese menu names and remain separate
 candidates. #424 preserves the 4.5% menu value with an unresolved 6% older
-source conflict. 131 Chinese paraphrases are pending review and are not
-shown by the Feishu command handler.
+source conflict. 139 records are marked pending_review; their English source description is
+used instead of an unreviewed Chinese paraphrase.
 
-Independent local validation: 586/586 real-snapshot lookup cases and 19/19
-import, paging and database-preservation checks passed. Project verification:
+The count stayed at 147, but the red session adds #93/#305/#329/#355 and
+removes #94/#118/#306/#328. #93 is now Bohemian Machine by Budvar; the old
+Road Runner / One Drop Chinese metadata was discarded to avoid mixing identities.
+
+Current independent validation: all 147 IDs and 1,323 canonical field values
+match the saved publisher snapshot; 584/584 actual-data lookup cases and 19/19
+import, paging and database-preservation checks passed. Six local handler cases
+cover #498, new #305, removed #94, Helles, unresolved #424 and recycled #93.
+Focused suites pass 22 Python and 14 Node tests. Historical synthetic fixtures
+retain unknown-ABV examples; dated actual-data cases verify 7.5%.
+
+Historical full project verification (2026-10-13):
 806 Node tests, 28 Python tests, typecheck and production build passed. The
 last-page ambiguity regression was reproduced before the one-line uniqueness
 fix; a sole item on page 2 is still a candidate when total matches exceed 1.
@@ -169,8 +184,10 @@ fix; a sole item on page 2 is still a candidate when total matches exceed 1.
 The isolated development database contains the 147-entry catalog; legacy
 tables were unchanged and a local backup was retained. The database itself is
 not part of this change. Local command formatting has been exercised against
-that database. Feishu credentials/configuration and a bounded WebSocket
-handshake passed, but real user-message receipt and reply are **not verified**.
+that database. Four real Feishu command round trips passed before this refresh
+on October 16. Post-refresh real message verification is pending: native input
+did not take effect and the UI tool reported no available window. Local handler
+tests do not substitute for that check.
 Catalog commands are stateless; follow-up pronouns and unconstrained natural
 language questions are not supplied this catalog through conversation memory.
 The existing image/model route is unchanged and has not been revalidated here.

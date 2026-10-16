@@ -17,7 +17,7 @@ import type { BeerDialogRequest, BeerDialogResponse } from "@/lib/beer-agent/dia
 import type { AgentTurnResult, SkillResult } from "./types";
 import { buildAgentContext, describeContext } from "./context";
 import { buildSkillPrompt, parseSkillSelection, ensureSkillsLoaded, getSkill } from "./skill-registry";
-import { openrouterFetch } from "@/lib/beer-agent/openrouter-client";
+import { agentTextFetch } from "@/lib/beer-agent/text-client";
 import { writeTrace } from "@/lib/beer-agent/trace";
 import { updateShortTermMemory } from "@/lib/beer-agent/memory/short-term";
 import {
@@ -134,7 +134,7 @@ async function selectSkill(
   ].join("\n");
 
   try {
-    const raw = await openrouterFetch({
+    const raw = await agentTextFetch({
       model: process.env.OPENROUTER_MODEL ?? "qwen/qwen-2.5-72b-instruct",
       messages: [
         { role: "system", content: prompt },

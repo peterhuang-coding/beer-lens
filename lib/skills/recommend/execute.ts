@@ -2,6 +2,7 @@
 import type { AgentContext, SkillResult } from "@/lib/agent/types";
 import type { BeerCandidate } from "@/lib/beer-agent/types";
 import { VisionError, suggest as suggestVisionError } from "../../multimodal/index.ts";
+import { resolveImageCall } from "../../multimodal/image-routing.ts";
 import { extractConstraints, mergeConstraints } from "../../beer-agent/recommendation/constraints.ts";
 import { parseMenuInput, inferStyle, hasNamedMenuItems, parseOrdinalReference } from "../../beer-agent/recommendation/menu-input.ts";
 import { recommendFromCandidates } from "../../beer-agent/recommendation/decision.ts";
@@ -25,9 +26,13 @@ async function finish(ctx: AgentContext, candidates: BeerCandidate[], requestTex
 async function handleImage(ctx: AgentContext): Promise<SkillResult> {
   try {
     const { runImagePipeline } = await import("@/lib/beer-agent/provider");
-    const apiKey = process.env.OPENROUTER_API_KEY;
-    if (!apiKey) throw new Error("OPENROUTER_API_KEY not configured");
-    const pipeline = await runImagePipeline(apiKey,ctx.imageDataUrl!,ctx.lastUserText,ctx.profileSummary??"",ctx.onProgress);
+    const resolved = resolveImageCall();
+    // Legacy keeps its existing guard verbatim; package mode is already
+    // fail-closed (AUTH) when the package key is missing.
+    if (resolved.mode === "legacy" && !resolved.apiKey) {
+      throw new Error("OPENROUTER_API_KEY not configured");
+    }
+    const pipeline = await runImagePipeline(resolved.apiKey,ctx.imageDataUrl!,ctx.lastUserText,ctx.profileSummary??"",ctx.onProgress);
     return finish(ctx,pipeline.candidates,ctx.lastUserText,true);
   } catch (err) {
     return {skillId:"recommend",reply:err instanceof VisionError?suggestVisionError(err):"抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",candidates:[],picks:emptyPicks(),profileSummary:"",errors:[err instanceof Error?err.message:String(err)]};

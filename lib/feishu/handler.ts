@@ -1,4 +1,5 @@
 import { runAgentTurn } from "../agent/controller.ts";
+import { handleMbcbQuery } from "./mbcb.ts";
 import { downloadFeishuImage, replyFeishuMessage, type FeishuIncomingMessage } from "./client.ts";
 import { beginConversationTurn, clearConversation, completeConversationTurn, getConversationMessages } from "./conversations.ts";
 import { FeishuMessageQueue } from "./queue.ts";
@@ -40,6 +41,16 @@ async function processMessageTurn(message: FeishuIncomingMessage): Promise<void>
     await clearShortTermMemory(message.chatId, message.chatId);
     await replyFeishuMessage(message.messageId, "当前对话和菜单已重置，长期口味记录保留。");
     return;
+  }
+
+  // Explicit MBCB catalog commands only (text); images and ordinary chat
+  // fall through to the normal agent path untouched.
+  if (message.messageType === "text") {
+    const catalogReply = await handleMbcbQuery(userText);
+    if (catalogReply !== null) {
+      await replyFeishuMessage(message.messageId, catalogReply);
+      return;
+    }
   }
 
   const caseLabel = parseCaseLabel(userText);

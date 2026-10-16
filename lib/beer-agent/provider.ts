@@ -3,6 +3,7 @@ import type { ExtractedItem, ProgressCallback } from "./multi-stage-pipeline";
 import { runMultiStagePipeline } from "./multi-stage-pipeline";
 import { enrichCandidates, lookupBeers, lookupBreweryStats, matchesExactBeerIdentity, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
 import type { BreweryLookupResult } from "./beer-db/data-layer";
+import { groundMenuCandidates, readEventCatalog, getGrounding, ocrExplicitAbvEvidence, type EventCatalogBeer } from "./event-grounding";
 
 export type { ProgressCallback };
 
@@ -86,6 +87,29 @@ export async function runImagePipeline(
   }
 
   const candidates = assembleImageCandidates(ocrItems, enrichedBeers, dbLookups, breweryHits);
+
+  // Mark OCR-explicit ABV claims before grounding, so a catalog disagreement
+  // becomes recorded conflict evidence instead of a silent stale overwrite.
+  for (const candidate of candidates) {
+    const row = /^ocr_(\d+)$/.exec(candidate.candidateId);
+    const item = row ? ocrItems[Number(row[1]) - 1] : null;
+    const abv = item?.abv;
+    if (typeof abv === "number" && Number.isFinite(abv) && abv > 0) {
+      candidate.evidence.push(ocrExplicitAbvEvidence(abv, item?.confidence ?? 0.5));
+    }
+  }
+
+  // Current integrated event catalog grounding — strict identity, single pass,
+  // fail-soft: missing/malformed catalog leaves the existing pipeline intact.
+  let eventRecords: EventCatalogBeer[] = [];
+  try {
+    eventRecords = await readEventCatalog();
+  } catch (err) {
+    console.warn("[provider] event catalog read failed:", err);
+  }
+  const groundedCandidates = groundMenuCandidates(candidates, eventRecords);
+  const groundedById = new Map(groundedCandidates.map(c => [c.candidateId, c]));
+
   const enrichmentLog: Array<Record<string, unknown>> = [];
 
   for (let i = 0; i < ocrItems.length; i++) {
@@ -93,7 +117,10 @@ export async function runImagePipeline(
     const enriched = enrichedBeers[i] ?? null;
     emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName });
 
-    const candidate = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null, breweryHits[i]);
+    const assembled = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null, breweryHits[i]);
+    // Trace must reflect the same catalog-grounded values actually returned.
+    const candidate = groundedById.get(assembled.candidateId) ?? assembled;
+    const grounding = getGrounding(candidate);
     enrichmentLog.push({
       name: candidate.displayName,
       untappdScore: candidate.untappdScore ?? null,
@@ -109,13 +136,18 @@ export async function runImagePipeline(
       found: candidate.untappdScore != null,
       dbHit: dbLookups[i]?.found ?? false,
       breweryHit: breweryHits[i]?.found ?? false,
+      abv: candidate.abv || null,
+      style: candidate.style || null,
+      eventGrounded: grounding?.matched ?? false,
+      eventBeerId: grounding?.eventBeerId ?? null,
+      riskFlags: candidate.riskFlags ?? [],
     });
   }
 
   emit({ type: "enrich_done" });
 
   return {
-    candidates,
+    candidates: groundedCandidates,
     stages: {
       imageContext: pipeline.imageContext ?? undefined,
       extracted: pipeline.extracted ?? undefined,

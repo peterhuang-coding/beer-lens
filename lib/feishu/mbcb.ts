@@ -145,6 +145,51 @@ function candidateLine(rec: BeerRecord): string {
   return `#${rec.event_beer_id} ${rec.name} — ${rec.brewery}${zh ? `（菜单名：${zh}）` : ""}`;
 }
 
+/** Reduce an ISO timestamp to a concise calendar date; never dump raw ISO metadata. */
+function snapshotDate(value: unknown): string | null {
+  const s = asString(value);
+  if (!s) return null;
+  const m = s.match(/^(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : s.slice(0, 20);
+}
+
+function formatAbvLine(rec: BeerRecord): string {
+  const abv = asFiniteNumber(rec.abv);
+  const hasAbvConflict = asStringList(rec.issues).includes("abv_database_disagreement");
+  if (abv === null) {
+    // Keep the conflict visible in human terms even without a menu numeric;
+    // the raw issue token itself is never shown.
+    return hasAbvConflict
+      ? "ABV：未知（来源未提供，不代表 0%；该字段另有未解决的来源冲突）"
+      : "ABV：未知（来源未提供，不代表 0%）";
+  }
+  const suffix = hasAbvConflict
+    ? "（菜单值；与外部旧缓存数据存在未解决冲突，请勿据此做严格酒精度推荐）"
+    : "";
+  return `ABV：${formatNumber(abv)}%${suffix}`;
+}
+
+/**
+ * Source descriptions: reviewed Chinese paraphrases plus the English original
+ * are both welcome; an unreviewed/missing translation leaves the publisher's
+ * English text (clearly labelled) instead of presenting a guess as Chinese.
+ */
+function descriptionLines(rec: BeerRecord): string[] {
+  const zhDesc = asString(rec.description_zh);
+  const enDesc = asString(rec.description);
+  if (rec.description_zh_review_status === "parent_spotchecked" && zhDesc) {
+    const lines = [`简介：${oneLine(zhDesc)}`];
+    if (enDesc) lines.push(`原文简介：${oneLine(enDesc)}`);
+    return lines;
+  }
+  if (enDesc) {
+    return [`简介（来源原文·英文）：${oneLine(enDesc)}`];
+  }
+  // No source description at all: do not infer flavor from a product name
+  // (e.g. "Ice Tea" is not evidence of tea flavor or zero alcohol).
+  return ["简介：来源未提供，无法据此判断口味（酒名本身不代表风味或酒精度）"];
+}
+
 function formatDetail(rec: BeerRecord): string {
   const lines: string[] = [`#${rec.event_beer_id} ${rec.name} — ${rec.brewery}`];
 
@@ -153,56 +198,49 @@ function formatDetail(rec: BeerRecord): string {
   const aliases = asStringList(rec.aliases);
   if (aliases.length) lines.push(`别名：${aliases.join("、")}`);
 
-  lines.push(`风格：${asString(rec.style) ?? "未知"}`);
+  lines.push(formatAbvLine(rec));
 
-  const abv = asFiniteNumber(rec.abv);
-  const hasAbvConflict = asStringList(rec.issues).includes("abv_database_disagreement");
-  if (abv === null) {
-    lines.push("ABV：未知（来源未提供，不代表 0%）");
-  } else {
-    const suffix = hasAbvConflict
-      ? "（菜单值；与外部旧缓存数据存在未解决冲突，请勿据此做严格酒精度推荐）"
-      : "";
-    lines.push(`ABV：${formatNumber(abv)}%${suffix}`);
-  }
-  if (abv === null && hasAbvConflict) {
-    lines.push("备注：ABV 字段存在未解决的来源冲突。");
-  }
-
+  // Show a UT score only when it is a real, attributable rating with a count.
   const rating = asFiniteNumber(rec.rating_raw);
   const count = asFiniteNumber(rec.rating_count);
-  if (rec.rating_usable === true && rating !== null && count !== null) {
-    lines.push(`评分：${rating.toFixed(2)}（${formatNumber(count)} 人评分）`);
-  } else {
-    lines.push("评分：暂无可用评分");
-  }
+  const hasUsableRating =
+    rec.rating_usable === true && rating !== null && rating > 0 && count !== null && count > 0;
 
-  // Chinese paraphrases are shown only after parent spot-check.
-  const zhDesc = asString(rec.description_zh);
-  const enDesc = asString(rec.description);
-  if (rec.description_zh_review_status === "parent_spotchecked" && zhDesc) {
-    lines.push(`简介：${oneLine(zhDesc)}`);
-    if (enDesc) lines.push(`原文简介：${oneLine(enDesc)}`);
-  } else if (enDesc) {
-    lines.push(`简介：${oneLine(enDesc)}`);
+  // Sparse record (no style AND no description): collapse the unknown
+  // style/description/rating fields into one readable sentence instead of
+  // three "未知" rows. ABV (known/unknown/conflict) above is always preserved.
+  const sparse = !asString(rec.description) && asString(rec.style) === null;
+  if (sparse) {
+    lines.push(
+      "风格、简介与 Untappd 评分：来源未提供；无法据此判断口味与风格（酒名本身不代表风味或酒精度），暂无可用评分，不作为质量依据。",
+    );
   } else {
-    lines.push("简介：来源未提供简介");
+    lines.push(`风格：${asString(rec.style) ?? "未知（来源未提供）"}`);
+    if (hasUsableRating) {
+      lines.push(`Untappd 评分：${rating!.toFixed(2)}（${formatNumber(count!)} 人评分）`);
+    } else {
+      lines.push("Untappd 评分：暂无可用评分");
+    }
+    lines.push(...descriptionLines(rec));
   }
 
   const sessions = asStringList(rec.sessions);
   if (sessions.length) lines.push(`场次：${sessions.map(sessionLabel).join(" / ")}`);
 
+  // Source attribution stays, but as one concise line (URL + calendar date).
   const sourceUrl = asString(rec.source_url);
-  if (sourceUrl) lines.push(`来源：${sourceUrl}`);
-  const retrievedAt = asString(rec.retrieved_at);
-  if (retrievedAt) lines.push(`快照时间：${retrievedAt}`);
+  const date = snapshotDate(rec.retrieved_at);
+  if (sourceUrl || date) {
+    lines.push(`来源：${sourceUrl ?? "未注明"}${date ? ` · 数据快照 ${date}` : ""}`);
+  }
 
-  const issues = asStringList(rec.issues);
-  if (issues.length) lines.push(`数据标记：${issues.join(", ")}`);
-  const missing = asStringList(rec.missing_fields);
-  if (missing.length) lines.push(`未提供字段：${missing.join(", ")}`);
-
-  lines.push("提示：价格、容量、摊位与实时库存目录未提供，未作推断。");
+  // Raw issues[] / missing_fields[] arrays are internal QA metadata, never
+  // dumped row by row; the sparse record gets one actionable follow-up offer.
+  if (sparse) {
+    lines.push("价格、容量与实时库存目录暂缺；想判断性价比的话，把菜单上的价格发我即可。");
+  } else {
+    lines.push("提示：价格、容量、摊位与实时库存目录未提供，未作推断。");
+  }
   return lines.join("\n");
 }
 

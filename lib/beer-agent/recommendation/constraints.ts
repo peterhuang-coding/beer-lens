@@ -1,4 +1,4 @@
-type CandidateFacts = { currency?: string; displayName: string; style?: string; price?: number | null; volumeMl?: number | null; abv?: number; ibu?: number | null };
+type CandidateFacts = { riskFlags?: string[]; currency?: string; displayName: string; style?: string; price?: number | null; volumeMl?: number | null; abv?: number; ibu?: number | null };
 
 const STYLES: Record<string, RegExp> = {
   IPA: /\b(?:neipa|ipa)\b|浑浊|西海岸|印度淡色/i,
@@ -132,7 +132,8 @@ export function constraintFailures(candidate: CandidateFacts, constraints: strin
     if (c === 'priceGoal:total' && (candidate.price == null || candidate.price <= 0)) failures.push('价格未知，无法比较总价');
     if (c.startsWith('maxAbv:') || c.startsWith('minAbv:')) {
       const value = Number(c.split(':')[1]);
-      if (!candidate.abv || candidate.abv <= 0) failures.push('酒精度未知，无法确认是否符合要求');
+      if (candidate.riskFlags?.some(flag => /ABV.*(?:不一致|冲突)|abv_database_disagreement/i.test(flag))) failures.push('酒精度来源有冲突，无法确认是否符合要求');
+      else if (!candidate.abv || candidate.abv <= 0) failures.push('酒精度未知，无法确认是否符合要求');
       else if (c.startsWith('maxAbv:') ? candidate.abv > value : candidate.abv < value) failures.push('酒精度不符合要求');
     }
     if (c.startsWith('maxIbu:') || c.startsWith('minIbu:')) {

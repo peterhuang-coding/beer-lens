@@ -142,28 +142,79 @@ describe("handleMbcbQuery via real python + temp sqlite", () => {
     assert.match(reply, /#424/);
     assert.match(reply, /Gose/);
     assert.match(reply, /4\.5%/);
-    assert.match(reply, /冲突|未解决/); // ABV conflict visible, no winner
-    assert.match(reply, /4\.09/); // usable rating rounded
-    assert.match(reply, /369/);
+    assert.match(reply, /冲突|未解决/); // ABV conflict visible in Chinese, no winner
+    // usable UT score is rounded and clearly attributed with its count
+    assert.match(reply, /Untappd 评分：4\.09（369 人评分）/);
     assert.match(reply, /迷迭香/); // spotchecked zh paraphrase allowed
     assert.match(reply, /https:\/\/mbcb\.jonpacker\.com\/latest\.json/);
-    assert.match(reply, /2026-10-12T16:36:40/);
+    // source date is concise (calendar day), no raw ISO timestamp dump
+    assert.match(reply, /数据快照 2026-10-12/);
+    assert.doesNotMatch(reply, /2026-10-12T\d{2}:\d{2}/);
     assert.match(reply, /red/);
     assert.match(reply, /Rosemary's Baby/); // alias
-    assert.match(reply, /abv_database_disagreement/);
+    // raw QA metadata tokens are hidden but the conflict itself is still stated
+    assert.doesNotMatch(reply, /abv_database_disagreement|missing_|数据标记|未提供字段/);
     // never invents price/volume/stock values (the "not provided" caveat is fine)
     assert.doesNotMatch(reply, /[￥¥$]\s*\d|\d+\s*元|\bRMB\b|\bCNY\b/);
   });
 
-  it("ice tea: unknown abv is 未知 not 0%, no fabricated description", async () => {
+  it("ice tea: unknown abv is 未知 not 0%, no fabricated description or raw dumps", async () => {
     const reply = await handleMbcbQuery("/mbcb #498", { dbPath: db });
     assert.ok(reply);
     assert.match(reply, /#498/);
     assert.match(reply, /Ice Tea/);
     assert.match(reply, /ABV：未知/);
-    assert.match(reply, /风格：未知/);
+    // unknown style/description/rating are consolidated into one readable line
+    assert.match(reply, /风格、简介与 Untappd 评分：来源未提供/);
     assert.match(reply, /暂无可用评分/);
-    assert.match(reply, /来源未提供简介|无来源/);
+    assert.match(reply, /来源未提供/);
+    // raw issues/missing_fields arrays and ISO timestamp are not dumped
+    assert.doesNotMatch(reply, /missing_|数据标记|未提供字段|2026-10-12T\d{2}:\d{2}/);
+    // the product name is not flavor evidence: no inferred tea claims
+    assert.doesNotMatch(reply, /茶味|冰茶|红茶|绿茶|无糖|低卡|解腻/);
+    // sparse unknowns are not repeated row by row; one actionable follow-up offer
+    const unknownMarkers = reply.match(/未知|未提供|暂无/g) ?? [];
+    assert.ok(unknownMarkers.length <= 4, `too many unknown rows: ${unknownMarkers.length}`);
+    assert.match(reply, /把菜单上的价格发我/);
+  });
+
+  it("sparse #498 refreshed shape (7.5% confirmed, flavor unknowable) stays honest and concise", async () => {
+    const sparseDb = makeTempDb();
+    const sparse = record(701, {
+      name: "Mikkeller Ice Tea Powered by Longfong",
+      brewery: "Mikkeller",
+      brewery_zh: "美奇乐",
+      style: null,
+      abv: 7.5,
+      description: null,
+      untappd_id: null,
+      rating_raw: null,
+      rating_count: null,
+      rating_usable: false,
+      issues: ["missing_ut_bid", "missing_superstyle", "missing_desc", "missing_ut_rating", "missing_ut_rating_count"],
+      missing_fields: ["style", "description", "usable_rating", "price", "serving_ml", "booth", "live_stock"],
+      aliases: [],
+      description_zh: null,
+      description_zh_review_status: "no_source",
+    });
+    assert.equal((await importRecords(sparseDb, [sparse])).code, 0);
+    const reply = await handleMbcbQuery("/mbcb #701", { dbPath: sparseDb });
+    assert.ok(reply);
+    assert.match(reply, /#701/);
+    assert.match(reply, /— Mikkeller/); // brewery confirmed
+    assert.match(reply, /ABV：7\.5%/); // numeric preserved
+    // unknown style/description/rating are consolidated, not dumped field by field
+    assert.match(reply, /风格、简介与 Untappd 评分：来源未提供/);
+    assert.match(reply, /Untappd 评分/);
+    assert.match(reply, /暂无可用评分/);
+    assert.match(reply, /不作为质量依据/);
+    assert.match(reply, /来源未提供/);
+    assert.match(reply, /无法据此判断口味/);
+    assert.match(reply, /把菜单上的价格发我/); // one helpful value-question offer
+    // no internal metadata, no fabricated tea flavor, no price/stock invention
+    assert.doesNotMatch(reply, /missing_|数据标记|未提供字段|T\d{2}:\d{2}/);
+    assert.doesNotMatch(reply, /茶味|冰茶味?|红茶|绿茶|无糖|低卡/);
+    assert.doesNotMatch(reply, /[￥¥$]\s*\d|\d+\s*元|\bRMB\b|\bCNY\b|有货|售罄|库存充足/);
   });
 
   it("pending_review chinese paraphrase is never shown; english description is", async () => {
@@ -180,7 +231,10 @@ describe("handleMbcbQuery via real python + temp sqlite", () => {
     assert.equal(r.code, 0, r.stderr);
     const reply = await handleMbcbQuery("/mbcb #700", { dbPath: pendingDb });
     assert.ok(reply);
+    // unreviewed translation stays hidden; publisher English shown as 来源原文
     assert.match(reply, /PENDING ENGLISH DESC SOURCE/);
+    assert.match(reply, /来源原文/);
+    assert.doesNotMatch(reply, /未经审核|中文翻译/);
     assert.doesNotMatch(reply, /PENDING_ZH_SECRET/);
   });
 

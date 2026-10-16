@@ -342,3 +342,26 @@ test("legacy unset selection keeps the legacy missing-key guard with zero reques
     transport.restore();
   }
 });
+
+// Regression from actual synthetic-menu follow-up: 45s expired before content.
+test("package knowledge uses one 180s budget without retry or paid transport", async () => {
+  process.env.BEER_VISION_PROVIDER = "coding-plan";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  const transport = installFetch(defaultHandler);
+  const oldTimer = globalThis.setTimeout;
+  const delays: number[] = [];
+  globalThis.setTimeout = ((fn: any, delay: number, ...args: any[]) => {
+    delays.push(delay);
+    return oldTimer(fn, delay, ...args);
+  }) as typeof setTimeout;
+  try {
+    const result = await knowledgeExecute(makeCtx(), {});
+    assert.deepEqual(result.errors, []);
+    assert.ok(delays.includes(180000));
+    assert.equal(transport.recs.length, 1);
+    assert.equal(transport.recs[0].url, PACKAGE_URL);
+  } finally {
+    globalThis.setTimeout = oldTimer;
+    transport.restore();
+  }
+});

@@ -4,6 +4,8 @@ import { runMultiStagePipeline } from "./multi-stage-pipeline";
 import { enrichCandidates, lookupBeers, lookupBreweryStats, matchesExactBeerIdentity, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
 import type { BreweryLookupResult } from "./beer-db/data-layer";
 import { groundMenuCandidates, readEventCatalog, getGrounding, ocrExplicitAbvEvidence, type EventCatalogBeer } from "./event-grounding";
+import { groundMenuSupplements, readMenuSupplements, getSupplementGrounding, ocrMenuStyleEvidence } from "./menu-supplements";
+import type { MenuSupplementEntry } from "./menu-supplements";
 
 export type { ProgressCallback };
 
@@ -88,14 +90,20 @@ export async function runImagePipeline(
 
   const candidates = assembleImageCandidates(ocrItems, enrichedBeers, dbLookups, breweryHits);
 
-  // Mark OCR-explicit ABV claims before grounding, so a catalog disagreement
-  // becomes recorded conflict evidence instead of a silent stale overwrite.
+  // Mark OCR-explicit ABV claims and OCR-explicit styles before grounding, so
+  // a catalog disagreement becomes recorded conflict evidence instead of a
+  // silent stale overwrite, and unresolved rows can retain OCR-read style/ABV
+  // while dropping the same values inherited from stale per-beer records.
   for (const candidate of candidates) {
     const row = /^ocr_(\d+)$/.exec(candidate.candidateId);
     const item = row ? ocrItems[Number(row[1]) - 1] : null;
     const abv = item?.abv;
     if (typeof abv === "number" && Number.isFinite(abv) && abv > 0) {
       candidate.evidence.push(ocrExplicitAbvEvidence(abv, item?.confidence ?? 0.5));
+    }
+    const style = typeof item?.style === "string" ? item.style.trim() : "";
+    if (style) {
+      candidate.evidence.push(ocrMenuStyleEvidence(style, item?.confidence ?? 0.5));
     }
   }
 
@@ -108,7 +116,18 @@ export async function runImagePipeline(
     console.warn("[provider] event catalog read failed:", err);
   }
   const groundedCandidates = groundMenuCandidates(candidates, eventRecords);
-  const groundedById = new Map(groundedCandidates.map(c => [c.candidateId, c]));
+
+  // Curated public-source menu supplement (El Nido 2026-10 snapshot). Read once
+  // for this image run; fail-soft. Applied strictly after event grounding so the
+  // supplement's social_web provenance is the last word on identity/ABV scope.
+  let supplementEntries: MenuSupplementEntry[] = [];
+  try {
+    supplementEntries = await readMenuSupplements();
+  } catch (err) {
+    console.warn("[provider] menu supplement read failed:", err);
+  }
+  const supplementedCandidates = groundMenuSupplements(groundedCandidates, supplementEntries);
+  const groundedById = new Map(supplementedCandidates.map(c => [c.candidateId, c]));
 
   const enrichmentLog: Array<Record<string, unknown>> = [];
 
@@ -121,6 +140,7 @@ export async function runImagePipeline(
     // Trace must reflect the same catalog-grounded values actually returned.
     const candidate = groundedById.get(assembled.candidateId) ?? assembled;
     const grounding = getGrounding(candidate);
+    const supplement = getSupplementGrounding(candidate);
     enrichmentLog.push({
       name: candidate.displayName,
       untappdScore: candidate.untappdScore ?? null,
@@ -140,6 +160,8 @@ export async function runImagePipeline(
       style: candidate.style || null,
       eventGrounded: grounding?.matched ?? false,
       eventBeerId: grounding?.eventBeerId ?? null,
+      supplementEntryId: supplement?.entryId ?? null,
+      supplementStatus: supplement?.identityStatus ?? null,
       riskFlags: candidate.riskFlags ?? [],
     });
   }
@@ -147,7 +169,7 @@ export async function runImagePipeline(
   emit({ type: "enrich_done" });
 
   return {
-    candidates: groundedCandidates,
+    candidates: supplementedCandidates,
     stages: {
       imageContext: pipeline.imageContext ?? undefined,
       extracted: pipeline.extracted ?? undefined,

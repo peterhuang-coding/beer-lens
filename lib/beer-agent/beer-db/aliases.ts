@@ -137,6 +137,26 @@ const CN_TO_EN_BEER_MAP: Record<string, string[]> = {
   // ── El Nido 酒单 (2026-08-24 OCR 实测, 2026-08-25 入库验证) ──
   "黑比考黑": ["Sapporo Premium Black Beer"],
   "午餐": ["Lunch"],
+
+  // ── El Nido 酒单 (2026-10-21 菜单核对; 仅录印出名完全一致的精确别名) ──
+  "风之丘": ["Windy Hill"],
+  "触碰酒花": ["Kiwi Fingers"],
+  "胜利绕场": ["Victory Lap"],
+  "奇思妙想": ["Good Idea"],
+  "迷魂少女": ["Girls Gone Hazy"],
+  // 2026-10-21 公开酒厂资料核对：Иваныч Single Saaz Lager，4.9%。
+  "伊完内奇": ["Иваныч"],
+  "精益求精": ["Pils For Skills"],
+  "李尔王英式苦啤": ["King Lear"],
+  "收割者": ["Green Reaper"],
+  "京都狂爱症": ["K-philia"],
+  "午餐自由": ["Free Lunch"],
+  "白眼": ["Белоглазка"],
+  "记住小伙伴们第二名没有馅饼": ["Remember Boys, No Pie for Second Place"],
+  "双重蓝色甜蜜摇滚": ["Double Blueberry Marshmallow Shake"],
+  "奶奶的斐济果": ["Grandma's Feijoa"],
+  "甄选2号": ["The Cut: Laroda Plum"],
+  "归还一切（过四桶）": ["Reclaim Me 2026"],
 };
 
 // These legacy aliases locate a series/base beer, not the printed batch/flavor.

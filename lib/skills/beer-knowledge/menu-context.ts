@@ -92,9 +92,12 @@ export interface BuiltMenuContext {
 const MAX_CANDIDATES = 8;
 const MAX_EVIDENCE_PER_BEER = 3;
 const MAX_EVIDENCE_CHARS = 220;
-// Current-catalog venue_site evidence (URL + original description / conflicts)
-// is the freshest source: keep it whole-ish instead of truncating at 220.
-const MAX_VENUE_EVIDENCE_CHARS = 1200;
+// Fresh sourced evidence — current-catalog venue_site and public social_web
+// menu supplements (URL + original description / conflicts) — is appended
+// AFTER ocr/legacy snippets: keep it whole-ish instead of truncating at 220.
+// Labels are preserved; social_web is never relabeled as venue/untappd.
+const MAX_SOURCED_EVIDENCE_CHARS = 1200;
+const FRESH_SOURCES = new Set(["venue_site", "social_web"]);
 
 // ── coercion helpers (hostile data never throws / never becomes code) ──
 
@@ -118,9 +121,11 @@ function normalizeBeer(datum: MenuBeerDatum): NormBeer | null {
   const idx = finiteNumber(datum.menuIndex);
   const evidence: NormEvidence[] = [];
   if (Array.isArray(datum.evidence)) {
-    // venue_site (current catalog) is often appended AFTER ocr/legacy snippets;
-    // a naive first-3/220-char scan discards it. Normalize with per-source
-    // budgets and reserve cap room so current-catalog evidence always survives.
+    // venue_site (current catalog) and social_web (public menu supplement)
+    // are often appended AFTER ocr/untappd/inference snippets; a naive
+    // first-3/220-char scan drops or truncates them. Normalize with per-source
+    // budgets and reserve cap room so fresh sourced evidence always survives
+    // with its original label (never relabeled, still untrusted data).
     const normOne = (raw: unknown, charMax: number): NormEvidence | null => {
       if (!raw || typeof raw !== "object") return null;
       const e = raw as MenuEvidenceDatum;
@@ -134,22 +139,24 @@ function normalizeBeer(datum: MenuBeerDatum): NormBeer | null {
         confidence: confidence !== null && confidence >= 0 && confidence <= 1 ? confidence : null,
       };
     };
-    const venueRaws: unknown[] = [];
+    const freshRaws: unknown[] = [];
     const otherRaws: unknown[] = [];
     for (const raw of datum.evidence) {
       if (!raw || typeof raw !== "object") continue;
       const source = cleanString((raw as MenuEvidenceDatum).source, 40);
-      (source === "venue_site" ? venueRaws : otherRaws).push(raw);
+      (FRESH_SOURCES.has(source) ? freshRaws : otherRaws).push(raw);
     }
-    const venue = venueRaws
-      .map((raw) => normOne(raw, MAX_VENUE_EVIDENCE_CHARS))
+    const fresh = freshRaws
+      .map((raw) => normOne(raw, MAX_SOURCED_EVIDENCE_CHARS))
       .filter((e): e is NormEvidence => e !== null)
-      .slice(0, 2);
+      // Evidence is append-ordered (oldest first): on overflow keep the most
+      // recent sourced entries; the per-beer cap never grows beyond 3.
+      .slice(-MAX_EVIDENCE_PER_BEER);
     const other = otherRaws
       .map((raw) => normOne(raw, MAX_EVIDENCE_CHARS))
       .filter((e): e is NormEvidence => e !== null)
-      .slice(0, Math.max(0, MAX_EVIDENCE_PER_BEER - venue.length));
-    evidence.push(...other, ...venue);
+      .slice(0, Math.max(0, MAX_EVIDENCE_PER_BEER - fresh.length));
+    evidence.push(...other, ...fresh);
   }
   const abv = finiteNumber(datum.abv);
   const utScore = finiteNumber(datum.untappdScore);

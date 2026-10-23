@@ -7,6 +7,26 @@
 // Chinese prompt block. It does no I/O, no model calls and no writes, and it
 // treats every candidate field / evidence string as untrusted DATA.
 //
+// Two layers, so complete menu coverage is not capped by the detail budget:
+//   1. compact roster — one evidence-free line per EVERY valid normalized
+//      candidate (index/id/name/brewery/style/ABV/price/volume/currency).
+//      There is deliberately NO render row cap and NO total-character cap:
+//      every row is enumerated in the rendered block for every question,
+//      generic whole-menu questions included; rows are never collapsed or
+//      merged on candidateId.
+//      Resource scaling is honest and LINEAR in the number of menu rows:
+//      each row adds one short, per-field-sanitized line. That is fully
+//      affordable for the known event menus (up to 147 rows). Arbitrarily
+//      huge menus are not hidden by silently dropping rows here — they would
+//      need a future UPSTREAM mechanism (chunking / retrieval / a precomputed
+//      digest decided BEFORE this prompt is assembled); no such framework
+//      exists in this context-building module;
+//   2. expanded detail — at most MAX_DETAIL_CANDIDATES rows with the bounded,
+//      source-attributed evidence quotes; the referenced/active/ambiguous
+//      rows are swapped into this window even on huge menus.
+// shownCandidates/truncatedCount describe layer 2 (unexpanded DETAIL), never
+// omitted menu rows: every menu row is always present in layer 1.
+//
 // Structural input types intentionally mirror BeerCandidate / ShortTermMemory
 // fields actually used, so the real objects pass type-check without imports.
 
@@ -76,11 +96,37 @@ export type ReferenceResolution =
   | { kind: "ambiguous"; name: string; beers: NormBeer[] }
   | { kind: "outside"; rawName: string };
 
+/**
+ * Compact roster row: EVERY valid normalized menu candidate gets one entry,
+ * in snapshot order, with NO evidence / scores / long text. Identity is the
+ * array position plus the carried (possibly empty or duplicated) candidateId;
+ * rows are never collapsed or merged on candidateId.
+ */
+export interface RosterEntry {
+  candidateId: string;
+  menuIndex: number | null;
+  displayName: string;
+  brewery: string;
+  style: string;
+  abv: number | null; // only a finite value > 0; 0/missing => unknown
+  price: number | null;
+  volumeMl: number | null;
+  currency: string;
+}
+
 export interface BuiltMenuContext {
   present: boolean;
   totalCandidates: number;
+  /** Every normalized candidate as a compact, evidence-free roster row. */
+  roster: RosterEntry[];
+  /**
+   * At most detailLimit rows with full sourced detail. truncatedCount counts
+   * rows whose DETAIL is not expanded here — they are still fully present in
+   * `roster`; nothing is silently omitted from the menu itself.
+   */
   shownCandidates: NormBeer[];
   truncatedCount: number;
+  detailLimit: number;
   menuSource: string;
   menuCreatedDate: string | null;
   active: NormBeer | null;
@@ -89,7 +135,8 @@ export interface BuiltMenuContext {
   valuePossible: boolean;
 }
 
-const MAX_CANDIDATES = 8;
+// Detail expansion budget: up to eight rows get full evidence quotes.
+const MAX_DETAIL_CANDIDATES = 8;
 const MAX_EVIDENCE_PER_BEER = 3;
 const MAX_EVIDENCE_CHARS = 220;
 // Fresh sourced evidence — current-catalog venue_site and public social_web
@@ -213,19 +260,14 @@ function normalizeMemory(memory: MenuMemoryLike | null | undefined): {
   const a = memory?.activeBeer;
   if (a && typeof a === "object") {
     const activeId = cleanString(a.candidateId, 120);
-    active =
-      beers.find((b) => activeId && b.candidateId === activeId) ??
-      beers.find(
-        (b) =>
-          cleanString(a.displayName, 120) &&
-          normName(b.displayName) === normName(cleanString(a.displayName, 120)) &&
-          (!cleanString(a.brewery, 120) ||
-            normName(b.brewery) === normName(cleanString(a.brewery, 120))),
-      ) ??
-      null;
-    if (!active) {
+    const bound = resolveActiveBeer(beers, a);
+    if (bound) {
+      active = bound;
+    } else {
       const displayName = cleanString(a.displayName, 120);
       if (displayName) {
+        // Unknown-to-menu active pointer: keep a sparse stub so the user can
+        // still talk about it, but it never inherits any menu row's facts.
         active = {
           candidateId: activeId,
           menuIndex: null,
@@ -244,6 +286,41 @@ function normalizeMemory(memory: MenuMemoryLike | null | undefined): {
     }
   }
   return { beers, source, createdDate, active };
+}
+
+/**
+ * Bind the conversation's active beer to a menu row.
+ *
+ * candidateId is treated as a HINT, never as identity by itself: an empty id
+ * is ignored, and if a non-empty id matches more than one row the pointer is
+ * disambiguated with name (+ brewery when provided). Duplicate/empty ids must
+ * never silently collapse two distinct rows; when identity cannot be made
+ * unique we return null and let the caller keep a fact-free stub.
+ */
+function resolveActiveBeer(beers: NormBeer[], a: ActiveBeerDatum): NormBeer | null {
+  const activeId = cleanString(a.candidateId, 120);
+  const activeName = cleanString(a.displayName, 120);
+  const activeBrewery = cleanString(a.brewery, 120);
+  const nameMatches = (b: NormBeer): boolean =>
+    !!activeName && normName(b.displayName) === normName(activeName);
+  const breweryMatches = (b: NormBeer): boolean =>
+    !activeBrewery || normName(b.brewery) === normName(activeBrewery);
+
+  if (activeId) {
+    const idHits = beers.filter((b) => b.candidateId === activeId);
+    if (idHits.length === 1) return idHits[0];
+    if (idHits.length > 1) {
+      const narrowed = idHits.filter((b) => nameMatches(b) && breweryMatches(b));
+      if (narrowed.length === 1) return narrowed[0];
+      return null; // duplicated id without a unique identity: never guess
+    }
+    // id given but not found on the menu: fall through to name resolution
+  }
+  if (activeName) {
+    const hits = beers.filter((b) => nameMatches(b) && breweryMatches(b));
+    if (hits.length === 1) return hits[0];
+  }
+  return null;
 }
 
 // ── text matching ──
@@ -421,23 +498,50 @@ export function resolveReference(
 // ── build ──
 
 /**
- * Pick at most MAX_CANDIDATES rows. First roster rows are the default, but a
- * beer the user explicitly referenced (e.g. "#9" on a 147-row menu) must be
- * among the shown rows: swap it into the last non-referenced slot(s). The cap
- * never grows, so input-isolation / token bounds are preserved.
+ * Pick at most MAX_DETAIL_CANDIDATES rows for full evidence expansion. First
+ * roster rows are the default, but a beer the user is actually asking about —
+ * explicit "#row" reference, the active beer, or both legs of a same-name
+ * ambiguity — must be among the expanded rows even on a huge menu: swap it
+ * into the last non-needed slot(s). The cap never grows, so input-isolation /
+ * token bounds are preserved.
+ *
+ * Identity is OBJECT identity (the resolved objects are members of `beers`),
+ * never candidateId: empty or duplicated ids across rows must not make one
+ * row count as another. A fact-free active stub that is not a menu row is
+ * never swapped in.
  */
 function selectShown(beers: NormBeer[], reference: ReferenceResolution): NormBeer[] {
-  const shown = beers.slice(0, MAX_CANDIDATES);
-  if (reference.kind !== "menu") return shown;
-  const refIds = new Set(reference.beers.map((b) => b.candidateId));
-  for (const need of reference.beers) {
-    if (shown.some((b) => b.candidateId === need.candidateId)) continue;
+  const shown = beers.slice(0, Math.min(MAX_DETAIL_CANDIDATES, beers.length));
+  const needed: NormBeer[] = [];
+  if (reference.kind === "menu") needed.push(...reference.beers);
+  else if (reference.kind === "active") {
+    if (beers.includes(reference.beer)) needed.push(reference.beer);
+  } else if (reference.kind === "ambiguous") {
+    needed.push(...reference.beers);
+  }
+  for (const need of needed) {
+    if (shown.includes(need)) continue;
     let slot = shown.length - 1;
-    while (slot >= 0 && refIds.has(shown[slot].candidateId)) slot -= 1;
+    while (slot >= 0 && needed.includes(shown[slot])) slot -= 1;
     if (slot < 0) break;
     shown[slot] = need;
   }
   return shown;
+}
+
+/** Compact evidence-free roster: one entry per normalized row, in order. */
+function buildRoster(beers: NormBeer[]): RosterEntry[] {
+  return beers.map((b) => ({
+    candidateId: b.candidateId,
+    menuIndex: b.menuIndex,
+    displayName: b.displayName,
+    brewery: b.brewery,
+    style: b.style,
+    abv: b.abv,
+    price: b.price,
+    volumeMl: b.volumeMl,
+    currency: b.currency,
+  }));
 }
 
 export function buildMenuContext(
@@ -448,12 +552,15 @@ export function buildMenuContext(
   const present = beers.length > 0;
   const groups = computeAmbiguousGroups(beers);
   const reference: ReferenceResolution = present ? resolveReference(rawText, beers, active) : { kind: "none" };
+  const roster = buildRoster(beers);
   const shownCandidates = selectShown(beers, reference);
   return {
     present,
     totalCandidates: beers.length,
+    roster,
     shownCandidates,
     truncatedCount: Math.max(0, beers.length - shownCandidates.length),
+    detailLimit: MAX_DETAIL_CANDIDATES,
     menuSource: source,
     menuCreatedDate: createdDate,
     active,
@@ -469,12 +576,32 @@ function round2(n: number): string {
   return String(Math.round(n * 100) / 100);
 }
 
-function formatPrice(b: NormBeer): string {
+function formatPrice(b: { price: number | null; currency: string; volumeMl: number | null }): string {
   if (b.price === null) return "菜单未提供价格";
   const c = b.currency.trim();
   const price = round2(b.price);
   const priceText = /^[A-Za-z]{3}$/.test(c) ? `${price} ${c}` : c ? `${c}${price}` : price;
   return b.volumeMl !== null ? `${priceText} / ${b.volumeMl}ml` : priceText;
+}
+
+/** One compact, evidence-free roster line. All data fields stay inert text. */
+function renderRosterLine(e: RosterEntry): string {
+  const row = e.menuIndex !== null ? `#${e.menuIndex} ` : "（无行号）";
+  const style = e.style || "未知";
+  const abv = e.abv !== null ? `${round2(e.abv)}%` : "未知";
+  return `· ${row}「${e.displayName}」/ ${e.brewery || "酒厂未知"}｜风格 ${style}｜ABV ${abv}｜${formatPrice(e)}`;
+}
+
+function renderRoster(ctx: BuiltMenuContext): string[] {
+  // No row cap, no character cap: the compact roster enumerates EVERY
+  // normalized candidate for every question. Its cost grows linearly with
+  // menu size; bounded DETAIL evidence is the separate MAX_DETAIL_CANDIDATES
+  // layer below. Arbitrarily huge menus must be handled upstream (chunking /
+  // retrieval before prompt assembly), never by silently dropping rows here.
+  return [
+    `【全单简明名册】共 ${ctx.totalCandidates} 款全量列名（每行仅含 行号/酒名/酒厂/风格/ABV/价格容量币种，不含长证据；空或重复的候选 id 不合并行）；逐款来源引文仅在下方“已展开详情”给出，至多 ${ctx.detailLimit} 款，未展开详情≠菜单漏列。`,
+    ...ctx.roster.map(renderRosterLine),
+  ];
 }
 
 function beerLabel(b: NormBeer): string {
@@ -510,7 +637,9 @@ export function renderMenuContext(ctx: BuiltMenuContext): string {
 
   const lines: string[] = [
     "## 当前菜单证据（本会话用户提供的图像/菜单；下列事实优先于本地旧库探测与模型常识）",
-    `菜单来源：${ctx.menuSource}${ctx.menuCreatedDate ? ` · 快照 ${ctx.menuCreatedDate}` : ""} · 共 ${ctx.totalCandidates} 款（最多展开 ${MAX_CANDIDATES} 款${ctx.truncatedCount > 0 ? `，其余 ${ctx.truncatedCount} 款不展开` : ""}）`,
+    `菜单来源：${ctx.menuSource}${ctx.menuCreatedDate ? ` · 快照 ${ctx.menuCreatedDate}` : ""} · 共 ${ctx.totalCandidates} 款（详情最多展开 ${ctx.detailLimit} 款${ctx.truncatedCount > 0 ? `，其余 ${ctx.truncatedCount} 款不展开详情` : ""}）`,
+    ...renderRoster(ctx),
+    `【已展开详情】（至多 ${ctx.detailLimit} 款逐款来源引文；名册中其余酒款本块不重复长证据）`,
     ...ctx.shownCandidates.flatMap(renderBeer),
   ];
 

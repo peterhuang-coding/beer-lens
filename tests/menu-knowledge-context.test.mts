@@ -230,7 +230,7 @@ describe("buildMenuContext — numeric and source discipline", () => {
 });
 
 describe("buildMenuContext — bounds, safety and absence", () => {
-  it("limits a 147-row catalog to a bounded number of rendered candidates", () => {
+  it("keeps all 147 compact rows while bounding expanded detail to eight", () => {
     const many = Array.from({ length: 147 }, (_, i) =>
       beer({
         candidateId: `cand-${i + 1}`,
@@ -246,7 +246,11 @@ describe("buildMenuContext — bounds, safety and absence", () => {
     const section = renderMenuContext(ctx);
     assert.equal((section.match(/^- #\d+/gm) ?? []).length, 8);
     assert.match(section, /其余 139 款不展开/);
-    assert.doesNotMatch(section, /Catalog Beer 147/);
+    const roster = section.split("【全单简明名册】")[1].split("【已展开详情】")[0];
+    assert.equal((roster.match(/^· #\d+ /gm) ?? []).length, 147);
+    assert.match(roster, /Catalog Beer 147/);
+    const details = section.split("【已展开详情】")[1];
+    assert.doesNotMatch(details, /Catalog Beer 147/);
   });
 
   it("hostile evidence text is framed as quoted data, never as an instruction", () => {

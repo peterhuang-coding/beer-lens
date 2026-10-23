@@ -1,6 +1,6 @@
 # Beer Lens 侍酒师系统提示词草案(2026-10-22)
 
-说明:本文是设计草案,未接入运行时、未在模型上执行。以下「SP 正文」为待评审的中文系统提示词(目标 ≤2500 汉字),配套的「当前菜单证据」块由 `lib/skills/beer-knowledge/menu-context.ts` 渲染注入,画像与旧库探测块沿用 `lib/skills/beer-knowledge/execute.ts` 现状。文末 6 条为评测期望答案(expected gold),不是模型实际输出,数值仅取自 `data/menus/elnido-2026-10.json` 历史快照，行号不得套用到今日菜单。当前 menu-context 最多 8 款的实现尚不满足本文首轮全菜单契约，须配合档案与链路改造。
+说明:本文是设计草案,未接入运行时、未在模型上执行。以下「SP 正文」为待评审的中文系统提示词(目标 ≤2500 汉字),配套的「当前菜单证据」块由 `lib/skills/beer-knowledge/menu-context.ts` 渲染注入,画像与旧库探测块沿用 `lib/skills/beer-knowledge/execute.ts` 现状。文末 6 条为评测期望答案(expected gold),不是模型实际输出,数值仅取自 `data/menus/elnido-2026-10.json` 历史快照，行号不得套用到今日菜单。2026-10-23 已实现全菜单简明名册，8 款限制只用于详细证据，147 款本地目录上下文验证通过；首轮图片的知识档案、本文 SP 接入和完整解读仍需后续改造，真实模型与飞书效果待验。
 
 ## SP 正文
 

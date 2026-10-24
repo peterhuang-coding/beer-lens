@@ -676,13 +676,27 @@ test("readMenuSupplements fails soft on missing/malformed/non-object and filters
     const loaded = await readMenuSupplements();
     assert.equal(loaded.length, 1, "bad rows filtered, valid row survives");
     assert.equal(loaded[0].id, "elnido-2026-10-02");
+
+    // The fixed additions file is read independently: a malformed additions
+    // file never poisons or blocks the original 17-file.
+    const additionsFile = path.join(menusDir, "elnido-2026-10-additions.json");
+    await writeFile(additionsFile, "{ nope", "utf8");
+    const brokenAdditions = await readMenuSupplements();
+    assert.equal(brokenAdditions.length, 1, "malformed additions file ignored independently");
+    assert.deepEqual(brokenAdditions.map(e => e.id), ["elnido-2026-10-02"]);
+
+    // A valid additions row combines after the base rows (no discovery).
+    await writeFile(additionsFile, JSON.stringify({ version: 1, menu_id: "elnido-2026-10", entries: [realEntries[1]] }), "utf8");
+    const combined = await readMenuSupplements();
+    assert.equal(combined.length, 2);
+    assert.deepEqual(combined.map(e => e.id), ["elnido-2026-10-02", "elnido-2026-10-03"]);
   } finally {
     process.chdir(cwd);
     await rm(dir, { recursive: true, force: true });
   }
 });
 
-test("readMenuSupplements loads the real 17-entry file from cwd", async () => {
+test("readMenuSupplements loads original 17 plus fixed 3-entry additions file (20 combined) from cwd", async () => {
   const cwd = process.cwd();
   const dir = await mkdtemp(path.join(os.tmpdir(), "elnido-supplement-real-"));
   const menusDir = path.join(dir, "data", "menus");
@@ -691,8 +705,14 @@ test("readMenuSupplements loads the real 17-entry file from cwd", async () => {
     // workspace root is two levels up from tests/; simpler: point cwd at repo root
     process.chdir(path.dirname(path.dirname(new URL(import.meta.url).pathname)));
     const loaded = await readMenuSupplements();
-    assert.equal(loaded.length, 17);
-    const kphilia = loaded.find(e => e.menu_index === 11);
+    assert.equal(loaded.length, 20);
+    const additions = loaded.filter(e => e.id.includes("-additions-"));
+    assert.equal(additions.length, 3);
+    assert.deepEqual(additions.map(e => e.menu_index).sort((a, b) => a - b), [1, 10, 16]);
+    for (const e of additions) assert.equal(e.observation.observed_at, "undated-user-photo");
+    // Original 17 rows precede the additions and keep their dated snapshot.
+    assert.equal(loaded.slice(0, 17).filter(e => e.id.includes("-additions-")).length, 0);
+    const kphilia = loaded.find(e => e.id === "elnido-2026-10-11");
     assert.equal(kphilia?.identity_status, "version_unresolved");
   } finally {
     process.chdir(cwd);

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "menu_id": "elnido-2026-10",
+  "scope": "Curated public-source supplement for THREE rows transcribed from a SEPARATE undated user photo of El Nido taps (taps 1, 10, 16). This is NOT the 2026-10-20 snapshot (data/menus/elnido-2026-10.json): observation.observed_at is \"undated-user-photo\", sources were checked 2026-10-24, and the two transcriptions must never be relabeled as one another or as a current/inventory view. No image is stored; a tap number is never identity; photo price/volume observations belong to that photo only and are never compared with retail offers.",
+  "entries": [
+    {
+      "id": "elnido-2026-10-additions-01",
+      "menu_index": 1,
+      "menu_name": "Spezial Gold",
+      "name_zh": "黄金特酿",
+      "brewery": "Waldhaus",
+      "brewery_aliases": ["Brauerei Waldhaus", "Privatbrauerei Waldhaus"],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Spezial Gold",
+      "style": "Lager",
+      "abv": 5.6,
+      "description_zh": "官方页面确认酒款 Spezial Gold，拉格，5.60% ABV。官方称使用泰特南（Tettnang）、施帕尔特（Spalt）、哈勒陶（Hallertau）产地的整颗酒花球果，大麦麦芽来自巴登-符腾堡与莱茵兰-法尔茨；这些是产地表述，并非经核实的具体酒花品种。官方营销描述其均衡、饱满、麦芽感扎实，属生产者自述风格，非实测苦度；页面风味刻度 Bitterunits 4 不是 IBU。官方称其为创始人年代延续至今的经典老款，仅为酒厂自述，不是旗舰或最畅销证据。官方页面未提供零售价格。",
+      "observation": {
+        "abv": 5.6,
+        "price": 70,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "undated-user-photo",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://www.waldhaus-bier.de/en/beer-specialties/spezial-gold/",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-24",
+          "fields": ["identity", "style", "abv", "ingredient_origins", "producer_description"]
+        }
+      ],
+      "issues": [
+        "waldhaus_hop_origins_are_regions_not_verified_cultivars",
+        "waldhaus_balanced_malty_is_producer_marketing_not_measured",
+        "waldhaus_bitterunits_4_is_flavor_scale_not_ibu",
+        "producer_calls_it_a_classic_not_flagship_or_bestselling_claim",
+        "no_retail_price_captured_on_official_page"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-additions-10",
+      "menu_index": 10,
+      "menu_name": "Cactus",
+      "name_zh": "刺球",
+      "brewery": "Tilted Barn",
+      "brewery_aliases": ["Tilted Barn Brewery"],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Cactus",
+      "style": "Imperial / Double New England / Hazy IPA",
+      "abv": 7.8,
+      "description_zh": "身份经酒厂自家 Untappd 场馆菜单页与 BeerAdvocate 确切酒款页双重确认：Cactus，7.8%，帝国/双倍新英格兰浑浊 IPA。Untappd 场馆页另显示 70 IBU，仅为页面显示值（本数据集不设 IBU 字段，也不采用任何评分）。BeerAdvocate 公开描述提到柔顺口感与菠萝、芒果、番石榴气息，那是社区条目所列的感官描述，不是官方品鉴词，也不构成水果配料证据。酒厂官网 beers-past-present 页当前只有 DDH Cactus 标题（7.8%，双倍干投）：DDH Cactus 是另一变体，其工艺与酒花不得迁移到本款；与 Bissell 的合酿同样是另一款酒，其 Amarillo/Citra/El Dorado/Mosaic 酒花清单不适用本款。无旗舰身份或当前价格证据。",
+      "observation": {
+        "abv": 7.8,
+        "price": 65,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "undated-user-photo",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/v/tilted-barn-brewery/2296372",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-24",
+          "fields": ["identity", "abv", "style", "ibu_display_value"]
+        },
+        {
+          "url": "https://www.beeradvocate.com/beer/profile/37721/264713/",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-24",
+          "fields": ["identity", "abv", "style", "community_sensory_description"]
+        },
+        {
+          "url": "https://www.tiltedbarnbrewery.com/beers-past-present-1",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-24",
+          "fields": ["other_variant_identity", "other_variant_abv", "other_variant_process_description"]
+        },
+        {
+          "url": "https://bissellbrothers.com/beer/cactus-collab-with-tilted-barn-brewery/",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-24",
+          "fields": ["other_variant_identity", "other_variant_hops_not_this_beer"]
+        }
+      ],
+      "issues": [
+        "ddh_cactus_is_different_variant_no_ddh_process_or_hop_transfer",
+        "bissell_collab_is_different_beer_its_hop_list_does_not_apply",
+        "cactus_sensory_notes_are_community_listed_not_official_or_ingredients",
+        "untappd_venue_page_displays_70_ibu_display_value_only_no_rating_used",
+        "no_flagship_evidence_or_current_price_for_cactus"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-additions-16",
+      "menu_index": 16,
+      "menu_name": "Blackberry/Blueberry/mango",
+      "name_zh": "",
+      "brewery": "Arpus",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "version_unresolved",
+      "canonical_name": null,
+      "style": null,
+      "abv": null,
+      "description_zh": "【版本未确认】照片短标题仅为“Blackberry/Blueberry/mango”，只列黑莓、蓝莓、芒果三种水果且无版本后缀；菜单转录观察 4.5% 与 Smoothie Sour 风格仅经 OCR 明示标记保留。官方网站有一款可能候选 Blackberry x Blueberry x Mango x Pineapple x Peanut Butter Smoothie Sour Ale（4.5%），但短标题未出现菠萝与花生酱，故二者（尤其花生酱）属未确认配料；完整产品名不是短标题的确认别名，不得据此外推照片款配料。该候选无评分、IBU、酒花或“经典”事实；官方罐装零售报价与酒吧生啤形态不同，不与照片转录价格比较。",
+      "observation": {
+        "abv": 4.5,
+        "price": 80,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "undated-user-photo",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://arpusbrewing.co/products/blackberry-x-blueberry-x-mango-x-pineapple-x-peanut-butter-smoothie-sour-ale",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-24",
+          "fields": ["candidate_identity", "candidate_abv", "candidate_offer_price_form_volume_tax"]
+        }
+      ],
+      "issues": [
+        "arpus_short_title_three_fruits_candidate_full_title_five_ingredients_version_unresolved",
+        "arpus_pineapple_and_esp_peanut_butter_unconfirmed_no_ingredient_transfer",
+        "arpus_full_title_not_registered_as_confirmed_alias",
+        "arpus_can_retail_offer_never_compared_with_bar_draft_no_fx_no_premium"
+      ],
+      "field_disagreements": {
+        "identity": {
+          "menu_title": "Blackberry/Blueberry/mango",
+          "candidate": "Blackberry x Blueberry x Mango x Pineapple x Peanut Butter Smoothie Sour Ale",
+          "resolution": "version_unresolved_short_title_three_fruits_only"
+        },
+        "candidate_offer": {
+          "url": "https://arpusbrewing.co/products/blackberry-x-blueberry-x-mango-x-pineapple-x-peanut-butter-smoothie-sour-ale",
+          "observed_at": "2026-10-24",
+          "checked_at": "2026-10-24",
+          "form": "0.44L can retail",
+          "volume_ml": 440,
+          "price_eur_tax_included": 6.19,
+          "shipping": "extra, not included",
+          "fx_eur_cny": null,
+          "scope": "candidate_only_never_compared_to_photographed_cny_draft",
+          "handling": "different form (can retail vs bar draft) and version unresolved; never a same-draft comparison; no savingsVsOrigin and no bar-premium computation; no FX captured"
+        }
+      }
+    }
+  ]
+}

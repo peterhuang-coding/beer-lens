@@ -130,12 +130,20 @@ function isMenuSupplementEntry(value: unknown): value is MenuSupplementEntry {
 export const MENU_SUPPLEMENT_RELATIVE_PATH = path.join("data", "menus", "elnido-2026-10.json");
 
 /**
- * Fail-soft supplement reader. Missing file, malformed JSON, non-object payload
- * or unreadable rows degrade to the existing pipeline (empty list), never throw.
+ * Fixed, known second supplement file: three rows from a SEPARATE undated
+ * user-photo transcription (taps 1/10/16). There is deliberately no directory
+ * scan or discovery — only this constant path is ever read.
  */
-export async function readMenuSupplements(): Promise<MenuSupplementEntry[]> {
+export const MENU_SUPPLEMENT_ADDITIONS_RELATIVE_PATH =
+  path.join("data", "menus", "elnido-2026-10-additions.json");
+
+/**
+ * Fail-soft reader for one fixed supplement file. Missing file, malformed JSON,
+ * non-object payload or unreadable rows degrade to an empty list, never throw.
+ */
+async function readSupplementFile(relativePath: string): Promise<MenuSupplementEntry[]> {
   try {
-    const raw = await readFile(path.join(process.cwd(), MENU_SUPPLEMENT_RELATIVE_PATH), "utf8");
+    const raw = await readFile(path.join(process.cwd(), "data", "menus", path.basename(relativePath)), "utf8");
     const parsed: unknown = JSON.parse(raw);
     if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) return [];
     const entries = (parsed as { entries?: unknown }).entries;
@@ -144,6 +152,20 @@ export async function readMenuSupplements(): Promise<MenuSupplementEntry[]> {
   } catch {
     return [];
   }
+}
+
+/**
+ * Fail-soft supplement reader for the fixed original file plus the fixed
+ * additions file. The two reads are independent: a missing or broken additions
+ * file (or the original) never poisons or blocks the other, and no arbitrary
+ * file discovery happens. Original entries come first, additions after.
+ */
+export async function readMenuSupplements(): Promise<MenuSupplementEntry[]> {
+  const [original, additions] = await Promise.all([
+    readSupplementFile(MENU_SUPPLEMENT_RELATIVE_PATH),
+    readSupplementFile(MENU_SUPPLEMENT_ADDITIONS_RELATIVE_PATH),
+  ]);
+  return [...original, ...additions];
 }
 
 // ── Strict matching ──
@@ -352,6 +374,35 @@ const ISSUE_ZH: Record<string, string> = {
     "未标年份的 Reclaim Me（15%）是另一款酒",
   four_barrel_sequence_on_photo_not_verified_by_source:
     "照片中的桶序信息未经来源核实",
+  // ── 2026-10-24 additions (separate undated user-photo transcription) ──
+  waldhaus_hop_origins_are_regions_not_verified_cultivars:
+    "官方仅标明整颗酒花球果的产地（泰特南/施帕尔特/哈勒陶），产地表述不等于已核实的具体酒花品种",
+  waldhaus_balanced_malty_is_producer_marketing_not_measured:
+    "“均衡、饱满、麦芽感”为酒厂官方营销描述，非实测苦度或风味指标",
+  waldhaus_bitterunits_4_is_flavor_scale_not_ibu:
+    "官方风味刻度 Bitterunits 4 不是 IBU 苦度单位",
+  producer_calls_it_a_classic_not_flagship_or_bestselling_claim:
+    "“创始人年代延续的经典老款”为酒厂自述，不得表述为旗舰款或最畅销（获奖不等于旗舰，缺少旗舰或销量依据）",
+  no_retail_price_captured_on_official_page:
+    "官方页面未采集到零售价格",
+  ddh_cactus_is_different_variant_no_ddh_process_or_hop_transfer:
+    "酒厂官网的 DDH Cactus 是另一变体：不得把双倍干投工艺或其酒花说法迁移到本款 Cactus",
+  bissell_collab_is_different_beer_its_hop_list_does_not_apply:
+    "与 Bissell 的合酿是另一款酒：Amarillo/Citra/El Dorado/Mosaic 酒花清单不适用于本款",
+  cactus_sensory_notes_are_community_listed_not_official_or_ingredients:
+    "柔顺口感与菠萝/芒果/番石榴为社区条目所列感官描述，非官方品鉴词，也不构成水果配料证据",
+  untappd_venue_page_displays_70_ibu_display_value_only_no_rating_used:
+    "Untappd 场馆页显示 70 IBU 仅为页面显示值；本补充不采用任何评分",
+  no_flagship_evidence_or_current_price_for_cactus:
+    "无旗舰身份证据，也无当前价格证据",
+  arpus_short_title_three_fruits_candidate_full_title_five_ingredients_version_unresolved:
+    "照片短标题只列黑莓/蓝莓/芒果三种水果；可能候选全名另含菠萝与花生酱，版本未确认",
+  arpus_pineapple_and_esp_peanut_butter_unconfirmed_no_ingredient_transfer:
+    "菠萝与花生酱（尤其花生酱）为未确认配料，不得迁移到照片款或当作事实陈述",
+  arpus_full_title_not_registered_as_confirmed_alias:
+    "完整产品名未注册为短标题的确认别名",
+  arpus_can_retail_offer_never_compared_with_bar_draft_no_fx_no_premium:
+    "候选官方报价为不同形态的罐装零售（含税、运费另计、未采集汇率），不与照片中的酒吧生啤比价，不计算酒吧溢价，不产生 savingsVsOrigin",
 };
 
 function issueZh(issue: string): string {
@@ -391,7 +442,11 @@ function renderDisagreements(entry: MenuSupplementEntry): string[] {
   if (identity && typeof identity === "object") {
     const resolution = String(identity.resolution ?? "");
     if (resolution.includes("version_unresolved")) {
-      out.push(`身份未定：菜单标题为“${String(identity.menu_title ?? entry.menu_name)}”，可能是“${String(identity.candidate ?? "")}”，另有“${String(identity.other_version ?? "")}”，需人工确认`);
+      // other_version is optional: a short title vs one longer candidate (e.g.
+      // the undated Arpus photo) has no second known version to name.
+      const other = String(identity.other_version ?? "");
+      const otherClause = other ? `，另有“${other}”` : "";
+      out.push(`身份未定：菜单标题为“${String(identity.menu_title ?? entry.menu_name)}”，可能是“${String(identity.candidate ?? "")}”${otherClause}，需人工确认`);
     } else if (resolution.includes("batch_unresolved")) {
       out.push(`批次未定：菜单为“${String(identity.menu ?? entry.menu_name)}”，来源另有日期批次“${String(identity.dated_source ?? "")}”，不假定年份`);
     }
@@ -403,14 +458,25 @@ function buildEvidence(
   entry: MenuSupplementEntry,
   context: { abvConflict: { ocr: number; canonical: number } | null; roundingNote: boolean },
 ): Evidence {
-  const checkedDate = entry.sources[0]?.checked_at ?? "未知日期";
+  // Dates are derived per row/per source, never hardcoded: the original 17
+  // rows carry a dated 2026-10-20 snapshot; the additions rows carry a
+  // separate undated-user-photo transcription and must stay distinct.
+  const observedAt = entry.observation.observed_at;
+  const datedSnapshot = /^\d{4}-\d{2}-\d{2}$/.test(observedAt);
+  const checkedDates = [...new Set(entry.sources.map(s => s.checked_at))];
+  const checkedLabel = checkedDates.length === 1
+    ? (checkedDates[0] ?? "未知日期")
+    : checkedDates.join("/");
+  const rowLabel = datedSnapshot
+    ? `${observedAt} 菜单转录行`
+    : "未标日期用户照片转录行（独立于 2026-10-20 快照的另一次转录）";
   const title = entry.canonical_name && entry.canonical_name !== entry.menu_name
     ? `${entry.brewery} / ${entry.canonical_name}（菜单标题：${entry.menu_name}）`
     : `${entry.brewery} / ${entry.menu_name}`;
 
   const clauses: string[] = [];
   clauses.push(
-    `公开资料补充 [menu_id:elnido-2026-10] [menu_supplement:${entry.id}] [identity_status:${entry.identity_status}]：2026-10-20 菜单转录行 #${entry.menu_index} ${title}`,
+    `公开资料补充 [menu_id:elnido-2026-10] [menu_supplement:${entry.id}] [identity_status:${entry.identity_status}]：${rowLabel} #${entry.menu_index} ${title}`,
   );
   clauses.push(`中文酒名：${entry.name_zh || "（无）"}`);
   clauses.push(`中文简介（公开资料意译）：${entry.description_zh}`);
@@ -442,11 +508,17 @@ function buildEvidence(
     if (typeof issue === "string" && issue) clauses.push(issueZh(issue));
   }
 
-  const links = entry.sources.map(s => `${s.url}（${s.kind}，${s.access}，${checkedDate} 核对）`);
+  const links = entry.sources.map(s => `${s.url}（${s.kind}，${s.access}，${s.checked_at} 核对）`);
   if (links.length > 0) clauses.push(`公开来源：${links.join("；")}`);
-  clauses.push(
-    "适用范围：以上为 2026-10-20 El Nido 菜单转录快照配套的公开网页/索引资料（2026-10-21 核对），非 Untappd 评分归属、非现场核验，不代表实时库存或当前菜单；快照价格仅属于该菜单转录，不注入其他菜单。",
-  );
+  if (datedSnapshot) {
+    clauses.push(
+      `适用范围：以上为 ${observedAt} El Nido 菜单转录快照配套的公开网页/索引资料（${checkedLabel} 核对），非 Untappd 评分归属、非现场核验，不代表实时库存或当前菜单；快照价格仅属于该菜单转录，不注入其他菜单。`,
+    );
+  } else {
+    clauses.push(
+      `适用范围：以上为另一份未标日期用户照片菜单转录配套的公开网页/索引资料（${checkedLabel} 核对）；该照片转录与 2026-10-20 El Nido 快照是相互独立的两次观察，不得互相替用，也不代表实时库存或当前菜单。非 Untappd 评分归属、非现场核验；照片转录价格仅属于该照片，不注入其他菜单，亦不与任何罐装/零售报价比较。`,
+    );
+  }
   clauses.push("本补充不含可用评分；该行继承的旧评分、Untappd ID 与链接均已清除，未经独立核验不得重建。");
 
   const hasConflict =

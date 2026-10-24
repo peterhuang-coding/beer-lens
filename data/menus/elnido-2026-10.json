@@ -1,0 +1,786 @@
+{
+  "version": 1,
+  "menu_id": "elnido-2026-10",
+  "scope": "Curated public-source supplement for the El Nido tap menu transcribed 2026-10-20 (taps 2-18). Field provenance lives in this file; this is not an official verified catalogue.",
+  "entries": [
+    {
+      "id": "elnido-2026-10-02",
+      "menu_index": 2,
+      "menu_name": "Windy Hill",
+      "name_zh": "风之丘",
+      "brewery": "Mikkeller",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Windy Hill",
+      "style": "Hazy IPA (NEIPA)",
+      "abv": 7,
+      "description_zh": "Mikkeller 的浑浊/新英格兰 IPA，公开描述指向热带水果风味。Untappd 与官方经销商页面的酒花清单不一致，本记录不采信任何具体酒花说法。",
+      "observation": {
+        "abv": 7,
+        "price": 60,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/mikkeller-windy-hill/2068818",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "style", "abv", "flavor_notes"]
+        },
+        {
+          "url": "https://shop.carlsbergdanmark.dk/mikkeller-carlsberg-online",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "style", "abv"]
+        }
+      ],
+      "issues": [
+        "untappd_and_official_distributor_hops_lists_differ_specific_hop_claims_omitted"
+      ],
+      "field_disagreements": {
+        "hops": {
+          "untappd": "hops listing on the Untappd page",
+          "official_distributor": "hops listing on the Carlsberg Danmark Mikkeller shop",
+          "handling": "listings differ; specific hop claims omitted"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-10-03",
+      "menu_index": 3,
+      "menu_name": "Kiwi Fingers",
+      "name_zh": "触碰酒花",
+      "brewery": "ISM",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Kiwi Fingers",
+      "style": "West Coast IPA",
+      "abv": 6.8,
+      "description_zh": "ISM 西海岸 IPA，柑橘皮、葡萄酒般与潮湿草本（dank）气息；公开资料称使用 Citra 与 Nelson Sauvin 酒花。酒名中的“Kiwi”不构成猕猴桃配料证据。",
+      "observation": {
+        "abv": 6.8,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://ism.beer/drink-menu",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "flavor_notes"]
+        },
+        {
+          "url": "https://untappd.com/b/ism-brewing-kiwi-fingers/5619227",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "hops"]
+        }
+      ],
+      "issues": [
+        "kiwi_in_name_is_not_evidence_of_kiwifruit_ingredient"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-04",
+      "menu_index": 4,
+      "menu_name": "Victory Lap",
+      "name_zh": "胜利绕场",
+      "brewery": "Ology",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Victory Lap",
+      "style": "West Coast Pilsner",
+      "abv": 5,
+      "description_zh": "Ology 西海岸风格皮尔森，5.0%。未检索到确切的公开评分。",
+      "observation": {
+        "abv": 5,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://ologybrewing.com/ology-tampa/",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style"]
+        }
+      ],
+      "issues": [
+        "no_exact_public_rating_located"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-05",
+      "menu_index": 5,
+      "menu_name": "Good Idea",
+      "name_zh": "奇思妙想",
+      "brewery": "Ology",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Good Idea",
+      "style": "Altbier",
+      "abv": 5,
+      "description_zh": "Ology 的 Altbier（德式老啤酒），公开描述有烤面包与焦糖麦芽气息。ABV 公开来源存在 5% 与 4.9% 两种记载，本记录不宣称对应具体批次。",
+      "observation": {
+        "abv": 5,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://www.beeradvocate.com/beer/profile/51226/315914/",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style"]
+        },
+        {
+          "url": "https://www.tavour.com/b/good-idea-b282573",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["abv", "style", "flavor_notes"]
+        },
+        {
+          "url": "https://untappd.com/b/ology-brewing-co-good-idea/2104045",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity_only_header_facts_unverified"]
+        }
+      ],
+      "issues": [
+        "abv_disagreement_5_vs_4_9_recorded_no_exact_batch_claim",
+        "untappd_identity_url_listed_but_header_facts_not_verified"
+      ],
+      "field_disagreements": {
+        "abv": {
+          "beeradvocate": 5,
+          "tavour": 4.9,
+          "menu_observation": 5,
+          "handling": "disagreement preserved; no claim of exact batch"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-10-06",
+      "menu_index": 6,
+      "menu_name": "Girls Gone",
+      "name_zh": "迷魂少女",
+      "brewery": "Ology",
+      "brewery_aliases": [],
+      "aliases": ["Girls Gone"],
+      "identity_status": "confirmed",
+      "canonical_name": "Girls Gone Hazy",
+      "style": "Hazy IPA",
+      "abv": 7,
+      "description_zh": "Ology 浑浊 IPA，7.0%，公开资料称使用 Pink Boots Hop Blend 与 Vista 酒花。菜单短标题“Girls Gone”与官方酒款“Girls Gone Hazy”同厂且同为 7.0%；本数据集据标题+酒厂+ABV 本地推断其为同一酒款的简写别名（本地推断，Ology 官方页面确认了 Girls Gone Hazy 与 7%，但未确认该店使用此短标题别名）。",
+      "observation": {
+        "abv": 7,
+        "price": 95,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://ologybrewing.com/ology-power-mill/",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "hops"]
+        },
+        {
+          "url": "https://ologybrewing.com/ology-tampa/",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style"]
+        }
+      ],
+      "issues": [
+        "alias_origin_menu_short_title_girls_gone_equals_official_girls_gone_hazy"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-07",
+      "menu_index": 7,
+      "menu_name": "Иваныч",
+      "name_zh": "伊完内奇",
+      "brewery": "Velka Morava",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Иваныч",
+      "style": "Czech Lager",
+      "abv": 4.9,
+      "description_zh": "Velka Morava 的捷克风格拉格，单一 Saaz 酒花、两次煮出（double decoction）工艺，4.9%。证据仅来自搜索引擎索引页（官网页面直连失败）；不得套用“Иваныч 2.0”的评分，那是不同版本。",
+      "observation": {
+        "abv": 4.9,
+        "price": 75,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://moravabeer.ru/?p=6377",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "ingredients", "process"]
+        }
+      ],
+      "issues": [
+        "search_index_evidence_only_official_page_direct_open_failed",
+        "do_not_apply_ivanych_2_0_rating_different_version"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-08",
+      "menu_index": 8,
+      "menu_name": "Pils For Skills",
+      "name_zh": "精益求精",
+      "brewery": "Velka Morava",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Pils For Skills",
+      "style": "German Pilsner",
+      "abv": 4.5,
+      "description_zh": "Velka Morava 德式皮尔森，Saphir 酒花，口感干爽干净，4.5%。Untappd 与零售商页面均记载 4.5%。",
+      "observation": {
+        "abv": 4.5,
+        "price": 75,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/velka-morava-pils-for-skills/6622431",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "style", "abv", "hops"]
+        },
+        {
+          "url": "https://rusbeershop.ru/catalog/beer-78469/",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["abv"]
+        }
+      ],
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-09",
+      "menu_index": 9,
+      "menu_name": "King Lear",
+      "name_zh": "李尔王英式苦啤",
+      "brewery": "Velka Morava",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "King Lear",
+      "style": "Best Bitter",
+      "abv": 4.7,
+      "description_zh": "Velka Morava 的英式 Best Bitter，麦芽甜感与贵族酒花气息，4.7%，两个第三方页面一致。第三方站点的评分不是 Untappd 评分，也不杜撰 Untappd ID。",
+      "observation": {
+        "abv": 4.7,
+        "price": 80,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://nakrane.com/beers/velka-morava-king-lear",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "flavor_notes"]
+        },
+        {
+          "url": "https://2beer4.me/ru/beers/dn7tli5arx2fnemb62mg18kk",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["abv"]
+        }
+      ],
+      "issues": [
+        "third_party_site_rating_must_not_be_presented_as_untappd_no_ut_id_invented"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-10",
+      "menu_index": 10,
+      "menu_name": "Green Reaper",
+      "name_zh": "收割者",
+      "brewery": "Shred",
+      "brewery_aliases": ["Shred Beer Company"],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Green Reaper",
+      "style": "Hazy IPA",
+      "abv": 6.66,
+      "description_zh": "Shred Beer Company 浑浊 IPA，Nelson/Nectaron/Citra 酒花，猕猴桃与菠萝气息。公开确切值为 6.66%，菜单 6.7% 为一位小数显示，并非不同版本。",
+      "observation": {
+        "abv": 6.7,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/v/shred-beer-co/12007977/photos",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "brewery_full_name", "abv", "style", "hops", "flavor_notes"]
+        }
+      ],
+      "issues": [
+        "menu_abv_6_7_is_one_decimal_rounding_of_source_6_66",
+        "facts_embedded_in_public_venue_photo_page_no_personal_checkin_data_used"
+      ],
+      "field_disagreements": {
+        "abv": {
+          "source_exact": 6.66,
+          "menu_observation": 6.7,
+          "resolution": "one_decimal_rounding"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-10-11",
+      "menu_index": 11,
+      "menu_name": "K-philia",
+      "name_zh": "京都狂爱症",
+      "brewery": "Totopia",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "version_unresolved",
+      "canonical_name": null,
+      "style": null,
+      "abv": null,
+      "description_zh": "【版本待确认】菜单照片标题仅为“K-philia”、观察值 9.5%。旧款 K-philia 是 8.5% Imperial Oat Cream IPA，并非同一款；官方站点与官方商店指向的可能候选是“K-philia #2 / KBC 狂愛症”（与 Kyoto Brewing 合酿，9.5% DDH 西海岸三倍 IPA，草本/西柚/坚定苦感）。照片未标注 #2，不能自动把裸标题 K-philia 等同于 #2，也不迁移旧款评分。",
+      "observation": {
+        "abv": 9.5,
+        "price": 115,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/totopia-brewery-k-philia/6063476",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["other_version_identity", "other_version_abv", "other_version_style"]
+        },
+        {
+          "url": "https://totopia.official.ec/items/150137063",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["candidate_identity", "abv", "style", "collab"]
+        },
+        {
+          "url": "https://payid.jp/item/150137063",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["candidate_identity", "abv", "style"]
+        }
+      ],
+      "issues": [
+        "version_unresolved_photo_omits_#2",
+        "no_alias_or_score_transfer_from_bare_k_philia_to_k_philia_2",
+        "old_k_philia_8_5_imperial_oat_cream_ipa_is_a_different_beer"
+      ],
+      "field_disagreements": {
+        "abv": {
+          "menu_observation": 9.5,
+          "old_k_philia": 8.5,
+          "candidate_k_philia_2": 9.5
+        },
+        "identity": {
+          "menu_title": "K-philia (no version suffix)",
+          "candidate": "K-philia #2 / KBC 狂愛症, Kyoto Brewing collab, DDH West Coast Triple IPA",
+          "other_version": "K-philia, 8.5% Imperial Oat Cream IPA",
+          "resolution": "version_unresolved_photo_omits_#2"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-10-12",
+      "menu_index": 12,
+      "menu_name": "Free Lunch",
+      "name_zh": "午餐自由",
+      "brewery": "BlackStack",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Free Lunch",
+      "style": "Triple New England / Hazy IPA",
+      "abv": 10.1,
+      "description_zh": "BlackStack 三倍新英格兰/浑浊 IPA，10.1%，酒花 Citra/Strata/Mosaic/Nelson Sauvin/Krush。缓存评分快照互相冲突，本记录不采用任何评分。",
+      "observation": {
+        "abv": 10.1,
+        "price": 75,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/blackstack-brewing-free-lunch/6614902",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "hops"]
+        },
+        {
+          "url": "https://www.beeradvocate.com/beer/profile/48592/794227/",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["abv"]
+        }
+      ],
+      "issues": [
+        "cached_rating_snapshots_conflict_4_38_181_vs_4_289_943_no_usable_rating"
+      ],
+      "field_disagreements": {
+        "historical_rating_snapshots": {
+          "snapshot_a": {"rating": 4.38, "ratings_count": 181},
+          "snapshot_b": {"rating": 4.289, "ratings_count": 943},
+          "handling": "conflicting cached snapshots; historical only; no usable rating stored"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-10-13",
+      "menu_index": 13,
+      "menu_name": "Белоглазка",
+      "name_zh": "白眼",
+      "brewery": "Sergacore Brewery",
+      "brewery_aliases": ["Sergacore"],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Белоглазка",
+      "style": "Smoothie / Pastry Sour",
+      "abv": 5,
+      "description_zh": "Sergacore Brewery（酒单/标签短印品牌 Sergacore）思慕雪/甜点酸啤，5%，猕猴桃、苹果、斐济果、菠萝风味。零售商页面链接到确切的 Untappd 酒款身份；本地酒库已有同一产品，导入时不覆盖其历史评分。",
+      "observation": {
+        "abv": 5,
+        "price": 115,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://rusbeershop.ru/catalog/beer-73415/",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "ingredients", "untappd_identity_link"]
+        },
+        {
+          "url": "https://craftbeer78.ru/beer/beloglazka-sergacore-brewery",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "ingredients"]
+        }
+      ],
+      "issues": [
+        "exact_product_already_in_local_db_importer_preserves_existing_row_and_score",
+        "untappd_identity_linked_by_retailer_no_personal_data_used"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-14",
+      "menu_index": 14,
+      "menu_name": "Remember Boys, No Pie for Second Place",
+      "name_zh": "记住小伙伴们第二名没有馅饼",
+      "brewery": "Ology",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Remember Boys, No Pie for Second Place",
+      "style": "Fruited Berliner Weisse",
+      "abv": 6,
+      "description_zh": "Ology 水果柏林小麦酸啤，6.0%，蓝莓派风味灵感。官方菜单站仅有搜索索引证据（在线页面为无内容 JS 空壳），零售商页面同样记载 6%。",
+      "observation": {
+        "abv": 6,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://northside-menu.ologybrewing.com/",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "description"]
+        },
+        {
+          "url": "https://order.toasttab.com/online/bottle-theory-542-spring-road/item-ology-remember-boys-no-pie-for-second-place-16oz_9b9d0bdf-2b22-4994-adab-0eb95d448209",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["abv"]
+        }
+      ],
+      "issues": [
+        "official_menu_page_search_index_only_live_html_is_js_shell_without_content"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-15",
+      "menu_index": 15,
+      "menu_name": "Double Blueberry Marshmallow Shake",
+      "name_zh": "双重蓝色甜蜜摇滚",
+      "brewery": "Great Notion",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Double Blueberry Marshmallow Shake",
+      "style": "Fruited Sour",
+      "abv": 9,
+      "description_zh": "Great Notion 水果酸啤，蓝莓、香草、棉花糖风味。酒厂订购页标 9.10%，Systembolaget 同款标 9%，菜单观察为 9%，9 与 9.1 的分歧原样保留、不作静默归一。本款区别于旧款 Double Blueberry Shake；BeerAdvocate 误描述页（/beer/profile/41869/526417/）所写的“Double Berry”描述已拒绝采信、不作证据。",
+      "observation": {
+        "abv": 9,
+        "price": 80,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://order.toasttab.com/online/greatnotion/item-double-blueberry-marshmallow-shake_b2bfa2ad-9c67-4567-8dc1-3a350c383e6f",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "flavor_notes"]
+        },
+        {
+          "url": "https://www.systembolaget.se/produkt/ol/great-notion-brewing-8870934/",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv"]
+        }
+      ],
+      "issues": [
+        "abv_conflict_9_vs_9_1_preserved_not_normalized",
+        "distinct_from_old_double_blueberry_shake_no_old_score_transfer",
+        "beeradvocate_mistaken_double_berry_description_rejected"
+      ],
+      "field_disagreements": {
+        "abv": {
+          "brewery_order_page": 9.1,
+          "systembolaget": 9,
+          "menu_observation": 9,
+          "handling": "9 vs 9.1 preserved; not silently normalized"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-10-16",
+      "menu_index": 16,
+      "menu_name": "Grandma's Feijoa",
+      "name_zh": "奶奶的斐济果",
+      "brewery": "Big Pot",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "confirmed",
+      "canonical_name": "Grandma's Feijoa",
+      "style": "Smoothie Sour",
+      "abv": 6.5,
+      "description_zh": "Big Pot 思慕雪酸啤，6.5%，杏子与斐济果风味。早先视觉标签识别“Li'l Big”有误，已更正为 Big Pot；产品直链返回 429，不重试、不绕行，仅使用索引/缓存证据。",
+      "observation": {
+        "abv": 6.5,
+        "price": 80,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://craftbeer78.ru/beer/grandmas-feijoa-big-pot",
+          "kind": "retailer",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "brewery_correction", "abv", "style", "ingredients"]
+        },
+        {
+          "url": "https://untappd.com/v/parazit/12783901/photos",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "brewery", "abv"]
+        }
+      ],
+      "issues": [
+        "earlier_visual_label_lil_big_was_wrong_corrected_to_big_pot",
+        "direct_product_url_returned_429_index_cache_only_no_retry"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-10-17",
+      "menu_index": 17,
+      "menu_name": "The Cut: Laroda Plum",
+      "name_zh": "甄选2号",
+      "brewery": "Casey",
+      "brewery_aliases": [],
+      "aliases": [],
+      "identity_status": "batch_unresolved",
+      "canonical_name": null,
+      "style": null,
+      "abv": null,
+      "description_zh": "【批次待确认】Casey 的 The Cut Plum 系列为过橡木桶酸啤基底，使用科罗拉多本地整颗李子；官方通用页标 5%，2017 年 Laroda 批次为 6%。菜单未标注年份/批次，只能确认系列层面的信息，具体批次未知；观察值 6% 单独保留，不迁移 2017 批次的身份与评分。",
+      "observation": {
+        "abv": 6,
+        "price": 95,
+        "volume_ml": 200,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://caseybrewing.com/beer/the-cut-plum/",
+          "kind": "brewery",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["series_identity", "style", "ingredients", "generic_abv"]
+        },
+        {
+          "url": "https://untappd.com/b/casey-brewing-and-blending-the-cut-plum-laroda-10-2-17/2516105",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["dated_batch_identity", "dated_batch_abv"]
+        }
+      ],
+      "issues": [
+        "batch_unresolved_menu_has_no_year",
+        "no_2017_laroda_identity_or_score_transfer",
+        "generic_series_page_5_vs_2017_laroda_6_kept_separate"
+      ],
+      "field_disagreements": {
+        "abv": {
+          "series_generic_page": 5,
+          "laroda_2017": 6,
+          "menu_observation": 6
+        },
+        "identity": {
+          "menu": "The Cut: Laroda Plum, no year printed",
+          "dated_source": "The Cut Plum Laroda 10-2-17 (2017 blend)",
+          "resolution": "batch_unresolved_no_vintage_on_menu"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-10-18",
+      "menu_index": 18,
+      "menu_name": "Reclaim Me 2026",
+      "name_zh": "归还一切 2026",
+      "brewery": "Anchorage",
+      "brewery_aliases": [],
+      "aliases": ["归还一切（过四桶）"],
+      "identity_status": "confirmed",
+      "canonical_name": "Reclaim Me 2026",
+      "style": "Imperial / Double Stout",
+      "abv": 19.25,
+      "description_zh": "Anchorage Reclaim Me 2026 帝国/双倍世涛，19.25%，过桶，泰国香蕉与烤椰子风味。菜单 19.2% 为一位小数显示，照片中文别名印作“归还一切（过四桶）”，系酒标拼写原样保留，不代表经来源核实的桶序。未标年份的 Reclaim Me（15%）是另一款；不宣称照片中的桶序信息经来源核实。",
+      "observation": {
+        "abv": 19.2,
+        "price": 160,
+        "volume_ml": 200,
+        "currency": "CNY",
+        "observed_at": "2026-10-20",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/anchorage-brewing-company-reclaim-me-2026/6721582",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["identity", "abv", "style", "barrel_aging", "flavor_notes"]
+        },
+        {
+          "url": "https://birrapedia.com/en/anchorage-brewing-company-reclaim-me-2026/p-nl/f-6a4782671603da2a658b6803",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": ["abv"]
+        }
+      ],
+      "issues": [
+        "menu_abv_19_2_is_one_decimal_display_of_source_19_25",
+        "undated_reclaim_me_15_percent_is_a_different_beer",
+        "four_barrel_sequence_on_photo_not_verified_by_source"
+      ],
+      "field_disagreements": {
+        "abv": {
+          "source_exact": 19.25,
+          "menu_observation": 19.2,
+          "resolution": "one_decimal_rounding"
+        }
+      }
+    }
+  ]
+}

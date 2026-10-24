@@ -31,6 +31,7 @@ import {
   VisionAllProvidersFailedError,
   VisionBlockedError,
   VisionError,
+  VisionTimeoutError,
 } from "./errors.ts";
 import {
   computeKey,
@@ -78,6 +79,91 @@ export interface ContainerCallOptions {
   schemaName?: string;
   /** Per-call max output tokens. */
   maxTokens?: number;
+  /**
+   * Optional caller-owned cancellation signal. The SAME object is forwarded
+   * verbatim to `provider.call` — the container never aborts it, never
+   * derives/combines signals, and owns no deadline timer (the external
+   * caller owns the deadline).
+   *
+   * An already-aborted signal fails the call with a redacted TIMEOUT error
+   * before governance side effects, cache lookup, or any provider call.
+   * Aborting while a provider is in flight is terminal: the cooperative
+   * provider is expected to observe the signal and reject; the container
+   * then stops every subsequent model/provider and never caches or returns
+   * a result, including one a noncooperative provider might resolve later.
+   */
+  signal?: AbortSignal;
+}
+
+/**
+ * Fixed, redacted cancellation copy. `signal.reason`, prompts, images,
+ * credentials and provider-produced error text are never copied into this
+ * message or into trace decisions.
+ */
+const CANCELED_MESSAGE = "vision call canceled before completion";
+
+function canceledError(): VisionTimeoutError {
+  return new VisionTimeoutError(CANCELED_MESSAGE);
+}
+
+type ProviderSettlement =
+  | { kind: "resolved"; raw: string }
+  | { kind: "rejected"; err: unknown };
+
+/**
+ * Invoke one provider attempt, racing its settlement against caller abort.
+ *
+ * The provider promise is wrapped so it ALWAYS settles to a value: a late
+ * rejection after the abort race is therefore swallowed here rather than
+ * surfacing as an unhandled rejection, and a late resolution can never reach
+ * the cache. Limitation: JavaScript cannot forcibly stop a noncooperative
+ * provider's underlying work (an outstanding fetch/timer keeps running until
+ * it settles); we can only stop using its result and prevent fallback.
+ *
+ * Returns "aborted" when the caller signal fires first (or was already
+ * aborted). The abort listener is removed as soon as the race settles.
+ */
+async function settleProviderAttempt(
+  runProvider: () => Promise<string>,
+  signal: AbortSignal | undefined,
+): Promise<ProviderSettlement | { kind: "aborted" }> {
+  // Defense in depth (the call loop also guards): never start a provider
+  // attempt for an already-aborted caller.
+  if (signal?.aborted) return { kind: "aborted" };
+
+  // A provider's call() may THROW SYNCHRONOUSLY (a non-async method that
+  // raises before returning a promise). That throw must settle the attempt
+  // exactly like an asynchronous rejection so it still flows through the
+  // existing classify → fallback walk instead of leaking out of the
+  // container. The rejection handler is attached on the same synchronous
+  // tick, so the synthesized rejection is never reported unhandled.
+  let providerPromise: Promise<string>;
+  try {
+    providerPromise = runProvider();
+  } catch (err) {
+    providerPromise = Promise.reject(err);
+  }
+  const settled: Promise<ProviderSettlement> = providerPromise.then(
+    (raw) => ({ kind: "resolved" as const, raw }),
+    (err) => ({ kind: "rejected" as const, err }),
+  );
+
+  if (!signal) return settled;
+
+  let onAbort: (() => void) | null = null;
+  try {
+    const aborted = new Promise<{ kind: "aborted" }>((resolve) => {
+      if (signal.aborted) {
+        resolve({ kind: "aborted" });
+      } else {
+        onAbort = () => resolve({ kind: "aborted" });
+        signal.addEventListener("abort", onAbort, { once: true });
+      }
+    });
+    return await Promise.race([settled, aborted]);
+  } finally {
+    if (onAbort) signal.removeEventListener("abort", onAbort);
+  }
 }
 
 function tryParse(s: string): unknown {
@@ -98,6 +184,13 @@ async function call<T = unknown>(
     throw new VisionAllProvidersFailedError(
       `Unknown capability: ${capabilityId}`,
     );
+  }
+
+  // Caller cancellation wins before any side effect: no trace stage, no
+  // governance run, no cache read (warm or cold), and no provider call.
+  // Fixed redacted TIMEOUT; signal.reason is never propagated.
+  if (opts.signal?.aborted) {
+    throw canceledError();
   }
 
   const tc = getTraceCtx();
@@ -199,6 +292,9 @@ async function call<T = unknown>(
   const attempts: ProviderAttempt[] = [];
 
   for (const spec of providerSpecs) {
+    // Never start another provider once the caller has canceled.
+    if (opts.signal?.aborted) throw canceledError();
+
     const provider = getProvider(spec.provider);
     if (!provider) {
       attempts.push({
@@ -212,13 +308,90 @@ async function call<T = unknown>(
     }
 
     for (const model of spec.models) {
+      // Abort landing between attempts (e.g. during fallback walking) is
+      // terminal: do not start another model.
+      if (opts.signal?.aborted) throw canceledError();
+
       const t0 = Date.now();
-      try {
-        const raw = await provider.call(effectiveInput, {
+      // Forward the SAME signal object the caller gave us — never a derived
+      // or internally aborted one.
+      const outcome = await settleProviderAttempt(
+        () =>
+          provider.call(effectiveInput, {
+            model,
+            timeoutMs: spec.timeoutMs,
+            signal: opts.signal,
+          }),
+        opts.signal,
+      );
+      const durationMs = Date.now() - t0;
+
+      // Terminal on abort whether the provider cooperated (rejected),
+      // ignored us and resolved late, or the abort race won outright.
+      // Fixed bounded fields only: provider error text and signal.reason
+      // are discarded and no further model/provider is attempted.
+      if (outcome.kind === "aborted" || opts.signal?.aborted) {
+        attempts.push({
+          provider: spec.provider,
           model,
-          timeoutMs: spec.timeoutMs,
+          ok: false,
+          errorCode: "TIMEOUT",
+          durationMs,
         });
-        const durationMs = Date.now() - t0;
+        if (trace) {
+          try {
+            appendStage(trace.root_ts, trace.parent_ts, "vision:attempt_fail", {
+              stage_skill_id: capabilityId,
+              decision: {
+                capability_id: capabilityId,
+                provider: spec.provider,
+                model,
+                error_code: "TIMEOUT",
+                error_message: "canceled",
+                duration_ms: durationMs,
+                retriable: false,
+              },
+            });
+          } catch { /* ignore */ }
+        }
+        throw canceledError();
+      }
+
+      if (outcome.kind === "rejected") {
+        const err = outcome.err;
+        if (err instanceof VisionBlockedError) throw err;
+        const ve = classify(err, spec.provider, model);
+        attempts.push({
+          provider: spec.provider,
+          model,
+          ok: false,
+          errorCode: ve.code,
+          durationMs,
+        });
+        if (trace) {
+          try {
+            appendStage(trace.root_ts, trace.parent_ts, "vision:attempt_fail", {
+              stage_skill_id: capabilityId,
+              decision: {
+                capability_id: capabilityId,
+                provider: spec.provider,
+                model,
+                error_code: ve.code,
+                error_message: ve.message.slice(0, 200),
+                duration_ms: durationMs,
+                retriable: ve.retriable,
+              },
+            });
+          } catch { /* ignore */ }
+        }
+        // Non-retriable error → skip the rest of THIS provider's models
+        if (!ve.retriable) break;
+        // Otherwise → try the next model in this provider's chain
+        continue;
+      }
+
+      {
+        const raw = outcome.raw;
         attempts.push({ provider: spec.provider, model, ok: true, durationMs });
 
         if (trace) {
@@ -246,14 +419,18 @@ async function call<T = unknown>(
             skill_id: capabilityId,
             llm_response: parsed,
           };
-          const outcome = runRulesForStage("post-vision", ruleCtx, trace);
-          if (outcome.action?.kind === "block") {
-            throw new VisionBlockedError(outcome.action.reason, capabilityId);
+          const ruleOutcome = runRulesForStage("post-vision", ruleCtx, trace);
+          if (ruleOutcome.action?.kind === "block") {
+            throw new VisionBlockedError(ruleOutcome.action.reason, capabilityId);
           }
         } catch (e) {
           if (e instanceof VisionBlockedError) throw e;
           // Other rule-engine errors must never break the call.
         }
+
+        // Re-check after the (synchronous) governance run: a result arriving
+        // after cancellation must never be cached or returned.
+        if (opts.signal?.aborted) throw canceledError();
 
         if (cacheKey) setCache(cacheKey, raw);
 
@@ -266,36 +443,6 @@ async function call<T = unknown>(
           durationMs,
           attempts,
         };
-      } catch (err) {
-        if (err instanceof VisionBlockedError) throw err;
-        const ve = classify(err, spec.provider, model);
-        const durationMs = Date.now() - t0;
-        attempts.push({
-          provider: spec.provider,
-          model,
-          ok: false,
-          errorCode: ve.code,
-          durationMs,
-        });
-        if (trace) {
-          try {
-            appendStage(trace.root_ts, trace.parent_ts, "vision:attempt_fail", {
-              stage_skill_id: capabilityId,
-              decision: {
-                capability_id: capabilityId,
-                provider: spec.provider,
-                model,
-                error_code: ve.code,
-                error_message: ve.message.slice(0, 200),
-                duration_ms: durationMs,
-                retriable: ve.retriable,
-              },
-            });
-          } catch { /* ignore */ }
-        }
-        // Non-retriable error → skip the rest of THIS provider's models
-        if (!ve.retriable) break;
-        // Otherwise → try the next model in this provider's chain
       }
     }
     // Continue to next provider spec

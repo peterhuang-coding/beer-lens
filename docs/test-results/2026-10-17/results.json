@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-17",
+  "sourceSnapshot": "2026-10-16T14:35:03.075403+00:00",
+  "source": "https://mbcb.jonpacker.com/latest.json",
+  "imagesAreSynthetic": true,
+  "feishuImageTransport": "not_run_locked_mac",
+  "checks": {
+    "node": 853,
+    "python": 28,
+    "typecheck": "passed",
+    "build": "passed",
+    "catalogIdentityChecks": 291
+  },
+  "realModelRequests": {
+    "total": 3,
+    "imagePassed": 2,
+    "textTimedOut": 1,
+    "paidFallback": 0
+  },
+  "cases": [
+    {
+      "id": "image498",
+      "input": "SYN-MBCB-498.png",
+      "question": "帮我看看这张图",
+      "vision": "passed",
+      "visionSeconds": 54.0,
+      "fieldChecks": {
+        "matchedNameAndBrewery": true,
+        "abv": 7.5,
+        "imageDoesNotPrintABV": true
+      },
+      "reply": "已识别：Mikkeller Ice Tea Powered by Longfong（酒厂 Mikkeller）。\n\n当前资料：ABV 7.5%（来源：https://mbcb.jonpacker.com/latest.json，目录快照 2026-10-16）。\n\n风格与风味描述、Untappd 评分资料不足，不能仅凭酒名判断口味或是否适合你。\n\n把菜单上的价格和容量发我，我再帮你判断值不值得点。",
+      "replyValidation": "deterministic replay of real OCR candidates after correction; zero new API calls"
+    },
+    {
+      "id": "helles-image",
+      "input": "SYN-IDENTITY.png",
+      "question": "帮我看看这张酒单，推荐一杯。",
+      "status": "passed",
+      "visionSeconds": 99.2,
+      "reply": "我会这样点：\n\n已知：Helles（3 Sons） · 风格 Helles Lager，ABV 5%。\n\n1. Helles（3 Sons） · 价格/容量待确认 - 评分3.8，390人评分；酒厂名称未独立核验\n2. Helles（Wagner Merkendorf） · 价格/容量待确认 - 评分3.5，2269+人评分；酒厂名称未独立核验\n\n最稳：Helles（Wagner Merkendorf）\n\n如果只能喝一杯，选 Helles（3 Sons）。"
+    },
+    {
+      "id": "helles-knowledge",
+      "input": "same image context, text followup",
+      "question": "这两款 Helles 有什么区别？",
+      "status": "timeout",
+      "timeoutSeconds": 45,
+      "reply": "抱歉，回答这个问题时出错了。请再试一次。",
+      "fix": "Package-only single-request limit increased to180seconds; real retry not yet authorized/run"
+    },
+    {
+      "id": "helles-value",
+      "input": "stored actual image candidates, deterministic followup",
+      "question": "哪款性价比更高？",
+      "status": "passed",
+      "modelCalls": 0,
+      "reply": "第96号 Helles：价格未知 / 容量未知；ABV 5%。\n第599号 Helles：价格未知 / 容量未知；ABV 4.7%。\n价格或容量信息缺失，无法可靠比较性价比。请补充实际报价、容量、币种和堂饮/外带规格；评分不能代替价格证据。"
+    }
+  ]
+}

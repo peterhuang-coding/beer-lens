@@ -166,7 +166,9 @@ npm ci
 cp .env.example .env.local
 ```
 
-在 `.env.local` 填写 `LLM_BASE_URL`、`LLM_API_KEY`、`LLM_MODEL`，用于聊天路由。知识与视觉 Skill 的现有调用还需要 `OPENROUTER_API_KEY`；视觉模型需支持图片输入。各入口的配置关系见 [模型配置](docs/development.md#模型配置)。
+在 `.env.local` 填写 `LLM_BASE_URL`、`LLM_API_KEY`、`LLM_MODEL`，用于聊天路由。知识与视觉 Skill 的现有调用默认还需要 `OPENROUTER_API_KEY`；视觉模型需支持图片输入。各入口的配置关系见 [模型配置](docs/development.md#模型配置)。
+
+可选：设置 `BEER_VISION_PROVIDER=coding-plan` 并提供 `CODING_PLAN_API_KEY` 后，Agent 的菜单图片识别、意图选择和啤酒知识文本走固定包接口，不再需要 OpenRouter key；不设置时保持原有行为。该选择只覆盖以上 Agent 链路，不影响 Web `/api/chat` 的 `LLM_*` 配置、旧 demo 或其他模块；填入无法识别的值会在发请求前直接失败。飞书长连接可按此选择配置后运行 `npm run feishu:check` 与 `npm run feishu:bot`，见 [集成说明](docs/integrations.md#飞书长连接试用入口)。配置就绪不代表凭据、长连接或图片质量已通过验证；真实飞书会话尚未测试，此前一次公网图片请求超时。
 
 ```bash
 npm run dev

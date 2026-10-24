@@ -1,5 +1,6 @@
 import { openrouterFetch } from "./openrouter-client";
 import { vision } from "@/lib/multimodal";
+import { resolveImageRoute } from "@/lib/multimodal/image-routing";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -324,14 +325,18 @@ async function combinedVisionAnalysis(
 
   // Route through the multimodal container — it owns fallback, cache,
   // tracing, and rule-engine hooks. apiKey/model come from env/config
-  // inside the container, so we drop them here.
+  // inside the container, so we drop them here. In package mode the
+  // explicit one-provider chain is supplied per call, so capability
+  // defaults, debug overrides, and global fallback providers cannot switch
+  // the request to a paid provider.
+  const route = resolveImageRoute();
   const result = await vision.call<CombinedVisionOutput>("beer_menu_image", {
     image: { base64, mime },
     prompt: visionPrompt,
     schema,
     schemaName: "beer_combined_vision",
     maxTokens: 12000,
-  });
+  }, route.mode === "package" ? { providers: route.providers } : {});
 
   const data = result.parsed as any;
   return {

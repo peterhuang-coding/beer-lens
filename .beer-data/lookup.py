@@ -37,6 +37,7 @@ import json
 import sys
 import os
 import re
+import unicodedata
 import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
@@ -47,11 +48,33 @@ UPDATE_LOG_PATH = UPDATE_LOG_DIR / "beer-db-update.json"
 UPDATE_HISTORY_PATH = UPDATE_LOG_DIR / "raw-crawl" / "update-log.json"
 
 
+def _fold(text) -> str:
+    """Unicode-correct fold for read-side name/brewery comparison.
+
+    SQLite's built-in LOWER() only maps ASCII letters, so Cyrillic capitals
+    (e.g. "Белоглазка") survive it and LOWER(name) = query.lower() returns
+    nothing for non-ASCII titles. Read queries compare through the registered
+    unicase() SQL function instead; the existing ASCII LOWER() expression
+    indexes are deliberately left intact.
+    """
+    if text is None:
+        return ""
+    return unicodedata.normalize("NFC", str(text)).casefold()
+
+
+def _unicase_sql(text):
+    """SQL counterpart of _fold() for name/brewery columns in read queries."""
+    if text is None:
+        return None
+    return unicodedata.normalize("NFC", str(text)).casefold()
+
+
 def _connect():
     if not DB_PATH.exists():
         return None
     con = sqlite3.connect(str(DB_PATH))
     con.row_factory = sqlite3.Row
+    con.create_function("unicase", 1, _unicase_sql, deterministic=True)
     return con
 
 
@@ -435,12 +458,12 @@ def _ambiguous_exact_name(con, query: str) -> bool:
     for table in ('beer_cache', 'untappd_cache', 'beers'):
         rows.extend(con.execute(
             f"SELECT brewery, abv FROM {table} "
-            "WHERE REPLACE(REPLACE(LOWER(name), CHAR(39), ''), '’', '') = ?",
+            "WHERE REPLACE(REPLACE(unicase(name), CHAR(39), ''), '’', '') = ?",
             (normalized,),
         ).fetchall())
     if not rows:
         return False
-    breweries = {re.sub(r'\s+', ' ', str(row['brewery'] or '').strip().lower()) for row in rows}
+    breweries = {re.sub(r'\s+', ' ', _fold(row['brewery']).strip()) for row in rows}
     strengths = {round(row['abv'], 1) for row in rows if isinstance(row['abv'], (int, float))}
     # Missing brewery or conflicting strengths require more identity evidence.
     return '' in breweries or len(breweries) > 1 or len(strengths) > 1
@@ -454,7 +477,7 @@ def search_beer(query: str, limit: int = 5) -> list[dict]:
 
     _ensure_beer_cache(con)
 
-    q = re.sub(r'\s+', ' ', query.strip().lower())
+    q = re.sub(r'\s+', ' ', _fold(query.strip()))
     results = []
     if not q:
         con.close()
@@ -498,7 +521,7 @@ def search_beer(query: str, limit: int = 5) -> list[dict]:
 
     # Last resort: brewery match
     rows = con.execute(
-        """SELECT * FROM beers WHERE LOWER(brewery) LIKE ? ORDER BY rating DESC LIMIT ?""",
+        """SELECT * FROM beers WHERE unicase(brewery) LIKE ? ORDER BY rating DESC LIMIT ?""",
         (f"%{q}%", limit)
     ).fetchall()
     if rows:
@@ -529,14 +552,14 @@ def _search_exact_both(con, q: str, limit: int) -> list[dict]:
         if table == 'untappd_cache':
             cols += ", untappd_url, country, label_image"
         rows = con.execute(
-            f"SELECT {cols} FROM {table} WHERE LOWER(name) = ? ORDER BY ratings_count DESC LIMIT ?",
+            f"SELECT {cols} FROM {table} WHERE unicase(name) = ? ORDER BY ratings_count DESC LIMIT ?",
             (q, limit)
         ).fetchall()
         out.extend(_row_to_dict(r, table) for r in rows)
         # 撇号归一: "Becks" 也要能命中 "Beck's"(2026-08-28 实测暴露)
         if not out:
             rows = con.execute(
-                f"SELECT {cols} FROM {table} WHERE REPLACE(LOWER(name), '''', '') = ? ORDER BY ratings_count DESC LIMIT ?",
+                f"SELECT {cols} FROM {table} WHERE REPLACE(unicase(name), '''', '') = ? ORDER BY ratings_count DESC LIMIT ?",
                 (q.replace("'", "").replace("’", ""), limit)
             ).fetchall()
             out.extend(_row_to_dict(r, table) for r in rows)
@@ -558,7 +581,7 @@ def _search_table(con, table: str, q: str, limit: int) -> list[dict]:
 
     # Exact match
     rows = con.execute(
-        f"SELECT {cols} FROM {table} WHERE LOWER(name) = ? ORDER BY ratings_count DESC LIMIT ?",
+        f"SELECT {cols} FROM {table} WHERE unicase(name) = ? ORDER BY ratings_count DESC LIMIT ?",
         (q, limit)
     ).fetchall()
     if rows:
@@ -566,7 +589,7 @@ def _search_table(con, table: str, q: str, limit: int) -> list[dict]:
 
     # Fuzzy match
     rows = con.execute(
-        f"SELECT {cols} FROM {table} WHERE LOWER(name) LIKE ? ORDER BY ratings_count DESC LIMIT ?",
+        f"SELECT {cols} FROM {table} WHERE unicase(name) LIKE ? ORDER BY ratings_count DESC LIMIT ?",
         (f"%{q}%", limit)
     ).fetchall()
     if rows:
@@ -575,7 +598,7 @@ def _search_table(con, table: str, q: str, limit: int) -> list[dict]:
     # Multi-word: every supplied word must occur in the name or brewery.
     words = q.split()
     if len(words) >= 2:
-        conditions = " AND ".join(["(LOWER(name) LIKE ? OR LOWER(brewery) LIKE ?)" for _ in words])
+        conditions = " AND ".join(["(unicase(name) LIKE ? OR unicase(brewery) LIKE ?)" for _ in words])
         params = [pattern for word in words for pattern in (f"%{word}%", f"%{word}%")] + [limit]
         rows = con.execute(
             f"SELECT {cols} FROM {table} WHERE {conditions} ORDER BY ratings_count DESC LIMIT ?",
@@ -595,11 +618,11 @@ def search_batch(queries: list[str]) -> list[dict]:
         if matches:
             # Score confidence: exact match = high, fuzzy = medium
             m = matches[0]
-            q_lower = q.strip().lower()
-            name_lower = m['name'].lower()
-            if q_lower == name_lower:
+            q_folded = _fold(q)
+            name_folded = _fold(m['name'])
+            if q_folded == name_folded:
                 m['confidence'] = 'exact'
-            elif q_lower in name_lower or name_lower in q_lower:
+            elif q_folded in name_folded or name_folded in q_folded:
                 m['confidence'] = 'high'
             else:
                 m['confidence'] = 'medium'
@@ -893,7 +916,7 @@ def search_brewery_untappd(q: str, limit: int = 5) -> dict:
     con = _connect()
     if not con:
         return {"query": q, "found": False, "error": "Database not found"}
-    ql = q.strip().lower()
+    ql = _fold(q.strip())
     if not ql:
         con.close()
         return {"query": q, "found": False}
@@ -903,17 +926,17 @@ def search_brewery_untappd(q: str, limit: int = 5) -> dict:
     # 防止 raft→Craft、stamm→Stammtisch 类子串假命中(2026-08-28 实测暴露)
     boundary = f"% {ql} %"
     rows = con.execute(
-        f"SELECT {cols} FROM untappd_cache WHERE LOWER(brewery) = ? ORDER BY ratings_count DESC LIMIT ?",
+        f"SELECT {cols} FROM untappd_cache WHERE unicase(brewery) = ? ORDER BY ratings_count DESC LIMIT ?",
         (ql, limit)
     ).fetchall()
     if not rows:
         rows = con.execute(
-            f"SELECT {cols} FROM untappd_cache WHERE (' ' || LOWER(brewery) || ' ') LIKE ? ORDER BY ratings_count DESC LIMIT ?",
+            f"SELECT {cols} FROM untappd_cache WHERE (' ' || unicase(brewery) || ' ') LIKE ? ORDER BY ratings_count DESC LIMIT ?",
             (boundary, limit)
         ).fetchall()
     stats = con.execute(
         "SELECT COUNT(*) AS n, ROUND(AVG(rating),2) AS avg_rating, SUM(ratings_count) AS total_ratings "
-        "FROM untappd_cache WHERE LOWER(brewery) = ? OR (' ' || LOWER(brewery) || ' ') LIKE ?",
+        "FROM untappd_cache WHERE unicase(brewery) = ? OR (' ' || unicase(brewery) || ' ') LIKE ?",
         (ql, boundary)
     ).fetchone()
     out = {

@@ -1,11 +1,14 @@
 import type { BeerCandidate } from "./types";
 import type { ExtractedItem, ProgressCallback } from "./multi-stage-pipeline";
 import { runMultiStagePipeline } from "./multi-stage-pipeline";
-import { enrichCandidates, lookupBeers, lookupBreweryStats, matchesExactBeerIdentity, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
+import { readVerifiedEnrichments, lookupBeers, batchLookupBreweryStats, matchesExactBeerIdentity, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
+import { enqueueMenuKnowledge, type MenuKnowledgeJob } from "./beer-db/knowledge-queue";
 import type { BreweryLookupResult } from "./beer-db/data-layer";
 import { groundMenuCandidates, readEventCatalog, getGrounding, ocrExplicitAbvEvidence, type EventCatalogBeer } from "./event-grounding";
 import { groundMenuSupplements, readMenuSupplements, getSupplementGrounding, ocrMenuStyleEvidence } from "./menu-supplements";
 import type { MenuSupplementEntry } from "./menu-supplements";
+import { throwIfTurnExpired } from "./turn-deadline";
+import { attachBeerDossiers } from "./dossier/build-dossier";
 
 export type { ProgressCallback };
 
@@ -20,6 +23,7 @@ export async function runImagePipeline(
   userText: string,
   profileSummary: string,
   onProgress?: ProgressCallback,
+  options: { signal?: AbortSignal } = {},
 ): Promise<{
   candidates: BeerCandidate[];
   stages: Record<string, unknown>;
@@ -33,9 +37,34 @@ export async function runImagePipeline(
     profile: profileSummary,
     onProgress: emit,
     skipRecommendation: true,
+    signal: options.signal,
   });
+  throwIfTurnExpired({ signal: options.signal });
 
   const ocrItems = (pipeline.extracted?.items ?? []).map(recoverOcrTitle);
+  return runLocalMenuKnowledge(ocrItems, {
+    onProgress: emit,
+    stages: {
+      imageContext: pipeline.imageContext ?? undefined,
+      extracted: pipeline.extracted ?? undefined,
+      visualQuality: pipeline.visualQuality ?? undefined,
+    },
+  });
+}
+
+/** Shared image/text local knowledge path: no web search or background drain. */
+export async function runLocalMenuKnowledge(
+  ocrItems: OcrCandidateItem[],
+  options: {
+    onProgress?: ProgressCallback;
+    stages?: Record<string, unknown>;
+    queueKnowledgeGaps?: boolean;
+  } = {},
+): Promise<{
+  candidates: BeerCandidate[];
+  stages: Record<string, unknown>;
+}> {
+  const emit = options.onProgress ?? (() => {});
   if (ocrItems.length === 0) {
     console.warn("[provider] vision succeeded but extracted 0 items — 模型可能返回了空 JSON");
   }
@@ -48,14 +77,16 @@ export async function runImagePipeline(
     style: item.style || "",
     abv: item.abv || 0,
     price: item.price ?? undefined,
-    volumeMl: parseServingMl(item.serving) ?? undefined,
+    volumeMl: parseServingMl(item.serving ?? "") ?? undefined,
   }));
 
   let enrichedBeers: EnrichedBeer[];
   try {
-    enrichedBeers = await enrichCandidates(enrichInputs);
+    // Image path attaches only locally verified exact cache identities — no
+    // batch search, no background web verification, no origin-price guessing.
+    enrichedBeers = await readVerifiedEnrichments(enrichInputs);
   } catch (err) {
-    console.warn("[provider] batch enrichment failed:", err);
+    console.warn("[provider] verified cache read failed:", err);
     enrichedBeers = [];
   }
 
@@ -72,6 +103,7 @@ export async function runImagePipeline(
   // 有 ≥3 款,保留厂级统计作背景证据,不能当作这款酒的评分。
   const breweryHits: (BreweryLookupResult | null)[] = new Array(enrichInputs.length).fill(null);
   try {
+    const needed = new Map<string, { query: string; indexes: number[] }>();
     for (let i = 0; i < enrichInputs.length; i++) {
       const hasScore =
         (enrichedBeers[i]?.verified && enrichedBeers[i]?.untappdScore != null) ||
@@ -79,11 +111,20 @@ export async function runImagePipeline(
       if (hasScore) continue;
       const bw = String(enrichInputs[i].brewery ?? "").trim();
       if (bw.length < 2) continue;
-      const hit = await lookupBreweryStats(bw);
-      if (hit?.found && hit.brewery_stats && hit.brewery_stats.count >= 3) {
-        breweryHits[i] = hit;
-      }
+      const key = bw.normalize("NFKC").toLowerCase().replace(/\s+/g, " ");
+      const group = needed.get(key) ?? { query: bw, indexes: [] };
+      group.indexes.push(i);
+      needed.set(key, group);
     }
+    const groups = [...needed.values()];
+    const hits = groups.length
+      ? await batchLookupBreweryStats(groups.map(group => group.query))
+      : [];
+    groups.forEach((group, groupIndex) => {
+      const hit = hits[groupIndex];
+      if (!hit?.found || !hit.brewery_stats || hit.brewery_stats.count < 3) return;
+      for (const index of group.indexes) breweryHits[index] = hit;
+    });
   } catch (err) {
     console.warn("[provider] brewery fallback failed:", err);
   }
@@ -127,20 +168,43 @@ export async function runImagePipeline(
     console.warn("[provider] menu supplement read failed:", err);
   }
   const supplementedCandidates = groundMenuSupplements(groundedCandidates, supplementEntries);
-  const groundedById = new Map(supplementedCandidates.map(c => [c.candidateId, c]));
+  const dossierCandidates = attachBeerDossiers(supplementedCandidates, supplementEntries);
+  const groundedById = new Map(dossierCandidates.map(c => [c.candidateId, c]));
 
   const enrichmentLog: Array<Record<string, unknown>> = [];
+  const pendingKnowledgeJobs: MenuKnowledgeJob[] = [];
 
   for (let i = 0; i < ocrItems.length; i++) {
     const item = ocrItems[i];
     const enriched = enrichedBeers[i] ?? null;
-    emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName });
+    emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName ?? "Unknown" });
 
     const assembled = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null, breweryHits[i]);
     // Trace must reflect the same catalog-grounded values actually returned.
     const candidate = groundedById.get(assembled.candidateId) ?? assembled;
     const grounding = getGrounding(candidate);
     const supplement = getSupplementGrounding(candidate);
+
+    // Knowledge-gap queueing happens only AFTER grounding. Earlier exact hits
+    // cannot close a version/batch gap that the final supplement left unresolved.
+    const ocrBrewery = typeof item.brewery === "string" ? item.brewery : "";
+    const cacheIdentity =
+      enriched?.verified === true &&
+      matchesExactBeerIdentity(item.beerName ?? "", { name: enriched.beerName, brewery: enriched.breweryName }, ocrBrewery);
+    const dbRecord = dbLookups[i] ?? null;
+    const dbIdentity =
+      dbRecord?.found === true && dbRecord.data != null &&
+      matchesExactBeerIdentity(item.beerName ?? "", dbRecord.data, ocrBrewery);
+    const identityUnresolved =
+      supplement?.identityStatus === "version_unresolved" ||
+      supplement?.identityStatus === "batch_unresolved";
+    const identityResolved = !identityUnresolved && (
+      cacheIdentity || dbIdentity || grounding?.matched === true || supplement?.identityStatus === "confirmed"
+    );
+    if (!identityResolved) {
+      const beerName = (item.beerName ?? "").trim();
+      if (beerName) pendingKnowledgeJobs.push({ beerName, brewery: ocrBrewery.trim() });
+    }
     enrichmentLog.push({
       name: candidate.displayName,
       untappdScore: candidate.untappdScore ?? null,
@@ -166,14 +230,22 @@ export async function runImagePipeline(
     });
   }
 
+  // Persist the deduplicated minimal knowledge-gap queue. Local collection
+  // only; fail-soft so queue problems never break the image response.
+  if (options.queueKnowledgeGaps !== false && pendingKnowledgeJobs.length > 0) {
+    try {
+      await enqueueMenuKnowledge(pendingKnowledgeJobs);
+    } catch (err) {
+      console.warn("[provider] menu knowledge queue failed:", err);
+    }
+  }
+
   emit({ type: "enrich_done" });
 
   return {
-    candidates: supplementedCandidates,
+    candidates: dossierCandidates,
     stages: {
-      imageContext: pipeline.imageContext ?? undefined,
-      extracted: pipeline.extracted ?? undefined,
-      visualQuality: pipeline.visualQuality ?? undefined,
+      ...options.stages,
       enrichment: enrichmentLog,
     },
   };
@@ -230,6 +302,7 @@ export function assembleImageCandidates(
       existing.untappdScore = candidate.untappdScore;
       existing.untappdRatingCount = candidate.untappdRatingCount;
       existing.untappdUrl = candidate.untappdUrl;
+      existing.ratingCheckedAt = candidate.ratingCheckedAt;
       existing.pricePerMl = candidate.pricePerMl ?? existing.pricePerMl;
       existing.valueScore = candidate.valueScore ?? existing.valueScore;
       existing.originBenchmark = candidate.originBenchmark ?? existing.originBenchmark;
@@ -287,6 +360,7 @@ function ocrItemToCandidate(
     base.untappdScore = enriched.untappdScore;
     base.untappdRatingCount = enriched.untappdRatingCount;
     base.untappdUrl = enriched.untappdUrl;
+    base.ratingCheckedAt = enriched.ratingCheckedAt;
     base.breweryCountry = enriched.breweryCountry;
     base.labelImage = enriched.labelImage;
     base.pricePerMl = enriched.pricePerMl;

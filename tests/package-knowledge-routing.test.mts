@@ -26,6 +26,7 @@ import type * as ControllerMod from "../lib/agent/controller.ts";
 
 const ENV_KEYS = [
   "BEER_VISION_PROVIDER",
+  "BEER_TEXT_PROVIDER",
   "CODING_PLAN_API_KEY",
   "OPENROUTER_API_KEY",
 ];
@@ -195,6 +196,62 @@ test("package-only knowledge: real execute answers without any legacy key", asyn
   }
 });
 
+// ── Dossier-backed knowledge prompt through the real skill execute ──────────
+
+test("knowledge execute sends a sommelier SP with sourced dossier claims and comparison boundaries", async () => {
+  process.env.BEER_VISION_PROVIDER = "coding-plan";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  const memoryMod: any = await import("../lib/beer-agent/memory/short-term.ts");
+  const candidate = {
+    candidateId: "synthetic-kiwi", menuIndex: 1, displayName: "Kiwi Fingers", brewery: "Synthetic Brewery",
+    style: "West Coast IPA", abv: 6.5, price: 60, volumeMl: 330, currency: "CNY",
+    untappdScore: null, untappdRatingCount: null, evidence: [],
+    dossier: {
+      candidateId: "synthetic-kiwi",
+      identity: { menuName: "Kiwi Fingers", brewery: "Synthetic Brewery", canonicalName: "Kiwi Fingers", identityStatus: "confirmed", entryId: "synthetic-entry" },
+      style: null,
+      abv: { observations: [], conflicted: false, resolution: null },
+      hops: { value: ["Citra", "Nelson Sauvin"], source: "social_web", sourceKind: "brewery", url: "https://example.com/beer", access: "web_index_or_cache", checkedAt: "2026-10-21", reviewStatus: "curated", usable: true },
+      ingredients: null, sensory: null, process: null, rating: null,
+      brewery: { flagship: { status: "unproven", beer: null, claim: null }, reputation: [] },
+      styleLayer: { style: "West Coast IPA", summary: "通常干爽，柑橘与松脂气息较常见。", source: "style_inference", label: "风格通性，非本款事实" },
+      coverage: { style: "unknown", hops: "sourced", ingredients: "unknown", sensory: "style_inference", process: "unknown", rating: "unknown" },
+    },
+  };
+  const pick = { candidateId: candidate.candidateId, label: candidate.displayName };
+  await memoryMod.updateShortTermMemory({
+    userId: "pkg-dossier-user", conversationId: "pkg-dossier-conv",
+    messages: [{ role: "user", content: "酒单：\nKiwi Fingers" }],
+  }, {
+    traceId: "synthetic-menu", turnId: "synthetic-menu", reply: "synthetic",
+    candidates: [candidate], picks: { topPick: pick, safePick: pick, explorePick: pick, avoidOrCaution: pick },
+    intentResult: { intent: "menu_recommend" },
+  });
+  const transport = installFetch(defaultHandler);
+  try {
+    const text = "Kiwi Fingers 用了什么酒花？";
+    const result = await knowledgeExecute({
+      ...makeCtx(), userId: "pkg-dossier-user", conversationId: "pkg-dossier-conv",
+      lastUserText: text, messages: [{ role: "user", content: text }],
+    }, {});
+    assert.deepEqual(result.errors, []);
+    assert.equal(transport.recs.length, 1);
+    const messages = transport.recs[0]!.body.messages as Array<{ role: string; content: string }>;
+    const system = messages.find(message => message.role === "system")!.content;
+    assert.match(system, /试酒师/);
+    assert.match(system, /Citra、Nelson Sauvin/);
+    assert.match(system, /https:\/\/example\.com\/beer/);
+    assert.match(system, /web_index_or_cache/);
+    assert.match(system, /2026-10-21/);
+    assert.match(system, /风格通性，非本款事实/);
+    assert.match(system, /高分.*(?:不能|不等于).*旗舰|评分.*(?:不能|不等于).*旗舰/);
+    assert.match(system, /同款、同版本、同消费形式/);
+    assert.match(system, /口味反馈.*公共|个人.*公共事实/);
+  } finally {
+    transport.restore();
+  }
+});
+
 // ── Package-only knowledge: real controller turn (rule-routed knowledge) ─────
 
 test("package-only knowledge followup: real controller turn, rule-routed, no legacy key", async () => {
@@ -339,6 +396,30 @@ test("legacy unset selection keeps the legacy missing-key guard with zero reques
     assert.match(warnings[0]!, /OPENROUTER_API_KEY not configured/);
     assert.equal(transport.recs.length, 0);
   } finally {
+    transport.restore();
+  }
+});
+
+test("Anthropic image selection keeps knowledge on explicit package text and its 180s budget", async () => {
+  process.env.BEER_VISION_PROVIDER = "anthropic";
+  process.env.BEER_TEXT_PROVIDER = "coding-plan";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  const transport = installFetch(defaultHandler);
+  const oldTimer = globalThis.setTimeout;
+  const delays: number[] = [];
+  globalThis.setTimeout = ((fn: any, delay: number, ...args: any[]) => {
+    delays.push(delay);
+    return oldTimer(fn, delay, ...args);
+  }) as typeof setTimeout;
+  try {
+    const result = await knowledgeExecute(makeCtx(), {});
+    assert.deepEqual(result.errors, []);
+    assert.equal(result.reply, KNOWLEDGE_CONTENT);
+    assert.ok(delays.includes(180000));
+    assert.equal(transport.recs.length, 1);
+    assert.equal(transport.recs[0]!.url, PACKAGE_URL);
+  } finally {
+    globalThis.setTimeout = oldTimer;
     transport.restore();
   }
 });

@@ -216,6 +216,36 @@ test("same chat: second message waits behind the first in-flight turn and that w
   assert.ok(b.replyMs >= 0);
 });
 
+test("agent deadline is receive-anchored: queue wait consumes the same budget", async () => {
+  records.length = 0;
+  let releaseFirst!: () => void;
+  const firstGate = new Promise<void>((resolve) => { releaseFirst = resolve; });
+  const seen: Array<{ id: string; observedAt: number; deadlineAtMs: number }> = [];
+  install({
+    runAgentTurn: async (request: any) => {
+      seen.push({ id: request.turnId, observedAt: Date.now(), deadlineAtMs: request.deadlineAtMs });
+      if (request.turnId === "m-budget-a") await firstGate;
+      return { reply: "synthetic answer" };
+    },
+  });
+
+  const first = enqueueFeishuMessage(makeMessage({ messageId: "m-budget-a", chatId: "chat-budget", text: "first" }));
+  await sleep(10);
+  const second = enqueueFeishuMessage(makeMessage({ messageId: "m-budget-b", chatId: "chat-budget", text: "second" }));
+  await sleep(40);
+  releaseFirst();
+  await Promise.all([first, second]);
+  await drainFeishuMessages();
+
+  assert.equal(seen.length, 2);
+  const remaining = seen.map((entry) => entry.deadlineAtMs - entry.observedAt);
+  assert.ok(remaining.every((value) => Number.isFinite(value) && value > 0));
+  assert.ok(
+    remaining[1] <= remaining[0] - 25,
+    `queued turn must inherit less remaining time: ${remaining[0]} -> ${remaining[1]}`,
+  );
+});
+
 test("different chats run concurrently: neither turn waits behind the other", async () => {
   records.length = 0;
   install({

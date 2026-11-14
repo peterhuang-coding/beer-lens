@@ -5,13 +5,25 @@ import { scoreCandidates } from './scoring.ts';
 import { selectPicks } from './pick-selector.ts';
 import { purchaseScope, purchaseDecision, offerText } from './purchase.ts';
 import { buildRecommendationReply } from './reply-builder.ts';
+import { buildSommelierMenuReply } from './sommelier-reply.ts';
+import { buildBeerDossier } from '../dossier/build-dossier.ts';
 import { applyPricePreference, strictPricePreferenceId } from './price-comparison.ts';
 import type { ScoredCandidate } from './types.ts';
 
 /** One decision path for image, text and follow-ups. Keep menu facts; constrain picks. */
-export function recommendFromCandidates(candidates: BeerCandidate[], profile: ProfileMemory|null, constraints: string[], memoryEnabled: boolean, requestText = "") {
+export function recommendFromCandidates(
+  candidates: BeerCandidate[],
+  profile: ProfileMemory|null,
+  constraints: string[],
+  memoryEnabled: boolean,
+  requestText = "",
+  options: { initialMenu?: boolean } = {},
+) {
   const unique = new Map<string, BeerCandidate>();
-  for (const c of candidates) {
+  const withDossiers = candidates.map(candidate => candidate.dossier
+    ? candidate
+    : { ...candidate, dossier: buildBeerDossier(candidate) });
+  for (const c of withDossiers) {
     if (/sparkling water|probiotic drink|气泡水|乳酸饮|乳饮料/i.test(`${c.style} ${c.displayName} ${c.evidence?.filter(e=>e.source==='ocr').map(e=>e.summary).join(' ')??''}`)) continue;
     // Entity/offer deduplication is performed during assembly, where raw serving exists.
     const key = c.candidateId;
@@ -37,6 +49,9 @@ export function recommendFromCandidates(candidates: BeerCandidate[], profile: Pr
   let reply = scope.error ?? purchase?.reply ?? (eligible.length ? buildRecommendationReply(picks,eligible)
     : scored.length ? '酒单上没有可以确认符合当前预算、容量、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、容量、IBU 或酒精度。'
       : '没有识别到可确认的酒款，请补充清晰酒单或具体酒名。');
+  if (options.initialMenu && !scope.error && scored.length > 0) {
+    reply = buildSommelierMenuReply(scored, picks, eligible);
+  }
   // An explicit comparison may show every named offer with its price/volume/
   // unit-price facts; offers failing a hard constraint are labelled with the
   // reason and never appear among the picks.

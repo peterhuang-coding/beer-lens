@@ -911,14 +911,10 @@ def run_audit() -> dict:
     return audit
 
 
-def search_brewery_untappd(q: str, limit: int = 5) -> dict:
-    """酒厂级检索 — 具体酒款查不到时,返回该厂在 untappd_cache 的统计与代表款。"""
-    con = _connect()
-    if not con:
-        return {"query": q, "found": False, "error": "Database not found"}
+def _search_brewery_untappd(con, q: str, limit: int = 5) -> dict:
+    """Use an existing read connection for one brewery query."""
     ql = _fold(q.strip())
     if not ql:
-        con.close()
         return {"query": q, "found": False}
 
     cols = "id, name, brewery, style, abv, rating, ratings_count, untappd_url, country, label_image"
@@ -939,14 +935,34 @@ def search_brewery_untappd(q: str, limit: int = 5) -> dict:
         "FROM untappd_cache WHERE unicase(brewery) = ? OR (' ' || unicase(brewery) || ' ') LIKE ?",
         (ql, boundary)
     ).fetchone()
-    out = {
+    return {
         "query": q,
         "found": bool(rows),
         "brewery_stats": {"count": stats[0] or 0, "avg_rating": stats[1], "total_ratings": stats[2] or 0},
         "top_beers": [_row_to_dict(r, 'untappd_cache') for r in rows],
     }
-    con.close()
-    return out
+
+
+def search_brewery_untappd(q: str, limit: int = 5) -> dict:
+    """酒厂级检索 — 具体酒款查不到时,返回该厂在 untappd_cache 的统计与代表款。"""
+    con = _connect()
+    if not con:
+        return {"query": q, "found": False, "error": "Database not found"}
+    try:
+        return _search_brewery_untappd(con, q, limit)
+    finally:
+        con.close()
+
+
+def search_brewery_batch(queries: list[str]) -> list[dict]:
+    """Read all brewery fallbacks through one SQLite connection."""
+    con = _connect()
+    if not con:
+        return [{"query": q, "found": False, "error": "Database not found"} for q in queries]
+    try:
+        return [_search_brewery_untappd(con, q) for q in queries]
+    finally:
+        con.close()
 
 
 def main():
@@ -970,6 +986,12 @@ def main():
             print(json.dumps({"error": "--brewery requires a brewery name"}))
             sys.exit(1)
         result = search_brewery_untappd(args[1])
+    elif cmd == '--brewery-batch':
+        if len(args) < 2:
+            print(json.dumps({"error": "--brewery-batch requires pipe-separated brewery names"}))
+            sys.exit(1)
+        queries = [q.strip() for q in args[1].split('|') if q.strip()]
+        result = search_brewery_batch(queries)
     elif cmd == '--batch':
         if len(args) < 2:
             print(json.dumps({"error": "--batch requires pipe-separated beer names"}))

@@ -16,8 +16,8 @@
  *
  * Pure: inputs are never mutated. The file reader is fail-soft.
  */
-import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { readCachedJson } from "./file-cache";
 import type { BeerCandidate, Evidence } from "./types";
 
 // ── Catalog record shape (data/menus/elnido-2026-10.json) ──
@@ -42,6 +42,14 @@ export type MenuSupplementObservation = {
   source: "menu_transcription";
 };
 
+export type MenuSupplementFact = {
+  values: Array<string | { kind: string; text: string }>;
+  /** Indexes into this entry's sources; every index must support the fact field. */
+  sources: number[];
+  /** Optional source excerpt. Do not substitute a Chinese paraphrase for a quote. */
+  excerpt?: string;
+};
+
 export type MenuSupplementEntry = {
   id: string;
   menu_index: number;
@@ -57,6 +65,7 @@ export type MenuSupplementEntry = {
   description_zh: string;
   observation: MenuSupplementObservation;
   sources: MenuSupplementSource[];
+  sourced_facts?: Partial<Record<"hops" | "ingredients" | "sensory" | "process" | "reputation", MenuSupplementFact>>;
   issues: string[];
   field_disagreements: Record<string, unknown>;
 };
@@ -100,6 +109,26 @@ function isMenuSupplementSource(value: unknown): value is MenuSupplementSource {
   );
 }
 
+/** Structured facts are opt-in; malformed facts invalidate only their own row. */
+function isSourcedFacts(value: unknown): boolean {
+  if (value === undefined) return true;
+  if (value === null || typeof value !== "object" || Array.isArray(value)) return false;
+  const allowed = new Set(["hops", "ingredients", "sensory", "process", "reputation"]);
+  return Object.entries(value as Record<string, unknown>).every(([field, fact]) => {
+    if (!allowed.has(field) || fact === null || typeof fact !== "object" || Array.isArray(fact)) return false;
+    const f = fact as Record<string, unknown>;
+    if (!Array.isArray(f.values) || f.values.length === 0 ||
+        !Array.isArray(f.sources) || f.sources.length === 0 ||
+        !f.sources.every(index => Number.isInteger(index) && (index as number) >= 0) ||
+        (f.excerpt !== undefined && (typeof f.excerpt !== "string" || !f.excerpt.trim()))) return false;
+    return f.values.every(item => typeof item === "string" ? item.trim().length > 0 :
+      field === "reputation" && item !== null && typeof item === "object" && !Array.isArray(item) &&
+      typeof (item as Record<string, unknown>).kind === "string" &&
+      typeof (item as Record<string, unknown>).text === "string" &&
+      ((item as Record<string, unknown>).text as string).trim().length > 0);
+  });
+}
+
 /** Structural guard at the read/apply boundary; one bad row never poisons the rest. */
 function isMenuSupplementEntry(value: unknown): value is MenuSupplementEntry {
   if (value === null || typeof value !== "object") return false;
@@ -121,6 +150,7 @@ function isMenuSupplementEntry(value: unknown): value is MenuSupplementEntry {
     typeof r.description_zh === "string" &&
     isMenuSupplementObservation(r.observation) &&
     Array.isArray(r.sources) && r.sources.length > 0 && r.sources.every(isMenuSupplementSource) &&
+    isSourcedFacts(r.sourced_facts) &&
     Array.isArray(r.issues) && r.issues.every(v => typeof v === "string") &&
     r.field_disagreements !== null && typeof r.field_disagreements === "object"
   );
@@ -143,12 +173,14 @@ export const MENU_SUPPLEMENT_ADDITIONS_RELATIVE_PATH =
  */
 async function readSupplementFile(relativePath: string): Promise<MenuSupplementEntry[]> {
   try {
-    const raw = await readFile(path.join(process.cwd(), "data", "menus", path.basename(relativePath)), "utf8");
-    const parsed: unknown = JSON.parse(raw);
-    if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) return [];
-    const entries = (parsed as { entries?: unknown }).entries;
-    if (!Array.isArray(entries)) return [];
-    return entries.filter(isMenuSupplementEntry);
+    return await readCachedJson(
+      path.join(process.cwd(), "data", "menus", path.basename(relativePath)),
+      (parsed) => {
+        if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) return [];
+        const entries = (parsed as { entries?: unknown }).entries;
+        return Array.isArray(entries) ? entries.filter(isMenuSupplementEntry) : [];
+      },
+    );
   } catch {
     return [];
   }
@@ -607,6 +639,7 @@ function applyGrounding(candidate: BeerCandidate, entry: MenuSupplementEntry): B
   out.untappdScore = null;
   out.untappdRatingCount = null;
   out.untappdUrl = null;
+  out.ratingCheckedAt = null;
   // The identity/rating behind stale label art and old-record value estimates
   // is invalidated too. Current OCR price/volume stay. pricePerMl is kept only
   // when exactly reproducible from the current OCR price/volume; enrichment /

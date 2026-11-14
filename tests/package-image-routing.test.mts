@@ -23,10 +23,12 @@ import type * as MultimodalMod from "../lib/multimodal/index.ts";
 import type * as ImageRoutingMod from "../lib/multimodal/image-routing.ts";
 import type * as RecommendMod from "../lib/skills/recommend/execute.ts";
 import type * as MenuVisionMod from "../lib/skills/menu-vision/execute.ts";
+import type * as LabelCheckMod from "../lib/skills/label-check/execute.ts";
 
 const ENV_KEYS = [
   "BEER_VISION_PROVIDER",
   "CODING_PLAN_API_KEY",
+  "DEEPSEEK_API_KEY",
   "OPENROUTER_API_KEY",
   "VISION_FALLBACK_MODELS",
   "BRAVE_SEARCH_API_KEY",
@@ -66,6 +68,7 @@ let resolveImageRoute: typeof ImageRoutingMod.resolveImageRoute;
 let resolveImageCall: typeof ImageRoutingMod.resolveImageCall;
 let recommendExecute: typeof RecommendMod.execute;
 let menuVisionExecute: typeof MenuVisionMod.execute;
+let labelCheckExecute: typeof LabelCheckMod.execute;
 
 try {
   tempRoot = await mkdtemp(path.join(tmpdir(), "beer-package-routing-"));
@@ -89,6 +92,8 @@ try {
     await import("../lib/skills/recommend/execute.ts"));
   ({ execute: menuVisionExecute } =
     await import("../lib/skills/menu-vision/execute.ts"));
+  ({ execute: labelCheckExecute } =
+    await import("../lib/skills/label-check/execute.ts"));
 } catch (err) {
   await cleanup();
   throw err;
@@ -163,10 +168,26 @@ function combinedEnvelope(): { choices: Array<{ message: { content: string } }> 
   return { choices: [{ message: { content } }] };
 }
 
+function labelEnvelope(): { choices: Array<{ message: { content: string } }> } {
+  return {
+    choices: [{
+      message: {
+        content: JSON.stringify({
+          beerName: "Label Ale", brewery: "Label Brewery", style: "IPA",
+          abv: 6, volumeMl: 330, packagingDate: "", productionDate: "",
+          visibleDateText: "", rawText: "Label Ale / Label Brewery",
+          issues: [], freshnessAssessment: "unknown",
+        }),
+      },
+    }],
+  };
+}
+
 const CODING_PLAN_URL = "https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions";
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
+const DEEPSEEK_URL = "https://api.deepseek.com/chat/completions";
 
-function makeCtx(): AgentContext {
+function makeCtx(overrides: Partial<AgentContext> = {}): AgentContext {
   return {
     userId: "package-routing-user",
     conversationId: "package-routing-conv",
@@ -176,6 +197,7 @@ function makeCtx(): AgentContext {
     lastUserText: "推荐",
     messages: [],
     channel: "test",
+    ...overrides,
   };
 }
 
@@ -286,6 +308,82 @@ test("package mode: menu-vision skill needs no OpenRouter key or guard", async (
   }
 });
 
+test("package mode: label-check uses the package vision route, not OpenRouter", async () => {
+  process.env.BEER_VISION_PROVIDER = "coding-plan";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, body: labelEnvelope() }));
+  try {
+    const result = await labelCheckExecute(makeCtx({ lastUserText: "检查酒标" }));
+    assert.deepEqual(result.errors, []);
+    assert.equal(result.candidates[0]?.displayName, "Label Ale");
+    assert.equal(transport.records.length, 1);
+    assert.equal(transport.records[0]?.url, CODING_PLAN_URL);
+    assert.equal(transport.records[0]?.auth, "Bearer pkg-synthetic-key");
+  } finally {
+    transport.restore();
+  }
+});
+
+test("deepseek mode pins the latest Flash model and its own key without fallback", async () => {
+  process.env.BEER_VISION_PROVIDER = "deepseek";
+  process.env.DEEPSEEK_API_KEY = "sk-deepseek-synthetic";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch((url) =>
+    url === DEEPSEEK_URL
+      ? { status: 200, body: combinedEnvelope() }
+      : { status: 500, body: { error: "must not be called" } },
+  );
+  try {
+    const result = await recommendExecute(makeCtx());
+    assert.deepEqual(result.errors, []);
+    assert.equal(result.candidates.length, 1);
+    assert.equal(transport.records.length, 1);
+    assert.equal(transport.records[0]!.url, DEEPSEEK_URL);
+    assert.equal(transport.records[0]!.auth, "Bearer sk-deepseek-synthetic");
+    assert.equal(transport.records[0]!.model, "deepseek-flash");
+  } finally {
+    transport.restore();
+  }
+});
+
+test("deepseek mode requires its own key before any request", async () => {
+  process.env.BEER_VISION_PROVIDER = "deepseek";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, body: combinedEnvelope() }));
+  try {
+    assert.throws(
+      () => resolveImageCall(),
+      (err: unknown) => err instanceof VisionAuthError && err.code === "AUTH",
+    );
+    const result = await recommendExecute(makeCtx());
+    assert.match(result.errors[0]!, /not configured/);
+    assert.equal(transport.records.length, 0);
+  } finally {
+    transport.restore();
+  }
+});
+
+test("aborted menu-vision and label-check make zero model requests", async () => {
+  process.env.BEER_VISION_PROVIDER = "coding-plan";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, body: combinedEnvelope() }));
+  try {
+    for (const execute of [menuVisionExecute, labelCheckExecute]) {
+      const controller = new AbortController();
+      controller.abort();
+      const result = await execute(makeCtx({ signal: controller.signal }));
+      assert.ok(result.errors.length > 0, "cancellation remains observable");
+    }
+    assert.equal(transport.records.length, 0);
+  } finally {
+    transport.restore();
+  }
+});
+
 // ── Fail-closed selections ───────────────────────────────────────────────────
 
 test("unknown provider selection fails closed with zero requests", () => {
@@ -358,6 +456,26 @@ test("package 429 has no fallthrough despite legacy keys and container override"
   } finally {
     transport.restore();
     vision.config({ capabilityProviders: undefined, fallbackProviders: undefined });
+  }
+});
+
+test("deepseek 429 has no fallthrough despite other configured provider keys", async () => {
+  process.env.BEER_VISION_PROVIDER = "deepseek";
+  process.env.DEEPSEEK_API_KEY = "sk-deepseek-synthetic";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch((url) =>
+    url === DEEPSEEK_URL
+      ? { status: 429, body: { error: { message: "synthetic rate limit" } } }
+      : { status: 200, body: combinedEnvelope() },
+  );
+  try {
+    const result = await recommendExecute(makeCtx());
+    assert.ok(result.errors.length > 0);
+    assert.equal(transport.records.length, 1);
+    assert.equal(transport.records[0]!.url, DEEPSEEK_URL);
+  } finally {
+    transport.restore();
   }
 });
 

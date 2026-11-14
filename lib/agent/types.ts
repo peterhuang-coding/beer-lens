@@ -83,6 +83,9 @@ export type AgentContext = {
   channel: string;
   memorySnapshot?: MemorySnapshot;
   profileSummary?: string;
+  /** One receive-anchored budget shared by every model stage in this turn. */
+  deadlineAtMs?: number;
+  signal?: AbortSignal;
   /** Forwarded from harness SkillContext — long-running stages (vision OCR)
    *  emit progress events here so the chat UI can show them instead of silence. */
   onProgress?: (event: {

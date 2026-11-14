@@ -17,7 +17,9 @@ import type { BeerDialogRequest, BeerDialogResponse } from "@/lib/beer-agent/dia
 import type { AgentTurnResult, SkillResult } from "./types";
 import { buildAgentContext, describeContext } from "./context";
 import { buildSkillPrompt, parseSkillSelection, ensureSkillsLoaded, getSkill } from "./skill-registry";
+import { knowledgeFollowUpIntent } from "./skill-routing";
 import { agentTextFetch } from "@/lib/beer-agent/text-client";
+import { createDeadlineSignal, throwIfTurnExpired, turnModelOptions } from "@/lib/beer-agent/turn-deadline";
 import { writeTrace } from "@/lib/beer-agent/trace";
 import { updateShortTermMemory } from "@/lib/beer-agent/memory/short-term";
 import {
@@ -118,6 +120,17 @@ async function selectSkill(
   const shortCircuit = tryDeterministicShortCircuit(ctx);
   if (shortCircuit && !ctx.hasImage) return {...shortCircuit,source:"rule"};
 
+  // A sourced knowledge question on an active menu ("哪款酒花最香",
+  // "哪款是经典款") must reach the knowledge skill instead of another pick.
+  // Image turns and explicit budget/price/selection requests keep the
+  // deterministic recommendation path.
+  if (!ctx.hasImage && knowledgeFollowUpIntent(
+    ctx.lastUserText,
+    (ctx.memorySnapshot?.shortTerm?.lastMenuCandidateCount ?? 0) > 0,
+  )) {
+    return { skill: "beer-knowledge", reason: "sourced knowledge follow-up on active menu", params: {}, source: "rule" };
+  }
+
   // Reuse the public router's fast path, including its image guard and enabled skills.
   await import("@/lib/harness/skill-registry");
   const fast = keywordRoute(ctx.lastUserText,true,undefined,undefined,ctx.hasImage);
@@ -142,10 +155,13 @@ async function selectSkill(
       ],
       max_tokens: 300,
       temperature: 0,
-    });
+    }, turnModelOptions(ctx));
 
     return {...parseSkillSelection(raw),source:"llm"};
   } catch (err) {
+    // Cancellation is terminal. A late generic fallback would hide the
+    // deadline failure and could start more work after the caller gave up.
+    if (ctx.signal?.aborted) throwIfTurnExpired(ctx);
     console.warn("[controller] Skill selection failed, using fallback:", err);
     return { skill: "fallback", reason: "LLM selection failed", params: {}, source:"fallback" };
   }
@@ -156,6 +172,25 @@ async function selectSkill(
 export async function runAgentTurn(
   request: BeerDialogRequest,
 ): Promise<BeerDialogResponse> {
+  const lifecycle = request.deadlineAtMs === undefined
+    ? null
+    : createDeadlineSignal(request.deadlineAtMs, request.signal);
+  try {
+    return await runAgentTurnWithDeadline({
+      ...request,
+      signal: lifecycle?.signal ?? request.signal,
+    });
+  } finally {
+    lifecycle?.dispose();
+  }
+}
+
+async function runAgentTurnWithDeadline(
+  request: BeerDialogRequest,
+): Promise<BeerDialogResponse> {
+  // Do not even build context or select a fallback after the receive-anchored
+  // budget has expired. The caller turns this into an observable failed turn.
+  throwIfTurnExpired(request);
   const turnStartMs = recordTurnStart();
 
   // 1. Build context
@@ -166,6 +201,7 @@ export async function runAgentTurn(
 
   // 3. LLM selects skill
   const selection = await selectSkill(ctx);
+  throwIfTurnExpired(ctx);
 
   // 4. Execute skill
   let result: SkillResult;

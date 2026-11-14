@@ -216,8 +216,8 @@ describe("buildMenuContext — numeric and source discipline", () => {
   it("valid UT score shows count; absent score is not shown as 0", () => {
     const ctx = buildMenuContext(memory(redMenu()), "Helles");
     const section = renderMenuContext(ctx);
-    assert.match(section, /Untappd 3\.82（390 人评分）/);
-    assert.match(section, /Untappd 3\.5（2269 人评分）/);
+    assert.match(section, /Untappd 3\.82（390 人评分；无可靠快照日期，未核实）/);
+    assert.match(section, /Untappd 3\.5（2269 人评分；无可靠快照日期，未核实）/);
     assert.match(section, /Untappd 无可用评分/); // #498
     assert.doesNotMatch(section, /Untappd 0/);
   });

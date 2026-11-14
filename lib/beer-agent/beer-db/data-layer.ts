@@ -74,6 +74,13 @@ export async function lookupBrewery(query: string): Promise<BreweryLookupResult>
   return callLookup("--brewery", query);
 }
 
+/** One read-only Python process and SQLite connection for a whole menu. */
+export async function batchLookupBreweries(queries: string[]): Promise<BreweryLookupResult[]> {
+  if (queries.length === 0) return [];
+  const results = await callLookup("--brewery-batch", queries.join("|"));
+  return Array.isArray(results) ? results : [];
+}
+
 // ── Common interface (compatible with old SearchResult) ──
 
 export type SearchResult = {

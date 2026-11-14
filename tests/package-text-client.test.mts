@@ -20,7 +20,9 @@ import type * as TextClientMod from "../lib/beer-agent/text-client.ts";
 
 const ENV_KEYS = [
   "BEER_VISION_PROVIDER",
+  "BEER_TEXT_PROVIDER",
   "CODING_PLAN_API_KEY",
+  "DEEPSEEK_API_KEY",
   "OPENROUTER_API_KEY",
 ];
 
@@ -287,6 +289,96 @@ test("unknown nonempty selector fails closed before any request", async () => {
       (err: unknown) => {
         expectTextError(err, "SELECTION");
         assert.ok(!/some-other-provider/.test((err as Error).message));
+        return true;
+      },
+    );
+    assert.equal(transport.recs.length, 0);
+  } finally {
+    transport.restore();
+  }
+});
+
+test("Anthropic vision plus explicit coding-plan text uses only the package text transport", async () => {
+  process.env.BEER_VISION_PROVIDER = "anthropic";
+  process.env.BEER_TEXT_PROVIDER = "coding-plan";
+  process.env.CODING_PLAN_API_KEY = "pkg-synthetic-key";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, json: envelope("package answer") }));
+  try {
+    const result = await agentTextFetch(callerBody(0.3));
+    assert.equal(result, "package answer");
+    assert.equal(transport.recs.length, 1);
+    assert.equal(transport.recs[0]!.url, PACKAGE_URL);
+    assert.equal(transport.recs[0]!.body.model, "doubao-seed-evolving");
+  } finally {
+    transport.restore();
+  }
+});
+
+test("Anthropic vision without a text selector fails closed despite a legacy key", async () => {
+  process.env.BEER_VISION_PROVIDER = "anthropic";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, json: envelope("unexpected") }));
+  try {
+    await assert.rejects(
+      () => agentTextFetch(callerBody(0.3)),
+      (err: unknown) => {
+        expectTextError(err, "SELECTION");
+        assert.match((err as Error).message, /BEER_TEXT_PROVIDER/);
+        return true;
+      },
+    );
+    assert.equal(transport.recs.length, 0);
+  } finally {
+    transport.restore();
+  }
+});
+
+test("DeepSeek vision without a text selector fails closed despite a legacy key", async () => {
+  process.env.BEER_VISION_PROVIDER = "deepseek";
+  process.env.DEEPSEEK_API_KEY = "sk-deepseek-synthetic";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, json: envelope("unexpected") }));
+  try {
+    await assert.rejects(
+      () => agentTextFetch(callerBody(0.3)),
+      (err: unknown) => {
+        expectTextError(err, "SELECTION");
+        assert.match((err as Error).message, /BEER_TEXT_PROVIDER/);
+        return true;
+      },
+    );
+    assert.equal(transport.recs.length, 0);
+  } finally {
+    transport.restore();
+  }
+});
+
+test("explicit OpenRouter text overrides a coding-plan image selector for text only", async () => {
+  process.env.BEER_VISION_PROVIDER = "coding-plan";
+  process.env.BEER_TEXT_PROVIDER = "openrouter";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, json: envelope("legacy answer") }));
+  try {
+    const result = await agentTextFetch(callerBody(0.3));
+    assert.equal(result, "legacy answer");
+    assert.equal(transport.recs.length, 1);
+    assert.equal(transport.recs[0]!.url, OPENROUTER_URL);
+    assert.equal(transport.recs[0]!.body.model, "qwen/qwen-2.5-72b-instruct");
+  } finally {
+    transport.restore();
+  }
+});
+
+test("Anthropic is never accepted as an Agent text provider", async () => {
+  process.env.BEER_TEXT_PROVIDER = "anthropic";
+  process.env.OPENROUTER_API_KEY = "sk-legacy-synthetic";
+  const transport = installFetch(() => ({ status: 200, json: envelope("unexpected") }));
+  try {
+    await assert.rejects(
+      () => agentTextFetch(callerBody(0.3)),
+      (err: unknown) => {
+        expectTextError(err, "SELECTION");
         return true;
       },
     );

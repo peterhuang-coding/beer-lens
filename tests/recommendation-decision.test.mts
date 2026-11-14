@@ -32,6 +32,16 @@ test('distinct offers with unresolved serving survive recommendation',()=>{
  assert.equal(recommendFromCandidates([a,b],null,[],false).candidates.length,2);
 });
 
+test('accented Kölsch earns crisp fit and enters the safe-pick pool',()=>{
+ const result=recommendFromCandidates([
+  make('1',60,'Czech Pilsner'),
+  make('4',90,'DDH Hazy Pale Ale'),
+  make('7',55,'Kölsch'),
+ ],null,['crisp','不苦'],false,'我偏好清爽、不太苦的啤酒，也关心价格。',{initialMenu:true});
+ assert.equal(result.candidates.find(candidate=>candidate.candidateId==='7')?.fitScore,65);
+ assert.equal(result.picks.safePick.candidateId,'7');
+});
+
 test('not-bitter request prefers the lower-IBU beer among otherwise equal IPA candidates',()=>{
  const highIbu={...make('1',60),displayName:'High IBU IPA',ibu:80};
  const lowIbu={...make('2',60),displayName:'Low IBU IPA',ibu:20};

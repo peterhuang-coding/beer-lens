@@ -5,33 +5,45 @@ import { beginConversationTurn, clearConversation, completeConversationTurn, get
 import { FeishuMessageQueue } from "./queue.ts";
 import { clearShortTermMemory } from "../beer-agent/memory/short-term.ts";
 import { createTurnTiming, type TurnTiming } from "./turn-timing.ts";
+import { receiveAnchoredDeadlineAtMs } from "../beer-agent/turn-deadline.ts";
 
 const queue = new FeishuMessageQueue();
 
 export function enqueueFeishuMessage(message: FeishuIncomingMessage): Promise<void> {
   // T_recv：入队前即刻记录单调时间；每个入站消息一个独立计时对象。
   const timing = createTurnTiming(message.messageType);
-  return queue.enqueue(message.chatId, () => runQueuedMessage(message, timing));
+  // Model work uses the same wall-clock origin as T_recv. Queue wait and image
+  // download therefore reduce the remaining budget instead of restarting it.
+  const deadlineAtMs = receiveAnchoredDeadlineAtMs();
+  return queue.enqueue(message.chatId, () => runQueuedMessage(message, timing, deadlineAtMs));
 }
 
 export function drainFeishuMessages(): Promise<void> {
   return queue.drain();
 }
 
-async function runQueuedMessage(message: FeishuIncomingMessage, timing: TurnTiming): Promise<void> {
+async function runQueuedMessage(
+  message: FeishuIncomingMessage,
+  timing: TurnTiming,
+  deadlineAtMs: number,
+): Promise<void> {
   // T_start：回调真正出队执行时；队列等待由此与处理耗时分开计量。
   timing.markStarted();
   try {
-    await processMessage(message, timing);
+    await processMessage(message, timing, deadlineAtMs);
   } finally {
     // T_end 之后每条入队消息恰好落一条记录；sink 失败不影响消息结果。
     timing.finish();
   }
 }
 
-async function processMessage(message: FeishuIncomingMessage, timing: TurnTiming): Promise<void> {
+async function processMessage(
+  message: FeishuIncomingMessage,
+  timing: TurnTiming,
+  deadlineAtMs: number,
+): Promise<void> {
   try {
-    await processMessageTurn(message, timing);
+    await processMessageTurn(message, timing, deadlineAtMs);
   } catch {
     // 此刻标记错误类别：若转义的失败来自回发调用则记 reply_error，
     // 否则记 processing_error；随后兜底文案即使发成功也不改写结果。
@@ -61,7 +73,11 @@ async function sendReply(
   }
 }
 
-async function processMessageTurn(message: FeishuIncomingMessage, timing: TurnTiming): Promise<void> {
+async function processMessageTurn(
+  message: FeishuIncomingMessage,
+  timing: TurnTiming,
+  deadlineAtMs: number,
+): Promise<void> {
   if (!["text", "image", "post"].includes(message.messageType)) {
     await sendReply(message, "我现在支持文字和图片。你可以直接发酒单照片。", timing);
     return;
@@ -116,6 +132,7 @@ async function processMessageTurn(message: FeishuIncomingMessage, timing: TurnTi
       channel: "feishu",
       conversationId: message.chatId,
       turnId: message.messageId,
+      deadlineAtMs,
       messages: [...history, userMessage],
       image: image ? { name: "feishu-image", type: image.type, dataUrl: image.dataUrl } : undefined,
     }));

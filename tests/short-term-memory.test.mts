@@ -69,6 +69,7 @@ test('a spaced ordinal follow-up narrows the remembered menu to that item', asyn
   assert.equal(result.candidates.length, 1);
   assert.equal(result.candidates[0].candidateId, 'second');
   assert.equal(result.picks.topPick.candidateId, 'second');
+  assert.ok(!result.reply.includes('整单解读'), 'a follow-up must not repeat the whole initial menu');
   await updateShortTermMemory({ userId, conversationId, messages: [{ role: 'user', content: '第 2 款评分' }] } as never, {
     traceId: 'follow-up-trace', turnId: 'follow-up-turn', reply: result.reply, candidates: result.candidates,
     picks: result.picks, intentResult: { intent: 'follow_up_filter' },

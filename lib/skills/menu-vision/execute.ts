@@ -3,6 +3,7 @@
  * Used internally by the recommend skill.
  */
 import type { AgentContext, SkillResult } from "@/lib/agent/types";
+import { throwIfTurnExpired } from "@/lib/beer-agent/turn-deadline";
 
 function emptyPicks(): SkillResult["picks"] {
   const e = { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 };
@@ -25,6 +26,7 @@ export async function execute(
   }
 
   try {
+    throwIfTurnExpired(ctx);
     const { runImagePipeline } = await import("@/lib/beer-agent/provider");
     const { getProfileSummary } = await import("@/lib/beer-agent/profile");
     const { resolveImageCall } = await import("@/lib/multimodal/image-routing");
@@ -42,6 +44,8 @@ export async function execute(
       ctx.imageDataUrl,
       ctx.lastUserText,
       profileSummary,
+      undefined,
+      { signal: ctx.signal },
     );
 
     // Return raw pipeline results without scoring (caller handles scoring)

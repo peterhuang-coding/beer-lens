@@ -63,6 +63,18 @@ export function parseMenuInput(text: string): { items: MenuItem[]; requestText: 
       if (/^(?:酒单|菜单)$|(?:看|识别|推荐)[^，,。；;]*(?:酒单|菜单)/.test(line)) explicit=true;
       continue;
     }
+    // Constraint prose ("我预算100元以内，想要清爽不苦，选哪款？") is a
+    // follow-up request, not one menu row. A real row has an explicit index,
+    // a pipe-separated brewery, or a Latin beer name; those remain rows even
+    // if they contain a question mark or a budget word.
+    const strongMenuRow = /^#?\s*\d+\s*[.、)号]\s+/.test(line) || /\|/.test(line) ||
+      /[A-Za-z][A-Za-z0-9'’.-]{2,}/.test(line);
+    const questionProse = /[?？]/.test(line) && !strongMenuRow;
+    const budgetProse = !strongMenuRow && (
+      /(?:预算|不超过|最多|控制在|别超过|上限)\s*(?:改成|改为|改到|调整到|为|是|到)?\s*[¥￥]?\s*\d/.test(line) ||
+      /^\s*[¥￥]?\s*\d+(?:\.\d+)?\s*(?:元|块)\s*(?:以内|以下)/.test(line)
+    );
+    if (questionProse || budgetProse) { request.push(line); continue; }
     if (breweryHeading.test(line) && lines.length>1) { heading=line; continue; }
     // A second prose clause of a request is not a new menu row. Explicit
     // menus and rows with independent name/price evidence remain extractable.

@@ -33,6 +33,12 @@
           "fields": ["identity", "style", "abv", "ingredient_origins", "producer_description"]
         }
       ],
+      "sourced_facts": {
+        "reputation": {
+          "values": [{ "kind": "classic", "text": "酒厂自述：创始人年代延续至今的经典老款；不等于旗舰或最畅销" }],
+          "sources": [0]
+        }
+      },
       "issues": [
         "waldhaus_hop_origins_are_regions_not_verified_cultivars",
         "waldhaus_balanced_malty_is_producer_marketing_not_measured",
@@ -93,6 +99,12 @@
           "fields": ["other_variant_identity", "other_variant_hops_not_this_beer"]
         }
       ],
+      "sourced_facts": {
+        "sensory": {
+          "values": ["柔顺口感（社区描述）", "菠萝、芒果、番石榴气息（社区描述，非配料证据）"],
+          "sources": [1]
+        }
+      },
       "issues": [
         "ddh_cactus_is_different_variant_no_ddh_process_or_hop_transfer",
         "bissell_collab_is_different_beer_its_hop_list_does_not_apply",

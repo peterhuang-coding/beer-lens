@@ -18,8 +18,8 @@
  * The event listing is evidence of what the venue pours, NOT an authoritative
  * brewery verification; existing brewery-verification warnings are retained.
  */
-import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { readCachedJson } from "./file-cache";
 import type { BeerCandidate, Evidence } from "./types";
 
 // ── Catalog record shape (data/events/mbcb-2026-red.json) ──
@@ -73,10 +73,10 @@ export const EVENT_CATALOG_RELATIVE_PATH = path.join("data", "events", "mbcb-202
  */
 export async function readEventCatalog(): Promise<EventCatalogBeer[]> {
   try {
-    const raw = await readFile(path.join(process.cwd(), EVENT_CATALOG_RELATIVE_PATH), "utf8");
-    const parsed: unknown = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter(isEventCatalogBeer);
+    return await readCachedJson(
+      path.join(process.cwd(), EVENT_CATALOG_RELATIVE_PATH),
+      (parsed) => Array.isArray(parsed) ? parsed.filter(isEventCatalogBeer) : [],
+    );
   } catch {
     return [];
   }
@@ -314,6 +314,7 @@ function applyGrounding(candidate: BeerCandidate, record: EventCatalogBeer): Bee
   out.untappdUrl = record.untappd_id != null ? `https://untappd.com/beer/${record.untappd_id}` : null;
   out.untappdScore = usable ? record.rating_raw : null;
   out.untappdRatingCount = usable ? record.rating_count : null;
+  out.ratingCheckedAt = usable ? record.retrieved_at : null;
   if (!usable) addFlag(RISK_EVENT_RATING_UNUSABLE);
 
   for (const issue of record.issues ?? []) {

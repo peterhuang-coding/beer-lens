@@ -83,6 +83,102 @@ export async function searchCacheByName(query: string): Promise<BeerCacheEntry[]
     .slice(0, 10);
 }
 
+// ── Exact verified batch reads (image-first path) ──
+//
+// Unlike searchCacheByName's discovery-oriented substring scan (capped at ten
+// hits), this entry point attaches cache data ONLY to an exact, unique, fresh,
+// verified identity. It performs a single cache snapshot per call, never
+// mutates or writes the cache, and returns one slot per input (same order and
+// cardinality). Anything short of an exact identity yields null.
+
+export type VerifiedCacheInput = { beerName: string; brewery?: string };
+
+/** NFKC + lowercase + letters/numbers only, matching the grounding strict keys. */
+function strictKey(value: unknown): string {
+  return String(value ?? "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]/gu, "");
+}
+
+function finiteNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+/** Structural + freshness guard: malformed/stale/future/unverified rows never qualify. */
+function isFreshVerifiedEntry(value: unknown, now: number): value is BeerCacheEntry {
+  if (value === null || typeof value !== "object") return false;
+  const e = value as Record<string, unknown>;
+  if (e.verified !== true) return false;
+  if (typeof e.id !== "string" || e.id.trim() === "") return false;
+  if (typeof e.beerName !== "string" || e.beerName.trim() === "") return false;
+  if (typeof e.breweryName !== "string") return false;
+  if (typeof e.style !== "string") return false;
+  if (typeof e.untappdUrl !== "string") return false;
+  if (!finiteNumber(e.abv) || e.abv < 0) return false;
+  if (!finiteNumber(e.ratingScore) || e.ratingScore < 0 || e.ratingScore > 5) return false;
+  if (!finiteNumber(e.ratingCount) || !Number.isInteger(e.ratingCount) || e.ratingCount < 0) return false;
+  if (e.ibu != null && !finiteNumber(e.ibu)) return false;
+  if (e.breweryCountry != null && typeof e.breweryCountry !== "string") return false;
+  if (e.labelImage != null && typeof e.labelImage !== "string") return false;
+  const ts = e.cachedAt;
+  if (!finiteNumber(ts) || ts < 0 || ts > now) return false;
+  if (now - ts > ttlMs) return false;
+  return true;
+}
+
+function resolveVerified(
+  input: VerifiedCacheInput,
+  snapshot: Map<string, BeerCacheEntry>,
+  now: number,
+): BeerCacheEntry | null {
+  const nameKey = strictKey(input?.beerName);
+  if (!nameKey) return null;
+  const breweryKey = strictKey(input?.brewery ?? "");
+
+  const matches: BeerCacheEntry[] = [];
+  for (const entry of snapshot.values()) {
+    if (!isFreshVerifiedEntry(entry, now)) continue;
+    if (strictKey(entry.beerName) !== nameKey) continue; // exact full title only
+    if (breweryKey && strictKey(entry.breweryName) !== breweryKey) continue; // wrong brewery
+    matches.push(entry);
+  }
+  if (matches.length === 0) return null;
+
+  // Unique identity/variant only. Same title from another brewery, an
+  // unresolved same-name ambiguity, or conflicting duplicate ids stay null.
+  if (breweryKey) {
+    const ids = new Set(matches.map(e => e.id));
+    return ids.size === 1 ? matches[0] : null;
+  }
+  const byBrewery = new Map<string, Set<string>>();
+  for (const e2 of matches) {
+    const key = strictKey(e2.breweryName);
+    const ids = byBrewery.get(key) ?? new Set<string>();
+    ids.add(e2.id);
+    byBrewery.set(key, ids);
+  }
+  if (byBrewery.size !== 1) return null;
+  const onlyIds = byBrewery.values().next().value as Set<string>;
+  return onlyIds.size === 1 ? matches[0] : null;
+}
+
+/**
+ * Read fresh verified cache rows for a batch of exact identities.
+ * One local snapshot for the whole batch; same order/cardinality as inputs;
+ * null for every input without a unique exact fresh verified match. Pure read:
+ * no search, no verification, no network, and no cache writes/side effects.
+ */
+export async function batchReadVerifiedCache(
+  inputs: ReadonlyArray<VerifiedCacheInput>,
+  nowMs?: number,
+): Promise<Array<BeerCacheEntry | null>> {
+  if (!Array.isArray(inputs) || inputs.length === 0) return [];
+  const snapshot = await readCache();
+  const now = finiteNumber(nowMs) ? (nowMs as number) : Date.now();
+  return inputs.map(input => resolveVerified(input, snapshot, now));
+}
+
 export async function getStaleIds(): Promise<string[]> {
   const cache = await readCache();
   return Array.from(cache.entries())

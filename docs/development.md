@@ -14,21 +14,44 @@
 | `OPENROUTER_ANALYSIS_MODEL` | 可选；知识 Skill 使用，不设置时沿用代码默认值 |
 | `OPENROUTER_VISION_MODEL` | 可选；酒标 Skill 使用，应选择支持图片的模型 |
 | `VISION_FALLBACK_MODELS` | 可选；多阶段图像管线的视觉回退模型列表，以逗号分隔 |
-| `BEER_VISION_PROVIDER` | 可选；仅认 `coding-plan`。设置后 Agent 菜单图片、意图选择、知识文本走固定包接口；不设置保持 OpenRouter 现状，其他非空值在请求前失败 |
-| `CODING_PLAN_API_KEY` | 当 `BEER_VISION_PROVIDER=coding-plan` 时必需；包接口密钥，调用时读取 |
+| `BEER_VISION_PROVIDER` | 可选；Agent 图片显式单路由，认 `coding-plan`、`anthropic` 或 `deepseek`。不设置保持原视觉链；为兼容旧配置，`coding-plan` 在未设置文本选择器时仍同时选择包文本 |
+| `BEER_TEXT_PROVIDER` | 可选；Agent 意图选择和知识文本独立路由，认 `coding-plan` 或 `openrouter`。显式值优先于旧图片选择器；使用 Anthropic 或 DeepSeek 视觉时必须设置，且文本不能选择这两个图片 provider |
+| `CODING_PLAN_API_KEY` | 任一有效 Agent 路由选择 `coding-plan` 时必需；包接口密钥，调用时读取 |
+| `ANTHROPIC_API_KEY` | 当 `BEER_VISION_PROVIDER=anthropic` 时必需；仅用于 Anthropic 图片请求，调用时读取 |
+| `DEEPSEEK_API_KEY` | 当 `BEER_VISION_PROVIDER=deepseek` 时必需；仅用于 DeepSeek 图片请求，调用时读取 |
 | `DEBUG_API_TOKEN` | 可选；受保护的调试接口凭据 |
 
 可以使用同一提供者，但 `LLM_*` 与 `OPENROUTER_*` 目前仍是分别配置的调用路径。可选模型变量不使用时请省略，不要填空字符串覆盖默认值。修改环境变量后重启服务。
 
-包选择是显式 opt-in，作用范围只限 Agent 的菜单图片识别、意图技能选择和啤酒知识文本：
+显式路由只作用于 Agent 链路，不影响 Web `/api/chat` 的 `LLM_*`、旧 demo 或其他模块。未设置选择器时保持原有 OpenRouter 行为；旧的包配置无需增加文本选择器：
 
 ```bash
-# 默认（省略即保持 OpenRouter 链路）
+# 旧配置：图片 + 文本均使用 Coding Plan
 # BEER_VISION_PROVIDER=coding-plan
+# CODING_PLAN_API_KEY=...
+
+# 可选：Claude 仅处理图片，文本显式留在 Coding Plan
+# BEER_VISION_PROVIDER=anthropic
+# ANTHROPIC_API_KEY=...
+# BEER_TEXT_PROVIDER=coding-plan
+# CODING_PLAN_API_KEY=...
+
+# 也可显式选择 OpenRouter 文本；不会因图片路由而隐式启用
+# BEER_TEXT_PROVIDER=openrouter
+# OPENROUTER_API_KEY=...
+
+# DeepSeek 仅处理图片，固定最新稳定别名 deepseek-flash
+# BEER_VISION_PROVIDER=deepseek
+# DEEPSEEK_API_KEY=...
+# BEER_TEXT_PROVIDER=coding-plan
 # CODING_PLAN_API_KEY=...
 ```
 
-包模式固定端点与模型（`doubao-seed-evolving`，`max_tokens` 12000，thinking 开启），每次调用最多一个请求，没有重试或付费回退；调用方的消息原样发送，body/options 不会被修改。超时按调用方区分：新增文本 helper 的默认超时为 90000ms，显式传入正有限值时生效、上限 180000ms；知识调用显式传 45000ms，Agent 菜单图片路由显式传 180000ms，均不沿用文本 helper 的默认值。该选择不影响 Web `/api/chat` 的 `LLM_*`、旧 demo 或其他模块；缺少密钥、信号已取消等情况均零请求失败。这里的 12000/45000/90000/180000 都是选定的边界，不是实测质量或时延结论。
+包模式固定端点与模型（`doubao-seed-evolving`，`max_tokens` 12000，thinking 开启），每次调用最多一个请求，没有重试或付费回退；调用方的消息原样发送，body/options 不会被修改。Anthropic 视觉通过官方 SDK 固定调用直连端点和 `claude-opus-5`，采用 streaming、adaptive thinking 和 Messages image block；SDK 重试为 0，也不回退到其他模型或供应商。DeepSeek 视觉固定直连 `deepseek-flash`，使用官方 Chat Completions 图片格式，无自动供应商 fallback。两者都不会接管知识或意图文本，且调用方取消会中止正在进行的图片请求。
+
+文本 helper 的默认超时为 90000ms，显式正有限值上限为 180000ms；知识调用按**有效文本路由**传 180000ms（包）或 45000ms（OpenRouter），图片显式路由上限为 180000ms，实际还受整轮 deadline 约束。缺少密钥、选择器无效、信号已取消等情况均在请求前失败。这里的 token/超时数值是选定边界，不是实测质量或时延结论。
+
+真实 Anthropic 或 DeepSeek 调用需要可用凭据，可能产生独立 API 费用并把所提交图片传给对应提供者。Anthropic 当前只完成合成传输的离线测试，尚未验证真实 API、真实图片回答质量或飞书客户端结果；DeepSeek 的实测证据按验收日期另存，配置就绪本身不代表质量通过。
 
 ```bash
 npm ci

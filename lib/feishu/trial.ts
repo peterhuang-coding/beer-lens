@@ -1,9 +1,15 @@
 import { extractFeishuMessage, type FeishuEventPayload } from "./client.ts";
+import { resolveAgentTextRoute } from "../beer-agent/text-routing.ts";
 
 const appKeys = ["FEISHU_APP_ID", "FEISHU_APP_SECRET"] as const;
 const legacyProviderKey = "OPENROUTER_API_KEY";
 const packageProviderKey = "CODING_PLAN_API_KEY";
+const anthropicProviderKey = "ANTHROPIC_API_KEY";
+const deepseekProviderKey = "DEEPSEEK_API_KEY";
 const packageProviderSelector = "coding-plan";
+const anthropicProviderSelector = "anthropic";
+const deepseekProviderSelector = "deepseek";
+const llmFields = ["LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL"] as const;
 const placeholderPattern = /^(?:<.*>|xxx|cli_xxx|replace.*|your[-_ ].*)$/i;
 
 function isMissingField(value: string | undefined) {
@@ -14,15 +20,42 @@ function isMissingField(value: string | undefined) {
 /** 只返回缺失字段名，绝不回显配置值。 */
 export function checkFeishuTrialConfig(env: Record<string, string | undefined>) {
   const missing: string[] = appKeys.filter(key => isMissingField(env[key]));
-  const selector = env.BEER_VISION_PROVIDER?.trim() ?? "";
-  if (selector === "") {
-    if (isMissingField(env[legacyProviderKey])) missing.push(legacyProviderKey);
-  } else if (selector === packageProviderSelector) {
-    if (isMissingField(env[packageProviderKey])) missing.push(packageProviderKey);
+  const seen = new Set(missing);
+  const requireField = (field: string) => {
+    if (!seen.has(field)) {
+      missing.push(field);
+      seen.add(field);
+    }
+  };
+  const requireKey = (field: string) => {
+    if (isMissingField(env[field])) requireField(field);
+  };
+
+  const imageSelector = env.BEER_VISION_PROVIDER?.trim() ?? "";
+  if (imageSelector === "") {
+    requireKey(legacyProviderKey);
+  } else if (imageSelector === packageProviderSelector) {
+    requireKey(packageProviderKey);
+  } else if (imageSelector === anthropicProviderSelector) {
+    requireKey(anthropicProviderKey);
+  } else if (imageSelector === deepseekProviderSelector) {
+    requireKey(deepseekProviderKey);
   } else {
     // 非空但未识别的选择器必须失败关闭：只给稳定字段名，绝不回显原值。
-    missing.push("BEER_VISION_PROVIDER");
+    requireField("BEER_VISION_PROVIDER");
   }
+
+  const textRoute = resolveAgentTextRoute(env);
+  if (textRoute.error !== null) {
+    requireField(textRoute.field ?? "BEER_TEXT_PROVIDER");
+  } else if (textRoute.route?.mode === "package") {
+    requireKey(packageProviderKey);
+  } else if (textRoute.route?.mode === "llm") {
+    for (const field of llmFields) requireKey(field);
+  } else {
+    requireKey(legacyProviderKey);
+  }
+
   return { ready: missing.length === 0, missing, mode: "private-chat" as const };
 }
 

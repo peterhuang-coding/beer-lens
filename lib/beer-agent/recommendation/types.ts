@@ -32,7 +32,7 @@ export type ScoredCandidate = {
   objectiveReasons?: string[];
   personalReasons?: string[];
   riskReasons?: string[];
-} & Partial<Pick<BeerCandidate, "sourceRiskFlags" | "evidence" | "hops" | "ibu" | "untappdId" | "untappdUrl" | "breweryCountry" | "labelImage" | "originBenchmark" | "savingsVsOrigin">>;
+} & Partial<Pick<BeerCandidate, "sourceRiskFlags" | "evidence" | "hops" | "ibu" | "untappdId" | "untappdUrl" | "ratingCheckedAt" | "breweryCountry" | "labelImage" | "originBenchmark" | "savingsVsOrigin" | "dossier">>;
 
 export type PickResult = {
   topPick: {

@@ -66,6 +66,102 @@ test("选择器两侧空白被裁剪后仍识别 coding-plan", () => {
   assert.deepEqual(result.missing, []);
 });
 
+test("Anthropic 视觉与 coding-plan 文本可独立配置，两个密钥齐全即可就绪", () => {
+  const result = checkFeishuTrialConfig({
+    ...APP,
+    BEER_VISION_PROVIDER: "anthropic",
+    BEER_TEXT_PROVIDER: "coding-plan",
+    ANTHROPIC_API_KEY: "synthetic-anthropic-key-2026",
+    CODING_PLAN_API_KEY: "synthetic-package-key-2026",
+  });
+  assert.equal(result.ready, true);
+  assert.deepEqual(result.missing, []);
+});
+
+test("Anthropic 视觉必须显式选择文本路由，不静默使用已有 OpenRouter 密钥", () => {
+  const result = checkFeishuTrialConfig({
+    ...legacyEnv(),
+    BEER_VISION_PROVIDER: "anthropic",
+    ANTHROPIC_API_KEY: "synthetic-anthropic-key-2026",
+  });
+  assert.equal(result.ready, false);
+  assert.deepEqual(result.missing, ["BEER_TEXT_PROVIDER"]);
+});
+
+test("Anthropic 视觉不借用其他密钥，文本也不能选择 anthropic", () => {
+  const missingImageKey = checkFeishuTrialConfig({
+    ...APP,
+    BEER_VISION_PROVIDER: "anthropic",
+    BEER_TEXT_PROVIDER: "coding-plan",
+    CODING_PLAN_API_KEY: "synthetic-package-key-2026",
+  });
+  assert.deepEqual(missingImageKey.missing, ["ANTHROPIC_API_KEY"]);
+
+  const anthropicText = checkFeishuTrialConfig({
+    ...APP,
+    BEER_VISION_PROVIDER: "anthropic",
+    BEER_TEXT_PROVIDER: "anthropic",
+    ANTHROPIC_API_KEY: "synthetic-anthropic-key-2026",
+  });
+  assert.deepEqual(anthropicText.missing, ["BEER_TEXT_PROVIDER"]);
+});
+
+test("DeepSeek 视觉使用最新独立密钥，并要求显式文本路由", () => {
+  const ready = checkFeishuTrialConfig({
+    ...APP,
+    BEER_VISION_PROVIDER: "deepseek",
+    BEER_TEXT_PROVIDER: "coding-plan",
+    DEEPSEEK_API_KEY: "synthetic-deepseek-key-2026",
+    CODING_PLAN_API_KEY: "synthetic-package-key-2026",
+  });
+  assert.equal(ready.ready, true);
+  assert.deepEqual(ready.missing, []);
+
+  const missingText = checkFeishuTrialConfig({
+    ...legacyEnv(),
+    BEER_VISION_PROVIDER: "deepseek",
+    DEEPSEEK_API_KEY: "synthetic-deepseek-key-2026",
+  });
+  assert.deepEqual(missingText.missing, ["BEER_TEXT_PROVIDER"]);
+
+  const missingImageKey = checkFeishuTrialConfig({
+    ...APP,
+    BEER_VISION_PROVIDER: "deepseek",
+    BEER_TEXT_PROVIDER: "coding-plan",
+    CODING_PLAN_API_KEY: "synthetic-package-key-2026",
+  });
+  assert.deepEqual(missingImageKey.missing, ["DEEPSEEK_API_KEY"]);
+});
+
+test("llm 文本路由复用现有 LLM_* 三字段，且不要求套餐或 OpenRouter 密钥", () => {
+  const ready = checkFeishuTrialConfig({
+    ...APP,
+    BEER_VISION_PROVIDER: "deepseek",
+    BEER_TEXT_PROVIDER: "llm",
+    DEEPSEEK_API_KEY: "synthetic-deepseek-key-2026",
+    LLM_BASE_URL: "https://llm.example/v1",
+    LLM_API_KEY: "synthetic-llm-key-2026",
+    LLM_MODEL: "synthetic-llm-model",
+  });
+  assert.equal(ready.ready, true);
+  assert.deepEqual(ready.missing, []);
+
+  for (const field of ["LLM_BASE_URL", "LLM_API_KEY", "LLM_MODEL"]) {
+    const missing = checkFeishuTrialConfig({
+      ...APP,
+      BEER_VISION_PROVIDER: "deepseek",
+      BEER_TEXT_PROVIDER: "llm",
+      DEEPSEEK_API_KEY: "synthetic-deepseek-key-2026",
+      LLM_BASE_URL: "https://llm.example/v1",
+      LLM_API_KEY: "synthetic-llm-key-2026",
+      LLM_MODEL: "synthetic-llm-model",
+      [field]: "",
+    });
+    assert.equal(missing.ready, false, field);
+    assert.deepEqual(missing.missing, [field], field);
+  }
+});
+
 test("选择器未设置或为空白时保持旧行为：要求 OpenRouter 字段", () => {
   for (const selector of [undefined, "", "   "]) {
     const ready = checkFeishuTrialConfig({ ...legacyEnv(), BEER_VISION_PROVIDER: selector });
@@ -119,6 +215,20 @@ test("结果 JSON 只含稳定字段名，绝不回显合成凭据或未知选�
     { ...legacyEnv(), BEER_VISION_PROVIDER: "coding-plan" },
     {
       ...APP,
+      BEER_VISION_PROVIDER: "anthropic",
+      BEER_TEXT_PROVIDER: "coding-plan",
+      ANTHROPIC_API_KEY: "synthetic-anthropic-key-2026",
+      CODING_PLAN_API_KEY: "synthetic-package-key-2026",
+    },
+    {
+      ...APP,
+      BEER_VISION_PROVIDER: "deepseek",
+      BEER_TEXT_PROVIDER: "coding-plan",
+      DEEPSEEK_API_KEY: "synthetic-deepseek-key-2026",
+      CODING_PLAN_API_KEY: "synthetic-package-key-2026",
+    },
+    {
+      ...APP,
       BEER_VISION_PROVIDER: rawSelector,
       OPENROUTER_API_KEY: "synthetic-openrouter-key-2026",
       CODING_PLAN_API_KEY: "synthetic-package-key-2026",
@@ -129,6 +239,8 @@ test("结果 JSON 只含稳定字段名，绝不回显合成凭据或未知选�
     APP.FEISHU_APP_SECRET,
     "synthetic-package-key-2026",
     "synthetic-openrouter-key-2026",
+    "synthetic-anthropic-key-2026",
+    "synthetic-deepseek-key-2026",
     rawSelector,
   ];
   for (const env of variants) {

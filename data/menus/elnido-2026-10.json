@@ -40,6 +40,9 @@
           "fields": ["identity", "style", "abv"]
         }
       ],
+      "sourced_facts": {
+        "sensory": { "values": ["热带水果（社区条目风味描述）"], "sources": [0] }
+      },
       "issues": [
         "untappd_and_official_distributor_hops_lists_differ_specific_hop_claims_omitted"
       ],
@@ -88,6 +91,10 @@
           "fields": ["identity", "abv", "style", "hops"]
         }
       ],
+      "sourced_facts": {
+        "hops": { "values": ["Citra", "Nelson Sauvin"], "sources": [1] },
+        "sensory": { "values": ["柑橘皮", "葡萄酒般气息", "潮湿草本（dank）"], "sources": [0] }
+      },
       "issues": [
         "kiwi_in_name_is_not_evidence_of_kiwifruit_ingredient"
       ],
@@ -172,6 +179,9 @@
           "fields": ["identity_only_header_facts_unverified"]
         }
       ],
+      "sourced_facts": {
+        "sensory": { "values": ["烤面包", "焦糖麦芽"], "sources": [1] }
+      },
       "issues": [
         "abv_disagreement_5_vs_4_9_recorded_no_exact_batch_claim",
         "untappd_identity_url_listed_but_header_facts_not_verified"
@@ -222,6 +232,9 @@
           "fields": ["identity", "abv", "style"]
         }
       ],
+      "sourced_facts": {
+        "hops": { "values": ["Pink Boots Hop Blend", "Vista"], "sources": [0] }
+      },
       "issues": [
         "alias_origin_menu_short_title_girls_gone_equals_official_girls_gone_hazy"
       ],
@@ -254,9 +267,13 @@
           "kind": "brewery",
           "access": "web_index_or_cache",
           "checked_at": "2026-10-21",
-          "fields": ["identity", "abv", "style", "ingredients", "process"]
+          "fields": ["identity", "abv", "style", "ingredients", "hops", "process"]
         }
       ],
+      "sourced_facts": {
+        "hops": { "values": ["Saaz"], "sources": [0] },
+        "process": { "values": ["两次煮出（double decoction）"], "sources": [0] }
+      },
       "issues": [
         "search_index_evidence_only_official_page_direct_open_failed",
         "do_not_apply_ivanych_2_0_rating_different_version"
@@ -300,6 +317,9 @@
           "fields": ["abv"]
         }
       ],
+      "sourced_facts": {
+        "hops": { "values": ["Saphir"], "sources": [0] }
+      },
       "issues": [],
       "field_disagreements": {}
     },
@@ -340,6 +360,9 @@
           "fields": ["abv"]
         }
       ],
+      "sourced_facts": {
+        "sensory": { "values": ["麦芽甜感", "贵族酒花气息"], "sources": [0] }
+      },
       "issues": [
         "third_party_site_rating_must_not_be_presented_as_untappd_no_ut_id_invented"
       ],
@@ -375,6 +398,10 @@
           "fields": ["identity", "brewery_full_name", "abv", "style", "hops", "flavor_notes"]
         }
       ],
+      "sourced_facts": {
+        "hops": { "values": ["Nelson", "Nectaron", "Citra"], "sources": [0] },
+        "sensory": { "values": ["猕猴桃气息", "菠萝气息"], "sources": [0] }
+      },
       "issues": [
         "menu_abv_6_7_is_one_decimal_rounding_of_source_6_66",
         "facts_embedded_in_public_venue_photo_page_no_personal_checkin_data_used"
@@ -487,6 +514,9 @@
           "fields": ["abv"]
         }
       ],
+      "sourced_facts": {
+        "hops": { "values": ["Citra", "Strata", "Mosaic", "Nelson Sauvin", "Krush"], "sources": [0] }
+      },
       "issues": [
         "cached_rating_snapshots_conflict_4_38_181_vs_4_289_943_no_usable_rating"
       ],
@@ -535,6 +565,9 @@
           "fields": ["identity", "abv", "style", "ingredients"]
         }
       ],
+      "sourced_facts": {
+        "ingredients": { "values": ["猕猴桃", "苹果", "斐济果", "菠萝"], "sources": [0, 1] }
+      },
       "issues": [
         "exact_product_already_in_local_db_importer_preserves_existing_row_and_score",
         "untappd_identity_linked_by_retailer_no_personal_data_used"
@@ -578,6 +611,9 @@
           "fields": ["abv"]
         }
       ],
+      "sourced_facts": {
+        "sensory": { "values": ["蓝莓派风味灵感（官方菜单索引描述）"], "sources": [0] }
+      },
       "issues": [
         "official_menu_page_search_index_only_live_html_is_js_shell_without_content"
       ],
@@ -620,6 +656,9 @@
           "fields": ["identity", "abv"]
         }
       ],
+      "sourced_facts": {
+        "sensory": { "values": ["蓝莓", "香草", "棉花糖风味"], "sources": [0] }
+      },
       "issues": [
         "abv_conflict_9_vs_9_1_preserved_not_normalized",
         "distinct_from_old_double_blueberry_shake_no_old_score_transfer",
@@ -671,6 +710,9 @@
           "fields": ["identity", "brewery", "abv"]
         }
       ],
+      "sourced_facts": {
+        "ingredients": { "values": ["杏子", "斐济果"], "sources": [0] }
+      },
       "issues": [
         "earlier_visual_label_lil_big_was_wrong_corrected_to_big_pot",
         "direct_product_url_returned_429_index_cache_only_no_retry"
@@ -769,6 +811,10 @@
           "fields": ["abv"]
         }
       ],
+      "sourced_facts": {
+        "sensory": { "values": ["泰国香蕉", "烤椰子风味"], "sources": [0] },
+        "process": { "values": ["过桶（具体桶序未经来源核实）"], "sources": [0] }
+      },
       "issues": [
         "menu_abv_19_2_is_one_decimal_display_of_source_19_25",
         "undated_reclaim_me_15_percent_is_a_different_beer",

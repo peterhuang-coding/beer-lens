@@ -1,5 +1,6 @@
 import type { AgentContext, SkillResult } from "@/lib/agent/types";
 import { assembleImageCandidates } from "@/lib/beer-agent/provider";
+import { isTurnDeadlineError, throwIfTurnExpired, turnModelOptions } from "@/lib/beer-agent/turn-deadline";
 
 function emptyPicks(): SkillResult["picks"] {
   const e = { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 };
@@ -55,8 +56,10 @@ export async function execute(
   // Image mode: use vision model
   if (ctx.imageDataUrl) {
     try {
-      const { openrouterFetch } = await import("@/lib/beer-agent/openrouter-client");
-      const visionModel = await getVisionModel();
+      throwIfTurnExpired(ctx);
+      const { resolveImageRoute } = await import("@/lib/multimodal/image-routing");
+      const route = resolveImageRoute();
+      const visionModel = route.mode === "legacy" ? await getVisionModel() : "";
       const userText = ctx.lastUserText;
 
       const prompt = `你是啤酒酒标检查器。分析这张酒瓶/酒罐的照片。
@@ -86,18 +89,41 @@ export async function execute(
   "freshnessAssessment": "fresh|borderline|stale|unknown"
 }`;
 
-      const raw = await openrouterFetch({
-        model: visionModel,
-        messages: [{
-          role: "user",
-          content: [
-            { type: "text", text: prompt },
-            { type: "image_url", image_url: { url: ctx.imageDataUrl } },
-          ],
-        }],
-        temperature: 0.1,
-        max_tokens: 2000,
-      }, {timeoutMs:120000});
+      let raw: string;
+      if (route.mode === "package") {
+        const { vision } = await import("@/lib/multimodal/index");
+        const match = /^data:([^;]+);base64,(.*)$/.exec(ctx.imageDataUrl);
+        const options = turnModelOptions(ctx, 120000);
+        const result = await vision.call("beer_label_check", {
+          image: {
+            base64: match?.[2] ?? ctx.imageDataUrl,
+            mime: match?.[1] ?? "image/jpeg",
+          },
+          prompt,
+          maxTokens: 2000,
+        }, {
+          providers: route.providers.map(provider => ({
+            ...provider,
+            timeoutMs: options.timeoutMs ?? provider.timeoutMs,
+          })),
+          signal: options.signal,
+        });
+        raw = result.raw;
+      } else {
+        const { openrouterFetch } = await import("@/lib/beer-agent/openrouter-client");
+        raw = await openrouterFetch({
+          model: visionModel,
+          messages: [{
+            role: "user",
+            content: [
+              { type: "text", text: prompt },
+              { type: "image_url", image_url: { url: ctx.imageDataUrl } },
+            ],
+          }],
+          temperature: 0.1,
+          max_tokens: 2000,
+        }, turnModelOptions(ctx, 120000));
+      }
 
       let parsed: any;
       try {
@@ -125,8 +151,8 @@ export async function execute(
 
   // Text-only: ask for photo
   try {
-    const { openrouterFetch } = await import("@/lib/beer-agent/openrouter-client");
-    const raw = await openrouterFetch({
+    const { agentTextFetch } = await import("@/lib/beer-agent/text-client");
+    const raw = await agentTextFetch({
       model: process.env.OPENROUTER_MODEL ?? "qwen/qwen-2.5-72b-instruct",
       messages: [
         { role: "system", content: "你是啤酒专家。用户想了解一款酒的酒标信息（日期、新鲜度等）。用中文简短回答，不要说太多无关内容。如果没有图片，请用户发一张酒标照片。" },
@@ -134,7 +160,7 @@ export async function execute(
       ],
       temperature: 0.3,
       max_tokens: 500,
-    });
+    }, turnModelOptions(ctx));
 
     return {
       skillId: "label-check",
@@ -144,14 +170,17 @@ export async function execute(
       profileSummary: "",
       errors: [],
     };
-  } catch {
+  } catch (err) {
+    const expired = isTurnDeadlineError(err) || ctx.signal?.aborted === true;
     return {
       skillId: "label-check",
-      reply: "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
+      reply: expired
+        ? "这轮处理超过了时间预算，还没有得到可靠回答。请稍后再试。"
+        : "请发一张酒标/酒瓶照片给我，我帮你检查日期和新鲜度。",
       candidates: [],
       picks: emptyPicks(),
       profileSummary: "",
-      errors: [],
+      errors: expired ? [err instanceof Error ? err.message : String(err)] : [],
     };
   }
 }

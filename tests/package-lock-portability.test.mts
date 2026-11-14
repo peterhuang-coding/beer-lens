@@ -1,6 +1,6 @@
 // Offline portability regression test for package-lock.json.
 //
-// The lockfile was generated with 48 of its 180 tarball "resolved" URLs
+// The original lockfile had 48 of its then-180 tarball "resolved" URLs
 // pointing at the internal vendor registry (https://bnpm.byted.org), which
 // the parent local TLS probe could not reach; GitHub npm ci also failed
 // before business tests. The public path passed the probe and clean install.
@@ -18,9 +18,10 @@ import { fileURLToPath } from 'node:url';
 
 const VENDOR_HOST = 'bnpm.byted.org';
 const PUBLIC_REGISTRY_HOST = 'registry.npmjs.org';
-// 48 vendor-origin tarballs + 132 already-public tarballs when this guard
-// was introduced; update intentionally if the pinned dependency set changes.
-const EXPECTED_RESOLVED_COUNT = 180;
+// The original guard covered 48 vendor-origin + 132 already-public tarballs.
+// The Anthropic SDK adds eight public-registry packages; update this count
+// intentionally whenever the pinned dependency set changes.
+const EXPECTED_RESOLVED_COUNT = 188;
 
 interface LockPackage {
   version?: string;
@@ -84,7 +85,7 @@ test('lockfile is npm lockfileVersion 3 with a packages map', () => {
   assert.equal(typeof lock.packages, 'object');
 });
 
-test(`all ${EXPECTED_RESOLVED_COUNT} pinned tarballs are resolved (48 fixed + 132 already public)`, () => {
+test(`all ${EXPECTED_RESOLVED_COUNT} pinned tarballs are resolved`, () => {
   const { lock } = loadLockfile();
   assert.equal(resolvedEntries(lock).length, EXPECTED_RESOLVED_COUNT);
 });

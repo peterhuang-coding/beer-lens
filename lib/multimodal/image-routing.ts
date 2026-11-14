@@ -3,15 +3,12 @@
  *
  * Opt-in only: when BEER_VISION_PROVIDER is unset or blank the existing
  * legacy behavior is preserved (OPENROUTER_API_KEY, capability default
- * chains). Setting it to the exact value "coding-plan" pins image calls to
- * one fixed package provider attempt:
- *
- *   [{ provider: "coding-plan",
- *      models: ["doubao-seed-evolving"],
- *      timeoutMs: 180000 }]
- *
- * Any other nonblank value fails closed with a typed VisionError before a
- * model request can be made.
+ * chains). Setting it to "coding-plan", "anthropic" or "deepseek" pins image
+ * calls to exactly one explicit provider/model attempt. The historical
+ * "package" mode label means this pinned route; it does not imply a Coding
+ * Plan request when another provider is selected. Any other nonblank value
+ * fails closed with a typed
+ * VisionError before a model request can be made.
  *
  * Environment is read at call time — it is never cached here. Keys are
  * never read for logging, telemetry, or inclusion in errors; this module
@@ -26,15 +23,25 @@ import {
 
 export const IMAGE_ROUTE_ENV = "BEER_VISION_PROVIDER";
 export const PACKAGE_KEY_ENV = "CODING_PLAN_API_KEY";
+export const ANTHROPIC_KEY_ENV = "ANTHROPIC_API_KEY";
+export const DEEPSEEK_KEY_ENV = "DEEPSEEK_API_KEY";
 export const LEGACY_KEY_ENV = "OPENROUTER_API_KEY";
 
 export const PACKAGE_PROVIDER_ID = "coding-plan";
 export const PACKAGE_MODEL = "doubao-seed-evolving";
 export const PACKAGE_TIMEOUT_MS = 180_000;
+export const ANTHROPIC_PROVIDER_ID = "anthropic";
+export const ANTHROPIC_MODEL = "claude-opus-5";
+export const ANTHROPIC_TIMEOUT_MS = 180_000;
+export const DEEPSEEK_PROVIDER_ID = "deepseek";
+export const DEEPSEEK_MODEL = "deepseek-flash";
+export const DEEPSEEK_TIMEOUT_MS = 180_000;
 
 const MSG = {
   unsupported: "Unsupported image vision provider selection",
-  missingKey: "coding-plan vision API key is not configured",
+  missingPackageKey: "coding-plan vision API key is not configured",
+  missingAnthropicKey: "anthropic vision API key is not configured",
+  missingDeepSeekKey: "deepseek vision API key is not configured",
 } as const;
 
 export type ImageRoute =
@@ -51,13 +58,23 @@ export function resolveImageRoute(): ImageRoute {
     return { mode: "legacy" };
   }
   const value = selection.trim();
-  if (value === PACKAGE_PROVIDER_ID) {
+  if (
+    value === PACKAGE_PROVIDER_ID ||
+    value === ANTHROPIC_PROVIDER_ID ||
+    value === DEEPSEEK_PROVIDER_ID
+  ) {
+    const model = value === PACKAGE_PROVIDER_ID
+      ? PACKAGE_MODEL
+      : value === ANTHROPIC_PROVIDER_ID
+        ? ANTHROPIC_MODEL
+        : DEEPSEEK_MODEL;
+    const timeoutMs = value === PACKAGE_PROVIDER_ID
+      ? PACKAGE_TIMEOUT_MS
+      : value === ANTHROPIC_PROVIDER_ID
+        ? ANTHROPIC_TIMEOUT_MS
+        : DEEPSEEK_TIMEOUT_MS;
     const providers: ProviderSpec[] = [
-      {
-        provider: PACKAGE_PROVIDER_ID,
-        models: [PACKAGE_MODEL],
-        timeoutMs: PACKAGE_TIMEOUT_MS,
-      },
+      { provider: value, models: [model], timeoutMs },
     ];
     return { mode: "package", providers };
   }
@@ -73,9 +90,9 @@ export type ResolvedImageCall =
  *
  *  - legacy: returns the OPENROUTER_API_KEY value; the caller keeps its
  *    existing missing-key guard.
- *  - package: requires a nonblank CODING_PLAN_API_KEY or fails as AUTH
- *    before any request can be issued. Returns an empty apiKey — no
- *    sentinel value is fabricated for the legacy credential.
+ *  - package (pinned): requires the selected provider's nonblank key or
+ *    fails as AUTH before any request can be issued. Returns an empty apiKey
+ *    so no sentinel is fabricated for the legacy OpenRouter credential.
  */
 export function resolveImageCall(): ResolvedImageCall {
   const route = resolveImageRoute();
@@ -85,12 +102,23 @@ export function resolveImageCall(): ResolvedImageCall {
       apiKey: process.env[LEGACY_KEY_ENV] ?? "",
     };
   }
-  const key = process.env[PACKAGE_KEY_ENV];
+  const spec = route.providers[0]!;
+  const keyEnv = spec.provider === ANTHROPIC_PROVIDER_ID
+    ? ANTHROPIC_KEY_ENV
+    : spec.provider === DEEPSEEK_PROVIDER_ID
+      ? DEEPSEEK_KEY_ENV
+      : PACKAGE_KEY_ENV;
+  const missingMessage = spec.provider === ANTHROPIC_PROVIDER_ID
+    ? MSG.missingAnthropicKey
+    : spec.provider === DEEPSEEK_PROVIDER_ID
+      ? MSG.missingDeepSeekKey
+      : MSG.missingPackageKey;
+  const key = process.env[keyEnv];
   if (typeof key !== "string" || key.trim() === "") {
     throw new VisionAuthError(
-      MSG.missingKey,
-      PACKAGE_PROVIDER_ID,
-      PACKAGE_MODEL,
+      missingMessage,
+      spec.provider,
+      spec.models[0],
     );
   }
   return { mode: "package", apiKey: "", providers: route.providers };

@@ -13,7 +13,7 @@ const SAFE_STYLE_KEYWORDS = [
 ];
 
 function hasSafeStyle(style: string): boolean {
-  const lower = style.toLowerCase();
+  const lower = style.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase();
   return SAFE_STYLE_KEYWORDS.some((kw) => lower.includes(kw));
 }
 

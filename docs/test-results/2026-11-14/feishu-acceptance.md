@@ -31,7 +31,7 @@ The watcher records each inbound message `create_time`, each bot reply `create_t
 
 - Real reviewed image → 17 candidates → 3 picks → full 17-row reply, server-side 32.0s (`live-deepseek-schema2.json`).
 - The reply starts with explicit image boundaries: #5 reflective/blank, #11 brewery ambiguity, #19/#20 cropped (`menu-coverage.ts`, offline replay).
-- Real multi-turn content with the active menu: budget 4ms, hops 8.2s, classic 7.9s, price 12ms, why 9.5s (`real-multiturn-report.json`).
+- Real multi-turn content with the active menu: budget 4ms, hops 10.8s, classic 9.7s, price 9ms, why 4.8s (`real-multiturn-report.json`). Deterministic guards prepend menu arithmetic for “最低/最便宜” claims and source caveats for unsourced brewery history; the budget guard is unit-tested against the captured “90元略超预算” counterexample.
 - Offline replay keeps 17 rows across all five follow-ups and cancels a non-settling provider at 1.5s (`offline-replay-report.json`).
 
 ## What is not proven

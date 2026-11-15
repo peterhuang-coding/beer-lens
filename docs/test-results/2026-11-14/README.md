@@ -78,17 +78,27 @@
 - `.env.local` 的 `LLM_*`（Ark `doubao-seed-evolving`）：单题“酒花”在 60 秒仍未返回；不适合 60 秒目标。
 - 现有 OpenRouter key + `OPENROUTER_ANALYSIS_MODEL=deepseek/deepseek-chat`：同题 9.5 秒、557 字，引用菜单行号并明确风格通性；三次知识调用约 $0.0016/次。
 
-最终真实多轮（单调耗时）：
+最终真实多轮（第二次守卫后运行，单调耗时；`real-multiturn-report.json`）：
 
 | 追问 | 路由 | 耗时 | 结果 |
 | --- | --- | ---: | --- |
 | 预算100元以内、清爽不苦 | 本地 follow_up_filter | 4ms | 保留 17 款，3 个预算内选择 |
-| 哪款酒花最香 | beer-knowledge（OpenRouter） | 8,175ms | 列出 #3/#4/#6/#9，标注风格通性、无款级酒花来源 |
-| 哪款是经典款 | beer-knowledge（OpenRouter） | 7,886ms | 明确“没有经典标注”，按风格传统解释 Kölsch 等 |
-| 第7款多少钱 | 本地 follow_up_filter | 12ms | #7 Kölsch 55元/425ml |
-| 为什么推荐第一款 | beer-knowledge（OpenRouter） | 9,462ms | 区分款级菜单事实与风格通性 |
+| 哪款酒花最香 | beer-knowledge（OpenRouter） | 10,767ms | 列出酒花风格候选；但把预算内 90 元 #4/#6 说成“略超预算” |
+| 哪款是经典款 | beer-knowledge（OpenRouter） | 9,708ms | 开头出现“来源核对”，说明菜单无经典/旗舰来源 |
+| 第7款多少钱 | 本地 follow_up_filter | 9ms | #7 Kölsch 55元/425ml |
+| 为什么推荐第一款 | beer-knowledge（OpenRouter） | 4,809ms | 开头出现“菜单算术核对”：最低单位价是 #7（12.94元/100ml），不是 #1 |
 
-检查项：首轮 17 款、STM 仍 17 款、预算追问保留 17 款、#7 价格正确、全部追问 ≤60 秒。该证据证明内容链路与预算，不证明飞书客户端可见延迟。
+检查项：首轮 17 款、STM 仍 17 款、预算追问保留 17 款、#7 价格正确、全部追问 ≤60 秒。
+
+### 语义审计与确定性守卫
+
+每日独立验收复算了第一轮真实多轮，发现两个不能接受的事实错误：Q5 把 #1 说成“17 款单价最低”（实际 #7 为 12.94元/100ml，低于 #1 的 14.12）；Q3 引入“Gaffel 德国百年老牌酒厂”的无来源背景。新增 `lib/skills/beer-knowledge/evidence-guards.ts`：
+
+- 回复出现“最低/最便宜/性价比最高/最划算”时，前置菜单算术核对，列出实际单位价最低和总价最低的款。
+- 回复出现“百年/老牌/创立/旗舰/经典地位/获奖”而菜单没有 sourced reputation 时，前置来源核对 caveat。
+- 回复出现“超预算”时，按 `currentConstraints` 的 `maxPrice` 和回复中引用的 `#行号` 核对；90 元在 100 元预算内，不能写成“略超预算”。
+
+第二次真实多轮已证明前两个守卫生效（Q5 4.8 秒、Q3 9.7 秒）；预算守卫由 `tests/knowledge-evidence-guards.test.mts` 用捕获的真实 Q2 反例离线验证。因本轮对同一语义失败点只做一次真实复验，没有追加第三次真实调用；飞书 bot 已加载全部守卫，下一次真人消息会展示最终行为。该证据证明内容链路与预算，不证明飞书客户端可见延迟。
 
 ## 5. 飞书结果
 
@@ -98,7 +108,7 @@
 
 `npm run check` 退出码 0：
 
-- Node：**1094 / 1094** 通过（新增 12 项菜单/路由/覆盖/文本入口回归）。
+- Node：**1100 / 1100** 通过（新增 18 项菜单/路由/覆盖/文本入口/证据守卫回归）。
 - Python：**38 / 38** 通过。
 - TypeScript typecheck：通过。
 - Next.js production build：通过。

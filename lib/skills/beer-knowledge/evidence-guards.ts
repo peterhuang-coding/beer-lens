@@ -1,10 +1,11 @@
 /**
  * Deterministic post-checks for knowledge replies.
  *
- * The text model can state a menu superlative ("lowest price") or add
- * unsourced brewery history even when the prompt forbids it. These checks do
- * not rewrite the model's prose; they prepend a short, computed correction so
- * the user never sees an unchecked claim as the final word.
+ * The text model can state a menu superlative ("lowest price"), add unsourced
+ * brewery history, or call a beer over budget when it is not. A disclaimer
+ * prefix is not enough: the contradicted sentence must not remain in the
+ * visible answer. This module removes/rewrites those sentences and attaches
+ * computed arithmetic/source/currency facts.
  */
 
 type CandidateLike = {
@@ -14,6 +15,8 @@ type CandidateLike = {
   brewery?: unknown;
   price?: unknown;
   volumeMl?: unknown;
+  currency?: unknown;
+  evidence?: unknown;
   dossier?: {
     brewery?: { reputation?: unknown };
   } | null;
@@ -24,6 +27,10 @@ type MemoryLike = {
   currentConstraints?: unknown;
 } | null | undefined;
 
+const SUPERLATIVE = /最低|最便宜|性价比最高|最划算|单价最低|价格最低/;
+const OVER_BUDGET = /超预算|超出预算|略超预算|预算外/;
+const HISTORY_CLAIM = /百年|老牌|创立|成立于|酒厂历史|历史悠久|传统酒厂|最畅销|旗舰|经典地位|获奖|经典/i;
+
 function rowLabel(candidate: CandidateLike): string {
   const number = typeof candidate.menuIndex === "number" &&
     Number.isInteger(candidate.menuIndex) && candidate.menuIndex > 0
@@ -32,8 +39,86 @@ function rowLabel(candidate: CandidateLike): string {
   return `${number}${String(candidate.displayName ?? "").trim() || "未命名酒款"}`;
 }
 
-function priceText(candidate: { price: number; volumeMl: number }): string {
-  return `${candidate.price}元/${candidate.volumeMl}ml，${(candidate.price / candidate.volumeMl * 100).toFixed(2)}元/100ml`;
+/** Explicit ISO code or a symbol actually visible in the OCR evidence. */
+function explicitCurrency(candidate: CandidateLike): string | null {
+  const currency = String(candidate.currency ?? "").trim().toUpperCase();
+  if (/^[A-Z]{3}$/.test(currency) && currency !== "UNKNOWN") return currency;
+  const evidence = Array.isArray(candidate.evidence)
+    ? candidate.evidence.map(entry => String((entry as { summary?: unknown })?.summary ?? "")).join(" ")
+    : "";
+  const raw = `${String(candidate.displayName ?? "")} ${String(candidate.brewery ?? "")} ${evidence}`;
+  if (/¥|￥|CNY|RMB|人民币|元/.test(raw)) return "CNY";
+  if (/\$|USD|美元/.test(raw)) return "USD";
+  if (/€|EUR|欧元/.test(raw)) return "EUR";
+  if (/£|GBP|英镑/.test(raw)) return "GBP";
+  return null;
+}
+
+function moneyLabel(currency: string): string {
+  return currency === "CNY" ? "元" : ` ${currency}`;
+}
+
+function priceText(pick: { candidate: CandidateLike; price: number; volumeMl: number; currency: string }): string {
+  const money = moneyLabel(pick.currency);
+  const unit = pick.price / pick.volumeMl * 100;
+  return `${pick.price}${money} / ${pick.volumeMl}ml，${unit.toFixed(2)}${money}/100ml`;
+}
+
+function refsIn(text: string): number[] {
+  return [...new Set([...text.matchAll(/#\s*(\d+)/g)].map(match => Number(match[1])))]
+    .filter(value => Number.isInteger(value) && value > 0);
+}
+
+function mentionedCandidates(text: string, candidates: CandidateLike[]): CandidateLike[] {
+  const refs = refsIn(text);
+  const byRef = candidates.filter(candidate =>
+    refs.includes(typeof candidate.menuIndex === "number" ? candidate.menuIndex : -1));
+  const lower = text.toLowerCase();
+  const byName = candidates.filter(candidate => {
+    const brewery = String(candidate.brewery ?? "").trim().toLowerCase();
+    const name = String(candidate.displayName ?? "").trim().toLowerCase();
+    return (brewery.length >= 2 && lower.includes(brewery)) ||
+      (name.length >= 2 && lower.includes(name));
+  });
+  return [...new Set([...byRef, ...byName])];
+}
+
+function reputationClaims(candidates: CandidateLike[]): Array<{ kind: string; text: string }> {
+  return candidates.flatMap(candidate => {
+    const reputation = candidate.dossier?.brewery?.reputation;
+    if (!Array.isArray(reputation)) return [];
+    return reputation
+      .map(claim => {
+        const value = (claim as { value?: unknown })?.value as { kind?: unknown; text?: unknown } | undefined;
+        return {
+          kind: String(value?.kind ?? ""),
+          text: String(value?.text ?? ""),
+        };
+      })
+      .filter(claim => claim.kind && claim.text);
+  });
+}
+
+/** Bind a history/classic/flagship claim to the rows/breweries it names. */
+function claimHasSource(text: string, candidates: CandidateLike[]): boolean {
+  if (!HISTORY_CLAIM.test(text)) return true;
+  const mentioned = mentionedCandidates(text, candidates);
+  // A style-level phrase ("Czech Pilsner is a historic style") is not a claim
+  // about a menu row and remains valid style knowledge.
+  if (mentioned.length === 0) return true;
+  const reputation = reputationClaims(mentioned);
+  if (/旗舰|flagship/i.test(text)) return reputation.some(claim => claim.kind === "flagship");
+  if (/最畅销|best.?sell/i.test(text)) return reputation.some(claim => /最畅销|best.?sell/i.test(claim.text));
+  if (/获奖|award/i.test(text)) return reputation.some(claim => claim.kind === "award");
+  if (/经典|classic/i.test(text)) return reputation.some(claim => claim.kind === "classic");
+  return reputation.length > 0;
+}
+
+function maxPriceFrom(memory: MemoryLike): number | null {
+  const constraints = Array.isArray(memory?.currentConstraints) ? memory!.currentConstraints! : [];
+  const token = constraints.find((value): value is string =>
+    typeof value === "string" && /^maxPrice:\d+(?:\.\d+)?$/.test(value));
+  return token ? Number(token.slice("maxPrice:".length)) : null;
 }
 
 export function applyMenuEvidenceGuards(reply: string, memory: MemoryLike): string {
@@ -43,60 +128,108 @@ export function applyMenuEvidenceGuards(reply: string, memory: MemoryLike): stri
   const priced = candidates.flatMap(candidate => {
     const price = typeof candidate.price === "number" && candidate.price > 0 ? candidate.price : null;
     const volumeMl = typeof candidate.volumeMl === "number" && candidate.volumeMl > 0 ? candidate.volumeMl : null;
-    return price !== null && volumeMl !== null ? [{ candidate, price, volumeMl }] : [];
+    const currency = explicitCurrency(candidate);
+    return price !== null && volumeMl !== null && currency !== null
+      ? [{ candidate, price, volumeMl, currency }]
+      : [];
   });
+  const currencies = new Set(priced.map(pick => pick.currency));
+  const hasUnknownCurrency = candidates.some(candidate =>
+    typeof candidate.price === "number" && candidate.price > 0 &&
+    typeof candidate.volumeMl === "number" && candidate.volumeMl > 0 &&
+    explicitCurrency(candidate) === null);
   const notes: string[] = [];
+  const maxPrice = maxPriceFrom(memory);
 
-  if (priced.length > 0 && /最低|最便宜|性价比最高|最划算|单价最低|价格最低/.test(reply)) {
-    const cheapestUnit = [...priced].sort((a, b) =>
+  let cheapestUnit: typeof priced[number] | null = null;
+  let cheapestTotal: typeof priced[number] | null = null;
+  if (currencies.size === 1 && priced.length > 0) {
+    cheapestUnit = [...priced].sort((a, b) =>
       a.price / a.volumeMl - b.price / b.volumeMl ||
       Number(a.candidate.menuIndex ?? 0) - Number(b.candidate.menuIndex ?? 0))[0];
-    const cheapestTotal = [...priced].sort((a, b) =>
+    cheapestTotal = [...priced].sort((a, b) =>
       a.price - b.price ||
       Number(a.candidate.menuIndex ?? 0) - Number(b.candidate.menuIndex ?? 0))[0];
-    notes.push(
-      `【菜单算术核对】单位价最低的是 ${rowLabel(cheapestUnit.candidate)}（${priceText(cheapestUnit)}）；` +
-      `单杯总价最低的是 ${rowLabel(cheapestTotal.candidate)}（${priceText(cheapestTotal)}）。` +
-      `推荐理由是口味/风格匹配，不等于最低价或性价比最高。`,
-    );
   }
 
-  const maxPriceToken = Array.isArray(memory?.currentConstraints)
-    ? memory!.currentConstraints!.find((value): value is string =>
-      typeof value === "string" && /^maxPrice:\d+(?:\.\d+)?$/.test(value))
-    : undefined;
-  const maxPrice = maxPriceToken ? Number(maxPriceToken.slice("maxPrice:".length)) : null;
-  if (maxPrice !== null && Number.isFinite(maxPrice) && /超预算|超出预算|略超预算|预算外/.test(reply)) {
-    const refs = [...reply.matchAll(/#\s*(\d+)/g)].map(match => Number(match[1]));
-    const mentioned = [...new Set(refs)]
-      .map(number => candidates.find(candidate => Number(candidate.menuIndex) === number))
-      .filter((candidate): candidate is CandidateLike => Boolean(candidate));
-    const within = mentioned.filter(candidate =>
-      typeof candidate.price === "number" && candidate.price > 0 && candidate.price <= maxPrice);
-    const over = mentioned.filter(candidate =>
-      typeof candidate.price === "number" && candidate.price > maxPrice);
-    if (within.length > 0) {
+  const lines = reply.split(/\r?\n/);
+  const kept: string[] = [];
+  let droppedSuperlative = false;
+  let droppedBudget = false;
+  let droppedSource = false;
+
+  for (const line of lines) {
+    if (!line.trim()) { kept.push(line); continue; }
+
+    if (SUPERLATIVE.test(line)) {
+      const refs = refsIn(line);
+      const aboutActualCheapest = currencies.size === 1 && cheapestUnit &&
+        refs.includes(Number(cheapestUnit.candidate.menuIndex));
+      if (!aboutActualCheapest) {
+        droppedSuperlative = true;
+        continue; // never show a contradicted/unverifiable lowest claim
+      }
+    }
+
+    if (OVER_BUDGET.test(line) && maxPrice !== null) {
+      const mentioned = mentionedCandidates(line, candidates);
+      const withinBudget = mentioned.some(candidate => {
+        const price = typeof candidate.price === "number" && candidate.price > 0 ? candidate.price : null;
+        const currency = explicitCurrency(candidate);
+        return price !== null && price <= maxPrice && currency === "CNY";
+      });
+      if (withinBudget) {
+        droppedBudget = true;
+        continue;
+      }
+    }
+
+    if (HISTORY_CLAIM.test(line) && !claimHasSource(line, candidates)) {
+      droppedSource = true;
+      continue;
+    }
+
+    kept.push(line);
+  }
+
+  if (droppedSuperlative) {
+    if (currencies.size > 1) {
       notes.push(
-        `【预算核对】当前预算上限 ${maxPrice} 元；` +
-        `${within.map(candidate => `${rowLabel(candidate)}（${candidate.price}元）`).join("、")} 均在预算内，不能表述为“超预算”。` +
-        (over.length > 0
-          ? `超预算的是 ${over.map(candidate => `${rowLabel(candidate)}（${candidate.price}元）`).join("、")}。`
-          : ""),
+        `【币种边界】当前菜单含 ${[...currencies].join("/")}；没有 FX、同版本、同消费形式来源，不能跨币种比较最低价。原回答中的最低价断言已移除。` +
+        (hasUnknownCurrency ? "币种未知的款不参与比价。" : ""),
       );
+    } else if (cheapestUnit && cheapestTotal) {
+      notes.push(
+        `【菜单算术核对】单位价最低的是 ${rowLabel(cheapestUnit.candidate)}（${priceText(cheapestUnit)}）；` +
+        `单杯总价最低的是 ${rowLabel(cheapestTotal.candidate)}（${priceText(cheapestTotal)}）。` +
+        `推荐理由是口味/风格匹配，不等于最低价或性价比最高；原回答中不一致的最低/最便宜断言已移除。`,
+      );
+    } else {
+      notes.push("【菜单算术】当前没有可比的价格/容量/币种证据，不能声称最低或最便宜；原断言已移除。");
     }
   }
 
-  const hasBreweryHistory = /百年|老牌|创立|成立于|酒厂历史|历史悠久|传统酒厂|最畅销|旗舰|经典地位|获奖/.test(reply);
-  const hasSourcedReputation = candidates.some(candidate => {
-    const reputation = candidate.dossier?.brewery?.reputation;
-    return Array.isArray(reputation) && reputation.length > 0;
-  });
-  if (hasBreweryHistory && !hasSourcedReputation) {
+  if (droppedBudget && maxPrice !== null) {
+    const within = candidates.filter(candidate => {
+      const price = typeof candidate.price === "number" && candidate.price > 0 ? candidate.price : null;
+      return price !== null && price <= maxPrice && explicitCurrency(candidate) === "CNY";
+    });
     notes.push(
-      "【来源核对】当前菜单证据没有提供酒厂历史、百年老牌、经典地位、旗舰或获奖的款级来源 Claim；" +
-      "这些背景只能算未核实常识，不能作为已核实事实。",
+      `【预算核对】当前预算上限 ${maxPrice} 元；` +
+      `${within.map(candidate => `${rowLabel(candidate)}（${candidate.price}元）`).join("、")} 均在预算内。` +
+      `原回答中与预算不符的“超预算”断言已移除。`,
     );
   }
 
-  return notes.length > 0 ? `${notes.join("\n")}\n\n${reply}` : reply;
+  if (droppedSource) {
+    notes.push(
+      "【来源核对】被说到的款/酒厂没有提供酒厂历史、经典、旗舰、最畅销或获奖的款级来源；" +
+      "原回答中的这些说法已移除，只能算未核实常识。",
+    );
+  }
+
+  const body = kept.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return notes.length > 0
+    ? `${notes.join("\n")}\n\n${body}`.trim()
+    : reply;
 }

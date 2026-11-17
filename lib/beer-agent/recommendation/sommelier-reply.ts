@@ -14,7 +14,12 @@ function claimSource(claim: Claim<unknown>): string {
   const kind = SOURCE_KIND_ZH[claim.sourceKind ?? ""] ?? claim.source;
   const date = claim.checkedAt ? `，${claim.checkedAt.slice(0, 10)} 核对` : "";
   const access = claim.access === "web_index_or_cache" ? "，索引/缓存" : "";
-  return `${kind}${date}${access}`;
+  const url = claim.url ? `，${claim.url}` : "";
+  return `${kind}${date}${access}${url}`;
+}
+
+function round2(value: number): number {
+  return Math.round(value * 100) / 100;
 }
 
 function abvText(candidate: ScoredCandidate): string {
@@ -34,6 +39,7 @@ function identityCaveat(candidate: ScoredCandidate): string {
   const status = candidate.dossier?.identity.identityStatus;
   if (status === "version_unresolved") return "；版本未确认，不套用候选版本事实";
   if (status === "batch_unresolved") return "；批次/年份未确认，不套用特定批次事实";
+  if (status === "unmatched") return "；酒厂/身份未独立核实，仅按菜单文字与风格通性";
   return "";
 }
 
@@ -112,7 +118,7 @@ export function buildSommelierMenuReply(
     const identity = candidate.brewery ? `${candidate.brewery} / ` : "";
     const style = candidate.dossier?.style?.value || candidate.style || "风格未确认";
     const rating = candidate.dossier?.rating
-      ? `；评分 ${candidate.dossier.rating.value.score}/5（${candidate.dossier.rating.value.count} 人，${candidate.dossier.rating.checkedAt?.slice(0, 10)} 快照）`
+      ? `；评分 ${round2(candidate.dossier.rating.value.score)}/5（${candidate.dossier.rating.value.count} 人，${candidate.dossier.rating.checkedAt?.slice(0, 10)} 快照，来源 ${candidate.dossier.rating.url}）`
       : "";
     return `#${number} ${identity}${candidate.displayName}｜${style}｜${abvText(candidate)}｜${offerText(candidate)}${rating}${identityCaveat(candidate)}\n${knowledgeText(candidate)}`;
   });

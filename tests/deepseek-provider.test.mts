@@ -61,6 +61,8 @@ test("current stable model alias and request shape match the official vision API
   assert.equal(record.auth, "Bearer sk-deepseek-synthetic-only");
   assert.equal(record.body.model, "deepseek-flash");
   assert.equal(record.body.response_format.type, "json_object");
+  assert.equal(record.body.thinking.type, "disabled");
+
   assert.equal(record.body.messages[0].content[1].image_url.url, "data:image/jpeg;base64,eA==");
 });
 

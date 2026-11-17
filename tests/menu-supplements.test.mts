@@ -696,7 +696,7 @@ test("readMenuSupplements fails soft on missing/malformed/non-object and filters
   }
 });
 
-test("readMenuSupplements loads original 17 plus fixed 3-entry additions file (20 combined) from cwd", async () => {
+test("readMenuSupplements loads original 17 + additions 3 + November 13 (33 combined) from cwd", async () => {
   const cwd = process.cwd();
   const dir = await mkdtemp(path.join(os.tmpdir(), "elnido-supplement-real-"));
   const menusDir = path.join(dir, "data", "menus");
@@ -705,7 +705,7 @@ test("readMenuSupplements loads original 17 plus fixed 3-entry additions file (2
     // workspace root is two levels up from tests/; simpler: point cwd at repo root
     process.chdir(path.dirname(path.dirname(new URL(import.meta.url).pathname)));
     const loaded = await readMenuSupplements();
-    assert.equal(loaded.length, 20);
+    assert.equal(loaded.length, 33);
     const additions = loaded.filter(e => e.id.includes("-additions-"));
     assert.equal(additions.length, 3);
     assert.deepEqual(additions.map(e => e.menu_index).sort((a, b) => a - b), [1, 10, 16]);

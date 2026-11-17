@@ -5,9 +5,38 @@ import { isExcludedMenuReference } from './menu-input.ts';
 
 const positive = (n: unknown): n is number => typeof n === 'number' && Number.isFinite(n) && n > 0;
 export const unitPrice = (c: ScoredCandidate) => positive(c.price) && positive(c.volumeMl) ? c.price / c.volumeMl * 100 : null;
+
+/** Currency label for display. OCR may say "unknown"; infer only from the
+ *  menu's own visible symbol, never from a country or a guess. */
+function moneyLabel(c: ScoredCandidate): string {
+  const currency = String(c.currency ?? '').trim();
+  if (currency && currency.toLowerCase() !== 'unknown') {
+    return currency === 'CNY' ? '元' : ` ${currency}`;
+  }
+  const evidence = Array.isArray(c.evidence)
+    ? c.evidence.map(entry => String(entry?.summary ?? '')).join(' ')
+    : '';
+  if (/¥|￥|CNY|RMB|人民币|元/i.test(evidence)) return '元';
+  if (/\$|USD|美元/i.test(evidence)) return ' USD';
+  if (/€|EUR|欧元/i.test(evidence)) return ' EUR';
+  if (/£|GBP|英镑/i.test(evidence)) return ' GBP';
+  return '（币种未知）';
+}
+
+function normalizedCurrency(c: ScoredCandidate): string {
+  const currency = String(c.currency ?? '').trim();
+  if (currency && currency.toLowerCase() !== 'unknown') return currency;
+  const label = moneyLabel(c);
+  if (label === '元') return 'CNY';
+  if (label === ' USD') return 'USD';
+  if (label === ' EUR') return 'EUR';
+  if (label === ' GBP') return 'GBP';
+  return currency || 'CNY';
+}
+
 export function offerText(c: ScoredCandidate): string {
   const unit = unitPrice(c);
-  const money = c.currency && c.currency!=='CNY' ? ` ${c.currency}` : '元';
+  const money = moneyLabel(c);
   return `${positive(c.price) ? `${c.price}${money}` : '价格未知'} / ${positive(c.volumeMl) ? `${c.volumeMl}ml` : '容量未知'}${unit == null ? '' : `，${unit.toFixed(2)}${money}/100ml`}`;
 }
 
@@ -41,7 +70,7 @@ export function purchaseDecision(rows: ScoredCandidate[], request: string, expli
   if(!rows.length) return null;
   const facts=rows.map(c=>`第${c.menuIndex||'?'}号 ${c.displayName}：${offerText(c)}${positive(c.abv)?`；ABV ${c.abv}%`:''}。`);
   if(rows.some(c=>unitPrice(c)==null))return {picks:selectPicks([]),reply:[...facts,'价格或容量信息缺失，无法可靠比较性价比。请补充实际报价、容量、币种和堂饮/外带规格；评分不能代替价格证据。'].join('\n')};
-  const currencies = new Set(rows.map(c=>c.currency??'CNY'));
+  const currencies = new Set(rows.map(normalizedCurrency));
   const modes = new Set(rows.map(c=>c.servingMode??'legacy'));
   if(currencies.size!==1 || !currencies.has('CNY') || modes.size!==1 || modes.has('unknown')) return {picks:selectPicks([]),reply:'当前只支持同币种人民币、同消费形式的价量比较。币种或消费形式未知/不一致，请补充确认，不作跨币种或堂饮与外带的性价比排名。'};
   const volume=request.match(/(?:只想喝|想喝|要喝|容量(?:为|是)?|想要)\s*(\d+(?:\.\d+)?)\s*ml/i);

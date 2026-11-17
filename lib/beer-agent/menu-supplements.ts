@@ -50,8 +50,16 @@ export type MenuSupplementFact = {
   excerpt?: string;
 };
 
+export type MenuSupplementRating = {
+  score: number;
+  count: number;
+  url: string;
+  checked_at: string;
+};
+
 export type MenuSupplementEntry = {
   id: string;
+  menu_id?: string;
   menu_index: number;
   menu_name: string;
   name_zh: string;
@@ -66,6 +74,8 @@ export type MenuSupplementEntry = {
   observation: MenuSupplementObservation;
   sources: MenuSupplementSource[];
   sourced_facts?: Partial<Record<"hops" | "ingredients" | "sensory" | "process" | "reputation", MenuSupplementFact>>;
+  /** Dated community snapshot explicitly tied to the beer page; opt-in. */
+  rating?: MenuSupplementRating | null;
   issues: string[];
   field_disagreements: Record<string, unknown>;
 };
@@ -130,11 +140,23 @@ function isSourcedFacts(value: unknown): boolean {
 }
 
 /** Structural guard at the read/apply boundary; one bad row never poisons the rest. */
+function isMenuSupplementRating(value: unknown): value is MenuSupplementRating {
+  if (value === null || typeof value !== "object") return false;
+  const rating = value as Record<string, unknown>;
+  return (
+    typeof rating.score === "number" && Number.isFinite(rating.score) && rating.score >= 0 && rating.score <= 5 &&
+    typeof rating.count === "number" && Number.isInteger(rating.count) && rating.count >= 0 &&
+    typeof rating.url === "string" && /^https:\/\//.test(rating.url.trim()) &&
+    typeof rating.checked_at === "string" && /^\d{4}-\d{2}-\d{2}/.test(rating.checked_at.trim())
+  );
+}
+
 function isMenuSupplementEntry(value: unknown): value is MenuSupplementEntry {
   if (value === null || typeof value !== "object") return false;
   const r = value as Record<string, unknown>;
   return (
     typeof r.id === "string" && r.id.trim().length > 0 &&
+    (r.menu_id === undefined || (typeof r.menu_id === "string" && r.menu_id.trim().length > 0)) &&
     typeof r.menu_index === "number" && Number.isInteger(r.menu_index) &&
     typeof r.menu_name === "string" && r.menu_name.trim().length > 0 &&
     typeof r.name_zh === "string" &&
@@ -151,6 +173,7 @@ function isMenuSupplementEntry(value: unknown): value is MenuSupplementEntry {
     isMenuSupplementObservation(r.observation) &&
     Array.isArray(r.sources) && r.sources.length > 0 && r.sources.every(isMenuSupplementSource) &&
     isSourcedFacts(r.sourced_facts) &&
+    (r.rating === undefined || r.rating === null || isMenuSupplementRating(r.rating)) &&
     Array.isArray(r.issues) && r.issues.every(v => typeof v === "string") &&
     r.field_disagreements !== null && typeof r.field_disagreements === "object"
   );
@@ -166,6 +189,10 @@ export const MENU_SUPPLEMENT_RELATIVE_PATH = path.join("data", "menus", "elnido-
  */
 export const MENU_SUPPLEMENT_ADDITIONS_RELATIVE_PATH =
   path.join("data", "menus", "elnido-2026-10-additions.json");
+
+/** Dated 2026-11 El Nido tap-wall snapshot; fixed path, no directory scan. */
+export const MENU_SUPPLEMENT_2026_11_RELATIVE_PATH =
+  path.join("data", "menus", "elnido-2026-11.json");
 
 /**
  * Fail-soft reader for one fixed supplement file. Missing file, malformed JSON,
@@ -193,11 +220,12 @@ async function readSupplementFile(relativePath: string): Promise<MenuSupplementE
  * file discovery happens. Original entries come first, additions after.
  */
 export async function readMenuSupplements(): Promise<MenuSupplementEntry[]> {
-  const [original, additions] = await Promise.all([
+  const [original, additions, november] = await Promise.all([
     readSupplementFile(MENU_SUPPLEMENT_RELATIVE_PATH),
     readSupplementFile(MENU_SUPPLEMENT_ADDITIONS_RELATIVE_PATH),
+    readSupplementFile(MENU_SUPPLEMENT_2026_11_RELATIVE_PATH),
   ]);
-  return [...original, ...additions];
+  return [...original, ...additions, ...november];
 }
 
 // ── Strict matching ──
@@ -508,7 +536,7 @@ function buildEvidence(
 
   const clauses: string[] = [];
   clauses.push(
-    `公开资料补充 [menu_id:elnido-2026-10] [menu_supplement:${entry.id}] [identity_status:${entry.identity_status}]：${rowLabel} #${entry.menu_index} ${title}`,
+    `公开资料补充 [menu_id:${entry.menu_id ?? "elnido-2026-10"}] [menu_supplement:${entry.id}] [identity_status:${entry.identity_status}]：${rowLabel} #${entry.menu_index} ${title}`,
   );
   clauses.push(`中文酒名：${entry.name_zh || "（无）"}`);
   clauses.push(`中文简介（公开资料意译）：${entry.description_zh}`);
@@ -595,6 +623,13 @@ function applyGrounding(candidate: BeerCandidate, entry: MenuSupplementEntry): B
   let roundingNote = false;
 
   if (entry.identity_status === "confirmed") {
+    // Canonical identity supersedes OCR misreads. The menu's Chinese display
+    // name stays, but the brewery shown to the user must be the sourced one
+    // (e.g. Outer Range, not the OCR's "Other Half").
+    if (typeof entry.brewery === "string" && entry.brewery.trim() &&
+        strictKey(entry.brewery) !== strictKey(candidate.brewery)) {
+      out.brewery = entry.brewery.trim();
+    }
     // Canonical known style supersedes stale/missing guesses on unique identity.
     if (typeof entry.style === "string" && entry.style.trim()) out.style = entry.style.trim();
 

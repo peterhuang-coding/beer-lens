@@ -198,6 +198,22 @@ function buildAbv(candidate: BeerCandidate, entry: MenuSupplementEntry | null, c
 }
 
 function buildRating(candidate: BeerCandidate, entry: MenuSupplementEntry | null, status: IdentityStatus): BeerDossier["rating"] {
+  if (entry?.rating) {
+    const { score, count, url, checked_at } = entry.rating;
+    if (Number.isFinite(score) && score >= 0 && score <= 5 &&
+        Number.isInteger(count) && count >= 0 && /^https:\/\//.test(url) && validDate(checked_at)) {
+      return {
+        value: { score, count },
+        source: "untappd",
+        sourceKind: "community",
+        url,
+        access: "web_index_or_cache",
+        checkedAt: checked_at,
+        reviewStatus: "curated",
+        usable: true,
+      };
+    }
+  }
   if (entry || status === "version_unresolved" || status === "batch_unresolved") return null;
   const score = candidate.untappdScore;
   const count = candidate.untappdRatingCount;

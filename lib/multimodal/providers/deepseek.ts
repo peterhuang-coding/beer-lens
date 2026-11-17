@@ -33,6 +33,10 @@ import type { ProviderCallOptions, VisionProvider } from "./base.ts";
 
 const BASE_URL = process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com";
 const MODEL = process.env.DEEPSEEK_MODEL ?? "deepseek-flash";
+// Vision JSON is dense and must fit the output budget. The model's default
+// high reasoning can consume max_tokens before the last menu rows, producing
+// truncated JSON. Disable reasoning by default; opt back in explicitly.
+const THINKING = (process.env.DEEPSEEK_THINKING ?? "disabled").trim().toLowerCase();
 
 function appendSchemaInstruction(prompt: string, schemaJson: string): string {
   return `${prompt}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}`;
@@ -139,6 +143,7 @@ const deepseekProvider: VisionProvider = {
       temperature: 0.1,
       max_tokens: input.maxTokens ?? 4096,
       stream: false,
+      thinking: { type: THINKING === "enabled" ? "enabled" : "disabled" },
     };
 
     if (useJsonObject) {

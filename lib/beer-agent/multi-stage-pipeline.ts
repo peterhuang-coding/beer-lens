@@ -343,10 +343,27 @@ async function combinedVisionAnalysis(
     maxTokens: 12000,
   }, signal ? { ...callOptions, signal } : callOptions);
 
-  const data = result.parsed as any;
+  // The provider returns raw text; the container's tryParse falls back to the
+  // string on invalid JSON. Parse/repair here so a truncated but salvageable
+  // response yields the rows it did contain instead of a silent empty menu.
+  const raw = typeof result.raw === "string" && result.raw.trim()
+    ? result.raw.trim()
+    : JSON.stringify(result.parsed ?? {});
+  const data = parseAndRepairJson(raw, "beer_combined_vision") as any;
+  const extracted = data?.extracted ?? {
+    sourceType: "unknown", rawText: "", items: [],
+    visualBeerDescription: { color: "", clarity: "", foam: "", visiblePackagingDate: "", notes: [] },
+    uncertainties: [],
+  };
+  if (!raw.endsWith("}")) {
+    extracted.uncertainties = [
+      ...(Array.isArray(extracted.uncertainties) ? extracted.uncertainties : []),
+      "模型输出在 max_tokens 处截断；后段酒款可能缺失，已保留可解析的前段。",
+    ];
+  }
   return {
     imageContext: data?.imageContext ?? textOnlyImageContext(),
-    extracted: data?.extracted ?? { sourceType: "unknown", rawText: "", items: [], visualBeerDescription: { color: "", clarity: "", foam: "", visiblePackagingDate: "", notes: [] }, uncertainties: [] },
+    extracted,
     visualQuality: data?.visualQuality ?? textOnlyVisualQuality(),
   };
 }
@@ -489,7 +506,7 @@ async function callOpenRouterJson(
   );
 }
 
-function parseAndRepairJson(content: string, label: string): object {
+export function parseAndRepairJson(content: string, label: string): object {
   try { return JSON.parse(content.trim()); } catch {}
 
   let cleaned = content
@@ -524,6 +541,13 @@ function parseAndRepairJson(content: string, label: string): object {
   let json = cleaned.slice(firstBrace, end).trim();
 
   if (!isBalanced(json)) {
+    // A truncation inside the last property leaves an unterminated string.
+    // Close it only at the last complete object, then append the open
+    // brackets; this preserves all complete rows instead of dropping them.
+    const atObject = salvageAtLastCompleteObject(json);
+    if (atObject) {
+      try { return JSON.parse(atObject); } catch { /* fall through */ }
+    }
     json = salvageTruncated(json);
   }
 
@@ -540,6 +564,11 @@ function parseAndRepairJson(content: string, label: string): object {
     try {
       const salvaged = salvageTruncated(repaired);
       return JSON.parse(salvaged);
+    } catch {}
+
+    try {
+      const atObject = salvageAtLastCompleteObject(json);
+      if (atObject) return JSON.parse(atObject);
     } catch {}
 
     const preview = json.slice(0, 500);
@@ -593,6 +622,42 @@ function isBalanced(s: string): boolean {
     if (ch === "]" && (i === 0 || s[i - 1] !== "\\")) depth--;
   }
   return depth === 0 && !inString;
+}
+
+/**
+ * Cut a truncated JSON document at the last complete object and append the
+ * brackets that were open at that point. This is safe for truncation in the
+ * middle of a string/key because it never closes a partial key/value pair.
+ */
+function salvageAtLastCompleteObject(json: string): string | null {
+  const stack: string[] = [];
+  let inString = false;
+  let escaped = false;
+  let lastClose = -1;
+  let lastStack: string[] = [];
+
+  for (let i = 0; i < json.length; i++) {
+    const ch = json[i];
+    if (inString) {
+      if (escaped) { escaped = false; continue; }
+      if (ch === "\\") { escaped = true; continue; }
+      if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') { inString = true; continue; }
+    if (ch === "{") { stack.push("}"); continue; }
+    if (ch === "[") { stack.push("]"); continue; }
+    if ((ch === "}" || ch === "]") && stack[stack.length - 1] === ch) {
+      stack.pop();
+      if (ch === "}") {
+        lastClose = i;
+        lastStack = stack.slice();
+      }
+    }
+  }
+
+  if (lastClose < 0) return null;
+  return json.slice(0, lastClose + 1) + lastStack.reverse().join("");
 }
 
 function salvageTruncated(json: string): string {

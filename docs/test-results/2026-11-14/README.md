@@ -20,6 +20,7 @@
 | 回复预留 8 秒导致 agent 截止 52 秒，51.7 秒真实响应被取消 | `lib/beer-agent/turn-deadline.ts` 预留改为 4 秒；agent 预算 56 秒，仍保留会话落盘与飞书回发时间 | 定向真实复验 |
 | 首轮只报“共 17 款”，没有标注 #5 反光/空白、#19/#20 被裁切 | `lib/beer-agent/menu-coverage.ts` + `lib/skills/recommend/execute.ts`：把视觉模型返回的 uncertainties 作为“图像边界（不猜测）”放在回复开头 | `tests/menu-followup-routing.test.mts` |
 | 旧 Coding Plan 文本 key 已 401；现有 Ark `LLM_*` 对长知识提示超过 60 秒 | 新增 opt-in `BEER_TEXT_PROVIDER=llm`（复用 `LLM_BASE_URL/LLM_API_KEY/LLM_MODEL`，默认行为不变）；Feishu 知识追问改用现有 OpenRouter `deepseek/deepseek-chat`（同题 8–10 秒） | `tests/llm-text-client.test.mts`、`tests/feishu-package-preflight.test.mts`、真实多轮 |
+| DeepSeek 视觉 JSON 在 `reasoning_content` 后截断，容器静默当成 0 款 | `deepseek.ts` 默认 `thinking: disabled`；`multi-stage-pipeline.ts` 用 `parseAndRepairJson` 做截断 salvage 并标注“后段可能缺失” | `tests/deepseek-provider.test.mts`、`tests/vision-json-repair.test.mts`；真实图复验 12.5s/17 款 |
 
 ## 2. 951.603 秒的证据链与边界
 
@@ -102,13 +103,15 @@
 
 ## 5. 飞书结果
 
-见 `feishu-acceptance.md`（由真实私聊收发后填写）。bot 使用现有 Beer Lens app 配置，固定 `BEER_VISION_PROVIDER=deepseek`、`BEER_TEXT_PROVIDER=openrouter`（现有 `OPENROUTER_API_KEY`，`deepseek/deepseek-chat`）、60 秒总预算/4 秒预留；只使用已授权 Beer Lens 私聊与已审查测试图。旧 Coding Plan key 已 401，未用于本轮 Feishu 文本。
+见 `feishu-acceptance.md`。真实私聊已收到用户图片并完成首轮：客户端消息时间差 **20.20 秒**、服务端 firstReplyLatency 19.70 秒、17 款完整回复；前两次失败是 `.env.local` DeepSeek key 余额 0（HTTP 402），换用余额预检通过的已授权 key 后成功。5 条文字追问与修复币种后的干净重放仍待执行，不能把首轮成功写成多轮/客户端全部通过。
+
+bot 使用现有 Beer Lens app 配置，固定 `BEER_VISION_PROVIDER=deepseek`、`BEER_TEXT_PROVIDER=openrouter`（现有 `OPENROUTER_API_KEY`，`deepseek/deepseek-chat`）、60 秒总预算/4 秒预留；只使用已授权 Beer Lens 私聊与已审查测试图。旧 Coding Plan key 已 401，未用于本轮 Feishu 文本。
 
 ## 6. 全量回归
 
 `npm run check` 退出码 0：
 
-- Node：**1100 / 1100** 通过（新增 18 项菜单/路由/覆盖/文本入口/证据守卫回归）。
+- Node：**1109 / 1109** 通过（含菜单/路由/覆盖/文本入口/证据守卫/视觉截断修复/El Nido supplement 回归）。
 - Python：**38 / 38** 通过。
 - TypeScript typecheck：通过。
 - Next.js production build：通过。

@@ -1,50 +1,52 @@
-# Feishu private-chat acceptance — 2026-11-14
+# Feishu private-chat acceptance — 2026-11-15
 
 ## Status
 
-**BLOCKED on one human action.** The Beer Lens bot is running from this worktree with the fixed code and an established Feishu long connection. No new message was received in the authorized Beer Lens p2p chat during two 30-minute observation windows. No Feishu image reply, no multi-turn reply, and no client-visible timestamp have been claimed as passed.
+**PARTIAL.** A real user image was received in the authorized Beer Lens p2p chat and the full first-turn reply was delivered. The 5-question multi-turn and the cleaned-up (currency-fixed) image replay are still pending.
 
-This is not a code or credential failure: `checkFeishuTrialConfig` reports `ready: true` with the existing Beer Lens app, and the bot log says `Beer Lens 飞书长连接已建立`. The remaining step is a user-sent image (or an explicit IM user authorization for automation).
+This is no longer a blocked-connection status: the bot received a user image, downloaded it, ran the real DeepSeek vision pipeline, persisted the menu, and sent a complete reply.
 
-## Running configuration
+## Real attempts
 
-- Image: `BEER_VISION_PROVIDER=deepseek`, model `deepseek-flash`, one request per turn, no fallback.
-- Text: `BEER_TEXT_PROVIDER=openrouter`, existing `OPENROUTER_API_KEY`, model `deepseek/deepseek-chat` (the old Coding Plan key returns 401; the Ark `LLM_*` entry exceeded 60s on the long knowledge prompt).
-- Budget: 60,000 ms including queue; 4,000 ms reply reserve → 56,000 ms agent budget.
-- Feishu app: existing Beer Lens app from `/Volumes/SanDisk2TB/beer-lens/.env.local`; no secret printed or copied into the repo.
-- Chat scope: the authorized Beer Lens private p2p chat only (the chat that already contains `/mbcb` test messages). No group chat or other user.
-- Image: `tests/fixtures/tap-list.jpg`, SHA-256 `e9f24bb22950b20bdcc621a3dcd4fdf5c9461da7a94808941ef061bf78649bc6`; this is the reviewed holdout image, not a private photo.
+| Attempt | User image SHA | Result | Server timing | Client-visible proxy |
+|---|---|---|---|---|
+| 1 | matches reviewed fixture | failed: `vision call canceled/402` | 4.36s | 4.89s |
+| 2 | matches reviewed fixture | failed: same path | 4.54s | 5.02s |
+| 3 | matches reviewed fixture | **ok: 17 rows, full reply** | 19.70s | **20.20s** |
 
-## Required human action
+The first two failures were traced to the `.env.local` DeepSeek key having **zero balance (HTTP 402)**, not to image content. The bot was restarted with a balance-checked, already-authorized DeepSeek key. The third attempt succeeded.
 
-Send the image to the Beer Lens private chat, then send these five questions one at a time after the first full reply:
+The actual image SHA-256 was `e9f24bb22950b20bdcc621a3dcd4fdf5c9461da7a94808941ef061bf78649bc6`, exactly the reviewed `tests/fixtures/tap-list.jpg`; no private photo was sent.
 
-1. 我预算100元以内，想要清爽不苦，选哪款？
-2. 哪款酒花最香？
-3. 哪款是经典款？
-4. 第7款多少钱？
-5. 为什么推荐第一款？
+## Turn timing (attempt 3)
 
-The watcher records each inbound message `create_time`, each bot reply `create_time`, and the difference (client-visible proxy). The bot writes one `[feishu:turn_timing]` JSON record per inbound message with `queueWaitMs`, `imageDownloadMs`, `agentMs`, `memoryWriteMs`, `replyMs`, `processingMs`, and `firstReplyLatencyMs` on a monotonic clock.
+Bot `[feishu:turn_timing]` monotonic record:
 
-## What is already proven without Feishu transport
+- queueWait 0.5ms
+- imageDownload 879.9ms
+- agent 18,221.7ms
+- memoryWrite 0.7ms
+- reply 588.9ms
+- firstReplyLatency 19,700.8ms
+- result `ok`, replySucceeded true
 
-- Real reviewed image → 17 candidates → 3 picks → full 17-row reply, server-side 32.0s (`live-deepseek-schema2.json`).
-- The reply starts with explicit image boundaries: #5 reflective/blank, #11 brewery ambiguity, #19/#20 cropped (`menu-coverage.ts`, offline replay).
-- Real multi-turn content with the active menu: budget 4ms, hops 10.8s, classic 9.7s, price 9ms, why 4.8s (`real-multiturn-report.json`). Deterministic guards prepend menu arithmetic for “最低/最便宜” claims and source caveats for unsourced brewery history; the budget guard is unit-tested against the captured “90元略超预算” counterexample.
-- Offline replay keeps 17 rows across all five follow-ups and cancels a non-settling provider at 1.5s (`offline-replay-report.json`).
+Client-visible proxy from Feishu `create_time`: user image 1794720633486 → bot reply 1794720653686 = **20,200ms**, within the 60s target.
 
-## What is not proven
+## What the reply contained
 
-- The Feishu WebSocket inbound event for a **user**-sent image in this run.
-- The Feishu image download from that message.
-- The complete reply's client-visible latency (message timestamp to reply timestamp).
-- Whether the Feishu client renders the full text without truncation.
+- 17 menu rows (the tap-list holdout; #5 reflective/blank; #19/#20 cropped were surfaced in the image-boundary note).
+- 3 picks with price/volume/unit-price/tradeoff.
+- Full per-row style reading; no fabricated ratings or market quotes for the holdout.
+- The reply was generated **before** the currency-display fix, so some prices showed `unknown` instead of `元`; the bot has since been fixed (`offerText` infers `¥/元` from OCR evidence). A clean image replay is still pending.
 
-These must be recorded after the human action; until then the 60-second client target remains unverified.
+## Not yet tested
 
-## Observation evidence
+- The 5 text follow-ups in Feishu (budget, bitterness, hops, classic, price). The 17-row short-term menu is persisted; the bot is running with the fixed supplement and guards.
+- A clean image reply after the currency fix (optional if the existing 20.2s image evidence is accepted).
+- Group chats, other users, deployment.
 
-- `feishu-watch.json` in the job temp directory: `events=0`, `pollErrors=0` across two 30-minute windows.
-- Bot log: connected, no turn timing records.
-- `lark-cli auth status`: user identity missing; no user token was extracted or printed. Device authorization was offered but not completed.
+## Evidence
+
+- `feishu-watch.json` (job temp): messages, reply match, client latency.
+- Bot log: `[feishu:turn_timing]` record above.
+- OCR/vision root cause: a 402 balance failure and a separate truncated-JSON/0-item bug; fixed by `thinking: disabled` and JSON salvage. Real diagnostic after fix: 12.5s, 17 items.

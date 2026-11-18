@@ -1,0 +1,358 @@
+{
+  "items": 22,
+  "initial": {
+    "monotonicMs": 3161,
+    "candidateCount": 21,
+    "route": "recommend",
+    "warnings": [],
+    "reply": "图像边界（OCR 22 项，保留候选 22 款；以下项不猜测）：部分小字酒厂名与风格文字较模糊，如第4、7、10、11、13、14、15、16、17、18、19条的酒厂信息未能完全确认\n非啤酒/非标准项：#14 温柔呵护苹果荔枝硬果酒 TLC Cider、#20 山楂气泡水 Hawthorn Sparkling Water、#21 热红酒 初雪先到 Mulled Wine、荔枝啤酒冰沙 Lychee Beer Slushy；菜单事实保留，但不作为啤酒推荐。\n\n先给你 3 个选择（按当前口味、约束和已确认资料）：\n1. #2 发枝儿 branching out（首选）：符合你要的清爽风格；90元 / 300ml，30.00元/100ml；取舍：单位价只作菜单内算术，不代表品质或市场最低价。\n2. #1 本杰明六月啤酒 Benjamin June（稳妥备选）：有款级风味或酒花资料，便于按口味选择；85元 / 425ml，20.00元/100ml；取舍：单位价只作菜单内算术，不代表品质或市场最低价。\n3. #3 李尔王 King Lear（探索备选）：低酒精度，相对清爽；80元 / 425ml，18.82元/100ml；取舍：IBU 未知，不能把风格当成实际苦度保证。\n\n整单解读（共 21 款，逐款如下）：\n#1 Living Häus Beer Company / 本杰明六月啤酒 Benjamin June｜Festbier｜ABV 5.2%｜85元 / 425ml，20.00元/100ml；评分 3.89/5（526 人，2026-11-15 快照，来源 https://untappd.com/b/living-haus-beer-company-benjamin-june/5484293）\n款级感官：节日拉格；面团/饼干麦芽、柔和草本酒花与轻苦；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/living-haus-beer-company-benjamin-june/5484293\n#2 Everywhere / 发枝儿 branching out｜Pilsner - Other｜ABV 5.6%｜90元 / 300ml，30.00元/100ml；评分 4.05/5（1428 人，2026-11-15 快照，来源 https://untappd.com/b/everywhere-branching-out/5260972）\n款级感官：现代皮尔森；Nectaron、Nelson、Krush 酒花；酒花：Nectaron、Nelson、Krush；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/everywhere-branching-out/5260972\n#3 Velka Morava / 李尔王 King Lear｜Bitter - Best｜ABV 4.7%｜80元 / 425ml，18.82元/100ml；评分 3.96/5（671 人，2026-11-15 快照，来源 https://untappd.com/b/velka-morava-king-lear/6746254）\n款级感官：麦芽甜感、贵族酒花气息；来源：社区来源，2026-10-21 核对，索引/缓存，https://nakrane.com/beers/velka-morava-king-lear\n#4 Everywhere / 齐飞 Forward Motion｜IPA - American｜ABV 6.9%｜80元 / 300ml，26.67元/100ml；评分 4.07/5（246 人，2026-11-15 快照，来源 https://untappd.com/b/everywhere-forward-motion/6846437）\n款级感官：西海岸 IPA；Mosaic/Citra/Krush 酒花；酒花：Mosaic、Mosaic Dynaboost、Citra、Krush；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/everywhere-forward-motion/6846437\n#5 Ebeltoft Gårdbryggeri / 野花 冷萃鲜酿2号 Wildflower Cryo fresh #2｜IPA - New England / Hazy｜ABV 5.8% / 5.9%（来源冲突，并列保留）｜65元 / 300ml，21.67元/100ml；评分 3.61/5（22 人，2026-11-15 快照，来源 https://untappd.com/b/ebeltoft-gardbryggeri-wildflower-cryo-fresh-2-simcoe/6860580）\n款级感官：Cryo Fresh Simcoe；Hazy IPA；酒花：Simcoe；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/ebeltoft-gardbryggeri-wildflower-cryo-fresh-2-simcoe/6860580\n#6 Totopia Brewery / 膨胀恐惧症 Expansionphobia｜IPA - Imperial / Double｜ABV 8.5% / 8%（来源冲突，并列保留）｜105元 / 300ml，35.00元/100ml；评分 3.97/5（122 人，2026-11-15 快照，来源 https://untappd.com/b/totopia-brewery-expansionphobia/6850767）\n款级感官：树脂、松针、柑橘苦感；金黄色酒体；酒花：Mosaic Cryo、Southern Cross、Southern Cross Hop Kief；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/totopia-brewery-expansionphobia/6850767\n#7 旗#0037 Demolition#0037｜浑浊IPA Hazy IPA｜ABV 7.5%｜85元 / 300ml，28.33元/100ml；酒厂/身份未独立核实，仅按菜单文字与风格通性\n风格通性，非本款事实：通常酒体较柔、苦感相对收敛，常见热带水果或柑橘方向；浑浊外观不证明添加了水果。\n#8 Batch Craft Beer & Kolaches / 微醺幻境 Daze｜IPA - Imperial / Double New England / Hazy｜ABV 7.5%｜70元 / 300ml，23.33元/100ml；评分 4.02/5（147 人，2026-11-15 快照，来源 https://untappd.com/b/batch-craft-beer-and-kolaches-daze/6457217）\n款级感官：DDH Hazy Double IPA；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/batch-craft-beer-and-kolaches-daze/6457217\n#9 Totopia Brewery / 天鹅狂爱症 Swanphilia｜IPA - Imperial / Double New England / Hazy｜ABV 8.5%｜125元 / 300ml，41.67元/100ml；评分 4.07/5（409 人，2026-11-15 快照，来源 https://untappd.com/b/totopia-brewery-swanphilia/6915810）\n款级感官：热带水果、柔苦；顺滑酒体；酒花：Citra、Krush Cryo；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/totopia-brewery-swanphilia/6915810\n#10 未来学家 Futurist｜四倍干投三倍浑浊IPA Triple Hazy IPA｜ABV 10.5%｜65元 / 300ml，21.67元/100ml；酒厂/身份未独立核实，仅按菜单文字与风格通性\n风格通性，非本款事实：通常酒体较柔、苦感相对收敛，常见热带水果或柑橘方向；浑浊外观不证明添加了水果。\n#11 Young Master Brewery 少爺啤 / 沉香麦韵 Champs of My Rye｜IPA - Rye｜ABV 7.5%｜75元 / 425ml，17.65元/100ml；评分 3.41/5（70 人，2026-11-15 快照，来源 https://untappd.com/b/young-master-brewery-chanpei-of-my-rye/6859818）\n款级感官：胡椒黑麦、陈皮、树脂、热带水果、花香；酒花：Chinook、Cryo Simcoe、Cryo Centennial、Cryo Pop、Krush Hyperboost；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/young-master-brewery-chanpei-of-my-rye/6859818\n#12 Totopia Brewery / 迷你恐惧症 Tinyphobia｜IPA - Sour｜ABV 5% / 6%（来源冲突，并列保留）｜115元 / 300ml，38.33元/100ml；评分 3.8/5（235 人，2026-11-15 快照，来源 https://untappd.com/b/totopia-brewery-tinyphobia/6850762）\n款级感官：黑莓/芒果/肉桂的酸 IPA；葡萄色、蜜甜与野莓酸；酒花：Citra；配料：Blackberry、Mango、Cinnamon；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/totopia-brewery-tinyphobia/6850762\n#13 Frequentem Brewing Co. / 果味满满46号 Just Fruit｜Sour - Fruited｜ABV 5%｜90元 / 300ml，30.00元/100ml；评分 4.24/5（49 人，2026-11-15 快照，来源 https://untappd.com/b/frequentem-brewing-co-just-fruit-raspberry-guava-tangerine/6776195）\n款级感官：果酱感、热带水果；覆盆子/番石榴/橘子；配料：Raspberry、Guava、Tangerine；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/frequentem-brewing-co-just-fruit-raspberry-guava-tangerine/6776195\n#14 温柔呵护苹果荔枝硬果酒 TLC Cider｜苹果荔枝硬果酒 Cider｜ABV 5%｜95元 / 200ml，47.50元/100ml；酒厂/身份未独立核实，仅按菜单文字与风格通性\n风格通性，非本款事实：目前只有“苹果荔枝硬果酒 Cider”风格标签，没有可展开的本地风格通讲；不把名称或相似酒款当作本款配方与风味证据。\n#15 RaR Brewing / 无序海上将军 Out of Order Is Rusty Still in the Navy?｜Sour - Fruited｜ABV 5%｜100元 / 300ml，33.33元/100ml；评分 3.9/5（242 人，2026-11-15 快照，来源 https://untappd.com/b/rar-brewing-out-of-order-is-rusty-still-in-the-navy/6538503）\n款级感官：乳酸酸啤；柠檬/青柠果冻、蜂蜜谷物；配料：Lemon and Lime Jello、Honey Glazed Cereal；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/rar-brewing-out-of-order-is-rusty-still-in-the-navy/6538503\n#16 Resident Culture / 松鼠伙伴 Squirrel Friends｜Sour - Fruited｜ABV 5%｜70元 / 300ml，23.33元/100ml；评分 3.94/5（1038 人，2026-11-15 快照，来源 https://untappd.com/b/resident-culture-squirrel-friends/4331480）\n款级感官：水果酸艾尔；番石榴、橘子、青柠、椰子；配料：Guava、Tangerine、Lime、Coconut；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/resident-culture-squirrel-friends/4331480\n#17 Holy Goat Brewing / 烈日下的粉碎机 Sunsmasher 2026｜Sour - Fruited｜ABV 5.8%｜90元 / 300ml，30.00元/100ml；评分 3.99/5（808 人，2026-11-15 快照，来源 https://untappd.com/b/holy-goat-brewing-sunsmasher-2026/6615436）\n款级感官：Brett 发酵；菠萝、核果、柑橘；杏；配料：Apricots；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/holy-goat-brewing-sunsmasher-2026/6615436\n#18 everywhere / 印记 See What Sticks｜Stout - Imperial / Double｜ABV 10.7%｜145元 / 300ml，48.33元/100ml；评分 4.11/5（238 人，2026-11-15 快照，来源 https://untappd.com/b/everywhere-see-what-sticks/6506348）\n款级感官：节日帝国世涛；蔓越莓、奶油奶酪、香草、乳糖；配料：Cranberries、Cream cheese powder、Vanilla beans、Milk sugar；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/everywhere-see-what-sticks/6506348\n#19 Brewski / 一零六号原型机 Proto 106｜Stout - Imperial / Double｜ABV 11%｜80元 / 300ml，26.67元/100ml；评分 3.92/5（330 人，2026-11-15 快照，来源 https://untappd.com/b/brewski-proto-106/5697070）\n款级感官：帝国世涛；可可、辣椒、香草；配料：cocoa nibs、chili、vanilla；来源：社区来源，2026-11-15 核对，索引/缓存，https://untappd.com/b/brewski-proto-106/5697070\n#21 热红酒 初雪先到 Mulled Wine｜热红酒 Mulled Wine｜ABV 未确认｜75元 / 容量未知；酒厂/身份未独立核实，仅按菜单文字与风格通性\n风格通性，非本款事实：目前只有“热红酒 Mulled Wine”风格标签，没有可展开的本地风格通讲；不把名称或相似酒款当作本款配方与风味证据。\n#21 荔枝啤酒冰沙 Lychee Beer Slushy｜啤酒冰沙 Beer Slushy｜ABV 2.5%｜65元 / 330ml，19.70元/100ml；酒厂/身份未独立核实，仅按菜单文字与风格通性\n风格通性，非本款事实：目前只有“啤酒冰沙 Beer Slushy”风格标签，没有可展开的本地风格通讲；不把名称或相似酒款当作本款配方与风味证据。\n\n品饮顺序：#2 → #21 → #21 → #3 → #12 → #13 → #14 → #15 → #16 → #1 → #5 → #17 → #4 → #7 → #8 → #11 → #6 → #9 → #10 → #18 → #19。先清爽/低强度，后高酒精、厚重或甜点化；只是风格建议，可按你的口味调整。\n资料边界：风格通性不等于本款事实；没有可靠评分就不报评分。没有同款、同版本、同消费形式、同币种口径及注明日期的市场报价来源时，不作产地或市场溢价结论。你的口味反馈只用于个人推荐，不会自动成为公共酒款事实。"
+  },
+  "candidates": [
+    {
+      "menuIndex": 1,
+      "displayName": "本杰明六月啤酒 Benjamin June",
+      "brewery": "Living Häus Beer Company",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.89163,
+        "count": 526
+      },
+      "ratingSource": "https://untappd.com/b/living-haus-beer-company-benjamin-june/5484293",
+      "hops": null,
+      "sensory": [
+        "节日拉格；面团/饼干麦芽、柔和草本酒花与轻苦"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 2,
+      "displayName": "发枝儿 branching out",
+      "brewery": "Everywhere",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 4.05392,
+        "count": 1428
+      },
+      "ratingSource": "https://untappd.com/b/everywhere-branching-out/5260972",
+      "hops": [
+        "Nectaron",
+        "Nelson",
+        "Krush"
+      ],
+      "sensory": [
+        "现代皮尔森；Nectaron、Nelson、Krush 酒花"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 3,
+      "displayName": "李尔王 King Lear",
+      "brewery": "Velka Morava",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.95939,
+        "count": 671
+      },
+      "ratingSource": "https://untappd.com/b/velka-morava-king-lear/6746254",
+      "hops": null,
+      "sensory": [
+        "麦芽甜感",
+        "贵族酒花气息"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 4,
+      "displayName": "齐飞 Forward Motion",
+      "brewery": "Everywhere",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 4.06768,
+        "count": 246
+      },
+      "ratingSource": "https://untappd.com/b/everywhere-forward-motion/6846437",
+      "hops": [
+        "Mosaic",
+        "Mosaic Dynaboost",
+        "Citra",
+        "Krush"
+      ],
+      "sensory": [
+        "西海岸 IPA；Mosaic/Citra/Krush 酒花"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 5,
+      "displayName": "野花 冷萃鲜酿2号 Wildflower Cryo fresh #2",
+      "brewery": "Ebeltoft Gårdbryggeri",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.60682,
+        "count": 22
+      },
+      "ratingSource": "https://untappd.com/b/ebeltoft-gardbryggeri-wildflower-cryo-fresh-2-simcoe/6860580",
+      "hops": [
+        "Simcoe"
+      ],
+      "sensory": [
+        "Cryo Fresh Simcoe；Hazy IPA"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 6,
+      "displayName": "膨胀恐惧症 Expansionphobia",
+      "brewery": "Totopia Brewery",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.96926,
+        "count": 122
+      },
+      "ratingSource": "https://untappd.com/b/totopia-brewery-expansionphobia/6850767",
+      "hops": [
+        "Mosaic Cryo",
+        "Southern Cross",
+        "Southern Cross Hop Kief"
+      ],
+      "sensory": [
+        "树脂、松针、柑橘苦感；金黄色酒体"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 7,
+      "displayName": "旗#0037 Demolition#0037",
+      "brewery": "",
+      "identityStatus": "unmatched",
+      "rating": null,
+      "ratingSource": null,
+      "hops": null,
+      "sensory": null,
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 8,
+      "displayName": "微醺幻境 Daze",
+      "brewery": "Batch Craft Beer & Kolaches",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 4.01973,
+        "count": 147
+      },
+      "ratingSource": "https://untappd.com/b/batch-craft-beer-and-kolaches-daze/6457217",
+      "hops": null,
+      "sensory": [
+        "DDH Hazy Double IPA"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 9,
+      "displayName": "天鹅狂爱症 Swanphilia",
+      "brewery": "Totopia Brewery",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 4.06919,
+        "count": 409
+      },
+      "ratingSource": "https://untappd.com/b/totopia-brewery-swanphilia/6915810",
+      "hops": [
+        "Citra",
+        "Krush Cryo"
+      ],
+      "sensory": [
+        "热带水果、柔苦；顺滑酒体"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 10,
+      "displayName": "未来学家 Futurist",
+      "brewery": "",
+      "identityStatus": "unmatched",
+      "rating": null,
+      "ratingSource": null,
+      "hops": null,
+      "sensory": null,
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 11,
+      "displayName": "沉香麦韵 Champs of My Rye",
+      "brewery": "Young Master Brewery 少爺啤",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.40786,
+        "count": 70
+      },
+      "ratingSource": "https://untappd.com/b/young-master-brewery-chanpei-of-my-rye/6859818",
+      "hops": [
+        "Chinook",
+        "Cryo Simcoe",
+        "Cryo Centennial",
+        "Cryo Pop",
+        "Krush Hyperboost"
+      ],
+      "sensory": [
+        "胡椒黑麦、陈皮、树脂、热带水果、花香"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 12,
+      "displayName": "迷你恐惧症 Tinyphobia",
+      "brewery": "Totopia Brewery",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.80489,
+        "count": 235
+      },
+      "ratingSource": "https://untappd.com/b/totopia-brewery-tinyphobia/6850762",
+      "hops": [
+        "Citra"
+      ],
+      "sensory": [
+        "黑莓/芒果/肉桂的酸 IPA；葡萄色、蜜甜与野莓酸"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 13,
+      "displayName": "果味满满46号 Just Fruit",
+      "brewery": "Frequentem Brewing Co.",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 4.23776,
+        "count": 49
+      },
+      "ratingSource": "https://untappd.com/b/frequentem-brewing-co-just-fruit-raspberry-guava-tangerine/6776195",
+      "hops": null,
+      "sensory": [
+        "果酱感、热带水果；覆盆子/番石榴/橘子"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 14,
+      "displayName": "温柔呵护苹果荔枝硬果酒 TLC Cider",
+      "brewery": "",
+      "identityStatus": "unmatched",
+      "rating": null,
+      "ratingSource": null,
+      "hops": null,
+      "sensory": null,
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 15,
+      "displayName": "无序海上将军 Out of Order Is Rusty Still in the Navy?",
+      "brewery": "RaR Brewing",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.89938,
+        "count": 242
+      },
+      "ratingSource": "https://untappd.com/b/rar-brewing-out-of-order-is-rusty-still-in-the-navy/6538503",
+      "hops": null,
+      "sensory": [
+        "乳酸酸啤；柠檬/青柠果冻、蜂蜜谷物"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 16,
+      "displayName": "松鼠伙伴 Squirrel Friends",
+      "brewery": "Resident Culture",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.93805,
+        "count": 1038
+      },
+      "ratingSource": "https://untappd.com/b/resident-culture-squirrel-friends/4331480",
+      "hops": null,
+      "sensory": [
+        "水果酸艾尔；番石榴、橘子、青柠、椰子"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 17,
+      "displayName": "烈日下的粉碎机 Sunsmasher 2026",
+      "brewery": "Holy Goat Brewing",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.99134,
+        "count": 808
+      },
+      "ratingSource": "https://untappd.com/b/holy-goat-brewing-sunsmasher-2026/6615436",
+      "hops": null,
+      "sensory": [
+        "Brett 发酵；菠萝、核果、柑橘；杏"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 18,
+      "displayName": "印记 See What Sticks",
+      "brewery": "everywhere",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 4.10735,
+        "count": 238
+      },
+      "ratingSource": "https://untappd.com/b/everywhere-see-what-sticks/6506348",
+      "hops": null,
+      "sensory": [
+        "节日帝国世涛；蔓越莓、奶油奶酪、香草、乳糖"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 19,
+      "displayName": "一零六号原型机 Proto 106",
+      "brewery": "Brewski",
+      "identityStatus": "confirmed",
+      "rating": {
+        "score": 3.91697,
+        "count": 330
+      },
+      "ratingSource": "https://untappd.com/b/brewski-proto-106/5697070",
+      "hops": null,
+      "sensory": [
+        "帝国世涛；可可、辣椒、香草"
+      ],
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 21,
+      "displayName": "热红酒 初雪先到 Mulled Wine",
+      "brewery": "",
+      "identityStatus": "unmatched",
+      "rating": null,
+      "ratingSource": null,
+      "hops": null,
+      "sensory": null,
+      "styleLayer": "风格通性，非本款事实"
+    },
+    {
+      "menuIndex": 0,
+      "displayName": "荔枝啤酒冰沙 Lychee Beer Slushy",
+      "brewery": "",
+      "identityStatus": "unmatched",
+      "rating": null,
+      "ratingSource": null,
+      "hops": null,
+      "sensory": null,
+      "styleLayer": "风格通性，非本款事实"
+    }
+  ],
+  "checks": {
+    "retainedRowsAtLeast20": true,
+    "sourcedRowsAtLeast16": true,
+    "hopsRowsAtLeast7": true,
+    "unresolvedRowsExplicitlyUnknown": true,
+    "replyMentionsSourcedRating": true,
+    "replyMentionsHops": true
+  }
+}

@@ -60,8 +60,8 @@ test("a non-beer item is excluded explicitly instead of silently dropping a menu
       { menuIndex: 20, beerName: "山楂气泡水", style: "气泡水", rawText: "20 山楂气泡水 0.0% 400ml ¥40" },
     ],
   }, 3);
-  assert.match(note, /OCR 3 项，保留候选 3 款/);
-  assert.match(note, /非啤酒项：#14 温柔呵护 西打/);
+  assert.match(note, /OCR 3 项，保留候选 2 款/);
+  assert.match(note, /非啤酒\/非标准项：#14 温柔呵护 西打/);
   assert.match(note, /#20 山楂气泡水/);
   assert.match(note, /不作为啤酒推荐/);
 });

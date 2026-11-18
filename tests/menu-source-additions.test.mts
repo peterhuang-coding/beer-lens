@@ -212,15 +212,15 @@ test("original 17 file unchanged: dated 2026-10-20 observations, 2026-10-21 chec
 
 // ── 3. Reader: fixed two-file combine, independently fail-soft ──
 
-test("reader: real cwd combines 17 original + 3 additions + 13 November = 33, originals first", async () => {
+test("reader: real cwd combines 17 original + 3 additions + 16 November = 36, originals first", async () => {
   const cwd = process.cwd();
   try {
     process.chdir(repoRoot);
     const loaded = await readMenuSupplements();
-    assert.equal(loaded.length, 33);
+    assert.equal(loaded.length, 36);
     assert.deepEqual(loaded.slice(0, 17).map(e => e.id), baseEntries.map(e => e.id));
     assert.deepEqual(loaded.slice(17, 20).map(e => e.id), additionsEntries.map(e => e.id));
-    assert.equal(loaded.slice(20).length, 13);
+    assert.equal(loaded.slice(20).length, 16);
   } finally {
     process.chdir(cwd);
   }

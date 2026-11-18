@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 import { performance } from "node:perf_hooks";
 
 const ROOT = "/Volumes/SanDisk2TB/beer-lens-feishu-harness";
-const OCR = "/Users/peter_mini/.claude/jobs/19ecd6ac/tmp/elnido-menu-ocr.json";
+const OCR = "/Users/peter_mini/.claude/jobs/19ecd6ac/tmp/elnido-menu-ocr-2.json";
 const OUT = process.argv[2];
 if (!OUT) throw new Error("output path required");
 
@@ -75,8 +75,8 @@ try {
   const sourced = report.candidates.filter((c: any) => c.identityStatus === "confirmed" && c.rating);
   const hops = report.candidates.filter((c: any) => Array.isArray(c.hops) && c.hops.length > 0);
   report.checks = {
-    beerRows19: response.candidates.length === 19,
-    sourcedRowsAtLeast13: sourced.length >= 13,
+    retainedRowsAtLeast20: response.candidates.length >= 20,
+    sourcedRowsAtLeast16: sourced.length >= 16,
     hopsRowsAtLeast7: hops.length >= 7,
     unresolvedRowsExplicitlyUnknown: report.candidates.some((c: any) => c.identityStatus === "unmatched"),
     replyMentionsSourcedRating: /4\.05|4\.09|3\.41|评分/.test(response.reply),

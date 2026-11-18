@@ -20,9 +20,9 @@ const base = {
   evidence: [{ source: "ocr", confidence: 0.8, summary: "menu row" }],
 } as any;
 
-test("the 2026-11 supplement has 13 sourced rows with ratings and dated URLs", async () => {
+test("the 2026-11 supplement has 16 sourced rows with ratings and dated URLs", async () => {
   const doc = JSON.parse(await readFile("data/menus/elnido-2026-11.json", "utf8"));
-  assert.equal(doc.entries.length, 13);
+  assert.equal(doc.entries.length, 16);
   for (const entry of doc.entries) {
     assert.equal(entry.identity_status, "confirmed");
     assert.ok(entry.sources.length >= 1);
@@ -33,21 +33,21 @@ test("the 2026-11 supplement has 13 sourced rows with ratings and dated URLs", a
     assert.match(entry.rating.checked_at, /^2026-11-15/);
   }
   const all = await readMenuSupplements();
-  assert.equal(all.filter(entry => entry.menu_id === "elnido-2026-11").length, 13);
+  assert.equal(all.filter(entry => entry.menu_id === "elnido-2026-11").length, 16);
 });
 
 test("OCR brewery misreads are replaced by the sourced brewery and rating", async () => {
   const entries = await readMenuSupplements();
-  const candidate = { ...base, menuIndex: 7, displayName: "沉浸浸酿 浑浊IPA", brewery: "Other Half", style: "浑浊 IPA", abv: 6.7 };
+  const candidate = { ...base, menuIndex: 12, displayName: "迷你恐惧症 干投酸IPA", brewery: "Toftebo", style: "干投酸IPA", abv: 5.0 };
   const grounded = groundMenuSupplements([candidate], entries)[0];
-  assert.equal(grounded.brewery, "Outer Range Brewing Co.");
-  assert.equal(grounded.style, "IPA - New England / Hazy");
+  assert.equal(grounded.brewery, "Totopia Brewery");
+  assert.equal(grounded.style, "IPA - Sour");
   const dossier = buildBeerDossier(grounded, entries);
   assert.equal(dossier.identity.identityStatus, "confirmed");
   assert.ok(dossier.rating);
-  assert.equal(dossier.rating.value.score, 4.09037);
-  assert.equal(dossier.rating.value.count, 37286);
-  assert.equal(dossier.rating.url, "https://untappd.com/b/outer-range-brewing-co-in-the-steep/2002572");
+  assert.equal(dossier.rating.value.score, 3.80489);
+  assert.equal(dossier.rating.value.count, 235);
+  assert.equal(dossier.rating.url, "https://untappd.com/b/totopia-brewery-tinyphobia/6850762");
   assert.deepEqual(dossier.hops?.value, ["Citra"]);
 });
 
@@ -68,9 +68,9 @@ test("a version-unresolved supplement entry never exposes its curated rating", a
 
 test("menu/source ABV conflicts are preserved instead of silently choosing one", async () => {
   const entries = await readMenuSupplements();
-  const candidate = { ...base, menuIndex: 5, displayName: "野花 冷萃鲜酿2号 浑浊IPA", brewery: "Ebbzart", style: "浑浊IPA", abv: 7.5 };
+  const candidate = { ...base, menuIndex: 12, displayName: "迷你恐惧症 干投酸IPA", brewery: "Toftebo", style: "干投酸IPA", abv: 5.0 };
   const grounded = groundMenuSupplements([candidate], entries)[0];
   const dossier = buildBeerDossier(grounded, entries);
   assert.equal(dossier.abv.conflicted, true);
-  assert.deepEqual(dossier.abv.observations.map(observation => observation.value).sort(), [5.9, 7.5]);
+  assert.deepEqual(dossier.abv.observations.map(observation => observation.value).sort(), [5.0, 6.0]);
 });

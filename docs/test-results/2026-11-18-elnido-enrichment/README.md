@@ -8,7 +8,7 @@
 - **16/18 啤酒款**已有 Untappd 页面（URL + 2026-11-15 核对 + 评分 + 风格/ABV；页面明确写出时补酒花/配料/感官）。
 - **2 款仍未知**：#7 Demolition#0037、#10 Futurist（10.5% QDH Triple Hazy；Untappd 没有与酒厂/风格同时吻合的页面）。
 - 非啤酒/非标准项：#14 TLC 西打、#20 山楂气泡水、#21 热红酒、#0 荔枝啤酒冰沙；菜单事实保留，但不作为啤酒推荐。
-- #6 Expansionphobia 菜单 8.5% vs 来源 8.0%、#12 Tinyphobia 菜单 5.0% vs 来源 6.0%，并列保留冲突；#5 Wildflower 菜单 5.8% vs 来源 5.9%，按一位小数显示处理。
+- #6 Expansionphobia 菜单 8.5% vs 来源 8.0%、#12 Tinyphobia 菜单 5.0% vs 来源 6.0%，并列保留冲突；#5 Wildflower 菜单 5.8% vs 来源 5.9%，0.1 差异按冲突并列保留。
 
 ## 16 款来源
 
@@ -18,7 +18,7 @@
 | 2 | 发枝儿 branching out | Everywhere | 4.05 / 1,428 | Pilsner-Other 5.6%；Nectaron/Nelson/Krush；2024 GABF/WBC 银奖；来源描述不含柑橘/清爽，已移除该推断 |
 | 3 | 李尔王 King Lear | Velka Morava | 3.96 / 671 | Best Bitter 4.7%；麦芽甜感、贵族酒花 |
 | 4 | 齐飞 Forward Motion | Everywhere | 4.07 / 246 | IPA-American 6.9%；Mosaic/Mosaic Dynaboost/Citra/Krush |
-| 5 | 野花 Wildflower Cryo fresh #2 | Ebeltoft Gårdbryggeri | 3.61 / 22 | Hazy IPA；Simcoe；菜单 5.8 vs 来源 5.9 |
+| 5 | 野花 Wildflower Cryo fresh #2 | Ebeltoft Gårdbryggeri | 3.61 / 22 | Hazy IPA；Simcoe；菜单 5.8 vs 来源 5.9（冲突并列） |
 | 6 | 膨胀恐惧症 Expansionphobia | Totopia Brewery | 3.97 / 122 | DIPA 8.0%；Mosaic Cryo/Southern Cross；菜单 8.5 冲突 |
 | 8 | 微醺幻境 Daze | Batch Craft Beer & Kolaches | 4.02 / 147 | DDH Hazy Double IPA 7.5% |
 | 9 | 天鹅狂爱症 Swanphilia | Totopia Brewery | 4.07 / 409 | DDH Hazy DIPA 8.5%；Citra/Krush Cryo |

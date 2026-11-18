@@ -10,7 +10,7 @@ OCR：DeepSeek Flash，22 项（含 #0 侧卡、#20 山楂气泡水、#21 热红
 - **2 款仍未知**：#7 Demolition#0037、#10 Futurist（10.5% QDH Triple Hazy；无吻合页面）。
 - **非啤酒/非标准项**：#14 TLC 西打、#20 山楂气泡水、#21 热红酒、#0 荔枝啤酒冰沙；菜单事实保留，不作为啤酒推荐。
 - 感官字段只在页面有描述时填；部分只是风格/酒花重述，不等于 16 份独立感官档案。
-- #5 菜单 5.8 vs 来源 5.9（一位小数）；#6 菜单 8.5 vs 来源 8.0、#12 菜单 5.0 vs 来源 6.0，冲突并列保留。
+- #5 菜单 5.8 vs 来源 5.9（冲突并列）；#6 菜单 8.5 vs 来源 8.0、#12 菜单 5.0 vs 来源 6.0，冲突并列保留。
 
 ## 16 款来源
 
@@ -20,7 +20,7 @@ OCR：DeepSeek Flash，22 项（含 #0 侧卡、#20 山楂气泡水、#21 热红
 | 2 | Everywhere / branching out | 4.05 / 1,428 | Nectaron/Nelson/Krush；奖项自述；移除无来源“柑橘” |
 | 3 | Velka Morava / King Lear | 3.96 / 671 | Best Bitter |
 | 4 | Everywhere / Forward Motion | 4.07 / 246 | Mosaic/Citra/Krush |
-| 5 | Ebeltoft Gårdbryggeri / Wildflower Cryo Fresh #2 | 3.61 / 22 | Simcoe；ABV 5.8 vs 5.9 |
+| 5 | Ebeltoft Gårdbryggeri / Wildflower Cryo Fresh #2 | 3.61 / 22 | Simcoe；ABV 5.8 vs 5.9（冲突并列） |
 | 6 | Totopia / Expansionphobia | 3.97 / 122 | ABV 8.5 vs 8.0 冲突 |
 | 8 | Batch Craft / Daze | 4.02 / 147 | DDH Hazy DIPA |
 | 9 | Totopia / Swanphilia | 4.07 / 409 | Citra, Krush Cryo |

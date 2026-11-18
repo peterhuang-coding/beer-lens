@@ -111,7 +111,7 @@ bot 使用现有 Beer Lens app 配置，固定 `BEER_VISION_PROVIDER=deepseek`�
 
 `npm run check` 退出码 0：
 
-- Node：**1109 / 1109** 通过（含菜单/路由/覆盖/文本入口/证据守卫/视觉截断修复/El Nido supplement 回归）。
+- Node：**1115 / 1115** 通过（含菜单/路由/覆盖/文本入口/证据守卫/视觉截断修复/El Nido supplement 回归）。
 - Python：**38 / 38** 通过。
 - TypeScript typecheck：通过。
 - Next.js production build：通过。

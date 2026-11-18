@@ -107,11 +107,16 @@ function claimHasSource(text: string, candidates: CandidateLike[]): boolean {
   // about a menu row and remains valid style knowledge.
   if (mentioned.length === 0) return true;
   const reputation = reputationClaims(mentioned);
-  if (/旗舰|flagship/i.test(text)) return reputation.some(claim => claim.kind === "flagship");
-  if (/最畅销|best.?sell/i.test(text)) return reputation.some(claim => /最畅销|best.?sell/i.test(claim.text));
-  if (/获奖|award/i.test(text)) return reputation.some(claim => claim.kind === "award");
-  if (/经典|classic/i.test(text)) return reputation.some(claim => claim.kind === "classic");
-  return reputation.length > 0;
+  const checks: Array<(claim: { kind: string; text: string }) => boolean> = [];
+  if (/旗舰|flagship/i.test(text)) checks.push(claim => claim.kind === "flagship");
+  if (/最畅销|best.?sell/i.test(text)) checks.push(claim => /最畅销|best.?sell/i.test(claim.text));
+  if (/获奖|award/i.test(text)) checks.push(claim => claim.kind === "award");
+  if (/经典|classic/i.test(text)) checks.push(claim => claim.kind === "classic");
+  if (/百年|老牌|创立|成立于|酒厂历史|历史悠久|传统酒厂/i.test(text)) {
+    // A classic self-description does not prove a century of history.
+    checks.push(claim => /百年|老牌|创立|成立于|since|founded|est\.|history|传统/i.test(claim.text));
+  }
+  return checks.every(check => reputation.some(check));
 }
 
 function maxPriceFrom(memory: MemoryLike): number | null {
@@ -162,9 +167,21 @@ export function applyMenuEvidenceGuards(reply: string, memory: MemoryLike): stri
     if (!line.trim()) { kept.push(line); continue; }
 
     if (SUPERLATIVE.test(line)) {
-      const refs = refsIn(line);
-      const aboutActualCheapest = currencies.size === 1 && cheapestUnit &&
-        refs.includes(Number(cheapestUnit.candidate.menuIndex));
+      const mentioned = mentionedCandidates(line, candidates);
+      const mentionedIndices = mentioned
+        .map(candidate => typeof candidate.menuIndex === "number" ? candidate.menuIndex : -1)
+        .filter(index => index > 0);
+      const unitClaim = /单位价|每\s*100|性价比/i.test(line);
+      const totalClaim = /总价|杯价|单杯|价格最低|最便宜/.test(line);
+      const required: number[] = [];
+      if (currencies.size === 1) {
+        if ((unitClaim || !totalClaim) && cheapestUnit) required.push(Number(cheapestUnit.candidate.menuIndex));
+        if ((totalClaim || !unitClaim) && cheapestTotal) required.push(Number(cheapestTotal.candidate.menuIndex));
+      }
+      const aboutActualCheapest = required.length > 0 &&
+        mentionedIndices.length > 0 &&
+        mentionedIndices.every(index => required.includes(index)) &&
+        required.every(index => mentionedIndices.includes(index));
       if (!aboutActualCheapest) {
         droppedSuperlative = true;
         continue; // never show a contradicted/unverifiable lowest claim

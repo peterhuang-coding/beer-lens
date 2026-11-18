@@ -5,17 +5,17 @@
 ## 结果
 
 - OCR：20 项（含 #20 山楂气泡水；右侧荔枝冰沙侧卡未纳入 OCR）。
-- 菜单事实：20/20 项可由照片本身核验（酒名/酒厂文字/风格/ABV/价格/容量）。
-- **款级公开事实：13/19 啤酒款**有 Untappd 页面（URL + 2026-11-15 核对 + 评分 + 风格/ABV；页面明确写出时补酒花/配料/感官）。
+- 菜单事实：20/20 项为 OCR/照片转录观察（酒名/酒厂文字/风格/ABV/价格/容量）；人工复核前不作为独立审图金标。
+- **款级公开事实：13/19 保留候选（18 款啤酒 + 1 款西打）**有 Untappd 页面（URL + 2026-11-15 核对 + 评分 + 风格/ABV；页面明确写出时补酒花/配料/感官）。感官字段只在页面有描述时填，部分只是风格/酒花重述，不等于 13 份独立感官档案。
 - 6 款没有可引用的公开匹配，保持“酒厂/身份未独立核实，仅按菜单文字与风格通性”，不编造。
-- #20 山楂气泡水在回复中单独排除，不混入啤酒推荐。
+- #14 西打和 #20 山楂气泡水属于非啤酒项；菜单事实保留，但不作为啤酒推荐。
 
 ## 13 款来源
 
 | # | 来源确认 | 评分/人数 | 关键款级事实 |
 |---|---|---|---|
 | 1 | Messorem / Il Fut Un Temps: Rice Lager | 4.03 / 303 | Rice Lager |
-| 2 | Everywhere / branching out | 4.05 / 1,428 | Nectaron, Nelson, Krush；2024 GABF/WBC 银奖 |
+| 2 | Everywhere / branching out | 4.05 / 1,428 | Nectaron, Nelson, Krush；2024 GABF/WBC 银奖；页面描述不含柑橘/清爽，已移除该推断 |
 | 3 | Velka Morava / King Lear | 3.96 / 671 | 麦芽甜感、贵族酒花 |
 | 4 | Everywhere / forward motion | 4.07 / 246 | Mosaic, Mosaic Dynaboost, Citra, Krush |
 | 5 | Ebeltoft Gårdbryggeri / Wildflower Cryo Fresh #2 Simcoe | 3.61 / 22 | Simcoe；**ABV 7.5 vs 5.9 冲突** |

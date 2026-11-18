@@ -91,6 +91,41 @@ test("mixed currencies are never compared and USD is not rewritten as yuan", () 
   assert.doesNotMatch(guarded, /单位价最低的。/);
 });
 
+
+test("a false comparison is removed even when it also mentions the actual cheapest row", () => {
+  const reply = "#1 比 #7 更便宜，单位价最低。";
+  const guarded = applyMenuEvidenceGuards(reply, memory);
+  assert.doesNotMatch(guarded, /#1 比 #7 更便宜/);
+  assert.match(guarded, /#7 Kölsch/);
+});
+
+test("unit-price cheapest does not authorize a false total-price cheapest claim", () => {
+  const totalMemory = {
+    lastMenu: { candidates: [
+      { menuIndex: 1, displayName: "Small", price: 10, volumeMl: 100, currency: "CNY" },
+      { menuIndex: 7, displayName: "Large", price: 15, volumeMl: 500, currency: "CNY" },
+    ] },
+  };
+  const reply = "#7 Large 的单杯总价最低。";
+  const guarded = applyMenuEvidenceGuards(reply, totalMemory);
+  assert.doesNotMatch(guarded, /#7 Large 的单杯总价最低/);
+  const prefix = guarded.split("\n\n")[0];
+  assert.match(prefix, /#1 Small/);
+});
+
+test("classic self-description does not prove century-old brewery history", () => {
+  const classic = {
+    lastMenu: { candidates: [{
+      menuIndex: 7, displayName: "Target", brewery: "House",
+      dossier: { brewery: { reputation: [{ value: { kind: "classic", text: "Producer calls this beer a classic" } }] } },
+    }] },
+  };
+  const reply = "#7 Target 是百年老牌酒厂的产品。";
+  const guarded = applyMenuEvidenceGuards(reply, classic);
+  assert.doesNotMatch(guarded, /#7 Target 是百年老牌酒厂的产品/);
+  assert.match(guarded, /【来源核对】/);
+});
+
 test("ordinary evidence-safe replies and missing memory are unchanged", () => {
   const reply = "这款酒的评分和酒花来源未提供，不能判断。";
   assert.equal(applyMenuEvidenceGuards(reply, memory), reply);

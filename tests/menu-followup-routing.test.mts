@@ -43,7 +43,7 @@ test("image coverage note surfaces reflective/cropped rows instead of claiming c
       "右侧边缘 19、20 号酒款被画面裁切，未纳入",
     ],
   }, 17);
-  assert.match(note, /啤酒 17 款/);
+  assert.match(note, /保留候选 17 款/);
   assert.match(note, /反光\/空白/);
   assert.match(note, /裁切/);
   assert.doesNotMatch(note, /币种/);
@@ -55,13 +55,15 @@ test("a non-beer item is excluded explicitly instead of silently dropping a menu
   const note = formatImageCoverageNote({
     uncertainties: ["第5条酒厂小字模糊，需复核"],
     items: [
+      { menuIndex: 14, beerName: "温柔呵护 西打", style: "苹果荔枝硬果酒西打", rawText: "14 ..." },
       { menuIndex: 19, beerName: "一零六号原型机", style: "帝国世涛", rawText: "19 ..." },
       { menuIndex: 20, beerName: "山楂气泡水", style: "气泡水", rawText: "20 山楂气泡水 0.0% 400ml ¥40" },
     ],
-  }, 2);
-  assert.match(note, /OCR 2 项，啤酒 1 款/);
-  assert.match(note, /非啤酒项：#20 山楂气泡水/);
-  assert.match(note, /未纳入逐款啤酒解读与推荐/);
+  }, 3);
+  assert.match(note, /OCR 3 项，保留候选 3 款/);
+  assert.match(note, /非啤酒项：#14 温柔呵护 西打/);
+  assert.match(note, /#20 山楂气泡水/);
+  assert.match(note, /不作为啤酒推荐/);
 });
 
 test("budget, price, selection and swap requests stay deterministic", () => {

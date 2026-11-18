@@ -26,7 +26,7 @@ export function formatImageCoverageNote(
       .filter((item): item is Record<string, unknown> => item !== null && typeof item === "object")
     : [];
   const nonBeer = items
-    .filter(item => /sparkling water|气泡水|苏打水|气泡饮/i.test(
+    .filter(item => /sparkling water|气泡水|苏打水|气泡饮|cider|西打/i.test(
       `${String(item.beerName ?? "")} ${String(item.style ?? "")} ${String(item.rawText ?? "")}`))
     .map(item => {
       const number = typeof item.menuIndex === "number" && item.menuIndex > 0 ? `#${item.menuIndex} ` : "";
@@ -37,16 +37,13 @@ export function formatImageCoverageNote(
     const bounded = uncertainties
       .map(value => value.length > 90 ? `${value.slice(0, 89)}…` : value)
       .join("；");
-    // The pipeline may pass all OCR rows (including non-beer) before the
-    // recommendation layer filters them; report beer rows separately.
-    const beerCount = candidateCount >= items.length && nonBeer.length > 0
-      ? candidateCount - nonBeer.length
-      : candidateCount;
+    // Do not call every retained candidate a beer: the menu may contain a
+    // cider or sparkling water row that is still useful menu information.
     const total = items.length > 0 ? `OCR ${items.length} 项，` : "";
-    parts.push(`图像边界（${total}啤酒 ${beerCount} 款；以下项不猜测）：${bounded}`);
+    parts.push(`图像边界（${total}保留候选 ${candidateCount} 款；以下项不猜测）：${bounded}`);
   }
   if (nonBeer.length > 0) {
-    parts.push(`非啤酒项：${nonBeer.join("、")}，未纳入逐款啤酒解读与推荐。`);
+    parts.push(`非啤酒项：${nonBeer.join("、")}；菜单事实保留，但不作为啤酒推荐。`);
   }
   return parts.join("\n");
 }

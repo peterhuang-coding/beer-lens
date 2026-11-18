@@ -5,10 +5,10 @@ OCR：DeepSeek Flash，20 项；右侧「荔枝啤酒冰沙」侧卡未被 OCR �
 
 ## 结论
 
-- **菜单事实**：20/20 项可由照片本身核验（酒名/酒厂文字/风格/ABV/价格/容量）。
-- **啤酒款级公开事实**：**13/19 啤酒款**已有 Untappd 页面（URL + 核对日期 + 评分 + 风格/ABV；有来源的补酒花/配料/感官）。
+- **菜单事实**：20/20 项为 OCR/照片转录观察（酒名/酒厂文字/风格/ABV/价格/容量）；人工复核前不作为独立审图金标。
+- **款级公开事实**：**13/19 保留候选（18 啤酒 + 1 西打）**已有 Untappd 页面（URL + 核对日期 + 评分 + 风格/ABV；有来源的补酒花/配料/感官）。感官字段只在页面有描述时填，部分只是风格/酒花重述，不等于 13 份独立感官档案。
 - **6 款**没有找到可引用的公开页面，保持“酒厂/身份未独立核实，仅菜单文字 + 风格通性”，不编造。
-- **1 项非啤酒**（#20 山楂气泡水）在回复中单独排除，不混入啤酒推荐。
+- **2 项非啤酒**（#14 西打、#20 山楂气泡水）：菜单事实保留，但不作为啤酒推荐；#20 不进入逐款啤酒行。
 - 剩余 6 款：Futurist（#11）、Trypophobia（#12）、Fruit Punch #46（#13）、TLC 西打（#14）、TLC 琥珀（#17）、Stout With Sticks（#18）。
 
 ## 已补齐 13 款（来源均为 Untappd 页面，checked_at 2026-11-15）
@@ -16,7 +16,7 @@ OCR：DeepSeek Flash，20 项；右侧「荔枝啤酒冰沙」侧卡未被 OCR �
 | # | 菜单写法 | 来源确认 | 评分/人数 | 酒花/配料/感官 | 备注 |
 |---|---|---|---|---|---|
 | 1 | 往昔时光 稻米拉格 | Messorem / Il Fut Un Temps: Rice Lager | 4.03 / 303 | 风格 Rice Lager | 菜单酒厂“Microbrasserie”被来源纠正为 Messorem |
-| 2 | 发枝儿 现代皮尔森 | Everywhere / branching out | 4.05 / 1,428 | Nectaron, Nelson, Krush；2024 GABF/WBC 银奖 | 酒厂 OCR 正确 |
+| 2 | 发枝儿 现代皮尔森 | Everywhere / branching out | 4.05 / 1,428 | Nectaron, Nelson, Krush；2024 GABF/WBC 银奖；来源描述不含柑橘/清爽，已移除该推断 | 酒厂 OCR 正确 |
 | 3 | 李尔王英式苦啤 | Velka Morava / King Lear | 3.96 / 671 | 麦芽甜感、贵族酒花 | 复用 2026-10 数据并新增 Untappd 评分；OCR “Great Morava”已作为别名 |
 | 4 | 齐飞 西海岸IPA | Everywhere / forward motion | 4.07 / 246 | Mosaic, Mosaic Dynaboost, Citra, Krush | |
 | 5 | 野花 冷萃鲜酿2号 | Ebeltoft Gårdbryggeri / Wildflower Cryo Fresh #2 Simcoe | 3.61 / 22 | Simcoe | **菜单 7.5% vs 来源 5.9%，冲突并列**；OCR “Ebbzart”正确应为 Ebeltoft |

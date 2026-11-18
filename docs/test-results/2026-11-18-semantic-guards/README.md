@@ -15,6 +15,17 @@
 
 4/4 PASS，零真实模型/网络请求。证据：`parent-guard-probes-after-fix.json`。
 
+11/18 每日复审又给出 `parent-extended-probes.mjs` 4/4 FAIL；修复后同样 **4/4 PASS**：
+
+| 扩展探针 | 旧结果 | 新结果 |
+|---|---|---|
+| 提到正确最低款不能放行错误比较句 | FAIL | **PASS** |
+| 单位价最低不能授权总价最低 | FAIL | **PASS** |
+| classic 自述不能证明百年历史 | FAIL | **PASS** |
+| 未决版本不能输出 supplement curated 评分 | FAIL | **PASS** |
+
+证据：`parent-extended-probes-after-fix.json`。两组合计 **8/8 PASS**。
+
 ## 修复方式
 
 1. **错误最低价句不再保留**：含“最低/最便宜/性价比最高”且不是实际最低款的句子直接从可见回复移除；正确指向实际最低款的句子保留。前缀给出确定性的单位价/总价最低款。
@@ -24,8 +35,8 @@
 
 ## 回归
 
-- `tests/knowledge-evidence-guards.test.mts`：8/8，覆盖错误句移除、正确句保留、跨实体旗舰、style 通识不误杀、预算、跨币种、普通回复不变。
-- `npm run check`：**1111/1111 Node、38/38 Python、typecheck、build** 通过。
+- `tests/knowledge-evidence-guards.test.mts`：11/11，覆盖错误句移除、正确句保留、跨实体旗舰、style 通识不误杀、预算、跨币种、普通回复不变。
+- `npm run check`：**1115/1115 Node、38/38 Python、typecheck、build** 通过。
 - 该修复不调用模型；真实多轮的下一次运行会使用新守卫，但本轮没有追加真实调用。
 
 ## 边界

@@ -51,6 +51,21 @@ test("OCR brewery misreads are replaced by the sourced brewery and rating", asyn
   assert.deepEqual(dossier.hops?.value, ["Citra"]);
 });
 
+
+test("a version-unresolved supplement entry never exposes its curated rating", async () => {
+  const doc = JSON.parse(await readFile("data/menus/elnido-2026-11.json", "utf8"));
+  const entry = { ...doc.entries[0], identity_status: "version_unresolved" };
+  const candidate = {
+    ...base, menuIndex: entry.menu_index,
+    displayName: entry.menu_name, brewery: entry.brewery,
+    style: entry.style, abv: entry.observation.abv,
+  };
+  const grounded = groundMenuSupplements([candidate], [entry])[0];
+  const dossier = buildBeerDossier(grounded, [entry]);
+  assert.equal(dossier.identity.identityStatus, "version_unresolved");
+  assert.equal(dossier.rating, null);
+});
+
 test("menu/source ABV conflicts are preserved instead of silently choosing one", async () => {
   const entries = await readMenuSupplements();
   const candidate = { ...base, menuIndex: 5, displayName: "野花 冷萃鲜酿2号 浑浊IPA", brewery: "Ebbzart", style: "浑浊IPA", abv: 7.5 };

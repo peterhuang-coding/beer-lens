@@ -198,6 +198,9 @@ function buildAbv(candidate: BeerCandidate, entry: MenuSupplementEntry | null, c
 }
 
 function buildRating(candidate: BeerCandidate, entry: MenuSupplementEntry | null, status: IdentityStatus): BeerDossier["rating"] {
+  // Version/batch-unresolved rows must not expose a curated score snapshot,
+  // even when a supplement entry carries one for a candidate version.
+  if (status === "version_unresolved" || status === "batch_unresolved") return null;
   if (entry?.rating) {
     const { score, count, url, checked_at } = entry.rating;
     if (Number.isFinite(score) && score >= 0 && score <= 5 &&
@@ -214,7 +217,7 @@ function buildRating(candidate: BeerCandidate, entry: MenuSupplementEntry | null
       };
     }
   }
-  if (entry || status === "version_unresolved" || status === "batch_unresolved") return null;
+  if (entry) return null;
   const score = candidate.untappdScore;
   const count = candidate.untappdRatingCount;
   const url = candidate.untappdUrl?.trim();

@@ -8,6 +8,7 @@ import { parseMenuInput, inferStyle, hasNamedMenuItems, parseOrdinalReference } 
 import { recommendFromCandidates } from "../../beer-agent/recommendation/decision.ts";
 import { formatImageCoverageNote } from "../../beer-agent/menu-coverage.ts";
 import { readShortTermMemory } from "../../beer-agent/memory/short-term.ts";
+import { throwIfTurnExpired } from "../../beer-agent/turn-deadline.ts";
 
 function emptyPicks(): SkillResult["picks"] {
   const e = { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 };
@@ -15,6 +16,7 @@ function emptyPicks(): SkillResult["picks"] {
 }
 
 async function finish(ctx: AgentContext, candidates: BeerCandidate[], requestText: string, newMenu: boolean, initialMenu = false): Promise<SkillResult> {
+  throwIfTurnExpired({ signal: ctx.signal });
   const { getProfileMemory } = await import("@/lib/beer-agent/memory/profile");
   const { isMemoryReadEnabled } = await import("@/lib/beer-agent/memory/memory-experiment");
   const memoryEnabled = await isMemoryReadEnabled(ctx.userId).catch(()=>false);
@@ -41,6 +43,9 @@ async function handleImage(ctx: AgentContext): Promise<SkillResult> {
     if (coverage) result.reply = `${coverage}\n\n${result.reply}`;
     return result;
   } catch (err) {
+    // A deadline/caller abort is terminal; do not turn it into a content
+    // fallback that looks like an ordinary analysis failure.
+    if (ctx.signal?.aborted) throwIfTurnExpired({ signal: ctx.signal });
     return {skillId:"recommend",reply:err instanceof VisionError?suggestVisionError(err):"抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",candidates:[],picks:emptyPicks(),profileSummary:"",errors:[err instanceof Error?err.message:String(err)]};
   }
 }
@@ -84,7 +89,7 @@ async function handleText(ctx: AgentContext): Promise<SkillResult> {
   // Generic style exploration is not a collectible beer identity.
   const local = await runLocalMenuKnowledge(
     items.map(item=>({...item,serving:item.volumeMl!=null?`${item.volumeMl}ml`:"",confidence:1})),
-    { queueKnowledgeGaps: parsed.isMenu || hasNamedMenuItems(parsed.items) },
+    { queueKnowledgeGaps: parsed.isMenu || hasNamedMenuItems(parsed.items), signal: ctx.signal },
   );
   const candidates = local.candidates.map(c=>({...c,candidateId:c.candidateId.replace('ocr_','text_'),evidence:c.evidence.map(e=>e.source==='ocr'?{...e,source:'manual_user_input' as const}:e)}));
   return finish(

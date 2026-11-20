@@ -104,6 +104,24 @@ function redMenu() {
   ];
 }
 
+describe("buildMenuContext — current constraints", () => {
+  it("renders current constraints and forbids claiming the user gave no preference", () => {
+    const section = buildMenuPromptSection({
+      lastMenu: {
+        source: "ocr",
+        createdAt: "2026-11-15T05:36:30Z",
+        candidates: [beer({ menuIndex: 1, displayName: "Pilsner", style: "Czech Pilsner", price: 60, volumeMl: 425 })],
+      },
+      currentConstraints: ["不苦", "crisp", "maxPrice:100"],
+    }, "为什么推荐第一款");
+    assert.match(section, /【当前会话有效条件】/);
+    assert.match(section, /不要太苦/);
+    assert.match(section, /清爽/);
+    assert.match(section, /预算不超过 100元/);
+    assert.match(section, /不得声称用户未提供偏好/);
+  });
+});
+
 describe("buildMenuContext — ambiguity", () => {
   it("two same-name Helles from different breweries force a clarifying question, never a silent pick", () => {
     const mem = memory(redMenu());

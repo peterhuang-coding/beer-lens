@@ -5,7 +5,7 @@ import { beginConversationTurn, clearConversation, completeConversationTurn, get
 import { FeishuMessageQueue } from "./queue.ts";
 import { clearShortTermMemory } from "../beer-agent/memory/short-term.ts";
 import { createTurnTiming, type TurnTiming } from "./turn-timing.ts";
-import { receiveAnchoredDeadlineAtMs } from "../beer-agent/turn-deadline.ts";
+import { isTurnDeadlineError, receiveAnchoredDeadlineAtMs } from "../beer-agent/turn-deadline.ts";
 
 const queue = new FeishuMessageQueue();
 
@@ -142,12 +142,14 @@ async function processMessageTurn(
       status = "failed";
       timing.markTurnFailed("processing_error");
     }
-  } catch {
+  } catch (error) {
     // 图片下载或 agent 内部失败：即使兜底文案回发成功，也必须先标记
     // processing_error，不能让一次成功的错误回复把本轮计入 SLO ok。
     status = "failed";
     timing.markTurnFailed("processing_error");
-    reply = "处理出错了，请稍后重试。";
+    reply = isTurnDeadlineError(error)
+      ? "这轮处理超时了，请稍后再试，或换一张更清晰的酒单图。"
+      : "处理出错了，请稍后重试。";
     console.error("[feishu] 对话处理失败。");
   }
 

@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-11-21T00:00:00+08:00",
+  "endpoint": "https://api.deepseek.com/user/balance",
+  "httpStatus": 200,
+  "available": false,
+  "balances": [
+    { "currency": "CNY", "total": "-3.21" },
+    { "currency": "USD", "total": "0.00" }
+  ],
+  "credential": "[redacted]",
+  "decision": "stop the DeepSeek image route; no new real image request was issued. The prior successful 17-row human image evidence is retained separately."
+}

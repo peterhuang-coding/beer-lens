@@ -139,16 +139,28 @@ export function buildRecommendationReply(
     return parts.length > 0 ? parts.join("；") : fallbackReason;
   }
 
-  // Build caution note if data is missing (deduped, capped)
+  // Build caution note for data-missing candidates that were NOT picked.
+  // Listing the top/safe/explore beer as "数据不足，谨慎尝试" directly
+  // contradicts the recommendation; their gaps are already in their reasons.
+  const pickedIds = new Set(
+    [picks.topPick.candidateId, picks.safePick.candidateId, picks.explorePick.candidateId]
+      .filter(Boolean),
+  );
   let cautionNote = "";
   if (hasDataMissing) {
     const missingNames = [
-      ...new Set(candidates.filter(isDataMissing).map((c) => c.displayName)),
+      ...new Set(candidates
+        .filter((c) => isDataMissing(c) && !pickedIds.has(c.candidateId))
+        .map((c) => c.displayName)),
     ];
-    const shown = missingNames.slice(0, 8);
-    const suffix =
-      missingNames.length > shown.length ? ` 等${missingNames.length}款` : "";
-    cautionNote = `\n⚠️ ${shown.join("、")}${suffix} 数据不足，谨慎尝试。`;
+    if (missingNames.length > 0) {
+      const shown = missingNames.slice(0, 8);
+      const suffix =
+        missingNames.length > shown.length ? ` 等${missingNames.length}款` : "";
+      cautionNote = `\n⚠️ ${shown.join("、")}${suffix} 数据不足，谨慎尝试。`;
+    } else {
+      cautionNote = "\n⚠️ 入选款也存在评分/资料缺口，具体见上方理由。";
+    }
   }
 
   const topReason = reasonLine(top, picks.topPick.reason);
@@ -161,7 +173,9 @@ export function buildRecommendationReply(
   const topHasSignificantRisk = topRiskFlags.some(
     (f) => f.includes("高酒精") || f.includes("样本") || f.includes("无评分") || f.includes("信息不足")
   );
-  const topQualifier = topHasSignificantRisk ? "（有风险，见下方）" : "";
+  // Picked beers are no longer listed in the caution note below; point to
+  // their own reason line instead of a section that may not name them.
+  const topQualifier = topHasSignificantRisk ? "（有数据缺口，见本条理由）" : "";
 
   const lines: string[] = ["我会这样点："];
 

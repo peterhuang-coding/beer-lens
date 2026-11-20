@@ -19,7 +19,7 @@ import { buildAgentContext, describeContext } from "./context";
 import { buildSkillPrompt, parseSkillSelection, ensureSkillsLoaded, getSkill } from "./skill-registry";
 import { knowledgeFollowUpIntent } from "./skill-routing";
 import { agentTextFetch } from "@/lib/beer-agent/text-client";
-import { createDeadlineSignal, throwIfTurnExpired, turnModelOptions } from "@/lib/beer-agent/turn-deadline";
+import { createDeadlineSignal, isTurnDeadlineError, TurnDeadlineError, throwIfTurnExpired, turnModelOptions } from "@/lib/beer-agent/turn-deadline";
 import { writeTrace } from "@/lib/beer-agent/trace";
 import { updateShortTermMemory } from "@/lib/beer-agent/memory/short-term";
 import {
@@ -167,6 +167,45 @@ async function selectSkill(
   }
 }
 
+/**
+ * Race one unit of turn work against cancellation. This is the final
+ * guarantee for a stage that swallows an abort or keeps working after it:
+ * the caller must stop waiting at the deadline instead of returning a late
+ * success. The abandoned work promise is deliberately caught so a later
+ * rejection cannot surface as unhandled.
+ */
+async function raceWithSignal<T>(
+  signal: AbortSignal | undefined,
+  start: () => Promise<T>,
+): Promise<T> {
+  if (!signal) return start();
+  if (signal.aborted) throwIfTurnExpired({ signal });
+
+  const work = start();
+  work.catch(() => {});
+  let onAbort: (() => void) | null = null;
+  const aborted = new Promise<never>((_, reject) => {
+    onAbort = () => reject(
+      signal.reason instanceof Error ? signal.reason : new TurnDeadlineError(),
+    );
+    signal.addEventListener("abort", onAbort, { once: true });
+  });
+  aborted.catch(() => {});
+  try {
+    return await Promise.race([work, aborted]);
+  } finally {
+    if (onAbort) signal.removeEventListener("abort", onAbort);
+  }
+}
+
+function runSkillWithDeadline(
+  executor: (ctx: import("./types").AgentContext, params: Record<string, unknown>) => Promise<SkillResult>,
+  ctx: import("./types").AgentContext,
+  params: Record<string, unknown>,
+): Promise<SkillResult> {
+  return raceWithSignal(ctx.signal, () => executor(ctx, params));
+}
+
 // ── Main Entry Point ──
 
 export async function runAgentTurn(
@@ -175,11 +214,14 @@ export async function runAgentTurn(
   const lifecycle = request.deadlineAtMs === undefined
     ? null
     : createDeadlineSignal(request.deadlineAtMs, request.signal);
+  const signal = lifecycle?.signal ?? request.signal;
   try {
-    return await runAgentTurnWithDeadline({
+    // Bound the whole turn, not just individual stages: a context read or
+    // skill that never observes its signal must not outlive the budget.
+    return await raceWithSignal(signal, () => runAgentTurnWithDeadline({
       ...request,
-      signal: lifecycle?.signal ?? request.signal,
-    });
+      signal,
+    }));
   } finally {
     lifecycle?.dispose();
   }
@@ -211,11 +253,21 @@ async function runAgentTurnWithDeadline(
   if (!executor) {
     console.warn(`[controller] Unknown skill "${selection.skill}", using fallback`);
     handlerError = true;
-    result = await skillExecutors["fallback"](ctx, {});
+    result = await runSkillWithDeadline(skillExecutors["fallback"], ctx, {});
   } else {
     try {
-      result = await executor(ctx, selection.params);
+      result = await runSkillWithDeadline(executor, ctx, selection.params);
+      // A skill that swallowed cancellation and resolved after the budget
+      // must not become a successful turn or overwrite short-term memory.
+      throwIfTurnExpired(ctx);
     } catch (err) {
+      // Cancellation is terminal: returning a content fallback here would
+      // hide the deadline failure and could start more work after the caller
+      // has given up.
+      if (ctx.signal?.aborted || isTurnDeadlineError(err)) {
+        throwIfTurnExpired(ctx);
+        throw err;
+      }
       handlerError = true;
       recordHandlerError(selection.skill);
       console.warn(`[controller] Skill "${selection.skill}" threw:`, err);
@@ -290,9 +342,14 @@ async function runAgentTurnWithDeadline(
     },
   };
   try {
+    // Never let an already-abandoned turn overwrite the active menu snapshot.
+    throwIfTurnExpired(request);
     await updateShortTermMemory(request,response);
     response.memoryDelta.wroteShortTerm=true;
   } catch(err) {
+    // A deadline that landed between the skill and the write is terminal;
+    // do not downgrade it to a successful response with a memory warning.
+    if (isTurnDeadlineError(err) || request.signal?.aborted) throwIfTurnExpired(request);
     response.memoryDelta.notes.push("short-term memory write failed");
     response.debug={...response.debug,route:selection.skill,warnings:[...(response.debug?.warnings??[]),"short-term memory write failed"]};
     console.warn("[controller] short-term memory update failed:",err);

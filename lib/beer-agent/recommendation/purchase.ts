@@ -2,37 +2,10 @@ import type { ScoredCandidate, PickResult } from './types.ts';
 import { selectPicks } from './pick-selector.ts';
 import { chineseOrdinal } from './chinese-ordinal.ts';
 import { isExcludedMenuReference } from './menu-input.ts';
+import { moneyLabel, normalizedCurrency } from './currency.ts';
 
 const positive = (n: unknown): n is number => typeof n === 'number' && Number.isFinite(n) && n > 0;
 export const unitPrice = (c: ScoredCandidate) => positive(c.price) && positive(c.volumeMl) ? c.price / c.volumeMl * 100 : null;
-
-/** Currency label for display. OCR may say "unknown"; infer only from the
- *  menu's own visible symbol, never from a country or a guess. */
-function moneyLabel(c: ScoredCandidate): string {
-  const currency = String(c.currency ?? '').trim();
-  if (currency && currency.toLowerCase() !== 'unknown') {
-    return currency === 'CNY' ? '元' : ` ${currency}`;
-  }
-  const evidence = Array.isArray(c.evidence)
-    ? c.evidence.map(entry => String(entry?.summary ?? '')).join(' ')
-    : '';
-  if (/¥|￥|CNY|RMB|人民币|元/i.test(evidence)) return '元';
-  if (/\$|USD|美元/i.test(evidence)) return ' USD';
-  if (/€|EUR|欧元/i.test(evidence)) return ' EUR';
-  if (/£|GBP|英镑/i.test(evidence)) return ' GBP';
-  return '（币种未知）';
-}
-
-function normalizedCurrency(c: ScoredCandidate): string {
-  const currency = String(c.currency ?? '').trim();
-  if (currency && currency.toLowerCase() !== 'unknown') return currency;
-  const label = moneyLabel(c);
-  if (label === '元') return 'CNY';
-  if (label === ' USD') return 'USD';
-  if (label === ' EUR') return 'EUR';
-  if (label === ' GBP') return 'GBP';
-  return currency || 'CNY';
-}
 
 export function offerText(c: ScoredCandidate): string {
   const unit = unitPrice(c);

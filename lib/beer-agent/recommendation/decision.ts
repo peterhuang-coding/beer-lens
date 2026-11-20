@@ -44,7 +44,17 @@ export function recommendFromCandidates(
   }
   eligible = applyPricePreference(eligible,constraints);
   const purchase = purchaseDecision(eligible, requestText, scope.explicit);
-  const picks = scope.error ? selectPicks([]) : purchase?.picks ?? selectPicks(eligible,strictPricePreferenceId(eligible,constraints));
+  // An explicit taste constraint must outrank a rating-only advantage; the
+  // user asked for a style, not for the highest score on the shelf.
+  const tasteConstrained = constraints.some(c =>
+    c === "crisp" || c === "不苦" || c === "IPA" || c === "lager" ||
+    c === "stout" || c === "sour" || c === "wheat" || c.startsWith("excludeStyle:")
+  );
+  const picks = scope.error ? selectPicks([]) : purchase?.picks ?? selectPicks(
+    eligible,
+    strictPricePreferenceId(eligible,constraints),
+    tasteConstrained,
+  );
   const eligibleById = new Map(eligible.map(candidate=>[candidate.candidateId,candidate]));
   let reply = scope.error ?? purchase?.reply ?? (eligible.length ? buildRecommendationReply(picks,eligible)
     : scored.length ? '酒单上没有可以确认符合当前预算、容量、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、容量、IBU 或酒精度。'

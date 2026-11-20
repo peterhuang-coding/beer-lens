@@ -90,8 +90,10 @@ export function createDeadlineSignal(
   let timer: NodeJS.Timeout | undefined;
   if (remaining <= 0) abort();
   else {
+    // Keep the deadline timer ref'd: unref'ing let the event loop empty out
+    // before the deadline when a non-cooperative skill left only a pending
+    // promise, so the turn could never be canceled. It is cleared in dispose().
     timer = setTimeout(abort, remaining);
-    timer.unref();
   }
 
   const onParentAbort = () => controller.abort(parentSignal?.reason);

@@ -136,6 +136,22 @@ test("partial data: near-tie safe styles diversify", () => {
   assert.equal(picks.safePick.candidateId, "pils");
 });
 
+// ── explicit taste constraints ──
+
+test("explicit taste constraint outranks a rating-only dark lager", () => {
+  const menu = [
+    candidate({ candidateId: "dark", displayName: "德式黑啤", style: "Schwarzbier", worthScore: 68, fitScore: 50 }),
+    candidate({ candidateId: "pils", displayName: "捷克皮尔森", style: "Czech Pilsner", worthScore: 50, fitScore: 65, riskFlags: ["无评分数据"] }),
+    candidate({ candidateId: "kolsch", displayName: "科隆", style: "Kölsch", worthScore: 50, fitScore: 65, riskFlags: ["无评分数据"] }),
+  ];
+  // Without a taste constraint, the rated dark lager wins on combined score.
+  assert.equal(selectPicks(menu).topPick.candidateId, "dark");
+  // With one, the crisp Pilsner is the pick and Kölsch takes the safe slot.
+  const picks = selectPicks(menu, null, true);
+  assert.equal(picks.topPick.candidateId, "pils");
+  assert.equal(picks.safePick.candidateId, "kolsch");
+});
+
 // ── reply builder ──
 
 test("reply: all-data-missing menu gets honesty note + no skip line", () => {
@@ -146,15 +162,44 @@ test("reply: all-data-missing menu gets honesty note + no skip line", () => {
 });
 
 test("reply: caution list dedupes and caps at 8 names", () => {
+  // Keep the duplicate-name pair outside the first three picks but inside
+  // the first eight caution rows, so dedupe is observable in the line.
   const menu = Array.from({ length: 12 }, (_, i) =>
-    candidate({ candidateId: `b${i}`, displayName: i < 2 ? "同名啤酒" : `啤酒${i}`, riskFlags: ["无评分数据"] }),
+    candidate({ candidateId: `b${i}`, displayName: i === 3 || i === 4 ? "同名啤酒" : `啤酒${i}`, riskFlags: ["无评分数据"] }),
   );
   const picks = selectPicks(menu);
   const reply = buildRecommendationReply(picks, menu);
-  // 12 candidates, 2 share one name → 11 unique names, capped at 8 shown
-  assert.ok(reply.includes("等11款"), "total unique count shown when capped");
+  // Picked candidates are excluded from the caution list; count the rest.
+  const pickedIds = new Set([
+    picks.topPick.candidateId,
+    picks.safePick.candidateId,
+    picks.explorePick.candidateId,
+  ]);
+  const missingNames = [
+    ...new Set(menu.filter((c) => !pickedIds.has(c.candidateId)).map((c) => c.displayName)),
+  ];
+  if (missingNames.length > 8) {
+    assert.ok(reply.includes(`等${missingNames.length}款`), "total unique count shown when capped");
+  }
   const cautionLine = reply.split("\n").find((l) => l.startsWith("⚠️")) ?? "";
   assert.equal(cautionLine.split("同名啤酒").length - 1, 1, "duplicate name deduped to one occurrence in the caution line");
+});
+
+test("reply: caution list never names a picked candidate", () => {
+  const menu = [
+    candidate({ candidateId: "a", displayName: "A", style: "拉格", worthScore: 80, fitScore: 70, riskFlags: ["无评分数据"] }),
+    candidate({ candidateId: "b", displayName: "B", style: "皮尔森", worthScore: 70, fitScore: 68, riskFlags: ["无评分数据"] }),
+    candidate({ candidateId: "c", displayName: "C", style: "科隆", worthScore: 60, fitScore: 65, riskFlags: ["无评分数据"] }),
+    candidate({ candidateId: "d", displayName: "D", style: "IPA", worthScore: 60, fitScore: 40, riskFlags: ["无评分数据"] }),
+    candidate({ candidateId: "e", displayName: "E", style: "世涛", worthScore: 55, fitScore: 35, riskFlags: ["无评分数据"] }),
+  ];
+  const picks = selectPicks(menu);
+  const reply = buildRecommendationReply(picks, menu);
+  const cautionLine = reply.split("\n").find((line) => line.startsWith("⚠️")) ?? "";
+  for (const pick of [picks.topPick, picks.safePick, picks.explorePick]) {
+    const picked = menu.find((c) => c.candidateId === pick.candidateId);
+    if (picked) assert.ok(!cautionLine.includes(picked.displayName), `caution line must not name picked ${picked.displayName}`);
+  }
 });
 
 test("reply: skip line present when avoidOrCaution has a candidate", () => {

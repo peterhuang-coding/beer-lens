@@ -6,6 +6,8 @@ import { TurnDeadlineError } from '../lib/beer-agent/turn-deadline.ts';
 const state = {
   modelCalls: 0,
   fallbackCalls: 0,
+  memoryWrites: 0,
+  fallbackMode: "normal" as "normal" | "never",
   onModelCall: undefined as undefined | ((options: any) => void),
 };
 
@@ -34,19 +36,22 @@ function emptyPicks() {
   buildSkillPrompt: () => 'synthetic selector prompt',
   parseSkillSelection: () => ({ skill: 'fallback', reason: 'synthetic', params: {} }),
   getSkill: () => undefined,
-  keywordRoute: () => null,
+  keywordRoute: (text: string) => text === "skill deadline"
+    ? { skill_id: "unclear", params: {}, reason: "synthetic skill route" }
+    : null,
   agentTextFetch: async (_body: unknown, options: any) => {
     state.modelCalls++;
     state.onModelCall?.(options);
     return '{"skill":"fallback","reason":"synthetic","params":{}}';
   },
   writeTrace: async () => {},
-  updateShortTermMemory: async () => {},
+  updateShortTermMemory: async () => { state.memoryWrites++; },
   recordTurnStart: () => Date.now(),
   recordTurnEnd: () => {},
   recordHandlerError: () => {},
   execute: async () => {
     state.fallbackCalls++;
+    if (state.fallbackMode === "never") await new Promise(() => {});
     return { skillId: 'fallback', reply: 'late fallback', candidates: [], picks: emptyPicks(), profileSummary: '', errors: [] };
   },
 };
@@ -67,6 +72,8 @@ function request(overrides: Record<string, unknown> = {}): any {
 test.beforeEach(() => {
   state.modelCalls = 0;
   state.fallbackCalls = 0;
+  state.memoryWrites = 0;
+  state.fallbackMode = "normal";
   state.onModelCall = undefined;
 });
 
@@ -88,4 +95,20 @@ test('abort during skill selection is terminal instead of launching fallback', a
   );
   assert.equal(state.modelCalls, 1);
   assert.equal(state.fallbackCalls, 0);
+  assert.equal(state.memoryWrites, 0);
+});
+
+test('a skill that ignores abort cannot return a late success or write memory', async () => {
+  state.fallbackMode = "never";
+  const startedAt = Date.now();
+  await assert.rejects(
+    runAgentTurn(request({
+      messages: [{ role: 'user', content: 'skill deadline' }],
+      deadlineAtMs: Date.now() + 150,
+    })),
+    (error: any) => error?.code === 'turn_deadline_exceeded',
+  );
+  assert.ok(Date.now() - startedAt < 1_000, 'controller must stop waiting at the deadline');
+  assert.equal(state.fallbackCalls, 1, 'the skill was started exactly once');
+  assert.equal(state.memoryWrites, 0, 'an over-budget turn must not overwrite menu memory');
 });

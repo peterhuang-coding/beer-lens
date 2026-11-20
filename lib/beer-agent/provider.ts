@@ -44,6 +44,7 @@ export async function runImagePipeline(
   const ocrItems = (pipeline.extracted?.items ?? []).map(recoverOcrTitle);
   return runLocalMenuKnowledge(ocrItems, {
     onProgress: emit,
+    signal: options.signal,
     stages: {
       imageContext: pipeline.imageContext ?? undefined,
       extracted: pipeline.extracted ?? undefined,
@@ -59,12 +60,16 @@ export async function runLocalMenuKnowledge(
     onProgress?: ProgressCallback;
     stages?: Record<string, unknown>;
     queueKnowledgeGaps?: boolean;
+    /** Caller-owned turn cancellation; local stages must stop after it fires. */
+    signal?: AbortSignal;
   } = {},
 ): Promise<{
   candidates: BeerCandidate[];
   stages: Record<string, unknown>;
 }> {
   const emit = options.onProgress ?? (() => {});
+  const checkExpired = () => throwIfTurnExpired({ signal: options.signal });
+  checkExpired();
   if (ocrItems.length === 0) {
     console.warn("[provider] vision succeeded but extracted 0 items — 模型可能返回了空 JSON");
   }
@@ -89,6 +94,7 @@ export async function runLocalMenuKnowledge(
     console.warn("[provider] verified cache read failed:", err);
     enrichedBeers = [];
   }
+  checkExpired();
 
   // SQLite 50k 酒库匹配(含中文别名桥)。图片路径此前完全不走本地库,
   // OCR 出的中文酒名被 web 富化吞掉 —— 这里补上本地库命中。
@@ -98,6 +104,7 @@ export async function runLocalMenuKnowledge(
   } catch (err) {
     console.warn("[provider] local db lookup failed:", err);
   }
+  checkExpired();
 
   // 酒厂级兜底:酒款与 web 富化都没分时,若 OCR 提取到了酒厂且库内该厂
   // 有 ≥3 款,保留厂级统计作背景证据,不能当作这款酒的评分。
@@ -128,6 +135,7 @@ export async function runLocalMenuKnowledge(
   } catch (err) {
     console.warn("[provider] brewery fallback failed:", err);
   }
+  checkExpired();
 
   const candidates = assembleImageCandidates(ocrItems, enrichedBeers, dbLookups, breweryHits);
 
@@ -169,12 +177,14 @@ export async function runLocalMenuKnowledge(
   }
   const supplementedCandidates = groundMenuSupplements(groundedCandidates, supplementEntries);
   const dossierCandidates = attachBeerDossiers(supplementedCandidates, supplementEntries);
+  checkExpired();
   const groundedById = new Map(dossierCandidates.map(c => [c.candidateId, c]));
 
   const enrichmentLog: Array<Record<string, unknown>> = [];
   const pendingKnowledgeJobs: MenuKnowledgeJob[] = [];
 
   for (let i = 0; i < ocrItems.length; i++) {
+    checkExpired();
     const item = ocrItems[i];
     const enriched = enrichedBeers[i] ?? null;
     emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName ?? "Unknown" });
@@ -232,6 +242,7 @@ export async function runLocalMenuKnowledge(
 
   // Persist the deduplicated minimal knowledge-gap queue. Local collection
   // only; fail-soft so queue problems never break the image response.
+  checkExpired();
   if (options.queueKnowledgeGaps !== false && pendingKnowledgeJobs.length > 0) {
     try {
       await enqueueMenuKnowledge(pendingKnowledgeJobs);
@@ -240,6 +251,7 @@ export async function runLocalMenuKnowledge(
     }
   }
 
+  checkExpired();
   emit({ type: "enrich_done" });
 
   return {

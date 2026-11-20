@@ -1,0 +1,78 @@
+{
+  "evidenceLayer": "real Feishu private chat transport; questions sent by the Beer Lens app to the authorized chat; production handler replies; persisted 17-row menu from the prior human image turn",
+  "chatIdMasked": "oc_e2d3…190e",
+  "startedAt": "2026-11-20T15:52:04.040Z",
+  "questions": [
+    "我预算100元以内，想要清爽不苦，选哪款？"
+  ],
+  "turns": [
+    {
+      "question": "我预算100元以内，想要清爽不苦，选哪款？",
+      "questionMessageId": "om_x100b7f328480d4a0b4cca2ba1ef71ce",
+      "questionCreateTime": 1795189924982,
+      "replyMessageId": "om_x100b7f32849098a8b09b00e195be521",
+      "replyCreateTime": 1795189925940,
+      "clientLatencyMs": 958,
+      "serverMs": 1860,
+      "timing": {
+        "kind": "feishu_turn_timing",
+        "version": 1,
+        "clock": "monotonic",
+        "messageType": "text",
+        "result": "ok",
+        "receivedAtMs": 1101.435583,
+        "startedAtMs": 1101.541416,
+        "finishedAtMs": 2047.060625,
+        "queueWaitMs": 0.10583300000007512,
+        "processingMs": 258.15200000000004,
+        "replyMs": 687.367209,
+        "firstReplyLatencyMs": 945.6250420000001,
+        "replySucceeded": true,
+        "agentMs": 253.23675000000003,
+        "memoryWriteMs": 0.8569580000000769
+      },
+      "routeIntent": "follow_up_filter",
+      "menuBefore": 17,
+      "menuAfter": 17,
+      "memoryRecentTurns": 6,
+      "replyText": "酒单上没有可以确认符合当前预算、容量、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、容量、IBU 或酒精度。",
+      "replyFromFeishuMatchesConversation": true,
+      "replyFromFeishu": "酒单上没有可以确认符合当前预算、容量、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、容量、IBU 或酒精度。"
+    }
+  ],
+  "timingRecords": [
+    {
+      "kind": "feishu_turn_timing",
+      "version": 1,
+      "clock": "monotonic",
+      "messageType": "text",
+      "result": "ok",
+      "receivedAtMs": 1101.435583,
+      "startedAtMs": 1101.541416,
+      "finishedAtMs": 2047.060625,
+      "queueWaitMs": 0.10583300000007512,
+      "processingMs": 258.15200000000004,
+      "replyMs": 687.367209,
+      "firstReplyLatencyMs": 945.6250420000001,
+      "replySucceeded": true,
+      "agentMs": 253.23675000000003,
+      "memoryWriteMs": 0.8569580000000769
+    }
+  ],
+  "errors": [],
+  "checks": {
+    "q1BudgetPick": false,
+    "q1MenuPreserved": true,
+    "q2Hops": false,
+    "q2NoFalseOverBudget": false,
+    "q3ClassicBoundary": false,
+    "q4SeventhPrice": false,
+    "q5LowestGuard": false,
+    "allMenus17": true,
+    "allWithin60sServer": true,
+    "allClientVisible": true,
+    "allTimingResultOk": true
+  },
+  "finishedAt": "2026-11-20T15:52:06.501Z",
+  "logs": []
+}

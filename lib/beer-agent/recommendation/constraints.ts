@@ -1,4 +1,6 @@
-type CandidateFacts = { riskFlags?: string[]; currency?: string; displayName: string; style?: string; price?: number | null; volumeMl?: number | null; abv?: number; ibu?: number | null };
+import { normalizedCurrency } from './currency.ts';
+
+type CandidateFacts = { riskFlags?: string[]; currency?: string; evidence?: Array<{ summary?: string }>; displayName: string; style?: string; price?: number | null; volumeMl?: number | null; abv?: number; ibu?: number | null };
 
 const STYLES: Record<string, RegExp> = {
   IPA: /\b(?:neipa|ipa)\b|浑浊|西海岸|印度淡色/i,
@@ -104,7 +106,12 @@ export function mergeConstraints(previous: string[], current: string[]): string[
 export function constraintFailures(candidate: CandidateFacts, constraints: string[]): string[] {
   const text = `${candidate.style ?? ''} ${candidate.displayName}`;
   const failures: string[] = [];
-  if (constraints.some(c=>/^(?:min|max)Price:/.test(c)) && candidate.currency && candidate.currency!=='CNY') failures.push('币种不是已确认人民币，无法确认符合人民币预算');
+  // OCR may say "unknown" while the row itself shows ¥. Use the same visible-
+  // symbol inference as offerText; a genuinely symbol-less row stays unknown
+  // and cannot satisfy a yuan budget.
+  if (constraints.some(c=>/^(?:min|max)Price:/.test(c)) && normalizedCurrency(candidate) !== 'CNY') {
+    failures.push('币种不是已确认人民币，无法确认符合人民币预算');
+  }
   const requestedStyles = constraints.filter(c => STYLES[c]);
   if (requestedStyles.length && !requestedStyles.some(s => STYLES[s].test(text))) failures.push(`不符合要求的风格：${requestedStyles.join('或')}`);
   for (const c of constraints) {

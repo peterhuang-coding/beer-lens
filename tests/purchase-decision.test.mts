@@ -46,6 +46,20 @@ test('foreign or unknown currencies and mixed serving modes do not get a value w
 test('foreign currency price cannot satisfy a yuan budget',()=>{
  const r=run([{...c('A',1,10,300),currency:'USD'}],'预算50元，给我推荐');assert.equal(r.picks.topPick.candidateId,'');
 });
+test('menu-visible ¥ resolves OCR currency "unknown" for a yuan budget',()=>{
+ const rows=[
+  {...c('A',1,60,425),currency:'unknown',evidence:[{source:'ocr',confidence:0.8,summary:'¥60 / 425ml'}]},
+  {...c('B',7,55,425),currency:'unknown',evidence:[{source:'ocr',confidence:0.8,summary:'¥55 / 425ml'}]},
+ ];
+ const r=run(rows,'预算100元以内，想要清爽不苦，选哪款？');
+ assert.notEqual(r.picks.topPick.candidateId,'');
+ assert.match(r.reply,/100|预算/);
+});
+test('symbol-less OCR currency still cannot satisfy a yuan budget',()=>{
+ const r=run([{...c('A',1,60,425),currency:'unknown'}],'预算100元，推荐一款');
+ assert.equal(r.picks.topPick.candidateId,'');
+ assert.match(r.reply,/币种|没有/);
+});
 test('missing offer facts are explained even when image currency and serving are unknown',()=>{
  const rows=[{...c('Lunch',1,null,null),currency:'unknown',servingMode:'unknown'},{...c('Dinner',2,null,null),currency:'unknown',servingMode:'unknown'}];
  const r=run(rows,'Lunch和Dinner哪款性价比高？');

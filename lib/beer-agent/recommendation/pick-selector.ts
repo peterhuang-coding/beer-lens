@@ -53,7 +53,12 @@ function firstUnpicked(
  * candidates). When nothing is left, avoidOrCaution gets an empty
  * candidateId and the reply builder omits that line.
  */
-export function selectPicks(candidates: ScoredCandidate[], preferredTopId?: string | null): PickResult {
+export function selectPicks(
+  candidates: ScoredCandidate[],
+  preferredTopId?: string | null,
+  /** Explicit taste constraints (清爽/不苦/style) outrank rating-only gains. */
+  preferFit = false,
+): PickResult {
   const emptyPick = () => ({
     candidateId: "",
     label: "",
@@ -73,9 +78,15 @@ export function selectPicks(candidates: ScoredCandidate[], preferredTopId?: stri
 
   const pickedIds = new Set<string>();
 
-  // ── topPick: highest combined score ──
+  // ── topPick: explicit price preference first; otherwise highest combined
+  //    score. When the user stated a taste constraint, fit must outrank a
+  //    rating-only advantage (e.g. a rated dark lager must not beat the
+  //    crisp Pilsner/Kölsch the user actually asked for). ──
+  const combined = (c: ScoredCandidate) => c.worthScore + c.fitScore;
   const topPick = candidates.find((candidate) => candidate.candidateId === preferredTopId) ?? [...candidates].sort(
-    (a, b) => b.worthScore + b.fitScore - (a.worthScore + a.fitScore),
+    preferFit
+      ? (a, b) => b.fitScore - a.fitScore || combined(b) - combined(a)
+      : (a, b) => combined(b) - combined(a),
   )[0];
   pickedIds.add(topPick.candidateId);
 

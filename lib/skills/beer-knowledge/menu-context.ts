@@ -67,6 +67,8 @@ export interface MenuMemoryLike {
     candidates?: unknown;
   } | null;
   activeBeer?: ActiveBeerDatum | null;
+  /** Tokens from the current turn (e.g. 不苦, crisp, maxPrice:100). */
+  currentConstraints?: unknown;
 }
 
 interface NormEvidence {
@@ -165,6 +167,7 @@ export interface BuiltMenuContext {
   detailLimit: number;
   menuSource: string;
   menuCreatedDate: string | null;
+  currentConstraints: string[];
   active: NormBeer | null;
   ambiguousGroups: Array<{ name: string; beers: NormBeer[] }>;
   reference: ReferenceResolution;
@@ -374,6 +377,7 @@ function normalizeMemory(memory: MenuMemoryLike | null | undefined): {
   beers: NormBeer[];
   source: string;
   createdDate: string | null;
+  currentConstraints: string[];
   active: NormBeer | null;
 } {
   const rawCandidates = Array.isArray(memory?.lastMenu?.candidates)
@@ -399,6 +403,12 @@ function normalizeMemory(memory: MenuMemoryLike | null | undefined): {
     ? (memory.lastMenu.createdAt as string)
     : "";
   const createdDate = createdRaw.match(/^\d{4}-\d{2}-\d{2}/)?.[0] ?? null;
+  const currentConstraints = Array.isArray(memory?.currentConstraints)
+    ? (memory!.currentConstraints as unknown[])
+      .filter((value): value is string => typeof value === "string" && value.trim() !== "")
+      .map((value) => cleanString(value, 60))
+      .slice(0, 20)
+    : [];
 
   let active: NormBeer | null = null;
   const a = memory?.activeBeer;
@@ -430,7 +440,7 @@ function normalizeMemory(memory: MenuMemoryLike | null | undefined): {
       }
     }
   }
-  return { beers, source, createdDate, active };
+  return { beers, source, createdDate, currentConstraints, active };
 }
 
 /**
@@ -693,7 +703,7 @@ export function buildMenuContext(
   memory: MenuMemoryLike | null | undefined,
   rawText: string,
 ): BuiltMenuContext {
-  const { beers, source, createdDate, active } = normalizeMemory(memory);
+  const { beers, source, createdDate, currentConstraints, active } = normalizeMemory(memory);
   const present = beers.length > 0;
   const groups = computeAmbiguousGroups(beers);
   const reference: ReferenceResolution = present ? resolveReference(rawText, beers, active) : { kind: "none" };
@@ -708,6 +718,7 @@ export function buildMenuContext(
     detailLimit: MAX_DETAIL_CANDIDATES,
     menuSource: source,
     menuCreatedDate: createdDate,
+    currentConstraints,
     active,
     ambiguousGroups: groups,
     reference,
@@ -719,6 +730,34 @@ export function buildMenuContext(
 
 function round2(n: number): string {
   return String(Math.round(n * 100) / 100);
+}
+
+/** Human-readable form of a stored constraint token; unknown tokens stay raw. */
+function formatConstraint(token: string): string {
+  if (token === "不苦") return "不要太苦/低苦";
+  if (token === "crisp") return "清爽";
+  if (token === "explore") return "想尝新";
+  if (token === "priceGoal:unit") return "按单位价比较";
+  if (token === "priceGoal:total") return "按总价比较";
+  if (token === "priceGoal:compare") return "比较性价比";
+  if (token === "volumeMl:any") return "容量不限";
+  if (token === "IPA" || token === "lager" || token === "stout" || token === "sour" || token === "wheat") {
+    return `偏好 ${token} 风格`;
+  }
+  const match = /^(min|max)(Price|Abv|Ibu|VolumeMl):(.+)$/.exec(token);
+  if (match) {
+    const [, bound, kind, value] = match;
+    const word = kind === "Price" ? "预算" : kind === "Abv" ? "ABV" : kind === "Ibu" ? "IBU" : "容量";
+    const unit = kind === "Price" ? "元" : kind === "Abv" ? "%" : kind === "Ibu" ? "" : "ml";
+    return `${word}${bound === "max" ? "不超过" : "不低于"} ${value}${unit}`;
+  }
+  const around = /^aroundVolumeMl:(.+)$/.exec(token);
+  if (around) return `容量约 ${around[1]}ml`;
+  const volume = /^volumeMl:(.+)$/.exec(token);
+  if (volume) return `只要 ${volume[1]}ml`;
+  const exclude = /^excludeStyle:(.+)$/.exec(token);
+  if (exclude) return `排除 ${exclude[1]} 风格`;
+  return token;
 }
 
 function formatPrice(b: { price: number | null; currency: string; volumeMl: number | null }): string {
@@ -839,6 +878,9 @@ export function renderMenuContext(ctx: BuiltMenuContext): string {
   const lines: string[] = [
     "## 当前菜单证据（本会话用户提供的图像/菜单；下列事实优先于本地旧库探测与模型常识）",
     `菜单来源：${ctx.menuSource}${ctx.menuCreatedDate ? ` · 快照 ${ctx.menuCreatedDate}` : ""} · 共 ${ctx.totalCandidates} 款（详情最多展开 ${ctx.detailLimit} 款${ctx.truncatedCount > 0 ? `，其余 ${ctx.truncatedCount} 款不展开详情` : ""}）`,
+    ...(ctx.currentConstraints.length > 0
+      ? [`【当前会话有效条件】${ctx.currentConstraints.map(formatConstraint).join("；")}。这些条件由用户在本会话中给出，回答推荐/取舍/“为什么”时必须沿用，不要声称用户未提供偏好。`]
+      : []),
     ...renderRoster(ctx),
     `【已展开详情】（至多 ${ctx.detailLimit} 款逐款来源引文；名册中其余酒款本块不重复长证据）`,
     ...ctx.shownCandidates.flatMap(renderBeer),
@@ -891,6 +933,7 @@ export function renderMenuContext(ctx: BuiltMenuContext): string {
   lines.push("7. 酒厂自述 classic/经典只能按原意引用，不等于 flagship/旗舰或最畅销；没有明确旗舰 Claim 就说旗舰地位未证实。");
   lines.push("8. 菜单价量只能做菜单内单位价算术，不能除以评分制造统一价值分。市场或产地比价必须有同款、同版本、同消费形式、同币种、税费口径、观察日期及所需 FX 证据；缺一项就不做溢价或省钱结论。");
   lines.push("9. 用户个人口味反馈只用于个人推荐，不能自动升级为公共酒款事实；款级事实与风格通性必须分开表述。");
+  lines.push("10. 回答推荐、取舍或“为什么推荐”时，必须沿用上方【当前会话有效条件】；这些条件已由用户提供，不得声称用户未提供偏好。");
   return lines.join("\n");
 }
 

@@ -23,7 +23,7 @@ export function extractConstraints(text: string): string[] {
     }
     result.push(exclude ? `excludeStyle:${style}` : style);
   }
-  if (/不(?:要太|喜欢|爱)?苦|不要苦|低苦|少苦|不想太苦/i.test(text)) result.push('不苦');
+  if (/不太苦|不(?:要太|喜欢|爱)?苦|不要苦|低苦|少苦|不想太苦|怕苦|怕太苦|最不苦|苦味重|受不了苦/i.test(text)) result.push('不苦');
   if (/清爽|轻盈|crisp/i.test(text)) result.push('crisp');
   if (/尝新|探索|特别|explore/i.test(text)) result.push('explore');
   if (/第一杯|开场/i.test(text)) result.push('第一杯');

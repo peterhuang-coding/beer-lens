@@ -1,0 +1,78 @@
+{
+  "evidenceLayer": "real Feishu private chat transport; questions sent by the Beer Lens app to the authorized chat; production handler replies; persisted 17-row menu from the prior human image turn",
+  "chatIdMasked": "oc_e2d3…190e",
+  "startedAt": "2026-11-21T03:20:07.161Z",
+  "questions": [
+    "我怕苦，哪款最不苦？"
+  ],
+  "turns": [
+    {
+      "question": "我怕苦，哪款最不苦？",
+      "questionMessageId": "om_x100b7f2490b02ca8cfd86ef7a0b7619",
+      "questionCreateTime": 1795231207987,
+      "replyMessageId": "om_x100b7f24904634a4b089d0a2bd15556",
+      "replyCreateTime": 1795231208864,
+      "clientLatencyMs": 877,
+      "serverMs": 1655,
+      "timing": {
+        "kind": "feishu_turn_timing",
+        "version": 1,
+        "clock": "monotonic",
+        "messageType": "text",
+        "result": "ok",
+        "receivedAtMs": 879.634,
+        "startedAtMs": 879.768833,
+        "finishedAtMs": 1756.34575,
+        "queueWaitMs": 0.1348329999999578,
+        "processingMs": 152.05391700000007,
+        "replyMs": 724.5229999999999,
+        "firstReplyLatencyMs": 876.7117499999999,
+        "replySucceeded": true,
+        "agentMs": 145.80258400000002,
+        "memoryWriteMs": 1.1129589999998188
+      },
+      "routeIntent": "follow_up_filter",
+      "menuBefore": 17,
+      "menuAfter": 17,
+      "memoryRecentTurns": 18,
+      "replyText": "当前菜单没有标 IBU，不能保证绝对苦度；按风格通性，Kölsch、Pilsner 等清爽型通常比 IPA 更不苦。\n我会这样点：\n\n已知：Your Young Lordship · 风格 Czech Pilsner，ABV 4.7%。\n\n1. Your Young Lordship · ¥60 / 425ml（约 ¥14.12/100ml） - 价格 ¥60，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量（有数据缺口，见本条理由）\n2. Kölsch · ¥55 / 425ml（约 ¥12.94/100ml） - 价格 ¥55，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量\n3. The Premium Malt's Black · ¥65 / 300ml（约 ¥21.67/100ml） - 评分3.4，3481+人评分，价格 ¥65，符合 ¥100 预算\n\n价量对比：Kölsch 相对 Your Young Lordship，单次购买少花 ¥5；单位价低约 ¥1.18/100ml。\n\n最稳：Kölsch\n最值得尝新：The Premium Malt's Black\n我会先跳过：DONUT SERIES 2.0 - 价格 ¥85，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量，酒精度11.5%，偏高，IBU 未知；该风格可能偏苦，不能保证低苦味\n\n如果只能喝一杯，选 Your Young Lordship。\n\n⚠️ DDH Pseudo Sue、Frozen Pond De Luxe、Demihydra、Just Fruit (Blueberry, Peach)、Limonada Rosada、DONUT SERIES 2.0 数据不足，谨慎尝试。",
+      "replyFromFeishuMatchesConversation": true,
+      "replyFromFeishu": "当前菜单没有标 IBU，不能保证绝对苦度；按风格通性，Kölsch、Pilsner 等清爽型通常比 IPA 更不苦。\n我会这样点：\n\n已知：Your Young Lordship · 风格 Czech Pilsner，ABV 4.7%。\n\n1. Your Young Lordship · ¥60 / 425ml（约 ¥14.12/100ml） - 价格 ¥60，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量（有数据缺口，见本条理由）\n2. Kölsch · ¥55 / 425ml（约 ¥12.94/100ml） - 价格 ¥55，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量\n3. The Premium Malt's Black · ¥65 / 300ml（约 ¥21.67/100ml） - 评分3.4，3481+人评分，价格 ¥65，符合 ¥100 预算\n\n价量对比：Kölsch 相对 Your Young Lordship，单次购买少花 ¥5；单位价低约 ¥1.18/100ml。\n\n最稳：Kölsch\n最值得尝新：The Premium Malt's Black\n我会先跳过：DONUT SERIES 2.0 - 价格 ¥85，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量，酒精度11.5%，偏高，IBU 未知；该风格可能偏苦，不能保证低苦味\n\n如果只能喝一杯，选 Your Young Lordship。\n\n⚠️ DDH Pseudo Sue、Frozen Pond De Luxe、Demihydra、Just Fruit (Blueberry, Peach)、Limonada Rosada、DONUT SERIES 2.0 数据不足，谨慎尝试。"
+    }
+  ],
+  "timingRecords": [
+    {
+      "kind": "feishu_turn_timing",
+      "version": 1,
+      "clock": "monotonic",
+      "messageType": "text",
+      "result": "ok",
+      "receivedAtMs": 879.634,
+      "startedAtMs": 879.768833,
+      "finishedAtMs": 1756.34575,
+      "queueWaitMs": 0.1348329999999578,
+      "processingMs": 152.05391700000007,
+      "replyMs": 724.5229999999999,
+      "firstReplyLatencyMs": 876.7117499999999,
+      "replySucceeded": true,
+      "agentMs": 145.80258400000002,
+      "memoryWriteMs": 1.1129589999998188
+    }
+  ],
+  "errors": [],
+  "checks": {
+    "q1BudgetPick": false,
+    "q1MenuPreserved": true,
+    "q2Hops": false,
+    "q2NoFalseOverBudget": false,
+    "q3ClassicBoundary": false,
+    "q4SeventhPrice": false,
+    "q5LowestGuard": false,
+    "allMenus17": true,
+    "allWithin60sServer": true,
+    "allClientVisible": true,
+    "allTimingResultOk": true
+  },
+  "finishedAt": "2026-11-21T03:20:09.427Z",
+  "logs": []
+}

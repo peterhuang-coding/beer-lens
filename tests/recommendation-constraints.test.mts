@@ -7,6 +7,11 @@ import { selectPicks } from '../lib/beer-agent/recommendation/pick-selector.ts';
 import { buildRecommendationReply } from '../lib/beer-agent/recommendation/reply-builder.ts';
 
 const c = (price: number | null, style = 'IPA') => ({ candidateId: String(price), menuIndex: 1, displayName: 'Example', brewery: 'Example', style, abv: 6, price, volumeMl: 330, worthScore: 50, fitScore: 50, riskFlags: [], reason: '' });
+test('colloquial bitterness phrases all become the low-bitterness constraint', () => {
+  for (const q of ['不要太苦', '不太苦', '我怕苦', '哪款最不苦', '苦味重']) {
+    assert.ok(extractConstraints(q).includes('不苦'), q);
+  }
+});
 test('numeric budgets reject over-budget and unknown prices', () => {
   for (const q of ['预算50元以内', '50 元以下', '不超过50块', '最多50元']) {
     const limits = extractConstraints(q);

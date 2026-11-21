@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-21T00:45:00+08:00",
+  "endpoint": "https://api.deepseek.com/user/balance",
+  "httpStatus": 200,
+  "available": true,
+  "balances": [
+    { "currency": "CNY", "total": "75.00" }
+  ],
+  "credential": "[redacted]",
+  "action": "new authorized key loaded into the local gitignored .env.local files (mode 600); one real DeepSeek image request issued, then the route stopped."
+}

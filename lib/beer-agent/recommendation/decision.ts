@@ -59,6 +59,16 @@ export function recommendFromCandidates(
   let reply = scope.error ?? purchase?.reply ?? (eligible.length ? buildRecommendationReply(picks,eligible)
     : scored.length ? '酒单上没有可以确认符合当前预算、容量、风格、苦度或酒精度要求的酒，暂不推荐。可以调整要求，或补充缺失的价格、容量、IBU 或酒精度。'
       : '没有识别到可确认的酒款，请补充清晰酒单或具体酒名。');
+  // “怕苦/最不苦” is a distinct question, not a repeat of the budget list.
+  // State the evidence limit before the picks: without IBU the answer is a
+  // style-level ranking, never a guarantee of absolute bitterness.
+  if (!scope.error && !purchase && eligible.length > 0 && /怕苦|怕太苦|最不苦|苦味重|受不了苦|低苦/.test(requestText)) {
+    const hasIbu = eligible.some(c => c.ibu != null && c.ibu >= 0);
+    const note = hasIbu
+      ? "有 IBU 的款按数值比较；未标 IBU 的款只能按风格通性判断，不能保证绝对苦度。"
+      : "当前菜单没有标 IBU，不能保证绝对苦度；按风格通性，Kölsch、Pilsner 等清爽型通常比 IPA 更不苦。";
+    reply = `${note}\n${reply}`;
+  }
   if (options.initialMenu && !scope.error && scored.length > 0) {
     reply = buildSommelierMenuReply(scored, picks, eligible);
   }

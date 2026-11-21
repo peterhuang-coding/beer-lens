@@ -1,0 +1,163 @@
+{
+  "case_id": "user-el-nido-20260927",
+  "source": "user photo numeric fields manually inspected by coordinator",
+  "capture_date": null,
+  "not_public_IMG_B001": true,
+  "missing_number": 9,
+  "excluded": "19/20 soft drinks and side slushies; no beer-style claim from this numeric fixture",
+  "rows": [
+    {
+      "menuIndex": 1,
+      "price": 80,
+      "volumeMl": 300,
+      "abv": 3.2,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 2,
+      "price": 85,
+      "volumeMl": 300,
+      "abv": 5,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 3,
+      "price": 80,
+      "volumeMl": 425,
+      "abv": 5,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 4,
+      "price": 80,
+      "volumeMl": 425,
+      "abv": 5,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 5,
+      "price": 70,
+      "volumeMl": 300,
+      "abv": 5.2,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 6,
+      "price": 70,
+      "volumeMl": 300,
+      "abv": 7,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 7,
+      "price": 70,
+      "volumeMl": 300,
+      "abv": 5.6,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 8,
+      "price": 85,
+      "volumeMl": 300,
+      "abv": 6.4,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 10,
+      "price": 60,
+      "volumeMl": 300,
+      "abv": 9,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 11,
+      "price": 110,
+      "volumeMl": 300,
+      "abv": 9.1,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 12,
+      "price": 80,
+      "volumeMl": 300,
+      "abv": 10,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 13,
+      "price": 80,
+      "volumeMl": 300,
+      "abv": 5,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 14,
+      "price": 75,
+      "volumeMl": 300,
+      "abv": 6,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 15,
+      "price": 115,
+      "volumeMl": 300,
+      "abv": 5,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 16,
+      "price": 85,
+      "volumeMl": 300,
+      "abv": 6,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 17,
+      "price": 95,
+      "volumeMl": 200,
+      "abv": 6,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    },
+    {
+      "menuIndex": 18,
+      "price": 160,
+      "volumeMl": 200,
+      "abv": 19.2,
+      "currency": "CNY",
+      "rating": null,
+      "ibu": null
+    }
+  ]
+}

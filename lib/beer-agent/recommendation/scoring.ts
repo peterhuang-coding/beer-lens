@@ -13,7 +13,7 @@ const BITTER_STYLE_KEYWORDS = [
 ];
 
 function hasStyleKeyword(style: string, keywords: string[]): boolean {
-  const lower = style.toLowerCase();
+  const lower = style.normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase();
   return keywords.some((kw) => lower.includes(kw));
 }
 

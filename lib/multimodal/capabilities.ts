@@ -50,16 +50,13 @@ export function listCapabilities(): Capability[] {
  * Callers MUST pass their own schema (the schema is task-specific to the
  * prompt). Default schema is left undefined.
  *
- * Provider chain (verified 2026-08-23 with the real 3-task menu prompt):
- * openrouter `qwen/qwen3-vl-32b-instruct` (primary, ~76s, reliable —
- * succeeded on every attempt) → deepseek direct
- * `deepseek-v4-flash-vision-exp` (fallback, ~68s when it works, but a
- * reasoner: on the full prompt it sometimes burns the whole max_tokens
- * budget on reasoning_content and returns empty content, which the
- * provider throws as VisionParseError → container walks to the next
- * provider). Timeouts are 120s because 45s aborted mid-request. Google/
- * GPT models on OpenRouter are 403 region-blocked here; qwen3.7-flash
- * burns its whole budget on reasoning — do NOT put either in a chain.
+ * Provider chain: openrouter `qwen/qwen3-vl-32b-instruct` (primary) →
+ * DeepSeek direct `deepseek-flash` (fallback). The stable DeepSeek alias
+ * comes from official documentation checked 2026-10-28. Historical latency
+ * and empty-content observations from 2026-08 used the retired experimental
+ * alias and are not performance evidence for the current model. Google/GPT
+ * models on OpenRouter were region-blocked in this environment; qwen3.7-flash
+ * burned its whole budget on reasoning — do NOT put either in this chain.
  *
  * 2026-08-28: qwen3-vl-32b 在 120s 内仍出现 TIM(菜单图 ~1.3MB,大图链路慢),
  * 提到 180s 减抖动;deepseek 兜底同提,防止主模型超时后兜底也顶到上限。
@@ -76,7 +73,7 @@ registerCapability({
     },
     {
       provider: "deepseek",
-      models: ["deepseek-v4-flash-vision-exp"],
+      models: ["deepseek-flash"],
       timeoutMs: 180_000,
     },
   ],

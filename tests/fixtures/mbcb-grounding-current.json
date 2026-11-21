@@ -1,0 +1,210 @@
+[
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 355,
+    "name": "Next up Volunteers",
+    "name_zh": "后继志愿者",
+    "brewery": "WarPigs",
+    "brewery_zh": "战猪",
+    "sessions": [
+      "red"
+    ],
+    "style": "West Coast IPA",
+    "abv": 6.6,
+    "description": "Lean, bitter and dry, Next Up, Volunteers marches straight into West Coast territory with a four-hop blend where Nelson Sauvin and Strata lead the charge — white grape, passionfruit and grapefruit, backed by bright citrus, dank pine, resin and subtle earthy spice. Bright on the nose, bitter by nature.",
+    "untappd_id": 6810338,
+    "rating_raw": 3.65,
+    "rating_count": 21,
+    "rating_usable": true,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [],
+    "field_disagreements": {},
+    "aliases": []
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 305,
+    "name": "Starboy",
+    "name_zh": null,
+    "brewery": "Honey Pot",
+    "brewery_zh": null,
+    "sessions": [
+      "green",
+      "red",
+      "yellow"
+    ],
+    "style": "Melomel",
+    "abv": 12.5,
+    "description": "Star Thistle Honey Wine w/ Boysenberry, Orange Blossom Honey, Vanilla & Oak",
+    "untappd_id": 3775114,
+    "rating_raw": 4.61603,
+    "rating_count": 527,
+    "rating_usable": true,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [],
+    "field_disagreements": {},
+    "aliases": []
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 599,
+    "name": "Helles",
+    "name_zh": "韦格纳 传统清亮拉格啤酒",
+    "brewery": "Wagner Merkendorf",
+    "brewery_zh": "韦格纳",
+    "sessions": [
+      "green",
+      "red",
+      "yellow"
+    ],
+    "style": "Helles Lager",
+    "abv": 4.7,
+    "description": "ABV can slightly vary",
+    "untappd_id": 5339481,
+    "rating_raw": 3.50498,
+    "rating_count": 2269,
+    "rating_usable": true,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [],
+    "field_disagreements": {},
+    "aliases": []
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 223,
+    "name": "Atom Passionfruit",
+    "name_zh": "原子百香果",
+    "brewery": "Uchu",
+    "brewery_zh": "宇宙",
+    "sessions": [
+      "red"
+    ],
+    "style": "Smoothie Sour",
+    "abv": 5.5,
+    "description": "スタイル：TROPICAL SMOOTHIE SOUR\n アルコール：5.5%\n 品目：発泡酒 麦芽使用率25%未満\n 原材料：パイナップル果汁（国内製造）、パッションフルーツ果汁、糖類、ココナッツクリーム、アガベシロップ、麦芽／香料\n\n【コンセプト】\n ミクロはマクロ、マクロはミクロ パラレルとろとろすっぱうまい楽園的スムージーーー！！！\n 絶対冷蔵！！！\n\n【ブルワーズノート】\n ATOMを表現するために大量のパイナポー！パッションフルーツ！ココナッツ！\n とろとろすっぱうまい楽園へようこそ！",
+    "untappd_id": 5728406,
+    "rating_raw": 4.32037,
+    "rating_count": 1151,
+    "rating_usable": true,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [
+      "abv_database_disagreement"
+    ],
+    "field_disagreements": {},
+    "aliases": []
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 96,
+    "name": "Helles",
+    "name_zh": "韦格纳 传统清亮拉格啤酒",
+    "brewery": "3 Sons",
+    "brewery_zh": "三子",
+    "sessions": [
+      "red"
+    ],
+    "style": "Helles Lager",
+    "abv": 5,
+    "description": "Our German style Helles",
+    "untappd_id": 5847116,
+    "rating_raw": 3.82577,
+    "rating_count": 390,
+    "rating_usable": true,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [],
+    "field_disagreements": {},
+    "aliases": []
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 93,
+    "name": "Bohemian Machine",
+    "name_zh": null,
+    "brewery": "Budvar",
+    "brewery_zh": null,
+    "sessions": [
+      "green",
+      "red",
+      "yellow"
+    ],
+    "style": "Czech Pilsner",
+    "abv": null,
+    "description": null,
+    "untappd_id": 7223005,
+    "rating_raw": 0,
+    "rating_count": 0,
+    "rating_usable": false,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [
+      "missing_percent",
+      "missing_desc",
+      "rating_zero_raw"
+    ],
+    "field_disagreements": {},
+    "aliases": []
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 498,
+    "name": "Mikkeller Ice Tea Powered by Longfong",
+    "name_zh": null,
+    "brewery": "Mikkeller",
+    "brewery_zh": "美奇乐",
+    "sessions": [
+      "green",
+      "red",
+      "yellow"
+    ],
+    "style": null,
+    "abv": 7.5,
+    "description": null,
+    "untappd_id": null,
+    "rating_raw": null,
+    "rating_count": null,
+    "rating_usable": false,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [
+      "missing_ut_bid",
+      "missing_superstyle",
+      "missing_desc",
+      "missing_ut_rating",
+      "missing_ut_rating_count"
+    ],
+    "field_disagreements": {},
+    "aliases": []
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 424,
+    "name": "Adroit Theory's Baby",
+    "name_zh": "智理宝贝【迷迭香枝 + 柠檬水】（代号：Ghost BABY）",
+    "brewery": "Adroit Theory",
+    "brewery_zh": "灵敏理论",
+    "sessions": [
+      "red"
+    ],
+    "style": "Gose",
+    "abv": 4.5,
+    "description": "The beer was formally known as ROSEMARY'S BABY. Our base sour, and conditioned it on Rosemary Sprigs + Lemonade. The result is a delightfully refreshing beer that is as quenching as it is delicious. The perfect beer to have on our patio...or yours!",
+    "untappd_id": 5504969,
+    "rating_raw": 4.09311,
+    "rating_count": 370,
+    "rating_usable": true,
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+    "issues": [
+      "abv_database_disagreement"
+    ],
+    "field_disagreements": {},
+    "aliases": [
+      "Rosemary's Baby"
+    ]
+  }
+]

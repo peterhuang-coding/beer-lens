@@ -1,4 +1,6 @@
-type CandidateFacts = { currency?: string; displayName: string; style?: string; price?: number | null; volumeMl?: number | null; abv?: number; ibu?: number | null };
+import { normalizedCurrency } from './currency.ts';
+
+type CandidateFacts = { riskFlags?: string[]; currency?: string; evidence?: Array<{ summary?: string }>; displayName: string; style?: string; price?: number | null; volumeMl?: number | null; abv?: number; ibu?: number | null };
 
 const STYLES: Record<string, RegExp> = {
   IPA: /\b(?:neipa|ipa)\b|浑浊|西海岸|印度淡色/i,
@@ -21,7 +23,7 @@ export function extractConstraints(text: string): string[] {
     }
     result.push(exclude ? `excludeStyle:${style}` : style);
   }
-  if (/不(?:要太|喜欢|爱)?苦|不要苦|低苦|少苦|不想太苦/i.test(text)) result.push('不苦');
+  if (/不太苦|不(?:要太|喜欢|爱)?苦|不要苦|低苦|少苦|不想太苦|怕苦|怕太苦|最不苦|苦味重|受不了苦/i.test(text)) result.push('不苦');
   if (/清爽|轻盈|crisp/i.test(text)) result.push('crisp');
   if (/尝新|探索|特别|explore/i.test(text)) result.push('explore');
   if (/第一杯|开场/i.test(text)) result.push('第一杯');
@@ -54,7 +56,7 @@ export function extractConstraints(text: string): string[] {
   const range = text.match(/(?:ABV|酒精度)\s*(\d+(?:\.\d+)?)\s*[-~至到—]\s*(\d+(?:\.\d+)?)/i);
   if (range) result.push(`minAbv:${Number(range[1])}`, `maxAbv:${Number(range[2])}`);
   else {
-    const max = text.match(/(?:ABV|酒精度)\s*(?:改成|改为|调整到)?\s*(?:不超过|低于|最多|小于|低过)\s*(\d+(?:\.\d+)?)/i)
+    const max = text.match(/(?:ABV|酒精度)\s*(?:改成|改为|调整到)?\s*(?:不超过|低于|最多|最高|小于|低过)\s*(\d+(?:\.\d+)?)/i)
       ?? text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:以下|以内)/i);
     if (max) result.push(`maxAbv:${Number(max[1])}`);
     else if (/低度|酒精度低|低酒精/i.test(text)) result.push('maxAbv:4.5');
@@ -76,9 +78,19 @@ export function extractConstraints(text: string): string[] {
     if (maxVolume) result.push(`maxVolumeMl:${Number(maxVolume[1])}`);
     if (minVolume) result.push(`minVolumeMl:${Number(minVolume[1])}`);
     if (!maxVolume && !minVolume) {
-      const volume = text.match(/(?:只要|只想喝|只喝|容量\s*(?:为|是|改[成为])?|改[成为]|换成)\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(左右|上下|附近)?/i)
+      // Around-volume wording keeps the numeric anchor: suffixes 左右/上下/附近 or
+      // prefixes 约/近似/接近 produce aroundVolumeMl:N. No invented tolerance, and
+      // it must never collapse to volumeMl:any like the previous suffix branch did.
+      // 想要 is a serving verb too (mid-sentence, e.g. 预算80，想要约300ml), and the
+      // lookbehind keeps unit-price 每100ml wording from becoming a serving token.
+      const volume = text.match(/(?:只要|只想喝|只喝|想要|容量\s*(?:改[成为](?:为)?)?|改[成为](?:为)?|换成)\s*(约|近似|接近)?\s*(?:为|是)?\s*(?<!每\s*)(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(左右|上下|附近)?/i)
+        ?? text.match(/^\s*(约|近似|接近)?\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*(左右|上下|附近)/i)
+        ?? text.match(/^\s*(约|近似|接近)\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)/i)
         ?? text.match(/^\s*(\d+(?:\.\d+)?)\s*(?:ml|毫升)\s*$/i);
-      if (volume) result.push(volume[2] ? 'volumeMl:any' : `volumeMl:${Number(volume[1])}`);
+      if (volume) {
+        const around = volume[3] !== undefined || (volume[2] !== undefined && volume[1] !== undefined);
+        result.push(around ? `aroundVolumeMl:${Number(volume[2] ?? volume[1])}` : `volumeMl:${Number(volume[2] ?? volume[1])}`);
+      }
     }
   }
   return [...new Set(result)];
@@ -86,7 +98,7 @@ export function extractConstraints(text: string): string[] {
 
 /** Current values replace the same kind of earlier constraint, instead of accumulating forever. */
 export function mergeConstraints(previous: string[], current: string[]): string[] {
-  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : /^(?:min|max)Ibu:/.test(c) ? 'ibu' : /^(?:min|max)Price:/.test(c) ? 'price' : /^(?:volumeMl|minVolumeMl|maxVolumeMl):/.test(c) ? 'volume' : c.startsWith('priceGoal:') ? 'priceGoal' : c.split(':')[0];
+  const family = (c: string) => STYLES[c] || c.startsWith('excludeStyle:') ? 'style' : /^(?:min|max)Abv:/.test(c) ? 'abv' : /^(?:min|max)Ibu:/.test(c) ? 'ibu' : /^(?:min|max)Price:/.test(c) ? 'price' : /^(?:aroundVolumeMl|volumeMl|minVolumeMl|maxVolumeMl):/.test(c) ? 'volume' : c.startsWith('priceGoal:') ? 'priceGoal' : c.split(':')[0];
   const replaced = new Set(current.map(family));
   return [...new Set([...previous.filter(c => !replaced.has(family(c))), ...current])];
 }
@@ -94,11 +106,16 @@ export function mergeConstraints(previous: string[], current: string[]): string[
 export function constraintFailures(candidate: CandidateFacts, constraints: string[]): string[] {
   const text = `${candidate.style ?? ''} ${candidate.displayName}`;
   const failures: string[] = [];
-  if (constraints.some(c=>/^(?:min|max)Price:/.test(c)) && candidate.currency && candidate.currency!=='CNY') failures.push('币种不是已确认人民币，无法确认符合人民币预算');
+  // OCR may say "unknown" while the row itself shows ¥. Use the same visible-
+  // symbol inference as offerText; a genuinely symbol-less row stays unknown
+  // and cannot satisfy a yuan budget.
+  if (constraints.some(c=>/^(?:min|max)Price:/.test(c)) && normalizedCurrency(candidate) !== 'CNY') {
+    failures.push('币种不是已确认人民币，无法确认符合人民币预算');
+  }
   const requestedStyles = constraints.filter(c => STYLES[c]);
   if (requestedStyles.length && !requestedStyles.some(s => STYLES[s].test(text))) failures.push(`不符合要求的风格：${requestedStyles.join('或')}`);
   for (const c of constraints) {
-    if (/^(?:volumeMl|minVolumeMl|maxVolumeMl):/.test(c) && c !== 'volumeMl:any') {
+    if (/^(?:aroundVolumeMl|volumeMl|minVolumeMl|maxVolumeMl):/.test(c) && c !== 'volumeMl:any') {
       const value = Number(c.split(':')[1]);
       const volume = candidate.volumeMl;
       if (volume == null || !Number.isFinite(volume) || volume <= 0) failures.push('容量未知，无法确认是否符合要求');
@@ -122,7 +139,8 @@ export function constraintFailures(candidate: CandidateFacts, constraints: strin
     if (c === 'priceGoal:total' && (candidate.price == null || candidate.price <= 0)) failures.push('价格未知，无法比较总价');
     if (c.startsWith('maxAbv:') || c.startsWith('minAbv:')) {
       const value = Number(c.split(':')[1]);
-      if (!candidate.abv || candidate.abv <= 0) failures.push('酒精度未知，无法确认是否符合要求');
+      if (candidate.riskFlags?.some(flag => /ABV.*(?:不一致|冲突)|abv_database_disagreement/i.test(flag))) failures.push('酒精度来源有冲突，无法确认是否符合要求');
+      else if (!candidate.abv || candidate.abv <= 0) failures.push('酒精度未知，无法确认是否符合要求');
       else if (c.startsWith('maxAbv:') ? candidate.abv > value : candidate.abv < value) failures.push('酒精度不符合要求');
     }
     if (c.startsWith('maxIbu:') || c.startsWith('minIbu:')) {

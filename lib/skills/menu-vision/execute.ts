@@ -3,6 +3,7 @@
  * Used internally by the recommend skill.
  */
 import type { AgentContext, SkillResult } from "@/lib/agent/types";
+import { throwIfTurnExpired } from "@/lib/beer-agent/turn-deadline";
 
 function emptyPicks(): SkillResult["picks"] {
   const e = { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 };
@@ -25,18 +26,26 @@ export async function execute(
   }
 
   try {
+    throwIfTurnExpired(ctx);
     const { runImagePipeline } = await import("@/lib/beer-agent/provider");
     const { getProfileSummary } = await import("@/lib/beer-agent/profile");
+    const { resolveImageCall } = await import("@/lib/multimodal/image-routing");
 
-    const apiKey = process.env.OPENROUTER_API_KEY;
-    if (!apiKey) throw new Error("OPENROUTER_API_KEY not configured");
+    const resolved = resolveImageCall();
+    // Legacy keeps its existing OpenRouter guard; in package mode the
+    // unrelated OpenRouter key is not required.
+    if (resolved.mode === "legacy" && !resolved.apiKey) {
+      throw new Error("OPENROUTER_API_KEY not configured");
+    }
 
     const profileSummary = await getProfileSummary();
     const pipelineResult = await runImagePipeline(
-      apiKey,
+      resolved.apiKey,
       ctx.imageDataUrl,
       ctx.lastUserText,
       profileSummary,
+      undefined,
+      { signal: ctx.signal },
     );
 
     // Return raw pipeline results without scoring (caller handles scoring)

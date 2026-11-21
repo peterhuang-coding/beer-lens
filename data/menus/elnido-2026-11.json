@@ -1,0 +1,1257 @@
+{
+  "version": 1,
+  "menu_id": "elnido-2026-11",
+  "scope": "El Nido 2026-11 tap wall photo; Untappd pages checked 2026-11-15. Only rows with a confirmed public page are included.",
+  "entries": [
+    {
+      "id": "elnido-2026-11-01",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 1,
+      "menu_name": "Benjamin June",
+      "name_zh": "本杰明六月啤酒",
+      "brewery": "Living Häus Beer Company",
+      "brewery_aliases": [
+        "Living Haus",
+        "Living Häus Beer Company"
+      ],
+      "aliases": [
+        "本杰明六月啤酒 Benjamin June",
+        "本杰明六月啤酒",
+        "Benjamin June",
+        "Living Haus Benjamin June",
+        "本杰明六月"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Benjamin June",
+      "style": "Festbier",
+      "abv": 5.2,
+      "description_zh": "Living Häus 的节日拉格（Festbier），面团/饼干麦芽感，柔和草本酒花与轻苦；公开描述。",
+      "observation": {
+        "abv": 5.2,
+        "price": 85,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/living-haus-beer-company-benjamin-june/5484293",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "节日拉格；面团/饼干麦芽、柔和草本酒花与轻苦"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "This years celebratory beer is brewed in the current style offered at Oktoberfest. Lighter in body and color than a Marzën, this festbier is dark yellow with doughy and light biscuit notes. Soft herbal hop notes and a delicate bitterness round out the finish. Prost!"
+        }
+      },
+      "rating": {
+        "score": 3.89163,
+        "count": 526,
+        "url": "https://untappd.com/b/living-haus-beer-company-benjamin-june/5484293",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-02",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 2,
+      "menu_name": "Branching Out",
+      "name_zh": "发枝儿",
+      "brewery": "Everywhere",
+      "brewery_aliases": [
+        "Everywhere",
+        "Everywhere Beer Co."
+      ],
+      "aliases": [
+        "发枝儿 现代皮尔森",
+        "branching out",
+        "Branching Out",
+        "发枝儿",
+        "发枝儿 branching out"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "branching out",
+      "style": "Pilsner - Other",
+      "abv": 5.6,
+      "description_zh": "现代皮尔森，使用优质皮尔森麦芽与 Nectaron、Nelson、Krush 酒花；2024 GABF 与 World Beer Cup 银奖（来源自述）。",
+      "observation": {
+        "abv": 5.6,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/everywhere-branching-out/5260972",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "hops",
+            "reputation"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "现代皮尔森；Nectaron、Nelson、Krush 酒花"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "\"branching out\" is a modern pilsner made with premium pilsner malt and hopped with nectaron, nelson, and krush. we won silver medals at the 2024 great american beer festival & world beer cup with this beer!"
+        },
+        "hops": {
+          "values": [
+            "Nectaron",
+            "Nelson",
+            "Krush"
+          ],
+          "sources": [
+            0
+          ]
+        },
+        "reputation": {
+          "values": [
+            {
+              "kind": "award",
+              "text": "2024 Great American Beer Festival & World Beer Cup silver medals"
+            }
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 4.05392,
+        "count": 1428,
+        "url": "https://untappd.com/b/everywhere-branching-out/5260972",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-03",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 3,
+      "menu_name": "King Lear",
+      "name_zh": "李尔王英式苦啤",
+      "brewery": "Velka Morava",
+      "brewery_aliases": [
+        "Great Morava",
+        "Velka Morava"
+      ],
+      "aliases": [
+        "李尔王英式苦啤",
+        "King Lear",
+        "李尔王",
+        "李尔王 King Lear"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "King Lear",
+      "style": "Bitter - Best",
+      "abv": 4.7,
+      "description_zh": "Velka Morava 的英式 Best Bitter，麦芽甜感与贵族酒花气息，4.7%；两个第三方页面一致。",
+      "observation": {
+        "abv": 4.7,
+        "price": 80,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://nakrane.com/beers/velka-morava-king-lear",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": [
+            "identity",
+            "abv",
+            "style",
+            "flavor_notes"
+          ]
+        },
+        {
+          "url": "https://2beer4.me/ru/beers/dn7tli5arx2fnemb62mg18kk",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-10-21",
+          "fields": [
+            "abv"
+          ]
+        },
+        {
+          "url": "https://untappd.com/b/velka-morava-king-lear/6746254",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "rating"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "麦芽甜感",
+            "贵族酒花气息"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.95939,
+        "count": 671,
+        "url": "https://untappd.com/b/velka-morava-king-lear/6746254",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-04",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 4,
+      "menu_name": "Forward Motion",
+      "name_zh": "齐飞",
+      "brewery": "Everywhere",
+      "brewery_aliases": [
+        "Everywhere",
+        "Everywhere Beer Co."
+      ],
+      "aliases": [
+        "齐飞 西海岸IPA",
+        "forward motion",
+        "Forward Motion",
+        "齐飞",
+        "齐飞 Forward Motion"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "forward motion",
+      "style": "IPA - American",
+      "abv": 6.9,
+      "description_zh": "西海岸 IPA，使用 Mosaic、Mosaic Dynaboost、Citra、Krush 酒花。",
+      "observation": {
+        "abv": 6.9,
+        "price": 80,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/everywhere-forward-motion/6846437",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "hops"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "西海岸 IPA；Mosaic/Citra/Krush 酒花"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "\"forward motion\" is a west coast india pale ale made with mosaic, mosaic dynaboost, citra, and krush."
+        },
+        "hops": {
+          "values": [
+            "Mosaic",
+            "Mosaic Dynaboost",
+            "Citra",
+            "Krush"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 4.06768,
+        "count": 246,
+        "url": "https://untappd.com/b/everywhere-forward-motion/6846437",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-05",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 5,
+      "menu_name": "Wildflower Cryo Fresh #2 Simcoe",
+      "name_zh": "野花 冷萃鲜酿2号",
+      "brewery": "Ebeltoft Gårdbryggeri",
+      "brewery_aliases": [
+        "Ebbzart",
+        "Ebeltoft Gårdbryggeri",
+        "Ebeltoft"
+      ],
+      "aliases": [
+        "野花 冷萃鲜酿2号 浑浊IPA",
+        "Wildflower Cryo Fresh #2 Simcoe",
+        "Wildflower Cryo Fresh #2",
+        "野花",
+        "野花 冷萃鲜酿2号 Wildflower Cryo fresh #2"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Wildflower Cryo Fresh #2 Simcoe",
+      "style": "IPA - New England / Hazy",
+      "abv": 5.9,
+      "description_zh": "丹麦 Ebeltoft 的 Wildflower 系列，使用 Cryo Fresh 冷冻 Simcoe 酒花；2026 年 9 月酿造。菜单 ABV 7.5% 与来源 5.9% 冲突，并列保留。",
+      "observation": {
+        "abv": 5.8,
+        "price": 65,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/ebeltoft-gardbryggeri-wildflower-cryo-fresh-2-simcoe/6860580",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "hops"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "Cryo Fresh Simcoe；Hazy IPA"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "Ebeltofts klassiske Wildflower har fået et skud Cryo Fresh Frozen Hops Simcoe. Brygget september 2026."
+        },
+        "hops": {
+          "values": [
+            "Simcoe"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.60682,
+        "count": 22,
+        "url": "https://untappd.com/b/ebeltoft-gardbryggeri-wildflower-cryo-fresh-2-simcoe/6860580",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-06",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 6,
+      "menu_name": "Expansionphobia",
+      "name_zh": "膨胀恐惧症",
+      "brewery": "Totopia Brewery",
+      "brewery_aliases": [
+        "Toftebo",
+        "Totopia Brewery",
+        "Totopia"
+      ],
+      "aliases": [
+        "膨胀恐惧症 双倍干投双倍西海岸IPA",
+        "Expansionphobia",
+        "膨胀恐惧症",
+        "膨胀恐惧症 Expansionphobia"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Expansionphobia",
+      "style": "IPA - Imperial / Double",
+      "abv": 8.0,
+      "description_zh": "Totopia 的 DDH West Coast DIPA，使用 Mosaic Cryo、Southern Cross 与 Southern Cross Hop Kief；公开描述为树脂、松针、柑橘苦感。",
+      "observation": {
+        "abv": 8.5,
+        "price": 105,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/totopia-brewery-expansionphobia/6850767",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "hops"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "树脂、松针、柑橘苦感；金黄色酒体"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "WC“DIPA”となると実は5ヶ月ぶりのリリースとなります。期間は空きましたが、シングルやトリプルWCでの取り組みをダブルに加えるなどしてブラッシュアップverになっています。それぞれのキャラクターを持つ2種類のMosaic Cryoを加えて存在感に厚みを加えて、そこへSouthern Crossのレモンや樹脂さが爽快感とウッディ感を与えてくれています。全体のシャープさを担保しつつそれらのキャラクターを感じてもらえると思います。お楽しみ下さい。ゴールドの美しい液色。そこから若々しいフレッシュパインの爽快さと優しい苦味が重なる。加えて樹脂の香りにダンクの食感。 Style:DDH West Coast DIPA Hops:Mosaic Cryo, Southern Cross, Southern Cross Hop Kief, Mosaic Cryo"
+        },
+        "hops": {
+          "values": [
+            "Mosaic Cryo",
+            "Southern Cross",
+            "Southern Cross Hop Kief"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.96926,
+        "count": 122,
+        "url": "https://untappd.com/b/totopia-brewery-expansionphobia/6850767",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {
+        "abv": {
+          "menu_observation": 8.5,
+          "untappd": 8.0,
+          "resolution": "menu_vs_public_source_unresolved"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-11-08",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 8,
+      "menu_name": "Daze",
+      "name_zh": "微醺幻境",
+      "brewery": "Batch Craft Beer & Kolaches",
+      "brewery_aliases": [
+        "Batch Craft",
+        "Batch Craft Beer & Kolaches"
+      ],
+      "aliases": [
+        "微醺幻境 双倍浑浊IPA",
+        "Daze",
+        "微醺幻境",
+        "微醺幻境 Daze"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Daze",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "abv": 7.5,
+      "description_zh": "Batch Craft 的 DDH Hazy Double IPA；公开页面仅标注风格。",
+      "observation": {
+        "abv": 7.5,
+        "price": 70,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/batch-craft-beer-and-kolaches-daze/6457217",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "DDH Hazy Double IPA"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "DDH Hazy Double IPA"
+        }
+      },
+      "rating": {
+        "score": 4.01973,
+        "count": 147,
+        "url": "https://untappd.com/b/batch-craft-beer-and-kolaches-daze/6457217",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-09",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 9,
+      "menu_name": "Swanphilia",
+      "name_zh": "天鹅狂想症",
+      "brewery": "Totopia Brewery",
+      "brewery_aliases": [
+        "Toftebo",
+        "Totopia Brewery",
+        "Totopia"
+      ],
+      "aliases": [
+        "天鹅狂想症 双倍干投双倍浑浊IPA",
+        "Swanphilia",
+        "天鹅狂想症",
+        "天鹅狂爱症 Swanphilia"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Swanphilia",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "abv": 8.5,
+      "description_zh": "Totopia × Inkhorn 的 DDH Hazy Double IPA，使用 Citra、Krush Cryo 酒花；公开描述为热带水果与柔苦。",
+      "observation": {
+        "abv": 8.5,
+        "price": 125,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/totopia-brewery-swanphilia/6915810",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "hops"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "热带水果、柔苦；顺滑酒体"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "東京、目白にあるInkhorn Brewingとのコラボビールです。今年で3回目のコラボですが、いつもビールに対する真摯な向き合い方とそれを品質にまで昇華させる確かな知識とロジカルさはいつ体験しても学びが多く、僕達にとっても貴重な時間を過ごさせてもらいました。今回は同様のホップを使用する中でHazy IPAに関するそれぞれの知見を共有しながら仕込みを行いました。ワールプールで使用したDolcitaからは完熟フルーツ感がベースに落とし込まれ、DHで使用したCitra、Krush Cryoから来るジューシーな果実感に展開されています。Inkhornからのリリースも含めて是非お楽しみ下さい。とろんとした舌触りとどっしりとした麦の下地に、青々した側面とソフトな苦味から押し上げられる南国果実を連想させる爽快感。 Style:DDH Hazy Double IPA Hops:Citra, Krush Cryo"
+        },
+        "hops": {
+          "values": [
+            "Citra",
+            "Krush Cryo"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 4.06919,
+        "count": 409,
+        "url": "https://untappd.com/b/totopia-brewery-swanphilia/6915810",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-11",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 11,
+      "menu_name": "Champs of My Rye",
+      "name_zh": "沉香麦韵",
+      "brewery": "Young Master Brewery 少爺啤",
+      "brewery_aliases": [
+        "Mikkeller",
+        "Young Master",
+        "Young Master Brewery 少爺啤"
+      ],
+      "aliases": [
+        "沉香麦韵 Champs of My Rye",
+        "沉香麦韵",
+        "Champs of My Rye",
+        "Chanpei of My Rye",
+        "沉香美韵 黑麦IPA"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Chanpei of My Rye",
+      "style": "IPA - Rye",
+      "abv": 7.5,
+      "description_zh": "Young Master × Mikkeller 的黑麦 IPA，使用 Chinook、Cryo Simcoe、Cryo Centennial、Cryo Pop、Krush Hyperboost；胡椒黑麦、陈皮、树脂、热带水果、花香。",
+      "observation": {
+        "abv": 7.5,
+        "price": 75,
+        "volume_ml": 425,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/young-master-brewery-chanpei-of-my-rye/6859818",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "hops"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "胡椒黑麦、陈皮、树脂、热带水果、花香"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "We’ve teamed up with Mikkeller to drop an exclusive Rye IPA that bridges Danish tradition with local Cantonese heritage. Our collaborative Rye IPA marries peppery rye malts with the distinctive, bittersweet complexity of aged Chanpei. Loaded with a powerhouse hop line-up of Chinook, Cryo Simcoe, Cryo Centennial, Cryo Pop, and Krush Hyperboost, expect waves of resin, tropical fruit, and vibrant floral aromas in every sip. It’s resinous, complex, and refreshingly modern."
+        },
+        "hops": {
+          "values": [
+            "Chinook",
+            "Cryo Simcoe",
+            "Cryo Centennial",
+            "Cryo Pop",
+            "Krush Hyperboost"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.40786,
+        "count": 70,
+        "url": "https://untappd.com/b/young-master-brewery-chanpei-of-my-rye/6859818",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-12",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 12,
+      "menu_name": "Tinyphobia",
+      "name_zh": "迷你恐惧症",
+      "brewery": "Totopia Brewery",
+      "brewery_aliases": [
+        "Toftebo",
+        "Totopia Brewery",
+        "Totopia"
+      ],
+      "aliases": [
+        "迷你恐惧症 Tinyphobia",
+        "迷你恐惧症",
+        "Tinyphobia",
+        "迷你恐惧症 干投酸IPA"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Tinyphobia",
+      "style": "IPA - Sour",
+      "abv": 6.0,
+      "description_zh": "Totopia 的干投酸 IPA；黑莓、芒果、肉桂，葡萄色、蜜甜与野莓酸；公开描述。",
+      "observation": {
+        "abv": 5.0,
+        "price": 115,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/totopia-brewery-tinyphobia/6850762",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "hops",
+            "ingredients"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "黑莓/芒果/肉桂的酸 IPA；葡萄色、蜜甜与野莓酸"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "綺麗な葡萄色した見た目で、ベリー系果実をベースにしたSOUR IPAは約半年ぶりとなりました。Blackberryの濃くて黒っぽい果実感をほんのりまといながらも、Mangoの濃厚な蜜の様な甘味が加わることでクリーンで巨峰を思わせる味わいに仕上がっています。それでいて、ベースにじんわりとある渋みや土っぽさが野性味を感じさせてくれます。そのままでも十分味わい深いですが、香りのあるチーズなどと一緒にも楽しんでもらえると思います。お楽しみ下さい。高貴な葡萄色。蜜感ある芳醇な甘味が野苺の様な酸味をまろやかに仕立て、ほのかな渋みと土っぽさがワイルドな様相を演出。 Style:DH Sour IPA Hops:Citra Others:Blackberry, Mango, Cinnamon"
+        },
+        "hops": {
+          "values": [
+            "Citra"
+          ],
+          "sources": [
+            0
+          ]
+        },
+        "ingredients": {
+          "values": [
+            "Blackberry",
+            "Mango",
+            "Cinnamon"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.80489,
+        "count": 235,
+        "url": "https://untappd.com/b/totopia-brewery-tinyphobia/6850762",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {
+        "abv": {
+          "menu_observation": 5.0,
+          "untappd": 6.0,
+          "resolution": "menu_vs_public_source_unresolved"
+        }
+      }
+    },
+    {
+      "id": "elnido-2026-11-13",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 13,
+      "menu_name": "Just Fruit (Raspberry, Guava)",
+      "name_zh": "果味满满46号",
+      "brewery": "Frequentem Brewing Co.",
+      "brewery_aliases": [
+        "Everywhere",
+        "Frequentem",
+        "Frequentem Brewing Co."
+      ],
+      "aliases": [
+        "果味满满46号 Just Fruit",
+        "果味满满46号",
+        "Just Fruit",
+        "Just Fruit (Raspberry, Guava)"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Just Fruit (Raspberry, Guava, Tangerine)",
+      "style": "Sour - Fruited",
+      "abv": 5.0,
+      "description_zh": "Frequentem 的水果酸艾尔；大量覆盆子、番石榴、橘子，果酱感与热带水果；公开描述。",
+      "observation": {
+        "abv": 5.0,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/frequentem-brewing-co-just-fruit-raspberry-guava-tangerine/6776195",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "ingredients"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "果酱感、热带水果；覆盆子/番石榴/橘子"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "Thick Jammy and Tropical with large additions of Raspberry, Guava and Tangerine."
+        },
+        "ingredients": {
+          "values": [
+            "Raspberry",
+            "Guava",
+            "Tangerine"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 4.23776,
+        "count": 49,
+        "url": "https://untappd.com/b/frequentem-brewing-co-just-fruit-raspberry-guava-tangerine/6776195",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-15",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 15,
+      "menu_name": "Out Of Order Is Rusty Still In The Navy",
+      "name_zh": "无序海上将军",
+      "brewery": "RaR Brewing",
+      "brewery_aliases": [
+        "Everywhere",
+        "RaR Brewing",
+        "RaR"
+      ],
+      "aliases": [
+        "无序海上将军 水果酸艾尔",
+        "Out Of Order Is Rusty Still In The Navy",
+        "Out of Order: Is Rusty Still In the Navy?",
+        "无序海上将军",
+        "无序海上将军 Out of Order Is Rusty Still in the Navy?"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Out of Order: Is Rusty Still In the Navy?",
+      "style": "Sour - Fruited",
+      "abv": 5.0,
+      "description_zh": "RaR 的水果酸艾尔，乳酸基底加柠檬/青柠果冻与蜂蜜谷物。",
+      "observation": {
+        "abv": 5.0,
+        "price": 100,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/rar-brewing-out-of-order-is-rusty-still-in-the-navy/6538503",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "ingredients"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "乳酸酸啤；柠檬/青柠果冻、蜂蜜谷物"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "Our lactose sour base conditioned on Lemon and Lime Jello, and Honey Glazed Cereal."
+        },
+        "ingredients": {
+          "values": [
+            "Lemon and Lime Jello",
+            "Honey Glazed Cereal"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.89938,
+        "count": 242,
+        "url": "https://untappd.com/b/rar-brewing-out-of-order-is-rusty-still-in-the-navy/6538503",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-16",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 16,
+      "menu_name": "Squirrel Friends",
+      "name_zh": "松鼠伙伴",
+      "brewery": "Resident Culture",
+      "brewery_aliases": [
+        "Wilding",
+        "Resident Culture"
+      ],
+      "aliases": [
+        "松鼠伙伴 水果酸艾尔",
+        "Squirrel Friends",
+        "松鼠伙伴",
+        "松鼠伙伴 Squirrel Friends"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Squirrel Friends",
+      "style": "Sour - Fruited",
+      "abv": 5.0,
+      "description_zh": "Resident Culture 的水果酸艾尔，含番石榴、橘子、青柠、椰子。",
+      "observation": {
+        "abv": 5.0,
+        "price": 70,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/resident-culture-squirrel-friends/4331480",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "ingredients"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "水果酸艾尔；番石榴、橘子、青柠、椰子"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "Sour Ale with Guava, Tangerine, Lime and Coconut."
+        },
+        "ingredients": {
+          "values": [
+            "Guava",
+            "Tangerine",
+            "Lime",
+            "Coconut"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.93805,
+        "count": 1038,
+        "url": "https://untappd.com/b/resident-culture-squirrel-friends/4331480",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-17",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 17,
+      "menu_name": "Sunsmasher 2026",
+      "name_zh": "烈日下的粉碎机",
+      "brewery": "Holy Goat Brewing",
+      "brewery_aliases": [
+        "Holy Goat",
+        "Holy Goat Brewing"
+      ],
+      "aliases": [
+        "烈日下的粉碎机 Sunsmasher 2026",
+        "烈日下的粉碎机",
+        "Sunsmasher 2026",
+        "Sunsmasher"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Sunsmasher 2026",
+      "style": "Sour - Fruited",
+      "abv": 5.8,
+      "description_zh": "Holy Goat 的 Brett 发酵金色酸啤，整颗英国杏；菠萝、核果、柑橘；公开描述。",
+      "observation": {
+        "abv": 5.8,
+        "price": 90,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/holy-goat-brewing-sunsmasher-2026/6615436",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "ingredients"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "Brett 发酵；菠萝、核果、柑橘；杏"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "For this latest edition of Sunsmasher, our golden sour base beer was fermented with a Brettanomyces blend and aged for just over four months in tank before being conditioned on 220 g/L of whole British apricots, which were pulverised by hand (using a mallet). The Brett fermentation delivers vibrant tropical notes of pineapple, stone fruit, and citrus, all of which are amplified by the fresh apricot addition."
+        },
+        "ingredients": {
+          "values": [
+            "Apricots"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.99134,
+        "count": 808,
+        "url": "https://untappd.com/b/holy-goat-brewing-sunsmasher-2026/6615436",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [
+        "menu_style_wild_ale_vs_source_sour_fruited"
+      ],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-18",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 18,
+      "menu_name": "See What Sticks",
+      "name_zh": "印记",
+      "brewery": "everywhere",
+      "brewery_aliases": [
+        "Everywhere",
+        "everywhere"
+      ],
+      "aliases": [
+        "印记 See What Sticks",
+        "印记",
+        "See What Sticks"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "see what sticks",
+      "style": "Stout - Imperial / Double",
+      "abv": 10.7,
+      "description_zh": "Everywhere 的节日帝国世涛；蔓越莓、奶油奶酪粉、香草豆、乳糖；公开描述。",
+      "observation": {
+        "abv": 10.7,
+        "price": 145,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/everywhere-see-what-sticks/6506348",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "ingredients"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "节日帝国世涛；蔓越莓、奶油奶酪、香草、乳糖"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "\"see what sticks\" is a holiday stout made with cranberries, cream cheese powder, vanilla beans, and milk sugar."
+        },
+        "ingredients": {
+          "values": [
+            "Cranberries",
+            "Cream cheese powder",
+            "Vanilla beans",
+            "Milk sugar"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 4.10735,
+        "count": 238,
+        "url": "https://untappd.com/b/everywhere-see-what-sticks/6506348",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    },
+    {
+      "id": "elnido-2026-11-19",
+      "menu_id": "elnido-2026-11",
+      "menu_index": 19,
+      "menu_name": "Proto 106 Imperial Stout",
+      "name_zh": "一零六号原型机",
+      "brewery": "Brewski",
+      "brewery_aliases": [
+        "Everywhere",
+        "Brewski"
+      ],
+      "aliases": [
+        "一零六号原型机 帝国世涛",
+        "Proto 106",
+        "Proto 106 Imperial Stout",
+        "一零六号原型机",
+        "一零六号原型机 Proto 106"
+      ],
+      "identity_status": "confirmed",
+      "canonical_name": "Proto 106",
+      "style": "Stout - Imperial / Double",
+      "abv": 11.0,
+      "description_zh": "Brewski 的帝国世涛，含可可豆、辣椒、香草。",
+      "observation": {
+        "abv": 11.0,
+        "price": 80,
+        "volume_ml": 300,
+        "currency": "CNY",
+        "observed_at": "2026-11-19",
+        "source": "menu_transcription"
+      },
+      "sources": [
+        {
+          "url": "https://untappd.com/b/brewski-proto-106/5697070",
+          "kind": "community",
+          "access": "web_index_or_cache",
+          "checked_at": "2026-11-15",
+          "fields": [
+            "identity",
+            "style",
+            "abv",
+            "flavor_notes",
+            "rating",
+            "ingredients"
+          ]
+        }
+      ],
+      "sourced_facts": {
+        "sensory": {
+          "values": [
+            "帝国世涛；可可、辣椒、香草"
+          ],
+          "sources": [
+            0
+          ],
+          "excerpt": "Imperial stout with cocoa nibs, chili and vanilla."
+        },
+        "ingredients": {
+          "values": [
+            "cocoa nibs",
+            "chili",
+            "vanilla"
+          ],
+          "sources": [
+            0
+          ]
+        }
+      },
+      "rating": {
+        "score": 3.91697,
+        "count": 330,
+        "url": "https://untappd.com/b/brewski-proto-106/5697070",
+        "checked_at": "2026-11-15"
+      },
+      "issues": [],
+      "field_disagreements": {}
+    }
+  ]
+}

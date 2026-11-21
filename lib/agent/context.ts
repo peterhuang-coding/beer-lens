@@ -52,6 +52,9 @@ export async function buildAgentContext(
     channel: request.channel,
     memorySnapshot,
     profileSummary: profile?.summary,
+    deadlineAtMs: request.deadlineAtMs,
+    signal: request.signal,
+    onProgress: request.onProgress,
   };
 }
 

@@ -1,4 +1,5 @@
 import type { AgentResponse, ChatMessage } from "./types";
+import type { AgentContext } from "../agent/types";
 
 export type BeerChannel = "web" | "feishu" | "wechat" | "telegram" | "cli";
 
@@ -183,6 +184,10 @@ export type BeerDialogRequest = {
   turnId: string;
   messages: ChatMessage[];
   image?: { name: string; type: string; dataUrl?: string; };
+  /** Absolute wall-clock deadline anchored before inbound queueing. */
+  deadlineAtMs?: number;
+  signal?: AbortSignal;
+  onProgress?: AgentContext["onProgress"];
   metadata?: { locale?: string; timezone?: string; venue?: string; };
 };
 

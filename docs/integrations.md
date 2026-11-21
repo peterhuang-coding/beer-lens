@@ -34,6 +34,14 @@ npm run dev
 
 `/api/agent` will use OpenRouter when `OPENROUTER_API_KEY` is present.
 
+Optional package-only selection: set `BEER_VISION_PROVIDER=coding-plan` with `CODING_PLAN_API_KEY` to route Agent menu image, intent selection, and knowledge text through one fixed package endpoint with no OpenRouter key required. Leaving both selectors unset preserves the legacy behavior above; unknown nonblank values fail closed before a request. See [Feishu](#飞书长连接试用入口) for the long-connection setup flow.
+
+For explicitly selected Claude vision, set `BEER_VISION_PROVIDER=anthropic` and `ANTHROPIC_API_KEY`. This route uses the official Anthropic SDK, fixed direct endpoint, `claude-opus-5`, streaming and adaptive thinking. It only handles Agent image calls. Set `BEER_TEXT_PROVIDER=coding-plan` or `openrouter` explicitly for intent selection and knowledge text; Anthropic is not accepted as a text provider, and enabling its image route does not implicitly enable another text service. The pinned routes have no automatic provider fallback, and the Anthropic SDK retry count is zero.
+
+Real Anthropic requests require a usable credential, may incur separate API charges, and send submitted images to Anthropic. Only synthetic offline transport tests have run; real API behavior, real-image quality and Feishu client-visible results remain unverified.
+
+For explicitly selected DeepSeek vision, set `BEER_VISION_PROVIDER=deepseek` and `DEEPSEEK_API_KEY`. The pinned route calls the official Chat Completions image format with the stable `deepseek-flash` model alias and no provider fallback. It handles only Agent image calls; set `BEER_TEXT_PROVIDER=coding-plan` or `openrouter` explicitly for intent and knowledge text. Real requests may incur charges and send submitted images to DeepSeek. Caller cancellation is forwarded to the in-flight request.
+
 Local CLI demo:
 
 ```bash
@@ -117,7 +125,22 @@ Important:
 
 ### 飞书长连接试用入口
 
-`npm run feishu:check` 检查 `.env.local` 或应用运行环境中的 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`OPENROUTER_API_KEY`，只输出缺失字段名。该检查不验证凭据有效性。
+`npm run feishu:check` 检查 `.env.local` 或应用运行环境中的 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`，并按图片与文本的有效路由分别检查密钥：默认需要 `OPENROUTER_API_KEY`；包路由需要 `CODING_PLAN_API_KEY`；Anthropic 视觉需要 `ANTHROPIC_API_KEY`，并要求显式设置 `BEER_TEXT_PROVIDER`。同一密钥只需配置一次；检查只输出缺失字段名，不验证凭据有效性。
+
+```bash
+FEISHU_APP_ID=cli_xxx
+FEISHU_APP_SECRET=xxx
+# 可选：限定试用用户（逗号分隔的 open_id）
+# FEISHU_ALLOWED_OPEN_IDS=ou_xxx
+# 可选：Agent 菜单图片 + 意图选择 + 知识文本改走固定包接口
+# BEER_VISION_PROVIDER=coding-plan
+# CODING_PLAN_API_KEY=...
+# 可选：仅图片改走 Claude，文本显式留在固定包接口
+# BEER_VISION_PROVIDER=anthropic
+# ANTHROPIC_API_KEY=...
+# BEER_TEXT_PROVIDER=coding-plan
+# CODING_PLAN_API_KEY=...
+```
 
 `npm run feishu:bot` 使用官方 SDK 建立长连接，和 HTTP 回调共用 `lib/feishu/handler.ts`。此入口只接收用户私聊；`FEISHU_ALLOWED_OPEN_IDS` 可进一步限定试用用户。收到事件后立即回执，同一聊天串行处理，重复事件去重。
 
@@ -125,9 +148,9 @@ Important:
 
 每个应用只运行一个本项目接收进程，使用可写、持久化的 `data/` 目录。进程需持续运行才能接收新消息；当前工作区的临时进程不等同于长期托管。长连接不经过 HTTP 回调的加密分支。
 
-飞书沿用 Agent Controller 的 OpenRouter 链路。Web `/api/chat` 的 `LLM_*` 配置不能替代这里的 `OPENROUTER_API_KEY`；视觉管线的模型设置仍由项目 `data/pipeline-config.json` 决定。
+飞书沿用 Agent Controller 的文本/图片链路：未设置选择器的旧链路默认走 OpenRouter，此时视觉管线的模型设置仍由项目 `data/pipeline-config.json` 决定；旧的 `BEER_VISION_PROVIDER=coding-plan` 配置仍将菜单图片、意图选择和知识文本统一到单一固定 seed 包提供者，并覆盖 `data/pipeline-config.json` 及调试界面保存的视觉链。显式 `BEER_TEXT_PROVIDER` 可独立覆盖文本路由；`BEER_VISION_PROVIDER=anthropic` 或 `deepseek` 分别只固定 Claude 或 DeepSeek Flash 图片路由，必须显式选择文本路由，不会修改知识模型。Web `/api/chat` 的 `LLM_*` 配置不能替代这里的密钥。这些选择不覆盖旧 demo 或其他模块；固定包请求无付费回退，Anthropic 视觉无 SDK 重试，所有显式图片路由均无其他供应商回退。
 
-试用先私聊发送“你好”和“你能帮我做什么？”，再发真实酒单并追问预算、编号。接入检查与真实回答质量分别验收；预算、实体抽取、否定编号及容量更新已有离线修复回归，真实模型与飞书会话质量仍需单独验收。见[本次改动与验证](beer-lens/改动与验证.md)。
+试用先私聊发送“你好”和“你能帮我做什么？”，再发真实酒单并追问预算、编号。接入检查与真实回答质量分别验收；预算、实体抽取、否定编号及容量更新已有离线修复回归。**配置检查通过不等于凭据有效、长连接已连通或图片质量合格**：真实飞书会话与原始照片链路尚未测试，此前一次公网图片请求超时。见[本次改动与验证](beer-lens/改动与验证.md)。
 
 ## Provider Priority
 

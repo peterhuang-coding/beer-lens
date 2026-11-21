@@ -1,0 +1,94 @@
+{
+  "evidenceLayer": "captured first-turn vision + real configured LLM_* text calls for knowledge follow-ups; local pricing/budget turns; isolated state",
+  "initial": {
+    "monotonicMs": 2796,
+    "wallMs": 2797,
+    "candidateCount": 17,
+    "route": "recommend",
+    "replyHead": "图像边界（识别到 17 款；以下项不猜测）：5号位卡片反光/空白，编号1-4、6-18中缺5，推测该位存在但内容不可读；11号酒厂小字可能是 Loley 或 Lolev（易混），需现场复核；右侧边缘另有19、20号酒款被画面裁切，未纳入\n\n先给你 3 个选择（按当前口味、约束和已确认资料）：\n1. #1 Your Young Lordship（年轻领主）（首选）：符合你要的清爽风格；60元 / 425ml，14.12元/100ml；取舍：单位价只作菜单内算术，不代表品质或市场最低价。\n2. #7 Kölsch（科隆",
+    "warnings": []
+  },
+  "followUps": [
+    {
+      "question": "我预算100元以内，想要清爽不苦，选哪款？",
+      "monotonicMs": 4,
+      "wallMs": 5,
+      "route": "recommend",
+      "intent": "follow_up_filter",
+      "candidateCount": 17,
+      "warnings": [],
+      "reply": "我会这样点：\n\n已知：Your Young Lordship（年轻领主） · 风格 Czech Pilsner，ABV 4.7%。\n\n（这批酒都没有评分数据，以下仅按风格粗略分档，别全信我）\n\n1. Your Young Lordship（年轻领主） · ¥60 / 425ml（约 ¥14.12/100ml） - 价格 ¥60，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量（有风险，见下方）\n2. Kölsch（科隆） · ¥55 / 425ml（约 ¥12.94/100ml） - 价格 ¥55，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量\n3. The Premium Malt's Black（黑啤） · ¥65 / 300ml（约 ¥21.67/100ml） - 价格 ¥65，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量\n\n价量对比：Kölsch（科隆） 相对 Your Young Lordship（年轻领主），单次购买少花 ¥5；单位价低约 ¥1.18/100ml。\n\n最稳：Kölsch（科隆）\n最值得尝新：The Premium Malt's Black（黑啤）\n\n如果只能喝一杯，选 Your Young Lordship（年轻领主）。\n\n⚠️ Your Young Lordship（年轻领主）、The Premium Malt's Black（黑啤）、DDH Pseudo Sue（双倍干投暴龙苏）、Kölsch（科隆）、Frozen Pond De Luxe（奢华冰冻池塘）、Demihydra（德米海德拉10号）、Just Fruit (Blueberry, Peach)（果味满满34号）、Limonada Rosada（罗萨达） 等9款 数据不足，谨慎尝试。",
+      "mentionsMenuRow": true,
+      "claimsStyleInference": false,
+      "admitsMissingFacts": true
+    },
+    {
+      "question": "哪款酒花最香？",
+      "monotonicMs": 10767,
+      "wallMs": 10767,
+      "route": "beer-knowledge",
+      "intent": "beer_knowledge",
+      "candidateCount": 0,
+      "warnings": [],
+      "reply": "根据当前菜单证据，以下酒款可能酒花香气较为突出（按风格推测，非具体款级事实）：\n\n1. **#3 Cyber Sue（赛博暴龙）** · 风格 West Coast IPA  \n   - **风格通性**：West Coast IPA 通常以柑橘、松脂等酒花香气为主，苦感较明显，但香气浓郁。  \n   - **价格**：85 CNY / 425ml（约 ¥20/100ml），符合你的预算。\n\n2. **#4 DDH Pseudo Sue（双倍干投暴龙苏）** · 风格 DDH Hazy Pale Ale  \n   - **风格通性**：双倍干投（DDH）工艺通常会增强酒花香气，Hazy Pale Ale 的酒花香气通常偏向热带水果或柑橘方向，苦感相对较低。  \n   - **价格**：90 CNY / 425ml（约 ¥21.18/100ml），略超预算但接近。\n\n3. **#6 Cool Cool（酷酷）** · 风格 Hazy IPA  \n   - **风格通性**：Hazy IPA 通常酒花香气浓郁，常见热带水果或柑橘方向，苦感相对收敛。  \n   - **价格**：90 CNY / 300ml（约 ¥30/100ml），略超预算但香气表现可能较好。\n\n### 推荐理由：\n- **Cyber Sue** 和 **DDH Pseudo Sue** 都是酒花香气突出的风格，且价格接近你的预算。  \n- **Cool Cool** 香气表现也可能不错，但单位价格较高。  \n\n如果你更注重香气且预算稍灵活，**Cyber Sue** 或 **DDH Pseudo Sue** 是不错的选择。",
+      "mentionsMenuRow": true,
+      "claimsStyleInference": true,
+      "admitsMissingFacts": false
+    },
+    {
+      "question": "哪款是经典款？",
+      "monotonicMs": 9708,
+      "wallMs": 9709,
+      "route": "beer-knowledge",
+      "intent": "beer_knowledge",
+      "candidateCount": 0,
+      "warnings": [],
+      "reply": "【来源核对】当前菜单证据没有提供酒厂历史、百年老牌、经典地位、旗舰或获奖的款级来源 Claim；这些背景只能算未核实常识，不能作为已核实事实。\n\n根据当前菜单证据，以下酒款被明确标注了「经典」或「旗舰」身份（仅引用菜单原文，未核实其他来源）：\n\n1. **#7 Kölsch（科隆）** · Gaffel  \n   - 菜单标注：「纯正原产 百年老牌」（但未明确使用“经典”或“旗舰”字样）  \n   - 风格通性：科隆啤酒（Kölsch）是受地理标志保护的德国传统风格，通常以清爽干净著称。  \n\n2. **#8 Chubbles（查博斯）** · Cloudwater  \n   - 菜单标注：「旗舰酒款」（但未提供具体经典地位证明）  \n\n**需注意**：  \n- 其他酒款（如三得利黑啤、击倒巨人系列等）未在菜单中标注经典或旗舰身份，无法直接断言。  \n- 「百年老牌」「旗舰酒款」等描述来自菜单OCR，未核实酒厂官方声明或行业共识。  \n\n如果想尝试公认经典风格，**#7 Kölsch** 是更稳妥的选择（传统科隆啤酒），而 **#8 Chubbles** 则是酒厂自称的旗舰款（但风格较新潮）。",
+      "mentionsMenuRow": true,
+      "claimsStyleInference": true,
+      "admitsMissingFacts": true
+    },
+    {
+      "question": "第7款多少钱？",
+      "monotonicMs": 9,
+      "wallMs": 9,
+      "route": "recommend",
+      "intent": "follow_up_filter",
+      "candidateCount": 1,
+      "warnings": [],
+      "reply": "第7号 Kölsch（科隆）：55元 / 425ml，12.94元/100ml；ABV 4.8%。\n首选 Kölsch（科隆）：先按已知口味与预算匹配选择。\n以上只比较当前酒单图示价格，单位价低不代表品质更好；币种、消费形式需一致，不能据此声称市场最低价。实际苦度与新鲜度仍需确认。",
+      "mentionsMenuRow": true,
+      "claimsStyleInference": false,
+      "admitsMissingFacts": false
+    },
+    {
+      "question": "为什么推荐第一款？",
+      "monotonicMs": 4809,
+      "wallMs": 4809,
+      "route": "beer-knowledge",
+      "intent": "beer_knowledge",
+      "candidateCount": 0,
+      "warnings": [],
+      "reply": "【菜单算术核对】单位价最低的是 #7 Kölsch（科隆）（55元/425ml，12.94元/100ml）；单杯总价最低的是 #7 Kölsch（科隆）（55元/425ml，12.94元/100ml）。推荐理由是口味/风格匹配，不等于最低价或性价比最高。\n\n推荐第一款「Your Young Lordship（年轻领主）」的原因如下：\n\n1. **风格匹配**：这是一款 Czech Pilsner（捷克皮尔森），风格通性上，这种啤酒通常有较圆滑的麦芽感与草本酒花气息，苦感常比德式皮尔森更柔和。如果你喜欢清爽、平衡的啤酒，这款可能很适合你。\n\n2. **价格合理**：价格为 60 CNY / 425ml，约合 14.12 CNY/100ml，在当前菜单中属于中等价位，性价比不错。\n\n3. **酒精度适中**：ABV 为 4.7%，适合轻松饮用，不会过于浓烈。\n\n推荐理由是口味与风格匹配，而不是最低价。如果你偏好更浓郁或更高酒精度的啤酒，可以考虑其他选项。",
+      "mentionsMenuRow": true,
+      "claimsStyleInference": true,
+      "admitsMissingFacts": false
+    }
+  ],
+  "checks": {
+    "initialCandidates17": true,
+    "stmMenuStill17": true,
+    "budgetContextPreserved": true,
+    "priceRow7Correct": true,
+    "allFollowUpsWithin60s": true
+  },
+  "memory": {
+    "menuCount": 17,
+    "recentTurnCount": 6,
+    "constraints": [
+      "不苦",
+      "crisp",
+      "maxPrice:100"
+    ]
+  }
+}

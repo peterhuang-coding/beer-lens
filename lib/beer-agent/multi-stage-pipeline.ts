@@ -1,7 +1,9 @@
 import { openrouterFetch } from "./openrouter-client";
 import { vision } from "@/lib/multimodal";
+import { resolveImageRoute } from "@/lib/multimodal/image-routing";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { throwIfTurnExpired } from "./turn-deadline";
 
 // ── Config helpers (inlined to avoid circular imports) ──
 
@@ -188,7 +190,9 @@ export async function runMultiStagePipeline(params: {
   onProgress?: ProgressCallback;
   /** The skill applies its own deterministic recommendation after enrichment. */
   skipRecommendation?: boolean;
+  signal?: AbortSignal;
 }): Promise<PipelineResult> {
+  throwIfTurnExpired({ signal: params.signal });
   const { apiKey, imageDataUrl, userText, profile, onProgress } = params;
   const visionCfg = await getModelConfig("vision");
   const analysisCfg = await getModelConfig("analysis");
@@ -201,10 +205,10 @@ export async function runMultiStagePipeline(params: {
     // Text-only path
     const imageContext = textOnlyImageContext();
     const extracted = await withProgress(emit, "ocr", "📝 文本实体抽取", analysisModel,
-      () => extractBeerFromText(apiKey, analysisModel, userText));
+      () => extractBeerFromText(apiKey, analysisModel, userText, params.signal));
     const visualQuality = textOnlyVisualQuality();
     const recommendation = await withProgress(emit, "recommendation", "🧠 智能推荐分析", analysisModel,
-      () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext, visualQuality, profile, userText));
+      () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext, visualQuality, profile, userText, params.signal));
     return { imageContext, extracted, visualQuality, recommendation };
   }
 
@@ -212,7 +216,7 @@ export async function runMultiStagePipeline(params: {
   // Routed through the multimodal container; visionModel/apiKey are now
   // resolved inside the container from capability defaults + env.
   const combined = await withProgress(emit, "vision", "🔍📝🔬 视觉分析 (分类+OCR+质量)", visionModel,
-    () => combinedVisionAnalysis(apiKey, visionModel, imageDataUrl, userText));
+    () => combinedVisionAnalysis(apiKey, visionModel, imageDataUrl, userText, params.signal));
 
   const imageContext = combined.imageContext;
   const extracted = combined.extracted;
@@ -240,7 +244,7 @@ export async function runMultiStagePipeline(params: {
 
   // Stage 2: Recommendation (text model)
   const recommendation = await withProgress(emit, "recommendation", "🧠 智能推荐分析", analysisModel,
-    () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext, visualQuality, profile, userText));
+    () => analyzeRecommendation(apiKey, analysisModel, extracted, imageContext, visualQuality, profile, userText, params.signal));
 
   return { imageContext, extracted, visualQuality, recommendation };
 }
@@ -316,7 +320,8 @@ export function buildVisionPrompt(userText: string): string {
 }
 
 async function combinedVisionAnalysis(
-  _apiKey: string, _model: string, imageDataUrl: string, userText: string
+  _apiKey: string, _model: string, imageDataUrl: string, userText: string,
+  signal?: AbortSignal,
 ): Promise<CombinedVisionOutput> {
   const { base64, mime } = parseDataUrl(imageDataUrl);
   const schema = combinedVisionSchema();
@@ -324,19 +329,41 @@ async function combinedVisionAnalysis(
 
   // Route through the multimodal container — it owns fallback, cache,
   // tracing, and rule-engine hooks. apiKey/model come from env/config
-  // inside the container, so we drop them here.
+  // inside the container, so we drop them here. In package mode the
+  // explicit one-provider chain is supplied per call, so capability
+  // defaults, debug overrides, and global fallback providers cannot switch
+  // the request to a paid provider.
+  const route = resolveImageRoute();
+  const callOptions = route.mode === "package" ? { providers: route.providers } : {};
   const result = await vision.call<CombinedVisionOutput>("beer_menu_image", {
     image: { base64, mime },
     prompt: visionPrompt,
     schema,
     schemaName: "beer_combined_vision",
     maxTokens: 12000,
-  });
+  }, signal ? { ...callOptions, signal } : callOptions);
 
-  const data = result.parsed as any;
+  // The provider returns raw text; the container's tryParse falls back to the
+  // string on invalid JSON. Parse/repair here so a truncated but salvageable
+  // response yields the rows it did contain instead of a silent empty menu.
+  const raw = typeof result.raw === "string" && result.raw.trim()
+    ? result.raw.trim()
+    : JSON.stringify(result.parsed ?? {});
+  const data = parseAndRepairJson(raw, "beer_combined_vision") as any;
+  const extracted = data?.extracted ?? {
+    sourceType: "unknown", rawText: "", items: [],
+    visualBeerDescription: { color: "", clarity: "", foam: "", visiblePackagingDate: "", notes: [] },
+    uncertainties: [],
+  };
+  if (!raw.endsWith("}")) {
+    extracted.uncertainties = [
+      ...(Array.isArray(extracted.uncertainties) ? extracted.uncertainties : []),
+      "模型输出在 max_tokens 处截断；后段酒款可能缺失，已保留可解析的前段。",
+    ];
+  }
   return {
     imageContext: data?.imageContext ?? textOnlyImageContext(),
-    extracted: data?.extracted ?? { sourceType: "unknown", rawText: "", items: [], visualBeerDescription: { color: "", clarity: "", foam: "", visiblePackagingDate: "", notes: [] }, uncertainties: [] },
+    extracted,
     visualQuality: data?.visualQuality ?? textOnlyVisualQuality(),
   };
 }
@@ -351,7 +378,7 @@ function parseDataUrl(dataUrl: string): { base64: string; mime: string } {
 // ── Text-only extraction ──
 
 async function extractBeerFromText(
-  apiKey: string, model: string, userText: string
+  apiKey: string, model: string, userText: string, signal?: AbortSignal,
 ): Promise<BeerSignal> {
   const schema = beerSignalExtractSchema();
   const result = await callOpenRouterJson(apiKey, model, [
@@ -360,7 +387,7 @@ async function extractBeerFromText(
 ${userText}
 
 输出 rawText 为原文，items 为抽取的候选项列表。` }
-  ], schema, "beer_signal_extract", 1200);
+  ], schema, "beer_signal_extract", 1200, signal);
   return result as BeerSignal;
 }
 
@@ -369,7 +396,8 @@ ${userText}
 async function analyzeRecommendation(
   apiKey: string, model: string,
   extracted: BeerSignal, imageContext: ImageContext,
-  visualQuality: VisualQuality, profile: string, userText: string
+  visualQuality: VisualQuality, profile: string, userText: string,
+  signal?: AbortSignal,
 ): Promise<PipelineRecommendation> {
   const beerList = (extracted.items ?? []).map((item, i) =>
     `#${item.menuIndex || i + 1} ${item.beerName} | ${item.brewery || "?"} | ${item.style || "?"} | ${item.abv}% ABV` +
@@ -399,7 +427,7 @@ ${beerList}
 风险: ${JSON.stringify(visualQuality?.visualRiskFlags ?? [])}
 
 请选出 top/safe/explore/avoid 四个推荐，用 menuIndex 数字做 ID。` }
-  ], schema, "beer_recommendation", 1200);
+  ], schema, "beer_recommendation", 1200, signal);
   return result as PipelineRecommendation;
 }
 
@@ -407,7 +435,8 @@ ${beerList}
 
 async function callOpenRouterJson(
   _apiKey: string, model: string,
-  messages: object[], schema: object, schemaName: string, maxTokens: number
+  messages: object[], schema: object, schemaName: string, maxTokens: number,
+  signal?: AbortSignal,
 ): Promise<object> {
   const schemaJson = JSON.stringify(schema);
   const buildBody = (m: string): any => {
@@ -450,17 +479,21 @@ async function callOpenRouterJson(
   const errors: Array<{ model: string; err: string }> = [];
 
   for (let attempt = 0; attempt < fallbackChain.length; attempt++) {
+    throwIfTurnExpired({ signal });
     const m = fallbackChain[attempt];
     const tryJsonSchema = attempt === 0;
     const body = tryJsonSchema ? buildBody(m) : { ...buildBody(m), response_format: undefined };
 
     try {
-      const content = await openrouterFetch(body);
+      const content = await openrouterFetch(body, signal ? { signal } : undefined);
       if (attempt > 0) {
         console.warn(`[multi-stage] ${schemaName} succeeded on fallback model ${m} after ${attempt} failures`);
       }
       return parseAndRepairJson(content, schemaName);
     } catch (err) {
+      // A caller abort is not a provider failure: never turn it into another
+      // model attempt or hide it inside the aggregate fallback error.
+      if (signal?.aborted) throwIfTurnExpired({ signal });
       const msg = err instanceof Error ? err.message : String(err);
       errors.push({ model: m, err: msg });
       // Continue to next model.
@@ -473,7 +506,7 @@ async function callOpenRouterJson(
   );
 }
 
-function parseAndRepairJson(content: string, label: string): object {
+export function parseAndRepairJson(content: string, label: string): object {
   try { return JSON.parse(content.trim()); } catch {}
 
   let cleaned = content
@@ -508,6 +541,13 @@ function parseAndRepairJson(content: string, label: string): object {
   let json = cleaned.slice(firstBrace, end).trim();
 
   if (!isBalanced(json)) {
+    // A truncation inside the last property leaves an unterminated string.
+    // Close it only at the last complete object, then append the open
+    // brackets; this preserves all complete rows instead of dropping them.
+    const atObject = salvageAtLastCompleteObject(json);
+    if (atObject) {
+      try { return JSON.parse(atObject); } catch { /* fall through */ }
+    }
     json = salvageTruncated(json);
   }
 
@@ -524,6 +564,11 @@ function parseAndRepairJson(content: string, label: string): object {
     try {
       const salvaged = salvageTruncated(repaired);
       return JSON.parse(salvaged);
+    } catch {}
+
+    try {
+      const atObject = salvageAtLastCompleteObject(json);
+      if (atObject) return JSON.parse(atObject);
     } catch {}
 
     const preview = json.slice(0, 500);
@@ -577,6 +622,42 @@ function isBalanced(s: string): boolean {
     if (ch === "]" && (i === 0 || s[i - 1] !== "\\")) depth--;
   }
   return depth === 0 && !inString;
+}
+
+/**
+ * Cut a truncated JSON document at the last complete object and append the
+ * brackets that were open at that point. This is safe for truncation in the
+ * middle of a string/key because it never closes a partial key/value pair.
+ */
+function salvageAtLastCompleteObject(json: string): string | null {
+  const stack: string[] = [];
+  let inString = false;
+  let escaped = false;
+  let lastClose = -1;
+  let lastStack: string[] = [];
+
+  for (let i = 0; i < json.length; i++) {
+    const ch = json[i];
+    if (inString) {
+      if (escaped) { escaped = false; continue; }
+      if (ch === "\\") { escaped = true; continue; }
+      if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') { inString = true; continue; }
+    if (ch === "{") { stack.push("}"); continue; }
+    if (ch === "[") { stack.push("]"); continue; }
+    if ((ch === "}" || ch === "]") && stack[stack.length - 1] === ch) {
+      stack.pop();
+      if (ch === "}") {
+        lastClose = i;
+        lastStack = stack.slice();
+      }
+    }
+  }
+
+  if (lastClose < 0) return null;
+  return json.slice(0, lastClose + 1) + lastStack.reverse().join("");
 }
 
 function salvageTruncated(json: string): string {

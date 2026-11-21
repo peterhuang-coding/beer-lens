@@ -1,0 +1,15 @@
+import {pathToFileURL} from 'node:url';
+import {readFile,writeFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const [root,out]=process.argv.slice(2);const {applyMenuEvidenceGuards:g}=await import(pathToFileURL(root+'/lib/skills/beer-knowledge/evidence-guards.ts'));const {buildBeerDossier}=await import(pathToFileURL(root+'/lib/beer-agent/dossier/build-dossier.ts'));const {groundMenuSupplements}=await import(pathToFileURL(root+'/lib/beer-agent/menu-supplements.ts'));
+const results=[];function record(id,input,actual,check){let status='PASS',error=null;try{check(actual)}catch(e){status='FAIL';error=e.message}results.push({id,input,actual,status,error});}
+const mem={lastMenu:{candidates:[{menuIndex:1,displayName:'Expensive',price:60,volumeMl:425,currency:'CNY'},{menuIndex:7,displayName:'Cheaper',price:55,volumeMl:425,currency:'CNY'}]}};
+let raw='#1 比 #7 更便宜，单位价最低。';record('mentioning_cheapest_row_does_not_validate_false_comparison',raw,g(raw,mem),x=>assert.ok(!x.includes(raw),'false sentence survives merely because it mentions actual cheapest row'));
+const tmem={lastMenu:{candidates:[{menuIndex:1,displayName:'Small',price:10,volumeMl:100,currency:'CNY'},{menuIndex:7,displayName:'Large',price:15,volumeMl:500,currency:'CNY'}]}};
+raw='#7 Large 的单杯总价最低。';record('total_price_minimum_is_not_unit_price_minimum',raw,g(raw,tmem),x=>assert.ok(!x.includes(raw),'unit-cheapest row incorrectly authorizes false total-cheapest claim'));
+const classic={lastMenu:{candidates:[{menuIndex:7,displayName:'Target',brewery:'House',dossier:{brewery:{reputation:[{value:{kind:'classic',text:'Producer calls this beer a classic'},url:'https://example.com/product',checkedAt:'2026-11-01',reviewStatus:'curated',usable:true}]}}}]}};
+raw='#7 Target 是百年老牌酒厂的产品。';record('classic_claim_does_not_prove_century_history',raw,g(raw,classic),x=>assert.ok(!x.includes(raw),'any reputation on same row authorizes unrelated history predicate'));
+const entry=JSON.parse(await readFile(root+'/data/menus/elnido-2026-11.json','utf8')).entries[0];entry.identity_status='version_unresolved';
+const c={candidateId:'parent_unresolved',menuIndex:1,displayName:entry.menu_name,brewery:entry.brewery,style:'Lager',abv:5.2,price:70,volumeMl:300,currency:'CNY',evidence:[],riskFlags:[],untappdScore:null,untappdRatingCount:null};
+const grounded=groundMenuSupplements([c],[entry]);const dossier=buildBeerDossier(grounded[0],[entry]);record('unresolved_version_cannot_expose_supplement_rating',{identityStatus:entry.identity_status,sourceRating:entry.rating},dossier,x=>{assert.equal(x.identity.identityStatus,'version_unresolved');assert.equal(x.rating,null,'version-unresolved dossier exposes source rating')});
+await writeFile(out,JSON.stringify({head:'ed1b45aaae69ee7e58d8c507bca5e38f226b9e21',layer:'synthetic independent offline acceptance probes',results},null,2)+'\n');console.log(JSON.stringify(results.map(({id,status,error})=>({id,status,error})),null,2));process.exitCode=results.some(x=>x.status==='FAIL')?1:0;

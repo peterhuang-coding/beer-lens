@@ -1,0 +1,44 @@
+{
+  "constraints": [
+    "不苦",
+    "crisp",
+    "maxPrice:100"
+  ],
+  "menuCount": 17,
+  "picks": {
+    "topPick": {
+      "candidateId": "ocr_1",
+      "label": "最佳",
+      "reason": "¥60 - 符合你要的清爽风格",
+      "worthScore": 50,
+      "fitScore": 70
+    },
+    "safePick": {
+      "candidateId": "ocr_6",
+      "label": "最稳",
+      "reason": "¥55 - 符合你要的清爽风格",
+      "worthScore": 50,
+      "fitScore": 70
+    },
+    "explorePick": {
+      "candidateId": "ocr_2",
+      "label": "尝新",
+      "reason": "评分3.4(3481人) · ¥65",
+      "worthScore": 68,
+      "fitScore": 55
+    },
+    "avoidOrCaution": {
+      "candidateId": "ocr_17",
+      "label": "谨慎",
+      "reason": "¥85",
+      "worthScore": 40,
+      "fitScore": 40
+    }
+  },
+  "reply": "我会这样点：\n\n已知：Your Young Lordship · 风格 Czech Pilsner，ABV 4.7%。\n\n1. Your Young Lordship · ¥60 / 425ml（约 ¥14.12/100ml） - 价格 ¥60，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量（有风险，见下方）\n2. Kölsch · ¥55 / 425ml（约 ¥12.94/100ml） - 价格 ¥55，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量\n3. The Premium Malt's Black · ¥65 / 300ml（约 ¥21.67/100ml） - 评分3.4，3481+人评分，价格 ¥65，符合 ¥100 预算\n\n价量对比：Kölsch 相对 Your Young Lordship，单次购买少花 ¥5；单位价低约 ¥1.18/100ml。\n\n最稳：Kölsch\n最值得尝新：The Premium Malt's Black\n我会先跳过：DONUT SERIES 2.0 - 价格 ¥85，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量，酒精度11.5%，偏高，IBU 未知；该风格可能偏苦，不能保证低苦味\n\n如果只能喝一杯，选 Your Young Lordship。\n\n⚠️ DDH Pseudo Sue、Frozen Pond De Luxe、Demihydra、Just Fruit (Blueberry, Peach)、Limonada Rosada、DONUT SERIES 2.0 数据不足，谨慎尝试。",
+  "pickedNames": [
+    "1:Your Young Lordship",
+    "7:Kölsch",
+    "2:The Premium Malt's Black"
+  ]
+}

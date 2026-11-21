@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-16",
+  "source_url": "https://mbcb.jonpacker.com/latest.json",
+  "source_retrieved_at": "2026-10-16T14:35:03.075403+00:00",
+  "source_sha256": "fdaef5b5044fa8a7560cae0b6f93bf0960eccee2759a271f335967de536bb922",
+  "coverage": {
+    "abv": 144,
+    "style": 146,
+    "description": 145,
+    "usable_rating": 123
+  },
+  "source_field_comparisons_passed": 1323,
+  "real_data_lookup_cases": {
+    "passed": 584,
+    "total": 584
+  },
+  "database_checks_passed": 19,
+  "scoped_regression_tests": {
+    "python": 22,
+    "node": 14
+  },
+  "local_handler": {
+    "scope": "local handler + live imported DB; no Feishu transmission",
+    "cases": [
+      {
+        "query": "/mbcb #498",
+        "reply": "#498 Mikkeller Ice Tea Powered by Longfong — Mikkeller\n风格：未知\nABV：7.5%\n评分：暂无可用评分\n简介：来源未提供简介\n场次：green / red（红/鼠场） / yellow\n来源：https://mbcb.jonpacker.com/latest.json\n快照时间：2026-10-16T14:35:03.075403+00:00\n数据标记：missing_ut_bid, missing_superstyle, missing_desc, missing_ut_rating, missing_ut_rating_count\n未提供字段：name_zh, style, description, untappd_id, usable_rating, price, serving_ml, booth, live_stock\n提示：价格、容量、摊位与实时库存目录未提供，未作推断。"
+      },
+      {
+        "query": "/mbcb #305",
+        "reply": "#305 Starboy — Honey Pot\n风格：Melomel\nABV：12.5%\n评分：4.62（527 人评分）\n简介：Star Thistle Honey Wine w/ Boysenberry, Orange Blossom Honey, Vanilla & Oak\n场次：green / red（红/鼠场） / yellow\n来源：https://mbcb.jonpacker.com/latest.json\n快照时间：2026-10-16T14:35:03.075403+00:00\n未提供字段：name_zh, price, serving_ml, booth, live_stock\n提示：价格、容量、摊位与实时库存目录未提供，未作推断。"
+      },
+      {
+        "query": "/mbcb #94",
+        "reply": "没有找到与「#94」匹配的酒款。可换用酒厂名 / 中文菜单名，或用 /mbcb #编号 精确查询。"
+      },
+      {
+        "query": "/mbcb Helles",
+        "reply": "找到 2 个候选（第 1 页），未自动选择；请用 #编号 或“酒厂 + 酒名”确认：\n#96 Helles — 3 Sons（菜单名：韦格纳 传统清亮拉格啤酒）\n#599 Helles — Wagner Merkendorf（菜单名：韦格纳 传统清亮拉格啤酒）\n发 /mbcb #编号 查看详情。"
+      },
+      {
+        "query": "/mbcb #424",
+        "reply": "#424 Adroit Theory's Baby — Adroit Theory\n菜单中文名：智理宝贝【迷迭香枝 + 柠檬水】（代号：Ghost BABY）\n别名：Rosemary's Baby\n风格：Gose\nABV：4.5%（菜单值；与外部旧缓存数据存在未解决冲突，请勿据此做严格酒精度推荐）\n评分：4.09（370 人评分）\n简介：The beer was formally known as ROSEMARY'S BABY. Our base sour, and conditioned it on Rosemary Sprigs + Lemonade. The result is a delightfully refreshing beer that is as quenching as it is delicious. The perfect beer to have on our patio...or yours!\n场次：red（红/鼠场）\n来源：https://mbcb.jonpacker.com/latest.json\n快照时间：2026-10-16T14:35:03.075403+00:00\n数据标记：abv_database_disagreement\n未提供字段：price, serving_ml, booth, live_stock\n提示：价格、容量、摊位与实时库存目录未提供，未作推断。"
+      },
+      {
+        "query": "/mbcb #93",
+        "reply": "#93 Bohemian Machine — Budvar\n风格：Czech Pilsner\nABV：未知（来源未提供，不代表 0%）\n评分：暂无可用评分\n简介：来源未提供简介\n场次：green / red（红/鼠场） / yellow\n来源：https://mbcb.jonpacker.com/latest.json\n快照时间：2026-10-16T14:35:03.075403+00:00\n数据标记：missing_percent, missing_desc, rating_zero_raw\n未提供字段：name_zh, abv, description, usable_rating, price, serving_ml, booth, live_stock\n提示：价格、容量、摊位与实时库存目录未提供，未作推断。"
+      }
+    ],
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "passed": 6
+  },
+  "feishu_post_refresh": {
+    "status": "not_run",
+    "reason": "Native input did not take effect; UI tool reported noWindowsAvailable. Official own-chat readback found zero new messages; user-auth CLI unavailable.",
+    "earlier_transport_only_passed": 4
+  },
+  "limitations": [
+    "Snapshot verified against publisher, not every brewery independently.",
+    "Images and free-language multi-turn not accepted by these catalog tests.",
+    "Price/volume/booth/live stock remain unknown."
+  ]
+}

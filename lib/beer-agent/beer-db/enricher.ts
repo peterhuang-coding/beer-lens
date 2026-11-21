@@ -1,4 +1,4 @@
-import { getFromCache, putToCache, searchCacheByName } from "./cache";
+import { getFromCache, putToCache, searchCacheByName, batchReadVerifiedCache } from "./cache";
 import { batchSearchBeers } from "./untappd-client";
 import { verifyUntappdRating } from "./untappd-verify";
 import { calcValueScore } from "./value-calc";
@@ -15,6 +15,7 @@ export type EnrichedBeer = {
   untappdScore: number | null;
   untappdRatingCount: number | null;
   untappdUrl: string | null;
+  ratingCheckedAt: string | null;
   breweryCountry: string | null;
   labelImage: string | null;
   // pricing
@@ -101,6 +102,55 @@ export async function enrichBeers(inputs: EnricherInput[]): Promise<EnrichedBeer
   return enriched;
 }
 
+// ── Verified cache-only batch enrichment (image-first path) ──
+//
+// Unlike enrichBeers (legacy text path), this never searches, never verifies,
+// never touches the network and never writes. It only attaches rows the local
+// cache has already verified under an exact identity, preserving OCR
+// price/volume. Origin-country benchmarks are deliberately omitted: they are
+// guessed from a default country and are not safe evidence on this path.
+
+export async function readVerifiedEnrichments(inputs: EnricherInput[]): Promise<EnrichedBeer[]> {
+  if (inputs.length === 0) return [];
+  const entries = await batchReadVerifiedCache(
+    inputs.map(input => ({ beerName: input.beerName, brewery: input.brewery })),
+  );
+  return inputs.map((input, i) => {
+    const base = makeBase(input);
+    const entry = entries[i];
+    if (!entry) return base;
+    return applyVerifiedCacheEntry(base, entry);
+  });
+}
+
+function applyVerifiedCacheEntry(base: EnrichedBeer, entry: BeerCacheEntry): EnrichedBeer {
+  const enriched: EnrichedBeer = { ...base };
+  enriched.untappdId = entry.id;
+  enriched.untappdScore = entry.ratingScore;
+  enriched.untappdRatingCount = entry.ratingCount;
+  enriched.untappdUrl = entry.untappdUrl;
+  const cachedAt = new Date(entry.cachedAt);
+  enriched.ratingCheckedAt = Number.isFinite(cachedAt.getTime()) ? cachedAt.toISOString() : null;
+  enriched.breweryCountry = entry.breweryCountry;
+  enriched.labelImage = entry.labelImage;
+  enriched.source = "cache";
+  enriched.verified = true;
+  enriched.confidence = 0.85;
+  if (!enriched.breweryName) enriched.breweryName = entry.breweryName;
+  if (!enriched.style) enriched.style = entry.style;
+  if (!enriched.abv) enriched.abv = entry.abv;
+
+  // Only deterministic arithmetic over the current OCR price/volume — no
+  // country inference, no external price estimate.
+  if (
+    enriched.price !== null && Number.isFinite(enriched.price) && enriched.price > 0 &&
+    enriched.volumeMl !== null && Number.isFinite(enriched.volumeMl) && enriched.volumeMl > 0
+  ) {
+    enriched.pricePerMl = enriched.price / enriched.volumeMl;
+  }
+  return enriched;
+}
+
 function makeBase(input: EnricherInput): EnrichedBeer {
   return {
     beerName: input.beerName,
@@ -113,6 +163,7 @@ function makeBase(input: EnricherInput): EnrichedBeer {
     untappdScore: null,
     untappdRatingCount: null,
     untappdUrl: null,
+    ratingCheckedAt: null,
     breweryCountry: null,
     labelImage: null,
     price: input.price ?? null,

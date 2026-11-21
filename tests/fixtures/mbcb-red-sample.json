@@ -1,0 +1,232 @@
+[
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 498,
+    "source_indices": [
+      52,
+      53,
+      352,
+      362
+    ],
+    "name": "Mikkeller Ice Tea Powered by Longfong",
+    "name_zh": null,
+    "brewery": "Mikkeller",
+    "brewery_zh": "美奇乐",
+    "sessions": [
+      "yellow",
+      "red",
+      "green"
+    ],
+    "style": null,
+    "abv": null,
+    "description": null,
+    "metastyles": [],
+    "untappd_id": null,
+    "rating_raw": null,
+    "rating_count": null,
+    "rating_usable": false,
+    "booth": null,
+    "price": null,
+    "serving_ml": null,
+    "live_stock": "unknown",
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-12T16:36:40.457402+00:00",
+    "issues": [
+      "missing_ut_bid",
+      "missing_percent",
+      "missing_superstyle",
+      "missing_desc",
+      "missing_ut_rating",
+      "missing_ut_rating_count"
+    ],
+    "field_disagreements": {},
+    "style_zh_source_raw": null,
+    "source_translation_verified": false,
+    "description_zh": null,
+    "verification_notes": [
+      "publisher_cross_check: raw row id=498 source_index=362 (record source_indices=[52, 53, 352, 362]); name, brewery, untappd_id, style, metastyles, abv, description, ut_rating and ut_rating_count all match the latest.json snapshot retrieved 2026-10-12T16:36:40.457402+00:00.",
+      "multi_session: publisher lists this entry in yellow, red and green sessions; all sessions retained and red membership verified.",
+      "non_beer_listing: 'Mikkeller Ice Tea Powered by Longfong' is an ice tea catalog entry (publisher raw row no_info_available=true) with no ABV, style, description or Untappd id; all left null - do not assume 0% ABV.",
+      "rating_unavailable: publisher provides no Untappd id and no rating; rating fields left null."
+    ],
+    "verification_sources": [],
+    "missing_fields": [
+      "name_zh",
+      "abv",
+      "style",
+      "description",
+      "untappd_id",
+      "usable_rating",
+      "price",
+      "serving_ml",
+      "booth",
+      "live_stock"
+    ],
+    "aliases": [],
+    "description_zh_review_status": "no_source"
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 424,
+    "source_indices": [
+      78
+    ],
+    "name": "Adroit Theory's Baby",
+    "name_zh": "智理宝贝【迷迭香枝 + 柠檬水】（代号：Ghost BABY）",
+    "brewery": "Adroit Theory",
+    "brewery_zh": "灵敏理论",
+    "sessions": [
+      "red"
+    ],
+    "style": "Gose",
+    "abv": 4.5,
+    "description": "The beer was formally known as ROSEMARY'S BABY. Our base sour, and conditioned it on Rosemary Sprigs + Lemonade. The result is a delightfully refreshing beer that is as quenching as it is delicious. The perfect beer to have on our patio...or yours! ",
+    "metastyles": [
+      "Fruited",
+      "Sour"
+    ],
+    "untappd_id": 5504969,
+    "rating_raw": 4.09336,
+    "rating_count": 369,
+    "rating_usable": true,
+    "booth": null,
+    "price": null,
+    "serving_ml": null,
+    "live_stock": "unknown",
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-12T16:36:40.457402+00:00",
+    "issues": [
+      "abv_database_disagreement"
+    ],
+    "field_disagreements": {},
+    "style_zh_source_raw": "番茄／蔬菜古斯",
+    "source_translation_verified": false,
+    "description_zh": "原名“Rosemary’s Baby”：以基础酸啤浸泡迷迭香枝与柠檬水，清爽解渴、宜人易饮。",
+    "verification_notes": [
+      "publisher_cross_check: raw row id=424 source_index=78 (record source_indices=[78]); name, brewery, untappd_id, style, metastyles, abv, description, ut_rating and ut_rating_count all match the latest.json snapshot retrieved 2026-10-12T16:36:40.457402+00:00.",
+      "abv_conflict_unresolved: publisher menu abv=4.5 vs external fetched older cached page observed_abv=6.0 (2026-10-13); neither value is selected as universally correct. Menu 4.5 is retained with source/time; request batch/label confirmation before any strict ABV recommendation.",
+      "external evidence attached verbatim in verification_sources; see provided finding."
+    ],
+    "verification_sources": [
+      {
+        "url": "https://untappd.com/b/adroit-theory-adroit-theory-s-baby-rosemary-sprigs-lemonade-ghost-baby/5504969",
+        "kind": "search_fetch_old_cached_page",
+        "checked_at": "2026-10-13",
+        "finding": "Unresolved: fetched page older; do not choose either value as universally correct. Retain source/time and request batch/label confirmation before strict ABV recommendation."
+      }
+    ],
+    "missing_fields": [
+      "price",
+      "serving_ml",
+      "booth",
+      "live_stock"
+    ],
+    "aliases": [
+      "Rosemary's Baby"
+    ],
+    "description_zh_review_status": "parent_spotchecked"
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 599,
+    "source_indices": [
+      126,
+      369,
+      375
+    ],
+    "name": "Helles",
+    "name_zh": "韦格纳 传统清亮拉格啤酒",
+    "brewery": "Wagner Merkendorf",
+    "brewery_zh": "韦格纳",
+    "sessions": [
+      "yellow",
+      "red",
+      "green"
+    ],
+    "style": "Helles Lager",
+    "abv": 4.7,
+    "description": "ABV can slightly vary ",
+    "metastyles": [
+      "Lager"
+    ],
+    "untappd_id": 5339481,
+    "rating_raw": 3.50498,
+    "rating_count": 2269,
+    "rating_usable": true,
+    "booth": null,
+    "price": null,
+    "serving_ml": null,
+    "live_stock": "unknown",
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-12T16:36:40.457402+00:00",
+    "issues": [],
+    "field_disagreements": {},
+    "style_zh_source_raw": "清亮拉格",
+    "source_translation_verified": false,
+    "description_zh": "酒精度可能略有差异。",
+    "verification_notes": [
+      "publisher_cross_check: raw row id=599 source_index=375 (record source_indices=[126, 369, 375]); name, brewery, untappd_id, style, metastyles, abv, description, ut_rating and ut_rating_count all match the latest.json snapshot retrieved 2026-10-12T16:36:40.457402+00:00.",
+      "multi_session: publisher lists this entry in yellow, red and green sessions; all sessions retained and red membership verified.",
+      "identity_caution: the generic name 'Helles' is shared by different breweries (3 Sons, untappd_id 5847116; Wagner Merkendorf, untappd_id 5339481); identity is keyed by event_beer_id + untappd_id + brewery, never by name - do not merge or choose by rating.",
+      "publisher Chinese name is shared and contains Wagner for both breweries; not a canonical identity alias."
+    ],
+    "verification_sources": [],
+    "missing_fields": [
+      "price",
+      "serving_ml",
+      "booth",
+      "live_stock"
+    ],
+    "aliases": [],
+    "description_zh_review_status": "parent_spotchecked"
+  },
+  {
+    "event_id": "mbcb-2026-beijing",
+    "event_beer_id": 96,
+    "source_indices": [
+      303
+    ],
+    "name": "Helles",
+    "name_zh": "韦格纳 传统清亮拉格啤酒",
+    "brewery": "3 Sons",
+    "brewery_zh": "三子",
+    "sessions": [
+      "red"
+    ],
+    "style": "Helles Lager",
+    "abv": 5,
+    "description": "Our German style Helles ",
+    "metastyles": [
+      "Lager"
+    ],
+    "untappd_id": 5847116,
+    "rating_raw": 3.82091,
+    "rating_count": 385,
+    "rating_usable": true,
+    "booth": null,
+    "price": null,
+    "serving_ml": null,
+    "live_stock": "unknown",
+    "source_url": "https://mbcb.jonpacker.com/latest.json",
+    "retrieved_at": "2026-10-12T16:36:40.457402+00:00",
+    "issues": [],
+    "field_disagreements": {},
+    "style_zh_source_raw": "清亮拉格",
+    "source_translation_verified": false,
+    "description_zh": "酒厂德式风格Helles清亮拉格。",
+    "verification_notes": [
+      "publisher_cross_check: raw row id=96 source_index=303 (record source_indices=[303]); name, brewery, untappd_id, style, metastyles, abv, description, ut_rating and ut_rating_count all match the latest.json snapshot retrieved 2026-10-12T16:36:40.457402+00:00.",
+      "identity_caution: the generic name 'Helles' is shared by different breweries (3 Sons, untappd_id 5847116; Wagner Merkendorf, untappd_id 5339481); identity is keyed by event_beer_id + untappd_id + brewery, never by name - do not merge or choose by rating.",
+      "publisher Chinese name is shared and contains Wagner for both breweries; not a canonical identity alias."
+    ],
+    "verification_sources": [],
+    "missing_fields": [
+      "price",
+      "serving_ml",
+      "booth",
+      "live_stock"
+    ],
+    "aliases": [],
+    "description_zh_review_status": "parent_spotchecked"
+  }
+]

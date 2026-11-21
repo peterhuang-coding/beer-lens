@@ -1,0 +1,84 @@
+{
+  "head": "ed1b45aaae69ee7e58d8c507bca5e38f226b9e21",
+  "layer": "synthetic independent offline acceptance probes",
+  "results": [
+    {
+      "id": "mentioning_cheapest_row_does_not_validate_false_comparison",
+      "input": "#1 比 #7 更便宜，单位价最低。",
+      "actual": "【菜单算术核对】单位价最低的是 #7 Cheaper（55元 / 425ml，12.94元/100ml）；单杯总价最低的是 #7 Cheaper（55元 / 425ml，12.94元/100ml）。推荐理由是口味/风格匹配，不等于最低价或性价比最高；原回答中不一致的最低/最便宜断言已移除。",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "total_price_minimum_is_not_unit_price_minimum",
+      "input": "#7 Large 的单杯总价最低。",
+      "actual": "【菜单算术核对】单位价最低的是 #7 Large（15元 / 500ml，3.00元/100ml）；单杯总价最低的是 #1 Small（10元 / 100ml，10.00元/100ml）。推荐理由是口味/风格匹配，不等于最低价或性价比最高；原回答中不一致的最低/最便宜断言已移除。",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "classic_claim_does_not_prove_century_history",
+      "input": "#7 Target 是百年老牌酒厂的产品。",
+      "actual": "【来源核对】被说到的款/酒厂没有提供酒厂历史、经典、旗舰、最畅销或获奖的款级来源；原回答中的这些说法已移除，只能算未核实常识。",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "unresolved_version_cannot_expose_supplement_rating",
+      "input": {
+        "identityStatus": "version_unresolved",
+        "sourceRating": {
+          "score": 4.02871,
+          "count": 303,
+          "url": "https://untappd.com/b/messorem-il-fut-un-temps-rice-lager/6685050",
+          "checked_at": "2026-11-15"
+        }
+      },
+      "actual": {
+        "candidateId": "parent_unresolved",
+        "identity": {
+          "menuName": "Fut Un Temps",
+          "brewery": "Messorem",
+          "canonicalName": null,
+          "identityStatus": "version_unresolved",
+          "entryId": "elnido-2026-11-01"
+        },
+        "style": null,
+        "abv": {
+          "observations": [],
+          "conflicted": false,
+          "resolution": null
+        },
+        "hops": null,
+        "ingredients": null,
+        "sensory": null,
+        "process": null,
+        "rating": null,
+        "brewery": {
+          "flagship": {
+            "status": "unproven",
+            "beer": null,
+            "claim": null
+          },
+          "reputation": []
+        },
+        "styleLayer": {
+          "style": null,
+          "summary": "风格未确认；不把名称、颜色或相似酒款当作本款配方与风味证据。",
+          "source": "style_inference",
+          "label": "风格通性，非本款事实"
+        },
+        "coverage": {
+          "style": "unknown",
+          "hops": "unknown",
+          "ingredients": "unknown",
+          "sensory": "unknown",
+          "process": "unknown",
+          "rating": "unknown"
+        }
+      },
+      "status": "PASS",
+      "error": null
+    }
+  ]
+}

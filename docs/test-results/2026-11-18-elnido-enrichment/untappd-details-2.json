@@ -1,0 +1,62 @@
+[
+  {
+    "menuIndex": 1,
+    "name": "Living Häus Beer Company Benjamin June",
+    "brewery": "Living Häus Beer Company",
+    "style": "Festbier",
+    "abv": 5.2,
+    "ibu": "N/A",
+    "rating": 3.89163,
+    "ratingCount": 526,
+    "description": "This years celebratory beer is brewed in the current style offered at Oktoberfest. Lighter in body and color than a Marzën, this festbier is dark yellow with doughy and light biscuit notes. Soft herbal hop notes and a delicate bitterness round out the finish. Prost!",
+    "url": "https://untappd.com/b/living-haus-beer-company-benjamin-june/5484293"
+  },
+  {
+    "menuIndex": 12,
+    "name": "Totopia Brewery Tinyphobia",
+    "brewery": "Totopia Brewery",
+    "style": "IPA - Sour",
+    "abv": 6.0,
+    "ibu": "N/A",
+    "rating": 3.80489,
+    "ratingCount": 235,
+    "description": "綺麗な葡萄色した見た目で、ベリー系果実をベースにしたSOUR IPAは約半年ぶりとなりました。Blackberryの濃くて黒っぽい果実感をほんのりまといながらも、Mangoの濃厚な蜜の様な甘味が加わることでクリーンで巨峰を思わせる味わいに仕上がっています。それでいて、ベースにじんわりとある渋みや土っぽさが野性味を感じさせてくれます。そのままでも十分味わい深いですが、香りのあるチーズなどと一緒にも楽しんでもらえると思います。お楽しみ下さい。高貴な葡萄色。蜜感ある芳醇な甘味が野苺の様な酸味をまろやかに仕立て、ほのかな渋みと土っぽさがワイルドな様相を演出。 Style:DH Sour IPA Hops:Citra Others:Blackberry, Mango, Cinnamon",
+    "url": "https://untappd.com/b/totopia-brewery-tinyphobia/6850762"
+  },
+  {
+    "menuIndex": 13,
+    "name": "Frequentem Brewing Co. Just Fruit (Raspberry, Guava, Tangerine)",
+    "brewery": "Frequentem Brewing Co.",
+    "style": "Sour - Fruited",
+    "abv": 5.0,
+    "ibu": "N/A",
+    "rating": 4.23776,
+    "ratingCount": 49,
+    "description": "Thick Jammy and Tropical with large additions of Raspberry, Guava and Tangerine.",
+    "url": "https://untappd.com/b/frequentem-brewing-co-just-fruit-raspberry-guava-tangerine/6776195"
+  },
+  {
+    "menuIndex": 17,
+    "name": "Holy Goat Brewing Sunsmasher 2026",
+    "brewery": "Holy Goat Brewing",
+    "style": "Sour - Fruited",
+    "abv": 5.8,
+    "ibu": "N/A",
+    "rating": 3.99134,
+    "ratingCount": 808,
+    "description": "For this latest edition of Sunsmasher, our golden sour base beer was fermented with a Brettanomyces blend and aged for just over four months in tank before being conditioned on 220 g/L of whole British apricots, which were pulverised by hand (using a mallet). The Brett fermentation delivers vibrant tropical notes of pineapple, stone fruit, and citrus, all of which are amplified by the fresh apricot addition.",
+    "url": "https://untappd.com/b/holy-goat-brewing-sunsmasher-2026/6615436"
+  },
+  {
+    "menuIndex": 18,
+    "name": "everywhere see what sticks",
+    "brewery": "everywhere",
+    "style": "Stout - Imperial / Double",
+    "abv": 10.7,
+    "ibu": "N/A",
+    "rating": 4.10735,
+    "ratingCount": 238,
+    "description": "\"see what sticks\" is a holiday stout made with cranberries, cream cheese powder, vanilla beans, and milk sugar.",
+    "url": "https://untappd.com/b/everywhere-see-what-sticks/6506348"
+  }
+]

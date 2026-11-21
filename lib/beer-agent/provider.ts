@@ -1,8 +1,14 @@
 import type { BeerCandidate } from "./types";
 import type { ExtractedItem, ProgressCallback } from "./multi-stage-pipeline";
 import { runMultiStagePipeline } from "./multi-stage-pipeline";
-import { enrichCandidates, lookupBeers, lookupBreweryStats, matchesExactBeerIdentity, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
+import { readVerifiedEnrichments, lookupBeers, batchLookupBreweryStats, matchesExactBeerIdentity, type EnrichedBeer, type BeerLookupResult } from "./beer-db/pipeline";
+import { enqueueMenuKnowledge, type MenuKnowledgeJob } from "./beer-db/knowledge-queue";
 import type { BreweryLookupResult } from "./beer-db/data-layer";
+import { groundMenuCandidates, readEventCatalog, getGrounding, ocrExplicitAbvEvidence, type EventCatalogBeer } from "./event-grounding";
+import { groundMenuSupplements, readMenuSupplements, getSupplementGrounding, ocrMenuStyleEvidence } from "./menu-supplements";
+import type { MenuSupplementEntry } from "./menu-supplements";
+import { throwIfTurnExpired } from "./turn-deadline";
+import { attachBeerDossiers } from "./dossier/build-dossier";
 
 export type { ProgressCallback };
 
@@ -17,6 +23,7 @@ export async function runImagePipeline(
   userText: string,
   profileSummary: string,
   onProgress?: ProgressCallback,
+  options: { signal?: AbortSignal } = {},
 ): Promise<{
   candidates: BeerCandidate[];
   stages: Record<string, unknown>;
@@ -30,9 +37,39 @@ export async function runImagePipeline(
     profile: profileSummary,
     onProgress: emit,
     skipRecommendation: true,
+    signal: options.signal,
   });
+  throwIfTurnExpired({ signal: options.signal });
 
   const ocrItems = (pipeline.extracted?.items ?? []).map(recoverOcrTitle);
+  return runLocalMenuKnowledge(ocrItems, {
+    onProgress: emit,
+    signal: options.signal,
+    stages: {
+      imageContext: pipeline.imageContext ?? undefined,
+      extracted: pipeline.extracted ?? undefined,
+      visualQuality: pipeline.visualQuality ?? undefined,
+    },
+  });
+}
+
+/** Shared image/text local knowledge path: no web search or background drain. */
+export async function runLocalMenuKnowledge(
+  ocrItems: OcrCandidateItem[],
+  options: {
+    onProgress?: ProgressCallback;
+    stages?: Record<string, unknown>;
+    queueKnowledgeGaps?: boolean;
+    /** Caller-owned turn cancellation; local stages must stop after it fires. */
+    signal?: AbortSignal;
+  } = {},
+): Promise<{
+  candidates: BeerCandidate[];
+  stages: Record<string, unknown>;
+}> {
+  const emit = options.onProgress ?? (() => {});
+  const checkExpired = () => throwIfTurnExpired({ signal: options.signal });
+  checkExpired();
   if (ocrItems.length === 0) {
     console.warn("[provider] vision succeeded but extracted 0 items — 模型可能返回了空 JSON");
   }
@@ -45,16 +82,19 @@ export async function runImagePipeline(
     style: item.style || "",
     abv: item.abv || 0,
     price: item.price ?? undefined,
-    volumeMl: parseServingMl(item.serving) ?? undefined,
+    volumeMl: parseServingMl(item.serving ?? "") ?? undefined,
   }));
 
   let enrichedBeers: EnrichedBeer[];
   try {
-    enrichedBeers = await enrichCandidates(enrichInputs);
+    // Image path attaches only locally verified exact cache identities — no
+    // batch search, no background web verification, no origin-price guessing.
+    enrichedBeers = await readVerifiedEnrichments(enrichInputs);
   } catch (err) {
-    console.warn("[provider] batch enrichment failed:", err);
+    console.warn("[provider] verified cache read failed:", err);
     enrichedBeers = [];
   }
+  checkExpired();
 
   // SQLite 50k 酒库匹配(含中文别名桥)。图片路径此前完全不走本地库,
   // OCR 出的中文酒名被 web 富化吞掉 —— 这里补上本地库命中。
@@ -64,11 +104,13 @@ export async function runImagePipeline(
   } catch (err) {
     console.warn("[provider] local db lookup failed:", err);
   }
+  checkExpired();
 
   // 酒厂级兜底:酒款与 web 富化都没分时,若 OCR 提取到了酒厂且库内该厂
   // 有 ≥3 款,保留厂级统计作背景证据,不能当作这款酒的评分。
   const breweryHits: (BreweryLookupResult | null)[] = new Array(enrichInputs.length).fill(null);
   try {
+    const needed = new Map<string, { query: string; indexes: number[] }>();
     for (let i = 0; i < enrichInputs.length; i++) {
       const hasScore =
         (enrichedBeers[i]?.verified && enrichedBeers[i]?.untappdScore != null) ||
@@ -76,24 +118,103 @@ export async function runImagePipeline(
       if (hasScore) continue;
       const bw = String(enrichInputs[i].brewery ?? "").trim();
       if (bw.length < 2) continue;
-      const hit = await lookupBreweryStats(bw);
-      if (hit?.found && hit.brewery_stats && hit.brewery_stats.count >= 3) {
-        breweryHits[i] = hit;
-      }
+      const key = bw.normalize("NFKC").toLowerCase().replace(/\s+/g, " ");
+      const group = needed.get(key) ?? { query: bw, indexes: [] };
+      group.indexes.push(i);
+      needed.set(key, group);
     }
+    const groups = [...needed.values()];
+    const hits = groups.length
+      ? await batchLookupBreweryStats(groups.map(group => group.query))
+      : [];
+    groups.forEach((group, groupIndex) => {
+      const hit = hits[groupIndex];
+      if (!hit?.found || !hit.brewery_stats || hit.brewery_stats.count < 3) return;
+      for (const index of group.indexes) breweryHits[index] = hit;
+    });
   } catch (err) {
     console.warn("[provider] brewery fallback failed:", err);
   }
+  checkExpired();
 
   const candidates = assembleImageCandidates(ocrItems, enrichedBeers, dbLookups, breweryHits);
+
+  // Mark OCR-explicit ABV claims and OCR-explicit styles before grounding, so
+  // a catalog disagreement becomes recorded conflict evidence instead of a
+  // silent stale overwrite, and unresolved rows can retain OCR-read style/ABV
+  // while dropping the same values inherited from stale per-beer records.
+  for (const candidate of candidates) {
+    const row = /^ocr_(\d+)$/.exec(candidate.candidateId);
+    const item = row ? ocrItems[Number(row[1]) - 1] : null;
+    const abv = item?.abv;
+    if (typeof abv === "number" && Number.isFinite(abv) && abv > 0) {
+      candidate.evidence.push(ocrExplicitAbvEvidence(abv, item?.confidence ?? 0.5));
+    }
+    const style = typeof item?.style === "string" ? item.style.trim() : "";
+    if (style) {
+      candidate.evidence.push(ocrMenuStyleEvidence(style, item?.confidence ?? 0.5));
+    }
+  }
+
+  // Current integrated event catalog grounding — strict identity, single pass,
+  // fail-soft: missing/malformed catalog leaves the existing pipeline intact.
+  let eventRecords: EventCatalogBeer[] = [];
+  try {
+    eventRecords = await readEventCatalog();
+  } catch (err) {
+    console.warn("[provider] event catalog read failed:", err);
+  }
+  const groundedCandidates = groundMenuCandidates(candidates, eventRecords);
+
+  // Curated public-source menu supplement (El Nido 2026-10 snapshot). Read once
+  // for this image run; fail-soft. Applied strictly after event grounding so the
+  // supplement's social_web provenance is the last word on identity/ABV scope.
+  let supplementEntries: MenuSupplementEntry[] = [];
+  try {
+    supplementEntries = await readMenuSupplements();
+  } catch (err) {
+    console.warn("[provider] menu supplement read failed:", err);
+  }
+  const supplementedCandidates = groundMenuSupplements(groundedCandidates, supplementEntries);
+  const dossierCandidates = attachBeerDossiers(supplementedCandidates, supplementEntries);
+  checkExpired();
+  const groundedById = new Map(dossierCandidates.map(c => [c.candidateId, c]));
+
   const enrichmentLog: Array<Record<string, unknown>> = [];
+  const pendingKnowledgeJobs: MenuKnowledgeJob[] = [];
 
   for (let i = 0; i < ocrItems.length; i++) {
+    checkExpired();
     const item = ocrItems[i];
     const enriched = enrichedBeers[i] ?? null;
-    emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName });
+    emit({ type: "enrich_progress", done: i, total: ocrItems.length, label: item.beerName ?? "Unknown" });
 
-    const candidate = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null, breweryHits[i]);
+    const assembled = ocrItemToCandidate(item, i, enriched, dbLookups[i] ?? null, breweryHits[i]);
+    // Trace must reflect the same catalog-grounded values actually returned.
+    const candidate = groundedById.get(assembled.candidateId) ?? assembled;
+    const grounding = getGrounding(candidate);
+    const supplement = getSupplementGrounding(candidate);
+
+    // Knowledge-gap queueing happens only AFTER grounding. Earlier exact hits
+    // cannot close a version/batch gap that the final supplement left unresolved.
+    const ocrBrewery = typeof item.brewery === "string" ? item.brewery : "";
+    const cacheIdentity =
+      enriched?.verified === true &&
+      matchesExactBeerIdentity(item.beerName ?? "", { name: enriched.beerName, brewery: enriched.breweryName }, ocrBrewery);
+    const dbRecord = dbLookups[i] ?? null;
+    const dbIdentity =
+      dbRecord?.found === true && dbRecord.data != null &&
+      matchesExactBeerIdentity(item.beerName ?? "", dbRecord.data, ocrBrewery);
+    const identityUnresolved =
+      supplement?.identityStatus === "version_unresolved" ||
+      supplement?.identityStatus === "batch_unresolved";
+    const identityResolved = !identityUnresolved && (
+      cacheIdentity || dbIdentity || grounding?.matched === true || supplement?.identityStatus === "confirmed"
+    );
+    if (!identityResolved) {
+      const beerName = (item.beerName ?? "").trim();
+      if (beerName) pendingKnowledgeJobs.push({ beerName, brewery: ocrBrewery.trim() });
+    }
     enrichmentLog.push({
       name: candidate.displayName,
       untappdScore: candidate.untappdScore ?? null,
@@ -109,17 +230,34 @@ export async function runImagePipeline(
       found: candidate.untappdScore != null,
       dbHit: dbLookups[i]?.found ?? false,
       breweryHit: breweryHits[i]?.found ?? false,
+      abv: candidate.abv || null,
+      style: candidate.style || null,
+      eventGrounded: grounding?.matched ?? false,
+      eventBeerId: grounding?.eventBeerId ?? null,
+      supplementEntryId: supplement?.entryId ?? null,
+      supplementStatus: supplement?.identityStatus ?? null,
+      riskFlags: candidate.riskFlags ?? [],
     });
   }
 
+  // Persist the deduplicated minimal knowledge-gap queue. Local collection
+  // only; fail-soft so queue problems never break the image response.
+  checkExpired();
+  if (options.queueKnowledgeGaps !== false && pendingKnowledgeJobs.length > 0) {
+    try {
+      await enqueueMenuKnowledge(pendingKnowledgeJobs);
+    } catch (err) {
+      console.warn("[provider] menu knowledge queue failed:", err);
+    }
+  }
+
+  checkExpired();
   emit({ type: "enrich_done" });
 
   return {
-    candidates,
+    candidates: dossierCandidates,
     stages: {
-      imageContext: pipeline.imageContext ?? undefined,
-      extracted: pipeline.extracted ?? undefined,
-      visualQuality: pipeline.visualQuality ?? undefined,
+      ...options.stages,
       enrichment: enrichmentLog,
     },
   };
@@ -176,6 +314,7 @@ export function assembleImageCandidates(
       existing.untappdScore = candidate.untappdScore;
       existing.untappdRatingCount = candidate.untappdRatingCount;
       existing.untappdUrl = candidate.untappdUrl;
+      existing.ratingCheckedAt = candidate.ratingCheckedAt;
       existing.pricePerMl = candidate.pricePerMl ?? existing.pricePerMl;
       existing.valueScore = candidate.valueScore ?? existing.valueScore;
       existing.originBenchmark = candidate.originBenchmark ?? existing.originBenchmark;
@@ -233,6 +372,7 @@ function ocrItemToCandidate(
     base.untappdScore = enriched.untappdScore;
     base.untappdRatingCount = enriched.untappdRatingCount;
     base.untappdUrl = enriched.untappdUrl;
+    base.ratingCheckedAt = enriched.ratingCheckedAt;
     base.breweryCountry = enriched.breweryCountry;
     base.labelImage = enriched.labelImage;
     base.pricePerMl = enriched.pricePerMl;

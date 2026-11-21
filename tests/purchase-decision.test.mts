@@ -46,6 +46,32 @@ test('foreign or unknown currencies and mixed serving modes do not get a value w
 test('foreign currency price cannot satisfy a yuan budget',()=>{
  const r=run([{...c('A',1,10,300),currency:'USD'}],'预算50元，给我推荐');assert.equal(r.picks.topPick.candidateId,'');
 });
+test('menu-visible ¥ resolves OCR currency "unknown" for a yuan budget',()=>{
+ const rows=[
+  {...c('A',1,60,425),currency:'unknown',evidence:[{source:'ocr',confidence:0.8,summary:'¥60 / 425ml'}]},
+  {...c('B',7,55,425),currency:'unknown',evidence:[{source:'ocr',confidence:0.8,summary:'¥55 / 425ml'}]},
+ ];
+ const r=run(rows,'预算100元以内，想要清爽不苦，选哪款？');
+ assert.notEqual(r.picks.topPick.candidateId,'');
+ assert.match(r.reply,/100|预算/);
+});
+test('symbol-less OCR currency still cannot satisfy a yuan budget',()=>{
+ const r=run([{...c('A',1,60,425),currency:'unknown'}],'预算100元，推荐一款');
+ assert.equal(r.picks.topPick.candidateId,'');
+ assert.match(r.reply,/币种|没有/);
+});
+test('怕苦/最不苦 is answered as low-bitterness with an IBU evidence limit',()=>{
+ const rows=[
+  {...c('Pils',1,60,425),style:'Czech Pilsner',evidence:[{source:'ocr',confidence:0.8,summary:'¥60 / 425ml'}]},
+  {...c('Kolsch',7,55,425),style:'Kölsch',evidence:[{source:'ocr',confidence:0.8,summary:'¥55 / 425ml'}]},
+  {...c('IPA',3,85,425),style:'West Coast IPA',evidence:[{source:'ocr',confidence:0.8,summary:'¥85 / 425ml'}]},
+ ];
+ const r=run(rows,'我怕苦，哪款最不苦？');
+ assert.match(r.reply,/IBU|不能保证|苦度/);
+ assert.ok(!/绝对不苦/.test(r.reply));
+ assert.match(r.reply,/Kölsch|Pilsner|皮尔森/);
+ assert.notEqual(r.picks.topPick.candidateId,'');
+});
 test('missing offer facts are explained even when image currency and serving are unknown',()=>{
  const rows=[{...c('Lunch',1,null,null),currency:'unknown',servingMode:'unknown'},{...c('Dinner',2,null,null),currency:'unknown',servingMode:'unknown'}];
  const r=run(rows,'Lunch和Dinner哪款性价比高？');

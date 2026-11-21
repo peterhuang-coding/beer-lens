@@ -1,0 +1,131 @@
+{
+  "head": "7ba72233580802e4eae553842d8a1ef5dd7f7e1e",
+  "layer": "independent offline functional acceptance probes; no source change or API",
+  "results": [
+    {
+      "id": "prefix_has_correct_arithmetic",
+      "status": "PASS",
+      "input": "第一款在17款中是单价最低的（14.12元/100ml）。",
+      "memory": {
+        "lastMenu": {
+          "candidates": [
+            {
+              "menuIndex": 1,
+              "displayName": "Row One",
+              "price": 60,
+              "volumeMl": 425,
+              "currency": "CNY"
+            },
+            {
+              "menuIndex": 7,
+              "displayName": "Row Seven",
+              "price": 55,
+              "volumeMl": 425,
+              "currency": "CNY"
+            }
+          ]
+        }
+      },
+      "actual": "【菜单算术核对】单位价最低的是 #7 Row Seven（55元 / 425ml，12.94元/100ml）；单杯总价最低的是 #7 Row Seven（55元 / 425ml，12.94元/100ml）。推荐理由是口味/风格匹配，不等于最低价或性价比最高；原回答中不一致的最低/最便宜断言已移除。",
+      "error": null
+    },
+    {
+      "id": "false_claim_must_not_remain_unqualified",
+      "status": "PASS",
+      "input": "第一款在17款中是单价最低的（14.12元/100ml）。",
+      "memory": {
+        "lastMenu": {
+          "candidates": [
+            {
+              "menuIndex": 1,
+              "displayName": "Row One",
+              "price": 60,
+              "volumeMl": 425,
+              "currency": "CNY"
+            },
+            {
+              "menuIndex": 7,
+              "displayName": "Row Seven",
+              "price": 55,
+              "volumeMl": 425,
+              "currency": "CNY"
+            }
+          ]
+        }
+      },
+      "actual": "【菜单算术核对】单位价最低的是 #7 Row Seven（55元 / 425ml，12.94元/100ml）；单杯总价最低的是 #7 Row Seven（55元 / 425ml，12.94元/100ml）。推荐理由是口味/风格匹配，不等于最低价或性价比最高；原回答中不一致的最低/最便宜断言已移除。",
+      "error": null
+    },
+    {
+      "id": "unrelated_classic_claim_does_not_authorize_target_flagship",
+      "status": "PASS",
+      "input": "#7 Target Beer 是 Target Brewery 的旗舰和最畅销酒款。",
+      "memory": {
+        "lastMenu": {
+          "candidates": [
+            {
+              "menuIndex": 1,
+              "displayName": "Other Beer",
+              "brewery": "Other Brewery",
+              "dossier": {
+                "brewery": {
+                  "reputation": [
+                    {
+                      "value": {
+                        "kind": "classic",
+                        "text": "producer calls THIS beer a classic"
+                      },
+                      "url": "https://example.com/other",
+                      "checkedAt": "2026-11-01",
+                      "reviewStatus": "curated",
+                      "usable": true
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "menuIndex": 7,
+              "displayName": "Target Beer",
+              "brewery": "Target Brewery",
+              "dossier": {
+                "brewery": {
+                  "reputation": []
+                }
+              }
+            }
+          ]
+        }
+      },
+      "actual": "【来源核对】被说到的款/酒厂没有提供酒厂历史、经典、旗舰、最畅销或获奖的款级来源；原回答中的这些说法已移除，只能算未核实常识。",
+      "error": null
+    },
+    {
+      "id": "mixed_currencies_are_not_compared_as_rmb",
+      "status": "PASS",
+      "input": "第一款是单位价最低的。",
+      "memory": {
+        "lastMenu": {
+          "candidates": [
+            {
+              "menuIndex": 1,
+              "displayName": "RMB Beer",
+              "price": 20,
+              "volumeMl": 100,
+              "currency": "CNY"
+            },
+            {
+              "menuIndex": 2,
+              "displayName": "Dollar Beer",
+              "price": 10,
+              "volumeMl": 100,
+              "currency": "USD"
+            }
+          ]
+        }
+      },
+      "actual": "【币种边界】当前菜单含 CNY/USD；没有 FX、同版本、同消费形式来源，不能跨币种比较最低价。原回答中的最低价断言已移除。",
+      "error": null
+    }
+  ]
+}

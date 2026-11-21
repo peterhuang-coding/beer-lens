@@ -1,0 +1,58 @@
+{
+  "input": "Synthetic image contains only #498 Mikkeller IceTea name+brewery. No ABV/style/rating/price printed.",
+  "actualReply": "我会这样点：\n\n（这批酒都没有评分数据，以下仅按风格粗略分档，别全信我）\n\n1. Mikkeller Ice Tea Powered by Longfong · 价格/容量待确认 - 酒厂名称未独立核验，整合活动目录无有效 Untappd 评分，不作评分依据，无评分数据，无法判断质量，啤酒风格未知（有风险，见下方）\n\n最稳：Mikkeller Ice Tea Powered by Longfong\n\n如果只能喝一杯，选 Mikkeller Ice Tea Powered by Longfong。\n\n⚠️ Mikkeller Ice Tea Powered by Longfong 数据不足，谨慎尝试。",
+  "candidates": [
+    {
+      "candidateId": "ocr_1",
+      "menuIndex": 498,
+      "currency": "unknown",
+      "servingMode": "unknown",
+      "displayName": "Mikkeller Ice Tea Powered by Longfong",
+      "brewery": "Mikkeller",
+      "style": "",
+      "abv": 7.5,
+      "ibu": null,
+      "hops": [],
+      "worthScore": 45,
+      "fitScore": 50,
+      "riskFlags": [
+        "酒厂名称未独立核验",
+        "整合活动目录无有效 Untappd 评分，不作评分依据",
+        "无评分数据",
+        "风格未知"
+      ],
+      "reason": "综合表现适中",
+      "evidence": [
+        {
+          "source": "ocr",
+          "confidence": 0.95,
+          "summary": "#498 Mikkeller Ice Tea Powered by Longfong\nBrewery: Mikkeller\nNo prices, style, ABV or ratings printed."
+        },
+        {
+          "source": "venue_site",
+          "confidence": 0.8,
+          "summary": "整合活动目录列示 mbcb-2026-beijing [event_id:mbcb-2026-beijing] [event_beer_id:498] #498：Mikkeller（美奇乐） / Mikkeller Ice Tea Powered by Longfong；来源 venue_site：https://mbcb.jonpacker.com/latest.json，抓取于 2026-10-16；整合活动目录无描述（未知，不以其他来源补全）；ABV 7.5%（整合活动目录数据）；Untappd 无有效评分（rating_usable=false，rating_raw=null，count=0），不作评分依据；酒单数据标记：missing_ut_bid；酒单数据标记：missing_superstyle；酒单数据标记：missing_desc；酒单数据标记：missing_ut_rating；酒单数据标记：missing_ut_rating_count"
+        }
+      ],
+      "price": null,
+      "volumeMl": null,
+      "untappdId": null,
+      "untappdUrl": null,
+      "untappdScore": null,
+      "untappdRatingCount": null,
+      "sourceRiskFlags": [
+        "酒厂名称未独立核验",
+        "整合活动目录无有效 Untappd 评分，不作评分依据"
+      ],
+      "rating": null,
+      "ratingsCount": null,
+      "riskReasons": [
+        "酒厂名称未独立核验",
+        "整合活动目录无有效 Untappd 评分，不作评分依据",
+        "无评分数据，无法判断质量",
+        "啤酒风格未知"
+      ]
+    }
+  ],
+  "finding": "Real OCR and event grounding succeeded, correctABV7.5 in candidate; publicreply omits7.5 and calls unknownbeer safest/mustbuy. This is unacceptable answerquality, not APItransportfailure."
+}

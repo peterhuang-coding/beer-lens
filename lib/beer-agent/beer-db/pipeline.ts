@@ -16,7 +16,7 @@
  *   - multiSource()       → RateBeer / Untappd / custom source switching
  */
 
-import { batchLookupBeers, getBeerDbStats, lookupBrewery } from "./data-layer";
+import { batchLookupBeers, batchLookupBreweries, getBeerDbStats, lookupBrewery } from "./data-layer";
 import type { BeerResult, BreweryLookupResult } from "./data-layer";
 import { enrichBeer, enrichBeers } from "./enricher";
 import type { EnrichedBeer } from "./enricher";
@@ -195,6 +195,10 @@ export async function lookupBreweryStats(query: string): Promise<BreweryLookupRe
   return lookupBrewery(query);
 }
 
+export async function batchLookupBreweryStats(queries: string[]): Promise<BreweryLookupResult[]> {
+  return batchLookupBreweries(queries);
+}
+
 /**
  * Single beer lookup — convenience wrapper.
  */
@@ -225,6 +229,13 @@ export async function enrichCandidate(input: EnrichInput): Promise<EnrichedBeer>
 export async function enrichCandidates(inputs: EnrichInput[]): Promise<EnrichedBeer[]> {
   return enrichBeers(inputs);
 }
+
+/**
+ * Image-first batch read: attach ONLY locally verified exact cache rows.
+ * No search, web verification, network or writes; no origin-country estimates.
+ * The legacy enrichCandidate/enrichCandidates text path is unchanged.
+ */
+export { readVerifiedEnrichments } from "./enricher";
 
 // ── Stats: database health ──
 

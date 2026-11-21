@@ -1,0 +1,78 @@
+{
+  "evidenceLayer": "real Feishu private chat transport; questions sent by the Beer Lens app to the authorized chat; production handler replies; persisted 17-row menu from the prior human image turn",
+  "chatIdMasked": "oc_e2d3…190e",
+  "startedAt": "2026-11-20T16:00:50.408Z",
+  "questions": [
+    "为什么推荐第一款？"
+  ],
+  "turns": [
+    {
+      "question": "为什么推荐第一款？",
+      "questionMessageId": "om_x100b7f32a5fc4ca8ce46340114a0c47",
+      "questionCreateTime": 1795190451213,
+      "replyMessageId": "om_x100b7f32a2752ca4ce1f25d7fc1c8b9",
+      "replyCreateTime": 1795190475650,
+      "clientLatencyMs": 24437,
+      "serverMs": 25204,
+      "timing": {
+        "kind": "feishu_turn_timing",
+        "version": 1,
+        "clock": "monotonic",
+        "messageType": "text",
+        "result": "ok",
+        "receivedAtMs": 894.362291,
+        "startedAtMs": 894.46575,
+        "finishedAtMs": 25333.169625,
+        "queueWaitMs": 0.1034589999999298,
+        "processingMs": 23716.752541,
+        "replyMs": 721.9513339999976,
+        "firstReplyLatencyMs": 24438.807333999997,
+        "replySucceeded": true,
+        "agentMs": 23709.737833,
+        "memoryWriteMs": 2.8274170000004233
+      },
+      "routeIntent": "beer_knowledge",
+      "menuBefore": 17,
+      "menuAfter": 17,
+      "memoryRecentTurns": 11,
+      "replyText": "【菜单算术核对】单位价最低的是 #7 Kölsch（55元 / 425ml，12.94元/100ml）；单杯总价最低的是 #7 Kölsch（55元 / 425ml，12.94元/100ml）。推荐理由是口味/风格匹配，不等于最低价或性价比最高；原回答中不一致的最低/最便宜断言已移除。\n\n关于第一款「Your Young Lordship」（捷克皮尔森），以下是分析：\n\n【款级事实】\n- 酒厂：Stamm\n- 风格：Czech Pilsner\n- ABV：4.7%\n- 价格：60元 / 425ml（14.12元/100ml）\n\n【风格通性，非本款事实】\nCzech Pilsner 通常有较圆滑的麦芽感与草本酒花气息，苦感常比德式皮尔森更柔和。\n\n【推荐理由】\n1. **苦度较低**：Czech Pilsner 的风格特点通常苦感较柔和，符合您“不要太苦”的需求。\n2. **清爽**：这款酒的风格通常清爽干净，适合追求清爽口感的您。\n3. **预算内**：60元的价格在您的预算范围内（不超过100元）。\n\n【补充说明】\n- 这款酒的具体风味和口感信息未在菜单中提供，以上推荐基于风格通性和您的口味偏好。\n- 如果您对苦度特别敏感，建议进一步确认实际苦度。",
+      "replyFromFeishuMatchesConversation": true,
+      "replyFromFeishu": "【菜单算术核对】单位价最低的是 #7 Kölsch（55元 / 425ml，12.94元/100ml）；单杯总价最低的是 #7 Kölsch（55元 / 425ml，12.94元/100ml）。推荐理由是口味/风格匹配，不等于最低价或性价比最高；原回答中不一致的最低/最便宜断言已移除。\n\n关于第一款「Your Young Lordship」（捷克皮尔森），以下是分析：\n\n【款级事实】\n- 酒厂：Stamm\n- 风格：Czech Pilsner\n- ABV：4.7%\n- 价格：60元 / 425ml（14.12元/100ml）\n\n【风格通性，非本款事实】\nCzech Pilsner 通常有较圆滑的麦芽感与草本酒花气息，苦感常比德式皮尔森更柔和。\n\n【推荐理由】\n1. **苦度较低**：Czech Pilsner 的风格特点通常苦感较柔和，符合您“不要太苦”的需求。\n2. **清爽**：这款酒的风格通常清爽干净，适合追求清爽口感的您。\n3. **预算内**：60元的价格在您的预算范围内（不超过100元）。\n\n【补充说明】\n- 这款酒的具体风味和口感信息未在菜单中提供，以上推荐基于风格通性和您的口味偏好。\n- 如果您对苦度特别敏感，建议进一步确认实际苦度。"
+    }
+  ],
+  "timingRecords": [
+    {
+      "kind": "feishu_turn_timing",
+      "version": 1,
+      "clock": "monotonic",
+      "messageType": "text",
+      "result": "ok",
+      "receivedAtMs": 894.362291,
+      "startedAtMs": 894.46575,
+      "finishedAtMs": 25333.169625,
+      "queueWaitMs": 0.1034589999999298,
+      "processingMs": 23716.752541,
+      "replyMs": 721.9513339999976,
+      "firstReplyLatencyMs": 24438.807333999997,
+      "replySucceeded": true,
+      "agentMs": 23709.737833,
+      "memoryWriteMs": 2.8274170000004233
+    }
+  ],
+  "errors": [],
+  "checks": {
+    "q1BudgetPick": true,
+    "q1MenuPreserved": true,
+    "q2Hops": false,
+    "q2NoFalseOverBudget": false,
+    "q3ClassicBoundary": false,
+    "q4SeventhPrice": false,
+    "q5LowestGuard": false,
+    "allMenus17": true,
+    "allWithin60sServer": true,
+    "allClientVisible": true,
+    "allTimingResultOk": true
+  },
+  "finishedAt": "2026-11-20T16:01:16.105Z",
+  "logs": []
+}

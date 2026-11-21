@@ -50,6 +50,8 @@ export type BeerCandidate = {
   untappdScore?: number | null;
   untappdRatingCount?: number | null;
   untappdUrl?: string | null;
+  /** Snapshot time of the local rating record; never the current verification time. */
+  ratingCheckedAt?: string | null;
   breweryCountry?: string | null;
   labelImage?: string | null;
   // pricing
@@ -65,6 +67,8 @@ export type BeerCandidate = {
   objectiveReasons?: string[];
   personalReasons?: string[];
   riskReasons?: string[];
+  /** Serializable field-level provenance, persisted with short-term menu context. */
+  dossier?: import("./dossier/types").BeerDossier;
 };
 
 export type Pick = {

@@ -1,17 +1,15 @@
 /**
  * DeepSeek vision provider.
  *
- * DeepSeek's vision model is `deepseek-v4-flash-vision-exp` (verified
- * 2026-08-23: accepts base64 data: URLs, returns json_object on request).
- * `deepseek-chat` no longer exists on api.deepseek.com and never had
- * vision. This provider talks to DeepSeek directly, bypassing OpenRouter —
- * useful when the user's region blocks the OpenRouter-hosted Google/OpenAI
- * models.
+ * DeepSeek's stable vision alias is `deepseek-flash` (official vision and
+ * model documentation checked 2026-10-28). The retired experimental name
+ * `deepseek-v4-flash-vision-exp` is still accepted by the service as an alias,
+ * but new calls use the stable ID. This provider talks to DeepSeek directly,
+ * bypassing OpenRouter.
  *
- * Caveat: the model is a reasoner — `reasoning_content` consumes part of
- * the max_tokens budget. With small max_tokens it can return an empty
- * `content`; we treat that as an error so the container walks to the
- * fallback provider instead of returning "" to callers.
+ * Caveat: a response can spend part of its max_tokens budget on
+ * `reasoning_content` and return empty `content`; we treat that as an error
+ * so the container walks to the fallback provider instead of returning "".
  *
  * Endpoint: POST {DEEPSEEK_BASE_URL}/chat/completions
  * Auth: Bearer DEEPSEEK_API_KEY
@@ -29,12 +27,16 @@
  */
 
 import { registerProvider } from "./base.ts";
-import { classify, VisionError, VisionAuthError, VisionParseError } from "../errors.ts";
+import { classify, VisionError, VisionAuthError, VisionParseError, VisionTimeoutError } from "../errors.ts";
 import type { CapabilityInput } from "../types.ts";
 import type { ProviderCallOptions, VisionProvider } from "./base.ts";
 
 const BASE_URL = process.env.DEEPSEEK_BASE_URL ?? "https://api.deepseek.com";
-const MODEL = process.env.DEEPSEEK_MODEL ?? "deepseek-v4-flash-vision-exp";
+const MODEL = process.env.DEEPSEEK_MODEL ?? "deepseek-flash";
+// Vision JSON is dense and must fit the output budget. The model's default
+// high reasoning can consume max_tokens before the last menu rows, producing
+// truncated JSON. Disable reasoning by default; opt back in explicitly.
+const THINKING = (process.env.DEEPSEEK_THINKING ?? "disabled").trim().toLowerCase();
 
 function appendSchemaInstruction(prompt: string, schemaJson: string): string {
   return `${prompt}\n\nYou MUST return ONLY a single JSON object. No markdown, no code fences. Follow this JSON schema exactly:\n${schemaJson}`;
@@ -45,8 +47,12 @@ async function postJson(
   apiKey: string,
   body: Record<string, unknown>,
   timeoutMs: number,
+  externalSignal?: AbortSignal,
 ): Promise<unknown> {
   const controller = new AbortController();
+  const onExternalAbort = () => controller.abort();
+  if (externalSignal?.aborted) controller.abort();
+  else externalSignal?.addEventListener("abort", onExternalAbort, { once: true });
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetch(url, {
@@ -65,6 +71,7 @@ async function postJson(
     return await res.json();
   } finally {
     clearTimeout(timer);
+    externalSignal?.removeEventListener("abort", onExternalAbort);
   }
 }
 
@@ -97,6 +104,13 @@ function extractContent(payload: unknown): string {
 const deepseekProvider: VisionProvider = {
   id: "deepseek",
   async call(input: CapabilityInput, opts: ProviderCallOptions): Promise<string> {
+    if (opts.signal?.aborted) {
+      throw new VisionTimeoutError(
+        "DeepSeek request canceled before completion",
+        "deepseek",
+        opts.model,
+      );
+    }
     const apiKey = process.env.DEEPSEEK_API_KEY;
     if (!apiKey) {
       throw new VisionAuthError(
@@ -129,6 +143,7 @@ const deepseekProvider: VisionProvider = {
       temperature: 0.1,
       max_tokens: input.maxTokens ?? 4096,
       stream: false,
+      thinking: { type: THINKING === "enabled" ? "enabled" : "disabled" },
     };
 
     if (useJsonObject) {
@@ -142,6 +157,7 @@ const deepseekProvider: VisionProvider = {
         apiKey,
         body,
         opts.timeoutMs,
+        opts.signal,
       );
     } catch (err) {
       // Re-throw as a typed VisionError so the container classifies and walks.

@@ -129,7 +129,7 @@ export async function updateShortTermMemory(
   const acceptedNewMenu = newMenu && response.candidates.length > 0;
   // A follow-up may intentionally return one focused candidate. Never use that
   // response subset, or a failed extraction, to replace the authoritative menu snapshot.
-  const replaceMenu = acceptedNewMenu || (!memory.lastMenu && response.candidates.length > 0);
+  const replaceMenu = acceptedNewMenu;
   if (replaceMenu) {
     memory.lastMenu = {
       traceId: response.traceId,

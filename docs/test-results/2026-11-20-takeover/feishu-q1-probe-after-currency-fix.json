@@ -1,0 +1,78 @@
+{
+  "evidenceLayer": "real Feishu private chat transport; questions sent by the Beer Lens app to the authorized chat; production handler replies; persisted 17-row menu from the prior human image turn",
+  "chatIdMasked": "oc_e2d3…190e",
+  "startedAt": "2026-11-20T15:54:01.961Z",
+  "questions": [
+    "我预算100元以内，想要清爽不苦，选哪款？"
+  ],
+  "turns": [
+    {
+      "question": "我预算100元以内，想要清爽不苦，选哪款？",
+      "questionMessageId": "om_x100b7f329f6784a0ce461e42a87ebe1",
+      "questionCreateTime": 1795190042735,
+      "replyMessageId": "om_x100b7f329f7a2ca0b09e52d0f05fe56",
+      "replyCreateTime": 1795190043591,
+      "clientLatencyMs": 856,
+      "serverMs": 1594,
+      "timing": {
+        "kind": "feishu_turn_timing",
+        "version": 1,
+        "clock": "monotonic",
+        "messageType": "text",
+        "result": "ok",
+        "receivedAtMs": 856.285042,
+        "startedAtMs": 856.42,
+        "finishedAtMs": 1702.522792,
+        "queueWaitMs": 0.13495799999998326,
+        "processingMs": 156.581417,
+        "replyMs": 689.521375,
+        "firstReplyLatencyMs": 846.23775,
+        "replySucceeded": true,
+        "agentMs": 150.58233400000006,
+        "memoryWriteMs": 1.5132920000000922
+      },
+      "routeIntent": "follow_up_filter",
+      "menuBefore": 17,
+      "menuAfter": 17,
+      "memoryRecentTurns": 6,
+      "replyText": "我会这样点：\n\n已知：The Premium Malt's Black · 风格 Schwarzbier，ABV 5.5%。\n\n1. The Premium Malt's Black · ¥65 / 300ml（约 ¥21.67/100ml） - 评分3.4，3481+人评分，价格 ¥65，符合 ¥100 预算\n2. Your Young Lordship · ¥60 / 425ml（约 ¥14.12/100ml） - 价格 ¥60，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量\n3. DDH Pseudo Sue · ¥90 / 425ml（约 ¥21.18/100ml） - 价格 ¥90，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量\n\n价量对比：Your Young Lordship 相对 The Premium Malt's Black，单次购买少花 ¥5；单位价低约 ¥7.55/100ml。\n\n最稳：Your Young Lordship\n最值得尝新：DDH Pseudo Sue\n我会先跳过：DONUT SERIES 2.0 - 价格 ¥85，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量，酒精度11.5%，偏高，IBU 未知；该风格可能偏苦，不能保证低苦味\n\n如果只能喝一杯，选 The Premium Malt's Black。\n\n⚠️ Your Young Lordship、DDH Pseudo Sue、Kölsch、Frozen Pond De Luxe、Demihydra、Just Fruit (Blueberry, Peach)、Limonada Rosada、DONUT SERIES 2.0 数据不足，谨慎尝试。",
+      "replyFromFeishuMatchesConversation": true,
+      "replyFromFeishu": "我会这样点：\n\n已知：The Premium Malt's Black · 风格 Schwarzbier，ABV 5.5%。\n\n1. The Premium Malt's Black · ¥65 / 300ml（约 ¥21.67/100ml） - 评分3.4，3481+人评分，价格 ¥65，符合 ¥100 预算\n2. Your Young Lordship · ¥60 / 425ml（约 ¥14.12/100ml） - 价格 ¥60，符合 ¥100 预算；符合你要的清爽风格；酒厂名称未独立核验，无评分数据，无法判断质量\n3. DDH Pseudo Sue · ¥90 / 425ml（约 ¥21.18/100ml） - 价格 ¥90，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量\n\n价量对比：Your Young Lordship 相对 The Premium Malt's Black，单次购买少花 ¥5；单位价低约 ¥7.55/100ml。\n\n最稳：Your Young Lordship\n最值得尝新：DDH Pseudo Sue\n我会先跳过：DONUT SERIES 2.0 - 价格 ¥85，符合 ¥100 预算；酒厂名称未独立核验，无评分数据，无法判断质量，酒精度11.5%，偏高，IBU 未知；该风格可能偏苦，不能保证低苦味\n\n如果只能喝一杯，选 The Premium Malt's Black。\n\n⚠️ Your Young Lordship、DDH Pseudo Sue、Kölsch、Frozen Pond De Luxe、Demihydra、Just Fruit (Blueberry, Peach)、Limonada Rosada、DONUT SERIES 2.0 数据不足，谨慎尝试。"
+    }
+  ],
+  "timingRecords": [
+    {
+      "kind": "feishu_turn_timing",
+      "version": 1,
+      "clock": "monotonic",
+      "messageType": "text",
+      "result": "ok",
+      "receivedAtMs": 856.285042,
+      "startedAtMs": 856.42,
+      "finishedAtMs": 1702.522792,
+      "queueWaitMs": 0.13495799999998326,
+      "processingMs": 156.581417,
+      "replyMs": 689.521375,
+      "firstReplyLatencyMs": 846.23775,
+      "replySucceeded": true,
+      "agentMs": 150.58233400000006,
+      "memoryWriteMs": 1.5132920000000922
+    }
+  ],
+  "errors": [],
+  "checks": {
+    "q1BudgetPick": false,
+    "q1MenuPreserved": true,
+    "q2Hops": false,
+    "q2NoFalseOverBudget": false,
+    "q3ClassicBoundary": false,
+    "q4SeventhPrice": false,
+    "q5LowestGuard": false,
+    "allMenus17": true,
+    "allWithin60sServer": true,
+    "allClientVisible": true,
+    "allTimingResultOk": true
+  },
+  "finishedAt": "2026-11-20T15:54:04.060Z",
+  "logs": []
+}

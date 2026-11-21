@@ -1,0 +1,250 @@
+{
+  "evidenceLayer": "field transcription of the 2026-11-21 El Nido image; current production runLocalMenuKnowledge; zero model/network; queue writes disabled",
+  "menuImage": "user-provided 2026-11-21 El Nido menu photo; raw image not stored (contains a Wi-Fi password card)",
+  "summary": {
+    "candidates": 18,
+    "confirmed": 8,
+    "knownUnresolved": 2,
+    "versionOrNameGate": 2,
+    "noRecord": 6,
+    "rated": 8,
+    "hopRows": 4
+  },
+  "rows": [
+    {
+      "menuIndex": 1,
+      "displayName": "本杰明六月啤酒 Benjamin June",
+      "brewery": "Living Häus Beer Company",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 3.89163,
+        "count": 526
+      },
+      "ratingUrl": "https://untappd.com/b/living-haus-beer-company-benjamin-june/5484293",
+      "hops": null,
+      "styleLayer": "Festbier"
+    },
+    {
+      "menuIndex": 2,
+      "displayName": "发枝儿 branching out",
+      "brewery": "everywhere",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 4.05392,
+        "count": 1428
+      },
+      "ratingUrl": "https://untappd.com/b/everywhere-branching-out/5260972",
+      "hops": [
+        "Nectaron",
+        "Nelson",
+        "Krush"
+      ],
+      "styleLayer": "Pilsner - Other"
+    },
+    {
+      "menuIndex": 3,
+      "displayName": "本原皮尔森 Wills pils",
+      "brewery": "Wills",
+      "category": "no_record",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "德式皮尔森 German Pilsner"
+    },
+    {
+      "menuIndex": 4,
+      "displayName": "暮色 Polotmavé Pivo",
+      "brewery": "Brasserie Du Bas",
+      "category": "no_record",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "捷克琥珀拉格 Czech Amber Lager"
+    },
+    {
+      "menuIndex": 5,
+      "displayName": "街区IPA IPA De Quartier",
+      "brewery": "Wills",
+      "category": "no_record",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "浑浊IPA Hazy IPA"
+    },
+    {
+      "menuIndex": 6,
+      "displayName": "战雾 Haze War",
+      "brewery": "Brasserie Du Bas",
+      "category": "no_record",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "美式IPA American IPA"
+    },
+    {
+      "menuIndex": 7,
+      "displayName": "崩#0037 Demolition#0037",
+      "brewery": "Messorem",
+      "category": "known_unresolved",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "浑浊IPA Hazy IPA"
+    },
+    {
+      "menuIndex": 8,
+      "displayName": "膨胀恐惧症 Expansionphobia",
+      "brewery": "Totopia Brewery",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 3.96926,
+        "count": 122
+      },
+      "ratingUrl": "https://untappd.com/b/totopia-brewery-expansionphobia/6850767",
+      "hops": [
+        "Mosaic Cryo",
+        "Southern Cross",
+        "Southern Cross Hop Kief"
+      ],
+      "styleLayer": "IPA - Imperial / Double"
+    },
+    {
+      "menuIndex": 9,
+      "displayName": "天鹅狂爱症 Swanphilia",
+      "brewery": "Totopia Brewery",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 4.06919,
+        "count": 409
+      },
+      "ratingUrl": "https://untappd.com/b/totopia-brewery-swanphilia/6915810",
+      "hops": [
+        "Citra",
+        "Krush Cryo"
+      ],
+      "styleLayer": "IPA - Imperial / Double New England / Hazy"
+    },
+    {
+      "menuIndex": 10,
+      "displayName": "星蚀 A Dark in the Light",
+      "brewery": "RADIANT",
+      "category": "no_record",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "Black IPA"
+    },
+    {
+      "menuIndex": 11,
+      "displayName": "未来学家 Futurist",
+      "brewery": "East Gate",
+      "category": "known_unresolved",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "Triple Hazy IPA"
+    },
+    {
+      "menuIndex": 12,
+      "displayName": "迷你恐惧症 Tinyphobia",
+      "brewery": "Totopia Brewery",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 3.80489,
+        "count": 235
+      },
+      "ratingUrl": "https://untappd.com/b/totopia-brewery-tinyphobia/6850762",
+      "hops": [
+        "Citra"
+      ],
+      "styleLayer": "IPA - Sour"
+    },
+    {
+      "menuIndex": 13,
+      "displayName": "果味满满46号 Just Fruit (Raspberry, Guava)",
+      "brewery": "Frequentem",
+      "category": "version_or_name_gate",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "Pastry Sour Ale"
+    },
+    {
+      "menuIndex": 15,
+      "displayName": "无序海上将军 Out of Order Is Rusty Still in the Navy?",
+      "brewery": "RaR Brewing",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 3.89938,
+        "count": 242
+      },
+      "ratingUrl": "https://untappd.com/b/rar-brewing-out-of-order-is-rusty-still-in-the-navy/6538503",
+      "hops": null,
+      "styleLayer": "Sour - Fruited"
+    },
+    {
+      "menuIndex": 16,
+      "displayName": "幽灵草莓大爆炸 Ghost Berry Blast",
+      "brewery": "Long Live",
+      "category": "no_record",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "Fruited Sour Ale"
+    },
+    {
+      "menuIndex": 17,
+      "displayName": "烈日下的粉碎机 Sunsmasher 2026",
+      "brewery": "Holy Goat Brewing",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 3.99134,
+        "count": 808
+      },
+      "ratingUrl": "https://untappd.com/b/holy-goat-brewing-sunsmasher-2026/6615436",
+      "hops": null,
+      "styleLayer": "Sour - Fruited"
+    },
+    {
+      "menuIndex": 18,
+      "displayName": "印记 see What sticks",
+      "brewery": "everywhere",
+      "category": "confirmed",
+      "identity": "confirmed",
+      "rating": {
+        "score": 4.10735,
+        "count": 238
+      },
+      "ratingUrl": "https://untappd.com/b/everywhere-see-what-sticks/6506348",
+      "hops": null,
+      "styleLayer": "Stout - Imperial / Double"
+    },
+    {
+      "menuIndex": 19,
+      "displayName": "一零六号原型机 Proto 106 Imperial Stout",
+      "brewery": "Brewski",
+      "category": "version_or_name_gate",
+      "identity": "unmatched",
+      "rating": null,
+      "ratingUrl": null,
+      "hops": null,
+      "styleLayer": "Imperial Stout"
+    }
+  ]
+}

@@ -2,34 +2,50 @@
 import type { AgentContext, SkillResult } from "@/lib/agent/types";
 import type { BeerCandidate } from "@/lib/beer-agent/types";
 import { VisionError, suggest as suggestVisionError } from "../../multimodal/index.ts";
+import { resolveImageCall } from "../../multimodal/image-routing.ts";
 import { extractConstraints, mergeConstraints } from "../../beer-agent/recommendation/constraints.ts";
 import { parseMenuInput, inferStyle, hasNamedMenuItems, parseOrdinalReference } from "../../beer-agent/recommendation/menu-input.ts";
 import { recommendFromCandidates } from "../../beer-agent/recommendation/decision.ts";
+import { formatImageCoverageNote } from "../../beer-agent/menu-coverage.ts";
 import { readShortTermMemory } from "../../beer-agent/memory/short-term.ts";
+import { throwIfTurnExpired } from "../../beer-agent/turn-deadline.ts";
 
 function emptyPicks(): SkillResult["picks"] {
   const e = { candidateId: "", label: "", reason: "暂无", worthScore: 0, fitScore: 0 };
   return { topPick: e, safePick: e, explorePick: e, avoidOrCaution: e };
 }
 
-async function finish(ctx: AgentContext, candidates: BeerCandidate[], requestText: string, newMenu: boolean): Promise<SkillResult> {
+async function finish(ctx: AgentContext, candidates: BeerCandidate[], requestText: string, newMenu: boolean, initialMenu = false): Promise<SkillResult> {
+  throwIfTurnExpired({ signal: ctx.signal });
   const { getProfileMemory } = await import("@/lib/beer-agent/memory/profile");
   const { isMemoryReadEnabled } = await import("@/lib/beer-agent/memory/memory-experiment");
   const memoryEnabled = await isMemoryReadEnabled(ctx.userId).catch(()=>false);
   const profile = memoryEnabled ? await getProfileMemory(ctx.userId).catch(()=>null) : null;
   const stm = newMenu ? null : await readShortTermMemory(ctx.conversationId,ctx.userId);
   const constraints = mergeConstraints(stm?.currentConstraints??[],extractConstraints(requestText));
-  return {skillId:"recommend",...recommendFromCandidates(candidates,profile,constraints,memoryEnabled,requestText),profileSummary:profile?.summary??"",errors:[]};
+  return {skillId:"recommend",...recommendFromCandidates(candidates,profile,constraints,memoryEnabled,requestText,{initialMenu}),profileSummary:profile?.summary??"",errors:[]};
 }
 
 async function handleImage(ctx: AgentContext): Promise<SkillResult> {
   try {
     const { runImagePipeline } = await import("@/lib/beer-agent/provider");
-    const apiKey = process.env.OPENROUTER_API_KEY;
-    if (!apiKey) throw new Error("OPENROUTER_API_KEY not configured");
-    const pipeline = await runImagePipeline(apiKey,ctx.imageDataUrl!,ctx.lastUserText,ctx.profileSummary??"",ctx.onProgress);
-    return finish(ctx,pipeline.candidates,ctx.lastUserText,true);
+    const resolved = resolveImageCall();
+    // Legacy keeps its existing guard verbatim; package mode is already
+    // fail-closed (AUTH) when the package key is missing.
+    if (resolved.mode === "legacy" && !resolved.apiKey) {
+      throw new Error("OPENROUTER_API_KEY not configured");
+    }
+    const pipeline = await runImagePipeline(resolved.apiKey,ctx.imageDataUrl!,ctx.lastUserText,ctx.profileSummary??"",ctx.onProgress,{ signal: ctx.signal });
+    const result = await finish(ctx,pipeline.candidates,ctx.lastUserText,true,pipeline.candidates.length>0);
+    // A lower row count can be a correct read of a cropped/reflective menu.
+    // Surface the model's own boundaries; never silently call it complete.
+    const coverage = formatImageCoverageNote(pipeline.stages?.extracted, pipeline.candidates.length);
+    if (coverage) result.reply = `${coverage}\n\n${result.reply}`;
+    return result;
   } catch (err) {
+    // A deadline/caller abort is terminal; do not turn it into a content
+    // fallback that looks like an ordinary analysis failure.
+    if (ctx.signal?.aborted) throwIfTurnExpired({ signal: ctx.signal });
     return {skillId:"recommend",reply:err instanceof VisionError?suggestVisionError(err):"抱歉，分析这张图片时出错了。请再试一次或直接告诉我酒名。",candidates:[],picks:emptyPicks(),profileSummary:"",errors:[err instanceof Error?err.message:String(err)]};
   }
 }
@@ -60,7 +76,6 @@ async function handleFollowUp(ctx: AgentContext): Promise<SkillResult> {
 }
 
 async function handleText(ctx: AgentContext): Promise<SkillResult> {
-  const { lookupBeers, enrichCandidates } = await import("@/lib/beer-agent/beer-db/pipeline");
   const parsed = parseMenuInput(ctx.lastUserText);
   let items = parsed.items;
   if (parsed.isMenu && !items.length) return finish(ctx,[],parsed.requestText,true);
@@ -69,18 +84,21 @@ async function handleText(ctx: AgentContext): Promise<SkillResult> {
     const queries = named.length ? named : genericRecommendationQueries(ctx.lastUserText);
     items = queries.map((beerName,i)=>({beerName,brewery:"",style:inferStyle(beerName),abv:0,ibu:null,price:null,volumeMl:null,menuIndex:i+1,rawText:beerName}));
   }
-  const results = await lookupBeers(items.map(i=>i.beerName),items.map(i=>i.brewery));
-  // Enrichment receives the same complete name and brewery as the local lookup.
-  const misses = items.map((item,i)=>({item,i})).filter(({i})=>!results[i]?.found);
-  const enriched = misses.length ? await enrichCandidates(misses.map(({item})=>({beerName:item.beerName,brewery:item.brewery,style:item.style,abv:item.abv}))).catch(()=>[]) : [];
-  const byIndex = new Map(misses.map(({i},n)=>[i,enriched[n]]));
-  const { assembleImageCandidates } = await import("@/lib/beer-agent/provider");
-  // Text and OCR supply the same source facts and share identity/verification gates.
-  const candidates = assembleImageCandidates(
+  const { runLocalMenuKnowledge } = await import("@/lib/beer-agent/provider");
+  // Text and OCR share cache/DB/grounding and the final identity-gap queue.
+  // Generic style exploration is not a collectible beer identity.
+  const local = await runLocalMenuKnowledge(
     items.map(item=>({...item,serving:item.volumeMl!=null?`${item.volumeMl}ml`:"",confidence:1})),
-    items.map((_,i)=>byIndex.get(i)??null), results,
-  ).map(c=>({...c,candidateId:c.candidateId.replace('ocr_','text_'),evidence:c.evidence.map(e=>e.source==='ocr'?{...e,source:'manual_user_input' as const}:e)}));
-  return finish(ctx,candidates,parsed.isMenu||hasNamedMenuItems(parsed.items)?parsed.requestText:ctx.lastUserText,true);
+    { queueKnowledgeGaps: parsed.isMenu || hasNamedMenuItems(parsed.items), signal: ctx.signal },
+  );
+  const candidates = local.candidates.map(c=>({...c,candidateId:c.candidateId.replace('ocr_','text_'),evidence:c.evidence.map(e=>e.source==='ocr'?{...e,source:'manual_user_input' as const}:e)}));
+  return finish(
+    ctx,
+    candidates,
+    parsed.isMenu||hasNamedMenuItems(parsed.items)?parsed.requestText:ctx.lastUserText,
+    true,
+    parsed.isMenu || parsed.items.length > 1,
+  );
 }
 
 export async function execute(ctx:AgentContext,_params:Record<string,unknown>):Promise<SkillResult> {

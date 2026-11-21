@@ -34,6 +34,8 @@ import {
 } from "./cache.ts";
 import "./providers/openrouter.ts";
 import "./providers/deepseek.ts";
+import "./providers/coding-plan.ts";
+import "./providers/anthropic.ts";
 import "./capabilities.ts";
 
 export { container as vision } from "./container.ts";
@@ -64,6 +66,28 @@ export {
   getProvider,
   listProviders,
 } from "./providers/base.ts";
+export {
+  resolveImageRoute,
+  resolveImageCall,
+  IMAGE_ROUTE_ENV,
+  PACKAGE_KEY_ENV,
+  ANTHROPIC_KEY_ENV,
+  DEEPSEEK_KEY_ENV,
+  LEGACY_KEY_ENV,
+  PACKAGE_PROVIDER_ID,
+  PACKAGE_MODEL,
+  PACKAGE_TIMEOUT_MS,
+  ANTHROPIC_PROVIDER_ID,
+  ANTHROPIC_MODEL,
+  ANTHROPIC_TIMEOUT_MS,
+  DEEPSEEK_PROVIDER_ID,
+  DEEPSEEK_MODEL,
+  DEEPSEEK_TIMEOUT_MS,
+} from "./image-routing.ts";
+export type {
+  ImageRoute,
+  ResolvedImageCall,
+} from "./image-routing.ts";
 export type {
   VisionImage,
   CapabilityInput,
